@@ -1,0 +1,213 @@
+<?php
+/**
+ * Template Name: Travel Kenya
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <section class="kenya-hero-section">
+    <div class="kenya-hero-overlay"></div>
+    <div class="kenya-hero-dots"></div>
+    <div class="section-container">
+      <div class="kenya-hero-grid">
+        <div class="kenya-hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"><span></span><span></span></span>
+            <span class="hero-badge-text">KENYA TRAVEL HEALTH</span>
+          </div>
+          <h1 class="hero-title" style="color: white;">
+            Travel Vaccinations for<br />
+            <span class="gradient-text" style="background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Kenya</span>
+          </h1>
+          <p class="kenya-hero-description">
+            Expert advice and vaccinations for your Kenya safari or holiday. Yellow Fever, Malaria, and more. Get protected with Ashford's specialists.
+          </p>
+          <div class="kenya-hero-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta kenya-hero-btn-primary">Book Consultation <i class="fas fa-arrow-right"></i></a>
+            <a href="tel:01784255222" class="cta-button secondary-cta kenya-hero-btn-secondary"><i class="fas fa-phone"></i> Call 01784 255 222</a>
+          </div>
+        </div>
+        <div class="kenya-hero-visual"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kenya-stats-section">
+    <div class="kenya-stats-shimmer"></div>
+    <div class="section-container">
+      <div class="kenya-stats-grid">
+        <div class="kenya-stat-item">
+          <div class="kenya-stat-icon"><i class="fas fa-syringe"></i></div>
+          <div class="kenya-stat-content"><p class="kenya-stat-number">6-8</p><p class="kenya-stat-label">Vaccines Recommended</p></div>
+        </div>
+        <div class="kenya-stat-item">
+          <div class="kenya-stat-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="kenya-stat-content"><p class="kenya-stat-number">6-8</p><p class="kenya-stat-label">Weeks Before Travel</p></div>
+        </div>
+        <div class="kenya-stat-item">
+          <div class="kenya-stat-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="kenya-stat-content"><p class="kenya-stat-number">Full</p><p class="kenya-stat-label">Protection Available</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kenya-vaccines-section">
+    <div class="section-container">
+      <div class="kenya-vaccines-header">
+        <h2 class="kenya-vaccines-title">Protect yourself in Kenya</h2>
+        <div class="kenya-vaccines-divider"></div>
+        <p class="kenya-vaccines-description">These vaccinations are recommended for most travellers to Kenya</p>
+      </div>
+      <div class="kenya-vaccines-grid">
+        <div class="kenya-vaccine-card">
+          <div class="kenya-vaccine-icon"><i class="fas fa-shield-virus"></i></div>
+          <div class="kenya-vaccine-content">
+            <div class="kenya-vaccine-head"><h3 class="kenya-vaccine-name">Yellow Fever</h3><span class="kenya-badge-purple">Essential</span></div>
+            <p class="kenya-vaccine-short">Mosquito-borne virus</p>
+            <p class="kenya-vaccine-desc">Certificate often required for entry. We are an official Yellow Fever Centre.</p>
+          </div>
+        </div>
+        <div class="kenya-vaccine-card">
+          <div class="kenya-vaccine-icon"><i class="fas fa-virus"></i></div>
+          <div class="kenya-vaccine-content">
+            <div class="kenya-vaccine-head"><h3 class="kenya-vaccine-name">Hepatitis A</h3><span class="kenya-badge-purple">Essential</span></div>
+            <p class="kenya-vaccine-short">Food & water safety</p>
+            <p class="kenya-vaccine-desc">Spread through contaminated food and water. Recommended for all travellers.</p>
+          </div>
+        </div>
+        <div class="kenya-vaccine-card">
+          <div class="kenya-vaccine-icon"><i class="fas fa-bacteria"></i></div>
+          <div class="kenya-vaccine-content">
+            <div class="kenya-vaccine-head"><h3 class="kenya-vaccine-name">Typhoid</h3><span class="kenya-badge-purple">Essential</span></div>
+            <p class="kenya-vaccine-short">Food & water safety</p>
+            <p class="kenya-vaccine-desc">Recommended for most travellers, especially if visiting rural areas.</p>
+          </div>
+        </div>
+        <div class="kenya-vaccine-card">
+          <div class="kenya-vaccine-icon"><i class="fas fa-syringe"></i></div>
+          <div class="kenya-vaccine-content">
+            <div class="kenya-vaccine-head"><h3 class="kenya-vaccine-name">Tetanus</h3><span class="kenya-badge-purple">Essential</span></div>
+            <p class="kenya-vaccine-short">Routine booster</p>
+            <p class="kenya-vaccine-desc">Ensure your routine UK schedule is up to date. A booster may be needed.</p>
+          </div>
+        </div>
+        <div class="kenya-vaccine-card">
+          <div class="kenya-vaccine-icon"><i class="fas fa-dog"></i></div>
+          <div class="kenya-vaccine-content">
+            <div class="kenya-vaccine-head"><h3 class="kenya-vaccine-name">Rabies</h3><span class="kenya-badge-gray">Recommended</span></div>
+            <p class="kenya-vaccine-short">Animal contact risk</p>
+            <p class="kenya-vaccine-desc">High risk in Kenya. Recommended for those working with animals or in remote areas.</p>
+          </div>
+        </div>
+        <div class="kenya-vaccine-card">
+          <div class="kenya-vaccine-icon"><i class="fas fa-notes-medical"></i></div>
+          <div class="kenya-vaccine-content">
+            <div class="kenya-vaccine-head"><h3 class="kenya-vaccine-name">Hepatitis B</h3><span class="kenya-badge-gray">Consider</span></div>
+            <p class="kenya-vaccine-short">Blood/fluid contact</p>
+            <p class="kenya-vaccine-desc">Consider for longer stays or if you might need medical treatment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kenya-malaria-section">
+    <div class="section-container">
+      <div class="kenya-malaria-layout">
+        <div class="kenya-malaria-visual">
+          <div class="kenya-malaria-image-card">
+            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&h=1000&fit=crop" alt="Safari in Kenya" class="kenya-malaria-image" />
+            <div class="kenya-malaria-overlay"></div>
+            <div class="kenya-malaria-badge">
+              <div class="kenya-malaria-badge-icon"><i class="fas fa-shield-virus"></i></div>
+              <span class="kenya-malaria-badge-text">Expert Advice</span>
+            </div>
+          </div>
+        </div>
+        <div class="kenya-malaria-content">
+          <div class="section-badge">
+            <span class="pulse-dot"><span></span><span></span></span>
+            <span class="section-badge-text">HIGH RISK AREA</span>
+          </div>
+          <h2 class="kenya-malaria-title">Malaria Risk in Kenya</h2>
+          <p class="kenya-malaria-intro">Malaria risk is high throughout most of Kenya, including safari parks. Antimalarials are usually recommended.</p>
+          <div class="kenya-malaria-info-grid">
+            <div class="kenya-malaria-item">
+              <div class="kenya-malaria-item-icon high-risk"><i class="fas fa-exclamation-triangle"></i></div>
+              <div class="kenya-malaria-item-text"><h4>High Risk Areas</h4><p>Most of the country below 2500m, including coastal areas and game parks.</p></div>
+            </div>
+            <div class="kenya-malaria-item">
+              <div class="kenya-malaria-item-icon low-risk"><i class="fas fa-check-circle"></i></div>
+              <div class="kenya-malaria-item-text"><h4>Low Risk Areas</h4><p>Nairobi and areas above 2500m have lower risk, but awareness is still key.</p></div>
+            </div>
+          </div>
+          <div class="kenya-malaria-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta">Check Your Risk <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kenya-health-section">
+    <div class="section-container">
+      <div class="kenya-health-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">HEALTH ADVICE</span>
+        </div>
+        <h2 class="kenya-health-title">Stay healthy in Kenya</h2>
+        <p class="kenya-health-subtitle">Essential tips for a safe safari</p>
+      </div>
+      <div class="kenya-health-grid">
+        <div class="kenya-health-card-visual">
+          <div class="kenya-health-bg"><img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=600&h=800&fit=crop" alt="Water safety" /><div class="kenya-health-overlay"></div></div>
+          <div class="kenya-health-content">
+            <div class="kenya-health-icon-wrapper"><i class="fas fa-glass-water"></i></div>
+            <h3 class="kenya-health-card-title">Food & Water</h3>
+            <p class="kenya-health-card-desc">Drink bottled water only. Avoid ice and salads. Eat freshly cooked food.</p>
+          </div>
+        </div>
+        <div class="kenya-health-card-visual">
+          <div class="kenya-health-bg"><img src="https://images.unsplash.com/photo-1533619043865-1c2e2f32ff5f?w=600&h=800&fit=crop" alt="Sun safety" /><div class="kenya-health-overlay"></div></div>
+          <div class="kenya-health-content">
+            <div class="kenya-health-icon-wrapper"><i class="fas fa-sun"></i></div>
+            <h3 class="kenya-health-card-title">Sun Safety</h3>
+            <p class="kenya-health-card-desc">Equatorial sun is strong. High SPF, hat, and sunglasses are essential.</p>
+          </div>
+        </div>
+        <div class="kenya-health-card-visual">
+          <div class="kenya-health-bg"><img src="https://images.unsplash.com/photo-1551817958-29d0660f98de?w=600&h=800&fit=crop" alt="Insect protection" /><div class="kenya-health-overlay"></div></div>
+          <div class="kenya-health-content">
+            <div class="kenya-health-icon-wrapper"><i class="fas fa-mosquito"></i></div>
+            <h3 class="kenya-health-card-title">Insects</h3>
+            <p class="kenya-health-card-desc">Use 50% DEET repellent. Wear long sleeves/trousers at dawn and dusk.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kenya-cta-section">
+    <div class="kenya-cta-glow-1"></div><div class="kenya-cta-glow-2"></div><div class="kenya-cta-dots"></div>
+    <div class="section-container">
+      <div class="kenya-cta-content">
+        <h2 class="kenya-cta-title">Ready for your Kenya safari?</h2>
+        <p class="kenya-cta-description">Book your travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.</p>
+        <div class="kenya-cta-actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta kenya-cta-button-white">Book Consultation <i class="fas fa-arrow-right"></i></a>
+          <a href="tel:01784255222" class="cta-button secondary-cta kenya-cta-button-outlined"><i class="fas fa-phone"></i> Call 01784 255 222</a>
+        </div>
+        <div class="kenya-cta-checks">
+          <div class="kenya-cta-check"><i class="fas fa-plane-departure"></i><span>Travel Ready</span></div>
+          <div class="kenya-cta-check"><i class="fas fa-user-doctor"></i><span>Expert Advice</span></div>
+          <div class="kenya-cta-check"><i class="fas fa-shield-virus"></i><span>All Vaccines</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

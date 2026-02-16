@@ -1,0 +1,401 @@
+<?php
+/**
+ * Template Name: Travel Cape Verde
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="capeverde-hero-section">
+    <div class="capeverde-hero-overlay"></div>
+    <div class="capeverde-hero-dots"></div>
+
+    <div class="section-container">
+      <div class="capeverde-hero-grid">
+
+        <!-- Left: Content -->
+        <div class="capeverde-hero-content">
+          <!-- Location badge -->
+          <div class="hero-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="hero-badge-text">CAPE VERDE TRAVEL HEALTH</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero-title" style="color: white;">
+            Travel Vaccinations for<br />
+            <span class="gradient-text" style="background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cape Verde</span>
+          </h1>
+
+          <p class="capeverde-hero-description">
+            Expert advice and vaccinations for your Cape Verde holiday. Get protected before you travel with Ashford's trusted travel health specialists.
+          </p>
+
+          <div class="capeverde-hero-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta capeverde-hero-btn-primary">
+              Book Consultation
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="tel:01784255222" class="cta-button secondary-cta capeverde-hero-btn-secondary">
+              <i class="fas fa-phone"></i>
+              Call 01784 255 222
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Visual (Handled by background image) -->
+        <div class="capeverde-hero-visual"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       QUICK INFO BAR
+       ============================================ -->
+  <section class="capeverde-stats-section">
+    <div class="capeverde-stats-shimmer"></div>
+    <div class="section-container">
+      <div class="capeverde-stats-grid">
+
+        <div class="capeverde-stat-item">
+          <div class="capeverde-stat-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <div class="capeverde-stat-content">
+            <p class="capeverde-stat-number">4-6</p>
+            <p class="capeverde-stat-label">Vaccines Recommended</p>
+          </div>
+        </div>
+
+        <div class="capeverde-stat-item">
+          <div class="capeverde-stat-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="capeverde-stat-content">
+            <p class="capeverde-stat-number">6-8</p>
+            <p class="capeverde-stat-label">Weeks Before Travel</p>
+          </div>
+        </div>
+
+        <div class="capeverde-stat-item">
+          <div class="capeverde-stat-icon">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <div class="capeverde-stat-content">
+            <p class="capeverde-stat-number">Full</p>
+            <p class="capeverde-stat-label">Protection Available</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       RECOMMENDED VACCINATIONS
+       ============================================ -->
+  <section class="capeverde-vaccines-section">
+    <div class="section-container">
+
+      <div class="capeverde-vaccines-header">
+        <h2 class="capeverde-vaccines-title">Protect yourself in Cape Verde</h2>
+        <div class="capeverde-vaccines-divider"></div>
+        <p class="capeverde-vaccines-description">These vaccinations are recommended for most travellers to Cape Verde</p>
+      </div>
+
+      <div class="capeverde-vaccines-grid">
+
+        <!-- Card 1: Hepatitis A -->
+        <div class="capeverde-vaccine-card">
+          <div class="capeverde-vaccine-icon">
+            <i class="fas fa-virus"></i>
+          </div>
+          <div class="capeverde-vaccine-content">
+            <div class="capeverde-vaccine-head">
+              <h3 class="capeverde-vaccine-name">Hepatitis A</h3>
+              <span class="capeverde-badge-purple">Essential</span>
+            </div>
+            <p class="capeverde-vaccine-short">Food & water safety</p>
+            <p class="capeverde-vaccine-desc">Spread through contaminated food and water. Recommended for all travellers.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Typhoid -->
+        <div class="capeverde-vaccine-card">
+          <div class="capeverde-vaccine-icon">
+            <i class="fas fa-bacteria"></i>
+          </div>
+          <div class="capeverde-vaccine-content">
+            <div class="capeverde-vaccine-head">
+              <h3 class="capeverde-vaccine-name">Typhoid</h3>
+              <span class="capeverde-badge-purple">Essential</span>
+            </div>
+            <p class="capeverde-vaccine-short">Food & water safety</p>
+            <p class="capeverde-vaccine-desc">Recommended for most travellers, especially if visiting rural areas or staying with locals.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Tetanus -->
+        <div class="capeverde-vaccine-card">
+          <div class="capeverde-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <div class="capeverde-vaccine-content">
+            <div class="capeverde-vaccine-head">
+              <h3 class="capeverde-vaccine-name">Tetanus</h3>
+              <span class="capeverde-badge-purple">Essential</span>
+            </div>
+            <p class="capeverde-vaccine-short">Routine booster</p>
+            <p class="capeverde-vaccine-desc">Ensure your routine UK schedule is up to date. A booster may be needed.</p>
+          </div>
+        </div>
+
+        <!-- Card 4: Hepatitis B -->
+        <div class="capeverde-vaccine-card">
+          <div class="capeverde-vaccine-icon">
+            <i class="fas fa-notes-medical"></i>
+          </div>
+          <div class="capeverde-vaccine-content">
+            <div class="capeverde-vaccine-head">
+              <h3 class="capeverde-vaccine-name">Hepatitis B</h3>
+              <span class="capeverde-badge-gray">Consider</span>
+            </div>
+            <p class="capeverde-vaccine-short">Blood/fluid contact</p>
+            <p class="capeverde-vaccine-desc">Consider for longer stays or if you might need medical treatment.</p>
+          </div>
+        </div>
+
+        <!-- Card 5: Rabies -->
+        <div class="capeverde-vaccine-card">
+          <div class="capeverde-vaccine-icon">
+            <i class="fas fa-dog"></i>
+          </div>
+          <div class="capeverde-vaccine-content">
+            <div class="capeverde-vaccine-head">
+              <h3 class="capeverde-vaccine-name">Rabies</h3>
+              <span class="capeverde-badge-gray">Consider</span>
+            </div>
+            <p class="capeverde-vaccine-short">Animal contact risk</p>
+            <p class="capeverde-vaccine-desc">Risk from bats and dogs. Consider if working with animals or in remote areas.</p>
+          </div>
+        </div>
+
+        <!-- Card 6: Yellow Fever -->
+        <div class="capeverde-vaccine-card">
+          <div class="capeverde-vaccine-icon">
+            <i class="fas fa-shield-virus"></i>
+          </div>
+          <div class="capeverde-vaccine-content">
+            <div class="capeverde-vaccine-head">
+              <h3 class="capeverde-vaccine-name">Yellow Fever</h3>
+              <span class="capeverde-badge-gray">Certificate</span>
+            </div>
+            <p class="capeverde-vaccine-short">Entry requirement</p>
+            <p class="capeverde-vaccine-desc">Certificate required if arriving from a country with risk of Yellow Fever transmission.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       MALARIA INFORMATION
+       ============================================ -->
+  <section class="capeverde-malaria-section">
+    <div class="section-container">
+      <div class="capeverde-malaria-layout">
+
+        <!-- Left: Visual -->
+        <div class="capeverde-malaria-visual">
+          <div class="capeverde-malaria-image-card">
+            <img src="https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?w=800&h=1000&fit=crop" alt="Cape Verde Landscape" class="capeverde-malaria-image" />
+            <div class="capeverde-malaria-overlay"></div>
+            <div class="capeverde-malaria-badge">
+              <div class="capeverde-malaria-badge-icon">
+                <i class="fas fa-shield-virus"></i>
+              </div>
+              <span class="capeverde-malaria-badge-text">Expert Advice</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="capeverde-malaria-content">
+          <div class="section-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="section-badge-text">MOSQUITO RISKS</span>
+          </div>
+
+          <h2 class="capeverde-malaria-title">Malaria & Dengue in Cape Verde</h2>
+          <p class="capeverde-malaria-intro">
+            Malaria risk is generally low but present on Santiago island. Dengue fever and Zika virus are also risks. Bite avoidance is essential.
+          </p>
+
+          <div class="capeverde-malaria-info-grid">
+
+            <!-- Low Risk Item -->
+            <div class="capeverde-malaria-item">
+              <div class="capeverde-malaria-item-icon low-risk">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="capeverde-malaria-item-text">
+                <h4>Most Islands</h4>
+                <p>Sal, Boa Vista, and other islands have very low to no malaria risk.</p>
+              </div>
+            </div>
+
+            <!-- High Risk Item -->
+            <div class="capeverde-malaria-item">
+              <div class="capeverde-malaria-item-icon high-risk">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="capeverde-malaria-item-text">
+                <h4>Santiago Island</h4>
+                <p>Low risk exists from September to November. Antimalarials may be advised.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="capeverde-malaria-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta">
+              Check Your Risk
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       HEALTH ADVICE
+       ============================================ -->
+  <section class="capeverde-health-section">
+    <div class="section-container">
+
+      <div class="capeverde-health-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">HEALTH ADVICE</span>
+        </div>
+        <h2 class="capeverde-health-title">Stay healthy in Cape Verde</h2>
+        <p class="capeverde-health-subtitle">Essential tips for a safe trip</p>
+      </div>
+
+      <div class="capeverde-health-grid">
+
+        <!-- Card 1: Food & Water -->
+        <div class="capeverde-health-card-visual">
+          <div class="capeverde-health-bg">
+            <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=600&h=800&fit=crop" alt="Water safety" />
+            <div class="capeverde-health-overlay"></div>
+          </div>
+          <div class="capeverde-health-content">
+            <div class="capeverde-health-icon-wrapper">
+              <i class="fas fa-glass-water"></i>
+            </div>
+            <h3 class="capeverde-health-card-title">Food & Water</h3>
+            <p class="capeverde-health-card-desc">Tap water is not safe to drink. Stick to bottled water and avoid ice.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Sun Safety -->
+        <div class="capeverde-health-card-visual">
+          <div class="capeverde-health-bg">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=800&fit=crop" alt="Sun safety" />
+            <div class="capeverde-health-overlay"></div>
+          </div>
+          <div class="capeverde-health-content">
+            <div class="capeverde-health-icon-wrapper">
+              <i class="fas fa-sun"></i>
+            </div>
+            <h3 class="capeverde-health-card-title">Sun & Wind</h3>
+            <p class="capeverde-health-card-desc">Strong winds can mask the heat. Use high SPF and stay hydrated.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Insects -->
+        <div class="capeverde-health-card-visual">
+          <div class="capeverde-health-bg">
+            <img src="https://images.unsplash.com/photo-1551817958-29d0660f98de?w=600&h=800&fit=crop" alt="Insect protection" />
+            <div class="capeverde-health-overlay"></div>
+          </div>
+          <div class="capeverde-health-content">
+            <div class="capeverde-health-icon-wrapper">
+              <i class="fas fa-mosquito"></i>
+            </div>
+            <h3 class="capeverde-health-card-title">Insects</h3>
+            <p class="capeverde-health-card-desc">Dengue and Zika are risks. Use 50% DEET repellent day and night.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FINAL CTA
+       ============================================ -->
+  <section class="capeverde-cta-section">
+    <div class="capeverde-cta-glow-1"></div>
+    <div class="capeverde-cta-glow-2"></div>
+    <div class="capeverde-cta-dots"></div>
+
+    <div class="section-container">
+      <div class="capeverde-cta-content">
+
+        <h2 class="capeverde-cta-title">Ready for Cape Verde?</h2>
+        <p class="capeverde-cta-description">
+          Book your travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.
+        </p>
+
+        <div class="capeverde-cta-actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta capeverde-cta-button-white">
+            Book Consultation
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:01784255222" class="cta-button secondary-cta capeverde-cta-button-outlined">
+            <i class="fas fa-phone"></i>
+            Call 01784 255 222
+          </a>
+        </div>
+
+        <div class="capeverde-cta-checks">
+          <div class="capeverde-cta-check">
+            <i class="fas fa-plane-departure"></i>
+            <span>Travel Ready</span>
+          </div>
+          <div class="capeverde-cta-check">
+            <i class="fas fa-user-doctor"></i>
+            <span>Expert Advice</span>
+          </div>
+          <div class="capeverde-cta-check">
+            <i class="fas fa-shield-virus"></i>
+            <span>All Vaccines</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

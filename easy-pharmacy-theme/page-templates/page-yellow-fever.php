@@ -1,0 +1,571 @@
+<?php
+/**
+ * Template Name: Yellow Fever Vaccination
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <!-- ============================================
+       BREADCRUMB
+       ============================================ -->
+  <div class="yellowfever-breadcrumb">
+    <div class="section-container">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="travel-health.html">Travel Health</a>
+      <span class="separator">/</span>
+      <span class="current">Yellow Fever Vaccination</span>
+    </div>
+  </div>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="yellowfever-hero-section">
+    <div class="yellowfever-hero-overlay"></div>
+    <div class="yellowfever-hero-dots"></div>
+
+    <div class="section-container">
+      <div class="yellowfever-hero-content">
+        <div class="yellowfever-hero-line"></div>
+        <span class="yellowfever-hero-label">YELLOW FEVER VACCINATION</span>
+
+        <h1 class="yellowfever-hero-title">Ashford's Official<br>Yellow Fever Centre</h1>
+
+        <p class="yellowfever-hero-description">
+          Get your yellow fever vaccination and internationally recognised certificate at our Ashford clinic. Serving Ashford travellers for 30+ years.
+        </p>
+
+        <div class="yellowfever-hero-actions">
+          <a href="book-travel-clinic.html" class="cta-button yellowfever-btn-primary">
+            Book Yellow Fever Vaccination
+          </a>
+          <a href="tel:01784255222" class="cta-button yellowfever-btn-secondary">
+            Call 01784 255 222
+          </a>
+        </div>
+
+        <div class="yellowfever-hero-badges">
+          <div class="yellowfever-hero-badge">Ashford's Official Centre</div>
+          <div class="yellowfever-hero-badge">Same Day Certificate</div>
+          <div class="yellowfever-hero-badge">30+ Years in Ashford</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CERTIFICATION SECTION
+       ============================================ -->
+  <section class="yellowfever-cert-section">
+    <div class="section-container">
+
+      <div class="yellowfever-cert-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">CERTIFIED YELLOW FEVER CENTRE</span>
+        </div>
+        <h2 class="yellowfever-cert-title">Ashford's Authorised Yellow Fever Provider</h2>
+        <p class="yellowfever-cert-desc">We are an authorised yellow fever vaccination provider, ensuring compliance with international standards</p>
+      </div>
+
+      <div class="yellowfever-cert-grid">
+
+        <!-- Left: Dilip Photo -->
+        <div class="yellowfever-cert-image-wrapper">
+          <div class="yellowfever-cert-image-card">
+            <img src="https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769942949376-0.png" alt="Dilip Modhvadia - Authorised Yellow Fever Provider" class="yellowfever-cert-image" />
+            <div class="yellowfever-cert-name-tag">
+              <span class="name">Dilip Modhvadia</span>
+              <span class="role">Lead Pharmacist</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="yellowfever-cert-content">
+          <div class="yellowfever-cert-badge-box">
+            <i class="fas fa-certificate"></i>
+            <span>Ashford's Official Yellow Fever Centre</span>
+          </div>
+
+          <h3 class="yellowfever-cert-subtitle">Internationally Recognised Certificates Issued Same Day</h3>
+          <p class="yellowfever-cert-text">
+            As Ashford's authorised Yellow Fever Centre, we provide the official International Certificate of Vaccination (ICVP) accepted worldwide. Get vaccinated and receive your certificate immediately at our Ashford clinic.
+          </p>
+
+          <ul class="yellowfever-cert-features">
+            <li class="yellowfever-cert-feature">
+              <div class="icon"><i class="fas fa-passport"></i></div>
+              <div class="text">
+                <strong>Official ICVP Certificate</strong>
+                <p>We issue the internationally recognised International Certificate of Vaccination, accepted by all countries requiring yellow fever proof.</p>
+              </div>
+            </li>
+            <li class="yellowfever-cert-feature">
+              <div class="icon"><i class="fas fa-clock"></i></div>
+              <div class="text">
+                <strong>Certificate Issued Immediately</strong>
+                <p>Leave our Ashford clinic with your official certificate in hand—no waiting, no postal delays. Ready to travel.</p>
+              </div>
+            </li>
+            <li class="yellowfever-cert-feature">
+              <div class="icon"><i class="fas fa-user-doctor"></i></div>
+              <div class="text">
+                <strong>30+ Years Ashford Experience</strong>
+                <p>Dilip has administered thousands of yellow fever vaccines to Ashford travellers over three decades at our clinic.</p>
+              </div>
+            </li>
+            <li class="yellowfever-cert-feature">
+              <div class="icon"><i class="fas fa-shield-halved"></i></div>
+              <div class="text">
+                <strong>Fully Regulated & Inspected</strong>
+                <p>As a designated Yellow Fever Centre, we meet strict regulatory standards for vaccine storage, handling, and administration.</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="yellowfever-cert-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta">Book Yellow Fever Vaccination</a>
+            <a href="tel:01784255222" class="cta-button secondary-cta">Call 01784 255 222</a>
+          </div>
+
+          <div class="yellowfever-cert-callout">
+            <div class="header">
+              <span class="badge">WHO STANDARD</span>
+              <h4>Usually Lifetime Protection</h4>
+            </div>
+            <p>For most people, a single dose of the yellow fever vaccine provides lifelong immunity—a standard recognised by the WHO since 2016, making the certificate valid for life.</p>
+            <p class="note">*Some medical exceptions may apply. We will advise during your consultation.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       STATS BAR
+       ============================================ -->
+  <section class="yellowfever-stats-section">
+    <div class="section-container">
+      <div class="yellowfever-stats-bar">
+
+        <div class="yellowfever-stat-item">
+          <div class="icon"><i class="fas fa-syringe"></i></div>
+          <div class="content">
+            <span class="number">1 Dose</span>
+            <span class="label">Single Vaccination</span>
+          </div>
+        </div>
+
+        <div class="yellowfever-stat-divider"></div>
+
+        <div class="yellowfever-stat-item">
+          <div class="icon"><i class="fas fa-infinity"></i></div>
+          <div class="content">
+            <span class="number">Lifetime</span>
+            <span class="label">Protection Duration</span>
+          </div>
+        </div>
+
+        <div class="yellowfever-stat-divider"></div>
+
+        <div class="yellowfever-stat-item">
+          <div class="icon"><i class="fas fa-calendar-days"></i></div>
+          <div class="content">
+            <span class="number">10 Days</span>
+            <span class="label">Before Travel</span>
+          </div>
+        </div>
+
+        <div class="yellowfever-stat-divider"></div>
+
+        <div class="yellowfever-stat-item">
+          <div class="icon"><i class="fas fa-file-certificate"></i></div>
+          <div class="content">
+            <span class="number">Same Day</span>
+            <span class="label">Certificate Issued</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT YELLOW FEVER
+       ============================================ -->
+  <section class="yellowfever-about-section">
+    <div class="section-container">
+
+      <div class="yellowfever-about-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">ABOUT YELLOW FEVER</span>
+        </div>
+        <h2 class="yellowfever-about-title">What is Yellow Fever?</h2>
+        <p class="yellowfever-about-desc">A serious viral infection transmitted by mosquitoes in tropical regions of Africa and South America</p>
+      </div>
+
+      <div class="yellowfever-about-content-grid">
+
+        <!-- Left: Lifestyle Image -->
+        <div class="yellowfever-about-image-wrapper">
+          <div class="yellowfever-about-image-card">
+            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&h=1000&fit=crop" alt="Traveler preparing mosquito net in safari tent" />
+          </div>
+        </div>
+
+        <!-- Right: Info Cards -->
+        <div class="yellowfever-about-cards-grid">
+
+          <div class="yellowfever-info-card">
+            <div class="icon"><i class="fas fa-virus"></i></div>
+            <h3>Viral Infection</h3>
+            <p>Caused by a virus transmitted through the bite of infected Aedes or Haemagogus mosquitoes, primarily found in tropical regions of Africa and South America.</p>
+          </div>
+
+          <div class="yellowfever-info-card">
+            <div class="icon"><i class="fas fa-head-side-virus"></i></div>
+            <h3>Serious Symptoms</h3>
+            <p>Symptoms include fever, headache, jaundice (yellowing of skin), muscle pain, nausea, and vomiting. Severe cases can cause organ failure.</p>
+          </div>
+
+          <div class="yellowfever-info-card">
+            <div class="icon"><i class="fas fa-shield-heart"></i></div>
+            <h3>No Cure, But Preventable</h3>
+            <p>There's no specific treatment for yellow fever, but the vaccine provides excellent protection. A single dose offers lifetime immunity.</p>
+          </div>
+
+          <div class="yellowfever-info-card">
+            <div class="icon"><i class="fas fa-globe-africa"></i></div>
+            <h3>47 Risk Countries</h3>
+            <p>Found across sub-Saharan Africa and tropical South America, including popular destinations like Kenya, Brazil, Peru, and Colombia.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="yellowfever-about-callout">
+        <div class="badge">MANDATORY</div>
+        <h3>Important: Vaccination Required for Entry</h3>
+        <p>Many countries require proof of yellow fever vaccination for entry. As Ashford's official Yellow Fever Centre, we provide internationally recognised certificates on the day of vaccination at our clinic.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHO NEEDS VACCINATION
+       ============================================ -->
+  <section class="yellowfever-needs-section">
+    <div class="section-container">
+
+      <div class="yellowfever-needs-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">WHO NEEDS YELLOW FEVER VACCINATION</span>
+        </div>
+        <h2 class="yellowfever-needs-title">Do you need the yellow fever vaccine?</h2>
+        <p class="yellowfever-needs-desc">Yellow fever vaccination is required or recommended for travel to many countries</p>
+      </div>
+
+      <div class="yellowfever-needs-grid">
+
+        <!-- Required Card -->
+        <div class="yellowfever-needs-card required">
+          <div class="card-badge">MANDATORY</div>
+          <h3>Required for Entry</h3>
+          <p>Many countries require proof of yellow fever vaccination for entry, especially if you're arriving from a country with yellow fever risk.</p>
+          <ul class="check-list">
+            <li><i class="fas fa-check"></i> Travelling to yellow fever risk areas in Africa or South America</li>
+            <li><i class="fas fa-check"></i> Arriving from a country with yellow fever transmission</li>
+            <li><i class="fas fa-check"></i> Transiting through yellow fever countries</li>
+          </ul>
+        </div>
+
+        <!-- Recommended Card -->
+        <div class="yellowfever-needs-card recommended">
+          <div class="card-badge">RECOMMENDED</div>
+          <h3>Strongly Recommended</h3>
+          <p>Even if not mandatory, vaccination is strongly recommended for your protection when visiting areas where yellow fever is present.</p>
+          <ul class="check-list">
+            <li><i class="fas fa-check"></i> Visiting rural or jungle areas in risk countries</li>
+            <li><i class="fas fa-check"></i> Extended stays in endemic regions</li>
+            <li><i class="fas fa-check"></i> Multi-country trips in Africa or South America</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="yellowfever-needs-info">
+        <i class="fas fa-info-circle"></i>
+        <span>Requirements vary by country and your travel history. We'll advise during consultation.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       RISK COUNTRIES
+       ============================================ -->
+  <section class="yellowfever-risk-section">
+    <div class="section-container">
+
+      <div class="yellowfever-risk-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">YELLOW FEVER RISK COUNTRIES</span>
+        </div>
+        <h2 class="yellowfever-risk-title">Where is yellow fever found?</h2>
+        <p class="yellowfever-risk-desc">Yellow fever occurs naturally in 47 countries across sub-Saharan Africa and tropical South America. Many other countries worldwide require proof of vaccination if you're arriving from these yellow fever zones.</p>
+      </div>
+
+      <div class="yellowfever-risk-stats">
+        <div class="stat-box">
+          <span class="num">47</span>
+          <span class="label">Endemic Countries</span>
+          <span class="sub">Across 2 continents</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">34</span>
+          <span class="label">African Countries</span>
+          <span class="sub">Sub-Saharan Africa</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">13</span>
+          <span class="label">South American</span>
+          <span class="sub">Tropical regions</span>
+        </div>
+      </div>
+
+      <div class="yellowfever-risk-grid">
+
+        <!-- Africa Column -->
+        <div class="yellowfever-risk-column">
+          <div class="yellowfever-destination-image">
+            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200&h=600&fit=crop" alt="African savanna at golden hour with acacia trees" />
+          </div>
+          <div class="yellowfever-risk-card africa">
+            <div class="card-icon"><i class="fas fa-globe-africa"></i></div>
+            <h3>34 Endemic Countries</h3>
+            <p class="desc">Sub-Saharan Africa has the highest concentration of yellow fever risk countries, including popular safari and adventure destinations.</p>
+            <div class="country-list">
+              <span>Kenya</span><span>Tanzania</span><span>Uganda</span><span>Ghana</span><span>Nigeria</span>
+              <span>Ethiopia</span><span>Senegal</span><span>Cameroon</span><span>Angola</span><span>Zambia</span>
+            </div>
+            <p class="note">+ 26 other African countries including Mali, Burkina Faso, Ivory Coast, and more</p>
+          </div>
+        </div>
+
+        <!-- South America Column -->
+        <div class="yellowfever-risk-column">
+          <div class="yellowfever-destination-image">
+            <img src="https://images.unsplash.com/photo-1601306682525-c7c3f70b3394?w=1200&h=600&fit=crop" alt="Lush Amazon rainforest canopy" />
+          </div>
+          <div class="yellowfever-risk-card america">
+            <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+            <h3>13 Endemic Countries</h3>
+            <p class="desc">Tropical regions of South America, particularly the Amazon basin and surrounding areas, have yellow fever transmission risk.</p>
+            <div class="country-list">
+              <span>Brazil</span><span>Peru</span><span>Colombia</span><span>Ecuador</span><span>Bolivia</span>
+              <span>Venezuela</span><span>Guyana</span><span>Suriname</span><span>Paraguay</span><span>Panama</span>
+            </div>
+            <p class="note">+ 5 other South American countries including French Guiana, Trinidad & Tobago</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="yellowfever-risk-callout">
+        <div class="content">
+          <h3>Worldwide Entry Requirements</h3>
+          <p>Even if you're travelling to a country without yellow fever risk, you may still need proof of vaccination if you're arriving from or transiting through a yellow fever endemic country.</p>
+          <div class="badges">
+            <span>Transit passengers</span>
+            <span>Entry requirements</span>
+            <span>Proof required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="yellowfever-risk-footer">
+        <div class="info-badge">
+          <i class="fas fa-user-doctor"></i>
+          Not sure if you need yellow fever vaccination? We'll advise based on your specific travel plans.
+        </div>
+        <div class="actions">
+          <a href="book-travel-clinic.html" class="cta-button yellow-btn">Book Yellow Fever Consultation</a>
+          <a href="tel:01784255222" class="cta-button outline-btn">Call 01784 255 222</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       APPOINTMENT DETAILS
+       ============================================ -->
+  <section class="yellowfever-details-section">
+    <div class="section-container">
+
+      <div class="yellowfever-details-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">VACCINATION DETAILS</span>
+        </div>
+        <h2 class="yellowfever-details-title">What to expect at your appointment</h2>
+        <p class="yellowfever-details-desc">Simple, straightforward vaccination process at our Ashford clinic</p>
+      </div>
+
+      <!-- Optional Hero Image -->
+      <div class="yellowfever-details-hero-image">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=600&fit=crop" alt="Professional pharmacist consultation" />
+      </div>
+
+      <div class="yellowfever-details-grid">
+
+        <div class="yellowfever-detail-card">
+          <div class="icon"><i class="fas fa-syringe"></i></div>
+          <h3>Single Dose Vaccination</h3>
+          <p>Only one injection needed for lifetime protection. No booster doses required for most travellers.</p>
+        </div>
+
+        <div class="yellowfever-detail-card">
+          <div class="icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>Book 10 Days Before Travel</h3>
+          <p>Vaccine must be given at least 10 days before travel to allow immunity to develop. Certificate becomes valid after 10 days.</p>
+        </div>
+
+        <div class="yellowfever-detail-card">
+          <div class="icon"><i class="fas fa-notes-medical"></i></div>
+          <h3>Mild Side Effects</h3>
+          <p>Usually mild: soreness at injection site, headache, or low-grade fever for 1-2 days. Most people feel fine.</p>
+        </div>
+
+        <div class="yellowfever-detail-card">
+          <div class="icon"><i class="fas fa-infinity"></i></div>
+          <h3>Lifetime Certificate Validity</h3>
+          <p>Valid for life under WHO guidelines. However, some countries may have specific requirements—we'll advise based on your destination.</p>
+        </div>
+
+        <div class="yellowfever-detail-card">
+          <div class="icon"><i class="fas fa-child"></i></div>
+          <h3>Age 9 Months & Older</h3>
+          <p>Suitable for travellers aged 9 months and older. Not recommended during pregnancy or breastfeeding.</p>
+        </div>
+
+        <div class="yellowfever-detail-card">
+          <div class="icon"><i class="fas fa-sterling-sign"></i></div>
+          <h3>Private Vaccination</h3>
+          <p>Not available on the NHS. Private fee includes vaccine, administration, and official certificate.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FAQ SECTION
+       ============================================ -->
+  <section class="yellowfever-faq-section">
+    <div class="section-container">
+
+      <div class="yellowfever-faq-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">YELLOW FEVER FAQs</span>
+        </div>
+        <h2 class="yellowfever-faq-title">Your yellow fever questions answered</h2>
+        <p class="yellowfever-faq-desc">Common questions about yellow fever vaccination</p>
+      </div>
+
+      <div class="yellowfever-faq-list">
+
+        <div class="yellowfever-faq-item">
+          <button class="yellowfever-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">01</span>
+            <span class="text">Do I need yellow fever vaccination for my trip?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="yellowfever-faq-content">
+            <p>It depends on your destination and travel history. Yellow fever vaccination is required for entry to many countries in Africa and South America, and if you're arriving from a yellow fever endemic country. We'll assess your specific travel plans during consultation.</p>
+          </div>
+        </div>
+
+        <div class="yellowfever-faq-item">
+          <button class="yellowfever-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">02</span>
+            <span class="text">How long does the certificate last?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="yellowfever-faq-content">
+            <p>For most people, the yellow fever certificate is valid for life following a single dose. This is the WHO standard since 2016. However, some individuals may need a booster—we'll advise based on your circumstances.</p>
+          </div>
+        </div>
+
+        <div class="yellowfever-faq-item">
+          <button class="yellowfever-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">03</span>
+            <span class="text">When should I get vaccinated before travel?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="yellowfever-faq-content">
+            <p>Yellow fever vaccination must be given at least 10 days before travel. The certificate becomes valid 10 days after vaccination. We recommend booking as early as possible to ensure you're protected before your departure.</p>
+          </div>
+        </div>
+
+        <div class="yellowfever-faq-item">
+          <button class="yellowfever-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">04</span>
+            <span class="text">How much does yellow fever vaccination cost?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="yellowfever-faq-content">
+            <p>Yellow fever vaccination is not available on the NHS. The private fee includes the vaccine, administration by our qualified pharmacist, and your official International Certificate of Vaccination. We'll provide full pricing during your consultation with no hidden fees.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FINAL CTA
+       ============================================ -->
+  <section class="yellowfever-cta-section">
+    <div class="yellowfever-cta-bg"></div>
+    <div class="section-container">
+      <div class="yellowfever-cta-content">
+
+        <div class="yellowfever-cta-badges">
+          <span class="badge">Official Yellow Fever Centre</span>
+          <span class="badge">30+ Years Experience</span>
+          <span class="badge">Same Day Certificate</span>
+        </div>
+
+        <h2 class="yellowfever-cta-title">Ready for your travels?</h2>
+        <p class="yellowfever-cta-desc">Book your yellow fever vaccination with Dilip today. Get your official certificate on the same day at our Ashford clinic.</p>
+
+        <div class="yellowfever-cta-actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta white-btn">Book Yellow Fever Vaccination</a>
+          <a href="tel:01784255222" class="cta-button secondary-cta outline-btn">Call 01784 255 222</a>
+        </div>
+
+        <div class="yellowfever-cta-checks">
+          <div class="check"><i class="fas fa-check"></i> Official certificate</div>
+          <div class="check"><i class="fas fa-check"></i> Same day service</div>
+          <div class="check"><i class="fas fa-check"></i> Expert advice</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

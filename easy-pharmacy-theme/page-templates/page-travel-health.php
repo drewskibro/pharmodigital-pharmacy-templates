@@ -1,0 +1,761 @@
+<?php
+/**
+ * Template Name: Travel Health
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="travel-hero-section">
+    <div class="travel-hero-bg"></div>
+    <div class="travel-hero-overlay"></div>
+    <div class="travel-hero-dots"></div>
+
+    <div class="section-container">
+      <div class="travel-hero-grid">
+
+        <!-- Left: Content -->
+        <div class="travel-hero-content">
+          <div class="section-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="section-badge-text">TRAVEL HEALTH SERVICES</span>
+          </div>
+
+          <h1 class="travel-hero-title">
+            Ashford's Leading<br />
+            <span class="gradient-text">Travel Clinic</span>
+          </h1>
+
+          <p class="travel-hero-description">
+            Expert travel jabs Ashford and health advice for your next adventure. Book your appointment at our Ashford travel clinic with Dilip.
+          </p>
+
+          <div class="travel-hero-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta">
+              Book Appointment
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="tel:01784255222" class="cta-button secondary-cta">
+              <i class="fas fa-phone"></i>
+              Call 01784 255 222
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="travel-hero-trust">
+            <div class="travel-hero-trust-item">
+              <i class="fas fa-shield-virus"></i>
+              <span>Yellow Fever Centre</span>
+            </div>
+            <div class="travel-hero-trust-item">
+              <i class="fas fa-syringe"></i>
+              <span>All Travel Vaccinations</span>
+            </div>
+            <div class="travel-hero-trust-item">
+              <i class="fas fa-user-doctor"></i>
+              <span>Expert Travel Advice</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual (Hidden on mobile/tablet usually, or background) -->
+        <div class="travel-hero-visual">
+          <!-- Background image handles the visual -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       STATS BAR
+       ============================================ -->
+  <section class="travel-stats-section">
+    <div class="travel-stats-shimmer"></div>
+    <div class="section-container">
+      <div class="travel-stats-grid">
+
+        <div class="travel-stat-item">
+          <div class="travel-stat-image-wrapper">
+            <!-- Yellow Fever Badge -->
+            <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771163076528-1.png" alt="Official Yellow Fever Centre" class="travel-stat-image" style="object-fit: contain;" />
+          </div>
+          <div class="travel-stat-content">
+            <p class="travel-stat-number">Official</p>
+            <p class="travel-stat-label">Yellow Fever Centre</p>
+          </div>
+        </div>
+
+        <div class="travel-stat-item">
+          <div class="travel-stat-image-wrapper">
+            <!-- Passport Image -->
+            <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771162536465-0.png" alt="British Passport" class="travel-stat-image" style="object-fit: contain;" />
+          </div>
+          <div class="travel-stat-content">
+            <p class="travel-stat-number">1,000+</p>
+            <p class="travel-stat-label">Travellers Protected</p>
+          </div>
+        </div>
+
+        <div class="travel-stat-item">
+          <div class="travel-stat-image-wrapper">
+             <!-- Experience/Award Icon -->
+             <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771163876571-0.png" alt="Years Experience" class="travel-stat-image" />
+          </div>
+          <div class="travel-stat-content">
+            <p class="travel-stat-number">30+</p>
+            <p class="travel-stat-label">Years Experience</p>
+          </div>
+        </div>
+
+        <div class="travel-stat-item">
+          <div class="travel-stat-image-wrapper">
+            <!-- GPhC / Medical Cross -->
+            <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771163876573-1.png" alt="GPhC Registered" class="travel-stat-image" />
+          </div>
+          <div class="travel-stat-content">
+            <p class="travel-stat-number">GPhC</p>
+            <p class="travel-stat-label">Registered</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SERVICES SECTION
+       ============================================ -->
+  <section class="travel-services-section">
+    <div class="section-container">
+
+      <div class="travel-services-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">COMPREHENSIVE TRAVEL HEALTH</span>
+        </div>
+        <h2 class="travel-services-title">Everything you need for safe travel</h2>
+        <p class="travel-services-description">
+          From expert consultations to all vaccinations and official certificates
+        </p>
+      </div>
+
+      <div class="travel-services-grid">
+
+        <!-- Card 1: Vaccinations -->
+        <div class="travel-service-card-premium">
+          <div class="travel-service-image-wrapper">
+            <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771163150335-1.png" alt="Travel Vaccinations" class="travel-service-image" style="object-fit: contain; padding: 2rem; background: #f8f7ff;" />
+            <div class="travel-service-overlay"></div>
+          </div>
+          <div class="travel-service-content">
+            <div class="travel-service-icon-small">
+              <i class="fas fa-syringe"></i>
+            </div>
+            <h3 class="travel-service-title">Travel Vaccinations</h3>
+            <p class="travel-service-desc">Full range including yellow fever, rabies, and typhoid.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Malaria -->
+        <div class="travel-service-card-premium">
+          <div class="travel-service-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=800&fit=crop" alt="Malaria Prevention" class="travel-service-image" />
+            <div class="travel-service-overlay"></div>
+          </div>
+          <div class="travel-service-content">
+            <div class="travel-service-icon-small">
+              <i class="fas fa-pills"></i>
+            </div>
+            <h3 class="travel-service-title">Malaria Prevention</h3>
+            <p class="travel-service-desc">Prescription medication and guidance for your trip.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Health Kits -->
+        <div class="travel-service-card-premium">
+          <div class="travel-service-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=600&h=800&fit=crop" alt="Travel Health Kits" class="travel-service-image" />
+            <div class="travel-service-overlay"></div>
+          </div>
+          <div class="travel-service-content">
+            <div class="travel-service-icon-small">
+              <i class="fas fa-kit-medical"></i>
+            </div>
+            <h3 class="travel-service-title">Travel Health Kits</h3>
+            <p class="travel-service-desc">Personalised first aid kits tailored for your destination.</p>
+          </div>
+        </div>
+
+        <!-- Card 4: Certificates -->
+        <div class="travel-service-card-premium">
+          <div class="travel-service-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=800&fit=crop" alt="Health Certificates" class="travel-service-image" />
+            <div class="travel-service-overlay"></div>
+          </div>
+          <div class="travel-service-content">
+            <div class="travel-service-icon-small">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h3 class="travel-service-title">Health Certificates</h3>
+            <p class="travel-service-desc">Official vaccination certificates for border entry.</p>
+          </div>
+        </div>
+
+        <!-- Card 5: Advice -->
+        <div class="travel-service-card-premium">
+          <div class="travel-service-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=800&fit=crop" alt="Travel Health Advice" class="travel-service-image" />
+            <div class="travel-service-overlay"></div>
+          </div>
+          <div class="travel-service-content">
+            <div class="travel-service-icon-small">
+              <i class="fas fa-clipboard-check"></i>
+            </div>
+            <h3 class="travel-service-title">Travel Health Advice</h3>
+            <p class="travel-service-desc">Destination-specific guidance from expert pharmacists.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       VACCINATIONS GRID
+       ============================================ -->
+  <section class="travel-vaccines-section">
+    <!-- Decorative background elements -->
+    <div class="travel-vaccines-blob-1"></div>
+    <div class="travel-vaccines-blob-2"></div>
+
+    <div class="section-container">
+
+      <div class="travel-vaccines-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">ALL VACCINATIONS</span>
+        </div>
+        <h3 class="travel-vaccines-title">Available Vaccinations</h3>
+      </div>
+
+      <div class="travel-vaccines-grid">
+
+        <!-- Yellow Fever (Special) -->
+        <div class="travel-vaccine-card travel-vaccine-card-yellow">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-shield-virus"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Yellow Fever</h4>
+          <span class="travel-vaccine-badge">Official Centre</span>
+        </div>
+
+        <!-- Standard Vaccines -->
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Typhoid</h4>
+        </div>
+
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Hepatitis A</h4>
+        </div>
+
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Hepatitis B</h4>
+        </div>
+
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Rabies</h4>
+        </div>
+
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Cholera</h4>
+        </div>
+
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Japanese Encephalitis</h4>
+        </div>
+
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Meningitis</h4>
+        </div>
+
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Tetanus</h4>
+        </div>
+
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Diphtheria</h4>
+        </div>
+
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Polio</h4>
+        </div>
+
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h4 class="travel-vaccine-name">Tick-borne Encephalitis</h4>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHY CHOOSE US
+       ============================================ -->
+  <section class="travel-why-section">
+    <div class="section-container">
+
+      <div class="travel-why-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">WHY CHOOSE US</span>
+        </div>
+        <h2 class="travel-why-title">Why choose our Ashford travel clinic?</h2>
+      </div>
+
+      <div class="travel-why-grid">
+
+        <!-- Left: Image -->
+        <div class="travel-why-image-wrapper">
+          <div class="travel-why-image-bg-circle"></div>
+          <div class="travel-why-image-card">
+            <img src="https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769942949376-0.png" alt="Dilip Modhvadia - Expert Pharmacist" />
+          </div>
+          <div class="travel-why-badge">
+            <p class="travel-why-badge-text">15+ Years</p>
+            <p class="travel-why-badge-sub">Experience</p>
+          </div>
+        </div>
+
+        <!-- Right: Benefits -->
+        <div class="travel-why-content">
+
+          <div class="travel-why-card">
+            <div class="travel-why-card-icon">
+              <i class="fas fa-user-doctor"></i>
+            </div>
+            <div class="travel-why-card-text">
+              <h3 class="travel-why-card-title">Expert Pharmacist Consultations</h3>
+              <p class="travel-why-card-description">Dilip and the team provide up-to-date advice tailored to your specific itinerary.</p>
+            </div>
+          </div>
+
+          <div class="travel-why-card">
+            <div class="travel-why-card-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="travel-why-card-text">
+              <h3 class="travel-why-card-title">Flexible Appointments</h3>
+              <p class="travel-why-card-description">Same-day and weekend appointments available to suit your schedule.</p>
+            </div>
+          </div>
+
+          <div class="travel-why-card">
+            <div class="travel-why-card-icon">
+              <i class="fas fa-tags"></i>
+            </div>
+            <div class="travel-why-card-text">
+              <h3 class="travel-why-card-title">Competitive Pricing</h3>
+              <p class="travel-why-card-description">Transparent, affordable pricing for all vaccinations and antimalarials.</p>
+            </div>
+          </div>
+
+          <div class="travel-why-card">
+            <div class="travel-why-card-icon">
+              <i class="fas fa-location-dot"></i>
+            </div>
+            <div class="travel-why-card-text">
+              <h3 class="travel-why-card-title">Convenient Location</h3>
+              <p class="travel-why-card-description">Easy to find in Ashford with free parking available.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       HOW IT WORKS PROCESS
+       ============================================ -->
+  <section class="travel-process-section">
+    <div class="section-container">
+
+      <div class="travel-process-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">HOW IT WORKS</span>
+        </div>
+        <h2 class="travel-process-title">Your travel clinic Ashford journey</h2>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="travel-process-step travel-process-step-left">
+        <div class="travel-process-step-content">
+          <div class="travel-process-step-number">1</div>
+          <div class="travel-process-step-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h3 class="travel-process-step-title">Book Consultation</h3>
+          <p class="travel-process-step-description">
+            Book your appointment online or call us. We recommend booking 6-8 weeks before travel, but we can often accommodate last-minute trips.
+          </p>
+          <div class="travel-process-step-meta">
+            <i class="fas fa-clock"></i>
+            <span>Book online 24/7</span>
+          </div>
+        </div>
+        <div class="travel-process-step-image">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=500&fit=crop" alt="Book travel consultation" />
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="travel-process-step travel-process-step-right">
+        <div class="travel-process-step-image">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=500&fit=crop" alt="Travel health consultation" />
+          <div class="travel-process-step-floating-badge">
+            <i class="fas fa-user-doctor"></i>
+            <span>Expert Advice</span>
+          </div>
+        </div>
+        <div class="travel-process-step-content">
+          <div class="travel-process-step-number">2</div>
+          <div class="travel-process-step-icon">
+            <i class="fas fa-user-doctor"></i>
+          </div>
+          <h3 class="travel-process-step-title">Consultation & Vaccination</h3>
+          <p class="travel-process-step-description">
+            Meet with our pharmacist to discuss your itinerary and health history. We'll administer necessary vaccinations and provide health advice.
+          </p>
+          <div class="travel-process-step-meta">
+            <i class="fas fa-check-circle"></i>
+            <span>Safe & professional</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="travel-process-step travel-process-step-left">
+        <div class="travel-process-step-content">
+          <div class="travel-process-step-number">3</div>
+          <div class="travel-process-step-icon">
+            <i class="fas fa-plane-departure"></i>
+          </div>
+          <h3 class="travel-process-step-title">Travel with Confidence</h3>
+          <p class="travel-process-step-description">
+            Leave with your vaccination record card, any necessary medication (like antimalarials), and the peace of mind that you're protected.
+          </p>
+          <div class="travel-process-step-meta">
+            <i class="fas fa-passport"></i>
+            <span>Official certificates</span>
+          </div>
+        </div>
+        <div class="travel-process-step-image">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=500&fit=crop" alt="Travel with confidence" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       POPULAR DESTINATIONS
+       ============================================ -->
+  <section class="travel-destinations-section">
+    <div class="section-container">
+
+      <div class="travel-destinations-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">POPULAR DESTINATIONS</span>
+        </div>
+        <h2 class="travel-destinations-title">Travelling to these destinations?</h2>
+      </div>
+
+      <div class="travel-destinations-grid">
+
+        <a href="#" class="travel-destination-card">
+          <div class="travel-destination-inner">
+            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=400&h=500&fit=crop" alt="Thailand" class="travel-destination-image" />
+            <div class="travel-destination-overlay"></div>
+            <div class="travel-destination-label">
+              <h3 class="travel-destination-name">Thailand</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="travel-destination-card">
+          <div class="travel-destination-inner">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&h=500&fit=crop" alt="India" class="travel-destination-image" />
+            <div class="travel-destination-overlay"></div>
+            <div class="travel-destination-label">
+              <h3 class="travel-destination-name">India</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="travel-destination-card">
+          <div class="travel-destination-inner">
+            <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=400&h=500&fit=crop" alt="Kenya" class="travel-destination-image" />
+            <div class="travel-destination-overlay"></div>
+            <div class="travel-destination-label">
+              <h3 class="travel-destination-name">Kenya</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="travel-destination-card">
+          <div class="travel-destination-inner">
+            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=400&h=500&fit=crop" alt="Vietnam" class="travel-destination-image" />
+            <div class="travel-destination-overlay"></div>
+            <div class="travel-destination-label">
+              <h3 class="travel-destination-name">Vietnam</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="travel-destination-card">
+          <div class="travel-destination-inner">
+            <img src="https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?w=400&h=500&fit=crop" alt="South Africa" class="travel-destination-image" />
+            <div class="travel-destination-overlay"></div>
+            <div class="travel-destination-label">
+              <h3 class="travel-destination-name">South Africa</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="travel-destination-card">
+          <div class="travel-destination-inner">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=500&fit=crop" alt="Indonesia" class="travel-destination-image" />
+            <div class="travel-destination-overlay"></div>
+            <div class="travel-destination-label">
+              <h3 class="travel-destination-name">Indonesia</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="travel-destination-card">
+          <div class="travel-destination-inner">
+            <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=400&h=500&fit=crop" alt="Brazil" class="travel-destination-image" />
+            <div class="travel-destination-overlay"></div>
+            <div class="travel-destination-label">
+              <h3 class="travel-destination-name">Brazil</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="travel-destination-card">
+          <div class="travel-destination-inner">
+            <img src="https://images.unsplash.com/photo-1518182170546-0766bc6f9213?w=400&h=500&fit=crop&q=80" alt="Costa Rica" class="travel-destination-image" />
+            <div class="travel-destination-overlay"></div>
+            <div class="travel-destination-label">
+              <h3 class="travel-destination-name">Costa Rica</h3>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FAQ SECTION
+       ============================================ -->
+  <section class="travel-faq-section">
+    <div class="section-container">
+
+      <div class="travel-faq-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">FREQUENTLY ASKED QUESTIONS</span>
+        </div>
+        <h2 class="travel-faq-title">Travel health questions answered</h2>
+      </div>
+
+      <div class="travel-faq-list">
+
+        <div class="travel-faq-item">
+          <button class="travel-faq-question" onclick="toggleFAQ(this)">
+            <span class="travel-faq-number">01</span>
+            <span class="travel-faq-question-text">When should I book my travel vaccinations?</span>
+            <div class="travel-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="travel-faq-answer">
+            <p>We recommend booking your appointment 6-8 weeks before you travel. Some vaccinations require multiple doses over a few weeks to be fully effective. However, we can often accommodate last-minute travellers, so please contact us even if you're travelling sooner.</p>
+          </div>
+        </div>
+
+        <div class="travel-faq-item">
+          <button class="travel-faq-question" onclick="toggleFAQ(this)">
+            <span class="travel-faq-number">02</span>
+            <span class="travel-faq-question-text">Do I need a yellow fever certificate?</span>
+            <div class="travel-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="travel-faq-answer">
+            <p>Some countries require an International Certificate of Vaccination or Prophylaxis (ICVP) for yellow fever as a condition of entry. We are a designated Yellow Fever Vaccination Centre and can provide this official certificate. We'll advise you on the specific requirements for your destination during your consultation.</p>
+          </div>
+        </div>
+
+        <div class="travel-faq-item">
+          <button class="travel-faq-question" onclick="toggleFAQ(this)">
+            <span class="travel-faq-number">03</span>
+            <span class="travel-faq-question-text">What should I bring to my appointment?</span>
+            <div class="travel-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="travel-faq-answer">
+            <p>Please bring details of your itinerary (countries, regions, duration), any previous vaccination records, and a list of current medications. This helps us provide the most accurate and safe advice for your trip.</p>
+          </div>
+        </div>
+
+        <div class="travel-faq-item">
+          <button class="travel-faq-question" onclick="toggleFAQ(this)">
+            <span class="travel-faq-number">04</span>
+            <span class="travel-faq-question-text">Do you provide malaria tablets?</span>
+            <div class="travel-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="travel-faq-answer">
+            <p>Yes, we can prescribe and supply malaria prevention tablets (antimalarials) such as Malarone, Doxycycline, and Lariam. We'll assess your risk based on your destination and recommend the most suitable option for you.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FINAL CTA SECTION
+       ============================================ -->
+  <section class="travel-cta-section">
+    <div class="travel-cta-glow-1"></div>
+    <div class="travel-cta-glow-2"></div>
+    <div class="travel-cta-circle"></div>
+    <div class="travel-cta-square"></div>
+    <div class="travel-cta-dots"></div>
+
+    <div class="section-container">
+      <div class="travel-cta-content">
+
+        <div class="travel-cta-badges">
+          <div class="travel-cta-badge">
+            <i class="fas fa-shield-virus"></i>
+            <span>Yellow Fever Centre</span>
+          </div>
+          <div class="travel-cta-badge">
+            <i class="fas fa-user-doctor"></i>
+            <span>Expert Advice</span>
+          </div>
+          <div class="travel-cta-badge">
+            <i class="fas fa-calendar-check"></i>
+            <span>Same Day Service</span>
+          </div>
+        </div>
+
+        <h2 class="travel-cta-title">Ready to protect your travels?</h2>
+        <p class="travel-cta-description">
+          Don't let health worries spoil your adventure. Book your comprehensive travel health consultation with Easy Pharmacy Ashford today.
+        </p>
+
+        <div class="travel-cta-actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta travel-cta-button-white">
+            Book Travel Health Appointment
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:01784255222" class="cta-button secondary-cta travel-cta-button-outlined">
+            <i class="fas fa-phone"></i>
+            Call 01784 255 222
+          </a>
+        </div>
+
+        <div class="travel-cta-checks">
+          <div class="travel-cta-check">
+            <i class="fas fa-check"></i>
+            <span>Flexible appointments</span>
+          </div>
+          <div class="travel-cta-check">
+            <i class="fas fa-check"></i>
+            <span>Expert advice</span>
+          </div>
+          <div class="travel-cta-check">
+            <i class="fas fa-check"></i>
+            <span>Official certificates</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

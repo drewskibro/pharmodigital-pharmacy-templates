@@ -1,0 +1,675 @@
+<?php
+/**
+ * Template Name: Ear Wax Removal
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="earwax-hero-section">
+    <div class="earwax-hero-bg"></div>
+    <div class="earwax-hero-dots"></div>
+    <div class="earwax-hero-glow-1"></div>
+    <div class="earwax-hero-glow-2"></div>
+
+    <div class="section-container">
+      <div class="earwax-hero-grid">
+
+        <!-- Left: Content -->
+        <div class="earwax-hero-content">
+          <div class="section-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="section-badge-text">SAME-DAY MICROSUCTION AVAILABLE</span>
+          </div>
+
+          <h1 class="earwax-hero-title">
+            <span class="gradient-text">Ear Wax Removal</span> Ashford: Professional Microsuction
+          </h1>
+
+          <h2 class="earwax-hero-subtitle">
+            Expert ear care led by Jignasa Modhvadia and our specialist team at Easy Pharmacy Ashford
+          </h2>
+
+          <p class="earwax-hero-description">
+            Clear blocked ears with expert care in Ashford! Ear wax removal costs £20 per ear, maximum £50. Guaranteed results—free follow-up within 7 days if needed!
+          </p>
+
+          <div class="earwax-hero-actions">
+            <a href="book-ear-wax.html" class="cta-button primary-cta">
+              Book Your Appointment
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="tel:01784255222" class="cta-button secondary-cta">
+              <i class="fas fa-phone"></i>
+              Call 01784 255 222
+            </a>
+          </div>
+
+          <div class="earwax-hero-trust">
+            <div class="earwax-hero-trust-item">
+              <i class="fas fa-check-circle"></i>
+              <span>GPhC Registered</span>
+            </div>
+            <div class="earwax-hero-trust-item">
+              <i class="fas fa-clock"></i>
+              <span>Same-day available</span>
+            </div>
+            <div class="earwax-hero-trust-item">
+              <i class="fas fa-tag"></i>
+              <span>From £20 per ear</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="earwax-hero-visual">
+          <div class="earwax-hero-image-card">
+            <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=800&h=1000&fit=crop" alt="Friendly older patient satisfied after ear wax removal treatment" class="earwax-hero-image" />
+            <div class="earwax-hero-overlay"></div>
+            <div class="earwax-hero-price-badge">
+              <span class="earwax-hero-price-label">From Only</span>
+              <span class="earwax-hero-price-amount">£20</span>
+              <span class="earwax-hero-price-sub">Per Ear</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       STATS BAR
+       ============================================ -->
+  <section class="earwax-stats-section">
+    <div class="earwax-stats-shimmer"></div>
+    <div class="section-container">
+      <div class="earwax-stats-grid">
+
+        <div class="earwax-stat-item">
+          <div class="earwax-stat-icon">
+            <i class="fas fa-tag"></i>
+          </div>
+          <div class="earwax-stat-content">
+            <p class="earwax-stat-number">£20</p>
+            <p class="earwax-stat-label">Per Ear</p>
+          </div>
+        </div>
+
+        <div class="earwax-stat-item">
+          <div class="earwax-stat-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="earwax-stat-content">
+            <p class="earwax-stat-number">30 mins</p>
+            <p class="earwax-stat-label">Treatment Time</p>
+          </div>
+        </div>
+
+        <div class="earwax-stat-item">
+          <div class="earwax-stat-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="earwax-stat-content">
+            <p class="earwax-stat-number">95%+</p>
+            <p class="earwax-stat-label">Success Rate</p>
+          </div>
+        </div>
+
+        <div class="earwax-stat-item">
+          <div class="earwax-stat-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="earwax-stat-content">
+            <p class="earwax-stat-number">Same Day</p>
+            <p class="earwax-stat-label">Appointments</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SYMPTOMS SECTION
+       ============================================ -->
+  <section class="earwax-symptoms-section">
+    <div class="section-container">
+
+      <div class="earwax-symptoms-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">COMMON SYMPTOMS</span>
+        </div>
+        <h2 class="earwax-symptoms-title">Is Ear Wax Affecting Your Daily Life?</h2>
+        <p class="earwax-symptoms-description">Don't let blocked ears hold you back. Recognise these common symptoms?</p>
+      </div>
+
+      <div class="earwax-symptoms-grid">
+
+        <div class="earwax-symptom-card">
+          <div class="earwax-symptom-icon">
+            <i class="fas fa-ear-listen"></i>
+          </div>
+          <h3 class="earwax-symptom-title">Difficulty Hearing</h3>
+          <p class="earwax-symptom-desc">Muffled sounds or reduced hearing quality affecting conversations and daily activities</p>
+        </div>
+
+        <div class="earwax-symptom-card">
+          <div class="earwax-symptom-icon">
+            <i class="fas fa-face-grimace"></i>
+          </div>
+          <h3 class="earwax-symptom-title">Earache or Discomfort</h3>
+          <p class="earwax-symptom-desc">Persistent pain, pressure, or uncomfortable fullness in one or both ears</p>
+        </div>
+
+        <div class="earwax-symptom-card">
+          <div class="earwax-symptom-icon">
+            <i class="fas fa-bell"></i>
+          </div>
+          <h3 class="earwax-symptom-title">Ringing or Buzzing</h3>
+          <p class="earwax-symptom-desc">Tinnitus symptoms including ringing, buzzing, or humming sounds in your ears</p>
+        </div>
+
+        <div class="earwax-symptom-card">
+          <div class="earwax-symptom-icon">
+            <i class="fas fa-person-falling"></i>
+          </div>
+          <h3 class="earwax-symptom-title">Dizziness</h3>
+          <p class="earwax-symptom-desc">Feeling off-balance or experiencing vertigo due to blocked ear canals</p>
+        </div>
+
+        <div class="earwax-symptom-card">
+          <div class="earwax-symptom-icon">
+            <i class="fas fa-head-side-cough"></i>
+          </div>
+          <h3 class="earwax-symptom-title">Persistent Cough</h3>
+          <p class="earwax-symptom-desc">Unexplained coughing caused by ear wax stimulating nerves in the ear canal</p>
+        </div>
+
+        <div class="earwax-symptom-card">
+          <div class="earwax-symptom-icon">
+            <i class="fas fa-ear-deaf"></i>
+          </div>
+          <h3 class="earwax-symptom-title">Hearing Aid Problems</h3>
+          <p class="earwax-symptom-desc">Failed hearing aid fitting or devices not working properly due to wax build-up</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       TEAM SECTION
+       ============================================ -->
+  <section class="earwax-team-section">
+    <div class="section-container">
+
+      <div class="earwax-team-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">OUR TEAM</span>
+        </div>
+        <h2 class="earwax-team-title">Meet Your Ashford Ear Care Specialists</h2>
+        <p class="earwax-team-description">As Ashford's dedicated ear care practice, we've helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and free parking.</p>
+      </div>
+
+      <div class="earwax-team-grid">
+
+        <!-- Jignasa Modhvadia -->
+        <div class="earwax-team-card">
+          <div class="earwax-team-image-wrapper">
+            <img src="https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769942949376-0.png" alt="Jignasa Modhvadia" class="earwax-team-image" />
+            <div class="earwax-team-badge-green">Since 2019</div>
+          </div>
+          <div class="earwax-team-content">
+            <h3 class="earwax-team-name">Jignasa Modhvadia</h3>
+            <p class="earwax-team-role">Sole Director &amp; Level 2 Dispenser</p>
+            <p class="earwax-team-bio">As the Sole Director of Easy Pharmacy, Jignasa combines leadership with hands-on patient care. A qualified Level 2 Dispenser since 2019, she is dedicated to continuous professional development and is currently undertaking her Level 3 Technician training to further enhance the expert services available at our Ashford clinic.</p>
+            <div class="earwax-team-tags">
+              <span class="earwax-team-tag">Clinic Director</span>
+              <span class="earwax-team-tag">Level 3 Training</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baljender Nagi -->
+        <div class="earwax-team-card">
+          <div class="earwax-team-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=600&fit=crop" alt="Baljender Nagi" class="earwax-team-image" />
+            <div class="earwax-team-badge-purple">Level 3 Technician</div>
+          </div>
+          <div class="earwax-team-content">
+            <h3 class="earwax-team-name">Baljender Nagi</h3>
+            <p class="earwax-team-role">Senior Staff Member</p>
+            <p class="earwax-team-bio">Baljender is a highly experienced Level 3 Technician and a senior member of our clinical team. Her extensive technical knowledge and friendly approach ensure that every patient receives the highest standard of care during their visit. She plays a key role in delivering our specialist ear care services.</p>
+            <div class="earwax-team-tags">
+              <span class="earwax-team-tag">Senior Technician</span>
+              <span class="earwax-team-tag">Patient Care Expert</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       COMPARISON TABLE
+       ============================================ -->
+  <section class="earwax-comparison-section">
+    <div class="section-container">
+
+      <div class="earwax-comparison-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">TREATMENT COMPARISON</span>
+        </div>
+        <h2 class="earwax-comparison-title">How Our Treatment Compares</h2>
+        <p class="earwax-comparison-description">See why microsuction is the gold standard for ear wax removal in Ashford</p>
+      </div>
+
+      <div class="earwax-comparison-table-wrapper">
+        <table class="earwax-comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th class="highlight">Our Microsuction</th>
+              <th>Traditional Syringing</th>
+              <th>At-Home Remedies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Treatment Time</td>
+              <td class="highlight">Up to 30 minutes</td>
+              <td>30+ minutes</td>
+              <td>Days or weeks</td>
+            </tr>
+            <tr>
+              <td>Water Spillage</td>
+              <td class="highlight">None</td>
+              <td>Moderate</td>
+              <td>Drips and Leaks</td>
+            </tr>
+            <tr>
+              <td>Mess</td>
+              <td class="highlight">None</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Risk Level</td>
+              <td class="highlight">Very low</td>
+              <td>Moderate</td>
+              <td>Varies</td>
+            </tr>
+            <tr>
+              <td>Success Rate</td>
+              <td class="highlight">95%+</td>
+              <td>70-80%</td>
+              <td>Under 50%</td>
+            </tr>
+            <tr>
+              <td>Immediate Results</td>
+              <td class="highlight">Yes</td>
+              <td>Sometimes</td>
+              <td>Rarely</td>
+            </tr>
+            <tr>
+              <td>Expert Oversight</td>
+              <td class="highlight">Throughout</td>
+              <td>Limited</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Safe for Perforated Eardrums</td>
+              <td class="highlight">Yes</td>
+              <td>No</td>
+              <td>Varies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       PROCESS SECTION
+       ============================================ -->
+  <section class="earwax-process-section">
+    <div class="section-container">
+
+      <div class="earwax-process-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">HOW IT WORKS</span>
+        </div>
+        <h2 class="earwax-process-title">Our Professional Ear Wax Removal Process</h2>
+        <p class="earwax-process-description">Simple, effective treatment in three easy steps</p>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="earwax-process-step earwax-process-step-left">
+        <div class="earwax-process-step-content">
+          <div class="earwax-process-step-icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3 class="earwax-process-step-title">Initial Assessment</h3>
+          <p class="earwax-process-step-desc">Detailed ear examination, discussion of symptoms, treatment plan explanation, and no-obligation quote.</p>
+          <div class="earwax-process-step-time">
+            <i class="fas fa-clock"></i>
+            <span>10 minutes</span>
+          </div>
+        </div>
+        <div class="earwax-process-step-image">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=500&fit=crop" alt="Friendly consultation scene" />
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="earwax-process-step earwax-process-step-right">
+        <div class="earwax-process-step-image">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=500&fit=crop" alt="Patient during treatment" />
+        </div>
+        <div class="earwax-process-step-content">
+          <div class="earwax-process-step-icon">
+            <i class="fas fa-microscope"></i>
+          </div>
+          <h3 class="earwax-process-step-title">Microsuction Treatment</h3>
+          <p class="earwax-process-step-desc">Gentle wax removal with continuous monitoring, progress updates, and immediate relief.</p>
+          <div class="earwax-process-step-time">
+            <i class="fas fa-clock"></i>
+            <span>15-20 minutes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="earwax-process-step earwax-process-step-left">
+        <div class="earwax-process-step-content">
+          <div class="earwax-process-step-icon">
+            <i class="fas fa-heart-pulse"></i>
+          </div>
+          <h3 class="earwax-process-step-title">Aftercare Support</h3>
+          <p class="earwax-process-step-desc">Prevention advice, home care tips, and free follow-up within 7 days if needed.</p>
+          <div class="earwax-process-step-badge">
+            <i class="fas fa-check-circle"></i>
+            <span>Free 7-day follow-up</span>
+          </div>
+        </div>
+        <div class="earwax-process-step-image">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=500&fit=crop" alt="Happy patient after treatment" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       PRICING SECTION
+       ============================================ -->
+  <section class="earwax-pricing-section">
+    <div class="section-container">
+
+      <div class="earwax-pricing-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">TRANSPARENT PRICING</span>
+        </div>
+        <h2 class="earwax-pricing-title">Pricing - Ashford Ear Wax Removal</h2>
+        <p class="earwax-pricing-description">Clear, upfront pricing with no hidden fees</p>
+      </div>
+
+      <div class="earwax-pricing-grid">
+
+        <!-- Card 1 -->
+        <div class="earwax-pricing-card">
+          <div class="earwax-pricing-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <div class="earwax-pricing-price">£10</div>
+          <h3 class="earwax-pricing-card-title">Initial Consultation</h3>
+          <p class="earwax-pricing-card-desc">Comprehensive ear assessment before treatment to determine the best care for you.</p>
+          <a href="book-ear-wax.html" class="cta-button secondary-cta earwax-pricing-btn">Book Now</a>
+        </div>
+
+        <!-- Card 2 (Featured) -->
+        <div class="earwax-pricing-card earwax-pricing-card-featured">
+          <div class="earwax-pricing-badge">MOST POPULAR</div>
+          <div class="earwax-pricing-icon">
+            <i class="fas fa-ear-listen"></i>
+          </div>
+          <div class="earwax-pricing-price">£20</div>
+          <h3 class="earwax-pricing-card-title">Per Ear</h3>
+          <p class="earwax-pricing-card-desc">Professional ear wax removal for clear, healthy ears, with a maximum fee of £50 for severe cases.</p>
+          <div class="earwax-pricing-callout">
+            <i class="fas fa-check"></i>
+            <span>Free follow-up within 7 days if needed</span>
+          </div>
+          <a href="book-ear-wax.html" class="cta-button primary-cta earwax-pricing-btn">Book Now</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       TESTIMONIALS SECTION
+       ============================================ -->
+  <section class="earwax-testimonials-section">
+    <div class="section-container">
+
+      <div class="earwax-testimonials-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">PATIENT TESTIMONIALS</span>
+        </div>
+        <h2 class="earwax-testimonials-title">Hear What Our Ashford Patients Say</h2>
+      </div>
+
+      <div class="earwax-testimonials-grid">
+
+        <!-- Card 1 -->
+        <div class="earwax-testimonial-card">
+          <div class="star-row">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="earwax-testimonial-quote">"After weeks of discomfort, I finally got my ears treated at Easy Pharmacy. The difference was immediate - I could hear clearly again! Jignasa was professional and explained everything clearly. Highly recommend!"</p>
+          <p class="earwax-testimonial-author">Sarah, Ashford</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="earwax-testimonial-card">
+          <div class="star-row">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="earwax-testimonial-quote">"Fantastic service from start to finish. The team was so thorough and professional. The aftercare advice has helped prevent any further build-up."</p>
+          <p class="earwax-testimonial-author">Margaret, Ashford</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="earwax-testimonial-card">
+          <div class="star-row">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="earwax-testimonial-quote">"Much better than the traditional syringing I had years ago. No mess, no fuss, just clear hearing again. The evening appointment times meant I didn't need to take time off work."</p>
+          <p class="earwax-testimonial-author">John, Ashford</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FAQ SECTION
+       ============================================ -->
+  <section class="earwax-faq-section">
+    <div class="section-container">
+
+      <div class="earwax-faq-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">FREQUENTLY ASKED QUESTIONS</span>
+        </div>
+        <h2 class="earwax-faq-title">Frequently Asked Questions - Ear Wax Removal Ashford</h2>
+      </div>
+
+      <div class="earwax-faq-list">
+
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">1</span>
+            <span class="earwax-faq-text">Is the treatment uncomfortable?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>Most patients find microsuction very comfortable. You'll hear a quiet whistling sound, but the procedure is gentle and shouldn't cause any pain.</p>
+          </div>
+        </div>
+
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">2</span>
+            <span class="earwax-faq-text">How often should I have my ears checked?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>Most people benefit from an annual check-up, though this varies. We'll advise based on your individual situation during your Ashford appointment.</p>
+          </div>
+        </div>
+
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">3</span>
+            <span class="earwax-faq-text">Can I drive after the treatment?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>Yes, you can drive immediately after treatment. Most people experience instant improvement in hearing.</p>
+          </div>
+        </div>
+
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">4</span>
+            <span class="earwax-faq-text">Do you treat children?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>Yes, we treat patients of all ages at our Ashford clinic. We're experienced in working with children and ensure they feel comfortable throughout.</p>
+          </div>
+        </div>
+
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">5</span>
+            <span class="earwax-faq-text">What if I have a perforated eardrum?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>Microsuction is safe for perforated eardrums, unlike water syringing. We'll assess your ears during consultation.</p>
+          </div>
+        </div>
+
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">6</span>
+            <span class="earwax-faq-text">Where are you located in Ashford?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>We're based in Ashford with convenient parking and easy access from all surrounding areas.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FINAL CTA SECTION
+       ============================================ -->
+  <section class="earwax-cta-section">
+    <div class="earwax-cta-glow-1"></div>
+    <div class="earwax-cta-glow-2"></div>
+    <div class="earwax-cta-dots"></div>
+
+    <div class="section-container">
+      <div class="earwax-cta-content">
+
+        <div class="earwax-cta-badges">
+          <div class="earwax-cta-badge">
+            <span>From £20 per ear</span>
+          </div>
+          <div class="earwax-cta-badge">
+            <span>Same-day available</span>
+          </div>
+          <div class="earwax-cta-badge">
+            <span>Free 7-day follow-up</span>
+          </div>
+        </div>
+
+        <h2 class="earwax-cta-title">Ready to hear clearly again?</h2>
+        <p class="earwax-cta-description">
+          Book your ear wax removal appointment at our Ashford clinic today. Expert microsuction treatment with guaranteed results.
+        </p>
+
+        <div class="earwax-cta-actions">
+          <a href="book-ear-wax.html" class="cta-button primary-cta earwax-cta-button-white">
+            Book Appointment Online
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

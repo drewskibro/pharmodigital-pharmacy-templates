@@ -1,0 +1,602 @@
+<?php
+/**
+ * Template Name: Book Appointment
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="book-hero-section">
+    <div class="book-hero-gradient"></div>
+    <div class="book-hero-dots"></div>
+    <div class="book-hero-glow-1"></div>
+    <div class="book-hero-glow-2"></div>
+
+    <div class="section-container">
+      <div class="book-hero-grid">
+
+        <!-- Left: Content -->
+        <div class="book-hero-content">
+          <!-- Premium Badge -->
+          <div class="section-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="section-badge-text">ONLINE BOOKING AVAILABLE</span>
+          </div>
+
+          <h1 class="book-hero-title">
+            Book Your <br />
+            <span class="gradient-text">Appointment</span>
+          </h1>
+
+          <p class="book-hero-description">
+            Choose your service below and find a time that suits you with our expert Ashford team. Same-day appointments often available.
+          </p>
+
+          <div class="book-hero-actions">
+            <button onclick="scrollToBooking()" class="cta-button primary-cta">
+              Book Now
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <a href="tel:01784255222" class="cta-button secondary-cta">
+              <i class="fas fa-phone"></i>
+              01784 255 222
+            </a>
+          </div>
+
+          <!-- Trust Pills -->
+          <div class="book-hero-trust-row">
+            <div class="book-hero-trust-pill">
+              <i class="fas fa-check-circle"></i>
+              <span>Face-to-face Care</span>
+            </div>
+            <div class="book-hero-trust-pill">
+              <i class="fas fa-shield-halved"></i>
+              <span>GPhC Registered</span>
+            </div>
+            <div class="book-hero-trust-pill">
+              <i class="fas fa-bolt"></i>
+              <span>Instant Confirmation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual -->
+        <div class="book-hero-visual">
+          <div class="book-hero-image-card">
+            <div class="book-hero-image-inner">
+              <img src="https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769942949376-0.png" alt="Dilip Modhvadia - Lead Pharmacist" class="book-hero-image" />
+              <div class="book-hero-overlay"></div>
+            </div>
+
+            <!-- Floating Testimonial Card -->
+            <div class="book-hero-testimonial-card">
+              <div class="book-hero-quote-icon">
+                <i class="fas fa-quote-left"></i>
+              </div>
+              <p class="book-hero-quote-text">
+                "Booking was so easy and Dilip was fantastic. I was seen on time and the advice was excellent."
+              </p>
+              <div class="book-hero-quote-footer">
+                <div class="book-hero-author">
+                  <span class="book-hero-name">Sarah J.</span>
+                  <div class="star-row">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <div class="book-hero-result-badge">
+                  <span>Verified Patient</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       HOW IT WORKS SECTION
+       ============================================ -->
+  <section class="book-process-section">
+    <div class="section-container">
+
+      <div class="book-process-header">
+        <h2 class="book-process-title">How It Works</h2>
+      </div>
+
+      <div class="book-process-grid">
+
+        <!-- Step 1 -->
+        <div class="book-process-card">
+          <div class="book-process-number">1</div>
+          <div class="book-process-icon">
+            <i class="fas fa-hand-pointer"></i>
+          </div>
+          <h3 class="book-process-card-title">Choose Service</h3>
+          <p class="book-process-card-desc">Select the specific health service you need from our comprehensive options below.</p>
+          <div class="book-process-arrow desktop-only">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="book-process-card">
+          <div class="book-process-number">2</div>
+          <div class="book-process-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h3 class="book-process-card-title">Select Time</h3>
+          <p class="book-process-card-desc">Pick a convenient date and time slot that fits your schedule perfectly.</p>
+          <div class="book-process-arrow desktop-only">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="book-process-card">
+          <div class="book-process-number">3</div>
+          <div class="book-process-icon">
+            <i class="fas fa-hospital-user"></i>
+          </div>
+          <h3 class="book-process-card-title">Visit Clinic</h3>
+          <p class="book-process-card-desc">Come to our Ashford clinic for your expert consultation with our friendly team.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       STATS BAR
+       ============================================ -->
+  <section class="book-stats-section">
+    <div class="book-stats-shimmer"></div>
+    <div class="section-container">
+      <div class="book-stats-grid">
+
+        <div class="book-stat-item">
+          <div class="book-stat-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="book-stat-content">
+            <span class="book-stat-number">30+</span>
+            <span class="book-stat-label">Years Experience</span>
+          </div>
+        </div>
+
+        <div class="book-stat-item">
+          <div class="book-stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="book-stat-content">
+            <span class="book-stat-number">10,000+</span>
+            <span class="book-stat-label">Patients Helped</span>
+          </div>
+        </div>
+
+        <div class="book-stat-item">
+          <div class="book-stat-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="book-stat-content">
+            <span class="book-stat-number">GPhC</span>
+            <span class="book-stat-label">Registered</span>
+          </div>
+        </div>
+
+        <div class="book-stat-item">
+          <div class="book-stat-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="book-stat-content">
+            <span class="book-stat-number">4.7</span>
+            <span class="book-stat-label">Average Rating</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PRIORITY SERVICES SECTION
+       ============================================ -->
+  <section class="book-services-section">
+    <div class="section-container">
+
+      <div class="book-services-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">PRIORITY SERVICES</span>
+        </div>
+        <h2 class="book-services-title">Most Popular Services</h2>
+        <div class="book-services-divider"></div>
+      </div>
+
+      <div class="book-services-grid">
+
+        <!-- Weight Loss -->
+        <div class="book-service-card-featured">
+          <div class="book-service-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop" alt="Weight loss success" class="book-service-image" />
+            <div class="book-service-badge-popular">POPULAR</div>
+          </div>
+          <div class="book-service-content">
+            <div class="book-service-icon-floating">
+              <i class="fas fa-weight-scale"></i>
+            </div>
+            <h3 class="book-service-title">Weight Loss Programme</h3>
+            <p class="book-service-desc">Personalised weight management with GLP-1 treatments and ongoing pharmacist support.</p>
+            <div class="book-service-price-row">
+              <span class="book-service-price">£125</span>
+              <span class="book-service-price-label">/ month starting price</span>
+            </div>
+            <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">
+              Book Consultation
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Travel Health -->
+        <div class="book-service-card-featured">
+          <div class="book-service-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop" alt="Travel adventure" class="book-service-image" />
+          </div>
+          <div class="book-service-content">
+            <div class="book-service-icon-floating">
+              <i class="fas fa-plane-departure"></i>
+            </div>
+            <h3 class="book-service-title">Travel Health Clinic</h3>
+            <p class="book-service-desc">Expert destination advice, vaccinations, and malaria prevention for safe travel.</p>
+            <div class="book-service-price-row">
+              <span class="book-service-price">£10</span>
+              <span class="book-service-price-label">consultation fee</span>
+            </div>
+            <div class="book-service-refund-badge">Refundable with 2+ vaccines</div>
+            <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">
+              Book Consultation
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ear Wax Removal -->
+        <div class="book-service-card-featured">
+          <div class="book-service-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?w=600&h=400&fit=crop" alt="Happy senior patient" class="book-service-image" />
+            <div class="book-service-badge-popular">POPULAR</div>
+          </div>
+          <div class="book-service-content">
+            <div class="book-service-icon-floating">
+              <i class="fas fa-ear-listen"></i>
+            </div>
+            <h3 class="book-service-title">Ear Wax Removal</h3>
+            <p class="book-service-desc">Professional microsuction ear cleaning by experienced healthcare professionals.</p>
+            <div class="book-service-price-row">
+              <span class="book-service-price">£20</span>
+              <span class="book-service-price-label">/ per ear</span>
+            </div>
+            <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">
+              Book Consultation
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ADDITIONAL SERVICES SECTION
+       ============================================ -->
+  <section class="book-services-additional-section">
+    <div class="section-container">
+
+      <div class="book-services-header">
+        <div class="section-badge">
+          <span class="section-badge-text">ESSENTIAL HEALTHCARE</span>
+        </div>
+        <h2 class="book-services-title">Everyday Health Services</h2>
+      </div>
+
+      <div class="book-services-additional-grid">
+
+        <!-- Flu Jab -->
+        <div class="book-service-card">
+          <div class="book-service-header-row">
+            <div class="book-service-icon-small">
+              <i class="fas fa-syringe"></i>
+            </div>
+            <div class="book-service-price-badge">£15</div>
+          </div>
+          <h3 class="book-service-title">Flu Vaccination</h3>
+          <p class="book-service-desc">Essential seasonal flu protection for you and your family. Available for both private and NHS patients.</p>
+          <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">
+            Book Flu Jab
+          </button>
+        </div>
+
+        <!-- COVID Booster -->
+        <div class="book-service-card">
+          <div class="book-service-header-row">
+            <div class="book-service-icon-small">
+              <i class="fas fa-shield-virus"></i>
+            </div>
+            <div class="book-service-price-badge">£45</div>
+          </div>
+          <h3 class="book-service-title">COVID Booster</h3>
+          <p class="book-service-desc">Private COVID-19 booster vaccinations for ongoing protection. No NHS eligibility required.</p>
+          <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">
+            Book Booster
+          </button>
+        </div>
+
+        <!-- Private Services -->
+        <div class="book-service-card">
+          <div class="book-service-header-row">
+            <div class="book-service-icon-small">
+              <i class="fas fa-notes-medical"></i>
+            </div>
+            <div class="book-service-price-badge">VARIES</div>
+          </div>
+          <h3 class="book-service-title">Private Services</h3>
+          <p class="book-service-desc">Chickenpox, shingles, Hepatitis B, B12 injections, and general health consultations.</p>
+          <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">
+            Book Service
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       AMELIA BOOKING SECTION
+       ============================================ -->
+  <section class="book-amelia-section" id="booking-widget">
+    <div class="book-amelia-blob-1"></div>
+    <div class="book-amelia-blob-2"></div>
+
+    <div class="section-container">
+      <div class="book-amelia-header">
+        <h2 class="book-amelia-title">Select Your Appointment Time</h2>
+        <p class="book-amelia-description">Choose a convenient time with our Ashford healthcare team</p>
+      </div>
+
+      <div class="book-amelia-container">
+        <!-- Placeholder for Amelia Widget -->
+        <div class="book-amelia-placeholder">
+          <i class="fas fa-calendar-alt"></i>
+          <h3>Amelia Booking Widget Loads Here</h3>
+          <p>The Amelia shortcode will be inserted in this container during WordPress integration.</p>
+        </div>
+      </div>
+
+      <div class="book-amelia-footer">
+        <p>Can't find a suitable time? Call us on <a href="tel:01784255222">01784 255 222</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TESTIMONIALS SECTION
+       ============================================ -->
+  <section class="book-testimonials-section">
+    <div class="section-container">
+
+      <div class="book-testimonials-header">
+        <h2 class="book-testimonials-title">What Our Patients Say</h2>
+        <div class="book-testimonials-divider"></div>
+      </div>
+
+      <div class="book-testimonials-grid">
+
+        <!-- Testimonial 1 -->
+        <div class="book-testimonial-card">
+          <div class="star-row">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="book-testimonial-quote">"Very efficient service. I phoned the evening before in a panic thinking we were too late for our holiday vaccinations. We got an appointment for the following day... Excellent advice given. Would highly recommend."</p>
+          <div class="book-testimonial-author">
+            <div class="book-testimonial-avatar">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Kathryn H." />
+            </div>
+            <div class="book-testimonial-info">
+              <span class="book-testimonial-name">Kathryn H.</span>
+              <span class="book-testimonial-service">Travel Health Patient</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="book-testimonial-card">
+          <div class="star-row">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="book-testimonial-quote">"I travel 40 miles every month to see the team for my weight loss consultations – they're that good. Would never go anywhere else. The support has been incredible."</p>
+          <div class="book-testimonial-author">
+            <div class="book-testimonial-avatar">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Sarah M." />
+            </div>
+            <div class="book-testimonial-info">
+              <span class="book-testimonial-name">Sarah M.</span>
+              <span class="book-testimonial-service">Weight Loss Patient</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="book-testimonial-card">
+          <div class="star-row">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="book-testimonial-quote">"The staff were just amazing... professional, courteous and helpful... If I could give them more than five stars I would... they truly take customer service to a whole new level."</p>
+          <div class="book-testimonial-author">
+            <div class="book-testimonial-avatar">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Tom W." />
+            </div>
+            <div class="book-testimonial-info">
+              <span class="book-testimonial-name">Tom W.</span>
+              <span class="book-testimonial-service">Pharmacy Patient</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FAQ SECTION
+       ============================================ -->
+  <section class="book-faq-section">
+    <div class="section-container">
+
+      <div class="book-faq-header">
+        <div class="section-badge">
+          <span class="section-badge-text">EVERYTHING YOU NEED TO KNOW</span>
+        </div>
+        <h2 class="book-faq-title">Common Questions</h2>
+        <p class="book-faq-description">Clear answers about our services, location, and team to help you book with confidence.</p>
+      </div>
+
+      <div class="book-faq-list">
+
+        <div class="book-faq-item">
+          <button class="book-faq-btn" onclick="toggleFAQ(this)">
+            <div class="book-faq-left">
+              <span class="book-faq-number">01</span>
+              <span class="book-faq-question">Is there free parking at your Ashford clinic?</span>
+            </div>
+            <div class="book-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="book-faq-answer">
+            <p>Yes, absolutely. We have free parking available directly outside our clinic. Our location is easily accessible from all parts of Ashford and Surrey, making your visit stress-free and convenient.</p>
+          </div>
+        </div>
+
+        <div class="book-faq-item">
+          <button class="book-faq-btn" onclick="toggleFAQ(this)">
+            <div class="book-faq-left">
+              <span class="book-faq-number">02</span>
+              <span class="book-faq-question">How quickly can I start the weight loss programme?</span>
+            </div>
+            <div class="book-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="book-faq-answer">
+            <p>You can often start the same day as your consultation. Because we have our own prescriber, we don't have waiting lists. If the treatment is suitable for you, we can issue your prescription and medication immediately during your appointment.</p>
+          </div>
+        </div>
+
+        <div class="book-faq-item">
+          <button class="book-faq-btn" onclick="toggleFAQ(this)">
+            <div class="book-faq-left">
+              <span class="book-faq-number">03</span>
+              <span class="book-faq-question">Who will I be seeing for my consultation?</span>
+            </div>
+            <div class="book-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="book-faq-answer">
+            <p>You will see Dilip Modhvadia or one of our expert clinical team members. Dilip is a GPhC Registered Pharmacist with over 30 years of experience serving the Ashford community. You'll see the same friendly face for your follow-ups, ensuring continuity of care.</p>
+          </div>
+        </div>
+
+        <div class="book-faq-item">
+          <button class="book-faq-btn" onclick="toggleFAQ(this)">
+            <div class="book-faq-left">
+              <span class="book-faq-number">04</span>
+              <span class="book-faq-question">Do I need to book travel vaccinations in advance?</span>
+            </div>
+            <div class="book-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="book-faq-answer">
+            <p>Ideally, yes. We recommend booking 6-8 weeks before you travel to allow time for any vaccine courses to be completed. However, we can often accommodate last-minute appointments for urgent travel needs. We hold most vaccines in stock, including Yellow Fever.</p>
+          </div>
+        </div>
+
+        <div class="book-faq-item">
+          <button class="book-faq-btn" onclick="toggleFAQ(this)">
+            <div class="book-faq-left">
+              <span class="book-faq-number">05</span>
+              <span class="book-faq-question">Why do so many Ashford patients choose you?</span>
+            </div>
+            <div class="book-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="book-faq-answer">
+            <p>We combine clinical expertise with genuine warmth. Plus, we're a local independent pharmacy that has been part of the Ashford community for decades—we truly care about your health outcomes. Our patients appreciate the personal care you can't get from large chains.</p>
+          </div>
+        </div>
+
+        <div class="book-faq-item">
+          <button class="book-faq-btn" onclick="toggleFAQ(this)">
+            <div class="book-faq-left">
+              <span class="book-faq-number">06</span>
+              <span class="book-faq-question">Do I need a referral from my GP?</span>
+            </div>
+            <div class="book-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="book-faq-answer">
+            <p>No referral is needed. You can book directly with us for any of our services, including weight loss, travel vaccinations, and ear wax removal. We handle all the clinical assessments in-house during your consultation.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FINAL CTA SECTION
+       ============================================ -->
+  <section class="book-cta-section">
+    <div class="book-cta-bg-dots"></div>
+    <div class="book-cta-bg-blobs"></div>
+
+    <div class="section-container">
+      <div class="book-cta-content">
+        <h2 class="book-cta-title">Need Help Booking?</h2>
+        <p class="book-cta-description">Our friendly Ashford team is here to answer your questions</p>
+
+        <div class="book-cta-buttons">
+          <a href="tel:01784255222" class="cta-button book-cta-phone">
+            <i class="fas fa-phone"></i>
+            01784 255 222
+          </a>
+          <div class="book-cta-hours">
+            <i class="fas fa-clock"></i>
+            <span>Mon-Fri: 9am-6pm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

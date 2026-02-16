@@ -1,0 +1,213 @@
+<?php
+/**
+ * Template Name: Travel Brazil
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <section class="brazil-hero-section">
+    <div class="brazil-hero-overlay"></div>
+    <div class="brazil-hero-dots"></div>
+    <div class="section-container">
+      <div class="brazil-hero-grid">
+        <div class="brazil-hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"><span></span><span></span></span>
+            <span class="hero-badge-text">BRAZIL TRAVEL HEALTH</span>
+          </div>
+          <h1 class="hero-title" style="color: white;">
+            Travel Vaccinations for<br />
+            <span class="gradient-text" style="background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Brazil</span>
+          </h1>
+          <p class="brazil-hero-description">
+            Expert advice and vaccinations for your Brazil trip. Yellow Fever, Dengue, and more. Get protected with Ashford's specialists.
+          </p>
+          <div class="brazil-hero-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta brazil-hero-btn-primary">Book Consultation <i class="fas fa-arrow-right"></i></a>
+            <a href="tel:01784255222" class="cta-button secondary-cta brazil-hero-btn-secondary"><i class="fas fa-phone"></i> Call 01784 255 222</a>
+          </div>
+        </div>
+        <div class="brazil-hero-visual"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brazil-stats-section">
+    <div class="brazil-stats-shimmer"></div>
+    <div class="section-container">
+      <div class="brazil-stats-grid">
+        <div class="brazil-stat-item">
+          <div class="brazil-stat-icon"><i class="fas fa-syringe"></i></div>
+          <div class="brazil-stat-content"><p class="brazil-stat-number">5-7</p><p class="brazil-stat-label">Vaccines Recommended</p></div>
+        </div>
+        <div class="brazil-stat-item">
+          <div class="brazil-stat-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="brazil-stat-content"><p class="brazil-stat-number">6-8</p><p class="brazil-stat-label">Weeks Before Travel</p></div>
+        </div>
+        <div class="brazil-stat-item">
+          <div class="brazil-stat-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="brazil-stat-content"><p class="brazil-stat-number">Full</p><p class="brazil-stat-label">Protection Available</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brazil-vaccines-section">
+    <div class="section-container">
+      <div class="brazil-vaccines-header">
+        <h2 class="brazil-vaccines-title">Protect yourself in Brazil</h2>
+        <div class="brazil-vaccines-divider"></div>
+        <p class="brazil-vaccines-description">These vaccinations are recommended for most travellers to Brazil</p>
+      </div>
+      <div class="brazil-vaccines-grid">
+        <div class="brazil-vaccine-card">
+          <div class="brazil-vaccine-icon"><i class="fas fa-shield-virus"></i></div>
+          <div class="brazil-vaccine-content">
+            <div class="brazil-vaccine-head"><h3 class="brazil-vaccine-name">Yellow Fever</h3><span class="brazil-badge-purple">Essential</span></div>
+            <p class="brazil-vaccine-short">Mosquito-borne virus</p>
+            <p class="brazil-vaccine-desc">Recommended for most travellers. We are an official Yellow Fever Centre.</p>
+          </div>
+        </div>
+        <div class="brazil-vaccine-card">
+          <div class="brazil-vaccine-icon"><i class="fas fa-virus"></i></div>
+          <div class="brazil-vaccine-content">
+            <div class="brazil-vaccine-head"><h3 class="brazil-vaccine-name">Hepatitis A</h3><span class="brazil-badge-purple">Essential</span></div>
+            <p class="brazil-vaccine-short">Food & water safety</p>
+            <p class="brazil-vaccine-desc">Spread through contaminated food and water. Recommended for all travellers.</p>
+          </div>
+        </div>
+        <div class="brazil-vaccine-card">
+          <div class="brazil-vaccine-icon"><i class="fas fa-bacteria"></i></div>
+          <div class="brazil-vaccine-content">
+            <div class="brazil-vaccine-head"><h3 class="brazil-vaccine-name">Typhoid</h3><span class="brazil-badge-purple">Essential</span></div>
+            <p class="brazil-vaccine-short">Food & water safety</p>
+            <p class="brazil-vaccine-desc">Recommended for most travellers, especially if visiting rural areas.</p>
+          </div>
+        </div>
+        <div class="brazil-vaccine-card">
+          <div class="brazil-vaccine-icon"><i class="fas fa-syringe"></i></div>
+          <div class="brazil-vaccine-content">
+            <div class="brazil-vaccine-head"><h3 class="brazil-vaccine-name">Tetanus</h3><span class="brazil-badge-purple">Essential</span></div>
+            <p class="brazil-vaccine-short">Routine booster</p>
+            <p class="brazil-vaccine-desc">Ensure your routine UK schedule is up to date. A booster may be needed.</p>
+          </div>
+        </div>
+        <div class="brazil-vaccine-card">
+          <div class="brazil-vaccine-icon"><i class="fas fa-dog"></i></div>
+          <div class="brazil-vaccine-content">
+            <div class="brazil-vaccine-head"><h3 class="brazil-vaccine-name">Rabies</h3><span class="brazil-badge-gray">Recommended</span></div>
+            <p class="brazil-vaccine-short">Animal contact risk</p>
+            <p class="brazil-vaccine-desc">High risk in Brazil. Recommended for those working with animals or in remote areas.</p>
+          </div>
+        </div>
+        <div class="brazil-vaccine-card">
+          <div class="brazil-vaccine-icon"><i class="fas fa-notes-medical"></i></div>
+          <div class="brazil-vaccine-content">
+            <div class="brazil-vaccine-head"><h3 class="brazil-vaccine-name">Hepatitis B</h3><span class="brazil-badge-gray">Consider</span></div>
+            <p class="brazil-vaccine-short">Blood/fluid contact</p>
+            <p class="brazil-vaccine-desc">Consider for longer stays or if you might need medical treatment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brazil-malaria-section">
+    <div class="section-container">
+      <div class="brazil-malaria-layout">
+        <div class="brazil-malaria-visual">
+          <div class="brazil-malaria-image-card">
+            <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&h=1000&fit=crop" alt="Brazil Landscape" class="brazil-malaria-image" />
+            <div class="brazil-malaria-overlay"></div>
+            <div class="brazil-malaria-badge">
+              <div class="brazil-malaria-badge-icon"><i class="fas fa-shield-virus"></i></div>
+              <span class="brazil-malaria-badge-text">Expert Advice</span>
+            </div>
+          </div>
+        </div>
+        <div class="brazil-malaria-content">
+          <div class="section-badge">
+            <span class="pulse-dot"><span></span><span></span></span>
+            <span class="section-badge-text">MOSQUITO RISKS</span>
+          </div>
+          <h2 class="brazil-malaria-title">Malaria & Dengue in Brazil</h2>
+          <p class="brazil-malaria-intro">Malaria risk is high in the Amazon basin. Dengue fever is a risk nationwide. Zika and Chikungunya are also present.</p>
+          <div class="brazil-malaria-info-grid">
+            <div class="brazil-malaria-item">
+              <div class="brazil-malaria-item-icon high-risk"><i class="fas fa-exclamation-triangle"></i></div>
+              <div class="brazil-malaria-item-text"><h4>Amazon Basin</h4><p>High risk of malaria. Antimalarials are usually recommended.</p></div>
+            </div>
+            <div class="brazil-malaria-item">
+              <div class="brazil-malaria-item-icon low-risk"><i class="fas fa-check-circle"></i></div>
+              <div class="brazil-malaria-item-text"><h4>Cities & Coast</h4><p>Rio, São Paulo, and most coastal cities have low malaria risk, but Dengue is present.</p></div>
+            </div>
+          </div>
+          <div class="brazil-malaria-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta">Check Your Risk <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brazil-health-section">
+    <div class="section-container">
+      <div class="brazil-health-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">HEALTH ADVICE</span>
+        </div>
+        <h2 class="brazil-health-title">Stay healthy in Brazil</h2>
+        <p class="brazil-health-subtitle">Essential tips for a safe trip</p>
+      </div>
+      <div class="brazil-health-grid">
+        <div class="brazil-health-card-visual">
+          <div class="brazil-health-bg"><img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=600&h=800&fit=crop" alt="Water safety" /><div class="brazil-health-overlay"></div></div>
+          <div class="brazil-health-content">
+            <div class="brazil-health-icon-wrapper"><i class="fas fa-glass-water"></i></div>
+            <h3 class="brazil-health-card-title">Food & Water</h3>
+            <p class="brazil-health-card-desc">Drink bottled water only. Avoid ice. Eat freshly cooked food.</p>
+          </div>
+        </div>
+        <div class="brazil-health-card-visual">
+          <div class="brazil-health-bg"><img src="https://images.unsplash.com/photo-1533619043865-1c2e2f32ff5f?w=600&h=800&fit=crop" alt="Sun safety" /><div class="brazil-health-overlay"></div></div>
+          <div class="brazil-health-content">
+            <div class="brazil-health-icon-wrapper"><i class="fas fa-sun"></i></div>
+            <h3 class="brazil-health-card-title">Sun Safety</h3>
+            <p class="brazil-health-card-desc">Tropical sun is strong. High SPF, hat, and sunglasses are essential.</p>
+          </div>
+        </div>
+        <div class="brazil-health-card-visual">
+          <div class="brazil-health-bg"><img src="https://images.unsplash.com/photo-1551817958-29d0660f98de?w=600&h=800&fit=crop" alt="Insect protection" /><div class="brazil-health-overlay"></div></div>
+          <div class="brazil-health-content">
+            <div class="brazil-health-icon-wrapper"><i class="fas fa-mosquito"></i></div>
+            <h3 class="brazil-health-card-title">Insects</h3>
+            <p class="brazil-health-card-desc">Use 50% DEET repellent. Wear long sleeves/trousers at dawn and dusk.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brazil-cta-section">
+    <div class="brazil-cta-glow-1"></div><div class="brazil-cta-glow-2"></div><div class="brazil-cta-dots"></div>
+    <div class="section-container">
+      <div class="brazil-cta-content">
+        <h2 class="brazil-cta-title">Ready for Brazil?</h2>
+        <p class="brazil-cta-description">Book your travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.</p>
+        <div class="brazil-cta-actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta brazil-cta-button-white">Book Consultation <i class="fas fa-arrow-right"></i></a>
+          <a href="tel:01784255222" class="cta-button secondary-cta brazil-cta-button-outlined"><i class="fas fa-phone"></i> Call 01784 255 222</a>
+        </div>
+        <div class="brazil-cta-checks">
+          <div class="brazil-cta-check"><i class="fas fa-plane-departure"></i><span>Travel Ready</span></div>
+          <div class="brazil-cta-check"><i class="fas fa-user-doctor"></i><span>Expert Advice</span></div>
+          <div class="brazil-cta-check"><i class="fas fa-shield-virus"></i><span>All Vaccines</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

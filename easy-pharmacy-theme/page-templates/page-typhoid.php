@@ -1,0 +1,439 @@
+<?php
+/**
+ * Template Name: Typhoid Vaccination
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <!-- ============================================
+       BREADCRUMB
+       ============================================ -->
+  <div class="typhoid-breadcrumb">
+    <div class="section-container">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="travel-health.html">Travel Health</a>
+      <span class="separator">/</span>
+      <span class="current">Typhoid Vaccination</span>
+    </div>
+  </div>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="typhoid-hero-section">
+    <div class="typhoid-hero-overlay"></div>
+    <div class="typhoid-hero-dots"></div>
+
+    <div class="section-container">
+      <div class="typhoid-hero-content">
+        <div class="typhoid-hero-line"></div>
+        <span class="typhoid-hero-label">TRAVEL HEALTH PROTECTION</span>
+
+        <h1 class="typhoid-hero-title">Typhoid Vaccination<br>Service in Ashford</h1>
+
+        <p class="typhoid-hero-description">
+          Protect yourself against typhoid fever with our expert travel health service. Available as a single injection or oral capsules.
+        </p>
+
+        <div class="typhoid-hero-actions">
+          <a href="book-travel-clinic.html" class="cta-button typhoid-btn-primary">
+            Book Typhoid Vaccination
+          </a>
+          <a href="tel:01784255222" class="cta-button typhoid-btn-secondary">
+            Call 01784 255 222
+          </a>
+        </div>
+
+        <div class="typhoid-hero-badges">
+          <div class="typhoid-hero-badge">Injection or Oral</div>
+          <div class="typhoid-hero-badge">3 Years Protection</div>
+          <div class="typhoid-hero-badge">Same Day Appointments</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PROTECTION SECTION
+       ============================================ -->
+  <section class="typhoid-protect-section">
+    <div class="section-container">
+
+      <div class="typhoid-protect-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">ESSENTIAL PROTECTION</span>
+        </div>
+        <h2 class="typhoid-protect-title">Safe & Effective Typhoid Prevention</h2>
+        <p class="typhoid-protect-desc">Choose the vaccination method that suits you best</p>
+      </div>
+
+      <div class="typhoid-protect-grid">
+
+        <!-- Left: Image -->
+        <div class="typhoid-protect-image-wrapper">
+          <div class="typhoid-protect-image-card">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=1000&fit=crop" alt="Travel health consultation" class="typhoid-protect-image" />
+            <div class="typhoid-protect-name-tag">
+              <span class="name">Expert Advice</span>
+              <span class="role">Travel Health Team</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="typhoid-protect-content">
+          <div class="typhoid-protect-badge-box">
+            <i class="fas fa-shield-virus"></i>
+            <span>Recommended for High-Risk Areas</span>
+          </div>
+
+          <h3 class="typhoid-protect-subtitle">Two Ways to Protect Yourself</h3>
+          <p class="typhoid-protect-text">
+            Typhoid fever is a serious bacterial infection spread through contaminated food and water. We offer both the single-dose injection and the oral capsule course, giving you flexibility in how you get protected.
+          </p>
+
+          <ul class="typhoid-protect-features">
+            <li class="typhoid-protect-feature">
+              <div class="icon"><i class="fas fa-syringe"></i></div>
+              <div class="text">
+                <strong>Injection (Typhim Vi)</strong>
+                <p>A single dose injection suitable for adults and children over 2 years. Provides protection for up to 3 years.</p>
+              </div>
+            </li>
+            <li class="typhoid-protect-feature">
+              <div class="icon"><i class="fas fa-pills"></i></div>
+              <div class="text">
+                <strong>Oral Capsules (Vivotif)</strong>
+                <p>A course of 3 capsules taken over 5 days. Suitable for adults and children over 6 years who prefer not to have an injection.</p>
+              </div>
+            </li>
+            <li class="typhoid-protect-feature">
+              <div class="icon"><i class="fas fa-clock"></i></div>
+              <div class="text">
+                <strong>Lasts for 3 Years</strong>
+                <p>Both methods provide effective protection for 3 years. A booster is recommended if you continue to travel to risk areas.</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="typhoid-protect-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta">Book Appointment</a>
+            <a href="tel:01784255222" class="cta-button secondary-cta">Call 01784 255 222</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       STATS BAR
+       ============================================ -->
+  <section class="typhoid-stats-section">
+    <div class="section-container">
+      <div class="typhoid-stats-bar">
+
+        <div class="typhoid-stat-item">
+          <div class="icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="content">
+            <span class="number">70-80%</span>
+            <span class="label">Effective Protection</span>
+          </div>
+        </div>
+
+        <div class="typhoid-stat-divider"></div>
+
+        <div class="typhoid-stat-item">
+          <div class="icon"><i class="fas fa-calendar-days"></i></div>
+          <div class="content">
+            <span class="number">3 Years</span>
+            <span class="label">Protection Duration</span>
+          </div>
+        </div>
+
+        <div class="typhoid-stat-divider"></div>
+
+        <div class="typhoid-stat-item">
+          <div class="icon"><i class="fas fa-hourglass-start"></i></div>
+          <div class="content">
+            <span class="number">14 Days</span>
+            <span class="label">Before Travel</span>
+          </div>
+        </div>
+
+        <div class="typhoid-stat-divider"></div>
+
+        <div class="typhoid-stat-item">
+          <div class="icon"><i class="fas fa-user-check"></i></div>
+          <div class="content">
+            <span class="number">2+ Years</span>
+            <span class="label">Suitable Age</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT TYPHOID
+       ============================================ -->
+  <section class="typhoid-about-section">
+    <div class="section-container">
+
+      <div class="typhoid-about-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">ABOUT THE DISEASE</span>
+        </div>
+        <h2 class="typhoid-about-title">What is Typhoid Fever?</h2>
+        <p class="typhoid-about-desc">A bacterial infection that can be serious if not treated</p>
+      </div>
+
+      <div class="typhoid-about-content-grid">
+
+        <!-- Left: Lifestyle Image -->
+        <div class="typhoid-about-image-wrapper">
+          <div class="typhoid-about-image-card">
+            <img src="https://images.unsplash.com/photo-1533630762679-992524b7758c?w=800&h=1000&fit=crop" alt="Street food market in Asia" />
+          </div>
+        </div>
+
+        <!-- Right: Info Cards -->
+        <div class="typhoid-about-cards-grid">
+
+          <div class="typhoid-info-card">
+            <div class="icon"><i class="fas fa-bacteria"></i></div>
+            <h3>Bacterial Infection</h3>
+            <p>Caused by Salmonella Typhi bacteria. It is highly contagious and spreads through contaminated food and water.</p>
+          </div>
+
+          <div class="typhoid-info-card">
+            <div class="icon"><i class="fas fa-glass-water"></i></div>
+            <h3>Transmission</h3>
+            <p>Spread by eating food or drinking water contaminated with the faeces of an infected person. Poor sanitation is a major risk factor.</p>
+          </div>
+
+          <div class="typhoid-info-card">
+            <div class="icon"><i class="fas fa-head-side-virus"></i></div>
+            <h3>Symptoms</h3>
+            <p>High temperature, headache, stomach pain, and constipation or diarrhea. Without treatment, it can lead to serious complications.</p>
+          </div>
+
+          <div class="typhoid-info-card">
+            <div class="icon"><i class="fas fa-globe-asia"></i></div>
+            <h3>High Risk Areas</h3>
+            <p>Common in parts of the world with poor sanitation and limited access to clean water, including South Asia, Africa, and South America.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHO NEEDS VACCINATION
+       ============================================ -->
+  <section class="typhoid-needs-section">
+    <div class="section-container">
+
+      <div class="typhoid-needs-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">WHO NEEDS VACCINATION</span>
+        </div>
+        <h2 class="typhoid-needs-title">Should you get vaccinated?</h2>
+        <p class="typhoid-needs-desc">Vaccination is recommended for travellers visiting high-risk areas</p>
+      </div>
+
+      <div class="typhoid-needs-grid">
+
+        <!-- Highly Recommended -->
+        <div class="typhoid-needs-card recommended">
+          <div class="card-badge">HIGHLY RECOMMENDED</div>
+          <h3>Travellers to Risk Areas</h3>
+          <p>Vaccination is strongly recommended if you are travelling to parts of the world where typhoid is common.</p>
+          <ul class="check-list">
+            <li><i class="fas fa-check"></i> Visiting India, Pakistan, or Bangladesh</li>
+            <li><i class="fas fa-check"></i> Travelling to Southeast Asia, Africa, or South America</li>
+            <li><i class="fas fa-check"></i> Staying with local people</li>
+          </ul>
+        </div>
+
+        <!-- Consider -->
+        <div class="typhoid-needs-card consider">
+          <div class="card-badge">CONSIDER</div>
+          <h3>Extended Stays</h3>
+          <p>Even in lower risk areas, certain travel styles increase your risk of exposure to contaminated food or water.</p>
+          <ul class="check-list">
+            <li><i class="fas fa-check"></i> Frequent or long-term travellers</li>
+            <li><i class="fas fa-check"></i> Visiting areas with poor sanitation</li>
+            <li><i class="fas fa-check"></i> Adventurous eaters (street food)</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       RISK ZONES
+       ============================================ -->
+  <section class="typhoid-risk-section">
+    <div class="section-container">
+
+      <div class="typhoid-risk-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">GLOBAL RISK ZONES</span>
+        </div>
+        <h2 class="typhoid-risk-title">Where is Typhoid found?</h2>
+        <p class="typhoid-risk-desc">Typhoid is found worldwide but is most common in areas with poor sanitation and hygiene.</p>
+      </div>
+
+      <div class="typhoid-risk-grid">
+
+        <!-- Asia Column -->
+        <div class="typhoid-risk-column">
+          <div class="typhoid-destination-image">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200&h=600&fit=crop" alt="India travel" />
+          </div>
+          <div class="typhoid-risk-card asia">
+            <div class="card-icon"><i class="fas fa-globe-asia"></i></div>
+            <h3>Indian Subcontinent</h3>
+            <p class="desc">The highest risk area for typhoid fever. Vaccination is essential for almost all travellers to this region.</p>
+            <div class="country-list">
+              <span>India</span><span>Pakistan</span><span>Bangladesh</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Africa/SA Column -->
+        <div class="typhoid-risk-column">
+          <div class="typhoid-destination-image">
+            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200&h=600&fit=crop" alt="Africa travel" />
+          </div>
+          <div class="typhoid-risk-card africa">
+            <div class="card-icon"><i class="fas fa-globe-africa"></i></div>
+            <h3>Africa & South America</h3>
+            <p class="desc">Widespread risk across many countries. Recommended for most travellers, especially those visiting rural areas.</p>
+            <div class="country-list">
+              <span>Kenya</span><span>Nigeria</span><span>Peru</span><span>Brazil</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="typhoid-risk-footer">
+        <div class="info-badge">
+          <i class="fas fa-user-doctor"></i>
+          Unsure about your destination? We'll check the latest risk data for you.
+        </div>
+        <div class="actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta">Book Consultation</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FAQ SECTION
+       ============================================ -->
+  <section class="typhoid-faq-section">
+    <div class="section-container">
+
+      <div class="typhoid-faq-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">TYPHOID FAQs</span>
+        </div>
+        <h2 class="typhoid-faq-title">Common Questions</h2>
+      </div>
+
+      <div class="typhoid-faq-list">
+
+        <div class="typhoid-faq-item">
+          <button class="typhoid-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">01</span>
+            <span class="text">Which is better: injection or capsules?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="typhoid-faq-content">
+            <p>Both are equally effective. The injection is a single dose and easier for many people. The capsules avoid a needle but require taking 3 doses over 5 days on an empty stomach. We can help you decide which is best for you.</p>
+          </div>
+        </div>
+
+        <div class="typhoid-faq-item">
+          <button class="typhoid-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">02</span>
+            <span class="text">How long before travel should I get vaccinated?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="typhoid-faq-content">
+            <p>Ideally, you should complete your vaccination at least 1-2 weeks before you travel to allow your body to build immunity. However, it's never too late to seek advice, so please contact us even if you are travelling sooner.</p>
+          </div>
+        </div>
+
+        <div class="typhoid-faq-item">
+          <button class="typhoid-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">03</span>
+            <span class="text">Are there any side effects?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="typhoid-faq-content">
+            <p>Side effects are usually mild. For the injection, you might have a sore arm or mild fever. For capsules, some people experience mild stomach upset. Serious side effects are very rare.</p>
+          </div>
+        </div>
+
+        <div class="typhoid-faq-item">
+          <button class="typhoid-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">04</span>
+            <span class="text">Can I get Typhoid and Hepatitis A together?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="typhoid-faq-content">
+            <p>Yes, there is a combined vaccine available for Hepatitis A and Typhoid. This is often a convenient option if you need protection against both diseases. We can discuss this during your appointment.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FINAL CTA
+       ============================================ -->
+  <section class="typhoid-cta-section">
+    <div class="typhoid-cta-bg"></div>
+    <div class="section-container">
+      <div class="typhoid-cta-content">
+
+        <div class="typhoid-cta-badges">
+          <span class="badge">Same Day Appointments</span>
+          <span class="badge">Expert Advice</span>
+          <span class="badge">Oral or Injection</span>
+        </div>
+
+        <h2 class="typhoid-cta-title">Protect your health while travelling</h2>
+        <p class="typhoid-cta-desc">Book your typhoid vaccination with our expert team today. Quick, convenient, and professional service in Ashford.</p>
+
+        <div class="typhoid-cta-actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta white-btn">Book Vaccination</a>
+          <a href="tel:01784255222" class="cta-button secondary-cta outline-btn">Call 01784 255 222</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

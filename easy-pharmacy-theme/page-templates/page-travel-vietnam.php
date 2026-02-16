@@ -1,0 +1,213 @@
+<?php
+/**
+ * Template Name: Travel Vietnam
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <section class="vietnam-hero-section">
+    <div class="vietnam-hero-overlay"></div>
+    <div class="vietnam-hero-dots"></div>
+    <div class="section-container">
+      <div class="vietnam-hero-grid">
+        <div class="vietnam-hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"><span></span><span></span></span>
+            <span class="hero-badge-text">VIETNAM TRAVEL HEALTH</span>
+          </div>
+          <h1 class="hero-title" style="color: white;">
+            Travel Vaccinations for<br />
+            <span class="gradient-text" style="background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Vietnam</span>
+          </h1>
+          <p class="vietnam-hero-description">
+            Expert advice and vaccinations for your Vietnam adventure. Get protected before you travel with Ashford's trusted travel health specialists.
+          </p>
+          <div class="vietnam-hero-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta vietnam-hero-btn-primary">Book Consultation <i class="fas fa-arrow-right"></i></a>
+            <a href="tel:01784255222" class="cta-button secondary-cta vietnam-hero-btn-secondary"><i class="fas fa-phone"></i> Call 01784 255 222</a>
+          </div>
+        </div>
+        <div class="vietnam-hero-visual"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vietnam-stats-section">
+    <div class="vietnam-stats-shimmer"></div>
+    <div class="section-container">
+      <div class="vietnam-stats-grid">
+        <div class="vietnam-stat-item">
+          <div class="vietnam-stat-icon"><i class="fas fa-syringe"></i></div>
+          <div class="vietnam-stat-content"><p class="vietnam-stat-number">5-7</p><p class="vietnam-stat-label">Vaccines Recommended</p></div>
+        </div>
+        <div class="vietnam-stat-item">
+          <div class="vietnam-stat-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="vietnam-stat-content"><p class="vietnam-stat-number">6-8</p><p class="vietnam-stat-label">Weeks Before Travel</p></div>
+        </div>
+        <div class="vietnam-stat-item">
+          <div class="vietnam-stat-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="vietnam-stat-content"><p class="vietnam-stat-number">Full</p><p class="vietnam-stat-label">Protection Available</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vietnam-vaccines-section">
+    <div class="section-container">
+      <div class="vietnam-vaccines-header">
+        <h2 class="vietnam-vaccines-title">Protect yourself in Vietnam</h2>
+        <div class="vietnam-vaccines-divider"></div>
+        <p class="vietnam-vaccines-description">These vaccinations are recommended for most travellers to Vietnam</p>
+      </div>
+      <div class="vietnam-vaccines-grid">
+        <div class="vietnam-vaccine-card">
+          <div class="vietnam-vaccine-icon"><i class="fas fa-virus"></i></div>
+          <div class="vietnam-vaccine-content">
+            <div class="vietnam-vaccine-head"><h3 class="vietnam-vaccine-name">Hepatitis A</h3><span class="vietnam-badge-purple">Essential</span></div>
+            <p class="vietnam-vaccine-short">Food & water safety</p>
+            <p class="vietnam-vaccine-desc">Spread through contaminated food and water. Recommended for all travellers.</p>
+          </div>
+        </div>
+        <div class="vietnam-vaccine-card">
+          <div class="vietnam-vaccine-icon"><i class="fas fa-bacteria"></i></div>
+          <div class="vietnam-vaccine-content">
+            <div class="vietnam-vaccine-head"><h3 class="vietnam-vaccine-name">Typhoid</h3><span class="vietnam-badge-purple">Essential</span></div>
+            <p class="vietnam-vaccine-short">Food & water safety</p>
+            <p class="vietnam-vaccine-desc">Recommended for most travellers, especially if visiting rural areas.</p>
+          </div>
+        </div>
+        <div class="vietnam-vaccine-card">
+          <div class="vietnam-vaccine-icon"><i class="fas fa-syringe"></i></div>
+          <div class="vietnam-vaccine-content">
+            <div class="vietnam-vaccine-head"><h3 class="vietnam-vaccine-name">Tetanus</h3><span class="vietnam-badge-purple">Essential</span></div>
+            <p class="vietnam-vaccine-short">Routine booster</p>
+            <p class="vietnam-vaccine-desc">Ensure your routine UK schedule is up to date. A booster may be needed.</p>
+          </div>
+        </div>
+        <div class="vietnam-vaccine-card">
+          <div class="vietnam-vaccine-icon"><i class="fas fa-notes-medical"></i></div>
+          <div class="vietnam-vaccine-content">
+            <div class="vietnam-vaccine-head"><h3 class="vietnam-vaccine-name">Hepatitis B</h3><span class="vietnam-badge-gray">Consider</span></div>
+            <p class="vietnam-vaccine-short">Blood/fluid contact</p>
+            <p class="vietnam-vaccine-desc">Consider for longer stays or if you might need medical treatment.</p>
+          </div>
+        </div>
+        <div class="vietnam-vaccine-card">
+          <div class="vietnam-vaccine-icon"><i class="fas fa-dog"></i></div>
+          <div class="vietnam-vaccine-content">
+            <div class="vietnam-vaccine-head"><h3 class="vietnam-vaccine-name">Rabies</h3><span class="vietnam-badge-gray">Recommended</span></div>
+            <p class="vietnam-vaccine-short">Animal contact risk</p>
+            <p class="vietnam-vaccine-desc">High risk in Vietnam. Recommended for those working with animals or in remote areas.</p>
+          </div>
+        </div>
+        <div class="vietnam-vaccine-card">
+          <div class="vietnam-vaccine-icon"><i class="fas fa-mosquito"></i></div>
+          <div class="vietnam-vaccine-content">
+            <div class="vietnam-vaccine-head"><h3 class="vietnam-vaccine-name">Japanese Encephalitis</h3><span class="vietnam-badge-gray">Rural Areas</span></div>
+            <p class="vietnam-vaccine-short">Mosquito-borne virus</p>
+            <p class="vietnam-vaccine-desc">Recommended for longer stays in rural areas, especially near rice paddies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vietnam-malaria-section">
+    <div class="section-container">
+      <div class="vietnam-malaria-layout">
+        <div class="vietnam-malaria-visual">
+          <div class="vietnam-malaria-image-card">
+            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=800&h=1000&fit=crop" alt="Vietnam Landscape" class="vietnam-malaria-image" />
+            <div class="vietnam-malaria-overlay"></div>
+            <div class="vietnam-malaria-badge">
+              <div class="vietnam-malaria-badge-icon"><i class="fas fa-shield-virus"></i></div>
+              <span class="vietnam-malaria-badge-text">Expert Advice</span>
+            </div>
+          </div>
+        </div>
+        <div class="vietnam-malaria-content">
+          <div class="section-badge">
+            <span class="pulse-dot"><span></span><span></span></span>
+            <span class="section-badge-text">MOSQUITO RISKS</span>
+          </div>
+          <h2 class="vietnam-malaria-title">Malaria & Dengue in Vietnam</h2>
+          <p class="vietnam-malaria-intro">Malaria risk is low in major cities and coastal resorts but present in rural areas. Dengue fever is a risk nationwide.</p>
+          <div class="vietnam-malaria-info-grid">
+            <div class="vietnam-malaria-item">
+              <div class="vietnam-malaria-item-icon low-risk"><i class="fas fa-check-circle"></i></div>
+              <div class="vietnam-malaria-item-text"><h4>Low Risk Areas</h4><p>Hanoi, Ho Chi Minh City, Da Nang, Hoi An, Nha Trang, and Phu Quoc.</p></div>
+            </div>
+            <div class="vietnam-malaria-item">
+              <div class="vietnam-malaria-item-icon high-risk"><i class="fas fa-exclamation-triangle"></i></div>
+              <div class="vietnam-malaria-item-text"><h4>Risk Areas</h4><p>Rural highland areas. Antimalarials may be recommended.</p></div>
+            </div>
+          </div>
+          <div class="vietnam-malaria-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta">Check Your Risk <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vietnam-health-section">
+    <div class="section-container">
+      <div class="vietnam-health-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">HEALTH ADVICE</span>
+        </div>
+        <h2 class="vietnam-health-title">Stay healthy in Vietnam</h2>
+        <p class="vietnam-health-subtitle">Essential tips for a safe trip</p>
+      </div>
+      <div class="vietnam-health-grid">
+        <div class="vietnam-health-card-visual">
+          <div class="vietnam-health-bg"><img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=600&h=800&fit=crop" alt="Street food safety" /><div class="vietnam-health-overlay"></div></div>
+          <div class="vietnam-health-content">
+            <div class="vietnam-health-icon-wrapper"><i class="fas fa-utensils"></i></div>
+            <h3 class="vietnam-health-card-title">Street Food</h3>
+            <p class="vietnam-health-card-desc">Eat at busy stalls where food is cooked fresh and hot. Avoid raw veg.</p>
+          </div>
+        </div>
+        <div class="vietnam-health-card-visual">
+          <div class="vietnam-health-bg"><img src="https://images.unsplash.com/photo-1551817958-29d0660f98de?w=600&h=800&fit=crop" alt="Insect protection" /><div class="vietnam-health-overlay"></div></div>
+          <div class="vietnam-health-content">
+            <div class="vietnam-health-icon-wrapper"><i class="fas fa-mosquito"></i></div>
+            <h3 class="vietnam-health-card-title">Insects</h3>
+            <p class="vietnam-health-card-desc">Use 50% DEET repellent. Dengue is common, so bite avoidance is key.</p>
+          </div>
+        </div>
+        <div class="vietnam-health-card-visual">
+          <div class="vietnam-health-bg"><img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=600&h=800&fit=crop" alt="Sun safety" /><div class="vietnam-health-overlay"></div></div>
+          <div class="vietnam-health-content">
+            <div class="vietnam-health-icon-wrapper"><i class="fas fa-sun"></i></div>
+            <h3 class="vietnam-health-card-title">Sun Safety</h3>
+            <p class="vietnam-health-card-desc">Strong sun and humidity. Stay hydrated and use high SPF.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vietnam-cta-section">
+    <div class="vietnam-cta-glow-1"></div><div class="vietnam-cta-glow-2"></div><div class="vietnam-cta-dots"></div>
+    <div class="section-container">
+      <div class="vietnam-cta-content">
+        <h2 class="vietnam-cta-title">Ready for Vietnam?</h2>
+        <p class="vietnam-cta-description">Book your travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.</p>
+        <div class="vietnam-cta-actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta vietnam-cta-button-white">Book Consultation <i class="fas fa-arrow-right"></i></a>
+          <a href="tel:01784255222" class="cta-button secondary-cta vietnam-cta-button-outlined"><i class="fas fa-phone"></i> Call 01784 255 222</a>
+        </div>
+        <div class="vietnam-cta-checks">
+          <div class="vietnam-cta-check"><i class="fas fa-plane-departure"></i><span>Travel Ready</span></div>
+          <div class="vietnam-cta-check"><i class="fas fa-user-doctor"></i><span>Expert Advice</span></div>
+          <div class="vietnam-cta-check"><i class="fas fa-shield-virus"></i><span>All Vaccines</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

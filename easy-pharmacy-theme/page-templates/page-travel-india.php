@@ -1,0 +1,401 @@
+<?php
+/**
+ * Template Name: Travel India
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="india-hero-section">
+    <div class="india-hero-overlay"></div>
+    <div class="india-hero-dots"></div>
+
+    <div class="section-container">
+      <div class="india-hero-grid">
+
+        <!-- Left: Content -->
+        <div class="india-hero-content">
+          <!-- Location badge -->
+          <div class="hero-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="hero-badge-text">INDIA TRAVEL HEALTH</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero-title" style="color: white;">
+            Travel Vaccinations for<br />
+            <span class="gradient-text" style="background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">India</span>
+          </h1>
+
+          <p class="india-hero-description">
+            Expert advice and vaccinations for your India journey. Get protected before you travel with Ashford's trusted travel health specialists.
+          </p>
+
+          <div class="india-hero-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta india-hero-btn-primary">
+              Book India Consultation
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="tel:01784255222" class="cta-button secondary-cta india-hero-btn-secondary">
+              <i class="fas fa-phone"></i>
+              Call 01784 255 222
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Visual (Handled by background image) -->
+        <div class="india-hero-visual"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       QUICK INFO BAR
+       ============================================ -->
+  <section class="india-stats-section">
+    <div class="india-stats-shimmer"></div>
+    <div class="section-container">
+      <div class="india-stats-grid">
+
+        <div class="india-stat-item">
+          <div class="india-stat-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <div class="india-stat-content">
+            <p class="india-stat-number">6-8</p>
+            <p class="india-stat-label">Vaccines Recommended</p>
+          </div>
+        </div>
+
+        <div class="india-stat-item">
+          <div class="india-stat-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="india-stat-content">
+            <p class="india-stat-number">6-8</p>
+            <p class="india-stat-label">Weeks Before Travel</p>
+          </div>
+        </div>
+
+        <div class="india-stat-item">
+          <div class="india-stat-icon">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <div class="india-stat-content">
+            <p class="india-stat-number">Full</p>
+            <p class="india-stat-label">Protection Available</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       RECOMMENDED VACCINATIONS
+       ============================================ -->
+  <section class="india-vaccines-section">
+    <div class="section-container">
+
+      <div class="india-vaccines-header">
+        <h2 class="india-vaccines-title">Protect yourself in India</h2>
+        <div class="india-vaccines-divider"></div>
+        <p class="india-vaccines-description">These vaccinations are recommended for most travellers to India</p>
+      </div>
+
+      <div class="india-vaccines-grid">
+
+        <!-- Card 1: Hepatitis A -->
+        <div class="india-vaccine-card">
+          <div class="india-vaccine-icon">
+            <i class="fas fa-virus"></i>
+          </div>
+          <div class="india-vaccine-content">
+            <div class="india-vaccine-head">
+              <h3 class="india-vaccine-name">Hepatitis A</h3>
+              <span class="india-badge-purple">Essential</span>
+            </div>
+            <p class="india-vaccine-short">Protection against contaminated food/water</p>
+            <p class="india-vaccine-desc">Hepatitis A is highly prevalent in India. This vaccine is essential for all travellers, regardless of accommodation type.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Typhoid -->
+        <div class="india-vaccine-card">
+          <div class="india-vaccine-icon">
+            <i class="fas fa-bacteria"></i>
+          </div>
+          <div class="india-vaccine-content">
+            <div class="india-vaccine-head">
+              <h3 class="india-vaccine-name">Typhoid</h3>
+              <span class="india-badge-purple">Essential</span>
+            </div>
+            <p class="india-vaccine-short">Critical for food safety</p>
+            <p class="india-vaccine-desc">Typhoid is common throughout India. Essential for all travellers, especially those visiting rural areas or staying for extended periods.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Hepatitis B -->
+        <div class="india-vaccine-card">
+          <div class="india-vaccine-icon">
+            <i class="fas fa-notes-medical"></i>
+          </div>
+          <div class="india-vaccine-content">
+            <div class="india-vaccine-head">
+              <h3 class="india-vaccine-name">Hepatitis B</h3>
+              <span class="india-badge-gray">Recommended</span>
+            </div>
+            <p class="india-vaccine-short">For longer stays or medical procedures</p>
+            <p class="india-vaccine-desc">Recommended for long-term travellers, those who may need medical treatment, or anyone engaging in activities with blood contact risk.</p>
+          </div>
+        </div>
+
+        <!-- Card 4: Rabies -->
+        <div class="india-vaccine-card">
+          <div class="india-vaccine-icon">
+            <i class="fas fa-dog"></i>
+          </div>
+          <div class="india-vaccine-content">
+            <div class="india-vaccine-head">
+              <h3 class="india-vaccine-name">Rabies</h3>
+              <span class="india-badge-gray">Recommended</span>
+            </div>
+            <p class="india-vaccine-short">High risk of animal contact</p>
+            <p class="india-vaccine-desc">India has a high rabies risk. Strongly recommended for all travellers, especially those visiting rural areas or staying for extended periods.</p>
+          </div>
+        </div>
+
+        <!-- Card 5: Japanese Encephalitis -->
+        <div class="india-vaccine-card">
+          <div class="india-vaccine-icon">
+            <i class="fas fa-mosquito"></i>
+          </div>
+          <div class="india-vaccine-content">
+            <div class="india-vaccine-head">
+              <h3 class="india-vaccine-name">Japanese Encephalitis</h3>
+              <span class="india-badge-gray">Rural Areas</span>
+            </div>
+            <p class="india-vaccine-short">For rural travel and extended stays</p>
+            <p class="india-vaccine-desc">Recommended if you're spending time in rural areas, especially during monsoon season (June-September), or staying for more than a month.</p>
+          </div>
+        </div>
+
+        <!-- Card 6: Tetanus -->
+        <div class="india-vaccine-card">
+          <div class="india-vaccine-icon">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <div class="india-vaccine-content">
+            <div class="india-vaccine-head">
+              <h3 class="india-vaccine-name">Tetanus/Diphtheria/Polio</h3>
+              <span class="india-badge-purple">Essential</span>
+            </div>
+            <p class="india-vaccine-short">Routine vaccination check</p>
+            <p class="india-vaccine-desc">Ensure your routine UK vaccinations are up to date. A booster may be needed if it's been more than 10 years since your last dose.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       MALARIA INFORMATION (Visual Upgrade)
+       ============================================ -->
+  <section class="india-malaria-section">
+    <div class="section-container">
+      <div class="india-malaria-layout">
+
+        <!-- Left: Visual -->
+        <div class="india-malaria-visual">
+          <div class="india-malaria-image-card">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&h=1000&fit=crop" alt="Traveller in India" class="india-malaria-image" />
+            <div class="india-malaria-overlay"></div>
+            <div class="india-malaria-badge">
+              <div class="india-malaria-badge-icon">
+                <i class="fas fa-shield-virus"></i>
+              </div>
+              <span class="india-malaria-badge-text">Expert Advice</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="india-malaria-content">
+          <div class="section-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="section-badge-text">MOSQUITO-BORNE DISEASES</span>
+          </div>
+
+          <h2 class="india-malaria-title">Malaria & Dengue Risks in India</h2>
+          <p class="india-malaria-intro">
+            Malaria risk varies across India. Dengue fever is also a significant risk nationwide. Our pharmacists will check your specific itinerary and advise on prevention.
+          </p>
+
+          <div class="india-malaria-info-grid">
+
+            <!-- Low Risk Item -->
+            <div class="india-malaria-item">
+              <div class="india-malaria-item-icon low-risk">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="india-malaria-item-text">
+                <h4>Low Malaria Risk</h4>
+                <p>Areas above 2000m (Himachal Pradesh, Jammu & Kashmir, Sikkim) are generally low risk.</p>
+              </div>
+            </div>
+
+            <!-- High Risk Item -->
+            <div class="india-malaria-item">
+              <div class="india-malaria-item-icon high-risk">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="india-malaria-item-text">
+                <h4>Risk Areas</h4>
+                <p>Risk exists in most other areas, including Goa and Kerala. Antimalarials are often recommended.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="india-malaria-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta">
+              Check Your Risk
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       HEALTH ADVICE (Visual Upgrade)
+       ============================================ -->
+  <section class="india-health-section">
+    <div class="section-container">
+
+      <div class="india-health-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">HEALTH ADVICE</span>
+        </div>
+        <h2 class="india-health-title">Stay healthy in India</h2>
+        <p class="india-health-subtitle">Essential tips for a safe journey</p>
+      </div>
+
+      <div class="india-health-grid">
+
+        <!-- Card 1: Food & Water -->
+        <div class="india-health-card-visual">
+          <div class="india-health-bg">
+            <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&h=800&fit=crop" alt="Indian street food safety" />
+            <div class="india-health-overlay"></div>
+          </div>
+          <div class="india-health-content">
+            <div class="india-health-icon-wrapper">
+              <i class="fas fa-glass-water"></i>
+            </div>
+            <h3 class="india-health-card-title">Food & Water</h3>
+            <p class="india-health-card-desc">Drink only bottled/boiled water. Avoid ice. Eat freshly cooked food and peel your own fruit.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Insect Protection -->
+        <div class="india-health-card-visual">
+          <div class="india-health-bg">
+            <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?w=600&h=800&fit=crop" alt="Mosquito protection" />
+            <div class="india-health-overlay"></div>
+          </div>
+          <div class="india-health-content">
+            <div class="india-health-icon-wrapper">
+              <i class="fas fa-mosquito"></i>
+            </div>
+            <h3 class="india-health-card-title">Insect Protection</h3>
+            <p class="india-health-card-desc">Use 50% DEET repellent day and night to protect against Malaria and Dengue.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Sun & Heat -->
+        <div class="india-health-card-visual">
+          <div class="india-health-bg">
+            <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=600&h=800&fit=crop" alt="India sun safety" />
+            <div class="india-health-overlay"></div>
+          </div>
+          <div class="india-health-content">
+            <div class="india-health-icon-wrapper">
+              <i class="fas fa-sun"></i>
+            </div>
+            <h3 class="india-health-card-title">Sun & Heat</h3>
+            <p class="india-health-card-desc">Stay hydrated and use high SPF. Heat exhaustion is a risk, especially in summer months.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FINAL CTA
+       ============================================ -->
+  <section class="india-cta-section">
+    <div class="india-cta-glow-1"></div>
+    <div class="india-cta-glow-2"></div>
+    <div class="india-cta-dots"></div>
+
+    <div class="section-container">
+      <div class="india-cta-content">
+
+        <h2 class="india-cta-title">Ready for your India adventure?</h2>
+        <p class="india-cta-description">
+          Book your India travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.
+        </p>
+
+        <div class="india-cta-actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta india-cta-button-white">
+            Book India Consultation
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:01784255222" class="cta-button secondary-cta india-cta-button-outlined">
+            <i class="fas fa-phone"></i>
+            Call 01784 255 222
+          </a>
+        </div>
+
+        <div class="india-cta-checks">
+          <div class="india-cta-check">
+            <i class="fas fa-plane-departure"></i>
+            <span>Travel Ready</span>
+          </div>
+          <div class="india-cta-check">
+            <i class="fas fa-user-doctor"></i>
+            <span>Expert India Advice</span>
+          </div>
+          <div class="india-cta-check">
+            <i class="fas fa-shield-virus"></i>
+            <span>All Vaccines Available</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

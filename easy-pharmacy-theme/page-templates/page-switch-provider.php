@@ -1,0 +1,572 @@
+<?php
+/**
+ * Template Name: Switch Provider
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <!-- Hero Section -->
+  <section class="switch-hero-section">
+    <div class="switch-hero-gradient"></div>
+    <div class="switch-hero-dots"></div>
+    <div class="switch-hero-glow-1"></div>
+    <div class="switch-hero-glow-2"></div>
+
+    <div class="section-container">
+      <div class="switch-hero-grid">
+
+        <!-- Left Content -->
+        <div class="switch-hero-content">
+          <div class="section-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="section-badge-text">SWITCH TO EASY PHARMACY</span>
+          </div>
+
+          <h1 class="switch-hero-title">Frustrated with Your Current Weight Loss Provider?</h1>
+
+          <p class="switch-hero-subtitle">
+            Switch to Easy Pharmacy for expert care, transparent pricing, and ongoing pharmacist support. No waiting lists.
+          </p>
+
+          <div class="switch-hero-actions">
+            <a href="#comparison" class="cta-button primary-cta">
+              Start Your Switch Today
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="tel:01784255222" class="cta-button secondary-cta">
+              <i class="fas fa-phone"></i>
+              Call 01784 255 222
+            </a>
+          </div>
+
+          <!-- Trust Indicators (Integrated) -->
+          <div class="switch-hero-trust-row">
+            <div class="switch-hero-trust-pill">
+              <i class="fas fa-bolt"></i>
+              <span>Zero gap in treatment</span>
+            </div>
+            <div class="switch-hero-trust-pill">
+              <i class="fas fa-calendar-check"></i>
+              <span>Same Day Appointments</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Image -->
+        <div class="switch-hero-visual">
+          <div class="switch-hero-image-card">
+            <div class="switch-hero-image-inner">
+              <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=800&h=1000&fit=crop" alt="Happy patient consulting with pharmacist" class="switch-hero-image" />
+              <div class="switch-hero-overlay"></div>
+            </div>
+
+            <!-- Floating Testimonial -->
+            <div class="switch-hero-testimonial-card">
+              <div class="switch-hero-quote-icon">
+                <i class="fas fa-quote-left"></i>
+              </div>
+              <p class="switch-hero-quote-text">
+                "I travel 40 miles every month to see Dilip... he's that good. Would never go anywhere else."
+              </p>
+              <div class="switch-hero-quote-footer">
+                <div class="switch-hero-author">
+                  <span class="switch-hero-name">Ashford Patient</span>
+                  <div class="star-row">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+                <div class="switch-hero-result-badge">
+                  <span>4 Stone Lost</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar (Premium Glassmorphism) -->
+  <section class="stats-section switch-stats-overlap">
+    <div class="section-container">
+      <div class="stats-bar">
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-weight-scale"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">2.5st</span>
+            <span class="stat-label">Avg Loss</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">Hundreds</span>
+            <span class="stat-label">Patients Switched</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">4.9/5</span>
+            <span class="stat-label">Google Rating</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-location-dot"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">Ashford</span>
+            <span class="stat-label">Based Care</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section class="switch-comparison-section" id="comparison">
+    <div class="section-container">
+
+      <div class="switch-comparison-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">THE EASY PHARMACY DIFFERENCE</span>
+        </div>
+        <h2 class="switch-comparison-title">Compare Your Options</h2>
+        <p class="switch-comparison-description">
+          See the difference face-to-face care makes for your weight loss journey
+        </p>
+      </div>
+
+      <div class="switch-comparison-grid">
+
+        <!-- National Providers Card (De-emphasized) -->
+        <div class="switch-comparison-card switch-comparison-card-national">
+          <div class="switch-comparison-card-label-badge switch-comparison-card-label-badge-gray">
+            ONLINE ONLY
+          </div>
+          <h3 class="switch-comparison-card-title">National Providers</h3>
+          <p class="switch-comparison-card-subtitle">Remote-only weight loss services</p>
+
+          <div class="switch-comparison-card-price">
+            <span class="switch-comparison-card-price-amount">£250+/month</span>
+            <span class="switch-comparison-card-price-note">Plus hidden consultation fees</span>
+          </div>
+
+          <ul class="switch-comparison-card-features">
+            <li class="switch-comparison-card-feature">
+              <span class="switch-comparison-card-bullet"></span>
+              <span>Video calls only - no face-to-face</span>
+            </li>
+            <li class="switch-comparison-card-feature">
+              <span class="switch-comparison-card-bullet"></span>
+              <span>Automated responses, long wait times</span>
+            </li>
+            <li class="switch-comparison-card-feature">
+              <span class="switch-comparison-card-bullet"></span>
+              <span>Different clinician each time</span>
+            </li>
+            <li class="switch-comparison-card-feature">
+              <span class="switch-comparison-card-bullet"></span>
+              <span>Impersonal, transactional service</span>
+            </li>
+          </ul>
+
+          <p class="switch-comparison-card-footer">What you're leaving behind</p>
+        </div>
+
+        <!-- Easy Pharmacy Card (Highlighted) -->
+        <div class="switch-comparison-card switch-comparison-card-easy">
+          <div class="switch-comparison-card-recommended">RECOMMENDED</div>
+          <div class="switch-comparison-card-label-badge switch-comparison-card-label-badge-purple">
+            ASHFORD BASED
+          </div>
+          <h3 class="switch-comparison-card-title">Easy Pharmacy</h3>
+          <p class="switch-comparison-card-subtitle">Face-to-face weight loss care</p>
+
+          <div class="switch-comparison-card-price">
+            <span class="switch-comparison-card-price-amount">From £125/month</span>
+            <span class="switch-comparison-card-price-note">All-inclusive with face-to-face support</span>
+          </div>
+
+          <ul class="switch-comparison-card-features">
+            <li class="switch-comparison-card-feature">
+              <i class="fas fa-check switch-comparison-card-check"></i>
+              <span>Monthly face-to-face appointments in Ashford</span>
+            </li>
+            <li class="switch-comparison-card-feature">
+              <i class="fas fa-check switch-comparison-card-check"></i>
+              <span>Same pharmacist who knows your name</span>
+            </li>
+            <li class="switch-comparison-card-feature">
+              <i class="fas fa-check switch-comparison-card-check"></i>
+              <span>Same-day prescription approval</span>
+            </li>
+            <li class="switch-comparison-card-feature">
+              <i class="fas fa-check switch-comparison-card-check"></i>
+              <span>Transparent, all-inclusive pricing</span>
+            </li>
+          </ul>
+
+          <a href="book-appointment.html" class="cta-button primary-cta switch-comparison-card-cta">
+            Make The Switch
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="switch-benefits-section">
+    <div class="section-container">
+
+      <div class="switch-benefits-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">YOUR BENEFITS</span>
+        </div>
+        <h2 class="switch-benefits-title">What You Gain</h2>
+        <p class="switch-benefits-description">The Easy Pharmacy advantage</p>
+      </div>
+
+      <div class="switch-benefits-grid">
+
+        <!-- Left: Image -->
+        <div class="switch-benefits-image-wrapper">
+          <div class="switch-benefits-image-card">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=700&fit=crop" alt="Easy Pharmacy Ashford" />
+          </div>
+          <div class="switch-benefits-image-badge">
+            <p class="switch-benefits-image-badge-title">Better Value</p>
+            <p class="switch-benefits-image-badge-text">Competitive pricing</p>
+          </div>
+        </div>
+
+        <!-- Right: Benefits -->
+        <div class="switch-benefits-content">
+
+          <div class="switch-benefits-card">
+            <div class="switch-benefits-card-icon">
+              <i class="fas fa-user-doctor"></i>
+            </div>
+            <div class="switch-benefits-card-text">
+              <h3 class="switch-benefits-card-title">Personal relationship with your pharmacist</h3>
+              <p class="switch-benefits-card-description">See the same expert every month who knows your name and your journey</p>
+            </div>
+          </div>
+
+          <div class="switch-benefits-card">
+            <div class="switch-benefits-card-icon">
+              <i class="fas fa-location-dot"></i>
+            </div>
+            <div class="switch-benefits-card-text">
+              <h3 class="switch-benefits-card-title">Convenient Ashford location with parking</h3>
+              <p class="switch-benefits-card-description">Easy access with free parking right outside our pharmacy</p>
+            </div>
+          </div>
+
+          <div class="switch-benefits-card">
+            <div class="switch-benefits-card-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="switch-benefits-card-text">
+              <h3 class="switch-benefits-card-title">30+ years of trusted local expertise</h3>
+              <p class="switch-benefits-card-description">Decades of experience serving the Ashford community</p>
+            </div>
+          </div>
+
+          <div class="switch-benefits-card">
+            <div class="switch-benefits-card-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="switch-benefits-card-text">
+              <h3 class="switch-benefits-card-title">Support an Ashford independent business</h3>
+              <p class="switch-benefits-card-description">Keep your money local and support your community</p>
+            </div>
+          </div>
+
+          <a href="team.html" class="cta-button secondary-cta">
+            Learn More
+            <i class="fas fa-arrow-right"></i>
+          </a>
+
+          <p class="switch-benefits-footer">
+            Join hundreds of Ashford patients who've already made the switch
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How to Switch Process -->
+  <section class="switch-process-section">
+    <div class="section-container">
+
+      <div class="switch-process-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">HOW TO SWITCH</span>
+        </div>
+        <h2 class="switch-process-title">Make The Switch in 2026</h2>
+        <p class="switch-process-description">
+          Start the new year with better support and better value. Switch to Easy Pharmacy in under 5 minutes.
+        </p>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="switch-process-step switch-process-step-left">
+        <div class="switch-process-step-content">
+          <div class="switch-process-step-number">1</div>
+          <div class="switch-process-step-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h3 class="switch-process-step-title">Book Consultation</h3>
+          <p class="switch-process-step-description">
+            Visit us in Ashford or book a phone consultation. Tell us about your current treatment.
+          </p>
+        </div>
+        <div class="switch-process-step-image">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=500&fit=crop" alt="Book consultation" />
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="switch-process-step switch-process-step-right">
+        <div class="switch-process-step-image">
+          <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&h=500&fit=crop" alt="We handle everything" />
+          <div class="switch-process-step-floating-badge">
+            <span>No Hassle</span>
+          </div>
+        </div>
+        <div class="switch-process-step-content">
+          <div class="switch-process-step-number">2</div>
+          <div class="switch-process-step-icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3 class="switch-process-step-title">We Handle Everything</h3>
+          <p class="switch-process-step-description">
+            No prescription transfer needed. Our team manages the entire switch seamlessly.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="switch-process-step switch-process-step-left">
+        <div class="switch-process-step-content">
+          <div class="switch-process-step-number">3</div>
+          <div class="switch-process-step-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="switch-process-step-title">Zero Treatment Gap</h3>
+          <p class="switch-process-step-description">
+            Continue your programme without interruption. Same-day approval available.
+          </p>
+        </div>
+        <div class="switch-process-step-image">
+          <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&h=500&fit=crop" alt="Zero treatment gap" />
+          <div class="switch-process-step-floating-badge">
+            <span>Same Day</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="switch-process-step switch-process-step-right">
+        <div class="switch-process-step-image">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=500&fit=crop" alt="Face-to-face support" />
+        </div>
+        <div class="switch-process-step-content">
+          <div class="switch-process-step-number">4</div>
+          <div class="switch-process-step-icon">
+            <i class="fas fa-user-doctor"></i>
+          </div>
+          <h3 class="switch-process-step-title">Face-to-Face Support</h3>
+          <p class="switch-process-step-description">
+            Ongoing monthly check-ins at our Ashford pharmacy with expert guidance.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Detailed Comparison -->
+  <section class="switch-comparison-detail-section">
+    <div class="section-container">
+
+      <div class="switch-comparison-detail-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">THE COMPARISON</span>
+        </div>
+        <h2 class="switch-comparison-detail-title">National Providers vs Easy Pharmacy</h2>
+        <p class="switch-comparison-detail-description">
+          See why hundreds of patients have made the switch to local, expert care
+        </p>
+      </div>
+
+      <div class="switch-comparison-detail-grid">
+
+        <!-- Left: National Providers (De-emphasized) -->
+        <div class="switch-comparison-detail-column switch-comparison-detail-column-national">
+          <h3 class="switch-comparison-detail-column-title">Why Patients Leave National Providers</h3>
+          <p class="switch-comparison-detail-column-subtitle">Common frustrations with online-only services</p>
+
+          <ul class="switch-comparison-detail-list">
+            <li class="switch-comparison-detail-item">
+              <span class="switch-comparison-detail-bullet"></span>
+              <span>Automated responses, no personal support</span>
+            </li>
+            <li class="switch-comparison-detail-item">
+              <span class="switch-comparison-detail-bullet"></span>
+              <span>Long waiting times for clinician replies</span>
+            </li>
+            <li class="switch-comparison-detail-item">
+              <span class="switch-comparison-detail-bullet"></span>
+              <span>Hidden consultation fees</span>
+            </li>
+            <li class="switch-comparison-detail-item">
+              <span class="switch-comparison-detail-bullet"></span>
+              <span>Impersonal online-only service</span>
+            </li>
+            <li class="switch-comparison-detail-item">
+              <span class="switch-comparison-detail-bullet"></span>
+              <span>Slow delivery times</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Easy Pharmacy (Emphasized) -->
+        <div class="switch-comparison-detail-column switch-comparison-detail-column-easy">
+          <h3 class="switch-comparison-detail-column-title">The Easy Pharmacy Solution</h3>
+          <p class="switch-comparison-detail-column-subtitle">Your local alternative with better value</p>
+
+          <ul class="switch-comparison-detail-list">
+            <li class="switch-comparison-detail-item">
+              <i class="fas fa-check switch-comparison-detail-check"></i>
+              <span>Face-to-face consultations in Ashford</span>
+            </li>
+            <li class="switch-comparison-detail-item">
+              <i class="fas fa-check switch-comparison-detail-check"></i>
+              <span>Same-day responses from our team</span>
+            </li>
+            <li class="switch-comparison-detail-item">
+              <i class="fas fa-check switch-comparison-detail-check"></i>
+              <span>Transparent, all-inclusive pricing</span>
+            </li>
+            <li class="switch-comparison-detail-item">
+              <i class="fas fa-check switch-comparison-detail-check"></i>
+              <span>Personal relationship with your pharmacist</span>
+            </li>
+            <li class="switch-comparison-detail-item">
+              <i class="fas fa-check switch-comparison-detail-check"></i>
+              <span>Fast local service</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="switch-comparison-detail-cta">
+        <a href="book-appointment.html" class="cta-button primary-cta">
+          Make The Switch Today
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="switch-cta-section">
+    <div class="switch-cta-glow-1"></div>
+    <div class="switch-cta-glow-2"></div>
+    <div class="switch-cta-circle"></div>
+    <div class="switch-cta-square"></div>
+    <div class="switch-cta-dots"></div>
+
+    <div class="section-container">
+      <div class="switch-cta-content">
+
+        <h2 class="switch-cta-title">Ready to Make the Switch?</h2>
+        <p class="switch-cta-description">
+          Join hundreds of Ashford patients who've chosen local, expert care over faceless online providers.
+        </p>
+
+        <div class="switch-cta-actions">
+          <a href="book-appointment.html" class="cta-button primary-cta switch-cta-button-white">
+            Start Your Switch Today
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:01784255222" class="cta-button secondary-cta switch-cta-button-outlined">
+            <i class="fas fa-phone"></i>
+            Call 01784 255 222
+          </a>
+        </div>
+
+        <div class="switch-cta-checks">
+          <div class="switch-cta-check">
+            <i class="fas fa-check"></i>
+            <span>No waiting list</span>
+          </div>
+          <div class="switch-cta-check">
+            <i class="fas fa-check"></i>
+            <span>Same-day approval</span>
+          </div>
+          <div class="switch-cta-check">
+            <i class="fas fa-check"></i>
+            <span>Transparent pricing</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

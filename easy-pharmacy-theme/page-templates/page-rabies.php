@@ -1,0 +1,504 @@
+<?php
+/**
+ * Template Name: Rabies Vaccination
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <!-- ============================================
+       BREADCRUMB
+       ============================================ -->
+  <div class="rabies-breadcrumb">
+    <div class="section-container">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <a href="travel-health.html">Travel Health</a>
+      <span class="separator">/</span>
+      <span class="current">Rabies Vaccination</span>
+    </div>
+  </div>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="rabies-hero-section">
+    <div class="rabies-hero-overlay"></div>
+    <div class="rabies-hero-dots"></div>
+
+    <div class="section-container">
+      <div class="rabies-hero-content">
+        <div class="rabies-hero-line"></div>
+        <span class="rabies-hero-label">TRAVEL HEALTH PROTECTION</span>
+
+        <h1 class="rabies-hero-title">Rabies Vaccination<br>Service in Ashford</h1>
+
+        <p class="rabies-hero-description">
+          Protect yourself against rabies with our expert travel health service. Essential for travel to high-risk areas in Asia, Africa, and South America.
+        </p>
+
+        <div class="rabies-hero-actions">
+          <a href="book-travel-clinic.html" class="cta-button rabies-btn-primary">
+            Book Rabies Vaccination
+          </a>
+          <a href="tel:01784255222" class="cta-button rabies-btn-secondary">
+            Call 01784 255 222
+          </a>
+        </div>
+
+        <div class="rabies-hero-badges">
+          <div class="rabies-hero-badge">Full Course Available</div>
+          <div class="rabies-hero-badge">Expert Advice</div>
+          <div class="rabies-hero-badge">Same Day Appointments</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PROTECTION SECTION
+       ============================================ -->
+  <section class="rabies-protect-section">
+    <div class="section-container">
+
+      <div class="rabies-protect-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">ESSENTIAL PROTECTION</span>
+        </div>
+        <h2 class="rabies-protect-title">Understanding Rabies Risk</h2>
+        <p class="rabies-protect-desc">A serious viral infection spread by infected animals</p>
+      </div>
+
+      <div class="rabies-protect-grid">
+
+        <!-- Left: Image -->
+        <div class="rabies-protect-image-wrapper">
+          <div class="rabies-protect-image-card">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&h=1000&fit=crop" alt="Travel health consultation for rabies" class="rabies-protect-image" />
+            <div class="rabies-protect-name-tag">
+              <span class="name">Expert Care</span>
+              <span class="role">Travel Health Team</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="rabies-protect-content">
+          <div class="rabies-protect-badge-box">
+            <i class="fas fa-shield-dog"></i>
+            <span>Recommended for High-Risk Areas</span>
+          </div>
+
+          <h3 class="rabies-protect-subtitle">Why Vaccination is Critical</h3>
+          <p class="rabies-protect-text">
+            Rabies is a viral infection of the brain and nerves. It is almost always fatal once symptoms appear. Vaccination provides vital protection and simplifies treatment if you are bitten or scratched by an animal abroad.
+          </p>
+
+          <ul class="rabies-protect-features">
+            <li class="rabies-protect-feature">
+              <div class="icon"><i class="fas fa-syringe"></i></div>
+              <div class="text">
+                <strong>3 Dose Course</strong>
+                <p>A full course consists of 3 injections, usually given on Day 0, Day 7, and Day 21 or 28. Accelerated schedules are available.</p>
+              </div>
+            </li>
+            <li class="rabies-protect-feature">
+              <div class="icon"><i class="fas fa-user-shield"></i></div>
+              <div class="text">
+                <strong>Simplifies Treatment</strong>
+                <p>If you are vaccinated and bitten, you will need fewer doses of treatment and won't need the difficult-to-find immunoglobulin.</p>
+              </div>
+            </li>
+            <li class="rabies-protect-feature">
+              <div class="icon"><i class="fas fa-clock"></i></div>
+              <div class="text">
+                <strong>Long-lasting Protection</strong>
+                <p>The primary course provides long-term protection. Boosters may be recommended for those at continued high risk.</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="rabies-protect-actions">
+            <a href="book-travel-clinic.html" class="cta-button primary-cta">Book Appointment</a>
+            <a href="tel:01784255222" class="cta-button secondary-cta">Call 01784 255 222</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       STATS BAR
+       ============================================ -->
+  <section class="rabies-stats-section">
+    <div class="section-container">
+      <div class="rabies-stats-bar">
+
+        <div class="rabies-stat-item">
+          <div class="icon"><i class="fas fa-syringe"></i></div>
+          <div class="content">
+            <span class="number">3 Doses</span>
+            <span class="label">Full Course</span>
+          </div>
+        </div>
+
+        <div class="rabies-stat-divider"></div>
+
+        <div class="rabies-stat-item">
+          <div class="icon"><i class="fas fa-skull-crossbones"></i></div>
+          <div class="content">
+            <span class="number">100%</span>
+            <span class="label">Fatal if Untreated</span>
+          </div>
+        </div>
+
+        <div class="rabies-stat-divider"></div>
+
+        <div class="rabies-stat-item">
+          <div class="icon"><i class="fas fa-hourglass-start"></i></div>
+          <div class="content">
+            <span class="number">24 Hours</span>
+            <span class="label">Seek Help if Bitten</span>
+          </div>
+        </div>
+
+        <div class="rabies-stat-divider"></div>
+
+        <div class="rabies-stat-item">
+          <div class="icon"><i class="fas fa-child"></i></div>
+          <div class="content">
+            <span class="number">All Ages</span>
+            <span class="label">Suitable for Kids</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT SECTION
+       ============================================ -->
+  <section class="rabies-about-section">
+    <div class="section-container">
+
+      <div class="rabies-about-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">KNOW THE RISKS</span>
+        </div>
+        <h2 class="rabies-about-title">What is Rabies?</h2>
+        <p class="rabies-about-desc">Understanding transmission and prevention</p>
+      </div>
+
+      <div class="rabies-about-content-grid">
+
+        <!-- Left: Lifestyle Image -->
+        <div class="rabies-about-image-wrapper">
+          <div class="rabies-about-image-card">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&h=1000&fit=crop" alt="Stray dog in travel destination" />
+          </div>
+        </div>
+
+        <!-- Right: Info Cards -->
+        <div class="rabies-about-cards-grid">
+
+          <div class="rabies-info-card">
+            <div class="icon"><i class="fas fa-virus"></i></div>
+            <h3>Viral Infection</h3>
+            <p>Rabies is a viral disease that affects the central nervous system. It is transmitted through the saliva of infected animals.</p>
+          </div>
+
+          <div class="rabies-info-card">
+            <div class="icon"><i class="fas fa-dog"></i></div>
+            <h3>Animal Bites</h3>
+            <p>Most commonly spread by dog bites, but also by bats, monkeys, and cats. Licks on broken skin can also transmit the virus.</p>
+          </div>
+
+          <div class="rabies-info-card">
+            <div class="icon"><i class="fas fa-globe-asia"></i></div>
+            <h3>Global Risk</h3>
+            <p>Found in over 150 countries. High risk in Asia, Africa, and Central/South America. Children are particularly at risk.</p>
+          </div>
+
+          <div class="rabies-info-card">
+            <div class="icon"><i class="fas fa-user-md"></i></div>
+            <h3>Urgent Treatment</h3>
+            <p>If bitten, you must seek medical attention immediately, even if vaccinated. Vaccination buys you time and simplifies treatment.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- NEW: Urgency Callout (Matching Yellow Fever Standard) -->
+      <div class="rabies-about-callout">
+        <div class="badge">CRITICAL WARNING</div>
+        <h3>100% Fatal Once Symptoms Appear</h3>
+        <p>Rabies is almost always fatal once symptoms develop. Vaccination is your best defence. If you are bitten or scratched by an animal abroad, seek medical help immediately, even if you have been vaccinated.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHO NEEDS VACCINATION
+       ============================================ -->
+  <section class="rabies-needs-section">
+    <div class="section-container">
+
+      <div class="rabies-needs-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">WHO NEEDS VACCINATION</span>
+        </div>
+        <h2 class="rabies-needs-title">Should you get vaccinated?</h2>
+        <p class="rabies-needs-desc">Recommended for many travellers to risk areas</p>
+      </div>
+
+      <div class="rabies-needs-grid">
+
+        <!-- Recommended Card -->
+        <div class="rabies-needs-card recommended">
+          <div class="card-badge">HIGHLY RECOMMENDED</div>
+          <h3>Travellers to Risk Areas</h3>
+          <p>Vaccination is strongly recommended for travel to areas where rabies is common, especially if medical care is limited.</p>
+          <ul class="check-list">
+            <li><i class="fas fa-check"></i> Asia, Africa, South America</li>
+            <li><i class="fas fa-check"></i> Remote or rural areas</li>
+            <li><i class="fas fa-check"></i> Long-term travellers</li>
+          </ul>
+        </div>
+
+        <!-- Consider Card -->
+        <div class="rabies-needs-card consider">
+          <div class="card-badge">CONSIDER</div>
+          <h3>Specific Activities</h3>
+          <p>Certain activities increase your risk of coming into contact with infected animals.</p>
+          <ul class="check-list">
+            <li><i class="fas fa-check"></i> Working with animals</li>
+            <li><i class="fas fa-check"></i> Cycling or running</li>
+            <li><i class="fas fa-check"></i> Children (who may not report bites)</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       RISK ZONES
+       ============================================ -->
+  <section class="rabies-risk-section">
+    <div class="section-container">
+
+      <div class="rabies-risk-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">GLOBAL RISK ZONES</span>
+        </div>
+        <h2 class="rabies-risk-title">Where is Rabies found?</h2>
+        <p class="rabies-risk-desc">Rabies is present on all continents except Antarctica, but over 95% of human deaths occur in Asia and Africa.</p>
+      </div>
+
+      <div class="rabies-risk-grid">
+
+        <!-- High Risk Column -->
+        <div class="rabies-risk-column">
+          <div class="rabies-destination-image">
+            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=1200&h=600&fit=crop" alt="Asia travel" />
+          </div>
+          <div class="rabies-risk-card high">
+            <div class="card-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <h3>High Risk Areas</h3>
+            <p class="desc">India has the highest rate of human rabies in the world. Southeast Asia and Africa are also high-risk zones.</p>
+            <div class="country-list">
+              <span>India</span><span>Thailand</span><span>Vietnam</span><span>Kenya</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Moderate Risk Column -->
+        <div class="rabies-risk-column">
+          <div class="rabies-destination-image">
+            <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=1200&h=600&fit=crop" alt="South America travel" />
+          </div>
+          <div class="rabies-risk-card moderate">
+            <div class="card-icon"><i class="fas fa-info-circle"></i></div>
+            <h3>Moderate Risk Areas</h3>
+            <p class="desc">Parts of Central and South America, as well as Eastern Europe, have a risk of rabies, often from bats or stray dogs.</p>
+            <div class="country-list">
+              <span>Brazil</span><span>Peru</span><span>Mexico</span><span>Turkey</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="rabies-risk-footer">
+        <div class="info-badge">
+          <i class="fas fa-user-doctor"></i>
+          Unsure about your destination? We'll check the latest risk data for you.
+        </div>
+        <div class="actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta">Book Consultation</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       VACCINATION DETAILS (New Section)
+       ============================================ -->
+  <section class="rabies-details-section">
+    <div class="section-container">
+
+      <div class="rabies-details-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">VACCINATION DETAILS</span>
+        </div>
+        <h2 class="rabies-details-title">What to expect at your appointment</h2>
+        <p class="rabies-details-desc">Simple, straightforward vaccination process at our Ashford clinic</p>
+      </div>
+
+      <div class="rabies-details-grid">
+
+        <div class="rabies-detail-card">
+          <div class="icon"><i class="fas fa-syringe"></i></div>
+          <h3>3 Dose Course</h3>
+          <p>A full primary course consists of 3 injections. Typically given on Day 0, Day 7, and Day 21 or 28.</p>
+        </div>
+
+        <div class="rabies-detail-card">
+          <div class="icon"><i class="fas fa-forward-fast"></i></div>
+          <h3>Accelerated Course</h3>
+          <p>If you are travelling soon, an accelerated schedule (Day 0, 3, 7) may be possible. Ask us for details.</p>
+        </div>
+
+        <div class="rabies-detail-card">
+          <div class="icon"><i class="fas fa-notes-medical"></i></div>
+          <h3>Mild Side Effects</h3>
+          <p>Usually mild: soreness at injection site, headache, or low-grade fever. Serious side effects are very rare.</p>
+        </div>
+
+        <div class="rabies-detail-card">
+          <div class="icon"><i class="fas fa-shield-halved"></i></div>
+          <h3>Long-term Protection</h3>
+          <p>The primary course provides long-lasting memory. Boosters may be needed for those at continued occupational risk.</p>
+        </div>
+
+        <div class="rabies-detail-card">
+          <div class="icon"><i class="fas fa-child"></i></div>
+          <h3>Suitable for Children</h3>
+          <p>Rabies vaccine can be given to children of all ages. Children are often at higher risk from animal bites.</p>
+        </div>
+
+        <div class="rabies-detail-card">
+          <div class="icon"><i class="fas fa-sterling-sign"></i></div>
+          <h3>Private Vaccination</h3>
+          <p>Not available on the NHS for travel. Private fee includes vaccine and administration by our pharmacist.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FAQ SECTION
+       ============================================ -->
+  <section class="rabies-faq-section">
+    <div class="section-container">
+
+      <div class="rabies-faq-header">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text">RABIES FAQs</span>
+        </div>
+        <h2 class="rabies-faq-title">Common Questions</h2>
+      </div>
+
+      <div class="rabies-faq-list">
+
+        <div class="rabies-faq-item">
+          <button class="rabies-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">01</span>
+            <span class="text">How many doses do I need?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="rabies-faq-content">
+            <p>A full primary course consists of 3 doses. These are typically given on Day 0, Day 7, and Day 21 or 28. Accelerated schedules are available if you are travelling sooner.</p>
+          </div>
+        </div>
+
+        <div class="rabies-faq-item">
+          <button class="rabies-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">02</span>
+            <span class="text">If I'm vaccinated, do I still need treatment if bitten?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="rabies-faq-content">
+            <p>Yes, you must still seek medical attention immediately. However, if you are vaccinated, you will only need 2 booster doses of the vaccine and will NOT need the rabies immunoglobulin (which is often in short supply in developing countries).</p>
+          </div>
+        </div>
+
+        <div class="rabies-faq-item">
+          <button class="rabies-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">03</span>
+            <span class="text">Is rabies always fatal?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="rabies-faq-content">
+            <p>Once symptoms appear, rabies is almost 100% fatal. This is why prevention through vaccination and immediate post-exposure treatment is so critical.</p>
+          </div>
+        </div>
+
+        <div class="rabies-faq-item">
+          <button class="rabies-faq-btn" onclick="toggleFAQ(this)">
+            <span class="num">04</span>
+            <span class="text">Are there any side effects?</span>
+            <i class="fas fa-plus icon"></i>
+          </button>
+          <div class="rabies-faq-content">
+            <p>Side effects are generally mild and may include a sore arm, headache, or mild fever. Serious side effects are very rare.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       FINAL CTA
+       ============================================ -->
+  <section class="rabies-cta-section">
+    <div class="rabies-cta-bg"></div>
+    <div class="section-container">
+      <div class="rabies-cta-content">
+
+        <div class="rabies-cta-badges">
+          <span class="badge">Same Day Appointments</span>
+          <span class="badge">Expert Advice</span>
+          <span class="badge">Full Course Available</span>
+        </div>
+
+        <h2 class="rabies-cta-title">Protect your health while travelling</h2>
+        <p class="rabies-cta-desc">Book your Rabies vaccination with our expert team today. Quick, convenient, and professional service in Ashford.</p>
+
+        <div class="rabies-cta-actions">
+          <a href="book-travel-clinic.html" class="cta-button primary-cta white-btn">Book Vaccination</a>
+          <a href="tel:01784255222" class="cta-button secondary-cta outline-btn">Call 01784 255 222</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<?php get_footer(); ?>

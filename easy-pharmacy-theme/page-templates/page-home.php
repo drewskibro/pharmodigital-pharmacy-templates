@@ -1,0 +1,1267 @@
+<?php
+/**
+ * Template Name: Home
+ *
+ * @package Easy_Pharmacy_Theme
+ */
+
+get_header(); ?>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="hero-section">
+
+    <!-- Decorative background blobs -->
+    <div class="hero-bg-shape-1"></div>
+    <div class="hero-bg-shape-2"></div>
+
+    <div class="section-container">
+      <div class="hero-grid">
+
+        <!-- LEFT: Content Column -->
+        <div class="hero-content">
+
+          <!-- Location badge -->
+          <div class="hero-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="hero-badge-text">Serving Ashford, Chertsey &amp; Surrounds</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero-title">
+            <span class="gradient-text">Lose Weight.</span>
+            <span class="hero-accent-text">Travel Safe.</span>
+            <span class="gradient-text">Live Better.</span>
+          </h1>
+
+          <!-- Description -->
+          <p class="hero-description">
+            Clinically proven weight loss treatments, expert support, discreet delivery. Plus travel health, hair loss treatment, and full pharmacy services across Ashford &amp; Kent.
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero-actions">
+            <a href="weight-loss.html" class="cta-button primary-cta">Start Your Journey</a>
+            <a href="#treatments" class="cta-button secondary-cta">
+              Popular Treatments
+              <i class="fas fa-chevron-down icon-small"></i>
+            </a>
+          </div>
+
+          <!-- Trust indicators -->
+          <ul class="trust-indicators">
+            <li class="trust-item">
+              <i class="fas fa-check-circle"></i>
+              <span>GPhC Registered</span>
+            </li>
+            <li class="trust-item trust-divider">
+              <span class="dot-separator"></span>
+            </li>
+            <li class="trust-item">
+              <i class="fas fa-check-circle"></i>
+              <span>UK Licensed Meds</span>
+            </li>
+            <li class="trust-item trust-divider">
+              <span class="dot-separator"></span>
+            </li>
+            <li class="trust-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Local Ashford Service</span>
+            </li>
+          </ul>
+
+          <!-- Testimonial card -->
+          <div class="hero-testimonial">
+            <div class="quote-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p class="hero-quote">
+              "Thank you so much for your weight loss service. I've tried everything over the years. With your help, I've finally managed to lose 6 stones!"
+            </p>
+            <div class="hero-testimonial-footer">
+              <div class="hero-testimonial-author">
+                <p class="author-name">Ashford Patient</p>
+                <div class="star-row">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <div class="result-badge">
+                <i class="fas fa-weight-scale"></i>
+                <span>6 Stone Lost</span>
+              </div>
+            </div>
+            <div class="hero-testimonial-accent"></div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Visual Column -->
+        <div class="hero-visual">
+
+          <!-- Decorative glow -->
+          <div class="hero-visual-glow"></div>
+
+          <!-- Main image card -->
+          <div class="hero-image-card">
+            <img
+              src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771148599334-0.jpeg"
+              alt="Woman celebrating weight loss success at Easy Pharmacy Ashford"
+            />
+            <div class="hero-overlay"></div>
+            <div class="hero-image-caption">
+              <p class="caption-label">Easy Pharmacy</p>
+              <p class="caption-title">Your Health,<br />Reimagined.</p>
+            </div>
+          </div>
+
+          <!-- Google rating badge -->
+          <div class="rating-badge">
+            <div class="rating-header">
+              <div class="rating-label">
+                <div class="google-icon-wrapper">
+                  <i class="fab fa-google"></i>
+                </div>
+                <span>Google Rating</span>
+              </div>
+              <div class="badge-success">
+                <i class="fas fa-check-circle"></i>
+                <span>Excellent</span>
+              </div>
+            </div>
+            <div class="rating-score">
+              <span class="score-number">4.7</span>
+              <div class="rating-score-detail">
+                <div class="star-row">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-count">Based on 300+ reviews</span>
+              </div>
+            </div>
+            <div class="rating-footer">
+              <div class="rating-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Ashford, UK</span>
+              </div>
+              <a href="reviews.html" class="rating-link">View Reviews</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       STATS BAR v1
+       Full-width, 5 stats, premium glassmorphism style
+       ============================================ -->
+  <section class="stats-section">
+    <div class="section-container">
+      <div class="stats-bar">
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">5,000+</span>
+            <span class="stat-label">Patients Treated</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">4.7</span>
+            <span class="stat-label">Google Rating</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">GPhC</span>
+            <span class="stat-label">Fully Registered</span>
+          </div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-truck-fast"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">Free</span>
+            <span class="stat-label">Discreet Delivery</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ============================================
+       TREATMENTS GRID v1
+       5-card image grid with hover effects
+       ============================================ -->
+  <section class="treatments-section" id="treatments">
+    <div class="section-container">
+
+      <!-- Section header -->
+      <div class="treatments-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">Trusted by thousands in Ashford &amp; Chertsey</span>
+        </div>
+        <h2 class="treatments-title">Our Most Popular Treatments</h2>
+        <p class="treatments-description">Comprehensive healthcare solutions tailored to your needs, delivered discreetly to your door.</p>
+      </div>
+
+      <!-- Card grid -->
+      <div class="treatments-grid">
+
+        <!-- Weight Loss -->
+        <a href="weight-loss.html" class="treatment-card">
+          <div class="treatment-card-inner">
+            <img src="https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769944273995-0.jpeg" alt="Weight loss treatment at Easy Pharmacy" class="treatment-card-image" />
+            <div class="treatment-card-overlay"></div>
+            <div class="treatment-card-hover">
+              <span class="treatment-card-button">View Details</span>
+            </div>
+            <div class="treatment-card-label">
+              <h3 class="treatment-card-title">Weight Loss</h3>
+              <div class="treatment-card-line"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Travel Health -->
+        <a href="travel-health.html" class="treatment-card">
+          <div class="treatment-card-inner">
+            <img src="https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769944274005-1.jpeg" alt="Travel health vaccinations at Easy Pharmacy" class="treatment-card-image" />
+            <div class="treatment-card-overlay"></div>
+            <div class="treatment-card-hover">
+              <span class="treatment-card-button">View Details</span>
+            </div>
+            <div class="treatment-card-label">
+              <h3 class="treatment-card-title">Travel Health</h3>
+              <div class="treatment-card-line"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Ear Wax Removal -->
+        <a href="ear-wax-removal.html" class="treatment-card">
+          <div class="treatment-card-inner">
+            <img src="https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769944517596-0.jpeg" alt="Ear wax removal service at Easy Pharmacy" class="treatment-card-image" />
+            <div class="treatment-card-overlay"></div>
+            <div class="treatment-card-hover">
+              <span class="treatment-card-button">View Details</span>
+            </div>
+            <div class="treatment-card-label">
+              <h3 class="treatment-card-title">Ear Wax Removal</h3>
+              <div class="treatment-card-line"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Hair Loss -->
+        <a href="hair-loss.html" class="treatment-card">
+          <div class="treatment-card-inner">
+            <img src="https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769944274011-2.jpeg" alt="Hair loss treatment at Easy Pharmacy" class="treatment-card-image" />
+            <div class="treatment-card-overlay"></div>
+            <div class="treatment-card-hover">
+              <span class="treatment-card-button">View Details</span>
+            </div>
+            <div class="treatment-card-label">
+              <h3 class="treatment-card-title">Hair Loss</h3>
+              <div class="treatment-card-line"></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Smoking Cessation -->
+        <a href="book-appointment.html" class="treatment-card">
+          <div class="treatment-card-inner">
+            <img src="https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769944583782-0.jpeg" alt="Smoking cessation support at Easy Pharmacy" class="treatment-card-image" />
+            <div class="treatment-card-overlay"></div>
+            <div class="treatment-card-hover">
+              <span class="treatment-card-button">View Details</span>
+            </div>
+            <div class="treatment-card-label">
+              <h3 class="treatment-card-title">Smoking Cessation</h3>
+              <div class="treatment-card-line"></div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+  <!-- ============================================
+       PHARMACIST SECTION v1
+       Two-column with video image, experience badge, credentials
+       ============================================ -->
+  <section class="pharmacist-section" id="about">
+    <div class="section-container">
+      <div class="pharmacist-grid">
+
+        <!-- LEFT: Image Column -->
+        <div class="pharmacist-image-wrapper">
+          <div class="pharmacist-image-glow"></div>
+          <div class="pharmacist-image-card" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+            <img src="https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769942949376-0.png" alt="Dilip Modhvadia - Lead Pharmacist at Easy Pharmacy Ashford" class="pharmacist-image" />
+            <!-- Play button overlay -->
+            <div class="pharmacist-video-overlay">
+              <div class="play-button">
+                <div class="play-button-ping"></div>
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="pharmacist-video-label">
+              <span>Watch Welcome Message</span>
+            </div>
+          </div>
+          <!-- Experience badge -->
+          <div class="pharmacist-experience-badge">
+            <p class="pharmacist-experience-number">15+</p>
+            <p class="pharmacist-experience-label">Years Experience</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: Content Column -->
+        <div class="pharmacist-content">
+
+          <div class="section-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="section-badge-text">Your Local Expert</span>
+          </div>
+
+          <h2 class="pharmacist-name">Meet Dilip Modhvadia</h2>
+          <h3 class="pharmacist-role">Lead Pharmacist &amp; Independent Prescriber</h3>
+
+          <p class="pharmacist-bio">With over 15 years of experience, Dilip leads our clinical team dedicated to providing personalized, accessible healthcare in Ashford. As an Independent Prescriber, he oversees our service to ensure you receive safe, effective treatments without the wait.</p>
+
+          <p class="pharmacist-quote">"My goal is to make expert healthcare accessible to everyone in Ashford. Whether you're starting a weight loss journey or need health advice, our team is here to support you every step of the way with honest, professional care delivered to your door."</p>
+
+          <div class="pharmacist-credentials">
+            <div class="pharmacist-credential">
+              <i class="fas fa-certificate"></i>
+              <span>GPhC Registered</span>
+            </div>
+            <div class="pharmacist-credential">
+              <i class="fas fa-file-signature"></i>
+              <span>Independent Prescriber</span>
+            </div>
+            <div class="pharmacist-credential">
+              <i class="fas fa-weight-scale"></i>
+              <span>Weight Loss Specialist</span>
+            </div>
+          </div>
+
+          <div class="pharmacist-cta">
+            <a href="book-appointment.html" class="cta-button primary-cta">
+              Start Your Online Consultation
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+	  <!-- ============================================
+       HOW IT WORKS SECTION
+       3-step process with timeline connector
+       ============================================ -->
+  <section class="how-it-works-section">
+    <div class="section-container">
+
+      <!-- Section header -->
+      <div class="how-it-works-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">Simple &amp; Fast</span>
+        </div>
+        <h2 class="how-it-works-title">How It Works</h2>
+        <p class="how-it-works-description">Getting started with Easy Pharmacy is simple. From consultation to delivery, we've made healthcare accessible.</p>
+      </div>
+
+      <!-- Steps -->
+      <div class="how-it-works-steps">
+
+        <!-- Step 1 -->
+        <div class="how-it-works-step">
+          <div class="how-it-works-step-card">
+            <div class="how-it-works-step-number">
+              <span>1</span>
+            </div>
+            <div class="how-it-works-step-icon">
+              <i class="fas fa-laptop-medical"></i>
+            </div>
+            <h3 class="how-it-works-step-title">Book Online</h3>
+            <p class="how-it-works-step-desc">Complete our quick online consultation form in just 2 minutes. Choose your preferred treatment and answer a few health questions.</p>
+            <div class="how-it-works-step-time">
+              <i class="fas fa-clock"></i>
+              <span>2 minutes</span>
+            </div>
+          </div>
+          <div class="how-it-works-connector"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="how-it-works-step">
+          <div class="how-it-works-step-card">
+            <div class="how-it-works-step-number">
+              <span>2</span>
+            </div>
+            <div class="how-it-works-step-icon">
+              <i class="fas fa-user-doctor"></i>
+            </div>
+            <h3 class="how-it-works-step-title">Speak to Dilip</h3>
+            <p class="how-it-works-step-desc">Our expert pharmacist reviews your consultation and calls you the same day to discuss your treatment plan and answer any questions.</p>
+            <div class="how-it-works-step-time">
+              <i class="fas fa-clock"></i>
+              <span>Same day</span>
+            </div>
+          </div>
+          <div class="how-it-works-connector"></div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="how-it-works-step">
+          <div class="how-it-works-step-card">
+            <div class="how-it-works-step-number">
+              <span>3</span>
+            </div>
+            <div class="how-it-works-step-icon">
+              <i class="fas fa-box"></i>
+            </div>
+            <h3 class="how-it-works-step-title">Receive Treatment</h3>
+            <p class="how-it-works-step-desc">Your medication arrives in discreet, premium packaging with free tracked 24-hour delivery straight to your door.</p>
+            <div class="how-it-works-step-time">
+              <i class="fas fa-truck-fast"></i>
+              <span>24h delivery</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="how-it-works-cta">
+        <a href="book-appointment.html" class="cta-button primary-cta">
+          Start Your Journey Now
+          <i class="fas fa-arrow-right"></i>
+        </a>
+
+        <!-- Trust badges -->
+        <div class="how-it-works-trust-badges">
+          <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771149742332-1.png" alt="MHRA - Regulating Medicines and Medical Devices" />
+          <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771149742335-2.png" alt="General Pharmaceutical Council" />
+          <img src="https://c.animaapp.com/mkteqonbVRr1hb/assets/pci.svg" alt="PCI DSS Compliant" />
+          <img src="https://c.animaapp.com/mkteqonbVRr1hb/assets/ico.svg" alt="ICO Registered" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       SWITCHING PROVIDER SECTION v3
+       Premium packaging showcase with outcome-focused messaging
+       ============================================ -->
+  <section class="switching-section">
+    <div class="switching-bg"></div>
+    <div class="section-container">
+      <div class="switching-grid">
+
+        <!-- LEFT: Content -->
+        <div class="switching-content">
+
+          <div class="section-badge switching-badge-strong">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="section-badge-text">50+ Patients Switched This Month</span>
+          </div>
+
+          <h2 class="switching-title">
+            Frustrated with Your Current
+            <span class="gradient-text">Weight Loss Provider?</span>
+          </h2>
+
+          <p class="switching-description">Tired of waiting weeks for prescriptions? Fed up with chatbots instead of real pharmacists? Join hundreds who've switched to Easy Pharmacy for faster service, genuine support, and premium care you can trust.</p>
+
+          <!-- Features list with product packaging -->
+          <div class="switching-features">
+
+            <div class="switching-feature switching-feature-premium">
+              <div class="switching-feature-product">
+                <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771148525582-0.png" alt="Easy Pharmacy professional prescriber" class="switching-product-image" />
+              </div>
+              <div class="switching-feature-text">
+                <h3 class="switching-feature-title">Same-Day Prescriptions</h3>
+                <p class="switching-feature-desc">No more waiting weeks for approval. Our prescribers review and issue prescriptions within hours, not days.</p>
+              </div>
+            </div>
+
+            <div class="switching-feature switching-feature-premium">
+              <div class="switching-feature-product">
+                <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771098952703-0.png" alt="Easy Pharmacy team member providing real pharmacist support" class="switching-product-image" />
+              </div>
+              <div class="switching-feature-text">
+                <h3 class="switching-feature-title">Real Pharmacist Support</h3>
+                <p class="switching-feature-desc">Speak with Dilip and our Ashford team directly—no chatbots, no automated responses, just genuine expert care.</p>
+              </div>
+            </div>
+
+            <div class="switching-feature switching-feature-premium">
+              <div class="switching-feature-product">
+                <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771085285989-0.png" alt="Easy Pharmacy premium packaging" class="switching-product-image" />
+              </div>
+              <div class="switching-feature-text">
+                <h3 class="switching-feature-title">Premium Discreet Packaging</h3>
+                <p class="switching-feature-desc">Your medication arrives in our signature packaging with tracked 24h delivery—no hidden fees, no surprises.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Trust proof -->
+          <div class="switching-trust-proof">
+
+            <!-- Item 1 -->
+            <div class="switching-trust-item">
+              <div class="switching-trust-icon">
+                <i class="fas fa-user-group"></i>
+              </div>
+              <div class="switching-trust-info">
+                <div class="switching-trust-number gradient-text">50+</div>
+                <div class="switching-trust-label">Switched Monthly</div>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="switching-trust-divider"></div>
+
+            <!-- Item 2 -->
+            <div class="switching-trust-item">
+              <div class="switching-trust-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="switching-trust-info">
+                <div class="switching-trust-number gradient-text">4.7/5</div>
+                <div class="switching-trust-label">Google Rating</div>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="switching-trust-divider"></div>
+
+            <!-- Item 3 -->
+            <div class="switching-trust-item">
+              <div class="switching-trust-icon">
+                <i class="fas fa-truck-fast"></i>
+              </div>
+              <div class="switching-trust-info">
+                <div class="switching-trust-number gradient-text">24h</div>
+                <div class="switching-trust-label">Delivery Time</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- CTAs -->
+          <div class="switching-actions">
+            <a href="switching-provider.html" class="cta-button primary-cta">
+              Switch to Easy Pharmacy
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="tel:01784255222" class="cta-button secondary-cta">
+              <i class="fas fa-phone"></i>
+              Speak to Our Team
+            </a>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Image -->
+        <div class="switching-visual">
+          <div class="switching-image-glow"></div>
+          <div class="switching-image-card">
+            <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&h=1000&fit=crop" alt="Patient consulting with pharmacist about switching weight loss provider" class="switching-image" />
+
+            <!-- Premium rating badge - UPGRADED -->
+            <div class="switching-rating-badge">
+              <div class="switching-rating-header">
+                <div class="switching-rating-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="switching-rating-content">
+                  <span class="switching-rating-label">Google Rating</span>
+                  <div class="switching-rating-score">4.7</div>
+                  <div class="switching-rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <span class="switching-rating-count">Based on 300+ reviews</span>
+                </div>
+              </div>
+              <div class="switching-rating-divider"></div>
+              <div class="switching-rating-footer">
+                <div class="switching-rating-stats">
+                  <div class="switching-rating-stat-row">
+                    <div class="switching-rating-stat-icon">
+                      <i class="fas fa-users"></i>
+                    </div>
+                    <span class="switching-rating-stat-text"><span class="switching-rating-stat-number">5,000+</span> patients treated</span>
+                  </div>
+                  <div class="switching-rating-stat-row">
+                    <div class="switching-rating-stat-icon">
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <span class="switching-rating-stat-text">Serving <span class="switching-rating-stat-number">Ashford</span> since 2008</span>
+                  </div>
+                </div>
+                <div class="switching-rating-badge-pill">
+                  <i class="fas fa-shield-check"></i>
+                  <span>GPhC Verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+ <!-- ============================================
+       REVOLUTION SLIDER PLACEHOLDER v1
+       Replace with [rev_slider alias="home-hero"] in WordPress
+       ============================================ -->
+  <section class="revslider-section" id="hero-slider">
+    <div class="revslider-wrapper">
+      <!-- Revolution Slider will be inserted here via WordPress shortcode -->
+      <!-- Shortcode: [rev_slider alias="home-hero"] -->
+
+      <!-- Placeholder content (remove when slider is active) -->
+      <div class="revslider-placeholder">
+        <div class="revslider-overlay"></div>
+        <img src="https://c.animaapp.com/mky4syt0x80ocF/img/uploaded-asset-1769954210491-0.jpeg" alt="Travel Health Services - Tropical Beach Destination" class="revslider-image" />
+
+        <div class="revslider-content">
+          <div class="revslider-container">
+            <span class="revslider-badge">Yellow Fever Approved</span>
+            <h1 class="revslider-title">Protect Your Adventures Across the Globe</h1>
+            <p class="revslider-subtitle">From yellow fever to malaria prevention, get expert travel vaccinations at Easy Pharmacy</p>
+            <div class="revslider-cta">
+              <a href="#travel-clinic" class="revslider-btn-primary">Book Travel Clinic</a>
+              <a href="#locations" class="revslider-btn-secondary">Serving Ashford, Chertsey and beyond</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End placeholder content -->
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       SAFE & SECURE SECTION
+       Two-column: trust features + GPhC registration card
+       ============================================ -->
+  <section class="safe-section">
+    <div class="safe-bg"></div>
+    <div class="safe-bg-shape-1"></div>
+    <div class="safe-bg-shape-2"></div>
+    <div class="section-container">
+
+      <!-- Section header -->
+      <div class="safe-header">
+        <div class="section-badge">
+          <span class="pulse-dot">
+            <span></span>
+            <span></span>
+          </span>
+          <span class="section-badge-text">GPhC Registered Pharmacy</span>
+        </div>
+        <h2 class="safe-title">Safe and <span class="gradient-text">Secure</span></h2>
+        <p class="safe-description">Your safety is our top priority. We're fully regulated and inspected to ensure the highest standards of care.</p>
+      </div>
+
+      <!-- Two-column layout -->
+      <div class="safe-grid">
+
+        <!-- LEFT: Trust features -->
+        <div class="safe-features">
+
+          <div class="safe-feature">
+            <div class="safe-feature-card">
+              <div class="safe-feature-icon">
+                <i class="fas fa-shield-halved"></i>
+              </div>
+              <div class="safe-feature-text">
+                <h3 class="safe-feature-title">Registered UK Pharmacy</h3>
+                <p class="safe-feature-desc">Fully licensed and regulated by the General Pharmaceutical Council</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="safe-feature">
+            <div class="safe-feature-card">
+              <div class="safe-feature-icon">
+                <i class="fas fa-clipboard-check"></i>
+              </div>
+              <div class="safe-feature-text">
+                <h3 class="safe-feature-title">Fully Inspected &amp; Regulated</h3>
+                <p class="safe-feature-desc">Regular inspections ensure we meet the highest safety standards</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="safe-feature">
+            <div class="safe-feature-card">
+              <div class="safe-feature-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="safe-feature-text">
+                <h3 class="safe-feature-title">Approved UK-licensed Treatments</h3>
+                <p class="safe-feature-desc">Only genuine, MHRA-approved medications from trusted suppliers</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: GPhC Registration Card -->
+        <div class="safe-card-wrapper">
+          <div class="safe-card-glow"></div>
+          <div class="safe-card">
+
+            <!-- Verified badge -->
+            <div class="safe-verified-badge">
+              <div class="safe-verified-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <span class="safe-verified-text">Verified Registration</span>
+            </div>
+
+            <h3 class="safe-card-title">General Pharmaceutical Council</h3>
+
+            <!-- Registration details -->
+            <div class="safe-details">
+
+              <div class="safe-detail">
+                <div class="safe-detail-icon">
+                  <i class="fas fa-building"></i>
+                </div>
+                <div class="safe-detail-text">
+                  <p class="safe-detail-label">Company Registration</p>
+                  <p class="safe-detail-value">06703027</p>
+                </div>
+              </div>
+
+              <div class="safe-detail">
+                <div class="safe-detail-icon">
+                  <i class="fas fa-store"></i>
+                </div>
+                <div class="safe-detail-text">
+                  <p class="safe-detail-label">GPhC Registered Pharmacy</p>
+                  <p class="safe-detail-value">1091169</p>
+                </div>
+              </div>
+
+              <div class="safe-detail">
+                <div class="safe-detail-icon">
+                  <i class="fas fa-user-md"></i>
+                </div>
+                <div class="safe-detail-text">
+                  <p class="safe-detail-label">Superintendent Pharmacist</p>
+                  <p class="safe-detail-value">Dilip Modhvadia</p>
+                  <p class="safe-detail-sub">GPhC Number: 2050606</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Verify button -->
+            <a href="https://www.pharmacyregulation.org/registers/pharmacy/1091169" target="_blank" rel="noopener noreferrer" class="safe-verify-button">
+              <i class="fas fa-shield-halved"></i>
+              Verify Our Registration
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+            <p class="safe-verify-note">The GPhC is the official body that regulates and inspects all pharmacies in the UK</p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       HEALTH HUB SECTION v1
+       Blog/articles grid with 3 cards
+       ============================================ -->
+  <section class="healthhub-section">
+    <div class="section-container">
+
+      <!-- Header row -->
+      <div class="healthhub-header">
+        <div class="healthhub-header-text">
+          <div class="section-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="section-badge-text">Expert Advice</span>
+          </div>
+          <h2 class="healthhub-title">
+            Latest from the <span class="gradient-text">Health Hub</span>
+          </h2>
+        </div>
+        <a href="#all-articles" class="healthhub-view-all">
+          View all articles
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Articles grid -->
+      <div class="healthhub-grid">
+
+        <!-- Article 1 -->
+        <a href="#weight-loss-article" class="healthhub-card">
+          <div class="healthhub-card-image">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=500&fit=crop" alt="Weight Loss Guide">
+            <span class="healthhub-card-badge">Weight Loss</span>
+          </div>
+          <div class="healthhub-card-content">
+            <h3 class="healthhub-card-title">Understanding Medical Weight Loss: Is it Right for You?</h3>
+            <p class="healthhub-card-excerpt">Discover how modern GLP-1 treatments are revolutionising weight management for London residents.</p>
+            <span class="healthhub-card-link">
+              Read Article
+              <i class="fas fa-arrow-right"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 2 -->
+        <a href="#travel-health-article" class="healthhub-card">
+          <div class="healthhub-card-image">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=500&fit=crop" alt="Travel Health">
+            <span class="healthhub-card-badge">Travel Health</span>
+          </div>
+          <div class="healthhub-card-content">
+            <h3 class="healthhub-card-title">The Ultimate Pre-Travel Health Checklist</h3>
+            <p class="healthhub-card-excerpt">From yellow fever to malaria prevention, here's what you need to know before your next adventure.</p>
+            <span class="healthhub-card-link">
+              Read Article
+              <i class="fas fa-arrow-right"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Article 3 -->
+        <a href="#flu-jab-article" class="healthhub-card">
+          <div class="healthhub-card-image">
+            <img src="https://c.animaapp.com/mldwlo03Vo3ysQ/img/uploaded-asset-1769518729428-0.jpeg" alt="Flu Vaccination">
+            <span class="healthhub-card-badge">Seasonal Health</span>
+          </div>
+          <div class="healthhub-card-content">
+            <h3 class="healthhub-card-title">Why the Flu Jab is More Important Than Ever</h3>
+            <p class="healthhub-card-excerpt">Protect yourself and your family this winter. Learn about eligibility and private options.</p>
+            <span class="healthhub-card-link">
+              Read Article
+              <i class="fas fa-arrow-right"></i>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       LOCATION SECTION v1
+       Full-width static map with floating info card overlay
+       ============================================ -->
+  <section class="location-section" id="location">
+    <div class="location-map-wrapper">
+      <!-- Static map image showing Easy Pharmacy location in Ashford -->
+      <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771148093435-0.jpeg" alt="Map showing Easy Pharmacy location in Ashford, Surrey near Ashford Common" class="location-map-image" />
+      <div class="location-map-overlay"></div>
+    </div>
+
+    <!-- Floating info card -->
+    <div class="section-container">
+      <div class="location-card">
+
+        <!-- Header -->
+        <div class="location-card-header">
+          <div class="section-badge">
+            <span class="pulse-dot">
+              <span></span>
+              <span></span>
+            </span>
+            <span class="section-badge-text">Visit Us</span>
+          </div>
+          <h2 class="location-card-title">Find <span class="gradient-text">Easy Pharmacy</span></h2>
+        </div>
+
+        <!-- Pharmacy image -->
+        <div class="location-pharmacy-image">
+          <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771150177537-0.jpeg" alt="Ashford Common aerial view near Easy Pharmacy" />
+        </div>
+
+        <!-- Details grid -->
+        <div class="location-details">
+
+          <!-- Address -->
+          <div class="location-detail">
+            <div class="location-detail-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="location-detail-text">
+              <h3 class="location-detail-label">Address</h3>
+              <p class="location-detail-value">123 High Street<br>Ashford, Surrey<br>TW15 1AB</p>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=51.4340,-0.4668" target="_blank" rel="noopener noreferrer" class="location-directions-link">
+                <i class="fas fa-diamond-turn-right"></i>
+                Get Directions
+              </a>
+            </div>
+          </div>
+
+          <!-- Opening hours -->
+          <div class="location-detail">
+            <div class="location-detail-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="location-detail-text">
+              <h3 class="location-detail-label">Opening Hours</h3>
+              <div class="location-hours">
+                <div class="location-hours-row">
+                  <span class="location-hours-day">Mon – Fri</span>
+                  <span class="location-hours-time">9:00am – 6:00pm</span>
+                </div>
+                <div class="location-hours-row">
+                  <span class="location-hours-day">Saturday</span>
+                  <span class="location-hours-time">9:00am – 1:00pm</span>
+                </div>
+                <div class="location-hours-row">
+                  <span class="location-hours-day">Sunday</span>
+                  <span class="location-hours-time location-hours-closed">Closed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="location-detail">
+            <div class="location-detail-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="location-detail-text">
+              <h3 class="location-detail-label">Contact</h3>
+              <a href="tel:01784255222" class="location-contact-link">01784 255 222</a>
+              <a href="mailto:hello@easypharmacy.co.uk" class="location-contact-link">hello@easypharmacy.co.uk</a>
+            </div>
+          </div>
+
+          <!-- Parking -->
+          <div class="location-detail">
+            <div class="location-detail-icon">
+              <i class="fas fa-square-parking"></i>
+            </div>
+            <div class="location-detail-text">
+              <h3 class="location-detail-label">Parking</h3>
+              <p class="location-detail-value">Free customer parking available directly outside the pharmacy.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="location-card-cta">
+          <a href="book-appointment.html" class="cta-button primary-cta">
+            Book an Appointment
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:01784255222" class="cta-button secondary-cta">
+            <i class="fas fa-phone"></i>
+            Call Us
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TESTIMONIALS SECTION v1
+       Asymmetric grid: 2 large (7col), 2 medium (5col)
+       ============================================ -->
+  <section class="testimonials-section">
+    <div class="section-container">
+
+      <!-- Section header -->
+      <div class="testimonials-header">
+        <div class="section-badge">
+          <span class="section-badge-text">Real Transformations</span>
+        </div>
+        <h2 class="testimonials-title">
+          Real Results. <span class="gradient-text">Lasting Health.</span>
+        </h2>
+        <p class="testimonials-description">See how our patients across Ashford have transformed their health with our personalised care.</p>
+        <div class="testimonials-disclaimer">
+          <i class="fas fa-info-circle"></i>
+          <p><strong>Transparency Note:</strong> The results below are from real Easy Pharmacy patients. Individual results may vary.</p>
+        </div>
+      </div>
+
+      <!-- Testimonial grid -->
+      <div class="testimonials-grid">
+
+        <!-- Card 1: Large — Paul Fegan (Travel Clinic) -->
+        <div class="testimonial-card testimonial-card-large">
+          <div class="testimonial-verified">
+            <i class="fas fa-check-circle"></i>
+            <span>Verified Patient</span>
+          </div>
+          <div class="testimonial-card-body">
+            <div class="star-row star-row-large">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <blockquote class="testimonial-quote testimonial-quote-large">
+              "Needed a <span class="testimonial-highlight">last minute vaccination</span> for a holiday. It was easy to book, and convenient to get to and park. The prices are <span class="testimonial-highlight">'all-in'</span> ... Whole process from end-to-end was <span class="testimonial-highlight">friendly, fast and efficient</span>."
+            </blockquote>
+            <div class="testimonial-author-row">
+              <div class="testimonial-avatar testimonial-avatar-large">PF</div>
+              <div class="testimonial-author-info">
+                <span class="testimonial-service">Travel Clinic</span>
+                <h4 class="testimonial-author-name testimonial-author-name-large">Paul Fegan</h4>
+                <p class="testimonial-author-status">Verified Patient</p>
+              </div>
+            </div>
+            <div class="testimonial-highlights">
+              <div class="testimonial-highlight-item">
+                <i class="fas fa-calendar-check"></i>
+                <span>Easy Booking</span>
+              </div>
+              <div class="testimonial-highlight-item">
+                <i class="fas fa-car"></i>
+                <span>Free Parking</span>
+              </div>
+              <div class="testimonial-highlight-item">
+                <i class="fas fa-tags"></i>
+                <span>All-in Price</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Medium — Georgia Porter (Travel Vaccinations) -->
+        <div class="testimonial-card testimonial-card-medium">
+          <div class="testimonial-verified">
+            <i class="fas fa-check-circle"></i>
+            <span>Verified</span>
+          </div>
+          <div class="testimonial-card-body">
+            <div class="star-row">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <blockquote class="testimonial-quote">
+              "Highly recommend. They were able to see me <span class="testimonial-highlight">really quickly</span>. The guy who did my vaccination was very nice and chatty, as well as <span class="testimonial-highlight">informative</span>."
+            </blockquote>
+            <div class="testimonial-author-row">
+              <div class="testimonial-avatar">GP</div>
+              <div class="testimonial-author-info">
+                <span class="testimonial-service">Travel Vaccinations</span>
+                <h4 class="testimonial-author-name">Georgia Porter</h4>
+                <p class="testimonial-author-status">Verified Patient</p>
+              </div>
+            </div>
+            <div class="testimonial-checklist">
+              <div class="testimonial-check">
+                <i class="fas fa-check"></i>
+                <span>Quick Appointment</span>
+              </div>
+              <div class="testimonial-check">
+                <i class="fas fa-check"></i>
+                <span>Informative Staff</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Medium — Giedrius K. (Ear Wax Removal) -->
+        <div class="testimonial-card testimonial-card-medium">
+          <div class="testimonial-verified">
+            <i class="fas fa-check-circle"></i>
+            <span>Verified</span>
+          </div>
+          <div class="testimonial-card-body">
+            <div class="star-row">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <blockquote class="testimonial-quote">
+              "Very good service... They have looked at my ears, removed wax and discovered that there was an infection... <span class="testimonial-highlight">Very efficient, straight forward and honest</span>."
+            </blockquote>
+            <div class="testimonial-author-row">
+              <div class="testimonial-avatar">GK</div>
+              <div class="testimonial-author-info">
+                <span class="testimonial-service">Ear Wax Removal</span>
+                <h4 class="testimonial-author-name">Giedrius K.</h4>
+                <p class="testimonial-author-status">Verified Patient</p>
+              </div>
+            </div>
+            <div class="testimonial-checklist">
+              <div class="testimonial-check">
+                <i class="fas fa-check"></i>
+                <span>Thorough Check</span>
+              </div>
+              <div class="testimonial-check">
+                <i class="fas fa-check"></i>
+                <span>Honest Advice</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Large CTA — Summary -->
+        <div class="testimonial-card testimonial-card-cta">
+          <div class="testimonial-cta-glow"></div>
+          <div class="testimonial-cta-body">
+            <div class="testimonial-cta-content">
+              <h3 class="testimonial-cta-title">Trusted by 10,000+ Ashford Customers</h3>
+              <p class="testimonial-cta-text">No waiting lists. No hidden fees. Just expert, local healthcare you can rely on.</p>
+            </div>
+            <div class="testimonial-cta-rating">
+              <div class="testimonial-cta-rating-card">
+                <span class="testimonial-cta-score">4.9</span>
+                <div class="star-row star-row-small">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="testimonial-cta-label">Google Rating</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       STICKY CTA BAR
+       Appears after scrolling past hero, fixed bottom (mobile) / side (desktop)
+       ============================================ -->
+  <div class="sticky-cta-bar" id="stickyCTA">
+    <div class="sticky-cta-content">
+      <div class="sticky-cta-text">
+        <span class="sticky-cta-title">Ready to Transform Your Health?</span>
+        <span class="sticky-cta-subtitle">Book your consultation today</span>
+      </div>
+      <div class="sticky-cta-buttons">
+        <a href="book-appointment.html" class="sticky-cta-button sticky-cta-primary">
+          <i class="fas fa-calendar-check"></i>
+          <span>Book Now</span>
+        </a>
+        <a href="tel:01784255222" class="sticky-cta-button sticky-cta-secondary">
+          <i class="fas fa-phone"></i>
+          <span class="desktop-only">Call: 01784 255 222</span>
+          <span class="mobile-only">Call Us</span>
+        </a>
+      </div>
+    </div>
+    <button class="sticky-cta-close" onclick="closeStickyCTA()" aria-label="Close sticky bar">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <!-- Sticky CTA JavaScript -->
+  <script>
+    // Show sticky CTA after scrolling past hero
+    let stickyBar = document.getElementById('stickyCTA');
+    let hasShown = false;
+
+    window.addEventListener('scroll', function() {
+      let scrollPosition = window.scrollY;
+      let heroHeight = document.querySelector('.hero-section').offsetHeight;
+
+      if (scrollPosition > heroHeight * 0.7 && !hasShown) {
+        stickyBar.classList.add('sticky-cta-visible');
+        hasShown = true;
+      }
+    });
+
+    // Close sticky CTA
+    function closeStickyCTA() {
+      stickyBar.classList.remove('sticky-cta-visible');
+      stickyBar.classList.add('sticky-cta-hidden');
+    }
+  </script>
+
+<?php get_footer(); ?>
