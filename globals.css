@@ -71,13 +71,25 @@ html {
 /* ============================================
    UTILITY CLASSES (the only non-semantic classes allowed in HTML)
    ============================================ */
-.gradient-text {
-  background: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
-}
+    .gradient-text {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+      padding-bottom: 0.1em;
+      margin-bottom: -0.1em;
+    }
+
+    .hero-accent-text {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-dark);
+      display: block;
+      font-size: 0.9em; /* Slightly smaller for elegance */
+      margin: 0.1em 0;
+    }
 
 .desktop-only {
   display: none;
@@ -412,44 +424,39 @@ html {
 .mega-menu-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   text-decoration: none;
   transition: transform 0.3s ease;
-  flex-shrink: 0; /* Prevent logo from shrinking */
-  margin-right: 3rem; /* Push logo further left by adding space to the right */
+  flex-shrink: 0;
+  margin-right: 3rem;
 }
 
 .mega-menu-logo:hover {
   transform: scale(1.05);
 }
 
-.mega-menu-logo-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
-  border-radius: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(163, 158, 227, 0.3);
-  flex-shrink: 0;
+.logo-image {
+  height: 50px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
-.mega-menu-logo-icon i {
-  color: var(--white);
-  font-size: 1.125rem;
+/* Footer Logo Specifics */
+.footer-logo {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
 }
 
-.mega-menu-logo-text {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.02em;
-  white-space: nowrap; /* Force single line */
+.footer-logo .logo-image {
+  height: 60px;
+  filter: brightness(0) invert(1); /* Make logo white for dark footer */
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover .logo-image {
+  opacity: 1;
 }
 
 /* Menu List */
@@ -659,9 +666,12 @@ html {
 }
 
 .mega-menu-flag {
-  font-size: 1.75rem;
-  line-height: 1;
+  width: 28px;
+  height: 21px;
+  object-fit: cover;
+  border-radius: 3px;
   flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .mega-menu-destination-name {
@@ -954,34 +964,32 @@ html {
   color: var(--brand-purple);
 }
 
-/* Title */
-.hero-title {
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: #111827;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
+    /* Title */
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800; /* Extra bold for authority */
+      color: #0f172a; /* Richer black/navy */
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.05em; /* Tighter, editorial tracking */
+      line-height: 1.05; /* Compact leading for a solid block feel */
+    }
 
-.hero-title br {
-  display: none;
-}
+    .hero-title br {
+      display: block; /* Force stacking on all screens for impact */
+    }
 
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: 3.75rem;
-  }
-}
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 4.5rem;
+      }
+    }
 
-@media (min-width: 1024px) {
-  .hero-title {
-    font-size: 4.5rem;
-  }
-  .hero-title br {
-    display: block;
-  }
-}
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 5.5rem; /* Massive scale for desktop */
+        line-height: 1;
+      }
+    }
 
 /* Description */
 .hero-description {
@@ -1719,6 +1727,7 @@ html {
   box-shadow: 0 4px 20px rgba(163, 158, 227, 0.08);
   width: 100%;
   max-width: 400px;
+  z-index: 2;
 }
 
 .how-it-works-step-card:hover {
@@ -1868,7 +1877,7 @@ html {
   .how-it-works-connector {
     display: block;
     position: absolute;
-    top: 3rem;
+    top: 0;
     left: 50%;
     width: 100%;
     height: 3px;
