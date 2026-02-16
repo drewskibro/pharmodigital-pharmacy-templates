@@ -18,6 +18,9 @@ function easy_pharmacy_setup() {
 }
 add_action('after_setup_theme', 'easy_pharmacy_setup');
 
+// ACF Field Registrations
+require_once get_template_directory() . '/inc/acf-fields-home.php';
+
 // Enqueue styles and scripts
 function easy_pharmacy_enqueue_assets() {
     $theme_uri = get_template_directory_uri();
