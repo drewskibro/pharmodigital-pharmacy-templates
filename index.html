@@ -161,8 +161,24 @@
         </li>
 
         <li class="mega-menu-item">
+          <a href="blog.html" class="mega-menu-link">
+            <span>Health Hub</span>
+          </a>
+        </li>
+
+        <li class="mega-menu-item">
           <a href="team.html" class="mega-menu-link">
             <span>About</span>
+          </a>
+        </li>
+        
+        <!-- Mobile Only Actions -->
+        <li class="mega-menu-item mobile-nav-actions">
+          <a href="book-appointment.html" class="cta-button primary-cta mobile-nav-btn">
+            Book Appointment
+          </a>
+          <a href="tel:01784255222" class="cta-button secondary-cta mobile-nav-btn">
+            <i class="fas fa-phone"></i> Call 01784 255 222
           </a>
         </li>
       </ul>
@@ -1421,8 +1437,11 @@
     let hasShown = false;
 
     window.addEventListener('scroll', function() {
+      const heroSection = document.querySelector('.hero-section');
+      if (!heroSection || !stickyBar) return;
+
       let scrollPosition = window.scrollY;
-      let heroHeight = document.querySelector('.hero-section').offsetHeight;
+      let heroHeight = heroSection.offsetHeight;
 
       if (scrollPosition > heroHeight * 0.7 && !hasShown) {
         stickyBar.classList.add('sticky-cta-visible');
@@ -1432,48 +1451,11 @@
 
     // Close sticky CTA
     function closeStickyCTA() {
-      stickyBar.classList.remove('sticky-cta-visible');
-      stickyBar.classList.add('sticky-cta-hidden');
-    }
-
-    // Mobile Menu Toggle
-    function toggleMobileMenu() {
-      const menuList = document.querySelector('.mega-menu-list');
-      menuList.classList.toggle('mobile-open');
-    }
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-      const nav = document.querySelector('.mega-menu-nav');
-      const menuList = document.querySelector('.mega-menu-list');
-      
-      if (nav && !nav.contains(event.target) && menuList.classList.contains('mobile-open')) {
-        menuList.classList.remove('mobile-open');
+      if (stickyBar) {
+        stickyBar.classList.remove('sticky-cta-visible');
+        stickyBar.classList.add('sticky-cta-hidden');
       }
-    });
-
-    // Handle mobile dropdown toggles
-    document.querySelectorAll('.mega-menu-has-dropdown > .mega-menu-link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        if (window.innerWidth < 1024) {
-          e.preventDefault();
-          const parent = this.parentElement;
-          parent.classList.toggle('mobile-dropdown-open');
-        }
-      });
-    });
-
-    // Add scroll effect to nav
-    window.addEventListener('scroll', function() {
-      const nav = document.querySelector('.mega-menu-nav');
-      if (nav) {
-        if (window.scrollY > 50) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      }
-    });
+    }
   </script>
 
   <!-- ============================================
