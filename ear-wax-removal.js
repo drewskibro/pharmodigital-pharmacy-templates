@@ -2,43 +2,7 @@
 // EAR WAX REMOVAL PAGE JAVASCRIPT
 // ============================================
 
-// Mobile Menu Toggle
-function toggleMobileMenu() {
-  const menuList = document.querySelector('.mega-menu-list');
-  menuList.classList.toggle('mobile-open');
-}
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', function(event) {
-  const nav = document.querySelector('.mega-menu-nav');
-  const toggle = document.querySelector('.mega-menu-mobile-toggle');
-  const menuList = document.querySelector('.mega-menu-list');
-  
-  if (!nav.contains(event.target) && menuList.classList.contains('mobile-open')) {
-    menuList.classList.remove('mobile-open');
-  }
-});
-
-// Handle mobile dropdown toggles
-document.querySelectorAll('.mega-menu-has-dropdown > .mega-menu-link').forEach(link => {
-  link.addEventListener('click', function(e) {
-    if (window.innerWidth < 1024) {
-      e.preventDefault();
-      const parent = this.parentElement;
-      parent.classList.toggle('mobile-dropdown-open');
-    }
-  });
-});
-
-// Add scroll effect to nav
-window.addEventListener('scroll', function() {
-  const nav = document.querySelector('.mega-menu-nav');
-  if (window.scrollY > 50) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
-});
+// Menu logic is handled by mega-menu.js
 
 // ============================================
 // FAQ ACCORDION
