@@ -1348,6 +1348,26 @@ function ep_register_acf_field_groups() {
                 'type'         => 'text',
                 'instructions' => 'Leave blank to use pharmacy name.',
             ),
+            array(
+                'key'           => 'field_ep_page_location_map_image',
+                'label'         => 'Map Background Image',
+                'name'          => 'location_map_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Upload a static map image or screenshot of your location on Google Maps. This appears as the full-width background behind the location card. Overrides the global setting on the Contact &amp; Location options page.',
+            ),
+            array(
+                'key'           => 'field_ep_page_location_pharmacy_image',
+                'label'         => 'Pharmacy / Area Image',
+                'name'          => 'location_pharmacy_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Upload an image to display inside the location card above the details (e.g. an aerial view or storefront photo). Overrides the global setting on the Contact &amp; Location options page.',
+            ),
         ),
         'location' => array(
             array(
