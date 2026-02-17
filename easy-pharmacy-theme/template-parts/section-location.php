@@ -37,6 +37,14 @@ $address_line_2 = ep_option( 'pharmacy_address_line_2', 'Ashford, Surrey' );
 $address_line_3 = ep_option( 'pharmacy_address_line_3', 'TW15 1AB' );
 $directions_url = ep_option( 'pharmacy_directions_url', 'https://www.google.com/maps/dir/?api=1&destination=51.4340,-0.4668' );
 
+// Google Maps embed URL – used as fallback when no static map image is set
+$maps_embed_url = ep_option( 'location_google_maps_embed', '' );
+if ( ! $maps_embed_url ) {
+    // Build a default embed from the address fields
+    $maps_query     = urlencode( $address_line_1 . ', ' . $address_line_2 . ', ' . $address_line_3 );
+    $maps_embed_url = 'https://maps.google.com/maps?q=' . $maps_query . '&t=&z=15&ie=UTF8&iwloc=&output=embed';
+}
+
 // Opening hours from options
 $hours_weekday  = ep_option( 'hours_weekday', '9:00am – 6:00pm' );
 $hours_saturday = ep_option( 'hours_saturday', '9:00am – 1:00pm' );
@@ -52,11 +60,19 @@ $parking_info = ep_option( 'pharmacy_parking', 'Free customer parking available 
 
 <section class="location-section" id="location">
     <div class="location-map-wrapper">
-        <!-- Static map image -->
         <?php if ( $map_image_url ) : ?>
+            <!-- Uploaded static map image -->
             <img src="<?php echo esc_url( $map_image_url ); ?>" alt="<?php echo esc_attr( 'Map showing ' . ep_pharmacy_name() . ' location' ); ?>" class="location-map-image" />
         <?php else : ?>
-            <img src="<?php echo esc_url( EASY_PHARMACY_URI . '/assets/images/map-default.jpg' ); ?>" alt="<?php echo esc_attr( 'Map showing ' . ep_pharmacy_name() . ' location' ); ?>" class="location-map-image" />
+            <!-- Live Google Maps embed -->
+            <iframe
+                class="location-map-embed"
+                src="<?php echo esc_url( $maps_embed_url ); ?>"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="<?php echo esc_attr( 'Map showing ' . ep_pharmacy_name() . ' location' ); ?>"
+            ></iframe>
         <?php endif; ?>
         <div class="location-map-overlay"></div>
     </div>

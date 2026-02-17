@@ -415,6 +415,13 @@ function ep_register_acf_field_groups() {
                 'library'       => 'all',
                 'instructions'  => 'Upload a photo of your pharmacy storefront.',
             ),
+            array(
+                'key'           => 'field_ep_location_google_maps_embed',
+                'label'         => 'Google Maps Embed URL',
+                'name'          => 'location_google_maps_embed',
+                'type'          => 'url',
+                'instructions'  => 'Optional. Paste a Google Maps embed URL here. If left blank, a map will be generated automatically from your address. To get an embed URL: go to Google Maps → find your location → click Share → Embed a map → copy the src URL from the iframe code.',
+            ),
         ),
         'location' => array(
             array(
