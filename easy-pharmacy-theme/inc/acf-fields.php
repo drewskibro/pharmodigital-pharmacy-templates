@@ -63,7 +63,7 @@ function ep_register_acf_field_groups() {
                 array(
                     'param'    => 'options_page',
                     'operator' => '==',
-                    'value'    => 'acf-options-pharmacy-settings',
+                    'value'    => 'acf-options-branding',
                 ),
             ),
         ),
@@ -138,7 +138,7 @@ function ep_register_acf_field_groups() {
                 array(
                     'param'    => 'options_page',
                     'operator' => '==',
-                    'value'    => 'acf-options-pharmacy-settings',
+                    'value'    => 'acf-options-contact-location',
                 ),
             ),
         ),
@@ -198,7 +198,7 @@ function ep_register_acf_field_groups() {
                 array(
                     'param'    => 'options_page',
                     'operator' => '==',
-                    'value'    => 'acf-options-pharmacy-settings',
+                    'value'    => 'acf-options-contact-location',
                 ),
             ),
         ),
@@ -264,7 +264,7 @@ function ep_register_acf_field_groups() {
                 array(
                     'param'    => 'options_page',
                     'operator' => '==',
-                    'value'    => 'acf-options-pharmacy-settings',
+                    'value'    => 'acf-options-registration-compliance',
                 ),
             ),
         ),
@@ -313,7 +313,7 @@ function ep_register_acf_field_groups() {
                 array(
                     'param'    => 'options_page',
                     'operator' => '==',
-                    'value'    => 'acf-options-pharmacy-settings',
+                    'value'    => 'acf-options-social-media',
                 ),
             ),
         ),
@@ -362,7 +362,7 @@ function ep_register_acf_field_groups() {
                 array(
                     'param'    => 'options_page',
                     'operator' => '==',
-                    'value'    => 'acf-options-pharmacy-settings',
+                    'value'    => 'acf-options-branding',
                 ),
             ),
         ),
