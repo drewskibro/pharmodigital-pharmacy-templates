@@ -24,22 +24,30 @@ $cta_url     = ep_field( 'switching_cta_url', home_url( '/switch-provider/' ) );
 $switching_image_id  = ep_field( 'switching_image' );
 $switching_image_url = $switching_image_id ? wp_get_attachment_image_url( $switching_image_id, 'large' ) : '';
 
+// Default feature images from standalone ACF fields
+$feature_1_image_id  = ep_field( 'switching_feature_1_image' );
+$feature_1_image_url = $feature_1_image_id ? wp_get_attachment_image_url( $feature_1_image_id, 'thumbnail' ) : '';
+$feature_2_image_id  = ep_field( 'switching_feature_2_image' );
+$feature_2_image_url = $feature_2_image_id ? wp_get_attachment_image_url( $feature_2_image_id, 'thumbnail' ) : '';
+$feature_3_image_id  = ep_field( 'switching_feature_3_image' );
+$feature_3_image_url = $feature_3_image_id ? wp_get_attachment_image_url( $feature_3_image_id, 'thumbnail' ) : '';
+
 // Default features
 $default_features = array(
     array(
         'feature_title' => 'Same-Day Prescriptions',
         'feature_desc'  => 'No more waiting weeks for approval. Our prescribers review and issue prescriptions within hours, not days.',
-        'feature_image' => '',
+        'feature_image' => $feature_1_image_url,
     ),
     array(
         'feature_title' => 'Real Pharmacist Support',
         'feature_desc'  => 'Speak with Dilip and our Ashford team directly—no chatbots, no automated responses, just genuine expert care.',
-        'feature_image' => '',
+        'feature_image' => $feature_2_image_url,
     ),
     array(
         'feature_title' => 'Premium Discreet Packaging',
         'feature_desc'  => 'Your medication arrives in our signature packaging with tracked 24h delivery—no hidden fees, no surprises.',
-        'feature_image' => '',
+        'feature_image' => $feature_3_image_url,
     ),
 );
 
