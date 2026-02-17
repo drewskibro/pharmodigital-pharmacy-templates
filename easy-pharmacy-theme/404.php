@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-  <section class="default-page-section" style="padding: 160px 0 80px; text-align: center;">
+  <section class="default-page-section" style="padding: 80px 0 80px; text-align: center;">
     <div class="section-container">
       <div class="section-badge">
         <span class="pulse-dot">
