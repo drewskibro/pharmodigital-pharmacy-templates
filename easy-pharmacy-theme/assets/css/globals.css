@@ -40,6 +40,29 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 80px; /* Space for fixed navigation */
+}
+
+/* WordPress admin bar: push fixed nav below admin bar */
+body.admin-bar .mega-menu-nav {
+  top: 32px;
+}
+
+body.admin-bar .mega-menu-list {
+  top: 112px; /* 80px nav + 32px admin bar */
+  height: calc(100vh - 112px);
+  height: calc(100dvh - 112px);
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar .mega-menu-nav {
+    top: 46px; /* WP admin bar is taller on mobile */
+  }
+  body.admin-bar .mega-menu-list {
+    top: 126px; /* 80px nav + 46px admin bar */
+    height: calc(100vh - 126px);
+    height: calc(100dvh - 126px);
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -935,7 +958,7 @@ html {
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 20px; /* Body already provides 80px for fixed nav */
   padding-bottom: 5rem;
   overflow: hidden;
 }

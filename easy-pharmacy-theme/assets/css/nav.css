@@ -120,7 +120,7 @@
   width: 100%;
   max-width: 320px;
   background: var(--white);
-  padding: 100px 1.5rem 2rem; /* Top padding clears header */
+  padding: 20px 1.5rem 2rem; /* Top padding clears header */
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

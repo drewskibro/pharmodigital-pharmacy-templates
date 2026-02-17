@@ -9,7 +9,7 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 140px 0 80px;
+  padding: 60px 0 80px;
   overflow: hidden;
   background: linear-gradient(to bottom, var(--brand-light), var(--white));
 }
