@@ -483,6 +483,13 @@ function ep_register_acf_field_groups() {
         'label_placement'       => 'top',
         'instruction_placement' => 'label',
         'active'                => true,
+        'hide_on_screen'        => array(
+            'the_content',
+            'excerpt',
+            'discussion',
+            'comments',
+            'featured_image',
+        ),
     ) );
 
     // -------------------------------------------------------------------------
