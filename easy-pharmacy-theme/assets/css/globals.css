@@ -4728,10 +4728,12 @@ html {
   z-index: 9998; /* Below nav (9999) to avoid stacking conflicts */
   transform: translateY(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none; /* Don't block page CTAs while hidden offscreen */
 }
 
 .sticky-cta-bar.sticky-cta-visible {
   transform: translateY(0);
+  pointer-events: auto; /* Re-enable when visible */
 }
 
 .sticky-cta-bar.sticky-cta-hidden {
@@ -4846,10 +4848,12 @@ html {
     transform: translate(100%, -50%);
     border-radius: 1rem 0 0 1rem;
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    pointer-events: none; /* Don't block page CTAs while hidden offscreen */
   }
 
   .sticky-cta-bar.sticky-cta-visible {
     transform: translate(0, -50%);
+    pointer-events: auto; /* Re-enable when visible */
   }
 
   .sticky-cta-content {
