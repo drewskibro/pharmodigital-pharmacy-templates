@@ -1020,6 +1020,10 @@ html {
 .hero-content {
   text-align: center;
   animation: fadeInUp 0.8s ease-out forwards;
+  position: relative;
+  z-index: 35; /* Above hero-image-card (20) and rating-badge (30) — the fadeInUp
+                   animation creates a stacking context at z:0, which puts CTAs BEHIND
+                   the visual column. This explicit z-index fixes that. */
 }
 
 @media (min-width: 1024px) {
@@ -1353,6 +1357,7 @@ html {
   filter: blur(60px);
   z-index: -1;
   animation: pulse-glow 4s ease-in-out infinite;
+  pointer-events: none;
 }
 
 /* Main image card */
@@ -1366,7 +1371,7 @@ html {
   border: 6px solid var(--white);
   z-index: 20;
   transform: rotate(-2deg);
-  transition: all 0.7s ease-out;
+  transition: transform 0.7s ease-out; /* Was 'all' — only transform needs to animate */
 }
 
 .hero-image-card:hover {
