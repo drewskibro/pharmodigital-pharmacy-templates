@@ -62,46 +62,68 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ============================================
-  // DESKTOP DROPDOWN HOVER WITH DELAY
-  // Replaces the CSS ::before hover bridge so no
-  // invisible element blocks hero CTAs beneath the nav.
+  // DESKTOP DROPDOWN HOVER WITH INTENT DETECTION
+  // CSS :hover was removed because it instantly shows
+  // dropdowns when the mouse passes across the nav,
+  // and those dropdowns (z-index 9999) block hero CTAs
+  // underneath. This JS-only approach requires 200ms
+  // of intentional hover before opening, so fast mouse
+  // passes never trigger a dropdown.
   // ============================================
   var dropdownParents = document.querySelectorAll('.mega-menu-has-dropdown');
 
   dropdownParents.forEach(function(parent) {
     var dropdownInner = parent.querySelector('.mega-menu-dropdown-inner');
-    var hideTimer = null;
+    var openTimer = null;
+    var closeTimer = null;
 
     function openDropdown() {
-      clearTimeout(hideTimer);
+      clearTimeout(closeTimer);
       // Close other dropdowns
       dropdownParents.forEach(function(p) {
-        if (p !== parent) p.classList.remove('dropdown-open');
+        if (p !== parent) {
+          p.classList.remove('dropdown-open');
+        }
       });
       parent.classList.add('dropdown-open');
     }
 
-    function scheduleClose() {
-      hideTimer = setTimeout(function() {
-        parent.classList.remove('dropdown-open');
-      }, 300); // 300ms grace period to cross the gap
+    function closeDropdown() {
+      clearTimeout(openTimer);
+      clearTimeout(closeTimer);
+      parent.classList.remove('dropdown-open');
     }
 
-    // Show/hide on the parent li (covers the nav link text)
+    function scheduleClose() {
+      closeTimer = setTimeout(function() {
+        parent.classList.remove('dropdown-open');
+      }, 300);
+    }
+
+    // Nav item: open after 200ms of intentional hover
     parent.addEventListener('mouseenter', function() {
-      if (window.innerWidth >= 1024) openDropdown();
+      if (window.innerWidth < 1024) return;
+      clearTimeout(closeTimer);
+      openTimer = setTimeout(function() {
+        openDropdown();
+      }, 200); // 200ms intent delay — fast mouse passes won't trigger
     });
+
     parent.addEventListener('mouseleave', function() {
-      if (window.innerWidth >= 1024) scheduleClose();
+      if (window.innerWidth < 1024) return;
+      clearTimeout(openTimer); // Cancel pending open if mouse leaves fast
+      scheduleClose();
     });
 
     // Keep alive when mouse reaches the visible dropdown content
     if (dropdownInner) {
       dropdownInner.addEventListener('mouseenter', function() {
-        if (window.innerWidth >= 1024) openDropdown();
+        if (window.innerWidth < 1024) return;
+        clearTimeout(closeTimer);
       });
       dropdownInner.addEventListener('mouseleave', function() {
-        if (window.innerWidth >= 1024) scheduleClose();
+        if (window.innerWidth < 1024) return;
+        scheduleClose();
       });
     }
   });

@@ -164,7 +164,7 @@ html {
   font-weight: 700;
   font-size: 1rem;
   font-family: var(--font-primary);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
   cursor: pointer;
   border: none;
 }
@@ -550,9 +550,7 @@ html {
   margin-left: 0.25rem;
 }
 
-.mega-menu-has-dropdown:hover .mega-menu-arrow {
-  transform: rotate(180deg);
-}
+/* Arrow rotation handled by .dropdown-open class below, not :hover */
 
 /* Dropdown */
 .mega-menu-dropdown {
@@ -586,12 +584,20 @@ html {
   min-width: 750px;
 }
 
-.mega-menu-has-dropdown:hover .mega-menu-dropdown,
+/* Dropdown visibility is JS-controlled only via .dropdown-open class.
+   CSS :hover was removed because fast mouse passes across the nav
+   would instantly show the dropdown (z-index: 9999), blocking hero
+   CTAs underneath. JS adds an open delay so only intentional hovers trigger. */
 .mega-menu-has-dropdown.dropdown-open .mega-menu-dropdown {
   opacity: 1;
   visibility: visible;
-  pointer-events: none; /* Keep transparent wrapper non-interactive so it doesn't block page CTAs */
-  transition: opacity 0.3s ease 0.15s, visibility 0.3s ease 0.15s;
+  pointer-events: none; /* Transparent wrapper must NOT capture clicks */
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Also add the dropdown arrow rotation for JS-managed state */
+.mega-menu-has-dropdown.dropdown-open .mega-menu-arrow {
+  transform: rotate(180deg);
 }
 
 /* Bridge no longer needs pointer-events — JS handles the hover gap with a timeout */
