@@ -1530,59 +1530,6 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
-    // -------------------------------------------------------------------------
-    // B12. Sticky CTA Bar
-    // -------------------------------------------------------------------------
-    acf_add_local_field_group( array(
-        'key'      => 'group_ep_home_sticky_cta',
-        'title'    => 'Sticky CTA Bar',
-        'fields'   => array(
-            array(
-                'key'           => 'field_ep_sticky_cta_title',
-                'label'         => 'CTA Title',
-                'name'          => 'sticky_cta_title',
-                'type'          => 'text',
-                'default_value' => 'Ready to Transform Your Health?',
-            ),
-            array(
-                'key'           => 'field_ep_sticky_cta_subtitle',
-                'label'         => 'CTA Subtitle',
-                'name'          => 'sticky_cta_subtitle',
-                'type'          => 'text',
-                'default_value' => 'Book your consultation today',
-            ),
-            array(
-                'key'           => 'field_ep_sticky_cta_book_text',
-                'label'         => 'Book Button Text',
-                'name'          => 'sticky_cta_book_text',
-                'type'          => 'text',
-                'default_value' => 'Book Now',
-            ),
-            array(
-                'key'          => 'field_ep_sticky_cta_book_url',
-                'label'        => 'Book Button URL',
-                'name'         => 'sticky_cta_book_url',
-                'type'         => 'url',
-                'instructions' => 'Leave blank to default to the booking page.',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param'    => 'page_template',
-                    'operator' => '==',
-                    'value'    => 'page-templates/page-home.php',
-                ),
-            ),
-        ),
-        'menu_order'            => 90,
-        'position'              => 'normal',
-        'style'                 => 'default',
-        'label_placement'       => 'top',
-        'instruction_placement' => 'label',
-        'active'                => true,
-    ) );
-
     // =========================================================================
     // C. BLOG POST FIELDS
     // =========================================================================

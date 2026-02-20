@@ -17,6 +17,4 @@ get_template_part('template-parts/section', 'safe-secure');
 get_template_part('template-parts/section', 'health-hub');
 get_template_part('template-parts/section', 'location');
 get_template_part('template-parts/section', 'testimonials');
-get_template_part('template-parts/section', 'sticky-cta');
-
 get_footer();
