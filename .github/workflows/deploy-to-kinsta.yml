@@ -19,30 +19,36 @@ jobs:
           password: ${{ secrets.KINSTA_SSH_PASSWORD }}
           port: ${{ secrets.KINSTA_SSH_PORT }}
           script: |
+            set -e
+
             THEME_DIR=$(find ~/public -type d -name "themes" -path "*/wp-content/themes" | head -1)
 
             if [ -z "$THEME_DIR" ]; then
-              echo "Could not find wp-content/themes directory"
+              echo "ERROR: Could not find wp-content/themes directory"
               exit 1
             fi
 
-            cd "$THEME_DIR"
+            echo "Found themes directory: $THEME_DIR"
 
-            # First time: clone the repo. After that: just pull.
-            if [ -d "easy-pharmacy-theme/.git" ]; then
-              echo "Updating existing theme..."
-              cd easy-pharmacy-theme
-              git fetch origin main
-              git reset --hard origin/main
-            elif [ -d "pharmodigital-pharmacy-templates/.git" ]; then
-              echo "Updating existing repo..."
-              cd pharmodigital-pharmacy-templates
+            REPO_DIR="$THEME_DIR/.pharmodigital-repo"
+
+            # Clone or update the repo in a hidden staging directory
+            if [ -d "$REPO_DIR/.git" ]; then
+              echo "Updating existing repo clone..."
+              cd "$REPO_DIR"
               git fetch origin main
               git reset --hard origin/main
             else
-              echo "Cloning theme for the first time..."
-              git clone https://github.com/drewskibro/pharmodigital-pharmacy-templates.git
-              cd pharmodigital-pharmacy-templates
+              echo "Cloning repo for the first time..."
+              rm -rf "$REPO_DIR"
+              git clone https://github.com/drewskibro/pharmodigital-pharmacy-templates.git "$REPO_DIR"
             fi
 
-            echo "Deploy complete!"
+            # Sync the theme subfolder into the actual WordPress theme directory
+            echo "Syncing theme files to $THEME_DIR/easy-pharmacy-theme/..."
+            rsync -av --delete \
+              --exclude='.git' \
+              "$REPO_DIR/easy-pharmacy-theme/" \
+              "$THEME_DIR/easy-pharmacy-theme/"
+
+            echo "Deploy complete! Theme files updated."
