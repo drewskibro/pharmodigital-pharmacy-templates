@@ -11,7 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy via SSH
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Deploy theme files to Kinsta
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.KINSTA_SSH_HOST }}
+          username: ${{ secrets.KINSTA_SSH_USER }}
+          password: ${{ secrets.KINSTA_SSH_PASSWORD }}
+          port: ${{ secrets.KINSTA_SSH_PORT }}
+          source: "easy-pharmacy-theme/"
+          target: "~/public/wp-content/themes/"
+
+      - name: Verify deployment
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.KINSTA_SSH_HOST }}
@@ -19,36 +32,7 @@ jobs:
           password: ${{ secrets.KINSTA_SSH_PASSWORD }}
           port: ${{ secrets.KINSTA_SSH_PORT }}
           script: |
-            set -e
-
-            THEME_DIR=$(find ~/public -type d -name "themes" -path "*/wp-content/themes" | head -1)
-
-            if [ -z "$THEME_DIR" ]; then
-              echo "ERROR: Could not find wp-content/themes directory"
-              exit 1
-            fi
-
-            echo "Found themes directory: $THEME_DIR"
-
-            REPO_DIR="$THEME_DIR/.pharmodigital-repo"
-
-            # Clone or update the repo in a hidden staging directory
-            if [ -d "$REPO_DIR/.git" ]; then
-              echo "Updating existing repo clone..."
-              cd "$REPO_DIR"
-              git fetch origin main
-              git reset --hard origin/main
-            else
-              echo "Cloning repo for the first time..."
-              rm -rf "$REPO_DIR"
-              git clone https://github.com/drewskibro/pharmodigital-pharmacy-templates.git "$REPO_DIR"
-            fi
-
-            # Sync the theme subfolder into the actual WordPress theme directory
-            echo "Syncing theme files to $THEME_DIR/easy-pharmacy-theme/..."
-            rsync -av --delete \
-              --exclude='.git' \
-              "$REPO_DIR/easy-pharmacy-theme/" \
-              "$THEME_DIR/easy-pharmacy-theme/"
-
-            echo "Deploy complete! Theme files updated."
+            echo "Checking deployed theme..."
+            ls -la ~/public/wp-content/themes/easy-pharmacy-theme/style.css
+            head -7 ~/public/wp-content/themes/easy-pharmacy-theme/style.css
+            echo "Deploy complete!"
