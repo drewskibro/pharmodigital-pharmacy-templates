@@ -1,0 +1,48 @@
+name: Deploy Theme to Kinsta
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to Kinsta Staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.KINSTA_SSH_HOST }}
+          username: ${{ secrets.KINSTA_SSH_USER }}
+          password: ${{ secrets.KINSTA_SSH_PASSWORD }}
+          port: ${{ secrets.KINSTA_SSH_PORT }}
+          script: |
+            THEME_DIR=$(find ~/public -type d -name "themes" -path "*/wp-content/themes" | head -1)
+
+            if [ -z "$THEME_DIR" ]; then
+              echo "Could not find wp-content/themes directory"
+              exit 1
+            fi
+
+            cd "$THEME_DIR"
+
+            # First time: clone the repo. After that: just pull.
+            if [ -d "easy-pharmacy-theme/.git" ]; then
+              echo "Updating existing theme..."
+              cd easy-pharmacy-theme
+              git fetch origin main
+              git reset --hard origin/main
+            elif [ -d "pharmodigital-pharmacy-templates/.git" ]; then
+              echo "Updating existing repo..."
+              cd pharmodigital-pharmacy-templates
+              git fetch origin main
+              git reset --hard origin/main
+            else
+              echo "Cloning theme for the first time..."
+              git clone https://github.com/drewskibro/pharmodigital-pharmacy-templates.git
+              cd pharmodigital-pharmacy-templates
+            fi
+
+            echo "Deploy complete!"
