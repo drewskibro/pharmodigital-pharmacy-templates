@@ -590,6 +590,7 @@ html {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
+  transition: opacity 0.3s ease 0.15s, visibility 0.3s ease 0.15s;
 }
 
 .mega-menu-dropdown-inner {
@@ -826,10 +827,12 @@ html {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     border-top: 1px solid rgba(163, 158, 227, 0.1);
     z-index: 9998;
+    pointer-events: none; /* Prevent hidden menu from blocking page interactions */
   }
 
   .mega-menu-list.mobile-open {
     transform: translateX(0);
+    pointer-events: auto; /* Re-enable interactions when menu is open */
   }
 
   .mega-menu-item {
@@ -974,6 +977,7 @@ html {
   border-radius: 50%;
   filter: blur(100px);
   animation: float 6s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .hero-bg-shape-2 {
@@ -985,6 +989,7 @@ html {
   background: rgba(139, 133, 214, 0.1);
   border-radius: 50%;
   filter: blur(80px);
+  pointer-events: none;
   animation: float 8s ease-in-out infinite reverse;
 }
 
@@ -4441,6 +4446,12 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.location-map-embed {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .location-map-overlay {

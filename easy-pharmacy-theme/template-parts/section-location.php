@@ -17,19 +17,33 @@ $badge_text      = ep_field( 'location_badge_text', 'Visit Us' );
 $title_start     = ep_field( 'location_title_start', 'Find' );
 $title_highlight = ep_field( 'location_title_highlight', ep_pharmacy_name() );
 
-// Map image
-$map_image_id  = ep_option( 'location_map_image' );
+// Map image – page-level field first, then options fallback
+$map_image_id  = ep_field( 'location_map_image' );
+if ( ! $map_image_id ) {
+    $map_image_id = ep_option( 'location_map_image' );
+}
 $map_image_url = $map_image_id ? wp_get_attachment_image_url( $map_image_id, 'full' ) : '';
 
-// Pharmacy storefront image
-$store_image_id  = ep_option( 'location_store_image' );
-$store_image_url = $store_image_id ? wp_get_attachment_image_url( $store_image_id, 'medium_large' ) : '';
+// Pharmacy / area image – page-level field first, then options fallback
+$pharmacy_image_id = ep_field( 'location_pharmacy_image' );
+if ( ! $pharmacy_image_id ) {
+    $pharmacy_image_id = ep_option( 'location_store_image' );
+}
+$pharmacy_image_url = $pharmacy_image_id ? wp_get_attachment_image_url( $pharmacy_image_id, 'medium_large' ) : '';
 
 // Address fields from options
 $address_line_1 = ep_option( 'pharmacy_address_line_1', '123 High Street' );
 $address_line_2 = ep_option( 'pharmacy_address_line_2', 'Ashford, Surrey' );
 $address_line_3 = ep_option( 'pharmacy_address_line_3', 'TW15 1AB' );
 $directions_url = ep_option( 'pharmacy_directions_url', 'https://www.google.com/maps/dir/?api=1&destination=51.4340,-0.4668' );
+
+// Google Maps embed URL – used as fallback when no static map image is set
+$maps_embed_url = ep_option( 'location_google_maps_embed', '' );
+if ( ! $maps_embed_url ) {
+    // Build a default embed from the address fields
+    $maps_query     = urlencode( $address_line_1 . ', ' . $address_line_2 . ', ' . $address_line_3 );
+    $maps_embed_url = 'https://maps.google.com/maps?q=' . $maps_query . '&t=&z=15&ie=UTF8&iwloc=&output=embed';
+}
 
 // Opening hours from options
 $hours_weekday  = ep_option( 'hours_weekday', '9:00am – 6:00pm' );
@@ -46,11 +60,19 @@ $parking_info = ep_option( 'pharmacy_parking', 'Free customer parking available 
 
 <section class="location-section" id="location">
     <div class="location-map-wrapper">
-        <!-- Static map image -->
         <?php if ( $map_image_url ) : ?>
+            <!-- Uploaded static map image -->
             <img src="<?php echo esc_url( $map_image_url ); ?>" alt="<?php echo esc_attr( 'Map showing ' . ep_pharmacy_name() . ' location' ); ?>" class="location-map-image" />
         <?php else : ?>
-            <img src="<?php echo esc_url( EASY_PHARMACY_URI . '/assets/images/map-default.jpg' ); ?>" alt="<?php echo esc_attr( 'Map showing ' . ep_pharmacy_name() . ' location' ); ?>" class="location-map-image" />
+            <!-- Live Google Maps embed -->
+            <iframe
+                class="location-map-embed"
+                src="<?php echo esc_url( $maps_embed_url ); ?>"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="<?php echo esc_attr( 'Map showing ' . ep_pharmacy_name() . ' location' ); ?>"
+            ></iframe>
         <?php endif; ?>
         <div class="location-map-overlay"></div>
     </div>
@@ -72,9 +94,9 @@ $parking_info = ep_option( 'pharmacy_parking', 'Free customer parking available 
             </div>
 
             <!-- Pharmacy image -->
-            <?php if ( $store_image_url ) : ?>
+            <?php if ( $pharmacy_image_url ) : ?>
                 <div class="location-pharmacy-image">
-                    <img src="<?php echo esc_url( $store_image_url ); ?>" alt="<?php echo esc_attr( ep_pharmacy_name() . ' storefront' ); ?>" />
+                    <img src="<?php echo esc_url( $pharmacy_image_url ); ?>" alt="<?php echo esc_attr( ep_pharmacy_name() . ' storefront' ); ?>" />
                 </div>
             <?php endif; ?>
 

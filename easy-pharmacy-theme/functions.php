@@ -290,3 +290,26 @@ function easy_pharmacy_body_classes( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'easy_pharmacy_body_classes' );
+
+/**
+ * Force Classic Editor for pages using Easy Pharmacy templates.
+ *
+ * ACF field groups work best with the Classic Editor for template-driven pages.
+ * This disables the Block Editor (Gutenberg) for any page using one of our
+ * custom page templates, giving a clean ACF-only editing experience.
+ */
+function easy_pharmacy_disable_gutenberg_for_templates( $use_block_editor, $post ) {
+    if ( empty( $post->ID ) ) {
+        return $use_block_editor;
+    }
+
+    $template = get_page_template_slug( $post->ID );
+
+    // All our custom page templates live in page-templates/
+    if ( $template && strpos( $template, 'page-templates/' ) === 0 ) {
+        return false;
+    }
+
+    return $use_block_editor;
+}
+add_filter( 'use_block_editor_for_post', 'easy_pharmacy_disable_gutenberg_for_templates', 10, 2 );

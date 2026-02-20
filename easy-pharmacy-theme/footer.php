@@ -17,12 +17,12 @@ $email         = ep_option( 'pharmacy_email', 'hello@easypharmacy.co.uk' );
 $booking_url   = ep_booking_url();
 
 // Address
-$address_line1 = ep_option( 'address_line_1', '123 High Street' );
-$address_line2 = ep_option( 'address_line_2', 'Ashford, Surrey TW15 1AB' );
+$address_line1 = ep_option( 'pharmacy_address_line_1', '123 High Street' );
+$address_line2 = ep_option( 'pharmacy_address_line_2', 'Ashford, Surrey TW15 1AB' );
 
 // Hours
 $hours_weekday = ep_option( 'hours_weekday', 'Mon-Fri: 9am-6pm' );
-$hours_weekend = ep_option( 'hours_weekend', 'Sat: 9am-1pm' );
+$hours_weekend = ep_option( 'hours_saturday', 'Sat: 9am-1pm' );
 
 // Social links
 $facebook_url  = ep_option( 'social_facebook', 'https://facebook.com' );
@@ -31,7 +31,7 @@ $twitter_url   = ep_option( 'social_twitter', 'https://twitter.com' );
 $linkedin_url  = ep_option( 'social_linkedin', 'https://linkedin.com' );
 
 // Registration
-$gphc_number   = ep_option( 'gphc_pharmacy_number', '1091169' );
+$gphc_number   = ep_option( 'gphc_registration', '1091169' );
 $company_reg   = ep_option( 'company_registration', '06703027' );
 $established   = ep_option( 'established_year', '2008' );
 
