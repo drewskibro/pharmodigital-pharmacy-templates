@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'EASY_PHARMACY_VERSION', '1.0.0' );
+define( 'EASY_PHARMACY_VERSION', filemtime( __FILE__ ) );
 define( 'EASY_PHARMACY_DIR', get_template_directory() );
 define( 'EASY_PHARMACY_URI', get_template_directory_uri() );
 
