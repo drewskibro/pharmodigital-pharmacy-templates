@@ -589,11 +589,17 @@ html {
 .mega-menu-has-dropdown:hover .mega-menu-dropdown {
   opacity: 1;
   visibility: visible;
-  pointer-events: all;
+  pointer-events: none; /* Keep transparent wrapper non-interactive so it doesn't block page CTAs */
   transition: opacity 0.3s ease 0.15s, visibility 0.3s ease 0.15s;
 }
 
+/* Only the visible content and hover bridge should capture clicks */
+.mega-menu-dropdown::before {
+  pointer-events: auto; /* Bridge between nav item and dropdown content */
+}
+
 .mega-menu-dropdown-inner {
+  pointer-events: auto; /* Actual visible dropdown content */
   background: var(--white);
   border-radius: 1.25rem;
   box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.15);
@@ -1382,6 +1388,7 @@ html {
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+      pointer-events: none;
     }
 
     .hero-image-caption {
