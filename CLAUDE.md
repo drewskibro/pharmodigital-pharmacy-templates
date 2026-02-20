@@ -292,8 +292,98 @@ The theme uses **Font Awesome 6.4.0** (CDN). Icon classes follow the `fas fa-*` 
 
 ---
 
+## Deployment Pipeline (GitHub Actions → Kinsta)
+
+### How It Works
+
+The theme auto-deploys to Kinsta whenever code is pushed to `main`. The workflow lives at `.github/workflows/deploy-to-kinsta.yml`.
+
+**Architecture:** The GitHub Actions runner checks out the repo (it has built-in access), then uses SCP to copy files directly to Kinsta. The theme files are **never cloned on the Kinsta server** — this is critical because Kinsta has no GitHub credentials.
+
+### Workflow Steps
+
+1. **Checkout** — `actions/checkout@v4` checks out the repo on the GitHub runner
+2. **SCP** — `appleboy/scp-action@v0.1.7` copies `easy-pharmacy-theme/` to `~/public/wp-content/themes/` on Kinsta
+3. **Verify** — `appleboy/ssh-action@v1` SSHes in to confirm the files landed correctly
+
+### Required GitHub Secrets
+
+These must be configured in the repo under Settings > Secrets and variables > Actions:
+
+| Secret | What it is |
+|--------|-----------|
+| `KINSTA_SSH_HOST` | Kinsta SSH hostname (e.g. `ssh.kinsta.cloud`) |
+| `KINSTA_SSH_USER` | Kinsta SSH username |
+| `KINSTA_SSH_PASSWORD` | Kinsta SSH password |
+| `KINSTA_SSH_PORT` | Kinsta SSH port (not always 22) |
+
+### Kinsta File Paths
+
+- Theme directory: `~/public/wp-content/themes/easy-pharmacy-theme/`
+- The `~` resolves to `/www/{site_name}/public/` on Kinsta — never hardcode the site name
+- WordPress themes dir: `~/public/wp-content/themes/`
+
+### Key Lessons Learned (Do NOT Repeat These Mistakes)
+
+1. **Never `git clone` on Kinsta** — Kinsta servers have no GitHub credentials. Always checkout on the GitHub runner and SCP/rsync files across. The error you'll see is: `fatal: could not read Username for 'https://github.com': No such device or address`
+
+2. **The repo is NOT the theme** — The repo is `pharmodigital-pharmacy-templates/` with the theme inside `easy-pharmacy-theme/`. The SCP source must be `easy-pharmacy-theme/` (the subfolder), not the repo root. WordPress expects the theme directly in `wp-content/themes/easy-pharmacy-theme/`.
+
+3. **Use `appleboy/scp-action`** for file transfer, `appleboy/ssh-action` for remote commands. Don't try to combine them.
+
+4. **Use `~/public/...`** paths — never hardcode `/www/{site_id}/public/...` as the site ID varies per Kinsta environment.
+
+5. **Branch protection** — Cannot push directly to `main`. Always push to a feature branch and merge via PR.
+
+### Setting Up Deployment for a New Client
+
+1. Create a new Kinsta site (or get SSH credentials for the existing one)
+2. In the GitHub repo, go to Settings > Secrets and variables > Actions
+3. Add the four secrets: `KINSTA_SSH_HOST`, `KINSTA_SSH_USER`, `KINSTA_SSH_PASSWORD`, `KINSTA_SSH_PORT`
+4. The workflow file is already in the repo — it will deploy automatically on the next push to `main`
+5. Verify by checking the Actions tab and the file manager timestamp on Kinsta
+
+### Deploy Trigger
+
+- **Automatic:** Every push to `main` (including PR merges)
+- **Manual re-run:** Go to Actions tab > click the failed/succeeded run > "Re-run all jobs"
+
+---
+
+## Known CSS Gotchas
+
+### Mega-Menu Dropdowns Blocking Clicks
+
+The mega-menu dropdowns (Weight Loss, Travel Health, etc.) are `position: absolute` inside the `position: fixed` nav at `z-index: 9999`. When visible, they extend below the nav as large transparent panels (500-750px wide).
+
+**The rule:** The dropdown wrapper (`.mega-menu-dropdown`) must always have `pointer-events: none`, even when visible. Only the actual visible content (`.mega-menu-dropdown-inner`) and the hover bridge (`::before`) should have `pointer-events: auto`. If the transparent wrapper has `pointer-events: all`, it creates an invisible click-blocking layer that intercepts CTA clicks when users move their mouse upward through the nav area.
+
+**Current correct CSS:**
+```css
+.mega-menu-has-dropdown:hover .mega-menu-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none; /* Transparent wrapper must NOT capture clicks */
+}
+
+.mega-menu-dropdown::before {
+  pointer-events: auto; /* Hover bridge between nav item and dropdown */
+}
+
+.mega-menu-dropdown-inner {
+  pointer-events: auto; /* Only visible content captures clicks */
+}
+```
+
+### Decorative Overlays
+
+Any `position: absolute; inset: 0` overlay used for gradients or decorative effects (e.g. `.hero-overlay`, `.revslider-overlay`) must have `pointer-events: none` to avoid blocking clicks on content underneath.
+
+---
+
 ## Git Workflow
 
-- Main development branch: `claude/wordpress-pharmacy-theme-ssVo4`
+- Push to feature branches, merge to `main` via PR (branch protection enforced)
+- Merging to `main` triggers automatic deployment to Kinsta
 - Commit messages should describe the *why*, not just the *what*
 - Each commit should be a logical, self-contained change
