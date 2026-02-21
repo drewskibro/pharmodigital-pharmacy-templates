@@ -440,6 +440,676 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // -------------------------------------------------------------------------
+    // A8. Navigation Menu
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_nav_top_level',
+        'title'    => 'Top-Level Menu Items',
+        'fields'   => array(
+            // --- Weight Loss ---
+            array(
+                'key'          => 'field_ep_nav_weight_loss_tab',
+                'label'        => 'Weight Loss',
+                'type'         => 'tab',
+            ),
+            array(
+                'key'           => 'field_ep_nav_weight_loss_show',
+                'label'         => 'Show in Menu',
+                'name'          => 'nav_weight_loss_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_ep_nav_weight_loss_label',
+                'label'         => 'Menu Label',
+                'name'          => 'nav_weight_loss_label',
+                'type'          => 'text',
+                'default_value' => 'Weight Loss',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_weight_loss_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+            array(
+                'key'           => 'field_ep_nav_weight_loss_url',
+                'label'         => 'Page Link',
+                'name'          => 'nav_weight_loss_url',
+                'type'          => 'page_link',
+                'post_type'     => array( 'page' ),
+                'allow_null'    => 1,
+                'instructions'  => 'Select the Weight Loss page. Leave blank to use /weight-loss/ slug.',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_weight_loss_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+
+            // --- Travel Health ---
+            array(
+                'key'          => 'field_ep_nav_travel_health_tab',
+                'label'        => 'Travel Health',
+                'type'         => 'tab',
+            ),
+            array(
+                'key'           => 'field_ep_nav_travel_health_show',
+                'label'         => 'Show in Menu',
+                'name'          => 'nav_travel_health_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_ep_nav_travel_health_label',
+                'label'         => 'Menu Label',
+                'name'          => 'nav_travel_health_label',
+                'type'          => 'text',
+                'default_value' => 'Travel Health',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_travel_health_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+            array(
+                'key'           => 'field_ep_nav_travel_health_url',
+                'label'         => 'Page Link',
+                'name'          => 'nav_travel_health_url',
+                'type'          => 'page_link',
+                'post_type'     => array( 'page' ),
+                'allow_null'    => 1,
+                'instructions'  => 'Select the Travel Health page. Leave blank to use /travel-health/ slug.',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_travel_health_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+
+            // --- Ear Wax Removal ---
+            array(
+                'key'          => 'field_ep_nav_ear_wax_tab',
+                'label'        => 'Ear Wax Removal',
+                'type'         => 'tab',
+            ),
+            array(
+                'key'           => 'field_ep_nav_ear_wax_show',
+                'label'         => 'Show in Menu',
+                'name'          => 'nav_ear_wax_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_ep_nav_ear_wax_label',
+                'label'         => 'Menu Label',
+                'name'          => 'nav_ear_wax_label',
+                'type'          => 'text',
+                'default_value' => 'Ear Wax Removal',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_ear_wax_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+            array(
+                'key'           => 'field_ep_nav_ear_wax_url',
+                'label'         => 'Page Link',
+                'name'          => 'nav_ear_wax_url',
+                'type'          => 'page_link',
+                'post_type'     => array( 'page' ),
+                'allow_null'    => 1,
+                'instructions'  => 'Select the Ear Wax Removal page. Leave blank to use /ear-wax-removal/ slug.',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_ear_wax_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+
+            // --- Hair Loss ---
+            array(
+                'key'          => 'field_ep_nav_hair_loss_tab',
+                'label'        => 'Hair Loss',
+                'type'         => 'tab',
+            ),
+            array(
+                'key'           => 'field_ep_nav_hair_loss_show',
+                'label'         => 'Show in Menu',
+                'name'          => 'nav_hair_loss_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_ep_nav_hair_loss_label',
+                'label'         => 'Menu Label',
+                'name'          => 'nav_hair_loss_label',
+                'type'          => 'text',
+                'default_value' => 'Hair Loss',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_hair_loss_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+            array(
+                'key'           => 'field_ep_nav_hair_loss_url',
+                'label'         => 'Page Link',
+                'name'          => 'nav_hair_loss_url',
+                'type'          => 'page_link',
+                'post_type'     => array( 'page' ),
+                'allow_null'    => 1,
+                'instructions'  => 'Select the Hair Loss page. Leave blank to use /hair-loss/ slug.',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_hair_loss_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+
+            // --- Health Hub ---
+            array(
+                'key'          => 'field_ep_nav_health_hub_tab',
+                'label'        => 'Health Hub',
+                'type'         => 'tab',
+            ),
+            array(
+                'key'           => 'field_ep_nav_health_hub_show',
+                'label'         => 'Show in Menu',
+                'name'          => 'nav_health_hub_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_ep_nav_health_hub_label',
+                'label'         => 'Menu Label',
+                'name'          => 'nav_health_hub_label',
+                'type'          => 'text',
+                'default_value' => 'Health Hub',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_health_hub_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+            array(
+                'key'           => 'field_ep_nav_health_hub_url',
+                'label'         => 'Page Link',
+                'name'          => 'nav_health_hub_url',
+                'type'          => 'page_link',
+                'post_type'     => array( 'page' ),
+                'allow_null'    => 1,
+                'instructions'  => 'Select the Health Hub page. Leave blank to use /health-hub/ slug.',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_health_hub_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+
+            // --- About ---
+            array(
+                'key'          => 'field_ep_nav_about_tab',
+                'label'        => 'About',
+                'type'         => 'tab',
+            ),
+            array(
+                'key'           => 'field_ep_nav_about_show',
+                'label'         => 'Show in Menu',
+                'name'          => 'nav_about_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_ep_nav_about_label',
+                'label'         => 'Menu Label',
+                'name'          => 'nav_about_label',
+                'type'          => 'text',
+                'default_value' => 'About',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_about_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+            array(
+                'key'           => 'field_ep_nav_about_url',
+                'label'         => 'Page Link',
+                'name'          => 'nav_about_url',
+                'type'          => 'page_link',
+                'post_type'     => array( 'page' ),
+                'allow_null'    => 1,
+                'instructions'  => 'Select the About/Team page. Leave blank to use /team/ slug.',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_about_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'options_page',
+                    'operator' => '==',
+                    'value'    => 'navigation',
+                ),
+            ),
+        ),
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // A9. Navigation — Dropdown Sub-Links
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_nav_dropdowns',
+        'title'    => 'Dropdown Sub-Links',
+        'fields'   => array(
+            array(
+                'key'          => 'field_ep_nav_dd_info',
+                'label'        => '',
+                'type'         => 'message',
+                'message'      => 'Configure the links that appear inside each dropdown menu. Each sub-link has a label, icon (Font Awesome class), and a page link. Leave page link blank to use the default slug.',
+            ),
+
+            // --- Weight Loss Dropdown ---
+            array(
+                'key'          => 'field_ep_nav_dd_wl_tab',
+                'label'        => 'Weight Loss Dropdown',
+                'type'         => 'tab',
+            ),
+            // Treatments column
+            array(
+                'key'           => 'field_ep_nav_dd_wl_treatments',
+                'label'         => 'Treatments Links',
+                'name'          => 'nav_dd_wl_treatments',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Treatment Link',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_nav_dd_wl_t_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_wl_t_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'instructions'  => 'e.g. fas fa-syringe',
+                        'default_value' => 'fas fa-syringe',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_wl_t_url',
+                        'label'         => 'Page Link',
+                        'name'          => 'url',
+                        'type'          => 'page_link',
+                        'post_type'     => array( 'page' ),
+                        'allow_null'    => 1,
+                    ),
+                ),
+            ),
+            // Support column
+            array(
+                'key'           => 'field_ep_nav_dd_wl_support',
+                'label'         => 'Support Links',
+                'name'          => 'nav_dd_wl_support',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Support Link',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_nav_dd_wl_s_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_wl_s_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-circle-info',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_wl_s_url',
+                        'label'         => 'Page Link',
+                        'name'          => 'url',
+                        'type'          => 'page_link',
+                        'post_type'     => array( 'page' ),
+                        'allow_null'    => 1,
+                    ),
+                ),
+            ),
+
+            // --- Travel Health Dropdown ---
+            array(
+                'key'          => 'field_ep_nav_dd_th_tab',
+                'label'        => 'Travel Health Dropdown',
+                'type'         => 'tab',
+            ),
+            // Vaccinations column
+            array(
+                'key'           => 'field_ep_nav_dd_th_vaccinations',
+                'label'         => 'Vaccinations Links',
+                'name'          => 'nav_dd_th_vaccinations',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Vaccination Link',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_v_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_v_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-syringe',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_v_url',
+                        'label'         => 'Page Link',
+                        'name'          => 'url',
+                        'type'          => 'page_link',
+                        'post_type'     => array( 'page' ),
+                        'allow_null'    => 1,
+                    ),
+                ),
+            ),
+            // Malaria Prevention column
+            array(
+                'key'           => 'field_ep_nav_dd_th_malaria',
+                'label'         => 'Malaria Prevention Links',
+                'name'          => 'nav_dd_th_malaria',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Malaria Link',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_m_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_m_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-pills',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_m_url',
+                        'label'         => 'Page Link',
+                        'name'          => 'url',
+                        'type'          => 'page_link',
+                        'post_type'     => array( 'page' ),
+                        'allow_null'    => 1,
+                    ),
+                ),
+            ),
+            // Resources column
+            array(
+                'key'           => 'field_ep_nav_dd_th_resources',
+                'label'         => 'Resources Links',
+                'name'          => 'nav_dd_th_resources',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Resource Link',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_r_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_r_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-clipboard-check',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_r_url',
+                        'label'         => 'Page Link',
+                        'name'          => 'url',
+                        'type'          => 'page_link',
+                        'post_type'     => array( 'page' ),
+                        'allow_null'    => 1,
+                    ),
+                ),
+            ),
+            // Destinations
+            array(
+                'key'           => 'field_ep_nav_dd_th_destinations',
+                'label'         => 'Popular Destinations',
+                'name'          => 'nav_dd_th_destinations',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 12,
+                'layout'        => 'table',
+                'button_label'  => 'Add Destination',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_d_name',
+                        'label'         => 'Country Name',
+                        'name'          => 'name',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_d_flag',
+                        'label'         => 'Flag Image URL',
+                        'name'          => 'flag_url',
+                        'type'          => 'url',
+                        'instructions'  => 'e.g. https://flagcdn.com/w40/th.png',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_th_d_url',
+                        'label'         => 'Page Link',
+                        'name'          => 'url',
+                        'type'          => 'page_link',
+                        'post_type'     => array( 'page' ),
+                        'allow_null'    => 1,
+                    ),
+                ),
+            ),
+
+            // --- Ear Wax Removal Dropdown ---
+            array(
+                'key'          => 'field_ep_nav_dd_ew_tab',
+                'label'        => 'Ear Wax Dropdown',
+                'type'         => 'tab',
+            ),
+            // Services column
+            array(
+                'key'           => 'field_ep_nav_dd_ew_services',
+                'label'         => 'Services Links',
+                'name'          => 'nav_dd_ew_services',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Service Link',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_nav_dd_ew_sv_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_ew_sv_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-stethoscope',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_ew_sv_url',
+                        'label'         => 'Page Link',
+                        'name'          => 'url',
+                        'type'          => 'page_link',
+                        'post_type'     => array( 'page' ),
+                        'allow_null'    => 1,
+                    ),
+                ),
+            ),
+            // Information column
+            array(
+                'key'           => 'field_ep_nav_dd_ew_info',
+                'label'         => 'Information Links',
+                'name'          => 'nav_dd_ew_info',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Info Link',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_nav_dd_ew_i_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_ew_i_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-circle-info',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_ew_i_url',
+                        'label'         => 'Page Link',
+                        'name'          => 'url',
+                        'type'          => 'page_link',
+                        'post_type'     => array( 'page' ),
+                        'allow_null'    => 1,
+                    ),
+                ),
+            ),
+
+            // --- Hair Loss Dropdown ---
+            array(
+                'key'          => 'field_ep_nav_dd_hl_tab',
+                'label'        => 'Hair Loss Dropdown',
+                'type'         => 'tab',
+            ),
+            // Treatments column
+            array(
+                'key'           => 'field_ep_nav_dd_hl_treatments',
+                'label'         => 'Treatments Links',
+                'name'          => 'nav_dd_hl_treatments',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Treatment Link',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_nav_dd_hl_t_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_hl_t_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-pills',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_hl_t_url',
+                        'label'         => 'Page Link',
+                        'name'          => 'url',
+                        'type'          => 'page_link',
+                        'post_type'     => array( 'page' ),
+                        'allow_null'    => 1,
+                    ),
+                ),
+            ),
+            // Support column
+            array(
+                'key'           => 'field_ep_nav_dd_hl_support',
+                'label'         => 'Support Links',
+                'name'          => 'nav_dd_hl_support',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Support Link',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_nav_dd_hl_s_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_hl_s_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-user-doctor',
+                    ),
+                    array(
+                        'key'           => 'field_ep_nav_dd_hl_s_url',
+                        'label'         => 'Page Link',
+                        'name'          => 'url',
+                        'type'          => 'page_link',
+                        'post_type'     => array( 'page' ),
+                        'allow_null'    => 1,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'options_page',
+                    'operator' => '==',
+                    'value'    => 'navigation',
+                ),
+            ),
+        ),
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // =========================================================================
     // B. HOME PAGE FIELDS
     // =========================================================================

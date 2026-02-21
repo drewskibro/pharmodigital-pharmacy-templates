@@ -67,5 +67,14 @@ function ep_register_options_pages() {
         'parent_slug' => 'pharmacy-settings',
         'capability'  => 'edit_posts',
     ) );
+
+    // Sub page: Navigation.
+    acf_add_options_sub_page( array(
+        'page_title'  => 'Navigation',
+        'menu_title'  => 'Navigation',
+        'menu_slug'   => 'navigation',
+        'parent_slug' => 'pharmacy-settings',
+        'capability'  => 'edit_posts',
+    ) );
 }
 add_action( 'acf/init', 'ep_register_options_pages' );
