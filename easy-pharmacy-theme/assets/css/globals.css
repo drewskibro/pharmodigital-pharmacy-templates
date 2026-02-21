@@ -4254,7 +4254,12 @@ html {
 
 @media (max-width: 767px) {
   .footer-certifications {
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .footer-cert-item {
+    width: 100%;
   }
 
   .footer-cert-divider {
