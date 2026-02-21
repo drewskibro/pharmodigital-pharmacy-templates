@@ -1792,5 +1792,1011 @@ function ep_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // E. EAR WAX REMOVAL PAGE FIELDS
+    // =========================================================================
+
+    // -------------------------------------------------------------------------
+    // E1. Ear Wax — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ew_hero',
+        'title'    => 'Ear Wax — Hero Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_ew_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'ew_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'SAME-DAY MICROSUCTION AVAILABLE',
+                'instructions'  => 'Small badge text above the hero title.',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_title_highlight',
+                'label'         => 'Title — Highlighted Line',
+                'name'          => 'ew_hero_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Professional Ear Wax Removal',
+                'instructions'  => 'Displayed in gradient text.',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_title_line2',
+                'label'         => 'Title — Second Line',
+                'name'          => 'ew_hero_title_line2',
+                'type'          => 'text',
+                'default_value' => 'in Ashford',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'ew_hero_subtitle',
+                'type'          => 'text',
+                'default_value' => 'Expert microsuction by Jignasa Modhvadia and our specialist team',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_description',
+                'label'         => 'Description',
+                'name'          => 'ew_hero_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Safe, effective ear wax removal using advanced microsuction technology. Same-day appointments available. Guaranteed results with complimentary follow-up within 7 days if needed.',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_cta_url',
+                'label'         => 'CTA Button URL',
+                'name'          => 'ew_hero_cta_url',
+                'type'          => 'url',
+                'instructions'  => 'Leave blank to use the default booking page.',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_cta_text',
+                'label'         => 'CTA Button Text',
+                'name'          => 'ew_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Book Your Appointment',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_image',
+                'label'         => 'Hero Image',
+                'name'          => 'ew_hero_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Main hero image. Recommended: portrait orientation, at least 800×1000px.',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_image_alt',
+                'label'         => 'Hero Image Alt Text',
+                'name'          => 'ew_hero_image_alt',
+                'type'          => 'text',
+                'default_value' => 'Friendly older patient satisfied after ear wax removal treatment',
+            ),
+            array(
+                'key'           => 'field_ep_ew_price_label',
+                'label'         => 'Price Badge — Label',
+                'name'          => 'ew_price_label',
+                'type'          => 'text',
+                'default_value' => 'Starting From',
+            ),
+            array(
+                'key'           => 'field_ep_ew_price_amount',
+                'label'         => 'Price Badge — Amount',
+                'name'          => 'ew_price_amount',
+                'type'          => 'text',
+                'default_value' => '£20',
+            ),
+            array(
+                'key'           => 'field_ep_ew_price_sub',
+                'label'         => 'Price Badge — Subtext',
+                'name'          => 'ew_price_sub',
+                'type'          => 'text',
+                'default_value' => 'per ear · max £50',
+            ),
+            array(
+                'key'           => 'field_ep_ew_trust_1',
+                'label'         => 'Trust Item 1',
+                'name'          => 'ew_trust_1',
+                'type'          => 'text',
+                'default_value' => 'GPhC Registered',
+            ),
+            array(
+                'key'           => 'field_ep_ew_trust_2',
+                'label'         => 'Trust Item 2',
+                'name'          => 'ew_trust_2',
+                'type'          => 'text',
+                'default_value' => 'Same-day available',
+            ),
+            array(
+                'key'           => 'field_ep_ew_trust_3',
+                'label'         => 'Trust Item 3',
+                'name'          => 'ew_trust_3',
+                'type'          => 'text',
+                'default_value' => 'From £20 per ear',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_testimonial_text',
+                'label'         => 'Hero Testimonial — Quote',
+                'name'          => 'ew_hero_testimonial_text',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => '"The difference was immediate—I could hear clearly again. Professional, gentle, and highly effective."',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_testimonial_avatar',
+                'label'         => 'Hero Testimonial — Avatar',
+                'name'          => 'ew_hero_testimonial_avatar',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'thumbnail',
+                'library'       => 'all',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_testimonial_name',
+                'label'         => 'Hero Testimonial — Name',
+                'name'          => 'ew_hero_testimonial_name',
+                'type'          => 'text',
+                'default_value' => 'Sarah M.',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_testimonial_location',
+                'label'         => 'Hero Testimonial — Location',
+                'name'          => 'ew_hero_testimonial_location',
+                'type'          => 'text',
+                'default_value' => 'Ashford Patient',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-ear-wax-removal.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+        'hide_on_screen'        => array(
+            'the_content',
+            'excerpt',
+            'discussion',
+            'comments',
+            'featured_image',
+        ),
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E2. Ear Wax — Stats Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ew_stats',
+        'title'    => 'Ear Wax — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'          => 'field_ep_ew_stats',
+                'label'        => 'Stats',
+                'name'         => 'ew_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Stat',
+                'instructions' => 'Leave empty to use defaults (GPhC, 5,000+ Patients, 95% Success, 30 min, Same Day).',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_ew_stat_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-star',
+                        'instructions'  => 'Full Font Awesome class, e.g. fas fa-users',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_stat_number',
+                        'label' => 'Number',
+                        'name'  => 'number',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_stat_label',
+                        'label' => 'Label',
+                        'name'  => 'label',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-ear-wax-removal.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E3. Ear Wax — Symptoms Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ew_symptoms',
+        'title'    => 'Ear Wax — Symptoms Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_ew_symptoms_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'ew_symptoms_badge',
+                'type'          => 'text',
+                'default_value' => 'COMMON SYMPTOMS',
+            ),
+            array(
+                'key'           => 'field_ep_ew_symptoms_title',
+                'label'         => 'Title',
+                'name'          => 'ew_symptoms_title',
+                'type'          => 'text',
+                'default_value' => 'Is Ear Wax Affecting Your Daily Life?',
+            ),
+            array(
+                'key'           => 'field_ep_ew_symptoms_description',
+                'label'         => 'Description',
+                'name'          => 'ew_symptoms_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => "Don't let blocked ears hold you back. Recognise these common symptoms?",
+            ),
+            array(
+                'key'          => 'field_ep_ew_symptoms',
+                'label'        => 'Symptoms',
+                'name'         => 'ew_symptoms',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Symptom',
+                'instructions' => 'Leave empty to use 6 default symptom cards.',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_ew_symptom_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-ear-listen',
+                        'instructions'  => 'Full Font Awesome class.',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_symptom_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_symptom_description',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'textarea',
+                        'rows'  => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-ear-wax-removal.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E4. Ear Wax — Team Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ew_team',
+        'title'    => 'Ear Wax — Team Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_ew_team_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'ew_team_badge',
+                'type'          => 'text',
+                'default_value' => 'OUR TEAM',
+            ),
+            array(
+                'key'           => 'field_ep_ew_team_title',
+                'label'         => 'Title',
+                'name'          => 'ew_team_title',
+                'type'          => 'text',
+                'default_value' => 'Meet Your Ashford Ear Care Specialists',
+            ),
+            array(
+                'key'           => 'field_ep_ew_team_description',
+                'label'         => 'Description',
+                'name'          => 'ew_team_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => "As Ashford's dedicated ear care practice, we've helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and free parking.",
+            ),
+            array(
+                'key'          => 'field_ep_ew_team_members',
+                'label'        => 'Team Members',
+                'name'         => 'ew_team_members',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Team Member',
+                'instructions' => 'Leave empty to use default team (Jignasa Modhvadia & Baljender Nagi).',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_ew_team_image',
+                        'label'         => 'Photo',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'library'       => 'all',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_team_name',
+                        'label' => 'Name',
+                        'name'  => 'name',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_team_role',
+                        'label' => 'Role',
+                        'name'  => 'role',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_team_bio',
+                        'label' => 'Bio',
+                        'name'  => 'bio',
+                        'type'  => 'textarea',
+                        'rows'  => 3,
+                    ),
+                    array(
+                        'key'           => 'field_ep_ew_team_badge_text',
+                        'label'         => 'Badge Text',
+                        'name'          => 'badge_text',
+                        'type'          => 'text',
+                        'instructions'  => 'e.g. "Since 2019" or "Level 3 Technician"',
+                    ),
+                    array(
+                        'key'           => 'field_ep_ew_team_badge_style',
+                        'label'         => 'Badge Style',
+                        'name'          => 'badge_style',
+                        'type'          => 'select',
+                        'choices'       => array(
+                            'green'  => 'Green',
+                            'purple' => 'Purple',
+                        ),
+                        'default_value' => 'green',
+                    ),
+                    array(
+                        'key'          => 'field_ep_ew_team_tags',
+                        'label'        => 'Skill Tags',
+                        'name'         => 'tags',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'button_label' => 'Add Tag',
+                        'sub_fields'   => array(
+                            array(
+                                'key'   => 'field_ep_ew_team_tag',
+                                'label' => 'Tag',
+                                'name'  => 'tag',
+                                'type'  => 'text',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-ear-wax-removal.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E5. Ear Wax — Comparison Table
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ew_comparison',
+        'title'    => 'Ear Wax — Comparison Table',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_ew_compare_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'ew_compare_badge',
+                'type'          => 'text',
+                'default_value' => 'TREATMENT COMPARISON',
+            ),
+            array(
+                'key'           => 'field_ep_ew_compare_title',
+                'label'         => 'Title',
+                'name'          => 'ew_compare_title',
+                'type'          => 'text',
+                'default_value' => 'How Our Treatment Compares',
+            ),
+            array(
+                'key'           => 'field_ep_ew_compare_description',
+                'label'         => 'Description',
+                'name'          => 'ew_compare_description',
+                'type'          => 'text',
+                'default_value' => 'See why microsuction is the gold standard for ear wax removal in Ashford',
+            ),
+            array(
+                'key'           => 'field_ep_ew_compare_col_1_heading',
+                'label'         => 'Column 1 Heading (Highlighted)',
+                'name'          => 'ew_compare_col_1_heading',
+                'type'          => 'text',
+                'default_value' => 'Our Microsuction',
+            ),
+            array(
+                'key'           => 'field_ep_ew_compare_col_2_heading',
+                'label'         => 'Column 2 Heading',
+                'name'          => 'ew_compare_col_2_heading',
+                'type'          => 'text',
+                'default_value' => 'Traditional Syringing',
+            ),
+            array(
+                'key'           => 'field_ep_ew_compare_col_3_heading',
+                'label'         => 'Column 3 Heading',
+                'name'          => 'ew_compare_col_3_heading',
+                'type'          => 'text',
+                'default_value' => 'At-Home Remedies',
+            ),
+            array(
+                'key'          => 'field_ep_ew_comparison_rows',
+                'label'        => 'Comparison Rows',
+                'name'         => 'ew_comparison_rows',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Row',
+                'instructions' => 'Leave empty to use 8 default rows.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_ew_compare_feature',
+                        'label' => 'Feature',
+                        'name'  => 'feature',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_compare_microsuction',
+                        'label' => 'Microsuction',
+                        'name'  => 'microsuction',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_compare_syringing',
+                        'label' => 'Syringing',
+                        'name'  => 'syringing',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_compare_home_remedies',
+                        'label' => 'Home Remedies',
+                        'name'  => 'home_remedies',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-ear-wax-removal.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E6. Ear Wax — Process Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ew_process',
+        'title'    => 'Ear Wax — Process (How It Works)',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_ew_process_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'ew_process_badge',
+                'type'          => 'text',
+                'default_value' => 'HOW IT WORKS',
+            ),
+            array(
+                'key'           => 'field_ep_ew_process_title',
+                'label'         => 'Title',
+                'name'          => 'ew_process_title',
+                'type'          => 'text',
+                'default_value' => 'Our Professional Ear Wax Removal Process',
+            ),
+            array(
+                'key'           => 'field_ep_ew_process_description',
+                'label'         => 'Description',
+                'name'          => 'ew_process_description',
+                'type'          => 'text',
+                'default_value' => 'Simple, effective treatment in three easy steps',
+            ),
+            array(
+                'key'          => 'field_ep_ew_process_steps',
+                'label'        => 'Steps',
+                'name'         => 'ew_process_steps',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Step',
+                'instructions' => 'Leave empty to use 3 default steps (Assessment, Treatment, Aftercare).',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_ew_step_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-clipboard-check',
+                        'instructions'  => 'Full Font Awesome class.',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_step_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_step_description',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'textarea',
+                        'rows'  => 3,
+                    ),
+                    array(
+                        'key'          => 'field_ep_ew_step_time',
+                        'label'        => 'Time Label',
+                        'name'         => 'time',
+                        'type'         => 'text',
+                        'instructions' => 'e.g. "10 minutes". Leave blank to hide.',
+                    ),
+                    array(
+                        'key'          => 'field_ep_ew_step_badge',
+                        'label'        => 'Badge Text',
+                        'name'         => 'badge',
+                        'type'         => 'text',
+                        'instructions' => 'e.g. "Free 7-day follow-up". Leave blank to hide.',
+                    ),
+                    array(
+                        'key'           => 'field_ep_ew_step_image',
+                        'label'         => 'Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'library'       => 'all',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-ear-wax-removal.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 50,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E7. Ear Wax — Pricing Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ew_pricing',
+        'title'    => 'Ear Wax — Pricing Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_ew_pricing_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'ew_pricing_badge',
+                'type'          => 'text',
+                'default_value' => 'TRANSPARENT PRICING',
+            ),
+            array(
+                'key'           => 'field_ep_ew_pricing_title',
+                'label'         => 'Title',
+                'name'          => 'ew_pricing_title',
+                'type'          => 'text',
+                'default_value' => 'Simple, Transparent Pricing',
+            ),
+            array(
+                'key'           => 'field_ep_ew_pricing_description',
+                'label'         => 'Description',
+                'name'          => 'ew_pricing_description',
+                'type'          => 'text',
+                'default_value' => 'No hidden fees. No surprises. Just clear, professional ear care.',
+            ),
+            array(
+                'key'          => 'field_ep_ew_pricing',
+                'label'        => 'Pricing Cards',
+                'name'         => 'ew_pricing',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Pricing Card',
+                'instructions' => 'Leave empty to use defaults (Consultation £10, Microsuction £20/ear).',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_ew_price_is_featured',
+                        'label'         => 'Featured?',
+                        'name'          => 'is_featured',
+                        'type'          => 'true_false',
+                        'default_value' => 0,
+                        'ui'            => 1,
+                        'instructions'  => 'Featured card gets a highlighted border and "Most Popular" badge.',
+                    ),
+                    array(
+                        'key'           => 'field_ep_ew_price_badge_text',
+                        'label'         => 'Badge Text',
+                        'name'          => 'badge_text',
+                        'type'          => 'text',
+                        'default_value' => 'MOST POPULAR',
+                        'instructions'  => 'Only shown on featured cards.',
+                    ),
+                    array(
+                        'key'           => 'field_ep_ew_price_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-clipboard-list',
+                        'instructions'  => 'Full Font Awesome class.',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_price_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'          => 'field_ep_ew_price_amount_val',
+                        'label'        => 'Price (number only)',
+                        'name'         => 'price',
+                        'type'         => 'text',
+                        'instructions' => 'Just the number, e.g. "20". The £ sign is added automatically.',
+                    ),
+                    array(
+                        'key'          => 'field_ep_ew_price_per_text',
+                        'label'        => 'Per Text',
+                        'name'         => 'per_text',
+                        'type'         => 'text',
+                        'instructions' => 'e.g. "per ear". Leave blank if not needed.',
+                    ),
+                    array(
+                        'key'           => 'field_ep_ew_price_button_text',
+                        'label'         => 'Button Text',
+                        'name'          => 'button_text',
+                        'type'          => 'text',
+                        'default_value' => 'Book Now',
+                    ),
+                    array(
+                        'key'          => 'field_ep_ew_price_guarantee',
+                        'label'        => 'Guarantee Text',
+                        'name'         => 'guarantee_text',
+                        'type'         => 'text',
+                        'instructions' => 'e.g. "Satisfaction Guaranteed". Only shown on featured cards.',
+                    ),
+                    array(
+                        'key'          => 'field_ep_ew_price_features',
+                        'label'        => 'Features',
+                        'name'         => 'features',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'button_label' => 'Add Feature',
+                        'sub_fields'   => array(
+                            array(
+                                'key'   => 'field_ep_ew_price_feature',
+                                'label' => 'Feature',
+                                'name'  => 'feature',
+                                'type'  => 'text',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'key'           => 'field_ep_ew_value_1',
+                'label'         => 'Value Item 1',
+                'name'          => 'ew_value_1',
+                'type'          => 'text',
+                'default_value' => 'No Hidden Fees',
+            ),
+            array(
+                'key'           => 'field_ep_ew_value_2',
+                'label'         => 'Value Item 2',
+                'name'          => 'ew_value_2',
+                'type'          => 'text',
+                'default_value' => 'Same-Day Available',
+            ),
+            array(
+                'key'           => 'field_ep_ew_value_3',
+                'label'         => 'Value Item 3',
+                'name'          => 'ew_value_3',
+                'type'          => 'text',
+                'default_value' => 'All Payment Methods',
+            ),
+            array(
+                'key'           => 'field_ep_ew_value_4',
+                'label'         => 'Value Item 4',
+                'name'          => 'ew_value_4',
+                'type'          => 'text',
+                'default_value' => 'Free Follow-Up',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-ear-wax-removal.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 60,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E8. Ear Wax — Testimonials Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ew_testimonials',
+        'title'    => 'Ear Wax — Testimonials Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_ew_testimonials_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'ew_testimonials_badge',
+                'type'          => 'text',
+                'default_value' => 'PATIENT TESTIMONIALS',
+            ),
+            array(
+                'key'           => 'field_ep_ew_testimonials_title',
+                'label'         => 'Title',
+                'name'          => 'ew_testimonials_title',
+                'type'          => 'text',
+                'default_value' => 'Hear What Our Ashford Patients Say',
+            ),
+            array(
+                'key'           => 'field_ep_ew_testimonials_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'ew_testimonials_subtitle',
+                'type'          => 'text',
+                'default_value' => "Join thousands of satisfied patients who've experienced immediate relief",
+            ),
+            array(
+                'key'          => 'field_ep_ew_testimonials',
+                'label'        => 'Testimonials',
+                'name'         => 'ew_testimonials',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Testimonial',
+                'instructions' => 'Leave empty to use 3 default testimonials.',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_ew_testimonial_avatar',
+                        'label'         => 'Avatar',
+                        'name'          => 'avatar',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'thumbnail',
+                        'library'       => 'all',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_testimonial_author',
+                        'label' => 'Author Name',
+                        'name'  => 'author',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_testimonial_quote',
+                        'label' => 'Quote',
+                        'name'  => 'quote',
+                        'type'  => 'textarea',
+                        'rows'  => 3,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-ear-wax-removal.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 70,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E9. Ear Wax — FAQ Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ew_faq',
+        'title'    => 'Ear Wax — FAQ Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_ew_faq_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'ew_faq_badge',
+                'type'          => 'text',
+                'default_value' => 'FREQUENTLY ASKED QUESTIONS',
+            ),
+            array(
+                'key'           => 'field_ep_ew_faq_title',
+                'label'         => 'Title',
+                'name'          => 'ew_faq_title',
+                'type'          => 'text',
+                'default_value' => 'Frequently Asked Questions - Ear Wax Removal Ashford',
+            ),
+            array(
+                'key'          => 'field_ep_ew_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'ew_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'instructions' => 'Leave empty to use 6 default FAQs.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_ew_faq_question',
+                        'label' => 'Question',
+                        'name'  => 'question',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_ew_faq_answer',
+                        'label' => 'Answer',
+                        'name'  => 'answer',
+                        'type'  => 'textarea',
+                        'rows'  => 3,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-ear-wax-removal.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 80,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E10. Ear Wax — Final CTA Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ew_cta',
+        'title'    => 'Ear Wax — Final CTA Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_ew_cta_badge_1',
+                'label'         => 'Badge 1',
+                'name'          => 'ew_cta_badge_1',
+                'type'          => 'text',
+                'default_value' => 'From £20 per ear',
+            ),
+            array(
+                'key'           => 'field_ep_ew_cta_badge_2',
+                'label'         => 'Badge 2',
+                'name'          => 'ew_cta_badge_2',
+                'type'          => 'text',
+                'default_value' => 'Same-day available',
+            ),
+            array(
+                'key'           => 'field_ep_ew_cta_badge_3',
+                'label'         => 'Badge 3',
+                'name'          => 'ew_cta_badge_3',
+                'type'          => 'text',
+                'default_value' => 'Free 7-day follow-up',
+            ),
+            array(
+                'key'           => 'field_ep_ew_cta_title',
+                'label'         => 'Title',
+                'name'          => 'ew_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready to hear clearly again?',
+            ),
+            array(
+                'key'           => 'field_ep_ew_cta_description',
+                'label'         => 'Description',
+                'name'          => 'ew_cta_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Book your ear wax removal appointment at our Ashford clinic today. Expert microsuction treatment with guaranteed results.',
+            ),
+            array(
+                'key'           => 'field_ep_ew_cta_button_text',
+                'label'         => 'Button Text',
+                'name'          => 'ew_cta_button_text',
+                'type'          => 'text',
+                'default_value' => 'Book Appointment Online',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-ear-wax-removal.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 90,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );
