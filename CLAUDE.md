@@ -375,6 +375,28 @@ The mega-menu dropdowns (Weight Loss, Travel Health, etc.) are `position: absolu
 }
 ```
 
+### Mega-Menu List Bounding Box Blocking Page Content
+
+The `<ul class="mega-menu-list">` sits inside the fixed nav (`z-index: 9999`). Even though the dropdowns are `position: absolute`, the `<ul>` itself can have a bounding box that extends hundreds of pixels below the nav bar (observed at ~716px tall). Because the nav has a sky-high z-index, this invisible box intercepts clicks on hero CTAs, "Popular Treatments" cards, and any other content positioned beneath the nav.
+
+**The rule:** On desktop, `.mega-menu-list` must have `pointer-events: none` so its oversized bounding box passes through clicks. Each `<li class="mega-menu-item">` gets `pointer-events: auto` to keep nav links clickable.
+
+**Current correct CSS:**
+```css
+@media (min-width: 1024px) {
+  .mega-menu-list {
+    display: flex;
+    pointer-events: none; /* Bounding box must NOT capture clicks */
+  }
+}
+
+.mega-menu-item {
+  pointer-events: auto; /* Re-enable on each nav item */
+}
+```
+
+**Symptom if broken:** Hero CTA buttons and treatment cards appear unclickable — cursor doesn't change to pointer, clicks do nothing. The invisible `<ul>` is sitting on top of them.
+
 ### Decorative Overlays
 
 Any `position: absolute; inset: 0` overlay used for gradients or decorative effects (e.g. `.hero-overlay`, `.revslider-overlay`) must have `pointer-events: none` to avoid blocking clicks on content underneath.
