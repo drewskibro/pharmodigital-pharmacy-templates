@@ -7,199 +7,302 @@
 get_header();
 ?>
 
-<!-- Hero Section -->
+<!-- ============================================
+     HERO SECTION
+     ============================================ -->
 <section class="earwax-hero-section">
   <div class="earwax-hero-bg"></div>
   <div class="earwax-hero-dots"></div>
   <div class="earwax-hero-glow-1"></div>
   <div class="earwax-hero-glow-2"></div>
-
   <div class="section-container">
     <div class="earwax-hero-grid">
-
+      <!-- Left: Content -->
       <div class="earwax-hero-content">
         <div class="section-badge">
           <span class="pulse-dot"><span></span><span></span></span>
-          <span class="section-badge-text"><?php echo esc_html(ep_field('ew_hero_badge', 'EAR WAX REMOVAL')); ?></span>
+          <span class="section-badge-text"><?php echo esc_html( ep_field( 'ew_hero_badge', 'SAME-DAY MICROSUCTION AVAILABLE' ) ); ?></span>
         </div>
 
         <h1 class="earwax-hero-title">
-          <?php echo esc_html(ep_field('ew_hero_title_line1', 'Professional')); ?>
-          <span class="gradient-text"><?php echo esc_html(ep_field('ew_hero_title_highlight', 'Ear Wax Removal')); ?></span>
-          <?php echo esc_html(ep_field('ew_hero_title_line2', 'in Ashford')); ?>
+          <span class="gradient-text"><?php echo esc_html( ep_field( 'ew_hero_title_highlight', 'Professional Ear Wax Removal' ) ); ?></span>
+          <?php echo esc_html( ep_field( 'ew_hero_title_line2', 'in Ashford' ) ); ?>
         </h1>
 
+        <h2 class="earwax-hero-subtitle">
+          <?php echo esc_html( ep_field( 'ew_hero_subtitle', 'Expert microsuction by Jignasa Modhvadia and our specialist team' ) ); ?>
+        </h2>
+
         <p class="earwax-hero-description">
-          <?php echo esc_html(ep_field('ew_hero_description', 'Safe, effective microsuction ear wax removal performed by our trained clinical team. Quick appointments, immediate relief.')); ?>
+          <?php echo esc_html( ep_field( 'ew_hero_description', 'Safe, effective ear wax removal using advanced microsuction technology. Same-day appointments available. Guaranteed results with complimentary follow-up within 7 days if needed.' ) ); ?>
         </p>
 
-        <ul class="earwax-hero-features">
-          <li><i class="fas fa-circle-check"></i> <?php echo esc_html(ep_field('ew_feature_1', 'Microsuction technique')); ?></li>
-          <li><i class="fas fa-circle-check"></i> <?php echo esc_html(ep_field('ew_feature_2', 'Trained ear care specialists')); ?></li>
-          <li><i class="fas fa-circle-check"></i> <?php echo esc_html(ep_field('ew_feature_3', 'Same-day appointments available')); ?></li>
-        </ul>
-
         <div class="earwax-hero-actions">
-          <a href="<?php echo esc_url(ep_field('ew_hero_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">
-            <?php echo esc_html(ep_field('ew_hero_cta_text', 'Book Appointment')); ?>
+          <a href="<?php echo esc_url( ep_field( 'ew_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( ep_field( 'ew_hero_cta_text', 'Book Your Appointment' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
-          <a href="tel:<?php echo esc_attr(ep_field('ew_phone_number', '01784255222')); ?>" class="cta-button secondary-cta">
+          <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta">
             <i class="fas fa-phone"></i>
-            <?php echo esc_html(ep_field('ew_phone_display', 'Call 01784 255222')); ?>
+            Call <?php echo esc_html( ep_phone() ); ?>
           </a>
         </div>
-      </div>
 
-      <div class="earwax-hero-visual">
-        <div class="earwax-hero-image-card">
-          <img src="<?php echo esc_url(ep_field('ew_hero_image', 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=1000&fit=crop')); ?>" alt="<?php echo esc_attr(ep_field('ew_hero_image_alt', 'Professional ear wax removal')); ?>" class="earwax-hero-image" />
-          <div class="earwax-hero-overlay"></div>
-          <div class="earwax-hero-caption">
-            <div class="star-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p>Professional ear care you can trust</p>
+        <div class="earwax-hero-trust">
+          <div class="earwax-hero-trust-item">
+            <i class="fas fa-check-circle"></i>
+            <span><?php echo esc_html( ep_field( 'ew_trust_1', 'GPhC Registered' ) ); ?></span>
+          </div>
+          <div class="earwax-hero-trust-item">
+            <i class="fas fa-clock"></i>
+            <span><?php echo esc_html( ep_field( 'ew_trust_2', 'Same-day available' ) ); ?></span>
+          </div>
+          <div class="earwax-hero-trust-item">
+            <i class="fas fa-tag"></i>
+            <span><?php echo esc_html( ep_field( 'ew_trust_3', 'From £20 per ear' ) ); ?></span>
           </div>
         </div>
       </div>
 
+      <!-- Right: Image with Testimonial -->
+      <div class="earwax-hero-visual">
+        <?php
+        $hero_image_id  = ep_field( 'ew_hero_image' );
+        $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'large' ) : 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=800&h=1000&fit=crop';
+        ?>
+        <div class="earwax-hero-image-card">
+          <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( ep_field( 'ew_hero_image_alt', 'Friendly older patient satisfied after ear wax removal treatment' ) ); ?>" class="earwax-hero-image" />
+          <div class="earwax-hero-overlay"></div>
+          <div class="earwax-hero-price-badge">
+            <span class="earwax-hero-price-label"><?php echo esc_html( ep_field( 'ew_price_label', 'Starting From' ) ); ?></span>
+            <span class="earwax-hero-price-amount"><?php echo esc_html( ep_field( 'ew_price_amount', '£20' ) ); ?></span>
+            <span class="earwax-hero-price-sub"><?php echo esc_html( ep_field( 'ew_price_sub', 'per ear · max £50' ) ); ?></span>
+          </div>
+        </div>
+
+        <!-- Floating Testimonial Card -->
+        <div class="earwax-hero-testimonial-float">
+          <div class="earwax-hero-testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="earwax-hero-testimonial-text"><?php echo esc_html( ep_field( 'ew_hero_testimonial_text', '"The difference was immediate—I could hear clearly again. Professional, gentle, and highly effective."' ) ); ?></p>
+          <div class="earwax-hero-testimonial-author">
+            <?php
+            $testimonial_avatar_id  = ep_field( 'ew_hero_testimonial_avatar' );
+            $testimonial_avatar_url = $testimonial_avatar_id ? wp_get_attachment_image_url( $testimonial_avatar_id, 'thumbnail' ) : 'https://i.pravatar.cc/150?img=47';
+            ?>
+            <div class="earwax-hero-testimonial-avatar">
+              <img src="<?php echo esc_url( $testimonial_avatar_url ); ?>" alt="<?php echo esc_attr( ep_field( 'ew_hero_testimonial_name', 'Sarah M.' ) ); ?>" />
+            </div>
+            <div>
+              <p class="earwax-hero-testimonial-name"><?php echo esc_html( ep_field( 'ew_hero_testimonial_name', 'Sarah M.' ) ); ?></p>
+              <p class="earwax-hero-testimonial-location"><?php echo esc_html( ep_field( 'ew_hero_testimonial_location', 'Ashford Patient' ) ); ?></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Stats Section -->
-<section class="earwax-stats-section">
-  <div class="earwax-stats-shimmer"></div>
+<!-- ============================================
+     STATS BAR - Uses shared stats-section from globals.css
+     ============================================ -->
+<section class="stats-section">
   <div class="section-container">
-    <div class="earwax-stats-grid">
-      <?php if (have_rows('ew_stats')) : while (have_rows('ew_stats')) : the_row(); ?>
-        <div class="earwax-stat-item">
-          <div class="earwax-stat-icon"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div>
-          <div class="earwax-stat-content">
-            <span class="earwax-stat-number"><?php echo esc_html(get_sub_field('number')); ?></span>
-            <span class="earwax-stat-label"><?php echo esc_html(get_sub_field('label')); ?></span>
+    <div class="stats-bar">
+      <?php if ( have_rows( 'ew_stats' ) ) : $stat_index = 0; while ( have_rows( 'ew_stats' ) ) : the_row(); $stat_index++; ?>
+        <?php if ( $stat_index > 1 ) : ?><div class="stat-divider"></div><?php endif; ?>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number"><?php echo esc_html( get_sub_field( 'number' ) ); ?></span>
+            <span class="stat-label"><?php echo esc_html( get_sub_field( 'label' ) ); ?></span>
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="earwax-stat-item">
-          <div class="earwax-stat-icon"><i class="fas fa-users"></i></div>
-          <div class="earwax-stat-content"><span class="earwax-stat-number">1,000+</span><span class="earwax-stat-label">Patients Treated</span></div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-shield-check"></i></div>
+          <div class="stat-content">
+            <span class="stat-number">GPhC</span>
+            <span class="stat-label">Fully Registered</span>
+          </div>
         </div>
-        <div class="earwax-stat-item">
-          <div class="earwax-stat-icon"><i class="fas fa-certificate"></i></div>
-          <div class="earwax-stat-content"><span class="earwax-stat-number">Certified</span><span class="earwax-stat-label">Ear Care Team</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-content">
+            <span class="stat-number">5,000+</span>
+            <span class="stat-label">Patients Treated</span>
+          </div>
         </div>
-        <div class="earwax-stat-item">
-          <div class="earwax-stat-icon"><i class="fas fa-clock"></i></div>
-          <div class="earwax-stat-content"><span class="earwax-stat-number">15 min</span><span class="earwax-stat-label">Appointments</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-percentage"></i></div>
+          <div class="stat-content">
+            <span class="stat-number">95%</span>
+            <span class="stat-label">Success Rate</span>
+          </div>
         </div>
-        <div class="earwax-stat-item">
-          <div class="earwax-stat-icon"><i class="fas fa-star"></i></div>
-          <div class="earwax-stat-content"><span class="earwax-stat-number">4.7&#9733;</span><span class="earwax-stat-label">Average Rating</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-clock"></i></div>
+          <div class="stat-content">
+            <span class="stat-number">30 min</span>
+            <span class="stat-label">Average Time</span>
+          </div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+          <div class="stat-content">
+            <span class="stat-number">Same Day</span>
+            <span class="stat-label">Available</span>
+          </div>
         </div>
       <?php endif; ?>
     </div>
   </div>
 </section>
 
-<!-- Symptoms Section -->
+<!-- ============================================
+     SYMPTOMS SECTION
+     ============================================ -->
 <section class="earwax-symptoms-section">
   <div class="section-container">
     <div class="earwax-symptoms-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(ep_field('ew_symptoms_badge', 'SIGNS & SYMPTOMS')); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'ew_symptoms_badge', 'COMMON SYMPTOMS' ) ); ?></span>
       </div>
-      <h2 class="earwax-symptoms-title"><?php echo esc_html(ep_field('ew_symptoms_title', 'Do you need ear wax removal?')); ?></h2>
-      <p class="earwax-symptoms-description"><?php echo esc_html(ep_field('ew_symptoms_description', 'Common signs that ear wax buildup may be affecting your hearing')); ?></p>
+      <h2 class="earwax-symptoms-title"><?php echo esc_html( ep_field( 'ew_symptoms_title', 'Is Ear Wax Affecting Your Daily Life?' ) ); ?></h2>
+      <p class="earwax-symptoms-description"><?php echo esc_html( ep_field( 'ew_symptoms_description', "Don't let blocked ears hold you back. Recognise these common symptoms?" ) ); ?></p>
     </div>
 
     <div class="earwax-symptoms-grid">
-      <?php if (have_rows('ew_symptoms')) : while (have_rows('ew_symptoms')) : the_row(); ?>
+      <?php if ( have_rows( 'ew_symptoms' ) ) : while ( have_rows( 'ew_symptoms' ) ) : the_row(); ?>
         <div class="earwax-symptom-card">
-          <div class="earwax-symptom-icon"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div>
-          <h3 class="earwax-symptom-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
-          <p class="earwax-symptom-description"><?php echo esc_html(get_sub_field('description')); ?></p>
+          <div class="earwax-symptom-icon"><i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i></div>
+          <h3 class="earwax-symptom-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+          <p class="earwax-symptom-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
         </div>
       <?php endwhile; else : ?>
         <div class="earwax-symptom-card">
-          <div class="earwax-symptom-icon"><i class="fas fa-ear-deaf"></i></div>
-          <h3 class="earwax-symptom-title">Hearing Loss</h3>
-          <p class="earwax-symptom-description">Muffled hearing or feeling like your ears are blocked.</p>
+          <div class="earwax-symptom-icon"><i class="fas fa-ear-listen"></i></div>
+          <h3 class="earwax-symptom-title">Difficulty Hearing</h3>
+          <p class="earwax-symptom-desc">Muffled sounds or reduced hearing quality affecting conversations and daily activities</p>
+        </div>
+        <div class="earwax-symptom-card">
+          <div class="earwax-symptom-icon"><i class="fas fa-face-grimace"></i></div>
+          <h3 class="earwax-symptom-title">Earache or Discomfort</h3>
+          <p class="earwax-symptom-desc">Persistent pain, pressure, or uncomfortable fullness in one or both ears</p>
         </div>
         <div class="earwax-symptom-card">
           <div class="earwax-symptom-icon"><i class="fas fa-bell"></i></div>
-          <h3 class="earwax-symptom-title">Tinnitus</h3>
-          <p class="earwax-symptom-description">Ringing, buzzing, or humming sounds in your ears.</p>
+          <h3 class="earwax-symptom-title">Ringing or Buzzing</h3>
+          <p class="earwax-symptom-desc">Tinnitus symptoms including ringing, buzzing, or humming sounds in your ears</p>
         </div>
         <div class="earwax-symptom-card">
-          <div class="earwax-symptom-icon"><i class="fas fa-head-side-virus"></i></div>
-          <h3 class="earwax-symptom-title">Earache</h3>
-          <p class="earwax-symptom-description">Pain or discomfort in one or both ears.</p>
-        </div>
-        <div class="earwax-symptom-card">
-          <div class="earwax-symptom-icon"><i class="fas fa-brain"></i></div>
+          <div class="earwax-symptom-icon"><i class="fas fa-person-falling"></i></div>
           <h3 class="earwax-symptom-title">Dizziness</h3>
-          <p class="earwax-symptom-description">Feeling unsteady or experiencing vertigo symptoms.</p>
+          <p class="earwax-symptom-desc">Feeling off-balance or experiencing vertigo due to blocked ear canals</p>
         </div>
         <div class="earwax-symptom-card">
-          <div class="earwax-symptom-icon"><i class="fas fa-droplet"></i></div>
-          <h3 class="earwax-symptom-title">Fullness</h3>
-          <p class="earwax-symptom-description">A persistent feeling of fullness or pressure in the ear.</p>
+          <div class="earwax-symptom-icon"><i class="fas fa-head-side-cough"></i></div>
+          <h3 class="earwax-symptom-title">Persistent Cough</h3>
+          <p class="earwax-symptom-desc">Unexplained coughing caused by ear wax stimulating nerves in the ear canal</p>
         </div>
         <div class="earwax-symptom-card">
-          <div class="earwax-symptom-icon"><i class="fas fa-virus"></i></div>
-          <h3 class="earwax-symptom-title">Itching</h3>
-          <p class="earwax-symptom-description">Irritation or itching inside the ear canal.</p>
+          <div class="earwax-symptom-icon"><i class="fas fa-ear-deaf"></i></div>
+          <h3 class="earwax-symptom-title">Hearing Aid Problems</h3>
+          <p class="earwax-symptom-desc">Failed hearing aid fitting or devices not working properly due to wax build-up</p>
         </div>
       <?php endif; ?>
     </div>
   </div>
 </section>
 
-<!-- Team Section -->
+<!-- ============================================
+     TEAM SECTION
+     ============================================ -->
 <section class="earwax-team-section">
   <div class="section-container">
     <div class="earwax-team-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(ep_field('ew_team_badge', 'OUR EAR CARE TEAM')); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'ew_team_badge', 'OUR TEAM' ) ); ?></span>
       </div>
-      <h2 class="earwax-team-title"><?php echo esc_html(ep_field('ew_team_title', 'Meet your ear care specialists')); ?></h2>
+      <h2 class="earwax-team-title"><?php echo esc_html( ep_field( 'ew_team_title', 'Meet Your Ashford Ear Care Specialists' ) ); ?></h2>
+      <p class="earwax-team-description"><?php echo esc_html( ep_field( 'ew_team_description', "As Ashford's dedicated ear care practice, we've helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and free parking." ) ); ?></p>
     </div>
 
     <div class="earwax-team-grid">
-      <?php if (have_rows('ew_team_members')) : while (have_rows('ew_team_members')) : the_row(); ?>
+      <?php if ( have_rows( 'ew_team_members' ) ) : while ( have_rows( 'ew_team_members' ) ) : the_row(); ?>
+        <?php
+        $team_image_id  = get_sub_field( 'image' );
+        $team_image_url = $team_image_id ? wp_get_attachment_image_url( $team_image_id, 'medium_large' ) : '';
+        $badge_text     = get_sub_field( 'badge_text' );
+        $badge_style    = get_sub_field( 'badge_style' ); // 'green' or 'purple'
+        ?>
         <div class="earwax-team-card">
-          <div class="earwax-team-image-wrapper">
-            <img src="<?php echo esc_url(get_sub_field('image')); ?>" alt="<?php echo esc_attr(get_sub_field('name')); ?>" class="earwax-team-image" />
-          </div>
+          <?php if ( $team_image_url ) : ?>
+            <div class="earwax-team-image-wrapper">
+              <img src="<?php echo esc_url( $team_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'name' ) ); ?>" class="earwax-team-image" />
+              <?php if ( $badge_text ) : ?>
+                <div class="earwax-team-badge-<?php echo esc_attr( $badge_style ?: 'green' ); ?>"><?php echo esc_html( $badge_text ); ?></div>
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
           <div class="earwax-team-content">
-            <h3 class="earwax-team-name"><?php echo esc_html(get_sub_field('name')); ?></h3>
-            <p class="earwax-team-role"><?php echo esc_html(get_sub_field('role')); ?></p>
-            <p class="earwax-team-bio"><?php echo esc_html(get_sub_field('bio')); ?></p>
+            <h3 class="earwax-team-name"><?php echo esc_html( get_sub_field( 'name' ) ); ?></h3>
+            <p class="earwax-team-role"><?php echo esc_html( get_sub_field( 'role' ) ); ?></p>
+            <p class="earwax-team-bio"><?php echo esc_html( get_sub_field( 'bio' ) ); ?></p>
+            <?php if ( have_rows( 'tags' ) ) : ?>
+              <div class="earwax-team-tags">
+                <?php while ( have_rows( 'tags' ) ) : the_row(); ?>
+                  <span class="earwax-team-tag"><?php echo esc_html( get_sub_field( 'tag' ) ); ?></span>
+                <?php endwhile; ?>
+              </div>
+            <?php endif; ?>
           </div>
         </div>
       <?php endwhile; else : ?>
+        <!-- Default: Jignasa Modhvadia -->
         <div class="earwax-team-card">
           <div class="earwax-team-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt="Jignasa Modhvadia" class="earwax-team-image" />
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=600&fit=crop" alt="Jignasa Modhvadia" class="earwax-team-image" />
+            <div class="earwax-team-badge-green">Since 2019</div>
           </div>
           <div class="earwax-team-content">
             <h3 class="earwax-team-name">Jignasa Modhvadia</h3>
-            <p class="earwax-team-role">Ear Care Specialist</p>
-            <p class="earwax-team-bio">Trained in microsuction and ear irrigation techniques with a gentle, patient-focused approach.</p>
+            <p class="earwax-team-role">Sole Director &amp; Level 2 Dispenser</p>
+            <p class="earwax-team-bio">As the Sole Director of Easy Pharmacy, Jignasa combines leadership with hands-on patient care. A qualified Level 2 Dispenser since 2019, she is dedicated to continuous professional development and is currently undertaking her Level 3 Technician training to further enhance the expert services available at our Ashford clinic.</p>
+            <div class="earwax-team-tags">
+              <span class="earwax-team-tag">Clinic Director</span>
+              <span class="earwax-team-tag">Level 3 Training</span>
+            </div>
           </div>
         </div>
+        <!-- Default: Baljender Nagi -->
         <div class="earwax-team-card">
           <div class="earwax-team-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop" alt="Baljender Nagi" class="earwax-team-image" />
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=600&fit=crop" alt="Baljender Nagi" class="earwax-team-image" />
+            <div class="earwax-team-badge-purple">Level 3 Technician</div>
           </div>
           <div class="earwax-team-content">
             <h3 class="earwax-team-name">Baljender Nagi</h3>
-            <p class="earwax-team-role">Level 3 Technician &amp; Ear Care Specialist</p>
-            <p class="earwax-team-bio">Experienced Level 3 Technician specialising in ear care with certification in microsuction technique.</p>
+            <p class="earwax-team-role">Senior Staff Member</p>
+            <p class="earwax-team-bio">Baljender is a highly experienced Level 3 Technician and a senior member of our clinical team. Her extensive technical knowledge and friendly approach ensure that every patient receives the highest standard of care during their visit. She plays a key role in delivering our specialist ear care services.</p>
+            <div class="earwax-team-tags">
+              <span class="earwax-team-tag">Senior Technician</span>
+              <span class="earwax-team-tag">Patient Care Expert</span>
+            </div>
           </div>
         </div>
       <?php endif; ?>
@@ -207,215 +310,546 @@ get_header();
   </div>
 </section>
 
-<!-- Comparison Section -->
+<!-- ============================================
+     COMPARISON TABLE
+     ============================================ -->
 <section class="earwax-comparison-section">
   <div class="section-container">
     <div class="earwax-comparison-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(ep_field('ew_compare_badge', 'METHODS COMPARED')); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'ew_compare_badge', 'TREATMENT COMPARISON' ) ); ?></span>
       </div>
-      <h2 class="earwax-comparison-title"><?php echo esc_html(ep_field('ew_compare_title', 'How does microsuction compare?')); ?></h2>
+      <h2 class="earwax-comparison-title"><?php echo esc_html( ep_field( 'ew_compare_title', 'How Our Treatment Compares' ) ); ?></h2>
+      <p class="earwax-comparison-description"><?php echo esc_html( ep_field( 'ew_compare_description', 'See why microsuction is the gold standard for ear wax removal in Ashford' ) ); ?></p>
     </div>
 
-    <div class="earwax-comparison-grid">
-      <?php if (have_rows('ew_comparison_methods')) : while (have_rows('ew_comparison_methods')) : the_row(); ?>
-        <div class="earwax-comparison-card <?php echo get_sub_field('is_recommended') ? 'earwax-comparison-card-recommended' : ''; ?>">
-          <?php if (get_sub_field('is_recommended')) : ?>
-            <div class="earwax-comparison-recommended-badge">Recommended</div>
+    <div class="earwax-comparison-table-wrapper">
+      <table class="earwax-comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="highlight"><?php echo esc_html( ep_field( 'ew_compare_col_1_heading', 'Our Microsuction' ) ); ?></th>
+            <th><?php echo esc_html( ep_field( 'ew_compare_col_2_heading', 'Traditional Syringing' ) ); ?></th>
+            <th><?php echo esc_html( ep_field( 'ew_compare_col_3_heading', 'At-Home Remedies' ) ); ?></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php if ( have_rows( 'ew_comparison_rows' ) ) : while ( have_rows( 'ew_comparison_rows' ) ) : the_row(); ?>
+            <tr>
+              <td><?php echo esc_html( get_sub_field( 'feature' ) ); ?></td>
+              <td class="highlight"><?php echo esc_html( get_sub_field( 'microsuction' ) ); ?></td>
+              <td><?php echo esc_html( get_sub_field( 'syringing' ) ); ?></td>
+              <td><?php echo esc_html( get_sub_field( 'home_remedies' ) ); ?></td>
+            </tr>
+          <?php endwhile; else : ?>
+            <tr>
+              <td>Treatment Time</td>
+              <td class="highlight">Up to 30 minutes</td>
+              <td>30+ minutes</td>
+              <td>Days or weeks</td>
+            </tr>
+            <tr>
+              <td>Water Spillage</td>
+              <td class="highlight">None</td>
+              <td>Moderate</td>
+              <td>Drips and Leaks</td>
+            </tr>
+            <tr>
+              <td>Mess</td>
+              <td class="highlight">None</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Risk Level</td>
+              <td class="highlight">Very low</td>
+              <td>Moderate</td>
+              <td>Varies</td>
+            </tr>
+            <tr>
+              <td>Success Rate</td>
+              <td class="highlight">95%+</td>
+              <td>70-80%</td>
+              <td>Under 50%</td>
+            </tr>
+            <tr>
+              <td>Immediate Results</td>
+              <td class="highlight">Yes</td>
+              <td>Sometimes</td>
+              <td>Rarely</td>
+            </tr>
+            <tr>
+              <td>Expert Oversight</td>
+              <td class="highlight">Throughout</td>
+              <td>Limited</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Safe for Perforated Eardrums</td>
+              <td class="highlight">Yes</td>
+              <td>No</td>
+              <td>Varies</td>
+            </tr>
           <?php endif; ?>
-          <h3 class="earwax-comparison-card-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
-          <p class="earwax-comparison-card-desc"><?php echo esc_html(get_sub_field('description')); ?></p>
-          <ul class="earwax-comparison-features">
-            <?php if (have_rows('features')) : while (have_rows('features')) : the_row(); ?>
-              <li class="<?php echo get_sub_field('is_positive') ? 'positive' : 'negative'; ?>">
-                <i class="fas fa-<?php echo get_sub_field('is_positive') ? 'check' : 'times'; ?>"></i>
-                <?php echo esc_html(get_sub_field('text')); ?>
-              </li>
-            <?php endwhile; endif; ?>
-          </ul>
-        </div>
-      <?php endwhile; else : ?>
-        <div class="earwax-comparison-card earwax-comparison-card-recommended">
-          <div class="earwax-comparison-recommended-badge">Recommended</div>
-          <h3 class="earwax-comparison-card-title">Microsuction</h3>
-          <p class="earwax-comparison-card-desc">Gold standard method using gentle suction.</p>
-          <ul class="earwax-comparison-features">
-            <li class="positive"><i class="fas fa-check"></i> Safest method available</li>
-            <li class="positive"><i class="fas fa-check"></i> Quick and painless</li>
-            <li class="positive"><i class="fas fa-check"></i> No water involved</li>
-            <li class="positive"><i class="fas fa-check"></i> Suitable for perforations</li>
-          </ul>
-        </div>
-        <div class="earwax-comparison-card">
-          <h3 class="earwax-comparison-card-title">Ear Syringing</h3>
-          <p class="earwax-comparison-card-desc">Traditional water irrigation method.</p>
-          <ul class="earwax-comparison-features">
-            <li class="positive"><i class="fas fa-check"></i> Effective for soft wax</li>
-            <li class="negative"><i class="fas fa-times"></i> Uses water pressure</li>
-            <li class="negative"><i class="fas fa-times"></i> Not for perforations</li>
-            <li class="negative"><i class="fas fa-times"></i> May cause dizziness</li>
-          </ul>
-        </div>
-        <div class="earwax-comparison-card">
-          <h3 class="earwax-comparison-card-title">Home Remedies</h3>
-          <p class="earwax-comparison-card-desc">Over-the-counter drops and candles.</p>
-          <ul class="earwax-comparison-features">
-            <li class="positive"><i class="fas fa-check"></i> Easy to access</li>
-            <li class="negative"><i class="fas fa-times"></i> Often ineffective</li>
-            <li class="negative"><i class="fas fa-times"></i> Risk of ear damage</li>
-            <li class="negative"><i class="fas fa-times"></i> No professional guidance</li>
-          </ul>
-        </div>
-      <?php endif; ?>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<!-- Process Section -->
+<!-- ============================================
+     PROCESS SECTION
+     ============================================ -->
 <section class="earwax-process-section">
   <div class="section-container">
     <div class="earwax-process-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(ep_field('ew_process_badge', 'HOW IT WORKS')); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'ew_process_badge', 'HOW IT WORKS' ) ); ?></span>
       </div>
-      <h2 class="earwax-process-title"><?php echo esc_html(ep_field('ew_process_title', 'What to expect')); ?></h2>
+      <h2 class="earwax-process-title"><?php echo esc_html( ep_field( 'ew_process_title', 'Our Professional Ear Wax Removal Process' ) ); ?></h2>
+      <p class="earwax-process-description"><?php echo esc_html( ep_field( 'ew_process_description', 'Simple, effective treatment in three easy steps' ) ); ?></p>
     </div>
 
-    <div class="earwax-process-grid">
-      <?php if (have_rows('ew_process_steps')) : $step_num = 0; while (have_rows('ew_process_steps')) : the_row(); $step_num++; ?>
-        <div class="earwax-process-card">
-          <div class="number"><?php echo esc_html($step_num); ?></div>
-          <div class="icon"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div>
-          <h3><?php echo esc_html(get_sub_field('title')); ?></h3>
-          <p><?php echo esc_html(get_sub_field('description')); ?></p>
+    <?php if ( have_rows( 'ew_process_steps' ) ) : $step_index = 0; while ( have_rows( 'ew_process_steps' ) ) : the_row(); $step_index++; ?>
+      <?php
+      $step_direction = ( $step_index % 2 === 0 ) ? 'earwax-process-step-right' : 'earwax-process-step-left';
+      $step_image_id  = get_sub_field( 'image' );
+      $step_image_url = $step_image_id ? wp_get_attachment_image_url( $step_image_id, 'medium_large' ) : '';
+      $step_time      = get_sub_field( 'time' );
+      $step_badge     = get_sub_field( 'badge' );
+      ?>
+      <div class="earwax-process-step <?php echo esc_attr( $step_direction ); ?>">
+        <div class="earwax-process-step-content">
+          <div class="earwax-process-step-icon">
+            <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
+          </div>
+          <h3 class="earwax-process-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+          <p class="earwax-process-step-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+          <?php if ( $step_time ) : ?>
+            <div class="earwax-process-step-time">
+              <i class="fas fa-clock"></i>
+              <span><?php echo esc_html( $step_time ); ?></span>
+            </div>
+          <?php endif; ?>
+          <?php if ( $step_badge ) : ?>
+            <div class="earwax-process-step-badge">
+              <i class="fas fa-check-circle"></i>
+              <span><?php echo esc_html( $step_badge ); ?></span>
+            </div>
+          <?php endif; ?>
         </div>
-      <?php endwhile; else : ?>
-        <div class="earwax-process-card">
-          <div class="number">1</div>
-          <div class="icon"><i class="fas fa-calendar-check"></i></div>
-          <h3>Book</h3>
-          <p>Call or book online for your ear wax removal appointment.</p>
+        <?php if ( $step_image_url ) : ?>
+          <div class="earwax-process-step-image">
+            <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
+          </div>
+        <?php endif; ?>
+      </div>
+    <?php endwhile; else : ?>
+      <!-- Step 1: Assessment -->
+      <div class="earwax-process-step earwax-process-step-left">
+        <div class="earwax-process-step-content">
+          <div class="earwax-process-step-icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3 class="earwax-process-step-title">Initial Assessment</h3>
+          <p class="earwax-process-step-desc">Detailed ear examination, discussion of symptoms, treatment plan explanation, and no-obligation quote.</p>
+          <div class="earwax-process-step-time">
+            <i class="fas fa-clock"></i>
+            <span>10 minutes</span>
+          </div>
         </div>
-        <div class="earwax-process-card">
-          <div class="number">2</div>
-          <div class="icon"><i class="fas fa-magnifying-glass"></i></div>
-          <h3>Assessment</h3>
-          <p>We examine your ears to determine the best removal method.</p>
+        <div class="earwax-process-step-image">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=500&fit=crop" alt="Friendly consultation scene" />
         </div>
-        <div class="earwax-process-card">
-          <div class="number">3</div>
-          <div class="icon"><i class="fas fa-stethoscope"></i></div>
-          <h3>Treatment</h3>
-          <p>Safe, gentle microsuction to remove ear wax. Takes about 15 minutes.</p>
+      </div>
+      <!-- Step 2: Treatment -->
+      <div class="earwax-process-step earwax-process-step-right">
+        <div class="earwax-process-step-content">
+          <div class="earwax-process-step-icon">
+            <i class="fas fa-microscope"></i>
+          </div>
+          <h3 class="earwax-process-step-title">Microsuction Treatment</h3>
+          <p class="earwax-process-step-desc">Gentle wax removal with continuous monitoring, progress updates, and immediate relief.</p>
+          <div class="earwax-process-step-time">
+            <i class="fas fa-clock"></i>
+            <span>15-20 minutes</span>
+          </div>
         </div>
-        <div class="earwax-process-card">
-          <div class="number">4</div>
-          <div class="icon"><i class="fas fa-check-circle"></i></div>
-          <h3>Relief</h3>
-          <p>Immediate improvement in hearing. Aftercare advice provided.</p>
+        <div class="earwax-process-step-image">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=500&fit=crop" alt="Patient during treatment" />
         </div>
-      <?php endif; ?>
-    </div>
+      </div>
+      <!-- Step 3: Aftercare -->
+      <div class="earwax-process-step earwax-process-step-left">
+        <div class="earwax-process-step-content">
+          <div class="earwax-process-step-icon">
+            <i class="fas fa-heart-pulse"></i>
+          </div>
+          <h3 class="earwax-process-step-title">Aftercare Support</h3>
+          <p class="earwax-process-step-desc">Prevention advice, home care tips, and free follow-up within 7 days if needed.</p>
+          <div class="earwax-process-step-badge">
+            <i class="fas fa-check-circle"></i>
+            <span>Free 7-day follow-up</span>
+          </div>
+        </div>
+        <div class="earwax-process-step-image">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=500&fit=crop" alt="Happy patient after treatment" />
+        </div>
+      </div>
+    <?php endif; ?>
   </div>
 </section>
 
-<!-- Pricing Section -->
+<!-- ============================================
+     PRICING SECTION
+     ============================================ -->
 <section class="earwax-pricing-section">
   <div class="section-container">
     <div class="earwax-pricing-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(ep_field('ew_pricing_badge', 'TRANSPARENT PRICING')); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'ew_pricing_badge', 'TRANSPARENT PRICING' ) ); ?></span>
       </div>
-      <h2 class="earwax-pricing-title"><?php echo esc_html(ep_field('ew_pricing_title', 'Simple, fair pricing')); ?></h2>
+      <h2 class="earwax-pricing-title"><?php echo esc_html( ep_field( 'ew_pricing_title', 'Simple, Transparent Pricing' ) ); ?></h2>
+      <p class="earwax-pricing-description"><?php echo esc_html( ep_field( 'ew_pricing_description', 'No hidden fees. No surprises. Just clear, professional ear care.' ) ); ?></p>
     </div>
 
-    <div class="earwax-pricing-grid">
-      <?php if (have_rows('ew_pricing')) : while (have_rows('ew_pricing')) : the_row(); ?>
-        <div class="earwax-pricing-card <?php echo get_sub_field('is_featured') ? 'earwax-pricing-card-featured' : ''; ?>">
-          <h3 class="earwax-pricing-card-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
-          <p class="earwax-pricing-card-price">&pound;<?php echo esc_html(get_sub_field('price')); ?></p>
-          <p class="earwax-pricing-card-description"><?php echo esc_html(get_sub_field('description')); ?></p>
-          <a href="<?php echo esc_url(ep_field('ew_hero_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">Book Now</a>
+    <div class="earwax-pricing-grid-new">
+      <?php if ( have_rows( 'ew_pricing' ) ) : while ( have_rows( 'ew_pricing' ) ) : the_row(); ?>
+        <?php $is_featured = get_sub_field( 'is_featured' ); ?>
+        <div class="earwax-pricing-card-new <?php echo $is_featured ? 'earwax-pricing-card-featured-new' : ''; ?>">
+          <?php if ( $is_featured ) : ?>
+            <div class="earwax-pricing-badge-new"><?php echo esc_html( get_sub_field( 'badge_text' ) ?: 'MOST POPULAR' ); ?></div>
+          <?php endif; ?>
+          <div class="earwax-pricing-card-header">
+            <div class="earwax-pricing-icon-new">
+              <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
+            </div>
+            <h3 class="earwax-pricing-card-title-new"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+          </div>
+          <div class="earwax-pricing-price-new">
+            <span class="earwax-pricing-currency">&pound;</span>
+            <span class="earwax-pricing-amount"><?php echo esc_html( get_sub_field( 'price' ) ); ?></span>
+            <?php $per_text = get_sub_field( 'per_text' ); ?>
+            <?php if ( $per_text ) : ?>
+              <span class="earwax-pricing-per"><?php echo esc_html( $per_text ); ?></span>
+            <?php endif; ?>
+          </div>
+          <?php if ( have_rows( 'features' ) ) : ?>
+            <ul class="earwax-pricing-features">
+              <?php while ( have_rows( 'features' ) ) : the_row(); ?>
+                <li><i class="fas fa-check"></i> <?php echo esc_html( get_sub_field( 'feature' ) ); ?></li>
+              <?php endwhile; ?>
+            </ul>
+          <?php endif; ?>
+          <a href="<?php echo esc_url( ep_field( 'ew_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button <?php echo $is_featured ? 'primary-cta' : 'secondary-cta'; ?> earwax-pricing-btn-new">
+            <?php echo esc_html( get_sub_field( 'button_text' ) ?: 'Book Now' ); ?>
+          </a>
+          <?php if ( $is_featured ) : ?>
+            <?php $guarantee = get_sub_field( 'guarantee_text' ); ?>
+            <?php if ( $guarantee ) : ?>
+              <div class="earwax-pricing-guarantee">
+                <i class="fas fa-shield-check"></i>
+                <span><?php echo esc_html( $guarantee ); ?></span>
+              </div>
+            <?php endif; ?>
+          <?php endif; ?>
         </div>
       <?php endwhile; else : ?>
-        <div class="earwax-pricing-card">
-          <h3 class="earwax-pricing-card-title">Consultation</h3>
-          <p class="earwax-pricing-card-price">&pound;10</p>
-          <p class="earwax-pricing-card-description">Initial ear examination and assessment. Deducted from treatment cost if you proceed.</p>
-          <a href="<?php echo esc_url(ep_field('ew_hero_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">Book Now</a>
+        <!-- Default: Consultation -->
+        <div class="earwax-pricing-card-new">
+          <div class="earwax-pricing-card-header">
+            <div class="earwax-pricing-icon-new">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <h3 class="earwax-pricing-card-title-new">Initial Consultation</h3>
+          </div>
+          <div class="earwax-pricing-price-new">
+            <span class="earwax-pricing-currency">&pound;</span>
+            <span class="earwax-pricing-amount">10</span>
+          </div>
+          <ul class="earwax-pricing-features">
+            <li><i class="fas fa-check"></i> Comprehensive ear examination</li>
+            <li><i class="fas fa-check"></i> Symptom discussion</li>
+            <li><i class="fas fa-check"></i> Treatment plan explanation</li>
+            <li><i class="fas fa-check"></i> No-obligation quote</li>
+          </ul>
+          <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button secondary-cta earwax-pricing-btn-new">Book Consultation</a>
         </div>
-        <div class="earwax-pricing-card earwax-pricing-card-featured">
-          <h3 class="earwax-pricing-card-title">One Ear</h3>
-          <p class="earwax-pricing-card-price">&pound;20</p>
-          <p class="earwax-pricing-card-description">Professional microsuction ear wax removal for one ear.</p>
-          <a href="<?php echo esc_url(ep_field('ew_hero_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">Book Now</a>
-        </div>
-        <div class="earwax-pricing-card earwax-pricing-card-featured">
-          <h3 class="earwax-pricing-card-title">Both Ears</h3>
-          <p class="earwax-pricing-card-price">&pound;35</p>
-          <p class="earwax-pricing-card-description">Professional microsuction ear wax removal for both ears.</p>
-          <a href="<?php echo esc_url(ep_field('ew_hero_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">Book Now</a>
+        <!-- Default: Microsuction (Featured) -->
+        <div class="earwax-pricing-card-new earwax-pricing-card-featured-new">
+          <div class="earwax-pricing-badge-new">MOST POPULAR</div>
+          <div class="earwax-pricing-card-header">
+            <div class="earwax-pricing-icon-new">
+              <i class="fas fa-ear-listen"></i>
+            </div>
+            <h3 class="earwax-pricing-card-title-new">Microsuction Treatment</h3>
+          </div>
+          <div class="earwax-pricing-price-new">
+            <span class="earwax-pricing-currency">&pound;</span>
+            <span class="earwax-pricing-amount">20</span>
+            <span class="earwax-pricing-per">per ear</span>
+          </div>
+          <ul class="earwax-pricing-features">
+            <li><i class="fas fa-check"></i> Professional microsuction</li>
+            <li><i class="fas fa-check"></i> Immediate relief</li>
+            <li><i class="fas fa-check"></i> Maximum &pound;50 for severe cases</li>
+            <li><i class="fas fa-check"></i> <strong>Free 7-day follow-up</strong></li>
+            <li><i class="fas fa-check"></i> Aftercare advice included</li>
+          </ul>
+          <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button primary-cta earwax-pricing-btn-new">Book Treatment</a>
+          <div class="earwax-pricing-guarantee">
+            <i class="fas fa-shield-check"></i>
+            <span>Satisfaction Guaranteed</span>
+          </div>
         </div>
       <?php endif; ?>
+    </div>
+
+    <!-- Value Proposition -->
+    <div class="earwax-pricing-value">
+      <div class="earwax-pricing-value-item">
+        <i class="fas fa-ban"></i>
+        <span><?php echo esc_html( ep_field( 'ew_value_1', 'No Hidden Fees' ) ); ?></span>
+      </div>
+      <div class="earwax-pricing-value-item">
+        <i class="fas fa-calendar-check"></i>
+        <span><?php echo esc_html( ep_field( 'ew_value_2', 'Same-Day Available' ) ); ?></span>
+      </div>
+      <div class="earwax-pricing-value-item">
+        <i class="fas fa-credit-card"></i>
+        <span><?php echo esc_html( ep_field( 'ew_value_3', 'All Payment Methods' ) ); ?></span>
+      </div>
+      <div class="earwax-pricing-value-item">
+        <i class="fas fa-redo"></i>
+        <span><?php echo esc_html( ep_field( 'ew_value_4', 'Free Follow-Up' ) ); ?></span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Testimonials Section -->
+<!-- ============================================
+     TESTIMONIALS SECTION
+     ============================================ -->
 <section class="earwax-testimonials-section">
   <div class="section-container">
     <div class="earwax-testimonials-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(ep_field('ew_testimonials_badge', 'PATIENT REVIEWS')); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'ew_testimonials_badge', 'PATIENT TESTIMONIALS' ) ); ?></span>
       </div>
-      <h2 class="earwax-testimonials-title"><?php echo esc_html(ep_field('ew_testimonials_title', 'What our patients say')); ?></h2>
+      <h2 class="earwax-testimonials-title"><?php echo esc_html( ep_field( 'ew_testimonials_title', 'Hear What Our Ashford Patients Say' ) ); ?></h2>
+      <p class="earwax-testimonials-subtitle"><?php echo esc_html( ep_field( 'ew_testimonials_subtitle', 'Join thousands of satisfied patients who\'ve experienced immediate relief' ) ); ?></p>
     </div>
 
     <div class="earwax-testimonials-grid">
-      <?php if (have_rows('ew_testimonials')) : while (have_rows('ew_testimonials')) : the_row(); ?>
+      <?php if ( have_rows( 'ew_testimonials' ) ) : while ( have_rows( 'ew_testimonials' ) ) : the_row(); ?>
+        <?php
+        $avatar_id  = get_sub_field( 'avatar' );
+        $avatar_url = $avatar_id ? wp_get_attachment_image_url( $avatar_id, 'thumbnail' ) : '';
+        ?>
         <div class="earwax-testimonial-card">
-          <div class="star-row">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <div class="earwax-testimonial-header">
+            <?php if ( $avatar_url ) : ?>
+              <div class="earwax-testimonial-avatar">
+                <img src="<?php echo esc_url( $avatar_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'author' ) ); ?>" />
+              </div>
+            <?php endif; ?>
+            <div class="earwax-testimonial-meta">
+              <p class="earwax-testimonial-author"><?php echo esc_html( get_sub_field( 'author' ) ); ?></p>
+              <div class="star-row">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
           </div>
-          <p class="earwax-testimonial-quote"><?php echo esc_html(get_sub_field('quote')); ?></p>
-          <p class="earwax-testimonial-author"><?php echo esc_html(get_sub_field('author')); ?></p>
+          <p class="earwax-testimonial-quote"><?php echo esc_html( get_sub_field( 'quote' ) ); ?></p>
+          <div class="earwax-testimonial-footer">
+            <i class="fas fa-check-circle"></i>
+            <span>Verified Patient</span>
+          </div>
         </div>
       <?php endwhile; else : ?>
         <div class="earwax-testimonial-card">
-          <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="earwax-testimonial-quote">"Quick, painless, and I could hear perfectly again straight away. Wish I'd come sooner!"</p>
-          <p class="earwax-testimonial-author">Ashford Patient</p>
+          <div class="earwax-testimonial-header">
+            <div class="earwax-testimonial-avatar">
+              <img src="https://i.pravatar.cc/150?img=47" alt="Sarah M." />
+            </div>
+            <div class="earwax-testimonial-meta">
+              <p class="earwax-testimonial-author">Sarah M.</p>
+              <div class="star-row">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="earwax-testimonial-quote">"After weeks of discomfort, I finally got my ears treated at Easy Pharmacy. The difference was immediate - I could hear clearly again! Jignasa was professional and explained everything clearly. Highly recommend!"</p>
+          <div class="earwax-testimonial-footer">
+            <i class="fas fa-check-circle"></i>
+            <span>Verified Patient</span>
+          </div>
         </div>
         <div class="earwax-testimonial-card">
-          <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="earwax-testimonial-quote">"Very professional and gentle. The team made me feel completely at ease throughout the procedure."</p>
-          <p class="earwax-testimonial-author">Ashford Patient</p>
+          <div class="earwax-testimonial-header">
+            <div class="earwax-testimonial-avatar">
+              <img src="https://i.pravatar.cc/150?img=26" alt="Margaret T." />
+            </div>
+            <div class="earwax-testimonial-meta">
+              <p class="earwax-testimonial-author">Margaret T.</p>
+              <div class="star-row">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="earwax-testimonial-quote">"Fantastic service from start to finish. The team was so thorough and professional. The aftercare advice has helped prevent any further build-up."</p>
+          <div class="earwax-testimonial-footer">
+            <i class="fas fa-check-circle"></i>
+            <span>Verified Patient</span>
+          </div>
+        </div>
+        <div class="earwax-testimonial-card">
+          <div class="earwax-testimonial-header">
+            <div class="earwax-testimonial-avatar">
+              <img src="https://i.pravatar.cc/150?img=12" alt="John R." />
+            </div>
+            <div class="earwax-testimonial-meta">
+              <p class="earwax-testimonial-author">John R.</p>
+              <div class="star-row">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="earwax-testimonial-quote">"Much better than the traditional syringing I had years ago. No mess, no fuss, just clear hearing again. The evening appointment times meant I didn't need to take time off work."</p>
+          <div class="earwax-testimonial-footer">
+            <i class="fas fa-check-circle"></i>
+            <span>Verified Patient</span>
+          </div>
         </div>
       <?php endif; ?>
     </div>
   </div>
 </section>
 
-<!-- CTA Section -->
+<!-- ============================================
+     FAQ SECTION
+     ============================================ -->
+<section class="earwax-faq-section">
+  <div class="section-container">
+    <div class="earwax-faq-header">
+      <div class="section-badge">
+        <span class="pulse-dot"><span></span><span></span></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'ew_faq_badge', 'FREQUENTLY ASKED QUESTIONS' ) ); ?></span>
+      </div>
+      <h2 class="earwax-faq-title"><?php echo esc_html( ep_field( 'ew_faq_title', 'Frequently Asked Questions - Ear Wax Removal Ashford' ) ); ?></h2>
+    </div>
+
+    <div class="earwax-faq-list">
+      <?php if ( have_rows( 'ew_faqs' ) ) : $faq_num = 0; while ( have_rows( 'ew_faqs' ) ) : the_row(); $faq_num++; ?>
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number"><?php echo esc_html( $faq_num ); ?></span>
+            <span class="earwax-faq-text"><?php echo esc_html( get_sub_field( 'question' ) ); ?></span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p><?php echo esc_html( get_sub_field( 'answer' ) ); ?></p>
+          </div>
+        </div>
+      <?php endwhile; else : ?>
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">1</span>
+            <span class="earwax-faq-text">Is the treatment uncomfortable?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>Most patients find microsuction very comfortable. You'll hear a quiet whistling sound, but the procedure is gentle and shouldn't cause any pain.</p>
+          </div>
+        </div>
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">2</span>
+            <span class="earwax-faq-text">How often should I have my ears checked?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>Most people benefit from an annual check-up, though this varies. We'll advise based on your individual situation during your Ashford appointment.</p>
+          </div>
+        </div>
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">3</span>
+            <span class="earwax-faq-text">Can I drive after the treatment?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>Yes, you can drive immediately after treatment. Most people experience instant improvement in hearing.</p>
+          </div>
+        </div>
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">4</span>
+            <span class="earwax-faq-text">Do you treat children?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>Yes, we treat patients of all ages at our Ashford clinic. We're experienced in working with children and ensure they feel comfortable throughout.</p>
+          </div>
+        </div>
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">5</span>
+            <span class="earwax-faq-text">What if I have a perforated eardrum?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>Microsuction is safe for perforated eardrums, unlike water syringing. We'll assess your ears during consultation.</p>
+          </div>
+        </div>
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">6</span>
+            <span class="earwax-faq-text">Where are you located in Ashford?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>We're based in Ashford with convenient parking and easy access from all surrounding areas.</p>
+          </div>
+        </div>
+      <?php endif; ?>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FINAL CTA SECTION
+     ============================================ -->
 <section class="earwax-cta-section">
+  <div class="earwax-cta-glow-1"></div>
+  <div class="earwax-cta-glow-2"></div>
+  <div class="earwax-cta-dots"></div>
   <div class="section-container">
     <div class="earwax-cta-content">
-      <h2 class="earwax-cta-title"><?php echo esc_html(ep_field('ew_cta_title', 'Ready to hear clearly again?')); ?></h2>
-      <p class="earwax-cta-desc"><?php echo esc_html(ep_field('ew_cta_description', 'Book your ear wax removal appointment at our Ashford clinic today.')); ?></p>
-      <div class="earwax-cta-actions">
-        <a href="<?php echo esc_url(ep_field('ew_hero_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">
-          Book Appointment <i class="fas fa-arrow-right"></i>
-        </a>
-        <a href="tel:<?php echo esc_attr(ep_field('ew_phone_number', '01784255222')); ?>" class="cta-button secondary-cta">
-          <i class="fas fa-phone"></i> <?php echo esc_html(ep_field('ew_phone_display', 'Call 01784 255222')); ?>
-        </a>
+      <div class="earwax-cta-badges">
+        <div class="earwax-cta-badge">
+          <span><?php echo esc_html( ep_field( 'ew_cta_badge_1', 'From £20 per ear' ) ); ?></span>
+        </div>
+        <div class="earwax-cta-badge">
+          <span><?php echo esc_html( ep_field( 'ew_cta_badge_2', 'Same-day available' ) ); ?></span>
+        </div>
+        <div class="earwax-cta-badge">
+          <span><?php echo esc_html( ep_field( 'ew_cta_badge_3', 'Free 7-day follow-up' ) ); ?></span>
+        </div>
       </div>
-      <div class="earwax-cta-badge">
-        <?php echo esc_html(ep_field('ew_cta_hours', 'Open Mon-Fri 9am-6pm, Sat 9am-1pm')); ?>
+      <h2 class="earwax-cta-title"><?php echo esc_html( ep_field( 'ew_cta_title', 'Ready to hear clearly again?' ) ); ?></h2>
+      <p class="earwax-cta-description">
+        <?php echo esc_html( ep_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Ashford clinic today. Expert microsuction treatment with guaranteed results.' ) ); ?>
+      </p>
+      <div class="earwax-cta-actions">
+        <a href="<?php echo esc_url( ep_field( 'ew_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta earwax-cta-button-white">
+          <?php echo esc_html( ep_field( 'ew_cta_button_text', 'Book Appointment Online' ) ); ?>
+          <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </div>

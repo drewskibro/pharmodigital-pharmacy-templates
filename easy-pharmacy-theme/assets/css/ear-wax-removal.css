@@ -1,6 +1,7 @@
 /* ============================================
    EAR WAX REMOVAL PAGE STYLES
    Uses earwax- prefix
+   Aligned with Anima design export
    ============================================ */
 
 /* Hero */
@@ -8,8 +9,8 @@
   position: relative;
   min-height: 90vh;
   display: flex;
-  align-items: center;
-  padding: 60px 0 80px;
+  align-items: flex-start;
+  padding: 100px 0 80px;
   overflow: hidden;
   background: linear-gradient(to bottom, var(--brand-light), var(--white));
 }
@@ -60,9 +61,10 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   z-index: 10;
+  padding-top: 2rem;
 }
 
 @media (min-width: 1024px) {
@@ -84,11 +86,11 @@
 
 .earwax-hero-title {
   font-size: 2.5rem;
-  font-weight: 900;
-  color: #111827;
+  font-weight: 800;
+  color: #0f172a;
   margin-bottom: 1rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
 }
 
 @media (min-width: 768px) {
@@ -99,24 +101,39 @@
 
 @media (min-width: 1024px) {
   .earwax-hero-title {
-    font-size: 4rem;
+    font-size: 4.5rem;
+    line-height: 1;
   }
 }
 
 .earwax-hero-subtitle {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.125rem;
+  font-weight: 600;
   color: var(--brand-purple);
   margin-bottom: 1.5rem;
-  line-height: 1.4;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+@media (min-width: 768px) {
+  .earwax-hero-subtitle {
+    font-size: 1.25rem;
+  }
 }
 
 .earwax-hero-description {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   color: var(--text-gray);
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 600px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .earwax-hero-description {
+    font-size: 1.125rem;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -181,6 +198,8 @@
   position: relative;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .earwax-hero-image-card {
@@ -192,12 +211,12 @@
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
   border: 6px solid var(--white);
-  transform: rotate(-2deg);
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .earwax-hero-image-card:hover {
-  transform: rotate(0deg);
+  transform: translateY(-4px);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.2);
 }
 
 .earwax-hero-image {
@@ -210,6 +229,7 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  pointer-events: none;
 }
 
 .earwax-hero-price-badge {
@@ -223,108 +243,110 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   text-align: center;
   border: 1px solid rgba(163, 158, 227, 0.2);
-  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.earwax-hero-price-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
 }
 
 .earwax-hero-price-label {
   display: block;
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.6875rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: var(--text-slate);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
 }
 
 .earwax-hero-price-amount {
   display: block;
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 900;
-  color: var(--brand-purple);
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   line-height: 1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
 }
 
 .earwax-hero-price-sub {
   display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--brand-dark);
+  opacity: 0.9;
+}
+
+/* Hero Floating Testimonial */
+.earwax-hero-testimonial-float {
+  background: var(--white);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(163, 158, 227, 0.2);
+  max-width: 400px;
+  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.earwax-hero-testimonial-float:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+}
+
+.earwax-hero-testimonial-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  color: #fbbf24;
+  font-size: 1rem;
+}
+
+.earwax-hero-testimonial-text {
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: var(--text-slate);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.earwax-hero-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.earwax-hero-testimonial-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--brand-purple);
+}
+
+.earwax-hero-testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.earwax-hero-testimonial-name {
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--brand-dark);
+  color: #111827;
+  margin-bottom: 0.125rem;
 }
 
-/* Stats Bar */
-.earwax-stats-section {
-  position: relative;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
-  padding: 3rem 0;
-  overflow: hidden;
-}
-
-.earwax-stats-shimmer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  animation: shimmer 3s infinite;
-}
-
-.earwax-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  position: relative;
-  z-index: 10;
-}
-
-@media (min-width: 768px) {
-  .earwax-stats-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.earwax-stat-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.earwax-stat-icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.earwax-stat-icon i {
-  font-size: 1.25rem;
-  color: var(--white);
-}
-
-.earwax-stat-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-}
-
-.earwax-stat-number {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1;
-}
-
-.earwax-stat-label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+.earwax-hero-testimonial-location {
+  font-size: 0.75rem;
+  color: var(--text-gray);
 }
 
 /* Symptoms */
@@ -563,75 +585,273 @@
 /* Comparison Table */
 .earwax-comparison-section {
   padding: 6rem 0;
-  background: var(--brand-light);
+  background: linear-gradient(135deg, #fafbfc 0%, #f8f9fb 50%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.earwax-comparison-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 1200px;
+  background: radial-gradient(circle, rgba(163, 158, 227, 0.06) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .earwax-comparison-header {
   text-align: center;
   margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
 }
 
 .earwax-comparison-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #0f172a;
   margin-bottom: 1rem;
+  letter-spacing: -0.03em;
 }
 
 .earwax-comparison-description {
   font-size: 1.125rem;
   color: var(--text-gray);
+  font-weight: 500;
 }
 
 .earwax-comparison-table-wrapper {
   overflow-x: auto;
   background: var(--white);
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 40px rgba(163, 158, 227, 0.1);
-  border: 1px solid rgba(163, 158, 227, 0.15);
+  border-radius: 2rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(163, 158, 227, 0.15);
+  position: relative;
+  z-index: 2;
 }
 
 .earwax-comparison-table {
   width: 100%;
-  border-collapse: collapse;
-  min-width: 800px;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 700px;
 }
 
 .earwax-comparison-table th,
 .earwax-comparison-table td {
-  padding: 1.5rem;
+  padding: 1.5rem 1rem;
   text-align: left;
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid rgba(163, 158, 227, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+  .earwax-comparison-table th,
+  .earwax-comparison-table td {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .earwax-comparison-table th,
+  .earwax-comparison-table td {
+    padding: 2rem 2.5rem;
+  }
 }
 
 .earwax-comparison-table th {
-  background: #f9fafb;
+  background: linear-gradient(to bottom, #f8f9fb, #f1f3f7);
   font-weight: 800;
-  color: #111827;
-  font-size: 1.125rem;
+  color: #0f172a;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(163, 158, 227, 0.1);
+}
+
+@media (min-width: 768px) {
+  .earwax-comparison-table th {
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .earwax-comparison-table th {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+}
+
+.earwax-comparison-table th:first-child {
+  border-top-left-radius: 2rem;
+  padding-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .earwax-comparison-table th:first-child {
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .earwax-comparison-table th:first-child {
+    padding-left: 3rem;
+  }
+}
+
+.earwax-comparison-table th:last-child {
+  border-top-right-radius: 2rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .earwax-comparison-table th:last-child {
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .earwax-comparison-table th:last-child {
+    padding-right: 3rem;
+  }
 }
 
 .earwax-comparison-table th.highlight {
-  background: rgba(163, 158, 227, 0.1);
+  background: linear-gradient(135deg, rgba(163, 158, 227, 0.15), rgba(139, 133, 214, 0.12));
   color: var(--brand-dark);
-  border-bottom: 2px solid var(--brand-purple);
+  border-bottom: 3px solid var(--brand-purple);
+  position: relative;
+  font-size: 0.9375rem;
+  font-weight: 900;
+  box-shadow: inset 0 -3px 0 0 var(--brand-purple);
 }
 
 .earwax-comparison-table td {
-  font-size: 1rem;
-  color: var(--text-gray);
+  font-size: 0.8125rem;
+  color: var(--text-slate);
+  font-weight: 500;
+  line-height: 1.5;
+  background: var(--white);
+}
+
+@media (min-width: 768px) {
+  .earwax-comparison-table td {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .earwax-comparison-table td {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+}
+
+.earwax-comparison-table td:first-child {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 0.875rem;
+  padding-left: 1rem;
+  background: linear-gradient(to right, #fafbfc, var(--white));
+}
+
+@media (min-width: 768px) {
+  .earwax-comparison-table td:first-child {
+    font-size: 0.9375rem;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .earwax-comparison-table td:first-child {
+    font-size: 1rem;
+    padding-left: 3rem;
+  }
+}
+
+.earwax-comparison-table td:last-child {
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .earwax-comparison-table td:last-child {
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .earwax-comparison-table td:last-child {
+    padding-right: 3rem;
+  }
 }
 
 .earwax-comparison-table td.highlight {
-  background: rgba(163, 158, 227, 0.03);
+  background: linear-gradient(135deg, rgba(163, 158, 227, 0.06), rgba(139, 133, 214, 0.04));
   font-weight: 700;
   color: var(--brand-dark);
-  border-left: 2px solid transparent;
-  border-right: 2px solid transparent;
+  border-left: 2px solid rgba(163, 158, 227, 0.3);
+  border-right: 2px solid rgba(163, 158, 227, 0.3);
+  position: relative;
+  font-size: 0.875rem;
 }
 
-.earwax-comparison-table tr:last-child td {
+@media (min-width: 768px) {
+  .earwax-comparison-table td.highlight {
+    font-size: 0.9375rem;
+    border-left: 3px solid rgba(163, 158, 227, 0.3);
+    border-right: 3px solid rgba(163, 158, 227, 0.3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .earwax-comparison-table td.highlight {
+    font-size: 1rem;
+  }
+}
+
+.earwax-comparison-table tbody tr {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.earwax-comparison-table tbody tr:hover {
+  background: linear-gradient(to right, rgba(163, 158, 227, 0.02), rgba(163, 158, 227, 0.04), rgba(163, 158, 227, 0.02));
+  transform: scale(1.005);
+}
+
+.earwax-comparison-table tbody tr:hover td {
+  border-bottom-color: rgba(163, 158, 227, 0.12);
+}
+
+.earwax-comparison-table tbody tr:hover td:first-child {
+  background: linear-gradient(to right, rgba(163, 158, 227, 0.08), rgba(163, 158, 227, 0.04));
+  color: var(--brand-dark);
+}
+
+.earwax-comparison-table tbody tr:hover td.highlight {
+  background: linear-gradient(135deg, rgba(163, 158, 227, 0.12), rgba(139, 133, 214, 0.08));
+  border-left-color: var(--brand-purple);
+  border-right-color: var(--brand-purple);
+  box-shadow: inset 0 0 0 1px rgba(163, 158, 227, 0.2);
+}
+
+.earwax-comparison-table tbody tr:last-child td {
   border-bottom: none;
+  padding-bottom: 2.5rem;
+}
+
+.earwax-comparison-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 2rem;
+}
+
+.earwax-comparison-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 2rem;
 }
 
 /* Process */
@@ -757,7 +977,7 @@
 /* Pricing */
 .earwax-pricing-section {
   padding: 6rem 0;
-  background: var(--brand-light);
+  background: var(--white);
 }
 
 .earwax-pricing-header {
@@ -777,114 +997,200 @@
   color: var(--text-gray);
 }
 
-.earwax-pricing-grid {
+.earwax-pricing-grid-new {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 0 auto 3rem;
 }
 
 @media (min-width: 768px) {
-  .earwax-pricing-grid {
+  .earwax-pricing-grid-new {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.earwax-pricing-card {
+.earwax-pricing-card-new {
   background: var(--white);
   border-radius: 2rem;
-  padding: 3rem 2rem;
-  text-align: center;
+  padding: 2.5rem;
   border: 2px solid rgba(163, 158, 227, 0.15);
   transition: all 0.4s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.earwax-pricing-card:hover {
+.earwax-pricing-card-new:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 50px rgba(163, 158, 227, 0.15);
   border-color: var(--brand-purple);
 }
 
-.earwax-pricing-card-featured {
-  background: linear-gradient(to bottom, var(--white), #fcfaff);
-  border: 2px solid var(--brand-purple);
-  box-shadow: 0 15px 40px rgba(163, 158, 227, 0.15);
+.earwax-pricing-card-featured-new {
+  background: linear-gradient(135deg, #fcfaff, var(--white));
+  border: 3px solid var(--brand-purple);
+  box-shadow: 0 20px 60px rgba(163, 158, 227, 0.2);
+  transform: scale(1.05);
 }
 
-.earwax-pricing-badge {
+.earwax-pricing-card-featured-new:hover {
+  transform: scale(1.08) translateY(-8px);
+}
+
+.earwax-pricing-badge-new {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: var(--brand-purple);
+  top: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
   color: var(--white);
   font-size: 0.75rem;
   font-weight: 800;
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 9999px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(163, 158, 227, 0.3);
 }
 
-.earwax-pricing-icon {
-  width: 4rem;
-  height: 4rem;
-  background: rgba(163, 158, 227, 0.1);
-  border-radius: 50%;
+.earwax-pricing-card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.earwax-pricing-icon-new {
+  width: 4.5rem;
+  height: 4.5rem;
+  background: linear-gradient(135deg, rgba(163, 158, 227, 0.15), rgba(109, 104, 181, 0.1));
+  border-radius: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
   color: var(--brand-purple);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  transition: all 0.4s ease;
 }
 
-.earwax-pricing-price {
-  font-family: var(--font-heading);
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: #111827;
-  line-height: 1;
-  margin-bottom: 0.5rem;
+.earwax-pricing-card-new:hover .earwax-pricing-icon-new {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  color: var(--white);
 }
 
-.earwax-pricing-card-title {
+.earwax-pricing-card-title-new {
   font-size: 1.5rem;
   font-weight: 800;
   color: #111827;
-  margin-bottom: 1rem;
 }
 
-.earwax-pricing-card-desc {
-  font-size: 1rem;
-  color: var(--text-gray);
-  line-height: 1.6;
+.earwax-pricing-price-new {
+  text-align: center;
   margin-bottom: 2rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
 }
 
-.earwax-pricing-callout {
+.earwax-pricing-currency {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--brand-purple);
+}
+
+.earwax-pricing-amount {
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #111827;
+  line-height: 1;
+}
+
+.earwax-pricing-per {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+.earwax-pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  flex: 1;
+}
+
+.earwax-pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  font-size: 0.9375rem;
+  color: var(--text-slate);
+  line-height: 1.5;
+}
+
+.earwax-pricing-features li i {
+  color: #15803d;
+  font-size: 1rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.earwax-pricing-btn-new {
+  width: 100%;
+  font-size: 1.0625rem;
+  padding: 1.125rem 2rem;
+}
+
+.earwax-pricing-guarantee {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: #f0fdf4;
+  margin-top: 1.5rem;
   color: #15803d;
-  padding: 0.75rem;
-  border-radius: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.875rem;
-  margin-bottom: 2rem;
 }
 
-.earwax-pricing-btn {
-  width: 100%;
+.earwax-pricing-guarantee i {
+  font-size: 1.125rem;
+}
+
+.earwax-pricing-value {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2.5rem;
+  background: var(--brand-light);
+  border-radius: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.earwax-pricing-value-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--brand-dark);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.earwax-pricing-value-item i {
+  color: var(--brand-purple);
+  font-size: 1.125rem;
 }
 
 /* Testimonials */
 .earwax-testimonials-section {
   padding: 6rem 0;
-  background: var(--white);
+  background: var(--brand-light);
 }
 
 .earwax-testimonials-header {
@@ -897,6 +1203,12 @@
   font-weight: 900;
   color: #111827;
   margin-bottom: 1rem;
+}
+
+.earwax-testimonials-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.7;
 }
 
 .earwax-testimonials-grid {
@@ -912,23 +1224,72 @@
 }
 
 .earwax-testimonial-card {
-  background: var(--brand-light);
+  background: var(--white);
   padding: 2rem;
   border-radius: 1.5rem;
   border: 1px solid rgba(163, 158, 227, 0.15);
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(163, 158, 227, 0.05);
 }
 
-.earwax-testimonial-quote {
-  font-size: 1.0625rem;
-  font-style: italic;
-  color: var(--text-slate);
-  line-height: 1.7;
-  margin: 1.5rem 0;
+.earwax-testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(163, 158, 227, 0.15);
+  border-color: var(--brand-purple);
+}
+
+.earwax-testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.earwax-testimonial-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--brand-purple);
+  flex-shrink: 0;
+}
+
+.earwax-testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.earwax-testimonial-meta {
+  flex: 1;
 }
 
 .earwax-testimonial-author {
+  font-size: 1rem;
   font-weight: 700;
   color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.earwax-testimonial-quote {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-slate);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.earwax-testimonial-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #15803d;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.earwax-testimonial-footer i {
+  font-size: 1rem;
 }
 
 /* FAQ */
@@ -1056,6 +1417,7 @@
   inset: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
+  pointer-events: none;
 }
 
 .earwax-cta-content {
@@ -1095,6 +1457,13 @@
   max-width: 700px;
   margin: 0 auto 3rem;
   line-height: 1.6;
+}
+
+.earwax-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .earwax-cta-button-white {
