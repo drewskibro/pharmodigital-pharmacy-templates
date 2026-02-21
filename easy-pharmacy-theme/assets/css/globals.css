@@ -506,12 +506,14 @@ html {
 @media (min-width: 1024px) {
   .mega-menu-list {
     display: flex;
+    pointer-events: none; /* Prevent the oversized list bounding box from blocking page content beneath the nav */
   }
 }
 
 .mega-menu-item {
   position: relative;
   flex-shrink: 0; /* Prevent items from shrinking */
+  pointer-events: auto; /* Re-enable on each nav item so links remain clickable */
 }
 
 .mega-menu-link {
