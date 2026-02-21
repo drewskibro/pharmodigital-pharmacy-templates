@@ -2549,6 +2549,58 @@ html {
   .pharmacist-experience-badge {
     bottom: -1rem;
     right: 1rem;
+    padding: 1rem;
+  }
+
+  .pharmacist-experience-number {
+    font-size: 1.75rem;
+  }
+
+  .pharmacist-experience-label {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .pharmacist-image-wrapper {
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .pharmacist-image-card {
+    border-radius: 1.5rem;
+    border-width: 3px;
+  }
+
+  .pharmacist-video-label {
+    bottom: 1rem;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pharmacist-experience-badge {
+    bottom: -0.75rem;
+    right: -0.25rem;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+  }
+
+  .pharmacist-experience-number {
+    font-size: 1.5rem;
+    margin-bottom: 0.125rem;
+  }
+
+  .pharmacist-experience-label {
+    font-size: 0.625rem;
+  }
+
+  .play-button {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .play-button i {
+    font-size: 1.125rem;
   }
 }
 
@@ -2643,6 +2695,79 @@ html {
 /* CTA */
 .pharmacist-cta {
   margin-top: 0;
+}
+
+/* ============================================
+   VIDEO MODAL
+   ============================================ */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.video-modal-container {
+  position: relative;
+  width: 90vw;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.video-modal.is-open .video-modal-container {
+  transform: scale(1);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.video-modal-close:hover {
+  opacity: 1;
+}
+
+.video-modal-content {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-modal-content iframe,
+.video-modal-content video {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 
