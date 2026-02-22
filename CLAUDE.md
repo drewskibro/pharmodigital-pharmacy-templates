@@ -97,6 +97,21 @@ The home page (`page-templates/page-home.php`) loads 12 sections sequentially:
 
 ---
 
+## Switch Provider Page Section Order
+
+The Switch Provider page (`page-templates/page-switch-provider.php`) loads 7 sections:
+
+1. **Hero** — Badge, 3-line headline, subtitle, CTAs, trust pills, image card with price badge & testimonial
+2. **Stats Bar** — 4-metric stats (avg loss, patients switched, rating, location)
+3. **Comparison** — 3-card grid (National Providers vs Easy Pharmacy vs Benefits)
+4. **Social Proof** — Large stats badge with headline and subtext
+5. **Weight Loss Banner** — Full-width banner with backdrop image, badge, title, and purple CTA (inline, not shared `section-revslider.php`)
+6. **Evidence** — 6-card stat grid with proven results
+7. **Process** — 4 alternating steps (Book, We Handle Everything, Zero Gap, Face-to-Face)
+8. **Final CTA** — Gradient section with CTAs and trust checks
+
+---
+
 ## How ACF Fields Work in This Theme
 
 ### Two Scopes
@@ -130,15 +145,18 @@ $image_url = $image_id ? wp_get_attachment_image_url( $image_id, 'medium_large' 
 | Contact & Location | `contact-location` | Phone, email, address, hours, map, parking |
 | Registration & Compliance | `registration-compliance` | GPhC number, company reg, superintendent |
 | Social Media | `social-media` | Facebook, Instagram, Twitter, LinkedIn URLs |
+| Navigation | `navigation` | Mega-menu items: show/hide toggles, labels, page links, dropdown sub-links |
 
 ### ACF Field Registration
 
 All fields are registered in `inc/acf-fields.php` using `acf_add_local_field_group()`. The file is organised into sections:
 
 - **A1–A7** — Options page field groups (global settings)
+- **A8–A9** — Navigation field groups (top-level menu items & dropdown sub-links)
 - **B1–B12** — Home page section field groups (one per section)
 - **C1** — Blog post fields (reading time, author)
 - **D1** — Flexible content builder for `page-custom.php`
+- **F1–F8** — Switch Provider page field groups (hero, stats, comparison, social proof, banner, evidence, process, final CTA)
 
 **Naming convention for field keys:** `field_ep_[context]_[name]`
 - Example: `field_ep_home_hero_title_line_1`, `field_ep_location_map_image`
@@ -252,8 +270,8 @@ if ( is_page_template( 'page-templates/page-weight-loss.php' ) ) {
 1. Update ACF options: Pharmacy Settings > Branding (name, logo)
 2. Update ACF options: Contact & Location (address, phone, email, hours)
 3. Update ACF options: Registration & Compliance (GPhC number, company reg)
-4. Upload images via ACF fields on the Home Page edit screen
-5. Update navigation links in `header.php` if services differ
+4. Update ACF options: Navigation (show/hide menu items, edit labels, set page links, configure dropdown sub-links)
+5. Upload images via ACF fields on the Home Page edit screen
 
 ---
 
@@ -400,6 +418,59 @@ The `<ul class="mega-menu-list">` sits inside the fixed nav (`z-index: 9999`). E
 ### Decorative Overlays
 
 Any `position: absolute; inset: 0` overlay used for gradients or decorative effects (e.g. `.hero-overlay`, `.revslider-overlay`) must have `pointer-events: none` to avoid blocking clicks on content underneath.
+
+### Hero Section Top Padding
+
+The `body` has a global `padding-top: 80px` to clear the fixed navigation. Each hero section only needs a small additional `padding-top` (the homepage uses `20px`). If a new page hero section has excessive space above the badge, check that its `padding-top` isn't duplicating the body's 80px.
+
+**Symptom if broken:** Huge gap between the nav bar and the hero badge/title compared to the homepage.
+
+**The rule:** Hero section `padding-top` should be ~20px (not 120px+), since the body already provides the 80px nav clearance. Total distance from viewport top to content = body `80px` + section padding.
+
+### Margin Collapse in Grid/Flex Containers
+
+CSS Grid and Flexbox layouts **prevent margin collapse**. In a plain block container, adjacent `margin-bottom` and `margin-top` values collapse into the larger of the two. Inside `display: grid` or `display: flex`, they stack additively.
+
+**Symptom:** A heading below a badge has much more spacing than the same pattern on the homepage, even though the CSS values look identical.
+
+**The rule:** When elements sit inside a grid/flex parent, explicitly set `margin-top: 0` on headings to prevent the browser's default `h1`/`h2` top margin (~0.67em) from stacking on top of the previous element's `margin-bottom`.
+
+---
+
+## Known ACF Gotchas
+
+### `ep_option()` / `ep_field()` and Falsy Values
+
+These helpers use strict null/empty-string checks, NOT loose truthiness:
+
+```php
+function ep_option( $field_name, $default = '' ) {
+    if ( function_exists( 'get_field' ) ) {
+        $value = get_field( $field_name, 'option' );
+        if ( $value === null || $value === '' ) {
+            return $default;
+        }
+        return $value;
+    }
+    return $default;
+}
+```
+
+**Why this matters:** ACF `true_false` fields return integer `0` for "No" and `1` for "Yes". A loose check like `$value ? $value : $default` treats `0` as falsy and always returns the default — so "Show in Menu: No" would have no effect. The strict `=== null || === ''` check allows `0`, `false`, and empty arrays to pass through correctly.
+
+**The rule:** Never change these helpers to use `empty()`, `!$value`, or the `?:` ternary shorthand. Always use strict `=== null || === ''`.
+
+### Shared Template Parts and Field Group Location Rules
+
+Template parts loaded via `get_template_part()` (e.g. `section-revslider.php`) use `ep_field()` to read **page-level** ACF fields. The ACF field groups for those fields are registered with location rules that bind them to specific page templates.
+
+**The trap:** If you include a shared template part on a page whose template is NOT in the field group's location rules, the fields won't exist on that page. `ep_field()` will return `null`/`''`, and the hardcoded defaults will display instead — which may be completely wrong for that page's context (e.g. travel-themed defaults on a weight-loss page).
+
+**Solutions:**
+1. **Add the page template** to the field group's location rules (if the same fields/defaults work)
+2. **Inline the section** directly in the page template with its own ACF fields and context-appropriate defaults (preferred when the content differs significantly)
+
+**Example:** The Switch Provider page originally used `get_template_part( 'template-parts/section', 'revslider' )`, which showed travel-themed defaults because the B7 field group only targets the homepage. Fixed by inlining a dedicated banner section with weight-loss defaults and its own F8 field group.
 
 ---
 
