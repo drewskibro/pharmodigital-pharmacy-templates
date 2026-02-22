@@ -331,23 +331,48 @@ get_header();
 </section>
 
 <!-- ============================================
-     SOCIAL PROOF SECTION
+     SOCIAL PROOF SECTION - RATING BADGE
      ============================================ -->
 <section class="switch-social-proof-section">
   <div class="section-container">
     <div class="switch-social-proof-wrapper">
-      <!-- Left: Premium Stats Badge -->
-      <div class="switch-social-proof-icon">
-        <div class="switch-social-proof-badge-number"><?php echo esc_html( ep_field( 'sp_social_number', '500+' ) ); ?></div>
-        <div class="switch-social-proof-badge-label"><?php echo esc_html( ep_field( 'sp_social_label', 'Patients' ) ); ?></div>
-        <div class="switch-social-proof-badge-stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
+
+      <!-- Left: Google Rating Badge (uses globals.css .rating-badge styles) -->
+      <div class="rating-badge">
+        <div class="rating-header">
+          <div class="rating-label">
+            <div class="google-icon-wrapper">
+              <i class="fab fa-google"></i>
+            </div>
+            <span>Google Rating</span>
+          </div>
+          <div class="badge-success">
+            <i class="fas fa-check-circle"></i>
+            <span>Excellent</span>
+          </div>
+        </div>
+        <div class="rating-score">
+          <span class="score-number"><?php echo esc_html( ep_field( 'sp_social_rating_score', ep_option( 'google_rating', '4.7' ) ) ); ?></span>
+          <div class="rating-score-detail">
+            <div class="star-row">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="rating-count"><?php echo esc_html( ep_field( 'sp_social_rating_count', 'Based on 300+ reviews' ) ); ?></span>
+          </div>
+        </div>
+        <div class="rating-footer">
+          <div class="rating-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><?php echo esc_html( ep_field( 'sp_social_rating_location', 'Ashford, UK' ) ); ?></span>
+          </div>
+          <a href="#reviews" class="rating-link">View Reviews</a>
         </div>
       </div>
+
       <!-- Right: Text Content -->
       <div class="switch-social-proof-content">
         <p class="switch-social-proof-eyebrow"><?php echo esc_html( ep_field( 'sp_social_eyebrow', 'TRUSTED BY ASHFORD' ) ); ?></p>
@@ -359,7 +384,10 @@ get_header();
 </section>
 
 <!-- ============================================
-     WEIGHT LOSS BANNER SECTION
+     REVSLIDER BANNER SECTION
+     Inlined with ACF fields (F8) to avoid
+     shared template part location rule trap.
+     Purple theme override via .sp-revslider-override
      ============================================ -->
 <?php
 $sp_banner_badge         = ep_field( 'sp_banner_badge', 'CLINICALLY SUPERVISED PROGRAMS' );
@@ -372,24 +400,24 @@ $sp_banner_secondary_url = ep_field( 'sp_banner_secondary_url', '#location' );
 $sp_banner_image_id      = ep_field( 'sp_banner_image' );
 $sp_banner_image_url     = $sp_banner_image_id ? wp_get_attachment_image_url( $sp_banner_image_id, 'full' ) : '';
 ?>
-<section class="sp-banner-section">
-  <div class="sp-banner-wrapper">
-    <div class="sp-banner-placeholder">
-      <div class="sp-banner-overlay"></div>
+<section class="revslider-section sp-revslider-override" id="hero-slider">
+  <div class="revslider-wrapper">
+    <div class="revslider-placeholder">
+      <div class="revslider-overlay"></div>
       <?php if ( $sp_banner_image_url ) : ?>
-        <img src="<?php echo esc_url( $sp_banner_image_url ); ?>" alt="<?php echo esc_attr( $sp_banner_title ); ?>" class="sp-banner-image" />
+        <img src="<?php echo esc_url( $sp_banner_image_url ); ?>" alt="<?php echo esc_attr( $sp_banner_title ); ?>" class="revslider-image" />
       <?php else : ?>
-        <img src="<?php echo esc_url( EASY_PHARMACY_URI . '/assets/images/slider-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $sp_banner_title ); ?>" class="sp-banner-image" />
+        <img src="<?php echo esc_url( EASY_PHARMACY_URI . '/assets/images/slider-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $sp_banner_title ); ?>" class="revslider-image" />
       <?php endif; ?>
 
-      <div class="sp-banner-content">
-        <div class="sp-banner-container">
-          <span class="sp-banner-badge"><?php echo esc_html( $sp_banner_badge ); ?></span>
-          <h2 class="sp-banner-title"><?php echo esc_html( $sp_banner_title ); ?></h2>
-          <p class="sp-banner-subtitle"><?php echo esc_html( $sp_banner_subtitle ); ?></p>
-          <div class="sp-banner-cta">
-            <a href="<?php echo esc_url( $sp_banner_cta_url ); ?>" class="sp-banner-btn-primary"><?php echo esc_html( $sp_banner_cta_text ); ?></a>
-            <a href="<?php echo esc_url( $sp_banner_secondary_url ); ?>" class="sp-banner-btn-secondary"><?php echo esc_html( $sp_banner_secondary ); ?></a>
+      <div class="revslider-content">
+        <div class="revslider-container">
+          <span class="revslider-badge"><?php echo esc_html( $sp_banner_badge ); ?></span>
+          <h2 class="revslider-title"><?php echo esc_html( $sp_banner_title ); ?></h2>
+          <p class="revslider-subtitle"><?php echo esc_html( $sp_banner_subtitle ); ?></p>
+          <div class="revslider-cta">
+            <a href="<?php echo esc_url( $sp_banner_cta_url ); ?>" class="revslider-btn-primary"><?php echo esc_html( $sp_banner_cta_text ); ?></a>
+            <a href="<?php echo esc_url( $sp_banner_secondary_url ); ?>" class="revslider-btn-secondary"><?php echo esc_html( $sp_banner_secondary ); ?></a>
           </div>
         </div>
       </div>
@@ -433,9 +461,12 @@ $sp_banner_image_url     = $sp_banner_image_id ? wp_get_attachment_image_url( $s
           <p class="switch-evidence-stat-description">lost by our patients in just 4 months with comprehensive support</p>
         </div>
         <div class="switch-evidence-card">
-          <div class="switch-evidence-stat-number">4.9/5</div>
-          <p class="switch-evidence-stat-label">Patient Satisfaction</p>
-          <p class="switch-evidence-stat-description">rating from hundreds of Ashford patients who've made the switch</p>
+          <div class="google-icon-wrapper" style="width: 4rem; height: 4rem; margin: 0 auto 1rem; box-shadow: 0 8px 24px rgba(66, 133, 244, 0.2);">
+            <i class="fab fa-google" style="font-size: 2rem;"></i>
+          </div>
+          <div class="switch-evidence-stat-number">4.7/5</div>
+          <p class="switch-evidence-stat-label">Google Reviews</p>
+          <p class="switch-evidence-stat-description">from 300+ verified Ashford patients on Google</p>
         </div>
         <div class="switch-evidence-card">
           <div class="switch-evidence-stat-number">10%+</div>
@@ -458,7 +489,7 @@ $sp_banner_image_url     = $sp_banner_image_id ? wp_get_attachment_image_url( $s
 </section>
 
 <!-- ============================================
-     HOW TO SWITCH PROCESS
+     HOW TO SWITCH - TAB + CARD GRID LAYOUT
      ============================================ -->
 <section class="switch-process-section">
   <div class="section-container">
@@ -474,82 +505,95 @@ $sp_banner_image_url     = $sp_banner_image_id ? wp_get_attachment_image_url( $s
       <p class="switch-process-description"><?php echo esc_html( ep_field( 'sp_process_description', 'Start the new year with better support and better value. Switch to Easy Pharmacy in under 5 minutes.' ) ); ?></p>
     </div>
 
-    <?php if ( have_rows( 'sp_process_steps' ) ) : $step_count = 0; while ( have_rows( 'sp_process_steps' ) ) : the_row(); $step_count++;
-      $direction = ( $step_count % 2 === 1 ) ? 'left' : 'right';
-      $step_image_id  = get_sub_field( 'image' );
-      $step_image_url = $step_image_id ? wp_get_attachment_image_url( $step_image_id, 'medium_large' ) : '';
-      $step_badge     = get_sub_field( 'badge' );
+    <?php
+    // Default steps data
+    $default_steps = array(
+        array( 'title' => 'Book Consultation', 'description' => 'Visit us in Ashford or book a phone consultation. Tell us about your current treatment and goals.', 'image' => '' ),
+        array( 'title' => 'We Handle Everything', 'description' => 'No prescription transfer needed. Our team manages the entire switch seamlessly for you.', 'image' => '' ),
+        array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption. Same-day approval available for seamless care.', 'image' => '' ),
+        array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our Ashford pharmacy with expert guidance and personalized care.', 'image' => '' ),
+    );
+
+    $default_images = array(
+        'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&h=500&fit=crop',
+        'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&h=500&fit=crop',
+    );
+
+    $has_steps = have_rows( 'sp_process_steps' );
+    $steps     = array();
+
+    if ( $has_steps ) {
+        while ( have_rows( 'sp_process_steps' ) ) {
+            the_row();
+            $img_id  = get_sub_field( 'image' );
+            $img_url = $img_id ? wp_get_attachment_image_url( $img_id, 'medium_large' ) : '';
+            $steps[] = array(
+                'title'       => get_sub_field( 'title' ),
+                'description' => get_sub_field( 'description' ),
+                'image'       => $img_url,
+            );
+        }
+    } else {
+        foreach ( $default_steps as $i => $step ) {
+            $step['image'] = $default_images[ $i ];
+            $steps[]       = $step;
+        }
+    }
     ?>
-      <div class="switch-process-step switch-process-step-<?php echo esc_attr( $direction ); ?>">
-        <div class="switch-process-step-content">
-          <div class="switch-process-step-number"><?php echo esc_html( $step_count ); ?></div>
-          <div class="switch-process-step-icon">
-            <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
-          </div>
-          <h3 class="switch-process-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-          <p class="switch-process-step-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+
+    <!-- Numbered Tabs Navigation -->
+    <div class="process-tabs-navigation">
+      <?php foreach ( $steps as $i => $step ) : ?>
+        <div class="process-tab-slide<?php echo $i === 0 ? ' process-tab-active' : ''; ?>" data-step="<?php echo esc_attr( $i + 1 ); ?>">
+          <span class="process-tab-counter"><?php echo esc_html( $i + 1 ); ?></span>
+          <strong class="process-tab-title"><?php echo esc_html( $step['title'] ); ?></strong>
         </div>
-        <?php if ( $step_image_url ) : ?>
-          <div class="switch-process-step-image">
-            <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
-            <?php if ( $step_badge ) : ?>
-              <div class="switch-process-step-floating-badge"><span><?php echo esc_html( $step_badge ); ?></span></div>
-            <?php endif; ?>
-          </div>
-        <?php endif; ?>
-      </div>
-    <?php endwhile; else : ?>
-      <!-- Step 1 -->
-      <div class="switch-process-step switch-process-step-left">
-        <div class="switch-process-step-content">
-          <div class="switch-process-step-number">1</div>
-          <div class="switch-process-step-icon"><i class="fas fa-calendar-check"></i></div>
-          <h3 class="switch-process-step-title">Book Consultation</h3>
-          <p class="switch-process-step-description">Visit us in Ashford or book a phone consultation. Tell us about your current treatment.</p>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- Step Content Cards Grid -->
+    <div class="process-content-grid">
+      <?php foreach ( $steps as $i => $step ) : ?>
+        <div class="process-content-card" data-step="<?php echo esc_attr( $i + 1 ); ?>">
+          <?php if ( $step['image'] ) : ?>
+            <figure class="process-card-image">
+              <img src="<?php echo esc_url( $step['image'] ); ?>" alt="<?php echo esc_attr( $step['title'] ); ?>" />
+            </figure>
+          <?php endif; ?>
+          <h4 class="process-card-title"><?php echo esc_html( $step['title'] ); ?></h4>
+          <p class="process-card-description"><?php echo esc_html( $step['description'] ); ?></p>
         </div>
-        <div class="switch-process-step-image">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=500&fit=crop" alt="Book consultation" />
-        </div>
-      </div>
-      <!-- Step 2 -->
-      <div class="switch-process-step switch-process-step-right">
-        <div class="switch-process-step-image">
-          <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&h=500&fit=crop" alt="We handle everything" />
-          <div class="switch-process-step-floating-badge"><span>No Hassle</span></div>
-        </div>
-        <div class="switch-process-step-content">
-          <div class="switch-process-step-number">2</div>
-          <div class="switch-process-step-icon"><i class="fas fa-clipboard-check"></i></div>
-          <h3 class="switch-process-step-title">We Handle Everything</h3>
-          <p class="switch-process-step-description">No prescription transfer needed. Our team manages the entire switch seamlessly.</p>
-        </div>
-      </div>
-      <!-- Step 3 -->
-      <div class="switch-process-step switch-process-step-left">
-        <div class="switch-process-step-content">
-          <div class="switch-process-step-number">3</div>
-          <div class="switch-process-step-icon"><i class="fas fa-clock"></i></div>
-          <h3 class="switch-process-step-title">Zero Treatment Gap</h3>
-          <p class="switch-process-step-description">Continue your programme without interruption. Same-day approval available.</p>
-        </div>
-        <div class="switch-process-step-image">
-          <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&h=500&fit=crop" alt="Zero treatment gap" />
-          <div class="switch-process-step-floating-badge"><span>Same Day</span></div>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- What's Included Box -->
+    <div class="process-included-box">
+      <div class="process-included-content">
+        <p class="process-included-eyebrow"><?php echo esc_html( ep_field( 'sp_included_eyebrow', 'Access to your own member concierge' ) ); ?></p>
+        <h4 class="process-included-title"><?php echo esc_html( ep_field( 'sp_included_title', 'What\'s Included' ) ); ?></h4>
+        <ul class="process-included-list">
+          <?php if ( have_rows( 'sp_included_items' ) ) : while ( have_rows( 'sp_included_items' ) ) : the_row(); ?>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
+            </li>
+          <?php endwhile; else : ?>
+            <li><i class="fas fa-check-circle"></i><span>Easily book appointments via phone or email</span></li>
+            <li><i class="fas fa-check-circle"></i><span>Easy access to your health records and diagnostic results</span></li>
+            <li><i class="fas fa-check-circle"></i><span>We work with a panel of specialist consultants to ensure you have access to fast referrals to secondary care</span></li>
+            <li><i class="fas fa-check-circle"></i><span>Repeat prescriptions can be requested at any time from your member concierge team</span></li>
+            <li><i class="fas fa-check-circle"></i><span>Use your membership at any Easy Pharmacy location convenient to you</span></li>
+          <?php endif; ?>
+        </ul>
+        <div class="process-included-cta">
+          <a href="<?php echo esc_url( ep_field( 'sp_included_cta_url', ep_booking_url() ) ); ?>" class="process-cta-button">
+            <span class="button-title"><?php echo esc_html( ep_field( 'sp_included_cta_text', 'Register Now' ) ); ?></span>
+          </a>
         </div>
       </div>
-      <!-- Step 4 -->
-      <div class="switch-process-step switch-process-step-right">
-        <div class="switch-process-step-image">
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=500&fit=crop" alt="Face-to-face support" />
-        </div>
-        <div class="switch-process-step-content">
-          <div class="switch-process-step-number">4</div>
-          <div class="switch-process-step-icon"><i class="fas fa-user-doctor"></i></div>
-          <h3 class="switch-process-step-title">Face-to-Face Support</h3>
-          <p class="switch-process-step-description">Ongoing monthly check-ins at our Ashford pharmacy with expert guidance.</p>
-        </div>
-      </div>
-    <?php endif; ?>
+    </div>
   </div>
 </section>
 
@@ -559,8 +603,6 @@ $sp_banner_image_url     = $sp_banner_image_id ? wp_get_attachment_image_url( $s
 <section class="switch-cta-section">
   <div class="switch-cta-glow-1"></div>
   <div class="switch-cta-glow-2"></div>
-  <div class="switch-cta-circle"></div>
-  <div class="switch-cta-square"></div>
   <div class="switch-cta-dots"></div>
   <div class="section-container">
     <div class="switch-cta-content">

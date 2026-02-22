@@ -126,6 +126,7 @@ function easy_pharmacy_scripts() {
 
     if ( is_page_template( 'page-templates/page-switch-provider.php' ) ) {
         wp_enqueue_style( 'easy-pharmacy-switch-provider', EASY_PHARMACY_URI . '/assets/css/switch-provider.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_script( 'easy-pharmacy-switch-provider-js', EASY_PHARMACY_URI . '/assets/js/switch-provider.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
     // Vaccination pages
