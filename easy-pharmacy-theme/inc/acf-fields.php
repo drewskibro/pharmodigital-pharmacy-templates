@@ -3802,8 +3802,11 @@ function ep_register_acf_field_groups() {
         'key'      => 'group_ep_sp_social',
         'title'    => 'Switch Provider — Social Proof',
         'fields'   => array(
-            array( 'key' => 'field_ep_sp_social_number', 'label' => 'Badge Number', 'name' => 'sp_social_number', 'type' => 'text', 'default_value' => '500+' ),
-            array( 'key' => 'field_ep_sp_social_label', 'label' => 'Badge Label', 'name' => 'sp_social_label', 'type' => 'text', 'default_value' => 'Patients' ),
+            // Rating Badge fields
+            array( 'key' => 'field_ep_sp_social_rating_score', 'label' => 'Rating Score', 'name' => 'sp_social_rating_score', 'type' => 'text', 'default_value' => '4.7', 'instructions' => 'Google rating number. Falls back to global Google Rating option.' ),
+            array( 'key' => 'field_ep_sp_social_rating_count', 'label' => 'Rating Count Text', 'name' => 'sp_social_rating_count', 'type' => 'text', 'default_value' => 'Based on 300+ reviews' ),
+            array( 'key' => 'field_ep_sp_social_rating_location', 'label' => 'Rating Location', 'name' => 'sp_social_rating_location', 'type' => 'text', 'default_value' => 'Ashford, UK' ),
+            // Text content
             array( 'key' => 'field_ep_sp_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'sp_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY ASHFORD' ),
             array( 'key' => 'field_ep_sp_social_headline', 'label' => 'Headline', 'name' => 'sp_social_headline', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join hundreds of Ashford patients who\'ve already made the switch' ),
             array( 'key' => 'field_ep_sp_social_subtext', 'label' => 'Subtext', 'name' => 'sp_social_subtext', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Trusted local pharmacy with expert weight loss, travel health, and microsuction services' ),
@@ -3889,6 +3892,7 @@ function ep_register_acf_field_groups() {
                 'max'           => 6,
                 'layout'        => 'block',
                 'button_label'  => 'Add Step',
+                'instructions'  => 'Each step shows as a numbered tab and a content card with image.',
                 'sub_fields'    => array(
                     array( 'key' => 'field_ep_sp_ps_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check' ),
                     array( 'key' => 'field_ep_sp_ps_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
@@ -3897,6 +3901,25 @@ function ep_register_acf_field_groups() {
                     array( 'key' => 'field_ep_sp_ps_badge', 'label' => 'Floating Badge Text', 'name' => 'badge', 'type' => 'text', 'instructions' => 'Optional badge overlaying image, e.g. "No Hassle"' ),
                 ),
             ),
+            // What's Included box
+            array( 'key' => 'field_ep_sp_included_tab', 'label' => 'What\'s Included Box', 'type' => 'tab' ),
+            array( 'key' => 'field_ep_sp_included_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'sp_included_eyebrow', 'type' => 'text', 'default_value' => 'Access to your own member concierge' ),
+            array( 'key' => 'field_ep_sp_included_title', 'label' => 'Title', 'name' => 'sp_included_title', 'type' => 'text', 'default_value' => 'What\'s Included' ),
+            array(
+                'key'           => 'field_ep_sp_included_items',
+                'label'         => 'Included Items',
+                'name'          => 'sp_included_items',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Item',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_ep_sp_ii_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_sp_included_cta_text', 'label' => 'CTA Button Text', 'name' => 'sp_included_cta_text', 'type' => 'text', 'default_value' => 'Register Now' ),
+            array( 'key' => 'field_ep_sp_included_cta_url', 'label' => 'CTA Button URL', 'name' => 'sp_included_cta_url', 'type' => 'text', 'instructions' => 'Leave blank to use booking page URL.' ),
         ),
         'location' => array(
             array(
