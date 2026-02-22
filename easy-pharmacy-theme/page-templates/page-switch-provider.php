@@ -359,9 +359,43 @@ get_header();
 </section>
 
 <!-- ============================================
-     REVOLUTION SLIDER / TRAVEL BANNER
+     WEIGHT LOSS BANNER SECTION
      ============================================ -->
-<?php get_template_part( 'template-parts/section', 'revslider' ); ?>
+<?php
+$sp_banner_badge         = ep_field( 'sp_banner_badge', 'CLINICALLY SUPERVISED PROGRAMS' );
+$sp_banner_title         = ep_field( 'sp_banner_title', 'Transform Your Life with Medical Weight Loss' );
+$sp_banner_subtitle      = ep_field( 'sp_banner_subtitle', 'Safe, effective weight loss programs with expert clinical support across Ashford, Chertsey, and Walton-on-Thames' );
+$sp_banner_cta_text      = ep_field( 'sp_banner_cta_text', 'Start Your Journey' );
+$sp_banner_cta_url       = ep_field( 'sp_banner_cta_url', ep_booking_url() );
+$sp_banner_secondary     = ep_field( 'sp_banner_secondary_text', 'Serving Ashford, Chertsey & Walton' );
+$sp_banner_secondary_url = ep_field( 'sp_banner_secondary_url', '#location' );
+$sp_banner_image_id      = ep_field( 'sp_banner_image' );
+$sp_banner_image_url     = $sp_banner_image_id ? wp_get_attachment_image_url( $sp_banner_image_id, 'full' ) : '';
+?>
+<section class="sp-banner-section">
+  <div class="sp-banner-wrapper">
+    <div class="sp-banner-placeholder">
+      <div class="sp-banner-overlay"></div>
+      <?php if ( $sp_banner_image_url ) : ?>
+        <img src="<?php echo esc_url( $sp_banner_image_url ); ?>" alt="<?php echo esc_attr( $sp_banner_title ); ?>" class="sp-banner-image" />
+      <?php else : ?>
+        <img src="<?php echo esc_url( EASY_PHARMACY_URI . '/assets/images/slider-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $sp_banner_title ); ?>" class="sp-banner-image" />
+      <?php endif; ?>
+
+      <div class="sp-banner-content">
+        <div class="sp-banner-container">
+          <span class="sp-banner-badge"><?php echo esc_html( $sp_banner_badge ); ?></span>
+          <h2 class="sp-banner-title"><?php echo esc_html( $sp_banner_title ); ?></h2>
+          <p class="sp-banner-subtitle"><?php echo esc_html( $sp_banner_subtitle ); ?></p>
+          <div class="sp-banner-cta">
+            <a href="<?php echo esc_url( $sp_banner_cta_url ); ?>" class="sp-banner-btn-primary"><?php echo esc_html( $sp_banner_cta_text ); ?></a>
+            <a href="<?php echo esc_url( $sp_banner_secondary_url ); ?>" class="sp-banner-btn-secondary"><?php echo esc_html( $sp_banner_secondary ); ?></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================
      EVIDENCE SECTION

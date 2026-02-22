@@ -3946,5 +3946,47 @@ function ep_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // -------------------------------------------------------------------------
+    // F8. Switch Provider — Weight Loss Banner Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_sp_banner',
+        'title'    => 'Switch Provider — Weight Loss Banner',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_sp_banner_image',
+                'label'         => 'Banner Backdrop Image',
+                'name'          => 'sp_banner_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Upload a full-width backdrop image. Recommended: 1920x800px landscape.',
+            ),
+            array( 'key' => 'field_ep_sp_banner_badge', 'label' => 'Badge Text', 'name' => 'sp_banner_badge', 'type' => 'text', 'default_value' => 'CLINICALLY SUPERVISED PROGRAMS' ),
+            array( 'key' => 'field_ep_sp_banner_title', 'label' => 'Title', 'name' => 'sp_banner_title', 'type' => 'text', 'default_value' => 'Transform Your Life with Medical Weight Loss' ),
+            array( 'key' => 'field_ep_sp_banner_subtitle', 'label' => 'Subtitle', 'name' => 'sp_banner_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Safe, effective weight loss programs with expert clinical support across Ashford, Chertsey, and Walton-on-Thames' ),
+            array( 'key' => 'field_ep_sp_banner_cta_text', 'label' => 'Primary CTA Text', 'name' => 'sp_banner_cta_text', 'type' => 'text', 'default_value' => 'Start Your Journey' ),
+            array( 'key' => 'field_ep_sp_banner_cta_url', 'label' => 'Primary CTA URL', 'name' => 'sp_banner_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to default to booking page.' ),
+            array( 'key' => 'field_ep_sp_banner_secondary_text', 'label' => 'Secondary Link Text', 'name' => 'sp_banner_secondary_text', 'type' => 'text', 'default_value' => 'Serving Ashford, Chertsey & Walton' ),
+            array( 'key' => 'field_ep_sp_banner_secondary_url', 'label' => 'Secondary Link URL', 'name' => 'sp_banner_secondary_url', 'type' => 'text', 'default_value' => '#location' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-switch-provider.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );
