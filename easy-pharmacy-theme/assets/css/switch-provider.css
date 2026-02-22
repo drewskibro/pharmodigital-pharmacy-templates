@@ -11,7 +11,7 @@
   min-height: 95vh;
   display: flex;
   align-items: center;
-  padding: 140px 0 100px;
+  padding: 20px 0 100px; /* Body already provides 80px for fixed nav */
   overflow: hidden;
   background: #fdf5f3;
 }
