@@ -112,6 +112,25 @@ The Switch Provider page (`page-templates/page-switch-provider.php`) loads 7 sec
 
 ---
 
+## Weight Loss Page Section Order
+
+The Weight Loss page (`page-templates/page-weight-loss.php`) loads 12 sections:
+
+1. **Hero** — Badge, 3-line title (gradient/accent/gradient), description, CTAs, testimonial card, 3-image grid
+2. **Social Proof** — Circle stat badge (rating + stars), eyebrow, headline, subtext
+3. **Pharmacist** — Reuses shared `section-pharmacist.php` template part
+4. **Results** — Badge, title, 3-card grid (satisfaction, featured weight loss %, patients helped), disclaimer
+5. **CTA Bar** — Purple gradient bar with title, subtitle, CTA button
+6. **Features** — Badge, title, image with floating badges, 3 feature cards (repeater), CTAs, credentials
+7. **RevSlider Banner** — Full-width banner with backdrop image, badge, title, CTA (inline, not shared `section-revslider.php`)
+8. **Journey Steps** — Badge, title, 4 alternating steps with images and floating badges (repeater)
+9. **Calculator** — BMI/weight loss estimator with form, results display, and timeline
+10. **FAQ** — Accordion with numbered questions (repeater), expand/collapse via JS
+11. **Testimonials** — 3 cards with weight-lost circles, quotes, stars, author (repeater)
+12. **Final CTA** — Gradient section with trust badges, title, CTAs, trust checks
+
+---
+
 ## How ACF Fields Work in This Theme
 
 ### Two Scopes
@@ -157,6 +176,7 @@ All fields are registered in `inc/acf-fields.php` using `acf_add_local_field_gro
 - **C1** — Blog post fields (reading time, author)
 - **D1** — Flexible content builder for `page-custom.php`
 - **F1–F8** — Switch Provider page field groups (hero, stats, comparison, social proof, banner, evidence, process, final CTA)
+- **G1–G11** — Weight Loss page field groups (hero, social proof, results, CTA bar, features, banner, journey, calculator, FAQ, testimonials, final CTA)
 
 **Naming convention for field keys:** `field_ep_[context]_[name]`
 - Example: `field_ep_home_hero_title_line_1`, `field_ep_location_map_image`

@@ -11,7 +11,7 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 60px 0 80px;
+  padding: 20px 0 80px;
   overflow: hidden;
   background: linear-gradient(to bottom, var(--brand-light), var(--white), var(--brand-light));
 }
@@ -88,9 +88,14 @@
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
+  margin-top: 0;
   margin-bottom: 1.5rem;
   line-height: 1.1;
   letter-spacing: -0.02em;
+}
+
+.wl-hero-accent-text {
+  color: #111827;
 }
 
 @media (min-width: 768px) {
@@ -318,6 +323,169 @@
 }
 
 /* ============================================
+   SOCIAL PROOF BAR
+   ============================================ */
+.wl-social-proof-bar {
+  padding: 5rem 0;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.wl-social-proof-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(163, 158, 227, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.wl-social-proof-bar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .wl-social-proof-bar-content {
+    flex-direction: row;
+    gap: 5rem;
+  }
+}
+
+.wl-social-proof-bar-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
+  height: 12rem;
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 20px 60px rgba(163, 158, 227, 0.3);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.wl-social-proof-bar-stats:hover {
+  transform: scale(1.05);
+}
+
+.wl-social-proof-bar-stats::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px dashed rgba(163, 158, 227, 0.3);
+  animation: spin 30s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.wl-social-proof-bar-number {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.wl-social-proof-bar-label {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0.25rem;
+}
+
+.wl-social-proof-bar-stars {
+  display: flex;
+  gap: 0.25rem;
+  color: #F4B400;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.wl-social-proof-bar-text {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .wl-social-proof-bar-text {
+    text-align: left;
+  }
+}
+
+.wl-social-proof-bar-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brand-purple);
+  background: rgba(163, 158, 227, 0.1);
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.wl-social-proof-bar-headline {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #111827;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .wl-social-proof-bar-headline {
+    font-size: 2.5rem;
+  }
+}
+
+.wl-social-proof-bar-subtext {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+@media (max-width: 1023px) {
+  .wl-social-proof-bar-subtext {
+    margin: 0 auto;
+  }
+  .wl-social-proof-bar-stats {
+    width: 10rem;
+    height: 10rem;
+  }
+  .wl-social-proof-bar-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* ============================================
+   REVSLIDER OVERRIDE (Weight Loss)
+   ============================================ */
+.wl-revslider-section {
+  margin-top: 0;
+}
+
+.wl-revslider-section .revslider-overlay {
+  pointer-events: none;
+}
+
+/* ============================================
    RESULTS SECTION
    ============================================ */
 .wl-results-section {
@@ -334,6 +502,7 @@
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
+  margin-top: 0;
   margin-bottom: 1rem;
 }
 
@@ -478,6 +647,7 @@
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
+  margin-top: 0;
   margin-bottom: 1rem;
 }
 
@@ -714,6 +884,7 @@
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
+  margin-top: 0;
   margin-bottom: 1rem;
 }
 
@@ -882,6 +1053,7 @@
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
+  margin-top: 0;
   margin-bottom: 1rem;
 }
 
@@ -1181,6 +1353,7 @@
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
+  margin-top: 0;
   margin-bottom: 1rem;
 }
 
@@ -1320,6 +1493,7 @@
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
+  margin-top: 0;
   margin-bottom: 1rem;
 }
 

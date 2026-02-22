@@ -3988,5 +3988,390 @@ function ep_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // G. WEIGHT LOSS PAGE FIELDS
+    // =========================================================================
+
+    $wl_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-weight-loss.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // G1. Weight Loss — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_hero',
+        'title'    => 'Weight Loss — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_hero_badge', 'label' => 'Badge Text', 'name' => 'wl_hero_badge', 'type' => 'text', 'default_value' => 'MEDICAL WEIGHT LOSS' ),
+            array( 'key' => 'field_ep_wl_hero_title_line_1', 'label' => 'Title Line 1 (gradient)', 'name' => 'wl_hero_title_line_1', 'type' => 'text', 'default_value' => 'Mounjaro & Wegovy' ),
+            array( 'key' => 'field_ep_wl_hero_title_line_2', 'label' => 'Title Line 2 (accent)', 'name' => 'wl_hero_title_line_2', 'type' => 'text', 'default_value' => 'weight loss' ),
+            array( 'key' => 'field_ep_wl_hero_title_line_3', 'label' => 'Title Line 3 (gradient)', 'name' => 'wl_hero_title_line_3', 'type' => 'text', 'default_value' => 'that works when diets have failed' ),
+            array( 'key' => 'field_ep_wl_hero_description', 'label' => 'Description', 'name' => 'wl_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Prescription Mounjaro and Wegovy (GLP-1 treatments) with expert guidance and face-to-face support right here in Ashford. No remote consultations—real care from someone who knows your name.' ),
+            array( 'key' => 'field_ep_wl_hero_cta_text', 'label' => 'Primary CTA Text', 'name' => 'wl_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+            array( 'key' => 'field_ep_wl_hero_cta_url', 'label' => 'Primary CTA URL', 'name' => 'wl_hero_cta_url', 'type' => 'text', 'default_value' => '#calculator', 'instructions' => 'URL or anchor like #calculator. Leave blank for booking page.' ),
+            array( 'key' => 'field_ep_wl_hero_testimonial_quote', 'label' => 'Testimonial Quote', 'name' => 'wl_hero_testimonial_quote', 'type' => 'textarea', 'rows' => 2, 'default_value' => '"I travel 40 miles every month to see Dilip for my weight loss consultations—he\'s that good. Would never go anywhere else."' ),
+            array( 'key' => 'field_ep_wl_hero_testimonial_name', 'label' => 'Testimonial Author', 'name' => 'wl_hero_testimonial_name', 'type' => 'text', 'default_value' => 'Ashford Patient' ),
+            array( 'key' => 'field_ep_wl_hero_result_badge', 'label' => 'Result Badge Text', 'name' => 'wl_hero_result_badge', 'type' => 'text', 'default_value' => 'Real Results' ),
+            array(
+                'key'           => 'field_ep_wl_hero_image_1',
+                'label'         => 'Hero Image 1 (top left)',
+                'name'          => 'wl_hero_image_1',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Recommended: 600x700px portrait.',
+            ),
+            array(
+                'key'           => 'field_ep_wl_hero_image_2',
+                'label'         => 'Hero Image 2 (top right)',
+                'name'          => 'wl_hero_image_2',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Recommended: 600x700px portrait.',
+            ),
+            array(
+                'key'           => 'field_ep_wl_hero_image_3',
+                'label'         => 'Hero Image 3 (bottom wide)',
+                'name'          => 'wl_hero_image_3',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Recommended: 800x600px landscape.',
+            ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G2. Weight Loss — Social Proof Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_social',
+        'title'    => 'Weight Loss — Social Proof Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_social_number', 'label' => 'Stat Number', 'name' => 'wl_social_number', 'type' => 'text', 'default_value' => '4.7' ),
+            array( 'key' => 'field_ep_wl_social_label', 'label' => 'Stat Label', 'name' => 'wl_social_label', 'type' => 'text', 'default_value' => 'Google Rating' ),
+            array( 'key' => 'field_ep_wl_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'wl_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY ASHFORD' ),
+            array( 'key' => 'field_ep_wl_social_headline', 'label' => 'Headline', 'name' => 'wl_social_headline', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join hundreds of Ashford patients who\'ve already made the switch' ),
+            array( 'key' => 'field_ep_wl_social_subtext', 'label' => 'Subtext', 'name' => 'wl_social_subtext', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Real people, real results. Our patients lose an average of 10-15% body weight in 12 months with Mounjaro and Wegovy treatment.' ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 41,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G3. Weight Loss — Results Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_results',
+        'title'    => 'Weight Loss — Results Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_results_badge', 'label' => 'Badge Text', 'name' => 'wl_results_badge', 'type' => 'text', 'default_value' => 'MEDICAL WEIGHT LOSS' ),
+            array( 'key' => 'field_ep_wl_results_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'wl_results_title_highlight', 'type' => 'text', 'default_value' => 'Mounjaro & Wegovy' ),
+            array( 'key' => 'field_ep_wl_results_title', 'label' => 'Title (after highlight)', 'name' => 'wl_results_title', 'type' => 'text', 'default_value' => 'results in Ashford' ),
+            array( 'key' => 'field_ep_wl_results_description', 'label' => 'Description', 'name' => 'wl_results_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Ashford patients using Mounjaro or Wegovy lose an average of 10-15% of their body weight in 12 months with our personalised programmes.' ),
+            array( 'key' => 'field_ep_wl_results_card1_number', 'label' => 'Card 1 — Number', 'name' => 'wl_results_card1_number', 'type' => 'text', 'default_value' => '4.7/5' ),
+            array( 'key' => 'field_ep_wl_results_card1_label', 'label' => 'Card 1 — Label', 'name' => 'wl_results_card1_label', 'type' => 'text', 'default_value' => 'Patient satisfaction' ),
+            array( 'key' => 'field_ep_wl_results_card1_sublabel', 'label' => 'Card 1 — Sublabel', 'name' => 'wl_results_card1_sublabel', 'type' => 'text', 'default_value' => 'Based on verified reviews' ),
+            array( 'key' => 'field_ep_wl_results_featured_badge', 'label' => 'Featured Card — Badge', 'name' => 'wl_results_featured_badge', 'type' => 'text', 'default_value' => 'Most Important' ),
+            array( 'key' => 'field_ep_wl_results_featured_number', 'label' => 'Featured Card — Number', 'name' => 'wl_results_featured_number', 'type' => 'text', 'default_value' => '10-15%' ),
+            array( 'key' => 'field_ep_wl_results_featured_label', 'label' => 'Featured Card — Label', 'name' => 'wl_results_featured_label', 'type' => 'text', 'default_value' => 'Average weight loss' ),
+            array( 'key' => 'field_ep_wl_results_featured_sublabel', 'label' => 'Featured Card — Sublabel', 'name' => 'wl_results_featured_sublabel', 'type' => 'text', 'default_value' => 'In 12 months' ),
+            array( 'key' => 'field_ep_wl_results_card3_number', 'label' => 'Card 3 — Number', 'name' => 'wl_results_card3_number', 'type' => 'text', 'default_value' => '500+' ),
+            array( 'key' => 'field_ep_wl_results_card3_label', 'label' => 'Card 3 — Label', 'name' => 'wl_results_card3_label', 'type' => 'text', 'default_value' => 'Patients Helped' ),
+            array( 'key' => 'field_ep_wl_results_card3_sublabel', 'label' => 'Card 3 — Sublabel', 'name' => 'wl_results_card3_sublabel', 'type' => 'text', 'default_value' => 'Ashford & surrounding areas' ),
+            array( 'key' => 'field_ep_wl_results_disclaimer', 'label' => 'Disclaimer', 'name' => 'wl_results_disclaimer', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Results vary by individual. Weight loss depends on adherence to treatment, lifestyle changes, and individual metabolism.' ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 42,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G4. Weight Loss — CTA Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_cta_bar',
+        'title'    => 'Weight Loss — CTA Bar',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_cta_bar_title', 'label' => 'Title', 'name' => 'wl_cta_bar_title', 'type' => 'text', 'default_value' => 'Ready to transform your health?' ),
+            array( 'key' => 'field_ep_wl_cta_bar_subtitle', 'label' => 'Subtitle', 'name' => 'wl_cta_bar_subtitle', 'type' => 'text', 'default_value' => 'Book your consultation with Dilip today' ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 43,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G5. Weight Loss — Features Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_features',
+        'title'    => 'Weight Loss — Features Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_features_badge', 'label' => 'Badge Text', 'name' => 'wl_features_badge', 'type' => 'text', 'default_value' => 'Why Choose Us' ),
+            array( 'key' => 'field_ep_wl_features_description', 'label' => 'Description', 'name' => 'wl_features_description', 'type' => 'text', 'default_value' => 'Real face-to-face support. Expert guidance. Proven results.' ),
+            array(
+                'key'           => 'field_ep_wl_features_image',
+                'label'         => 'Image',
+                'name'          => 'wl_features_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Recommended: 600x700px portrait.',
+            ),
+            array( 'key' => 'field_ep_wl_features_image_alt', 'label' => 'Image Alt Text', 'name' => 'wl_features_image_alt', 'type' => 'text', 'default_value' => 'Weight loss success patient' ),
+            array( 'key' => 'field_ep_wl_features_rating_text', 'label' => 'Rating Badge Text', 'name' => 'wl_features_rating_text', 'type' => 'text', 'default_value' => '4.7/5' ),
+            array( 'key' => 'field_ep_wl_features_reviews_text', 'label' => 'Reviews Badge Text', 'name' => 'wl_features_reviews_text', 'type' => 'text', 'default_value' => '300+ Google Reviews' ),
+            array(
+                'key'        => 'field_ep_wl_features',
+                'label'      => 'Feature Cards',
+                'name'       => 'wl_features',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'button_label' => 'Add Feature',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_wl_features_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-check', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_wl_features_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '70' ) ),
+                    array( 'key' => 'field_ep_wl_features_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 44,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G6. Weight Loss — Banner (RevSlider fallback, inline)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_banner',
+        'title'    => 'Weight Loss — Banner Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_revslider_shortcode', 'label' => 'Revolution Slider Shortcode', 'name' => 'wl_revslider_shortcode', 'type' => 'text', 'instructions' => 'e.g. [rev_slider alias="weight-loss-hero"]. Leave blank for static fallback.' ),
+            array(
+                'key'           => 'field_ep_wl_banner_image',
+                'label'         => 'Banner Backdrop Image',
+                'name'          => 'wl_banner_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Recommended: 1920x800px landscape.',
+            ),
+            array( 'key' => 'field_ep_wl_banner_badge', 'label' => 'Badge Text', 'name' => 'wl_banner_badge', 'type' => 'text', 'default_value' => 'Medical Weight Loss' ),
+            array( 'key' => 'field_ep_wl_banner_title', 'label' => 'Title', 'name' => 'wl_banner_title', 'type' => 'text', 'default_value' => 'Transform Your Health with Mounjaro & Wegovy' ),
+            array( 'key' => 'field_ep_wl_banner_subtitle', 'label' => 'Subtitle', 'name' => 'wl_banner_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Prescription weight loss treatment with expert face-to-face support in Ashford' ),
+            array( 'key' => 'field_ep_wl_banner_cta_text', 'label' => 'CTA Text', 'name' => 'wl_banner_cta_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+            array( 'key' => 'field_ep_wl_banner_cta_url', 'label' => 'CTA URL', 'name' => 'wl_banner_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page.' ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 45,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G7. Weight Loss — Journey Steps
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_journey',
+        'title'    => 'Weight Loss — Journey Steps',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_journey_badge', 'label' => 'Badge Text', 'name' => 'wl_journey_badge', 'type' => 'text', 'default_value' => 'HOW WE SUPPORT YOU' ),
+            array( 'key' => 'field_ep_wl_journey_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'wl_journey_title_highlight', 'type' => 'text', 'default_value' => 'lasting weight loss' ),
+            array( 'key' => 'field_ep_wl_journey_description', 'label' => 'Description', 'name' => 'wl_journey_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'A structured, evidence-based approach with regular face-to-face support every step of the way.' ),
+            array(
+                'key'        => 'field_ep_wl_journey_steps',
+                'label'      => 'Journey Steps',
+                'name'       => 'wl_journey_steps',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'button_label' => 'Add Step',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_wl_journey_step_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'e.g. fas fa-calendar-check', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_wl_journey_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '70' ) ),
+                    array( 'key' => 'field_ep_wl_journey_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                    array( 'key' => 'field_ep_wl_journey_step_meta_icon', 'label' => 'Meta Icon', 'name' => 'meta_icon', 'type' => 'text', 'default_value' => 'fas fa-clock', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_wl_journey_step_meta_text', 'label' => 'Meta Text', 'name' => 'meta_text', 'type' => 'text', 'wrapper' => array( 'width' => '70' ) ),
+                    array(
+                        'key'           => 'field_ep_wl_journey_step_image',
+                        'label'         => 'Step Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'instructions'  => 'Recommended: 600x500px.',
+                    ),
+                    array( 'key' => 'field_ep_wl_journey_step_floating_badge', 'label' => 'Floating Badge Text', 'name' => 'floating_badge', 'type' => 'text', 'instructions' => 'Optional. e.g. "Same Day"' ),
+                    array( 'key' => 'field_ep_wl_journey_step_floating_badge_icon', 'label' => 'Floating Badge Icon', 'name' => 'floating_badge_icon', 'type' => 'text', 'instructions' => 'e.g. fas fa-bolt', 'default_value' => 'fas fa-bolt' ),
+                ),
+            ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 46,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G8. Weight Loss — Calculator Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_calculator',
+        'title'    => 'Weight Loss — Calculator Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_calc_badge', 'label' => 'Badge Text', 'name' => 'wl_calc_badge', 'type' => 'text', 'default_value' => 'CLINICAL ESTIMATOR' ),
+            array( 'key' => 'field_ep_wl_calc_title', 'label' => 'Title', 'name' => 'wl_calc_title', 'type' => 'text', 'default_value' => 'Estimate Your Weight Loss Journey' ),
+            array( 'key' => 'field_ep_wl_calc_description', 'label' => 'Description', 'name' => 'wl_calc_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Based on clinical trial data for GLP-1 medications like Mounjaro and Wegovy. See what\'s medically achievable for you.' ),
+            array(
+                'key'           => 'field_ep_wl_calc_image',
+                'label'         => 'Calculator Image',
+                'name'          => 'wl_calc_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Recommended: 600x800px portrait.',
+            ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 47,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G9. Weight Loss — FAQ Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_faq',
+        'title'    => 'Weight Loss — FAQ Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_faq_badge', 'label' => 'Badge Text', 'name' => 'wl_faq_badge', 'type' => 'text', 'default_value' => 'FREQUENTLY ASKED QUESTIONS' ),
+            array( 'key' => 'field_ep_wl_faq_title', 'label' => 'Title', 'name' => 'wl_faq_title', 'type' => 'text', 'default_value' => 'Your questions answered' ),
+            array( 'key' => 'field_ep_wl_faq_description', 'label' => 'Description', 'name' => 'wl_faq_description', 'type' => 'text', 'default_value' => 'Get answers to the most common weight loss questions' ),
+            array(
+                'key'        => 'field_ep_wl_faqs',
+                'label'      => 'FAQ Items',
+                'name'       => 'wl_faqs',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 12,
+                'button_label' => 'Add FAQ',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_wl_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_wl_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 4 ),
+                ),
+            ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 48,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G10. Weight Loss — Testimonials Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_testimonials',
+        'title'    => 'Weight Loss — Testimonials Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_testimonials_badge', 'label' => 'Badge Text', 'name' => 'wl_testimonials_badge', 'type' => 'text', 'default_value' => 'SUCCESS STORIES' ),
+            array( 'key' => 'field_ep_wl_testimonials_title', 'label' => 'Title', 'name' => 'wl_testimonials_title', 'type' => 'text', 'default_value' => 'Real Ashford success stories' ),
+            array( 'key' => 'field_ep_wl_testimonials_description', 'label' => 'Description', 'name' => 'wl_testimonials_description', 'type' => 'text', 'default_value' => 'See how our patients have transformed their lives with medical weight loss' ),
+            array(
+                'key'        => 'field_ep_wl_testimonials',
+                'label'      => 'Testimonials',
+                'name'       => 'wl_testimonials',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'button_label' => 'Add Testimonial',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_wl_testimonial_weight', 'label' => 'Weight Lost (short)', 'name' => 'weight_lost_short', 'type' => 'text', 'instructions' => 'e.g. 6st', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_wl_testimonial_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'instructions' => 'e.g. 6 Stone Lost', 'wrapper' => array( 'width' => '40' ) ),
+                    array( 'key' => 'field_ep_wl_testimonial_author', 'label' => 'Author', 'name' => 'author', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                    array( 'key' => 'field_ep_wl_testimonial_quote', 'label' => 'Quote', 'name' => 'quote', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 49,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G11. Weight Loss — Final CTA Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_wl_final_cta',
+        'title'    => 'Weight Loss — Final CTA Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_wl_final_cta_title', 'label' => 'Title', 'name' => 'wl_final_cta_title', 'type' => 'text', 'default_value' => 'Ready to start your weight loss journey?' ),
+            array( 'key' => 'field_ep_wl_final_cta_description', 'label' => 'Description', 'name' => 'wl_final_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join 500+ Ashford residents who\'ve transformed their lives with medical weight loss. Book your consultation with Dilip today.' ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 50,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );
