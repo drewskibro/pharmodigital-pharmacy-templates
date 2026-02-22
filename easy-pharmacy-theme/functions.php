@@ -184,7 +184,10 @@ if ( file_exists( EASY_PHARMACY_DIR . '/inc/acf-fields.php' ) ) {
 function ep_option( $field_name, $default = '' ) {
     if ( function_exists( 'get_field' ) ) {
         $value = get_field( $field_name, 'option' );
-        return $value ? $value : $default;
+        if ( $value === null || $value === '' ) {
+            return $default;
+        }
+        return $value;
     }
     return $default;
 }
@@ -195,7 +198,10 @@ function ep_option( $field_name, $default = '' ) {
 function ep_field( $field_name, $default = '' ) {
     if ( function_exists( 'get_field' ) ) {
         $value = get_field( $field_name );
-        return $value ? $value : $default;
+        if ( $value === null || $value === '' ) {
+            return $default;
+        }
+        return $value;
     }
     return $default;
 }
