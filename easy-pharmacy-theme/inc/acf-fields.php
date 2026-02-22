@@ -3468,5 +3468,483 @@ function ep_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // F. SWITCH PROVIDER PAGE FIELDS
+    // =========================================================================
+
+    // -------------------------------------------------------------------------
+    // F1. Switch Provider — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_sp_hero',
+        'title'    => 'Switch Provider — Hero Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_sp_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'sp_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'SWITCH TO EASY PHARMACY',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_title_line1',
+                'label'         => 'Title Line 1 (gradient)',
+                'name'          => 'sp_hero_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Frustrated with',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_title_line2',
+                'label'         => 'Title Line 2 (dark)',
+                'name'          => 'sp_hero_title_line2',
+                'type'          => 'text',
+                'default_value' => 'Your Current',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_title_line3',
+                'label'         => 'Title Line 3 (gradient)',
+                'name'          => 'sp_hero_title_line3',
+                'type'          => 'text',
+                'default_value' => 'Weight Loss Provider?',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'sp_hero_subtitle',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Switch to Easy Pharmacy for expert care, transparent pricing, and ongoing pharmacist support. No waiting lists.',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_cta_text',
+                'label'         => 'CTA Button Text',
+                'name'          => 'sp_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Start Your Switch Today',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_cta_url',
+                'label'         => 'CTA Button URL',
+                'name'          => 'sp_hero_cta_url',
+                'type'          => 'text',
+                'default_value' => '#comparison',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_trust_1',
+                'label'         => 'Trust Pill 1',
+                'name'          => 'sp_hero_trust_1',
+                'type'          => 'text',
+                'default_value' => 'Zero gap in treatment',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_trust_2',
+                'label'         => 'Trust Pill 2',
+                'name'          => 'sp_hero_trust_2',
+                'type'          => 'text',
+                'default_value' => 'Same Day Appointments',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_image',
+                'label'         => 'Hero Image',
+                'name'          => 'sp_hero_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Upload a hero image. Default: stock photo of patient with pharmacist.',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_image_alt',
+                'label'         => 'Hero Image Alt Text',
+                'name'          => 'sp_hero_image_alt',
+                'type'          => 'text',
+                'default_value' => 'Happy patient consulting with pharmacist',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_price_label',
+                'label'         => 'Price Badge Label',
+                'name'          => 'sp_hero_price_label',
+                'type'          => 'text',
+                'default_value' => 'From',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_price_amount',
+                'label'         => 'Price Badge Amount',
+                'name'          => 'sp_hero_price_amount',
+                'type'          => 'text',
+                'default_value' => '£125/mo',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_price_note',
+                'label'         => 'Price Badge Note',
+                'name'          => 'sp_hero_price_note',
+                'type'          => 'text',
+                'default_value' => 'All-inclusive',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_testimonial_text',
+                'label'         => 'Testimonial Quote',
+                'name'          => 'sp_hero_testimonial_text',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => '"I travel 40 miles every month to see Dilip... he\'s that good. Would never go anywhere else."',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_testimonial_name',
+                'label'         => 'Testimonial Author',
+                'name'          => 'sp_hero_testimonial_name',
+                'type'          => 'text',
+                'default_value' => 'Ashford Patient',
+            ),
+            array(
+                'key'           => 'field_ep_sp_hero_testimonial_result',
+                'label'         => 'Testimonial Result Badge',
+                'name'          => 'sp_hero_testimonial_result',
+                'type'          => 'text',
+                'default_value' => '4 Stone Lost',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-switch-provider.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F2. Switch Provider — Stats Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_sp_stats',
+        'title'    => 'Switch Provider — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_sp_stats',
+                'label'         => 'Stats',
+                'name'          => 'sp_stats',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 6,
+                'layout'        => 'table',
+                'button_label'  => 'Add Stat',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_sp_stats_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-star',
+                    ),
+                    array(
+                        'key'           => 'field_ep_sp_stats_number',
+                        'label'         => 'Number',
+                        'name'          => 'number',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_sp_stats_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-switch-provider.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F3. Switch Provider — Comparison Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_sp_comparison',
+        'title'    => 'Switch Provider — Comparison Section',
+        'fields'   => array(
+            // Header
+            array(
+                'key'           => 'field_ep_sp_compare_badge',
+                'label'         => 'Section Badge',
+                'name'          => 'sp_compare_badge',
+                'type'          => 'text',
+                'default_value' => 'THE EASY PHARMACY DIFFERENCE',
+            ),
+            array(
+                'key'           => 'field_ep_sp_compare_title',
+                'label'         => 'Section Title',
+                'name'          => 'sp_compare_title',
+                'type'          => 'text',
+                'default_value' => 'Compare Your Options',
+            ),
+            array(
+                'key'           => 'field_ep_sp_compare_description',
+                'label'         => 'Section Description',
+                'name'          => 'sp_compare_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'See the difference face-to-face care makes for your weight loss journey',
+            ),
+            // Card 1: Problem
+            array( 'key' => 'field_ep_sp_card1_tab', 'label' => 'Card 1: National Providers', 'type' => 'tab' ),
+            array( 'key' => 'field_ep_sp_card1_icon', 'label' => 'Icon Class', 'name' => 'sp_card1_icon', 'type' => 'text', 'default_value' => 'fas fa-laptop' ),
+            array( 'key' => 'field_ep_sp_card1_badge', 'label' => 'Badge', 'name' => 'sp_card1_badge', 'type' => 'text', 'default_value' => 'ONLINE ONLY' ),
+            array( 'key' => 'field_ep_sp_card1_title', 'label' => 'Title', 'name' => 'sp_card1_title', 'type' => 'text', 'default_value' => 'National Providers' ),
+            array( 'key' => 'field_ep_sp_card1_subtitle', 'label' => 'Subtitle', 'name' => 'sp_card1_subtitle', 'type' => 'text', 'default_value' => 'Remote-only weight loss services' ),
+            array( 'key' => 'field_ep_sp_card1_price', 'label' => 'Price', 'name' => 'sp_card1_price', 'type' => 'text', 'default_value' => '£250+' ),
+            array( 'key' => 'field_ep_sp_card1_price_period', 'label' => 'Price Period', 'name' => 'sp_card1_price_period', 'type' => 'text', 'default_value' => '/month' ),
+            array( 'key' => 'field_ep_sp_card1_price_note', 'label' => 'Price Note', 'name' => 'sp_card1_price_note', 'type' => 'text', 'default_value' => 'Plus hidden consultation fees' ),
+            array( 'key' => 'field_ep_sp_card1_footer', 'label' => 'Footer Text', 'name' => 'sp_card1_footer', 'type' => 'text', 'default_value' => 'What you\'re leaving behind' ),
+            array(
+                'key'           => 'field_ep_sp_card1_features',
+                'label'         => 'Negative Features',
+                'name'          => 'sp_card1_features',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 8,
+                'layout'        => 'table',
+                'button_label'  => 'Add Feature',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_ep_sp_card1_f_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            // Card 2: Easy Pharmacy
+            array( 'key' => 'field_ep_sp_card2_tab', 'label' => 'Card 2: Easy Pharmacy', 'type' => 'tab' ),
+            array( 'key' => 'field_ep_sp_card2_recommended', 'label' => 'Recommended Badge', 'name' => 'sp_card2_recommended', 'type' => 'text', 'default_value' => 'RECOMMENDED' ),
+            array( 'key' => 'field_ep_sp_card2_icon', 'label' => 'Icon Class', 'name' => 'sp_card2_icon', 'type' => 'text', 'default_value' => 'fas fa-heart-pulse' ),
+            array( 'key' => 'field_ep_sp_card2_badge', 'label' => 'Badge', 'name' => 'sp_card2_badge', 'type' => 'text', 'default_value' => 'ASHFORD BASED' ),
+            array( 'key' => 'field_ep_sp_card2_title', 'label' => 'Title', 'name' => 'sp_card2_title', 'type' => 'text', 'default_value' => 'Easy Pharmacy' ),
+            array( 'key' => 'field_ep_sp_card2_subtitle', 'label' => 'Subtitle', 'name' => 'sp_card2_subtitle', 'type' => 'text', 'default_value' => 'Face-to-face weight loss care' ),
+            array( 'key' => 'field_ep_sp_card2_price', 'label' => 'Price', 'name' => 'sp_card2_price', 'type' => 'text', 'default_value' => 'From £125' ),
+            array( 'key' => 'field_ep_sp_card2_price_period', 'label' => 'Price Period', 'name' => 'sp_card2_price_period', 'type' => 'text', 'default_value' => '/month' ),
+            array( 'key' => 'field_ep_sp_card2_price_note', 'label' => 'Price Note', 'name' => 'sp_card2_price_note', 'type' => 'text', 'default_value' => 'All-inclusive with face-to-face support' ),
+            array( 'key' => 'field_ep_sp_card2_cta_text', 'label' => 'CTA Button Text', 'name' => 'sp_card2_cta_text', 'type' => 'text', 'default_value' => 'Make The Switch' ),
+            array(
+                'key'           => 'field_ep_sp_card2_features',
+                'label'         => 'Positive Features',
+                'name'          => 'sp_card2_features',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 8,
+                'layout'        => 'table',
+                'button_label'  => 'Add Feature',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_ep_sp_card2_f_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            // Card 3: Benefits
+            array( 'key' => 'field_ep_sp_card3_tab', 'label' => 'Card 3: Benefits', 'type' => 'tab' ),
+            array( 'key' => 'field_ep_sp_card3_icon', 'label' => 'Icon Class', 'name' => 'sp_card3_icon', 'type' => 'text', 'default_value' => 'fas fa-trophy' ),
+            array( 'key' => 'field_ep_sp_card3_badge', 'label' => 'Badge', 'name' => 'sp_card3_badge', 'type' => 'text', 'default_value' => 'YOUR BENEFITS' ),
+            array( 'key' => 'field_ep_sp_card3_title', 'label' => 'Title', 'name' => 'sp_card3_title', 'type' => 'text', 'default_value' => 'What You Gain' ),
+            array( 'key' => 'field_ep_sp_card3_subtitle', 'label' => 'Subtitle', 'name' => 'sp_card3_subtitle', 'type' => 'text', 'default_value' => 'The Easy Pharmacy advantage' ),
+            array( 'key' => 'field_ep_sp_card3_value_title', 'label' => 'Value Title', 'name' => 'sp_card3_value_title', 'type' => 'text', 'default_value' => 'Better Value' ),
+            array( 'key' => 'field_ep_sp_card3_value_subtitle', 'label' => 'Value Subtitle', 'name' => 'sp_card3_value_subtitle', 'type' => 'text', 'default_value' => 'Competitive pricing' ),
+            array( 'key' => 'field_ep_sp_card3_cta_text', 'label' => 'CTA Button Text', 'name' => 'sp_card3_cta_text', 'type' => 'text', 'default_value' => 'Learn More' ),
+            array(
+                'key'           => 'field_ep_sp_card3_features',
+                'label'         => 'Benefit Features',
+                'name'          => 'sp_card3_features',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 8,
+                'layout'        => 'table',
+                'button_label'  => 'Add Feature',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_ep_sp_card3_f_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-switch-provider.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F4. Switch Provider — Social Proof Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_sp_social',
+        'title'    => 'Switch Provider — Social Proof',
+        'fields'   => array(
+            array( 'key' => 'field_ep_sp_social_number', 'label' => 'Badge Number', 'name' => 'sp_social_number', 'type' => 'text', 'default_value' => '500+' ),
+            array( 'key' => 'field_ep_sp_social_label', 'label' => 'Badge Label', 'name' => 'sp_social_label', 'type' => 'text', 'default_value' => 'Patients' ),
+            array( 'key' => 'field_ep_sp_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'sp_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY ASHFORD' ),
+            array( 'key' => 'field_ep_sp_social_headline', 'label' => 'Headline', 'name' => 'sp_social_headline', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join hundreds of Ashford patients who\'ve already made the switch' ),
+            array( 'key' => 'field_ep_sp_social_subtext', 'label' => 'Subtext', 'name' => 'sp_social_subtext', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Trusted local pharmacy with expert weight loss, travel health, and microsuction services' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-switch-provider.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F5. Switch Provider — Evidence Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_sp_evidence',
+        'title'    => 'Switch Provider — Evidence Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_sp_evidence_badge', 'label' => 'Badge Text', 'name' => 'sp_evidence_badge', 'type' => 'text', 'default_value' => 'PROVEN RESULTS' ),
+            array( 'key' => 'field_ep_sp_evidence_title_line1', 'label' => 'Title Line 1 (gradient)', 'name' => 'sp_evidence_title_line1', 'type' => 'text', 'default_value' => 'Real data.' ),
+            array( 'key' => 'field_ep_sp_evidence_title_line2', 'label' => 'Title Line 2 (dark)', 'name' => 'sp_evidence_title_line2', 'type' => 'text', 'default_value' => 'Real results.' ),
+            array( 'key' => 'field_ep_sp_evidence_subtitle', 'label' => 'Subtitle', 'name' => 'sp_evidence_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Evidence-based care with measurable outcomes from hundreds of Ashford patients' ),
+            array(
+                'key'           => 'field_ep_sp_evidence_cards',
+                'label'         => 'Evidence Cards',
+                'name'          => 'sp_evidence_cards',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 9,
+                'layout'        => 'block',
+                'button_label'  => 'Add Evidence Card',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_ep_sp_ev_number', 'label' => 'Stat Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_sp_ev_label', 'label' => 'Stat Label', 'name' => 'label', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_sp_ev_description', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-switch-provider.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F6. Switch Provider — Process Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_sp_process',
+        'title'    => 'Switch Provider — How To Switch',
+        'fields'   => array(
+            array( 'key' => 'field_ep_sp_process_badge', 'label' => 'Badge Text', 'name' => 'sp_process_badge', 'type' => 'text', 'default_value' => 'HOW TO SWITCH' ),
+            array( 'key' => 'field_ep_sp_process_title_line1', 'label' => 'Title Line 1 (gradient)', 'name' => 'sp_process_title_line1', 'type' => 'text', 'default_value' => 'Make The Switch' ),
+            array( 'key' => 'field_ep_sp_process_title_line2', 'label' => 'Title Line 2 (dark)', 'name' => 'sp_process_title_line2', 'type' => 'text', 'default_value' => ' in 2026' ),
+            array( 'key' => 'field_ep_sp_process_description', 'label' => 'Description', 'name' => 'sp_process_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Start the new year with better support and better value. Switch to Easy Pharmacy in under 5 minutes.' ),
+            array(
+                'key'           => 'field_ep_sp_process_steps',
+                'label'         => 'Process Steps',
+                'name'          => 'sp_process_steps',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 6,
+                'layout'        => 'block',
+                'button_label'  => 'Add Step',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_ep_sp_ps_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check' ),
+                    array( 'key' => 'field_ep_sp_ps_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_sp_ps_description', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array( 'key' => 'field_ep_sp_ps_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all' ),
+                    array( 'key' => 'field_ep_sp_ps_badge', 'label' => 'Floating Badge Text', 'name' => 'badge', 'type' => 'text', 'instructions' => 'Optional badge overlaying image, e.g. "No Hassle"' ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-switch-provider.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 50,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F7. Switch Provider — Final CTA Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_sp_cta',
+        'title'    => 'Switch Provider — Final CTA',
+        'fields'   => array(
+            array( 'key' => 'field_ep_sp_cta_title_line1', 'label' => 'Title Line 1', 'name' => 'sp_cta_title_line1', 'type' => 'text', 'default_value' => 'Ready to Make' ),
+            array( 'key' => 'field_ep_sp_cta_title_line2', 'label' => 'Title Line 2', 'name' => 'sp_cta_title_line2', 'type' => 'text', 'default_value' => ' the Switch?' ),
+            array( 'key' => 'field_ep_sp_cta_description', 'label' => 'Description', 'name' => 'sp_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join hundreds of Ashford patients who\'ve chosen local, expert care over faceless online providers.' ),
+            array( 'key' => 'field_ep_sp_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'sp_cta_button_text', 'type' => 'text', 'default_value' => 'Start Your Switch Today' ),
+            array( 'key' => 'field_ep_sp_cta_check_1', 'label' => 'Check 1', 'name' => 'sp_cta_check_1', 'type' => 'text', 'default_value' => 'No waiting list' ),
+            array( 'key' => 'field_ep_sp_cta_check_2', 'label' => 'Check 2', 'name' => 'sp_cta_check_2', 'type' => 'text', 'default_value' => 'Same-day approval' ),
+            array( 'key' => 'field_ep_sp_cta_check_3', 'label' => 'Check 3', 'name' => 'sp_cta_check_3', 'type' => 'text', 'default_value' => 'Transparent pricing' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-switch-provider.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 60,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );
