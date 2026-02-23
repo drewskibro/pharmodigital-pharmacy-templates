@@ -4396,5 +4396,386 @@ function ep_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+    // =========================================================================
+    // H. TRAVEL HEALTH PAGE FIELDS
+    // =========================================================================
+
+    $th_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-travel-health.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // H1. Travel Health — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_hero',
+        'title'    => 'Travel Health — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_th_hero_badge', 'label' => 'Badge Text', 'name' => 'th_hero_badge', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH SERVICES' ),
+            array( 'key' => 'field_ep_th_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'th_hero_title_line1', 'type' => 'text', 'default_value' => "Ashford's Leading" ),
+            array( 'key' => 'field_ep_th_hero_title_highlight', 'label' => 'Title Highlight', 'name' => 'th_hero_title_highlight', 'type' => 'text', 'default_value' => 'Travel Clinic' ),
+            array( 'key' => 'field_ep_th_hero_description', 'label' => 'Description', 'name' => 'th_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Expert travel jabs Ashford and health advice for your next adventure. Book your appointment at our Ashford travel clinic with Dilip.' ),
+            array( 'key' => 'field_ep_th_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'th_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Appointment' ),
+            array( 'key' => 'field_ep_th_hero_cta_url', 'label' => 'CTA Button URL', 'name' => 'th_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_ep_th_trust_1', 'label' => 'Trust Badge 1', 'name' => 'th_trust_1', 'type' => 'text', 'default_value' => 'Yellow Fever Centre' ),
+            array( 'key' => 'field_ep_th_trust_2', 'label' => 'Trust Badge 2', 'name' => 'th_trust_2', 'type' => 'text', 'default_value' => 'All Travel Vaccinations' ),
+            array( 'key' => 'field_ep_th_trust_3', 'label' => 'Trust Badge 3', 'name' => 'th_trust_3', 'type' => 'text', 'default_value' => 'Expert Travel Advice' ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H2. Travel Health — Stats Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_stats',
+        'title'    => 'Travel Health — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'          => 'field_ep_th_stats',
+                'label'        => 'Stats',
+                'name'         => 'th_stats',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_th_stat_image', 'label' => 'Image', 'name' => 'image', 'type' => 'url', 'instructions' => 'URL of stat image/icon.', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_th_stat_icon', 'label' => 'Icon Class (fallback)', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class if no image.', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_th_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_th_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H3. Travel Health — Why Choose Us
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_why',
+        'title'    => 'Travel Health — Why Choose Us',
+        'fields'   => array(
+            array( 'key' => 'field_ep_th_why_badge', 'label' => 'Badge Text', 'name' => 'th_why_badge', 'type' => 'text', 'default_value' => 'WHY CHOOSE US' ),
+            array( 'key' => 'field_ep_th_why_title_highlight', 'label' => 'Title Highlight', 'name' => 'th_why_title_highlight', 'type' => 'text', 'default_value' => 'Why choose our' ),
+            array( 'key' => 'field_ep_th_why_title_rest', 'label' => 'Title Rest', 'name' => 'th_why_title_rest', 'type' => 'text', 'default_value' => 'Ashford travel clinic?' ),
+            array( 'key' => 'field_ep_th_why_description', 'label' => 'Description', 'name' => 'th_why_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Expert care, flexible appointments, and comprehensive travel health services all under one roof.' ),
+            array(
+                'key'          => 'field_ep_th_why_cards',
+                'label'        => 'Why Cards',
+                'name'         => 'th_why_cards',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Card',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_th_why_card_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_th_why_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_th_why_card_subtitle', 'label' => 'Subtitle', 'name' => 'subtitle', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_th_why_card_url', 'label' => 'URL', 'name' => 'url', 'type' => 'url', 'wrapper' => array( 'width' => '20' ) ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H4. Travel Health — Banner / RevSlider Fallback
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_banner',
+        'title'    => 'Travel Health — Banner Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_th_banner_image', 'label' => 'Banner Image', 'name' => 'th_banner_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Background image for the banner.' ),
+            array( 'key' => 'field_ep_th_banner_badge', 'label' => 'Badge Text', 'name' => 'th_banner_badge', 'type' => 'text', 'default_value' => 'Yellow Fever Approved' ),
+            array( 'key' => 'field_ep_th_banner_title', 'label' => 'Title', 'name' => 'th_banner_title', 'type' => 'text', 'default_value' => 'Protect Your Adventures Across the Globe' ),
+            array( 'key' => 'field_ep_th_banner_subtitle', 'label' => 'Subtitle', 'name' => 'th_banner_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'From yellow fever to malaria prevention, get expert travel vaccinations at Easy Pharmacy' ),
+            array( 'key' => 'field_ep_th_banner_cta_text', 'label' => 'CTA Text', 'name' => 'th_banner_cta_text', 'type' => 'text', 'default_value' => 'Book Travel Clinic' ),
+            array( 'key' => 'field_ep_th_banner_secondary_text', 'label' => 'Secondary Text', 'name' => 'th_banner_secondary_text', 'type' => 'text', 'default_value' => 'Serving Ashford, Chertsey and beyond' ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 15,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H5. Travel Health — Popular Destinations
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_destinations',
+        'title'    => 'Travel Health — Popular Destinations',
+        'fields'   => array(
+            array( 'key' => 'field_ep_th_destinations_badge', 'label' => 'Badge Text', 'name' => 'th_destinations_badge', 'type' => 'text', 'default_value' => 'POPULAR DESTINATIONS' ),
+            array( 'key' => 'field_ep_th_destinations_title_highlight', 'label' => 'Title Highlight', 'name' => 'th_destinations_title_highlight', 'type' => 'text', 'default_value' => 'Travelling to' ),
+            array( 'key' => 'field_ep_th_destinations_title_rest', 'label' => 'Title Rest', 'name' => 'th_destinations_title_rest', 'type' => 'text', 'default_value' => 'these destinations?' ),
+            array(
+                'key'          => 'field_ep_th_destinations',
+                'label'        => 'Destinations',
+                'name'         => 'th_destinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 12,
+                'button_label' => 'Add Destination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_th_dest_name', 'label' => 'Country Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_th_dest_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '40' ) ),
+                    array( 'key' => 'field_ep_th_dest_url', 'label' => 'URL', 'name' => 'url', 'type' => 'url', 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H6. Travel Health — Services
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_services',
+        'title'    => 'Travel Health — Services',
+        'fields'   => array(
+            array( 'key' => 'field_ep_th_services_badge', 'label' => 'Badge Text', 'name' => 'th_services_badge', 'type' => 'text', 'default_value' => 'COMPREHENSIVE TRAVEL HEALTH' ),
+            array( 'key' => 'field_ep_th_services_title_highlight', 'label' => 'Title Highlight', 'name' => 'th_services_title_highlight', 'type' => 'text', 'default_value' => 'Everything you need' ),
+            array( 'key' => 'field_ep_th_services_title_rest', 'label' => 'Title Rest', 'name' => 'th_services_title_rest', 'type' => 'text', 'default_value' => 'for safe travel' ),
+            array( 'key' => 'field_ep_th_services_description', 'label' => 'Description', 'name' => 'th_services_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'From expert consultations to all vaccinations and official certificates' ),
+            array(
+                'key'          => 'field_ep_th_services',
+                'label'        => 'Services',
+                'name'         => 'th_services',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 8,
+                'button_label' => 'Add Service',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_th_svc_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_th_svc_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_th_svc_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_th_svc_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 25,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H7. Travel Health — Vaccinations Grid
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_vaccinations',
+        'title'    => 'Travel Health — Vaccinations Grid',
+        'fields'   => array(
+            array( 'key' => 'field_ep_th_vaccines_badge', 'label' => 'Badge Text', 'name' => 'th_vaccines_badge', 'type' => 'text', 'default_value' => 'ALL VACCINATIONS' ),
+            array( 'key' => 'field_ep_th_vaccines_title_highlight', 'label' => 'Title Highlight', 'name' => 'th_vaccines_title_highlight', 'type' => 'text', 'default_value' => 'Available' ),
+            array( 'key' => 'field_ep_th_vaccines_title_rest', 'label' => 'Title Rest', 'name' => 'th_vaccines_title_rest', 'type' => 'text', 'default_value' => 'Vaccinations' ),
+            array(
+                'key'          => 'field_ep_th_vaccinations',
+                'label'        => 'Vaccinations',
+                'name'         => 'th_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 20,
+                'button_label' => 'Add Vaccination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_th_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_th_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_th_vax_featured', 'label' => 'Featured?', 'name' => 'is_featured', 'type' => 'true_false', 'default_value' => 0, 'ui' => 1, 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_th_vax_badge', 'label' => 'Badge Text', 'name' => 'badge', 'type' => 'text', 'instructions' => 'Optional badge e.g. "Official Centre".', 'wrapper' => array( 'width' => '25' ) ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H8. Travel Health — Process / How It Works
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_process',
+        'title'    => 'Travel Health — How It Works',
+        'fields'   => array(
+            array( 'key' => 'field_ep_th_process_badge', 'label' => 'Badge Text', 'name' => 'th_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
+            array( 'key' => 'field_ep_th_process_title_highlight', 'label' => 'Title Highlight', 'name' => 'th_process_title_highlight', 'type' => 'text', 'default_value' => 'Your travel clinic' ),
+            array( 'key' => 'field_ep_th_process_title_rest', 'label' => 'Title Rest', 'name' => 'th_process_title_rest', 'type' => 'text', 'default_value' => 'Ashford journey' ),
+            array(
+                'key'          => 'field_ep_th_process_steps',
+                'label'        => 'Process Steps',
+                'name'         => 'th_process_steps',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Step',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_th_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_th_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3, 'wrapper' => array( 'width' => '70' ) ),
+                    array( 'key' => 'field_ep_th_step_image', 'label' => 'Step Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_th_step_icon_image', 'label' => 'Icon Image', 'name' => 'icon_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'thumbnail', 'instructions' => 'Upload a custom icon image (e.g. passport). Falls back to icon class.', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_th_step_icon', 'label' => 'Icon Class (fallback)', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-passport', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_th_step_meta_icon', 'label' => 'Meta Icon', 'name' => 'meta_icon', 'type' => 'text', 'default_value' => 'fas fa-clock', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_th_step_meta_text', 'label' => 'Meta Text', 'name' => 'meta_text', 'type' => 'text', 'wrapper' => array( 'width' => '15' ) ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H9. Travel Health — About Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_about',
+        'title'    => 'Travel Health — About Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_th_about_badge', 'label' => 'Badge Text', 'name' => 'th_about_badge', 'type' => 'text', 'default_value' => 'ABOUT EASY PHARMACY' ),
+            array( 'key' => 'field_ep_th_about_title_highlight', 'label' => 'Title Highlight', 'name' => 'th_about_title_highlight', 'type' => 'text', 'default_value' => 'Your trusted' ),
+            array( 'key' => 'field_ep_th_about_title_rest', 'label' => 'Title Rest', 'name' => 'th_about_title_rest', 'type' => 'text', 'default_value' => 'travel health partner in Ashford' ),
+            array( 'key' => 'field_ep_th_about_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'th_about_eyebrow', 'type' => 'text', 'default_value' => 'COMPREHENSIVE TRAVEL HEALTH SERVICE' ),
+            array( 'key' => 'field_ep_th_about_intro', 'label' => 'Intro Text', 'name' => 'th_about_intro', 'type' => 'textarea', 'rows' => 4, 'default_value' => "Our travel health service provides everything you need for safe international travel. From expert consultations to official vaccination certificates, we ensure you're fully prepared for your journey with comprehensive support before, during, and after your trip." ),
+            array(
+                'key'          => 'field_ep_th_about_features',
+                'label'        => 'Feature Cards',
+                'name'         => 'th_about_features',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Feature',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_th_about_feat_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_th_about_feat_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '70' ) ),
+                ),
+            ),
+            array( 'key' => 'field_ep_th_about_cta_text', 'label' => 'CTA Text', 'name' => 'th_about_cta_text', 'type' => 'text', 'default_value' => 'Book Your Travel Consultation' ),
+            array( 'key' => 'field_ep_th_about_cta_url', 'label' => 'CTA URL', 'name' => 'th_about_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_ep_th_about_image', 'label' => 'About Image', 'name' => 'th_about_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_th_about_badge_number', 'label' => 'Floating Badge Number', 'name' => 'th_about_badge_number', 'type' => 'text', 'default_value' => '10+' ),
+            array( 'key' => 'field_ep_th_about_badge_label', 'label' => 'Floating Badge Label', 'name' => 'th_about_badge_label', 'type' => 'text', 'default_value' => 'Years Serving Ashford' ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H10. Travel Health — FAQ Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_faq',
+        'title'    => 'Travel Health — FAQ Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_th_faq_badge', 'label' => 'Badge Text', 'name' => 'th_faq_badge', 'type' => 'text', 'default_value' => 'FREQUENTLY ASKED QUESTIONS' ),
+            array( 'key' => 'field_ep_th_faq_title_highlight', 'label' => 'Title Highlight', 'name' => 'th_faq_title_highlight', 'type' => 'text', 'default_value' => 'Travel health' ),
+            array( 'key' => 'field_ep_th_faq_title_rest', 'label' => 'Title Rest', 'name' => 'th_faq_title_rest', 'type' => 'text', 'default_value' => 'questions answered' ),
+            array(
+                'key'          => 'field_ep_th_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'th_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 12,
+                'button_label' => 'Add FAQ',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_th_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                    array( 'key' => 'field_ep_th_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3, 'wrapper' => array( 'width' => '60' ) ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 45,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H11. Travel Health — Final CTA Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_th_cta',
+        'title'    => 'Travel Health — Final CTA Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_th_cta_badge_1', 'label' => 'Badge 1', 'name' => 'th_cta_badge_1', 'type' => 'text', 'default_value' => 'Yellow Fever Centre' ),
+            array( 'key' => 'field_ep_th_cta_badge_2', 'label' => 'Badge 2', 'name' => 'th_cta_badge_2', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_ep_th_cta_badge_3', 'label' => 'Badge 3', 'name' => 'th_cta_badge_3', 'type' => 'text', 'default_value' => 'Same Day Service' ),
+            array( 'key' => 'field_ep_th_cta_title', 'label' => 'Title', 'name' => 'th_cta_title', 'type' => 'text', 'default_value' => 'Ready to protect your travels?' ),
+            array( 'key' => 'field_ep_th_cta_description', 'label' => 'Description', 'name' => 'th_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => "Don't let health worries spoil your adventure. Book your comprehensive travel health consultation with Easy Pharmacy Ashford today." ),
+            array( 'key' => 'field_ep_th_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'th_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Travel Health Appointment' ),
+            array( 'key' => 'field_ep_th_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'th_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_ep_th_cta_check_1', 'label' => 'Check 1', 'name' => 'th_cta_check_1', 'type' => 'text', 'default_value' => 'Flexible appointments' ),
+            array( 'key' => 'field_ep_th_cta_check_2', 'label' => 'Check 2', 'name' => 'th_cta_check_2', 'type' => 'text', 'default_value' => 'Expert advice' ),
+            array( 'key' => 'field_ep_th_cta_check_3', 'label' => 'Check 3', 'name' => 'th_cta_check_3', 'type' => 'text', 'default_value' => 'Official certificates' ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 50,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );

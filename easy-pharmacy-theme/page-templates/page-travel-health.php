@@ -20,26 +20,26 @@ get_header();
       <div class="travel-hero-content">
         <div class="section-badge">
           <span class="pulse-dot"><span></span><span></span></span>
-          <span class="section-badge-text"><?php echo esc_html(ep_field('th_hero_badge', 'TRAVEL HEALTH SERVICES')); ?></span>
+          <span class="section-badge-text"><?php echo esc_html( ep_field( 'th_hero_badge', 'TRAVEL HEALTH SERVICES' ) ); ?></span>
         </div>
 
         <h1 class="travel-hero-title">
-          <?php echo esc_html(ep_field('th_hero_title_line1', "Ashford's Leading")); ?><br />
-          <span class="gradient-text"><?php echo esc_html(ep_field('th_hero_title_highlight', 'Travel Clinic')); ?></span>
+          <?php echo esc_html( ep_field( 'th_hero_title_line1', "Ashford's Leading" ) ); ?><br />
+          <span class="gradient-text"><?php echo esc_html( ep_field( 'th_hero_title_highlight', 'Travel Clinic' ) ); ?></span>
         </h1>
 
         <p class="travel-hero-description">
-          <?php echo esc_html(ep_field('th_hero_description', 'Expert travel jabs Ashford and health advice for your next adventure. Book your appointment at our Ashford travel clinic with Dilip.')); ?>
+          <?php echo esc_html( ep_field( 'th_hero_description', 'Expert travel jabs Ashford and health advice for your next adventure. Book your appointment at our Ashford travel clinic with Dilip.' ) ); ?>
         </p>
 
         <div class="travel-hero-actions">
-          <a href="<?php echo esc_url(ep_field('th_hero_cta_url', '/book-travel-clinic/')); ?>" class="cta-button primary-cta">
-            <?php echo esc_html(ep_field('th_hero_cta_text', 'Book Appointment')); ?>
+          <a href="<?php echo esc_url( ep_field( 'th_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( ep_field( 'th_hero_cta_text', 'Book Appointment' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
-          <a href="tel:<?php echo esc_attr(ep_field('th_phone_number', '01784255222')); ?>" class="cta-button secondary-cta">
+          <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta">
             <i class="fas fa-phone"></i>
-            <?php echo esc_html(ep_field('th_phone_display', 'Call 01784 255 222')); ?>
+            Call <?php echo esc_html( ep_phone() ); ?>
           </a>
         </div>
 
@@ -47,15 +47,15 @@ get_header();
         <div class="travel-hero-trust">
           <div class="travel-hero-trust-item">
             <i class="fas fa-shield-virus"></i>
-            <span><?php echo esc_html(ep_field('th_trust_1', 'Yellow Fever Centre')); ?></span>
+            <span><?php echo esc_html( ep_field( 'th_trust_1', 'Yellow Fever Centre' ) ); ?></span>
           </div>
           <div class="travel-hero-trust-item">
             <i class="fas fa-syringe"></i>
-            <span><?php echo esc_html(ep_field('th_trust_2', 'All Travel Vaccinations')); ?></span>
+            <span><?php echo esc_html( ep_field( 'th_trust_2', 'All Travel Vaccinations' ) ); ?></span>
           </div>
           <div class="travel-hero-trust-item">
             <i class="fas fa-user-doctor"></i>
-            <span><?php echo esc_html(ep_field('th_trust_3', 'Expert Travel Advice')); ?></span>
+            <span><?php echo esc_html( ep_field( 'th_trust_3', 'Expert Travel Advice' ) ); ?></span>
           </div>
         </div>
       </div>
@@ -72,42 +72,42 @@ get_header();
   <div class="travel-stats-shimmer"></div>
   <div class="section-container">
     <div class="travel-stats-grid">
-      <?php if (have_rows('th_stats')) : while (have_rows('th_stats')) : the_row(); ?>
+      <?php if ( have_rows( 'th_stats' ) ) : while ( have_rows( 'th_stats' ) ) : the_row(); ?>
         <div class="travel-stat-item">
           <div class="travel-stat-image-wrapper">
-            <?php $stat_image = get_sub_field('image'); if ($stat_image) : ?>
-              <img src="<?php echo esc_url($stat_image); ?>" alt="<?php echo esc_attr(get_sub_field('label')); ?>" class="travel-stat-image" style="object-fit: contain;" />
+            <?php $stat_image = get_sub_field( 'image' ); if ( $stat_image ) : ?>
+              <img src="<?php echo esc_url( $stat_image ); ?>" alt="<?php echo esc_attr( get_sub_field( 'label' ) ); ?>" class="travel-stat-image" style="object-fit: contain;" />
             <?php else : ?>
-              <div class="travel-stat-icon"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div>
+              <div class="travel-stat-icon-fallback"><i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i></div>
             <?php endif; ?>
           </div>
           <div class="travel-stat-content">
-            <p class="travel-stat-number"><?php echo esc_html(get_sub_field('number')); ?></p>
-            <p class="travel-stat-label"><?php echo esc_html(get_sub_field('label')); ?></p>
+            <p class="travel-stat-number"><?php echo esc_html( get_sub_field( 'number' ) ); ?></p>
+            <p class="travel-stat-label"><?php echo esc_html( get_sub_field( 'label' ) ); ?></p>
           </div>
         </div>
       <?php endwhile; else : ?>
         <div class="travel-stat-item">
           <div class="travel-stat-image-wrapper">
-            <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771163076528-1.png" alt="Official Yellow Fever Centre" class="travel-stat-image" style="object-fit: contain;" />
+            <img src="https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771163076528-1.png" alt="Official Yellow Fever Centre" class="travel-stat-image" style="object-fit: contain;" />
           </div>
           <div class="travel-stat-content"><p class="travel-stat-number">Official</p><p class="travel-stat-label">Yellow Fever Centre</p></div>
         </div>
         <div class="travel-stat-item">
           <div class="travel-stat-image-wrapper">
-            <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771162536465-0.png" alt="British Passport" class="travel-stat-image" style="object-fit: contain;" />
+            <img src="https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771162536465-0.png" alt="British Passport" class="travel-stat-image" style="object-fit: contain;" />
           </div>
           <div class="travel-stat-content"><p class="travel-stat-number">1,000+</p><p class="travel-stat-label">Travellers Protected</p></div>
         </div>
         <div class="travel-stat-item">
           <div class="travel-stat-image-wrapper">
-            <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771163876571-0.png" alt="Years Experience" class="travel-stat-image" />
+            <img src="https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771163876571-0.png" alt="Years Experience" class="travel-stat-image" />
           </div>
           <div class="travel-stat-content"><p class="travel-stat-number">30+</p><p class="travel-stat-label">Years Experience</p></div>
         </div>
         <div class="travel-stat-item">
           <div class="travel-stat-image-wrapper">
-            <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771163876573-1.png" alt="GPhC Registered" class="travel-stat-image" />
+            <img src="https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771163876573-1.png" alt="GPhC Registered" class="travel-stat-image" />
           </div>
           <div class="travel-stat-content"><p class="travel-stat-number">GPhC</p><p class="travel-stat-label">Registered</p></div>
         </div>
@@ -116,89 +116,212 @@ get_header();
   </div>
 </section>
 
+<!-- Why Choose Us Section -->
+<section class="travel-why-section">
+  <div class="section-container">
+    <div class="travel-why-header">
+      <div class="section-badge">
+        <span class="pulse-dot"><span></span><span></span></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'th_why_badge', 'WHY CHOOSE US' ) ); ?></span>
+      </div>
+      <h2 class="travel-why-title">
+        <span class="gradient-text"><?php echo esc_html( ep_field( 'th_why_title_highlight', 'Why choose our' ) ); ?></span> <?php echo esc_html( ep_field( 'th_why_title_rest', 'Ashford travel clinic?' ) ); ?>
+      </h2>
+      <p class="travel-why-description"><?php echo esc_html( ep_field( 'th_why_description', 'Expert care, flexible appointments, and comprehensive travel health services all under one roof.' ) ); ?></p>
+    </div>
+
+    <div class="travel-why-grid-premium">
+      <?php if ( have_rows( 'th_why_cards' ) ) : while ( have_rows( 'th_why_cards' ) ) : the_row();
+        $card_image_id = get_sub_field( 'image' );
+        $card_image_url = $card_image_id ? wp_get_attachment_image_url( $card_image_id, 'large' ) : '';
+        $card_url = get_sub_field( 'url' );
+      ?>
+        <a href="<?php echo esc_url( $card_url ? $card_url : '#' ); ?>" class="travel-why-card-premium">
+          <div class="travel-why-card-inner">
+            <?php if ( $card_image_url ) : ?>
+              <img src="<?php echo esc_url( $card_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" class="travel-why-card-image" />
+            <?php endif; ?>
+            <div class="travel-why-card-overlay"></div>
+            <div class="travel-why-card-hover">
+              <span class="travel-why-card-button">Learn More</span>
+            </div>
+            <div class="travel-why-card-label">
+              <h3 class="travel-why-card-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+              <p class="travel-why-card-subtitle"><?php echo esc_html( get_sub_field( 'subtitle' ) ); ?></p>
+              <div class="travel-why-card-line"></div>
+            </div>
+          </div>
+        </a>
+      <?php endwhile; else : ?>
+        <?php
+        $why_cards = array(
+          array( 'title' => 'Expert Consultations', 'subtitle' => 'Tailored advice for your journey', 'image' => 'https://c.animaapp.com/mkl3y6t51Gb5OV/img/uploaded-asset-1769942949376-0.png' ),
+          array( 'title' => 'Flexible Appointments', 'subtitle' => 'Same-day & weekend slots', 'image' => 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&h=1000&fit=crop' ),
+          array( 'title' => 'Competitive Pricing', 'subtitle' => 'Transparent, affordable rates', 'image' => 'https://images.unsplash.com/photo-1554224311-beee2ece8c1a?w=800&h=1000&fit=crop' ),
+          array( 'title' => 'Convenient Location', 'subtitle' => 'Easy access with free parking', 'image' => 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=1000&fit=crop' ),
+        );
+        foreach ( $why_cards as $card ) :
+        ?>
+          <a href="#" class="travel-why-card-premium">
+            <div class="travel-why-card-inner">
+              <img src="<?php echo esc_url( $card['image'] ); ?>" alt="<?php echo esc_attr( $card['title'] ); ?>" class="travel-why-card-image" />
+              <div class="travel-why-card-overlay"></div>
+              <div class="travel-why-card-hover">
+                <span class="travel-why-card-button">Learn More</span>
+              </div>
+              <div class="travel-why-card-label">
+                <h3 class="travel-why-card-title"><?php echo esc_html( $card['title'] ); ?></h3>
+                <p class="travel-why-card-subtitle"><?php echo esc_html( $card['subtitle'] ); ?></p>
+                <div class="travel-why-card-line"></div>
+              </div>
+            </div>
+          </a>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+  </div>
+</section>
+
+<!-- Revolution Slider / Travel Banner -->
+<?php if ( shortcode_exists( 'rev_slider' ) ) : ?>
+  <?php echo do_shortcode( '[rev_slider alias="travel-banner"]' ); ?>
+<?php else : ?>
+  <section class="revslider-section" id="hero-slider">
+    <div class="revslider-wrapper">
+      <div class="revslider-placeholder">
+        <div class="revslider-overlay"></div>
+        <?php
+        $th_banner_image_id = ep_field( 'th_banner_image' );
+        $th_banner_image_url = $th_banner_image_id ? wp_get_attachment_image_url( $th_banner_image_id, 'full' ) : 'https://c.animaapp.com/mky4syt0x80ocF/img/uploaded-asset-1769954210491-0.jpeg';
+        ?>
+        <img src="<?php echo esc_url( $th_banner_image_url ); ?>" alt="<?php echo esc_attr( ep_field( 'th_banner_title', 'Protect Your Adventures Across the Globe' ) ); ?>" class="revslider-image" />
+        <div class="revslider-content">
+          <div class="revslider-container">
+            <span class="revslider-badge"><?php echo esc_html( ep_field( 'th_banner_badge', 'Yellow Fever Approved' ) ); ?></span>
+            <h1 class="revslider-title"><?php echo esc_html( ep_field( 'th_banner_title', 'Protect Your Adventures Across the Globe' ) ); ?></h1>
+            <p class="revslider-subtitle"><?php echo esc_html( ep_field( 'th_banner_subtitle', 'From yellow fever to malaria prevention, get expert travel vaccinations at Easy Pharmacy' ) ); ?></p>
+            <div class="revslider-cta">
+              <a href="<?php echo esc_url( ep_field( 'th_hero_cta_url', ep_booking_url() ) ); ?>" class="revslider-btn-primary"><?php echo esc_html( ep_field( 'th_banner_cta_text', 'Book Travel Clinic' ) ); ?></a>
+              <a href="#services" class="revslider-btn-secondary"><?php echo esc_html( ep_field( 'th_banner_secondary_text', 'Serving Ashford, Chertsey and beyond' ) ); ?></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<?php endif; ?>
+
+<!-- Popular Destinations -->
+<section class="travel-destinations-section">
+  <div class="section-container">
+    <div class="travel-destinations-header">
+      <div class="section-badge">
+        <span class="pulse-dot"><span></span><span></span></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'th_destinations_badge', 'POPULAR DESTINATIONS' ) ); ?></span>
+      </div>
+      <h2 class="travel-destinations-title"><span class="gradient-text"><?php echo esc_html( ep_field( 'th_destinations_title_highlight', 'Travelling to' ) ); ?></span> <?php echo esc_html( ep_field( 'th_destinations_title_rest', 'these destinations?' ) ); ?></h2>
+    </div>
+
+    <div class="travel-destinations-grid">
+      <?php if ( have_rows( 'th_destinations' ) ) : while ( have_rows( 'th_destinations' ) ) : the_row();
+        $dest_image_id = get_sub_field( 'image' );
+        $dest_image_url = $dest_image_id ? wp_get_attachment_image_url( $dest_image_id, 'large' ) : '';
+      ?>
+        <a href="<?php echo esc_url( get_sub_field( 'url' ) ); ?>" class="travel-destination-card">
+          <div class="travel-destination-inner">
+            <?php if ( $dest_image_url ) : ?>
+              <img src="<?php echo esc_url( $dest_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'name' ) ); ?>" class="travel-destination-image" />
+            <?php endif; ?>
+            <div class="travel-destination-overlay"></div>
+            <div class="travel-destination-label">
+              <h3 class="travel-destination-name"><?php echo esc_html( get_sub_field( 'name' ) ); ?></h3>
+            </div>
+          </div>
+        </a>
+      <?php endwhile; else : ?>
+        <?php
+        $destinations = array(
+          array( 'name' => 'Thailand', 'image' => 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=400&h=500&fit=crop', 'url' => '/travel-thailand/' ),
+          array( 'name' => 'India', 'image' => 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&h=500&fit=crop', 'url' => '/travel-india/' ),
+          array( 'name' => 'Kenya', 'image' => 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=400&h=500&fit=crop', 'url' => '/travel-kenya/' ),
+          array( 'name' => 'Vietnam', 'image' => 'https://images.unsplash.com/photo-1528127269322-539801943592?w=400&h=500&fit=crop', 'url' => '/travel-vietnam/' ),
+          array( 'name' => 'South Africa', 'image' => 'https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?w=400&h=500&fit=crop', 'url' => '#' ),
+          array( 'name' => 'Indonesia', 'image' => 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=500&fit=crop', 'url' => '#' ),
+          array( 'name' => 'Brazil', 'image' => 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=400&h=500&fit=crop', 'url' => '/travel-brazil/' ),
+          array( 'name' => 'Costa Rica', 'image' => 'https://images.unsplash.com/photo-1518182170546-0766bc6f9213?w=400&h=500&fit=crop&q=80', 'url' => '#' ),
+        );
+        foreach ( $destinations as $dest ) :
+        ?>
+          <a href="<?php echo esc_url( $dest['url'] ); ?>" class="travel-destination-card">
+            <div class="travel-destination-inner">
+              <img src="<?php echo esc_url( $dest['image'] ); ?>" alt="<?php echo esc_attr( $dest['name'] ); ?>" class="travel-destination-image" />
+              <div class="travel-destination-overlay"></div>
+              <div class="travel-destination-label">
+                <h3 class="travel-destination-name"><?php echo esc_html( $dest['name'] ); ?></h3>
+              </div>
+            </div>
+          </a>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+  </div>
+</section>
+
 <!-- Services Section -->
-<section class="travel-services-section">
+<section class="travel-services-section" id="services">
   <div class="section-container">
     <div class="travel-services-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(ep_field('th_services_badge', 'COMPREHENSIVE TRAVEL HEALTH')); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'th_services_badge', 'COMPREHENSIVE TRAVEL HEALTH' ) ); ?></span>
       </div>
-      <h2 class="travel-services-title"><?php echo esc_html(ep_field('th_services_title', 'Everything you need for safe travel')); ?></h2>
-      <p class="travel-services-description"><?php echo esc_html(ep_field('th_services_description', 'From expert consultations to all vaccinations and official certificates')); ?></p>
+      <h2 class="travel-services-title"><span class="gradient-text"><?php echo esc_html( ep_field( 'th_services_title_highlight', 'Everything you need' ) ); ?></span> <?php echo esc_html( ep_field( 'th_services_title_rest', 'for safe travel' ) ); ?></h2>
+      <p class="travel-services-description"><?php echo esc_html( ep_field( 'th_services_description', 'From expert consultations to all vaccinations and official certificates' ) ); ?></p>
     </div>
 
     <div class="travel-services-grid">
-      <?php if (have_rows('th_services')) : while (have_rows('th_services')) : the_row(); ?>
+      <?php if ( have_rows( 'th_services' ) ) : while ( have_rows( 'th_services' ) ) : the_row();
+        $svc_image_id = get_sub_field( 'image' );
+        $svc_image_url = $svc_image_id ? wp_get_attachment_image_url( $svc_image_id, 'medium_large' ) : '';
+      ?>
         <div class="travel-service-card-premium">
           <div class="travel-service-image-wrapper">
-            <img src="<?php echo esc_url(get_sub_field('image')); ?>" alt="<?php echo esc_attr(get_sub_field('title')); ?>" class="travel-service-image" />
+            <?php if ( $svc_image_url ) : ?>
+              <img src="<?php echo esc_url( $svc_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" class="travel-service-image" />
+            <?php endif; ?>
             <div class="travel-service-overlay"></div>
           </div>
           <div class="travel-service-content">
             <div class="travel-service-icon-small">
-              <i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i>
+              <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
             </div>
-            <h3 class="travel-service-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
-            <p class="travel-service-desc"><?php echo esc_html(get_sub_field('description')); ?></p>
+            <h3 class="travel-service-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+            <p class="travel-service-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="travel-service-card-premium">
-          <div class="travel-service-image-wrapper">
-            <img src="https://c.animaapp.com/mlmfflrnWtpLI7/img/uploaded-asset-1771163150335-1.png" alt="Travel Vaccinations" class="travel-service-image" style="object-fit: contain; padding: 2rem; background: #f8f7ff;" />
-            <div class="travel-service-overlay"></div>
+        <?php
+        $services = array(
+          array( 'icon' => 'fas fa-syringe', 'title' => 'Travel Vaccinations', 'desc' => 'Full range including yellow fever, rabies, and typhoid.', 'image' => 'https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771163150335-1.png', 'style' => 'object-fit: contain; padding: 2rem; background: #f8f7ff;' ),
+          array( 'icon' => 'fas fa-pills', 'title' => 'Malaria Prevention', 'desc' => 'Prescription medication and guidance for your trip.', 'image' => 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=800&fit=crop', 'style' => '' ),
+          array( 'icon' => 'fas fa-kit-medical', 'title' => 'Travel Health Kits', 'desc' => 'Personalised first aid kits tailored for your destination.', 'image' => 'https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=600&h=800&fit=crop', 'style' => '' ),
+          array( 'icon' => 'fas fa-certificate', 'title' => 'Health Certificates', 'desc' => 'Official vaccination certificates for border entry.', 'image' => 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=800&fit=crop', 'style' => '' ),
+          array( 'icon' => 'fas fa-clipboard-check', 'title' => 'Travel Health Advice', 'desc' => 'Destination-specific guidance from expert pharmacists.', 'image' => 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=800&fit=crop', 'style' => '' ),
+        );
+        foreach ( $services as $svc ) :
+        ?>
+          <div class="travel-service-card-premium">
+            <div class="travel-service-image-wrapper">
+              <img src="<?php echo esc_url( $svc['image'] ); ?>" alt="<?php echo esc_attr( $svc['title'] ); ?>" class="travel-service-image"<?php if ( $svc['style'] ) : ?> style="<?php echo esc_attr( $svc['style'] ); ?>"<?php endif; ?> />
+              <div class="travel-service-overlay"></div>
+            </div>
+            <div class="travel-service-content">
+              <div class="travel-service-icon-small"><i class="<?php echo esc_attr( $svc['icon'] ); ?>"></i></div>
+              <h3 class="travel-service-title"><?php echo esc_html( $svc['title'] ); ?></h3>
+              <p class="travel-service-desc"><?php echo esc_html( $svc['desc'] ); ?></p>
+            </div>
           </div>
-          <div class="travel-service-content">
-            <div class="travel-service-icon-small"><i class="fas fa-syringe"></i></div>
-            <h3 class="travel-service-title">Travel Vaccinations</h3>
-            <p class="travel-service-desc">Full range including yellow fever, rabies, and typhoid.</p>
-          </div>
-        </div>
-        <div class="travel-service-card-premium">
-          <div class="travel-service-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=800&fit=crop" alt="Malaria Prevention" class="travel-service-image" />
-            <div class="travel-service-overlay"></div>
-          </div>
-          <div class="travel-service-content">
-            <div class="travel-service-icon-small"><i class="fas fa-pills"></i></div>
-            <h3 class="travel-service-title">Malaria Prevention</h3>
-            <p class="travel-service-desc">Prescription medication and guidance for your trip.</p>
-          </div>
-        </div>
-        <div class="travel-service-card-premium">
-          <div class="travel-service-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=600&h=800&fit=crop" alt="Travel Health Kits" class="travel-service-image" />
-            <div class="travel-service-overlay"></div>
-          </div>
-          <div class="travel-service-content">
-            <div class="travel-service-icon-small"><i class="fas fa-kit-medical"></i></div>
-            <h3 class="travel-service-title">Travel Health Kits</h3>
-            <p class="travel-service-desc">Personalised first aid kits tailored for your destination.</p>
-          </div>
-        </div>
-        <div class="travel-service-card-premium">
-          <div class="travel-service-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=800&fit=crop" alt="Health Certificates" class="travel-service-image" />
-            <div class="travel-service-overlay"></div>
-          </div>
-          <div class="travel-service-content">
-            <div class="travel-service-icon-small"><i class="fas fa-certificate"></i></div>
-            <h3 class="travel-service-title">Health Certificates</h3>
-            <p class="travel-service-desc">Official vaccination certificates for border entry.</p>
-          </div>
-        </div>
-        <div class="travel-service-card-premium">
-          <div class="travel-service-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=800&fit=crop" alt="Travel Health Advice" class="travel-service-image" />
-            <div class="travel-service-overlay"></div>
-          </div>
-          <div class="travel-service-content">
-            <div class="travel-service-icon-small"><i class="fas fa-clipboard-check"></i></div>
-            <h3 class="travel-service-title">Travel Health Advice</h3>
-            <p class="travel-service-desc">Destination-specific guidance from expert pharmacists.</p>
-          </div>
-        </div>
+        <?php endforeach; ?>
       <?php endif; ?>
     </div>
   </div>
@@ -212,23 +335,23 @@ get_header();
     <div class="travel-vaccines-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(ep_field('th_vaccines_badge', 'ALL VACCINATIONS')); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'th_vaccines_badge', 'ALL VACCINATIONS' ) ); ?></span>
       </div>
-      <h3 class="travel-vaccines-title"><?php echo esc_html(ep_field('th_vaccines_title', 'Available Vaccinations')); ?></h3>
+      <h3 class="travel-vaccines-title"><span class="gradient-text"><?php echo esc_html( ep_field( 'th_vaccines_title_highlight', 'Available' ) ); ?></span> <?php echo esc_html( ep_field( 'th_vaccines_title_rest', 'Vaccinations' ) ); ?></h3>
     </div>
 
     <div class="travel-vaccines-grid">
-      <?php if (have_rows('th_vaccinations')) : while (have_rows('th_vaccinations')) : the_row();
-        $is_special = get_sub_field('is_featured');
+      <?php if ( have_rows( 'th_vaccinations' ) ) : while ( have_rows( 'th_vaccinations' ) ) : the_row();
+        $is_special = get_sub_field( 'is_featured' );
         $card_class = $is_special ? 'travel-vaccine-card travel-vaccine-card-yellow' : 'travel-vaccine-card';
       ?>
-        <div class="<?php echo esc_attr($card_class); ?>">
+        <div class="<?php echo esc_attr( $card_class ); ?>">
           <div class="travel-vaccine-icon">
-            <i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i>
+            <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
           </div>
-          <h4 class="travel-vaccine-name"><?php echo esc_html(get_sub_field('name')); ?></h4>
-          <?php if ($badge = get_sub_field('badge')) : ?>
-            <span class="travel-vaccine-badge"><?php echo esc_html($badge); ?></span>
+          <h4 class="travel-vaccine-name"><?php echo esc_html( get_sub_field( 'name' ) ); ?></h4>
+          <?php if ( $badge = get_sub_field( 'badge' ) ) : ?>
+            <span class="travel-vaccine-badge"><?php echo esc_html( $badge ); ?></span>
           <?php endif; ?>
         </div>
       <?php endwhile; else : ?>
@@ -263,146 +386,299 @@ get_header();
         </div>
         <div class="travel-vaccine-card">
           <div class="travel-vaccine-icon"><i class="fas fa-syringe"></i></div>
-          <h4 class="travel-vaccine-name">Meningitis ACWY</h4>
+          <h4 class="travel-vaccine-name">Meningitis</h4>
         </div>
         <div class="travel-vaccine-card">
           <div class="travel-vaccine-icon"><i class="fas fa-syringe"></i></div>
-          <h4 class="travel-vaccine-name">Tetanus / Diphtheria</h4>
+          <h4 class="travel-vaccine-name">Tetanus</h4>
         </div>
         <div class="travel-vaccine-card">
           <div class="travel-vaccine-icon"><i class="fas fa-syringe"></i></div>
-          <h4 class="travel-vaccine-name">Tick-Borne Encephalitis</h4>
+          <h4 class="travel-vaccine-name">Diphtheria</h4>
+        </div>
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon"><i class="fas fa-syringe"></i></div>
+          <h4 class="travel-vaccine-name">Polio</h4>
+        </div>
+        <div class="travel-vaccine-card">
+          <div class="travel-vaccine-icon"><i class="fas fa-syringe"></i></div>
+          <h4 class="travel-vaccine-name">Tick-borne Encephalitis</h4>
         </div>
       <?php endif; ?>
     </div>
   </div>
 </section>
 
-<!-- Destinations Section -->
-<section class="travel-destinations-section">
+<!-- How It Works / Process Section -->
+<section class="travel-process-section" id="process">
   <div class="section-container">
-    <div class="travel-destinations-header">
+    <div class="travel-process-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(ep_field('th_destinations_badge', 'POPULAR DESTINATIONS')); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'th_process_badge', 'HOW IT WORKS' ) ); ?></span>
       </div>
-      <h2 class="travel-destinations-title"><?php echo esc_html(ep_field('th_destinations_title', 'Where are you travelling?')); ?></h2>
-      <p class="travel-destinations-description"><?php echo esc_html(ep_field('th_destinations_description', 'View recommended vaccinations for your destination')); ?></p>
+      <h2 class="travel-process-title">
+        <span class="gradient-text"><?php echo esc_html( ep_field( 'th_process_title_highlight', 'Your travel clinic' ) ); ?></span> <?php echo esc_html( ep_field( 'th_process_title_rest', 'Ashford journey' ) ); ?>
+      </h2>
     </div>
 
-    <div class="travel-destinations-grid">
-      <?php if (have_rows('th_destinations')) : while (have_rows('th_destinations')) : the_row(); ?>
-        <a href="<?php echo esc_url(get_sub_field('country_url')); ?>" class="travel-destination-card">
-          <div class="travel-destination-flag">
-            <img src="<?php echo esc_url(get_sub_field('flag_image')); ?>" alt="<?php echo esc_attr(get_sub_field('country_name')); ?>" />
+    <?php if ( have_rows( 'th_process_steps' ) ) : $step_index = 0; while ( have_rows( 'th_process_steps' ) ) : the_row(); $step_index++;
+      $step_class = ( $step_index % 2 === 0 ) ? 'travel-process-step travel-process-step-right' : 'travel-process-step travel-process-step-left';
+      $step_image_id = get_sub_field( 'image' );
+      $step_image_url = $step_image_id ? wp_get_attachment_image_url( $step_image_id, 'large' ) : '';
+      $step_icon_id = get_sub_field( 'icon_image' );
+      $step_icon_url = $step_icon_id ? wp_get_attachment_image_url( $step_icon_id, 'medium' ) : '';
+    ?>
+      <div class="<?php echo esc_attr( $step_class ); ?>">
+        <div class="travel-process-step-content">
+          <div class="travel-process-step-icon-premium">
+            <?php if ( $step_icon_url ) : ?>
+              <img src="<?php echo esc_url( $step_icon_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" class="travel-process-passport-icon" />
+            <?php else : ?>
+              <div class="travel-process-icon-gradient">
+                <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
+              </div>
+            <?php endif; ?>
           </div>
-          <span class="travel-destination-name"><?php echo esc_html(get_sub_field('country_name')); ?></span>
-          <i class="fas fa-arrow-right travel-destination-arrow"></i>
-        </a>
+          <h3 class="travel-process-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+          <p class="travel-process-step-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+          <div class="travel-process-step-meta">
+            <i class="<?php echo esc_attr( get_sub_field( 'meta_icon' ) ); ?>"></i>
+            <span><?php echo esc_html( get_sub_field( 'meta_text' ) ); ?></span>
+          </div>
+        </div>
+        <?php if ( $step_image_url ) : ?>
+          <div class="travel-process-step-image">
+            <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
+          </div>
+        <?php endif; ?>
+      </div>
+    <?php endwhile; else : ?>
+      <?php
+      $steps = array(
+        array(
+          'title' => 'Book Consultation',
+          'desc' => 'Book your appointment online or call us. We recommend booking 6-8 weeks before travel, but we can often accommodate last-minute trips.',
+          'meta_icon' => 'fas fa-clock',
+          'meta_text' => 'Book online 24/7',
+          'image' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=500&fit=crop',
+          'layout' => 'left',
+        ),
+        array(
+          'title' => 'Consultation & Vaccination',
+          'desc' => 'Meet with our pharmacist to discuss your itinerary and health history. We\'ll administer necessary vaccinations and provide health advice.',
+          'meta_icon' => 'fas fa-check-circle',
+          'meta_text' => 'Safe & professional',
+          'image' => 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=500&fit=crop',
+          'layout' => 'right',
+        ),
+        array(
+          'title' => 'Travel with Confidence',
+          'desc' => 'Leave with your vaccination record card, any necessary medication (like antimalarials), and the peace of mind that you\'re protected.',
+          'meta_icon' => 'fas fa-passport',
+          'meta_text' => 'Official certificates',
+          'image' => 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=500&fit=crop',
+          'layout' => 'left',
+        ),
+      );
+      foreach ( $steps as $step ) :
+        $step_class = $step['layout'] === 'right' ? 'travel-process-step travel-process-step-right' : 'travel-process-step travel-process-step-left';
+      ?>
+        <div class="<?php echo esc_attr( $step_class ); ?>">
+          <div class="travel-process-step-content">
+            <div class="travel-process-step-icon-premium">
+              <img src="https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771832461325-1.png" alt="Passport" class="travel-process-passport-icon" />
+            </div>
+            <h3 class="travel-process-step-title"><?php echo esc_html( $step['title'] ); ?></h3>
+            <p class="travel-process-step-description"><?php echo esc_html( $step['desc'] ); ?></p>
+            <div class="travel-process-step-meta">
+              <i class="<?php echo esc_attr( $step['meta_icon'] ); ?>"></i>
+              <span><?php echo esc_html( $step['meta_text'] ); ?></span>
+            </div>
+          </div>
+          <div class="travel-process-step-image">
+            <img src="<?php echo esc_url( $step['image'] ); ?>" alt="<?php echo esc_attr( $step['title'] ); ?>" />
+          </div>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
+  </div>
+</section>
+
+<!-- About Easy Pharmacy Section -->
+<section class="travel-about-section-premium">
+  <div class="section-container">
+    <div class="travel-about-premium-header">
+      <div class="section-badge">
+        <span class="pulse-dot"><span></span><span></span></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'th_about_badge', 'ABOUT EASY PHARMACY' ) ); ?></span>
+      </div>
+      <h2 class="travel-about-premium-title">
+        <span class="gradient-text"><?php echo esc_html( ep_field( 'th_about_title_highlight', 'Your trusted' ) ); ?></span> <?php echo esc_html( ep_field( 'th_about_title_rest', 'travel health partner in Ashford' ) ); ?>
+      </h2>
+    </div>
+
+    <div class="travel-about-premium-grid">
+      <!-- Left: Text Column -->
+      <div class="travel-about-text-column">
+        <div class="travel-about-eyebrow"><?php echo esc_html( ep_field( 'th_about_eyebrow', 'COMPREHENSIVE TRAVEL HEALTH SERVICE' ) ); ?></div>
+        <p class="travel-about-intro-text">
+          <?php echo esc_html( ep_field( 'th_about_intro', 'Our travel health service provides everything you need for safe international travel. From expert consultations to official vaccination certificates, we ensure you\'re fully prepared for your journey with comprehensive support before, during, and after your trip.' ) ); ?>
+        </p>
+
+        <div class="travel-about-features-grid">
+          <?php if ( have_rows( 'th_about_features' ) ) : $feat_num = 0; while ( have_rows( 'th_about_features' ) ) : the_row(); $feat_num++; ?>
+            <div class="travel-about-feature-card">
+              <div class="travel-about-feature-number"><?php echo esc_html( $feat_num ); ?></div>
+              <h4 class="travel-about-feature-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h4>
+              <p class="travel-about-feature-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+            </div>
+          <?php endwhile; else : ?>
+            <?php
+            $features = array(
+              array( 'title' => 'Expert Consultation', 'desc' => 'Personalized travel health advice from qualified pharmacists with access to the latest travel advisories' ),
+              array( 'title' => 'Official Certificates', 'desc' => 'Yellow Fever Centre providing internationally recognized vaccination certificates for entry requirements' ),
+              array( 'title' => 'Flexible Booking', 'desc' => 'Easy appointment scheduling via phone or email with convenient Ashford location and free parking' ),
+              array( 'title' => 'Ongoing Support', 'desc' => 'Access to health records, vaccination certificates, and repeat antimalarial prescriptions anytime' ),
+            );
+            foreach ( $features as $i => $feat ) :
+            ?>
+              <div class="travel-about-feature-card">
+                <div class="travel-about-feature-number"><?php echo esc_html( $i + 1 ); ?></div>
+                <h4 class="travel-about-feature-title"><?php echo esc_html( $feat['title'] ); ?></h4>
+                <p class="travel-about-feature-desc"><?php echo esc_html( $feat['desc'] ); ?></p>
+              </div>
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </div>
+
+        <div class="travel-about-premium-cta">
+          <a href="<?php echo esc_url( ep_field( 'th_about_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( ep_field( 'th_about_cta_text', 'Book Your Travel Consultation' ) ); ?>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Image Column -->
+      <div class="travel-about-image-column">
+        <div class="travel-about-image-wrapper">
+          <?php
+          $about_image_id = ep_field( 'th_about_image' );
+          $about_image_url = $about_image_id ? wp_get_attachment_image_url( $about_image_id, 'large' ) : 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=1000&fit=crop';
+          ?>
+          <img src="<?php echo esc_url( $about_image_url ); ?>" alt="<?php echo esc_attr( ep_field( 'th_about_title_rest', 'Travel health consultation at Easy Pharmacy' ) ); ?>" class="travel-about-image" />
+          <div class="travel-about-floating-badge">
+            <div class="travel-about-badge-number"><?php echo esc_html( ep_field( 'th_about_badge_number', '10+' ) ); ?></div>
+            <div class="travel-about-badge-label"><?php echo esc_html( ep_field( 'th_about_badge_label', 'Years Serving Ashford' ) ); ?></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="travel-faq-section" id="faq">
+  <div class="section-container">
+    <div class="travel-faq-header">
+      <div class="section-badge">
+        <span class="pulse-dot"><span></span><span></span></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'th_faq_badge', 'FREQUENTLY ASKED QUESTIONS' ) ); ?></span>
+      </div>
+      <h2 class="travel-faq-title"><span class="gradient-text"><?php echo esc_html( ep_field( 'th_faq_title_highlight', 'Travel health' ) ); ?></span> <?php echo esc_html( ep_field( 'th_faq_title_rest', 'questions answered' ) ); ?></h2>
+    </div>
+
+    <div class="travel-faq-list">
+      <?php if ( have_rows( 'th_faqs' ) ) : $faq_num = 0; while ( have_rows( 'th_faqs' ) ) : the_row(); $faq_num++; ?>
+        <div class="travel-faq-item">
+          <button class="travel-faq-question" onclick="toggleFAQ(this)">
+            <span class="travel-faq-number"><?php echo esc_html( str_pad( $faq_num, 2, '0', STR_PAD_LEFT ) ); ?></span>
+            <span class="travel-faq-question-text"><?php echo esc_html( get_sub_field( 'question' ) ); ?></span>
+            <div class="travel-faq-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+          </button>
+          <div class="travel-faq-answer">
+            <p><?php echo esc_html( get_sub_field( 'answer' ) ); ?></p>
+          </div>
+        </div>
       <?php endwhile; else : ?>
         <?php
-        $destinations = array(
-          array('name' => 'Thailand', 'flag' => 'https://flagcdn.com/w80/th.png', 'url' => '/travel-thailand/'),
-          array('name' => 'India', 'flag' => 'https://flagcdn.com/w80/in.png', 'url' => '/travel-india/'),
-          array('name' => 'Cape Verde', 'flag' => 'https://flagcdn.com/w80/cv.png', 'url' => '/travel-cape-verde/'),
-          array('name' => 'Kenya', 'flag' => 'https://flagcdn.com/w80/ke.png', 'url' => '/travel-kenya/'),
-          array('name' => 'Brazil', 'flag' => 'https://flagcdn.com/w80/br.png', 'url' => '/travel-brazil/'),
-          array('name' => 'Vietnam', 'flag' => 'https://flagcdn.com/w80/vn.png', 'url' => '/travel-vietnam/'),
+        $faqs = array(
+          array( 'q' => 'When should I book my travel vaccinations?', 'a' => 'We recommend booking your appointment 6-8 weeks before you travel. Some vaccinations require multiple doses over a few weeks to be fully effective. However, we can often accommodate last-minute travellers, so please contact us even if you\'re travelling sooner.' ),
+          array( 'q' => 'Do I need a yellow fever certificate?', 'a' => 'Some countries require an International Certificate of Vaccination or Prophylaxis (ICVP) for yellow fever as a condition of entry. We are a designated Yellow Fever Vaccination Centre and can provide this official certificate. We\'ll advise you on the specific requirements for your destination during your consultation.' ),
+          array( 'q' => 'What should I bring to my appointment?', 'a' => 'Please bring details of your itinerary (countries, regions, duration), any previous vaccination records, and a list of current medications. This helps us provide the most accurate and safe advice for your trip.' ),
+          array( 'q' => 'Do you provide malaria tablets?', 'a' => 'Yes, we can prescribe and supply malaria prevention tablets (antimalarials) such as Malarone, Doxycycline, and Lariam. We\'ll assess your risk based on your destination and recommend the most suitable option for you.' ),
         );
-        foreach ($destinations as $dest) :
+        foreach ( $faqs as $i => $faq ) :
         ?>
-          <a href="<?php echo esc_url($dest['url']); ?>" class="travel-destination-card">
-            <div class="travel-destination-flag">
-              <img src="<?php echo esc_url($dest['flag']); ?>" alt="<?php echo esc_attr($dest['name']); ?>" />
+          <div class="travel-faq-item">
+            <button class="travel-faq-question" onclick="toggleFAQ(this)">
+              <span class="travel-faq-number"><?php echo esc_html( str_pad( $i + 1, 2, '0', STR_PAD_LEFT ) ); ?></span>
+              <span class="travel-faq-question-text"><?php echo esc_html( $faq['q'] ); ?></span>
+              <div class="travel-faq-icon">
+                <i class="fas fa-plus"></i>
+              </div>
+            </button>
+            <div class="travel-faq-answer">
+              <p><?php echo esc_html( $faq['a'] ); ?></p>
             </div>
-            <span class="travel-destination-name"><?php echo esc_html($dest['name']); ?></span>
-            <i class="fas fa-arrow-right travel-destination-arrow"></i>
-          </a>
+          </div>
         <?php endforeach; ?>
       <?php endif; ?>
     </div>
   </div>
 </section>
 
-<!-- Pharmacist Section -->
-<?php get_template_part('template-parts/section', 'pharmacist'); ?>
-
-<!-- FAQ Section -->
-<section class="travel-faq-section">
-  <div class="section-container">
-    <div class="travel-faq-header">
-      <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(ep_field('th_faq_badge', 'TRAVEL HEALTH FAQs')); ?></span>
-      </div>
-      <h2 class="travel-faq-title"><?php echo esc_html(ep_field('th_faq_title', 'Common Questions')); ?></h2>
-    </div>
-
-    <div class="travel-faq-list">
-      <?php if (have_rows('th_faqs')) : $faq_num = 0; while (have_rows('th_faqs')) : the_row(); $faq_num++; ?>
-        <div class="travel-faq-item">
-          <button class="travel-faq-btn" onclick="toggleFAQ(this)">
-            <span class="num"><?php echo esc_html(str_pad($faq_num, 2, '0', STR_PAD_LEFT)); ?></span>
-            <span class="text"><?php echo esc_html(get_sub_field('question')); ?></span>
-            <i class="fas fa-plus icon"></i>
-          </button>
-          <div class="travel-faq-content">
-            <p><?php echo esc_html(get_sub_field('answer')); ?></p>
-          </div>
-        </div>
-      <?php endwhile; else : ?>
-        <div class="travel-faq-item">
-          <button class="travel-faq-btn" onclick="toggleFAQ(this)">
-            <span class="num">01</span>
-            <span class="text">How far in advance should I book?</span>
-            <i class="fas fa-plus icon"></i>
-          </button>
-          <div class="travel-faq-content">
-            <p>We recommend booking 6-8 weeks before travel for most destinations. Some vaccines require multiple doses spread over weeks. However, last-minute appointments are available.</p>
-          </div>
-        </div>
-        <div class="travel-faq-item">
-          <button class="travel-faq-btn" onclick="toggleFAQ(this)">
-            <span class="num">02</span>
-            <span class="text">Do I need a Yellow Fever certificate?</span>
-            <i class="fas fa-plus icon"></i>
-          </button>
-          <div class="travel-faq-content">
-            <p>Some countries require proof of Yellow Fever vaccination for entry. As an official Yellow Fever Centre, we can administer the vaccine and issue the International Certificate of Vaccination.</p>
-          </div>
-        </div>
-        <div class="travel-faq-item">
-          <button class="travel-faq-btn" onclick="toggleFAQ(this)">
-            <span class="num">03</span>
-            <span class="text">How much do travel vaccinations cost?</span>
-            <i class="fas fa-plus icon"></i>
-          </button>
-          <div class="travel-faq-content">
-            <p>Prices vary by vaccine. We offer competitive pricing and will give you a full quote during your consultation. Multiple vaccines can often be given in one appointment.</p>
-          </div>
-        </div>
-      <?php endif; ?>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Section -->
+<!-- Final CTA Section -->
 <section class="travel-cta-section">
   <div class="travel-cta-glow-1"></div>
   <div class="travel-cta-glow-2"></div>
   <div class="travel-cta-dots"></div>
   <div class="section-container">
     <div class="travel-cta-content">
-      <h2 class="travel-cta-title"><?php echo esc_html(ep_field('th_cta_title', 'Ready to travel safely?')); ?></h2>
-      <p class="travel-cta-description"><?php echo esc_html(ep_field('th_cta_description', 'Book your travel health consultation today. Expert advice, all vaccinations, and certificates in one visit.')); ?></p>
+      <div class="travel-cta-badges">
+        <div class="travel-cta-badge">
+          <i class="fas fa-shield-virus"></i>
+          <span><?php echo esc_html( ep_field( 'th_cta_badge_1', 'Yellow Fever Centre' ) ); ?></span>
+        </div>
+        <div class="travel-cta-badge">
+          <i class="fas fa-user-doctor"></i>
+          <span><?php echo esc_html( ep_field( 'th_cta_badge_2', 'Expert Advice' ) ); ?></span>
+        </div>
+        <div class="travel-cta-badge">
+          <i class="fas fa-calendar-check"></i>
+          <span><?php echo esc_html( ep_field( 'th_cta_badge_3', 'Same Day Service' ) ); ?></span>
+        </div>
+      </div>
+      <h2 class="travel-cta-title"><?php echo esc_html( ep_field( 'th_cta_title', 'Ready to protect your travels?' ) ); ?></h2>
+      <p class="travel-cta-description">
+        <?php echo esc_html( ep_field( 'th_cta_description', 'Don\'t let health worries spoil your adventure. Book your comprehensive travel health consultation with Easy Pharmacy Ashford today.' ) ); ?>
+      </p>
       <div class="travel-cta-actions">
-        <a href="<?php echo esc_url(ep_field('th_hero_cta_url', '/book-travel-clinic/')); ?>" class="cta-button primary-cta travel-cta-button-white">
-          <?php echo esc_html(ep_field('th_cta_button_text', 'Book Consultation')); ?>
+        <a href="<?php echo esc_url( ep_field( 'th_cta_primary_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta travel-cta-button-white">
+          <?php echo esc_html( ep_field( 'th_cta_primary_text', 'Book Travel Health Appointment' ) ); ?>
           <i class="fas fa-arrow-right"></i>
         </a>
-        <a href="tel:<?php echo esc_attr(ep_field('th_phone_number', '01784255222')); ?>" class="cta-button secondary-cta travel-cta-button-outlined">
-          <i class="fas fa-phone"></i> <?php echo esc_html(ep_field('th_phone_display', 'Call 01784 255 222')); ?>
+        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta travel-cta-button-outlined">
+          <i class="fas fa-phone"></i>
+          Call <?php echo esc_html( ep_phone() ); ?>
         </a>
+      </div>
+      <div class="travel-cta-checks">
+        <div class="travel-cta-check">
+          <i class="fas fa-check"></i>
+          <span><?php echo esc_html( ep_field( 'th_cta_check_1', 'Flexible appointments' ) ); ?></span>
+        </div>
+        <div class="travel-cta-check">
+          <i class="fas fa-check"></i>
+          <span><?php echo esc_html( ep_field( 'th_cta_check_2', 'Expert advice' ) ); ?></span>
+        </div>
+        <div class="travel-cta-check">
+          <i class="fas fa-check"></i>
+          <span><?php echo esc_html( ep_field( 'th_cta_check_3', 'Official certificates' ) ); ?></span>
+        </div>
       </div>
     </div>
   </div>
