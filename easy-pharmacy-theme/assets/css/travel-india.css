@@ -11,7 +11,7 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 60px 0 80px;
+  padding: 20px 0 80px;
   overflow: hidden;
   background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1600&h=900&fit=crop');
   background-size: cover;
@@ -23,6 +23,7 @@
   inset: 0;
   background: linear-gradient(to bottom right, rgba(163, 158, 227, 0.9) 0%, rgba(109, 104, 181, 0.85) 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
 .india-hero-dots {
@@ -31,6 +32,7 @@
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
   z-index: 2;
+  pointer-events: none;
 }
 
 .india-hero-grid {
@@ -123,24 +125,24 @@
 
 
 /* ============================================
-   QUICK INFO BAR
+   QUICK INFO BAR (Dark Stats Bar)
    ============================================ */
 .india-stats-section {
   position: relative;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
+  background: linear-gradient(135deg, #1a1530 0%, #2d2252 50%, #1a1530 100%);
   padding: 3.5rem 0;
   overflow: hidden;
-  box-shadow: 0 10px 30px -10px rgba(109, 104, 181, 0.3);
+  border-bottom: 1px solid rgba(163, 158, 227, 0.15);
 }
 
 .india-stats-shimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-  animation: shimmer 4s infinite;
+  background: linear-gradient(90deg, transparent, rgba(163, 158, 227, 0.06), transparent);
+  animation: india-shimmer 4s infinite;
 }
 
-@keyframes shimmer {
+@keyframes india-shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
@@ -175,29 +177,25 @@
 .india-stat-icon {
   width: 4rem;
   height: 4rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(163, 158, 227, 0.2);
   border-radius: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(163, 158, 227, 0.35);
+  box-shadow: 0 0 20px rgba(163, 158, 227, 0.15);
   transition: all 0.3s ease;
 }
 
 .india-stat-item:hover .india-stat-icon {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(163, 158, 227, 0.3);
+  border-color: rgba(163, 158, 227, 0.5);
 }
 
 .india-stat-icon i {
   font-size: 1.5rem;
-  color: var(--white);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  color: var(--brand-purple);
 }
 
 .india-stat-content {
@@ -383,7 +381,7 @@
 
 
 /* ============================================
-   MALARIA INFORMATION (VISUAL UPGRADE)
+   MALARIA INFORMATION
    ============================================ */
 .india-malaria-section {
   padding: 6rem 0;
@@ -434,6 +432,7 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  pointer-events: none;
 }
 
 .india-malaria-badge {
@@ -573,7 +572,7 @@
 
 
 /* ============================================
-   HEALTH ADVICE (VISUAL UPGRADE)
+   HEALTH ADVICE
    ============================================ */
 .india-health-section {
   padding: 6rem 0;
@@ -617,7 +616,7 @@
   height: 400px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
-  background-color: #1a202c; /* Fallback color */
+  background-color: #1a202c;
 }
 
 .india-health-card-visual:hover {
@@ -647,6 +646,7 @@
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
 .india-health-content {
@@ -734,6 +734,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   filter: blur(100px);
+  pointer-events: none;
 }
 
 .india-cta-glow-2 {
@@ -745,6 +746,7 @@
   background: rgba(255, 255, 255, 0.08);
   border-radius: 50%;
   filter: blur(80px);
+  pointer-events: none;
 }
 
 .india-cta-dots {
@@ -752,6 +754,7 @@
   inset: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
+  pointer-events: none;
 }
 
 .india-cta-content {

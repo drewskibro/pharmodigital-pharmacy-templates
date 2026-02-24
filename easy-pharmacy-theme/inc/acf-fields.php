@@ -5142,5 +5142,208 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // =========================================================================
+    // K. INDIA TRAVEL PAGE FIELDS
+    // =========================================================================
+    $in_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-travel-india.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // K1. India — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_hero',
+        'title'    => 'India — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_in_hero_badge', 'label' => 'Badge Text', 'name' => 'in_hero_badge', 'type' => 'text', 'default_value' => 'INDIA TRAVEL HEALTH' ),
+            array( 'key' => 'field_ep_in_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'in_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
+            array( 'key' => 'field_ep_in_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'in_hero_title_highlight', 'type' => 'text', 'default_value' => 'India' ),
+            array( 'key' => 'field_ep_in_hero_description', 'label' => 'Description', 'name' => 'in_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your India journey. Get protected before you travel with Ashford's trusted travel health specialists." ),
+            array( 'key' => 'field_ep_in_hero_cta_text', 'label' => 'CTA Text', 'name' => 'in_hero_cta_text', 'type' => 'text', 'default_value' => 'Book India Consultation' ),
+            array( 'key' => 'field_ep_in_hero_cta_url', 'label' => 'CTA URL', 'name' => 'in_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K2. India — Quick Info Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_stats',
+        'title'    => 'India — Quick Info Bar',
+        'fields'   => array(
+            array(
+                'key'          => 'field_ep_in_stats',
+                'label'        => 'Stats',
+                'name'         => 'in_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_in_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_in_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_in_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                ),
+            ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K3. India — Recommended Vaccinations
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_vaccines',
+        'title'    => 'India — Recommended Vaccinations',
+        'fields'   => array(
+            array( 'key' => 'field_ep_in_vaccines_title', 'label' => 'Title', 'name' => 'in_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in India' ),
+            array( 'key' => 'field_ep_in_vaccines_desc', 'label' => 'Description', 'name' => 'in_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to India' ),
+            array(
+                'key'          => 'field_ep_in_vaccinations',
+                'label'        => 'Vaccinations',
+                'name'         => 'in_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 10,
+                'button_label' => 'Add Vaccination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_in_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_in_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_in_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'purple' => 'Purple (Essential/Recommended)', 'gray' => 'Grey (Consider/Rural)' ), 'default_value' => 'purple', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_in_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Essential', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_in_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_ep_in_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K4. India — Malaria Information
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_malaria',
+        'title'    => 'India — Malaria Information',
+        'fields'   => array(
+            array( 'key' => 'field_ep_in_malaria_image', 'label' => 'Image', 'name' => 'in_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_in_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'in_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_ep_in_malaria_badge', 'label' => 'Section Badge', 'name' => 'in_malaria_badge', 'type' => 'text', 'default_value' => 'MOSQUITO-BORNE DISEASES' ),
+            array( 'key' => 'field_ep_in_malaria_title', 'label' => 'Title', 'name' => 'in_malaria_title', 'type' => 'text', 'default_value' => 'Malaria & Dengue Risks in India' ),
+            array( 'key' => 'field_ep_in_malaria_intro', 'label' => 'Intro Text', 'name' => 'in_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk varies across India. Dengue fever is also a significant risk nationwide. Our pharmacists will check your specific itinerary and advise on prevention.' ),
+            array(
+                'key'          => 'field_ep_in_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'in_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Risk Item',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_in_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-check-circle', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_in_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'low-risk', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_in_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_in_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K5. India — Health Advice
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_health',
+        'title'    => 'India — Health Advice',
+        'fields'   => array(
+            array( 'key' => 'field_ep_in_health_badge', 'label' => 'Badge Text', 'name' => 'in_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
+            array( 'key' => 'field_ep_in_health_title', 'label' => 'Title', 'name' => 'in_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in India' ),
+            array( 'key' => 'field_ep_in_health_subtitle', 'label' => 'Subtitle', 'name' => 'in_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe journey' ),
+            array(
+                'key'          => 'field_ep_in_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'in_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Tip',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_in_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-glass-water', 'placeholder' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_in_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_in_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_in_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K6. India — Final CTA
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_cta',
+        'title'    => 'India — Final CTA',
+        'fields'   => array(
+            array( 'key' => 'field_ep_in_cta_title', 'label' => 'Title', 'name' => 'in_cta_title', 'type' => 'text', 'default_value' => 'Ready for your India adventure?' ),
+            array( 'key' => 'field_ep_in_cta_description', 'label' => 'Description', 'name' => 'in_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your India travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_ep_in_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'in_cta_primary_text', 'type' => 'text', 'default_value' => 'Book India Consultation' ),
+            array( 'key' => 'field_ep_in_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'in_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_ep_in_cta_check_1', 'label' => 'Check 1', 'name' => 'in_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
+            array( 'key' => 'field_ep_in_cta_check_2', 'label' => 'Check 2', 'name' => 'in_cta_check_2', 'type' => 'text', 'default_value' => 'Expert India Advice' ),
+            array( 'key' => 'field_ep_in_cta_check_3', 'label' => 'Check 3', 'name' => 'in_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines Available' ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );

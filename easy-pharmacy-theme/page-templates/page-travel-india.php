@@ -5,130 +5,302 @@
  */
 
 get_header();
-
-$country = ep_field('td_country_name', 'India');
 ?>
 
+<!-- Hero Section -->
 <section class="india-hero-section">
   <div class="india-hero-overlay"></div>
   <div class="india-hero-dots"></div>
   <div class="section-container">
     <div class="india-hero-grid">
+      <!-- Left: Content -->
       <div class="india-hero-content">
-        <div class="hero-badge"><span class="pulse-dot"><span></span><span></span></span><span class="hero-badge-text"><?php echo esc_html(ep_field('td_hero_badge', 'INDIA TRAVEL HEALTH')); ?></span></div>
-        <h1 class="hero-title" style="color: white;"><?php echo esc_html(ep_field('td_hero_title_line1', 'Travel Vaccinations for')); ?><br /><span class="gradient-text" style="background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><?php echo esc_html($country); ?></span></h1>
-        <p class="india-hero-description"><?php echo esc_html(ep_field('td_hero_description', 'Expert advice and vaccinations for your India trip. Comprehensive protection against Hepatitis, Typhoid, Rabies, and more.')); ?></p>
+        <div class="hero-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="hero-badge-text"><?php echo esc_html( ep_field( 'in_hero_badge', 'INDIA TRAVEL HEALTH' ) ); ?></span>
+        </div>
+
+        <h1 class="hero-title" style="color: white;">
+          <?php echo esc_html( ep_field( 'in_hero_title_line1', 'Travel Vaccinations for' ) ); ?><br />
+          <span class="gradient-text" style="background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><?php echo esc_html( ep_field( 'in_hero_title_highlight', 'India' ) ); ?></span>
+        </h1>
+
+        <p class="india-hero-description">
+          <?php echo esc_html( ep_field( 'in_hero_description', 'Expert advice and vaccinations for your India journey. Get protected before you travel with Ashford\'s trusted travel health specialists.' ) ); ?>
+        </p>
+
         <div class="india-hero-actions">
-          <a href="<?php echo esc_url(ep_field('td_cta_url', '/book-travel-clinic/')); ?>" class="cta-button primary-cta india-hero-btn-primary"><?php echo esc_html(ep_field('td_cta_text', 'Book Consultation')); ?> <i class="fas fa-arrow-right"></i></a>
-          <a href="tel:<?php echo esc_attr(ep_field('td_phone', '01784255222')); ?>" class="cta-button secondary-cta india-hero-btn-secondary"><i class="fas fa-phone"></i> <?php echo esc_html(ep_field('td_phone_display', 'Call 01784 255 222')); ?></a>
+          <a href="<?php echo esc_url( ep_field( 'in_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta india-hero-btn-primary">
+            <?php echo esc_html( ep_field( 'in_hero_cta_text', 'Book India Consultation' ) ); ?>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta india-hero-btn-secondary">
+            <i class="fas fa-phone"></i>
+            Call <?php echo esc_html( ep_phone() ); ?>
+          </a>
         </div>
       </div>
+
+      <!-- Right: Visual (Handled by background image) -->
       <div class="india-hero-visual"></div>
     </div>
   </div>
 </section>
 
+<!-- Quick Info Bar -->
 <section class="india-stats-section">
   <div class="india-stats-shimmer"></div>
   <div class="section-container">
     <div class="india-stats-grid">
-      <?php if (have_rows('td_stats')) : while (have_rows('td_stats')) : the_row(); ?>
-        <div class="india-stat-item"><div class="india-stat-icon"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div><div class="india-stat-content"><p class="india-stat-number"><?php echo esc_html(get_sub_field('number')); ?></p><p class="india-stat-label"><?php echo esc_html(get_sub_field('label')); ?></p></div></div>
+      <?php if ( have_rows( 'in_stats' ) ) : while ( have_rows( 'in_stats' ) ) : the_row(); ?>
+        <div class="india-stat-item">
+          <div class="india-stat-icon">
+            <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+          </div>
+          <div class="india-stat-content">
+            <p class="india-stat-number"><?php echo esc_html( get_sub_field( 'number' ) ); ?></p>
+            <p class="india-stat-label"><?php echo esc_html( get_sub_field( 'label' ) ); ?></p>
+          </div>
+        </div>
       <?php endwhile; else : ?>
-        <div class="india-stat-item"><div class="india-stat-icon"><i class="fas fa-syringe"></i></div><div class="india-stat-content"><p class="india-stat-number">6-8</p><p class="india-stat-label">Vaccines Recommended</p></div></div>
-        <div class="india-stat-item"><div class="india-stat-icon"><i class="fas fa-calendar-alt"></i></div><div class="india-stat-content"><p class="india-stat-number">6-8</p><p class="india-stat-label">Weeks Before Travel</p></div></div>
-        <div class="india-stat-item"><div class="india-stat-icon"><i class="fas fa-shield-halved"></i></div><div class="india-stat-content"><p class="india-stat-number">Full</p><p class="india-stat-label">Protection Available</p></div></div>
+        <div class="india-stat-item">
+          <div class="india-stat-icon"><i class="fas fa-syringe"></i></div>
+          <div class="india-stat-content"><p class="india-stat-number">6-8</p><p class="india-stat-label">Vaccines Recommended</p></div>
+        </div>
+        <div class="india-stat-item">
+          <div class="india-stat-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="india-stat-content"><p class="india-stat-number">6-8</p><p class="india-stat-label">Weeks Before Travel</p></div>
+        </div>
+        <div class="india-stat-item">
+          <div class="india-stat-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="india-stat-content"><p class="india-stat-number">Full</p><p class="india-stat-label">Protection Available</p></div>
+        </div>
       <?php endif; ?>
     </div>
   </div>
 </section>
 
+<!-- Recommended Vaccinations -->
 <section class="india-vaccines-section">
   <div class="section-container">
     <div class="india-vaccines-header">
-      <h2 class="india-vaccines-title"><?php echo esc_html(ep_field('td_vaccines_title', 'Protect yourself in India')); ?></h2>
+      <h2 class="india-vaccines-title"><?php echo esc_html( ep_field( 'in_vaccines_title', 'Protect yourself in India' ) ); ?></h2>
       <div class="india-vaccines-divider"></div>
-      <p class="india-vaccines-description"><?php echo esc_html(ep_field('td_vaccines_description', 'These vaccinations are recommended for most travellers to India')); ?></p>
+      <p class="india-vaccines-description"><?php echo esc_html( ep_field( 'in_vaccines_description', 'These vaccinations are recommended for most travellers to India' ) ); ?></p>
     </div>
+
     <div class="india-vaccines-grid">
-      <?php if (have_rows('td_vaccinations_required')) : while (have_rows('td_vaccinations_required')) : the_row(); ?>
-        <div class="india-vaccine-card"><div class="india-vaccine-icon"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div><div class="india-vaccine-content"><div class="india-vaccine-head"><h3 class="india-vaccine-name"><?php echo esc_html(get_sub_field('name')); ?></h3><span class="india-badge-<?php echo esc_attr(get_sub_field('badge_color')); ?>"><?php echo esc_html(get_sub_field('badge_text')); ?></span></div><p class="india-vaccine-short"><?php echo esc_html(get_sub_field('short_desc')); ?></p><p class="india-vaccine-desc"><?php echo esc_html(get_sub_field('description')); ?></p></div></div>
+      <?php if ( have_rows( 'in_vaccinations' ) ) : while ( have_rows( 'in_vaccinations' ) ) : the_row(); ?>
+        <div class="india-vaccine-card">
+          <div class="india-vaccine-icon">
+            <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+          </div>
+          <div class="india-vaccine-content">
+            <div class="india-vaccine-head">
+              <h3 class="india-vaccine-name"><?php echo esc_html( get_sub_field( 'name' ) ); ?></h3>
+              <span class="india-badge-<?php echo esc_attr( get_sub_field( 'badge_color' ) ); ?>"><?php echo esc_html( get_sub_field( 'badge_text' ) ); ?></span>
+            </div>
+            <p class="india-vaccine-short"><?php echo esc_html( get_sub_field( 'short_desc' ) ); ?></p>
+            <p class="india-vaccine-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+          </div>
+        </div>
       <?php endwhile; else : ?>
-        <div class="india-vaccine-card"><div class="india-vaccine-icon"><i class="fas fa-virus"></i></div><div class="india-vaccine-content"><div class="india-vaccine-head"><h3 class="india-vaccine-name">Hepatitis A</h3><span class="india-badge-purple">Essential</span></div><p class="india-vaccine-short">Food &amp; water safety</p><p class="india-vaccine-desc">Highly recommended for all travellers to India.</p></div></div>
-        <div class="india-vaccine-card"><div class="india-vaccine-icon"><i class="fas fa-bacteria"></i></div><div class="india-vaccine-content"><div class="india-vaccine-head"><h3 class="india-vaccine-name">Typhoid</h3><span class="india-badge-purple">Essential</span></div><p class="india-vaccine-short">Food &amp; water safety</p><p class="india-vaccine-desc">High risk throughout India, especially with street food.</p></div></div>
-        <div class="india-vaccine-card"><div class="india-vaccine-icon"><i class="fas fa-notes-medical"></i></div><div class="india-vaccine-content"><div class="india-vaccine-head"><h3 class="india-vaccine-name">Hepatitis B</h3><span class="india-badge-purple">Essential</span></div><p class="india-vaccine-short">Blood/fluid contact</p><p class="india-vaccine-desc">Recommended for all travellers, especially longer stays.</p></div></div>
-        <div class="india-vaccine-card"><div class="india-vaccine-icon"><i class="fas fa-dog"></i></div><div class="india-vaccine-content"><div class="india-vaccine-head"><h3 class="india-vaccine-name">Rabies</h3><span class="india-badge-purple">Essential</span></div><p class="india-vaccine-short">Animal contact risk</p><p class="india-vaccine-desc">India has the highest rate of rabies globally. Stray dogs are extremely common.</p></div></div>
-        <div class="india-vaccine-card"><div class="india-vaccine-icon"><i class="fas fa-brain"></i></div><div class="india-vaccine-content"><div class="india-vaccine-head"><h3 class="india-vaccine-name">Japanese Encephalitis</h3><span class="india-badge-gray">Recommended</span></div><p class="india-vaccine-short">Mosquito-borne virus</p><p class="india-vaccine-desc">Consider for rural travel, especially during monsoon season.</p></div></div>
-        <div class="india-vaccine-card"><div class="india-vaccine-icon"><i class="fas fa-syringe"></i></div><div class="india-vaccine-content"><div class="india-vaccine-head"><h3 class="india-vaccine-name">Tetanus/Diphtheria/Polio</h3><span class="india-badge-gray">Recommended</span></div><p class="india-vaccine-short">Routine boosters</p><p class="india-vaccine-desc">Ensure your routine UK schedule is up to date before travel.</p></div></div>
+        <?php
+        $vaccines = array(
+          array( 'icon' => 'fas fa-virus', 'name' => 'Hepatitis A', 'badge_color' => 'purple', 'badge' => 'Essential', 'short' => 'Protection against contaminated food/water', 'desc' => 'Hepatitis A is highly prevalent in India. This vaccine is essential for all travellers, regardless of accommodation type.' ),
+          array( 'icon' => 'fas fa-bacteria', 'name' => 'Typhoid', 'badge_color' => 'purple', 'badge' => 'Essential', 'short' => 'Critical for food safety', 'desc' => 'Typhoid is common throughout India. Essential for all travellers, especially those visiting rural areas or staying for extended periods.' ),
+          array( 'icon' => 'fas fa-notes-medical', 'name' => 'Hepatitis B', 'badge_color' => 'gray', 'badge' => 'Recommended', 'short' => 'For longer stays or medical procedures', 'desc' => 'Recommended for long-term travellers, those who may need medical treatment, or anyone engaging in activities with blood contact risk.' ),
+          array( 'icon' => 'fas fa-dog', 'name' => 'Rabies', 'badge_color' => 'gray', 'badge' => 'Recommended', 'short' => 'High risk of animal contact', 'desc' => 'India has a high rabies risk. Strongly recommended for all travellers, especially those visiting rural areas or staying for extended periods.' ),
+          array( 'icon' => 'fas fa-mosquito', 'name' => 'Japanese Encephalitis', 'badge_color' => 'gray', 'badge' => 'Rural Areas', 'short' => 'For rural travel and extended stays', 'desc' => 'Recommended if you\'re spending time in rural areas, especially during monsoon season (June-September), or staying for more than a month.' ),
+          array( 'icon' => 'fas fa-syringe', 'name' => 'Tetanus/Diphtheria/Polio', 'badge_color' => 'purple', 'badge' => 'Essential', 'short' => 'Routine vaccination check', 'desc' => 'Ensure your routine UK vaccinations are up to date. A booster may be needed if it\'s been more than 10 years since your last dose.' ),
+        );
+        foreach ( $vaccines as $vax ) :
+        ?>
+          <div class="india-vaccine-card">
+            <div class="india-vaccine-icon"><i class="<?php echo esc_attr( $vax['icon'] ); ?>"></i></div>
+            <div class="india-vaccine-content">
+              <div class="india-vaccine-head">
+                <h3 class="india-vaccine-name"><?php echo esc_html( $vax['name'] ); ?></h3>
+                <span class="india-badge-<?php echo esc_attr( $vax['badge_color'] ); ?>"><?php echo esc_html( $vax['badge'] ); ?></span>
+              </div>
+              <p class="india-vaccine-short"><?php echo esc_html( $vax['short'] ); ?></p>
+              <p class="india-vaccine-desc"><?php echo esc_html( $vax['desc'] ); ?></p>
+            </div>
+          </div>
+        <?php endforeach; ?>
       <?php endif; ?>
     </div>
   </div>
 </section>
 
+<!-- Malaria Information -->
 <section class="india-malaria-section">
   <div class="section-container">
     <div class="india-malaria-layout">
+      <!-- Left: Visual -->
       <div class="india-malaria-visual">
         <div class="india-malaria-image-card">
-          <img src="<?php echo esc_url(ep_field('td_malaria_image', 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&h=1000&fit=crop')); ?>" alt="India travel" class="india-malaria-image" />
+          <?php
+          $malaria_image_id = ep_field( 'in_malaria_image' );
+          $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&h=1000&fit=crop';
+          ?>
+          <img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="Traveller in India" class="india-malaria-image" />
           <div class="india-malaria-overlay"></div>
-          <div class="india-malaria-badge"><div class="india-malaria-badge-icon"><i class="fas fa-shield-virus"></i></div><span class="india-malaria-badge-text">Expert Advice</span></div>
+          <div class="india-malaria-badge">
+            <div class="india-malaria-badge-icon"><i class="fas fa-shield-virus"></i></div>
+            <span class="india-malaria-badge-text"><?php echo esc_html( ep_field( 'in_malaria_badge_text', 'Expert Advice' ) ); ?></span>
+          </div>
         </div>
       </div>
+
+      <!-- Right: Content -->
       <div class="india-malaria-content">
-        <div class="section-badge"><span class="pulse-dot"><span></span><span></span></span><span class="section-badge-text"><?php echo esc_html(ep_field('td_malaria_badge', 'HIGH RISK COUNTRY')); ?></span></div>
-        <h2 class="india-malaria-title"><?php echo esc_html(ep_field('td_malaria_title', 'Malaria Risk in India')); ?></h2>
-        <p class="india-malaria-intro"><?php echo esc_html(ep_field('td_malaria_intro', 'Malaria risk exists throughout India, especially during and after monsoon season. Antimalarials are recommended for most areas.')); ?></p>
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text"><?php echo esc_html( ep_field( 'in_malaria_badge', 'MOSQUITO-BORNE DISEASES' ) ); ?></span>
+        </div>
+
+        <h2 class="india-malaria-title"><?php echo esc_html( ep_field( 'in_malaria_title', 'Malaria & Dengue Risks in India' ) ); ?></h2>
+        <p class="india-malaria-intro">
+          <?php echo esc_html( ep_field( 'in_malaria_intro', 'Malaria risk varies across India. Dengue fever is also a significant risk nationwide. Our pharmacists will check your specific itinerary and advise on prevention.' ) ); ?>
+        </p>
+
         <div class="india-malaria-info-grid">
-          <?php if (have_rows('td_malaria_risks')) : while (have_rows('td_malaria_risks')) : the_row(); ?>
-            <div class="india-malaria-item"><div class="india-malaria-item-icon <?php echo esc_attr(get_sub_field('risk_level')); ?>"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div><div class="india-malaria-item-text"><h4><?php echo esc_html(get_sub_field('title')); ?></h4><p><?php echo esc_html(get_sub_field('description')); ?></p></div></div>
+          <?php if ( have_rows( 'in_malaria_risks' ) ) : while ( have_rows( 'in_malaria_risks' ) ) : the_row(); ?>
+            <div class="india-malaria-item">
+              <div class="india-malaria-item-icon <?php echo esc_attr( get_sub_field( 'risk_level' ) ); ?>">
+                <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+              </div>
+              <div class="india-malaria-item-text">
+                <h4><?php echo esc_html( get_sub_field( 'title' ) ); ?></h4>
+                <p><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+              </div>
+            </div>
           <?php endwhile; else : ?>
-            <div class="india-malaria-item"><div class="india-malaria-item-icon high-risk"><i class="fas fa-exclamation-triangle"></i></div><div class="india-malaria-item-text"><h4>Most of India</h4><p>Risk throughout, especially rural areas. Higher risk during and after monsoon (June-October).</p></div></div>
-            <div class="india-malaria-item"><div class="india-malaria-item-icon low-risk"><i class="fas fa-check-circle"></i></div><div class="india-malaria-item-text"><h4>Some Hill Stations</h4><p>Areas above 2000m such as Shimla and Darjeeling have lower risk.</p></div></div>
+            <div class="india-malaria-item">
+              <div class="india-malaria-item-icon low-risk"><i class="fas fa-check-circle"></i></div>
+              <div class="india-malaria-item-text">
+                <h4>Low Malaria Risk</h4>
+                <p>Areas above 2000m (Himachal Pradesh, Jammu &amp; Kashmir, Sikkim) are generally low risk.</p>
+              </div>
+            </div>
+            <div class="india-malaria-item">
+              <div class="india-malaria-item-icon high-risk"><i class="fas fa-exclamation-triangle"></i></div>
+              <div class="india-malaria-item-text">
+                <h4>Risk Areas</h4>
+                <p>Risk exists in most other areas, including Goa and Kerala. Antimalarials are often recommended.</p>
+              </div>
+            </div>
           <?php endif; ?>
         </div>
-        <div class="india-malaria-actions"><a href="<?php echo esc_url(ep_field('td_cta_url', '/book-travel-clinic/')); ?>" class="cta-button primary-cta">Check Your Risk <i class="fas fa-arrow-right"></i></a></div>
+
+        <div class="india-malaria-actions">
+          <a href="<?php echo esc_url( ep_field( 'in_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+            Check Your Risk
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Health Advice -->
 <section class="india-health-section">
   <div class="section-container">
     <div class="india-health-header">
-      <div class="section-badge"><span class="pulse-dot"><span></span><span></span></span><span class="section-badge-text"><?php echo esc_html(ep_field('td_health_badge', 'HEALTH ADVICE')); ?></span></div>
-      <h2 class="india-health-title"><?php echo esc_html(ep_field('td_health_title', 'Stay healthy in India')); ?></h2>
-      <p class="india-health-subtitle"><?php echo esc_html(ep_field('td_health_subtitle', 'Essential tips for a safe trip')); ?></p>
+      <div class="section-badge">
+        <span class="pulse-dot"><span></span><span></span></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'in_health_badge', 'HEALTH ADVICE' ) ); ?></span>
+      </div>
+      <h2 class="india-health-title"><?php echo esc_html( ep_field( 'in_health_title', 'Stay healthy in India' ) ); ?></h2>
+      <p class="india-health-subtitle"><?php echo esc_html( ep_field( 'in_health_subtitle', 'Essential tips for a safe journey' ) ); ?></p>
     </div>
+
     <div class="india-health-grid">
-      <?php if (have_rows('td_travel_tips')) : while (have_rows('td_travel_tips')) : the_row(); ?>
-        <div class="india-health-card-visual"><div class="india-health-bg"><img src="<?php echo esc_url(get_sub_field('image')); ?>" alt="<?php echo esc_attr(get_sub_field('title')); ?>" /><div class="india-health-overlay"></div></div><div class="india-health-content"><div class="india-health-icon-wrapper"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div><h3 class="india-health-card-title"><?php echo esc_html(get_sub_field('title')); ?></h3><p class="india-health-card-desc"><?php echo esc_html(get_sub_field('description')); ?></p></div></div>
+      <?php if ( have_rows( 'in_health_tips' ) ) : while ( have_rows( 'in_health_tips' ) ) : the_row();
+        $tip_image_id = get_sub_field( 'image' );
+        $tip_image_url = $tip_image_id ? wp_get_attachment_image_url( $tip_image_id, 'large' ) : '';
+      ?>
+        <div class="india-health-card-visual">
+          <div class="india-health-bg">
+            <?php if ( $tip_image_url ) : ?>
+              <img src="<?php echo esc_url( $tip_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
+            <?php endif; ?>
+            <div class="india-health-overlay"></div>
+          </div>
+          <div class="india-health-content">
+            <div class="india-health-icon-wrapper">
+              <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+            </div>
+            <h3 class="india-health-card-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+            <p class="india-health-card-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+          </div>
+        </div>
       <?php endwhile; else : ?>
-        <div class="india-health-card-visual"><div class="india-health-bg"><img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=600&h=800&fit=crop" alt="Water safety" /><div class="india-health-overlay"></div></div><div class="india-health-content"><div class="india-health-icon-wrapper"><i class="fas fa-glass-water"></i></div><h3 class="india-health-card-title">Food &amp; Water</h3><p class="india-health-card-desc">Only drink sealed bottled water. Avoid ice, salads, and unpeeled fruit.</p></div></div>
-        <div class="india-health-card-visual"><div class="india-health-bg"><img src="https://images.unsplash.com/photo-1533619043865-1c2e2f32ff5f?w=600&h=800&fit=crop" alt="Sun safety" /><div class="india-health-overlay"></div></div><div class="india-health-content"><div class="india-health-icon-wrapper"><i class="fas fa-sun"></i></div><h3 class="india-health-card-title">Sun &amp; Heat</h3><p class="india-health-card-desc">Extreme heat in summer. Stay hydrated, use SPF, and avoid midday sun.</p></div></div>
-        <div class="india-health-card-visual"><div class="india-health-bg"><img src="https://images.unsplash.com/photo-1551817958-29d0660f98de?w=600&h=800&fit=crop" alt="Insect protection" /><div class="india-health-overlay"></div></div><div class="india-health-content"><div class="india-health-icon-wrapper"><i class="fas fa-mosquito"></i></div><h3 class="india-health-card-title">Insects</h3><p class="india-health-card-desc">Use DEET repellent day and night. Dengue, Malaria, and Chikungunya are risks.</p></div></div>
+        <?php
+        $tips = array(
+          array( 'icon' => 'fas fa-glass-water', 'title' => 'Food & Water', 'desc' => 'Drink only bottled/boiled water. Avoid ice. Eat freshly cooked food and peel your own fruit.', 'image' => 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&h=800&fit=crop' ),
+          array( 'icon' => 'fas fa-mosquito', 'title' => 'Insect Protection', 'desc' => 'Use 50% DEET repellent day and night to protect against Malaria and Dengue.', 'image' => 'https://images.unsplash.com/photo-1621451537084-482c73073a0f?w=600&h=800&fit=crop' ),
+          array( 'icon' => 'fas fa-sun', 'title' => 'Sun & Heat', 'desc' => 'Stay hydrated and use high SPF. Heat exhaustion is a risk, especially in summer months.', 'image' => 'https://images.unsplash.com/photo-1548013146-72479768bada?w=600&h=800&fit=crop' ),
+        );
+        foreach ( $tips as $tip ) :
+        ?>
+          <div class="india-health-card-visual">
+            <div class="india-health-bg">
+              <img src="<?php echo esc_url( $tip['image'] ); ?>" alt="<?php echo esc_attr( $tip['title'] ); ?>" />
+              <div class="india-health-overlay"></div>
+            </div>
+            <div class="india-health-content">
+              <div class="india-health-icon-wrapper"><i class="<?php echo esc_attr( $tip['icon'] ); ?>"></i></div>
+              <h3 class="india-health-card-title"><?php echo esc_html( $tip['title'] ); ?></h3>
+              <p class="india-health-card-desc"><?php echo esc_html( $tip['desc'] ); ?></p>
+            </div>
+          </div>
+        <?php endforeach; ?>
       <?php endif; ?>
     </div>
   </div>
 </section>
 
+<!-- Final CTA -->
 <section class="india-cta-section">
-  <div class="india-cta-glow-1"></div><div class="india-cta-glow-2"></div><div class="india-cta-dots"></div>
+  <div class="india-cta-glow-1"></div>
+  <div class="india-cta-glow-2"></div>
+  <div class="india-cta-dots"></div>
   <div class="section-container">
     <div class="india-cta-content">
-      <h2 class="india-cta-title"><?php echo esc_html(ep_field('td_cta_title', 'Ready for your trip to India?')); ?></h2>
-      <p class="india-cta-description"><?php echo esc_html(ep_field('td_cta_description', 'Book your travel health consultation at our Ashford clinic.')); ?></p>
+      <h2 class="india-cta-title"><?php echo esc_html( ep_field( 'in_cta_title', 'Ready for your India adventure?' ) ); ?></h2>
+      <p class="india-cta-description">
+        <?php echo esc_html( ep_field( 'in_cta_description', 'Book your India travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
+      </p>
       <div class="india-cta-actions">
-        <a href="<?php echo esc_url(ep_field('td_cta_url', '/book-travel-clinic/')); ?>" class="cta-button primary-cta india-cta-button-white"><?php echo esc_html(ep_field('td_cta_text', 'Book Consultation')); ?> <i class="fas fa-arrow-right"></i></a>
-        <a href="tel:<?php echo esc_attr(ep_field('td_phone', '01784255222')); ?>" class="cta-button secondary-cta india-cta-button-outlined"><i class="fas fa-phone"></i> <?php echo esc_html(ep_field('td_phone_display', 'Call 01784 255 222')); ?></a>
+        <a href="<?php echo esc_url( ep_field( 'in_cta_primary_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta india-cta-button-white">
+          <?php echo esc_html( ep_field( 'in_cta_primary_text', 'Book India Consultation' ) ); ?>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta india-cta-button-outlined">
+          <i class="fas fa-phone"></i>
+          Call <?php echo esc_html( ep_phone() ); ?>
+        </a>
       </div>
       <div class="india-cta-checks">
-        <div class="india-cta-check"><i class="fas fa-plane-departure"></i><span>Travel Ready</span></div>
-        <div class="india-cta-check"><i class="fas fa-user-doctor"></i><span>Expert Advice</span></div>
-        <div class="india-cta-check"><i class="fas fa-shield-virus"></i><span>All Vaccines</span></div>
+        <div class="india-cta-check">
+          <i class="fas fa-plane-departure"></i>
+          <span><?php echo esc_html( ep_field( 'in_cta_check_1', 'Travel Ready' ) ); ?></span>
+        </div>
+        <div class="india-cta-check">
+          <i class="fas fa-user-doctor"></i>
+          <span><?php echo esc_html( ep_field( 'in_cta_check_2', 'Expert India Advice' ) ); ?></span>
+        </div>
+        <div class="india-cta-check">
+          <i class="fas fa-shield-virus"></i>
+          <span><?php echo esc_html( ep_field( 'in_cta_check_3', 'All Vaccines Available' ) ); ?></span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<?php get_footer(); ?>
+<?php
+get_footer();
