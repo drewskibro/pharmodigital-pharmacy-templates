@@ -5142,5 +5142,797 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // =========================================================================
+    // K. INDIA TRAVEL PAGE FIELDS
+    // =========================================================================
+    $in_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-travel-india.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // K1. India — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_hero',
+        'title'    => 'India — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_in_hero_badge', 'label' => 'Badge Text', 'name' => 'in_hero_badge', 'type' => 'text', 'default_value' => 'INDIA TRAVEL HEALTH' ),
+            array( 'key' => 'field_ep_in_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'in_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
+            array( 'key' => 'field_ep_in_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'in_hero_title_highlight', 'type' => 'text', 'default_value' => 'India' ),
+            array( 'key' => 'field_ep_in_hero_description', 'label' => 'Description', 'name' => 'in_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your India journey. Get protected before you travel with Ashford's trusted travel health specialists." ),
+            array( 'key' => 'field_ep_in_hero_cta_text', 'label' => 'CTA Text', 'name' => 'in_hero_cta_text', 'type' => 'text', 'default_value' => 'Book India Consultation' ),
+            array( 'key' => 'field_ep_in_hero_cta_url', 'label' => 'CTA URL', 'name' => 'in_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K2. India — Quick Info Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_stats',
+        'title'    => 'India — Quick Info Bar',
+        'fields'   => array(
+            array(
+                'key'          => 'field_ep_in_stats',
+                'label'        => 'Stats',
+                'name'         => 'in_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_in_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_in_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_in_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                ),
+            ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K3. India — Recommended Vaccinations
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_vaccines',
+        'title'    => 'India — Recommended Vaccinations',
+        'fields'   => array(
+            array( 'key' => 'field_ep_in_vaccines_title', 'label' => 'Title', 'name' => 'in_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in India' ),
+            array( 'key' => 'field_ep_in_vaccines_desc', 'label' => 'Description', 'name' => 'in_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to India' ),
+            array(
+                'key'          => 'field_ep_in_vaccinations',
+                'label'        => 'Vaccinations',
+                'name'         => 'in_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 10,
+                'button_label' => 'Add Vaccination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_in_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_in_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_in_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'purple' => 'Purple (Essential/Recommended)', 'gray' => 'Grey (Consider/Rural)' ), 'default_value' => 'purple', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_in_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Essential', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_in_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_ep_in_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K4. India — Malaria Information
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_malaria',
+        'title'    => 'India — Malaria Information',
+        'fields'   => array(
+            array( 'key' => 'field_ep_in_malaria_image', 'label' => 'Image', 'name' => 'in_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_in_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'in_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_ep_in_malaria_badge', 'label' => 'Section Badge', 'name' => 'in_malaria_badge', 'type' => 'text', 'default_value' => 'MOSQUITO-BORNE DISEASES' ),
+            array( 'key' => 'field_ep_in_malaria_title', 'label' => 'Title', 'name' => 'in_malaria_title', 'type' => 'text', 'default_value' => 'Malaria & Dengue Risks in India' ),
+            array( 'key' => 'field_ep_in_malaria_intro', 'label' => 'Intro Text', 'name' => 'in_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk varies across India. Dengue fever is also a significant risk nationwide. Our pharmacists will check your specific itinerary and advise on prevention.' ),
+            array(
+                'key'          => 'field_ep_in_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'in_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Risk Item',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_in_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-check-circle', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_in_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'low-risk', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_in_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_in_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K5. India — Health Advice
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_health',
+        'title'    => 'India — Health Advice',
+        'fields'   => array(
+            array( 'key' => 'field_ep_in_health_badge', 'label' => 'Badge Text', 'name' => 'in_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
+            array( 'key' => 'field_ep_in_health_title', 'label' => 'Title', 'name' => 'in_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in India' ),
+            array( 'key' => 'field_ep_in_health_subtitle', 'label' => 'Subtitle', 'name' => 'in_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe journey' ),
+            array(
+                'key'          => 'field_ep_in_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'in_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Tip',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_in_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-glass-water', 'placeholder' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_in_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_in_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_in_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K6. India — Final CTA
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_in_cta',
+        'title'    => 'India — Final CTA',
+        'fields'   => array(
+            array( 'key' => 'field_ep_in_cta_title', 'label' => 'Title', 'name' => 'in_cta_title', 'type' => 'text', 'default_value' => 'Ready for your India adventure?' ),
+            array( 'key' => 'field_ep_in_cta_description', 'label' => 'Description', 'name' => 'in_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your India travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_ep_in_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'in_cta_primary_text', 'type' => 'text', 'default_value' => 'Book India Consultation' ),
+            array( 'key' => 'field_ep_in_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'in_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_ep_in_cta_check_1', 'label' => 'Check 1', 'name' => 'in_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
+            array( 'key' => 'field_ep_in_cta_check_2', 'label' => 'Check 2', 'name' => 'in_cta_check_2', 'type' => 'text', 'default_value' => 'Expert India Advice' ),
+            array( 'key' => 'field_ep_in_cta_check_3', 'label' => 'Check 3', 'name' => 'in_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines Available' ),
+        ),
+        'location'              => $in_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L. CAPE VERDE TRAVEL PAGE FIELDS
+    // =========================================================================
+    $cv_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-travel-cape-verde.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // L1. Cape Verde — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_cv_hero',
+        'title'    => 'Cape Verde — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_cv_hero_badge', 'label' => 'Badge Text', 'name' => 'cv_hero_badge', 'type' => 'text', 'default_value' => 'CAPE VERDE TRAVEL HEALTH' ),
+            array( 'key' => 'field_ep_cv_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'cv_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
+            array( 'key' => 'field_ep_cv_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'cv_hero_title_highlight', 'type' => 'text', 'default_value' => 'Cape Verde' ),
+            array( 'key' => 'field_ep_cv_hero_description', 'label' => 'Description', 'name' => 'cv_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Cape Verde holiday. Get protected before you travel with Ashford's trusted travel health specialists." ),
+            array( 'key' => 'field_ep_cv_hero_cta_text', 'label' => 'CTA Text', 'name' => 'cv_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+            array( 'key' => 'field_ep_cv_hero_cta_url', 'label' => 'CTA URL', 'name' => 'cv_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'              => $cv_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // L2. Cape Verde — Quick Info Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_cv_stats',
+        'title'    => 'Cape Verde — Quick Info Bar',
+        'fields'   => array(
+            array(
+                'key'          => 'field_ep_cv_stats',
+                'label'        => 'Stats',
+                'name'         => 'cv_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_cv_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_cv_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_cv_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                ),
+            ),
+        ),
+        'location'              => $cv_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // L3. Cape Verde — Recommended Vaccinations
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_cv_vaccines',
+        'title'    => 'Cape Verde — Recommended Vaccinations',
+        'fields'   => array(
+            array( 'key' => 'field_ep_cv_vaccines_title', 'label' => 'Title', 'name' => 'cv_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in Cape Verde' ),
+            array( 'key' => 'field_ep_cv_vaccines_desc', 'label' => 'Description', 'name' => 'cv_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to Cape Verde' ),
+            array(
+                'key'          => 'field_ep_cv_vaccinations',
+                'label'        => 'Vaccinations',
+                'name'         => 'cv_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 10,
+                'button_label' => 'Add Vaccination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_cv_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_cv_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_cv_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'purple' => 'Purple (Essential/Recommended)', 'gray' => 'Grey (Consider/Certificate)' ), 'default_value' => 'purple', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_cv_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Essential', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_cv_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_ep_cv_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $cv_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // L4. Cape Verde — Malaria Information
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_cv_malaria',
+        'title'    => 'Cape Verde — Malaria Information',
+        'fields'   => array(
+            array( 'key' => 'field_ep_cv_malaria_image', 'label' => 'Image', 'name' => 'cv_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_cv_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'cv_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_ep_cv_malaria_badge', 'label' => 'Section Badge', 'name' => 'cv_malaria_badge', 'type' => 'text', 'default_value' => 'MOSQUITO RISKS' ),
+            array( 'key' => 'field_ep_cv_malaria_title', 'label' => 'Title', 'name' => 'cv_malaria_title', 'type' => 'text', 'default_value' => 'Malaria & Dengue in Cape Verde' ),
+            array( 'key' => 'field_ep_cv_malaria_intro', 'label' => 'Intro Text', 'name' => 'cv_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk is generally low but present on Santiago island. Dengue fever and Zika virus are also risks. Bite avoidance is essential.' ),
+            array(
+                'key'          => 'field_ep_cv_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'cv_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Risk Item',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_cv_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-check-circle', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_cv_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'low-risk', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_cv_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_cv_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'              => $cv_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // L5. Cape Verde — Health Advice
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_cv_health',
+        'title'    => 'Cape Verde — Health Advice',
+        'fields'   => array(
+            array( 'key' => 'field_ep_cv_health_badge', 'label' => 'Badge Text', 'name' => 'cv_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
+            array( 'key' => 'field_ep_cv_health_title', 'label' => 'Title', 'name' => 'cv_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in Cape Verde' ),
+            array( 'key' => 'field_ep_cv_health_subtitle', 'label' => 'Subtitle', 'name' => 'cv_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe trip' ),
+            array(
+                'key'          => 'field_ep_cv_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'cv_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Tip',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_cv_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-glass-water', 'placeholder' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_cv_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_cv_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_cv_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'              => $cv_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // L6. Cape Verde — Final CTA
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_cv_cta',
+        'title'    => 'Cape Verde — Final CTA',
+        'fields'   => array(
+            array( 'key' => 'field_ep_cv_cta_title', 'label' => 'Title', 'name' => 'cv_cta_title', 'type' => 'text', 'default_value' => 'Ready for Cape Verde?' ),
+            array( 'key' => 'field_ep_cv_cta_description', 'label' => 'Description', 'name' => 'cv_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_ep_cv_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'cv_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+            array( 'key' => 'field_ep_cv_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'cv_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_ep_cv_cta_check_1', 'label' => 'Check 1', 'name' => 'cv_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
+            array( 'key' => 'field_ep_cv_cta_check_2', 'label' => 'Check 2', 'name' => 'cv_cta_check_2', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_ep_cv_cta_check_3', 'label' => 'Check 3', 'name' => 'cv_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines' ),
+        ),
+        'location'              => $cv_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // M. YELLOW FEVER VACCINATION PAGE FIELDS  (yf_ prefix)
+    // =========================================================================
+
+    $yf_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-yellow-fever.php',
+            ),
+        ),
+    );
+
+    // ── M1. Hero ──────────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_yf_hero',
+        'title'    => 'Yellow Fever — Hero',
+        'fields'   => array(
+            array( 'key' => 'field_ep_yf_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'yf_parent_url', 'type' => 'url', 'default_value' => '', 'instructions' => 'Travel Health page URL. Leave blank for /travel-health/.' ),
+            array( 'key' => 'field_ep_yf_hero_label', 'label' => 'Hero Label', 'name' => 'yf_hero_label', 'type' => 'text', 'default_value' => 'OFFICIAL YELLOW FEVER CENTRE' ),
+            array( 'key' => 'field_ep_yf_hero_title', 'label' => 'Hero Title', 'name' => 'yf_hero_title', 'type' => 'text', 'default_value' => 'Yellow Fever Vaccination Service in Ashford' ),
+            array( 'key' => 'field_ep_yf_hero_description', 'label' => 'Hero Description', 'name' => 'yf_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'We are an official NHS Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Easy Pharmacy Ashford.' ),
+            array( 'key' => 'field_ep_yf_hero_cta_text', 'label' => 'Hero CTA Text', 'name' => 'yf_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Yellow Fever Vaccination' ),
+            array( 'key' => 'field_ep_yf_hero_cta_url', 'label' => 'Hero CTA URL', 'name' => 'yf_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array(
+                'key'        => 'field_ep_yf_hero_badges',
+                'label'      => 'Hero Badges',
+                'name'       => 'yf_hero_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 5,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_hero_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── M2. Certification ─────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_yf_cert',
+        'title'    => 'Yellow Fever — Certification',
+        'fields'   => array(
+            array( 'key' => 'field_ep_yf_cert_badge', 'label' => 'Section Badge', 'name' => 'yf_cert_badge', 'type' => 'text', 'default_value' => 'OFFICIAL CENTRE' ),
+            array( 'key' => 'field_ep_yf_cert_title', 'label' => 'Title', 'name' => 'yf_cert_title', 'type' => 'text', 'default_value' => 'Designated Yellow Fever Vaccination Centre' ),
+            array( 'key' => 'field_ep_yf_cert_desc', 'label' => 'Description', 'name' => 'yf_cert_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Authorised to administer yellow fever vaccinations and issue international certificates' ),
+            array( 'key' => 'field_ep_yf_cert_image', 'label' => 'Pharmacist Image', 'name' => 'yf_cert_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_yf_cert_nametag_name', 'label' => 'Name Tag — Name', 'name' => 'yf_cert_nametag_name', 'type' => 'text', 'default_value' => 'Dilip Sherathia' ),
+            array( 'key' => 'field_ep_yf_cert_nametag_role', 'label' => 'Name Tag — Role', 'name' => 'yf_cert_nametag_role', 'type' => 'text', 'default_value' => 'Lead Pharmacist & Yellow Fever Specialist' ),
+            array( 'key' => 'field_ep_yf_cert_highlight', 'label' => 'Highlight Badge Text', 'name' => 'yf_cert_highlight', 'type' => 'text', 'default_value' => 'NHS Designated Yellow Fever Centre' ),
+            array( 'key' => 'field_ep_yf_cert_subtitle', 'label' => 'Subtitle', 'name' => 'yf_cert_subtitle', 'type' => 'text', 'default_value' => 'Why Choose Our Centre' ),
+            array( 'key' => 'field_ep_yf_cert_text', 'label' => 'Body Text', 'name' => 'yf_cert_text', 'type' => 'textarea', 'rows' => 4, 'default_value' => 'As an officially designated Yellow Fever Vaccination Centre, we are authorised by NaTHNaC to administer the Stamaril vaccine and issue the International Certificate of Vaccination or Prophylaxis (ICVP). Our lead pharmacist has specialist training in travel health.' ),
+            array( 'key' => 'field_ep_yf_cert_cta_url', 'label' => 'CTA URL', 'name' => 'yf_cert_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array(
+                'key'        => 'field_ep_yf_cert_features',
+                'label'      => 'Features',
+                'name'       => 'yf_cert_features',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_cert_feat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fa-certificate', 'instructions' => 'Font Awesome class, e.g. fa-certificate' ),
+                    array( 'key' => 'field_ep_yf_cert_feat_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_yf_cert_feat_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+            array( 'key' => 'field_ep_yf_cert_callout_badge', 'label' => 'Callout Badge', 'name' => 'yf_cert_callout_badge', 'type' => 'text', 'default_value' => 'IMPORTANT' ),
+            array( 'key' => 'field_ep_yf_cert_callout_title', 'label' => 'Callout Title', 'name' => 'yf_cert_callout_title', 'type' => 'text', 'default_value' => '10-Day Validity Rule' ),
+            array( 'key' => 'field_ep_yf_cert_callout_text', 'label' => 'Callout Text', 'name' => 'yf_cert_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Your yellow fever certificate becomes valid 10 days after vaccination. Please ensure you are vaccinated at least 10 days before entering a country that requires proof of vaccination.' ),
+            array( 'key' => 'field_ep_yf_cert_callout_note', 'label' => 'Callout Note', 'name' => 'yf_cert_callout_note', 'type' => 'text', 'default_value' => 'Once valid, the certificate provides lifelong proof of vaccination.' ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── M3. Stats Bar ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_yf_stats',
+        'title'    => 'Yellow Fever — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_yf_stats',
+                'label'      => 'Stats',
+                'name'       => 'yf_stats',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 5,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_stat_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fa-certificate', 'instructions' => 'Font Awesome class' ),
+                    array( 'key' => 'field_ep_yf_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_yf_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── M4. About Yellow Fever ────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_yf_about',
+        'title'    => 'Yellow Fever — About the Disease',
+        'fields'   => array(
+            array( 'key' => 'field_ep_yf_about_badge', 'label' => 'Section Badge', 'name' => 'yf_about_badge', 'type' => 'text', 'default_value' => 'ABOUT THE DISEASE' ),
+            array( 'key' => 'field_ep_yf_about_title', 'label' => 'Title', 'name' => 'yf_about_title', 'type' => 'text', 'default_value' => 'What is Yellow Fever?' ),
+            array( 'key' => 'field_ep_yf_about_desc', 'label' => 'Description', 'name' => 'yf_about_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'A serious viral infection spread by mosquitoes in tropical regions' ),
+            array( 'key' => 'field_ep_yf_about_image', 'label' => 'Image', 'name' => 'yf_about_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array(
+                'key'        => 'field_ep_yf_about_cards',
+                'label'      => 'Info Cards',
+                'name'       => 'yf_about_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_about_card_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fa-virus', 'instructions' => 'Font Awesome class' ),
+                    array( 'key' => 'field_ep_yf_about_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_yf_about_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+            array( 'key' => 'field_ep_yf_about_callout_badge', 'label' => 'Callout Badge', 'name' => 'yf_about_callout_badge', 'type' => 'text', 'default_value' => 'SERIOUS RISK' ),
+            array( 'key' => 'field_ep_yf_about_callout_title', 'label' => 'Callout Title', 'name' => 'yf_about_callout_title', 'type' => 'text', 'default_value' => 'Up to 50% Fatality Rate in Severe Cases' ),
+            array( 'key' => 'field_ep_yf_about_callout_text', 'label' => 'Callout Text', 'name' => 'yf_about_callout_text', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Yellow Fever can be fatal. There is no antiviral treatment. Vaccination provides the best protection and is required for entry to many countries. A single dose gives lifelong protection for most travellers.' ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 15,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── M5. Who Needs Vaccination ─────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_yf_needs',
+        'title'    => 'Yellow Fever — Who Needs Vaccination',
+        'fields'   => array(
+            array( 'key' => 'field_ep_yf_needs_badge', 'label' => 'Section Badge', 'name' => 'yf_needs_badge', 'type' => 'text', 'default_value' => 'WHO NEEDS VACCINATION' ),
+            array( 'key' => 'field_ep_yf_needs_title', 'label' => 'Title', 'name' => 'yf_needs_title', 'type' => 'text', 'default_value' => 'Do You Need the Yellow Fever Vaccine?' ),
+            array( 'key' => 'field_ep_yf_needs_desc', 'label' => 'Description', 'name' => 'yf_needs_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Required or recommended depending on your destination' ),
+            array(
+                'key'        => 'field_ep_yf_needs_cards',
+                'label'      => 'Cards',
+                'name'       => 'yf_needs_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 4,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_needs_card_type', 'label' => 'Type', 'name' => 'type', 'type' => 'select', 'choices' => array( 'required' => 'Required', 'recommended' => 'Recommended' ), 'default_value' => 'required' ),
+                    array( 'key' => 'field_ep_yf_needs_card_badge', 'label' => 'Badge Text', 'name' => 'badge', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_yf_needs_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_yf_needs_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'        => 'field_ep_yf_needs_card_items',
+                        'label'      => 'Checklist Items',
+                        'name'       => 'items',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'min'        => 0,
+                        'max'        => 6,
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_yf_needs_item_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_ep_yf_needs_info', 'label' => 'Info Note', 'name' => 'yf_needs_info', 'type' => 'text', 'default_value' => "Not sure if you need the vaccine? Book a consultation and we'll check your destination requirements." ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── M6. Risk Countries ────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_yf_risk',
+        'title'    => 'Yellow Fever — Risk Countries',
+        'fields'   => array(
+            array( 'key' => 'field_ep_yf_risk_badge', 'label' => 'Section Badge', 'name' => 'yf_risk_badge', 'type' => 'text', 'default_value' => 'RISK COUNTRIES' ),
+            array( 'key' => 'field_ep_yf_risk_title', 'label' => 'Title', 'name' => 'yf_risk_title', 'type' => 'text', 'default_value' => 'Yellow Fever Risk Countries' ),
+            array( 'key' => 'field_ep_yf_risk_desc', 'label' => 'Description', 'name' => 'yf_risk_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Yellow Fever is found in tropical regions of Africa and South America. Check if your destination requires vaccination.' ),
+            array(
+                'key'        => 'field_ep_yf_risk_stats',
+                'label'      => 'Stats Boxes',
+                'name'       => 'yf_risk_stats',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 4,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_risk_stat_num', 'label' => 'Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_yf_risk_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_yf_risk_stat_sub', 'label' => 'Sub Text', 'name' => 'sub', 'type' => 'text' ),
+                ),
+            ),
+            array(
+                'key'        => 'field_ep_yf_risk_zones',
+                'label'      => 'Risk Zones',
+                'name'       => 'yf_risk_zones',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 4,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_risk_zone_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+                    array( 'key' => 'field_ep_yf_risk_zone_image_url', 'label' => 'Image URL (fallback)', 'name' => 'image_url', 'type' => 'url', 'instructions' => 'Used if no image uploaded.' ),
+                    array( 'key' => 'field_ep_yf_risk_zone_type', 'label' => 'Type (CSS class)', 'name' => 'type', 'type' => 'select', 'choices' => array( 'africa' => 'Africa', 'america' => 'South America' ), 'default_value' => 'africa' ),
+                    array( 'key' => 'field_ep_yf_risk_zone_emoji', 'label' => 'Emoji', 'name' => 'emoji', 'type' => 'text', 'instructions' => 'Globe emoji for the card icon' ),
+                    array( 'key' => 'field_ep_yf_risk_zone_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_yf_risk_zone_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'        => 'field_ep_yf_risk_zone_countries',
+                        'label'      => 'Countries',
+                        'name'       => 'countries',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'min'        => 0,
+                        'max'        => 20,
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_yf_risk_country_name', 'label' => 'Country Name', 'name' => 'name', 'type' => 'text' ),
+                        ),
+                    ),
+                    array( 'key' => 'field_ep_yf_risk_zone_note', 'label' => 'Note', 'name' => 'note', 'type' => 'text', 'instructions' => 'e.g. "+ 26 more African countries with risk areas"' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_yf_risk_callout_title', 'label' => 'Callout Title', 'name' => 'yf_risk_callout_title', 'type' => 'text', 'default_value' => 'Not Sure About Your Destination?' ),
+            array( 'key' => 'field_ep_yf_risk_callout_text', 'label' => 'Callout Text', 'name' => 'yf_risk_callout_text', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Yellow Fever requirements change regularly. Our pharmacist will check the latest country-by-country requirements and advise whether you need the vaccine for your specific trip.' ),
+            array(
+                'key'        => 'field_ep_yf_risk_callout_badges',
+                'label'      => 'Callout Badges',
+                'name'       => 'yf_risk_callout_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 5,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_risk_cb_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_yf_risk_footer_text', 'label' => 'Footer Info Text', 'name' => 'yf_risk_footer_text', 'type' => 'text', 'default_value' => "Unsure about your destination? We'll check the latest requirements for you." ),
+            array( 'key' => 'field_ep_yf_risk_cta_url', 'label' => 'Footer CTA URL', 'name' => 'yf_risk_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 25,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── M7. Appointment Details ───────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_yf_details',
+        'title'    => 'Yellow Fever — Appointment Details',
+        'fields'   => array(
+            array( 'key' => 'field_ep_yf_details_badge', 'label' => 'Section Badge', 'name' => 'yf_details_badge', 'type' => 'text', 'default_value' => 'YOUR APPOINTMENT' ),
+            array( 'key' => 'field_ep_yf_details_title', 'label' => 'Title', 'name' => 'yf_details_title', 'type' => 'text', 'default_value' => 'What to Expect at Your Appointment' ),
+            array( 'key' => 'field_ep_yf_details_desc', 'label' => 'Description', 'name' => 'yf_details_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Simple, straightforward vaccination process at our Ashford clinic' ),
+            array( 'key' => 'field_ep_yf_details_image', 'label' => 'Hero Image', 'name' => 'yf_details_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array(
+                'key'        => 'field_ep_yf_details',
+                'label'      => 'Detail Cards',
+                'name'       => 'yf_details',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 8,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_detail_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fa-syringe', 'instructions' => 'Font Awesome class' ),
+                    array( 'key' => 'field_ep_yf_detail_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_yf_detail_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── M8. FAQ ───────────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_yf_faq',
+        'title'    => 'Yellow Fever — FAQ',
+        'fields'   => array(
+            array( 'key' => 'field_ep_yf_faq_badge', 'label' => 'Section Badge', 'name' => 'yf_faq_badge', 'type' => 'text', 'default_value' => 'YELLOW FEVER FAQs' ),
+            array( 'key' => 'field_ep_yf_faq_title', 'label' => 'Title', 'name' => 'yf_faq_title', 'type' => 'text', 'default_value' => 'Common Questions' ),
+            array( 'key' => 'field_ep_yf_faq_desc', 'label' => 'Description', 'name' => 'yf_faq_desc', 'type' => 'text', 'default_value' => 'Everything you need to know about Yellow Fever vaccination' ),
+            array(
+                'key'        => 'field_ep_yf_faqs',
+                'label'      => 'FAQs',
+                'name'       => 'yf_faqs',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 10,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_yf_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── M9. Final CTA ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_yf_cta',
+        'title'    => 'Yellow Fever — Final CTA',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_yf_cta_badges',
+                'label'      => 'CTA Badges',
+                'name'       => 'yf_cta_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 5,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_cta_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_yf_cta_title', 'label' => 'Title', 'name' => 'yf_cta_title', 'type' => 'text', 'default_value' => 'Get your Yellow Fever vaccination and certificate' ),
+            array( 'key' => 'field_ep_yf_cta_desc', 'label' => 'Description', 'name' => 'yf_cta_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your Yellow Fever vaccination at our official centre in Ashford. Certificate issued on the day.' ),
+            array( 'key' => 'field_ep_yf_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'yf_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Vaccination' ),
+            array( 'key' => 'field_ep_yf_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'yf_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array(
+                'key'        => 'field_ep_yf_cta_checks',
+                'label'      => 'Trust Checks',
+                'name'       => 'yf_cta_checks',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 5,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_yf_cta_check_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );
