@@ -74,12 +74,8 @@ get_header();
     <div class="travel-stats-grid">
       <?php if ( have_rows( 'th_stats' ) ) : while ( have_rows( 'th_stats' ) ) : the_row(); ?>
         <div class="travel-stat-item">
-          <div class="travel-stat-image-wrapper">
-            <?php $stat_image = get_sub_field( 'image' ); if ( $stat_image ) : ?>
-              <img src="<?php echo esc_url( $stat_image ); ?>" alt="<?php echo esc_attr( get_sub_field( 'label' ) ); ?>" class="travel-stat-image" style="object-fit: contain;" />
-            <?php else : ?>
-              <div class="travel-stat-icon-fallback"><i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i></div>
-            <?php endif; ?>
+          <div class="travel-stat-icon">
+            <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
           </div>
           <div class="travel-stat-content">
             <p class="travel-stat-number"><?php echo esc_html( get_sub_field( 'number' ) ); ?></p>
@@ -88,27 +84,19 @@ get_header();
         </div>
       <?php endwhile; else : ?>
         <div class="travel-stat-item">
-          <div class="travel-stat-image-wrapper">
-            <img src="https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771163076528-1.png" alt="Official Yellow Fever Centre" class="travel-stat-image" style="object-fit: contain;" />
-          </div>
+          <div class="travel-stat-icon"><i class="fas fa-shield-virus"></i></div>
           <div class="travel-stat-content"><p class="travel-stat-number">Official</p><p class="travel-stat-label">Yellow Fever Centre</p></div>
         </div>
         <div class="travel-stat-item">
-          <div class="travel-stat-image-wrapper">
-            <img src="https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771162536465-0.png" alt="British Passport" class="travel-stat-image" style="object-fit: contain;" />
-          </div>
+          <div class="travel-stat-icon"><i class="fas fa-passport"></i></div>
           <div class="travel-stat-content"><p class="travel-stat-number">1,000+</p><p class="travel-stat-label">Travellers Protected</p></div>
         </div>
         <div class="travel-stat-item">
-          <div class="travel-stat-image-wrapper">
-            <img src="https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771163876571-0.png" alt="Years Experience" class="travel-stat-image" />
-          </div>
+          <div class="travel-stat-icon"><i class="fas fa-award"></i></div>
           <div class="travel-stat-content"><p class="travel-stat-number">30+</p><p class="travel-stat-label">Years Experience</p></div>
         </div>
         <div class="travel-stat-item">
-          <div class="travel-stat-image-wrapper">
-            <img src="https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771163876573-1.png" alt="GPhC Registered" class="travel-stat-image" />
-          </div>
+          <div class="travel-stat-icon"><i class="fas fa-shield-halved"></i></div>
           <div class="travel-stat-content"><p class="travel-stat-number">GPhC</p><p class="travel-stat-label">Registered</p></div>
         </div>
       <?php endif; ?>
