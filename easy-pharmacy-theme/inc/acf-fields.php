@@ -4454,7 +4454,7 @@ function ep_register_acf_field_groups() {
                 'button_label' => 'Add Stat',
                 'sub_fields'   => array(
                     array( 'key' => 'field_ep_th_stat_image', 'label' => 'Image', 'name' => 'image', 'type' => 'url', 'instructions' => 'URL of stat image/icon.', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_ep_th_stat_icon', 'label' => 'Icon Class (fallback)', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class if no image.', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_th_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-shield-virus. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-shield-virus', 'wrapper' => array( 'width' => '20' ) ),
                     array( 'key' => 'field_ep_th_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
                     array( 'key' => 'field_ep_th_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
                 ),
@@ -4585,7 +4585,7 @@ function ep_register_acf_field_groups() {
                 'max'          => 8,
                 'button_label' => 'Add Service',
                 'sub_fields'   => array(
-                    array( 'key' => 'field_ep_th_svc_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_th_svc_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '20' ) ),
                     array( 'key' => 'field_ep_th_svc_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
                     array( 'key' => 'field_ep_th_svc_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
                     array( 'key' => 'field_ep_th_svc_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
@@ -4622,7 +4622,7 @@ function ep_register_acf_field_groups() {
                 'button_label' => 'Add Vaccination',
                 'sub_fields'   => array(
                     array( 'key' => 'field_ep_th_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_ep_th_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_th_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '25' ) ),
                     array( 'key' => 'field_ep_th_vax_featured', 'label' => 'Featured?', 'name' => 'is_featured', 'type' => 'true_false', 'default_value' => 0, 'ui' => 1, 'wrapper' => array( 'width' => '20' ) ),
                     array( 'key' => 'field_ep_th_vax_badge', 'label' => 'Badge Text', 'name' => 'badge', 'type' => 'text', 'instructions' => 'Optional badge e.g. "Official Centre".', 'wrapper' => array( 'width' => '25' ) ),
                 ),
@@ -4661,8 +4661,8 @@ function ep_register_acf_field_groups() {
                     array( 'key' => 'field_ep_th_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3, 'wrapper' => array( 'width' => '70' ) ),
                     array( 'key' => 'field_ep_th_step_image', 'label' => 'Step Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
                     array( 'key' => 'field_ep_th_step_icon_image', 'label' => 'Icon Image', 'name' => 'icon_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'thumbnail', 'instructions' => 'Upload a custom icon image (e.g. passport). Falls back to icon class.', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_ep_th_step_icon', 'label' => 'Icon Class (fallback)', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-passport', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_ep_th_step_meta_icon', 'label' => 'Meta Icon', 'name' => 'meta_icon', 'type' => 'text', 'default_value' => 'fas fa-clock', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_th_step_icon', 'label' => 'Icon Class (fallback)', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class if no icon image. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-passport', 'placeholder' => 'fas fa-passport', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_th_step_meta_icon', 'label' => 'Meta Icon', 'name' => 'meta_icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-clock', 'placeholder' => 'fas fa-clock', 'wrapper' => array( 'width' => '15' ) ),
                     array( 'key' => 'field_ep_th_step_meta_text', 'label' => 'Meta Text', 'name' => 'meta_text', 'type' => 'text', 'wrapper' => array( 'width' => '15' ) ),
                 ),
             ),
