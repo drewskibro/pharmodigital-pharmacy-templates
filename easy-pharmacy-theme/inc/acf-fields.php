@@ -4939,5 +4939,208 @@ function ep_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+    // =========================================================================
+    // J. KENYA TRAVEL PAGE FIELDS
+    // =========================================================================
+    $ke_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-travel-kenya.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // J1. Kenya — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ke_hero',
+        'title'    => 'Kenya — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_ke_hero_badge', 'label' => 'Badge Text', 'name' => 'ke_hero_badge', 'type' => 'text', 'default_value' => 'KENYA TRAVEL HEALTH' ),
+            array( 'key' => 'field_ep_ke_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'ke_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
+            array( 'key' => 'field_ep_ke_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'ke_hero_title_highlight', 'type' => 'text', 'default_value' => 'Kenya' ),
+            array( 'key' => 'field_ep_ke_hero_description', 'label' => 'Description', 'name' => 'ke_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Kenya safari or holiday. Yellow Fever, Malaria, and more. Get protected with Ashford's specialists." ),
+            array( 'key' => 'field_ep_ke_hero_cta_text', 'label' => 'CTA Text', 'name' => 'ke_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Kenya Consultation' ),
+            array( 'key' => 'field_ep_ke_hero_cta_url', 'label' => 'CTA URL', 'name' => 'ke_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'              => $ke_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // J2. Kenya — Quick Info Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ke_stats',
+        'title'    => 'Kenya — Quick Info Bar',
+        'fields'   => array(
+            array(
+                'key'          => 'field_ep_ke_stats',
+                'label'        => 'Stats',
+                'name'         => 'ke_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_ke_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_ke_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_ke_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                ),
+            ),
+        ),
+        'location'              => $ke_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // J3. Kenya — Recommended Vaccinations
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ke_vaccines',
+        'title'    => 'Kenya — Recommended Vaccinations',
+        'fields'   => array(
+            array( 'key' => 'field_ep_ke_vaccines_title', 'label' => 'Title', 'name' => 'ke_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in Kenya' ),
+            array( 'key' => 'field_ep_ke_vaccines_desc', 'label' => 'Description', 'name' => 'ke_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to Kenya' ),
+            array(
+                'key'          => 'field_ep_ke_vaccinations',
+                'label'        => 'Vaccinations',
+                'name'         => 'ke_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 10,
+                'button_label' => 'Add Vaccination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_ke_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_ke_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_ke_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'purple' => 'Purple (Essential/Recommended)', 'gray' => 'Grey (Consider/Rural)' ), 'default_value' => 'purple', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_ke_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Essential', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_ke_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_ep_ke_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $ke_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // J4. Kenya — Malaria Information
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ke_malaria',
+        'title'    => 'Kenya — Malaria Information',
+        'fields'   => array(
+            array( 'key' => 'field_ep_ke_malaria_image', 'label' => 'Image', 'name' => 'ke_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_ke_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'ke_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_ep_ke_malaria_badge', 'label' => 'Section Badge', 'name' => 'ke_malaria_badge', 'type' => 'text', 'default_value' => 'HIGH RISK AREA' ),
+            array( 'key' => 'field_ep_ke_malaria_title', 'label' => 'Title', 'name' => 'ke_malaria_title', 'type' => 'text', 'default_value' => 'Malaria Risk in Kenya' ),
+            array( 'key' => 'field_ep_ke_malaria_intro', 'label' => 'Intro Text', 'name' => 'ke_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk is high throughout most of Kenya, including safari parks. Antimalarials are usually recommended.' ),
+            array(
+                'key'          => 'field_ep_ke_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'ke_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Risk Item',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_ke_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-exclamation-triangle', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_ke_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'high-risk', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_ke_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_ke_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'              => $ke_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // J5. Kenya — Health Advice
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ke_health',
+        'title'    => 'Kenya — Health Advice',
+        'fields'   => array(
+            array( 'key' => 'field_ep_ke_health_badge', 'label' => 'Badge Text', 'name' => 'ke_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
+            array( 'key' => 'field_ep_ke_health_title', 'label' => 'Title', 'name' => 'ke_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in Kenya' ),
+            array( 'key' => 'field_ep_ke_health_subtitle', 'label' => 'Subtitle', 'name' => 'ke_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe safari' ),
+            array(
+                'key'          => 'field_ep_ke_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'ke_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Tip',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_ke_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-glass-water', 'placeholder' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_ke_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_ke_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_ke_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'              => $ke_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // J6. Kenya — Final CTA
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ke_cta',
+        'title'    => 'Kenya — Final CTA',
+        'fields'   => array(
+            array( 'key' => 'field_ep_ke_cta_title', 'label' => 'Title', 'name' => 'ke_cta_title', 'type' => 'text', 'default_value' => 'Ready for your Kenya safari?' ),
+            array( 'key' => 'field_ep_ke_cta_description', 'label' => 'Description', 'name' => 'ke_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_ep_ke_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'ke_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Kenya Consultation' ),
+            array( 'key' => 'field_ep_ke_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'ke_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_ep_ke_cta_check_1', 'label' => 'Check 1', 'name' => 'ke_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
+            array( 'key' => 'field_ep_ke_cta_check_2', 'label' => 'Check 2', 'name' => 'ke_cta_check_2', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_ep_ke_cta_check_3', 'label' => 'Check 3', 'name' => 'ke_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines' ),
+        ),
+        'location'              => $ke_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );
