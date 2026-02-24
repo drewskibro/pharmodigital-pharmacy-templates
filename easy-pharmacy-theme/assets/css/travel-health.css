@@ -981,6 +981,7 @@
   .travel-process-card-body {
     display: flex;
     align-items: stretch;
+    max-height: 220px;
   }
 }
 
