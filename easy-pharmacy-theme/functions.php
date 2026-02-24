@@ -96,6 +96,10 @@ function easy_pharmacy_scripts() {
         wp_enqueue_script( 'easy-pharmacy-travel-health-js', EASY_PHARMACY_URI . '/assets/js/travel-health.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
+    if ( is_page_template( 'page-templates/page-travel-thailand.php' ) ) {
+        wp_enqueue_style( 'easy-pharmacy-travel-thailand', EASY_PHARMACY_URI . '/assets/css/travel-thailand.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+    }
+
     if ( is_page_template( 'page-templates/page-health-hub.php' ) || is_home() || is_category() || is_tag() || is_archive() ) {
         wp_enqueue_style( 'easy-pharmacy-blog', EASY_PHARMACY_URI . '/assets/css/blog.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
         wp_enqueue_script( 'easy-pharmacy-blog-js', EASY_PHARMACY_URI . '/assets/js/blog.js', array(), EASY_PHARMACY_VERSION, true );

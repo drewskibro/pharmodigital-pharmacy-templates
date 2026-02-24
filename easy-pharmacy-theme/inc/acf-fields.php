@@ -4736,5 +4736,208 @@ function ep_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // I. THAILAND TRAVEL PAGE FIELDS
+    // =========================================================================
+    $td_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-travel-thailand.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // I1. Thailand — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_td_hero',
+        'title'    => 'Thailand — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_td_hero_badge', 'label' => 'Badge Text', 'name' => 'td_hero_badge', 'type' => 'text', 'default_value' => 'THAILAND TRAVEL HEALTH' ),
+            array( 'key' => 'field_ep_td_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'td_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
+            array( 'key' => 'field_ep_td_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'td_hero_title_highlight', 'type' => 'text', 'default_value' => 'Thailand' ),
+            array( 'key' => 'field_ep_td_hero_description', 'label' => 'Description', 'name' => 'td_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Thailand adventure. Get protected before you travel with Ashford's trusted travel health specialists." ),
+            array( 'key' => 'field_ep_td_hero_cta_text', 'label' => 'CTA Text', 'name' => 'td_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Thailand Consultation' ),
+            array( 'key' => 'field_ep_td_hero_cta_url', 'label' => 'CTA URL', 'name' => 'td_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'              => $td_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // I2. Thailand — Quick Info Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_td_stats',
+        'title'    => 'Thailand — Quick Info Bar',
+        'fields'   => array(
+            array(
+                'key'          => 'field_ep_td_stats',
+                'label'        => 'Stats',
+                'name'         => 'td_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_td_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_td_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_ep_td_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                ),
+            ),
+        ),
+        'location'              => $td_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // I3. Thailand — Recommended Vaccinations
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_td_vaccines',
+        'title'    => 'Thailand — Recommended Vaccinations',
+        'fields'   => array(
+            array( 'key' => 'field_ep_td_vaccines_title', 'label' => 'Title', 'name' => 'td_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in Thailand' ),
+            array( 'key' => 'field_ep_td_vaccines_desc', 'label' => 'Description', 'name' => 'td_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to Thailand' ),
+            array(
+                'key'          => 'field_ep_td_vaccinations',
+                'label'        => 'Vaccinations',
+                'name'         => 'td_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 10,
+                'button_label' => 'Add Vaccination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_td_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_td_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_td_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'purple' => 'Purple (Essential/Recommended)', 'gray' => 'Grey (Consider/Rural)' ), 'default_value' => 'purple', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_td_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Recommended', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_ep_td_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_ep_td_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $td_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // I4. Thailand — Malaria Information
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_td_malaria',
+        'title'    => 'Thailand — Malaria Information',
+        'fields'   => array(
+            array( 'key' => 'field_ep_td_malaria_image', 'label' => 'Image', 'name' => 'td_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_td_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'td_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_ep_td_malaria_badge', 'label' => 'Section Badge', 'name' => 'td_malaria_badge', 'type' => 'text', 'default_value' => 'MOSQUITO-BORNE DISEASES' ),
+            array( 'key' => 'field_ep_td_malaria_title', 'label' => 'Title', 'name' => 'td_malaria_title', 'type' => 'text', 'default_value' => 'Malaria & Dengue Risks in Thailand' ),
+            array( 'key' => 'field_ep_td_malaria_intro', 'label' => 'Intro Text', 'name' => 'td_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'While malaria risk is low in most tourist areas, Dengue fever is common nationwide. Our pharmacists will check your specific itinerary and advise on prevention.' ),
+            array(
+                'key'          => 'field_ep_td_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'td_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Risk Item',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_td_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-check-circle', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_td_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'low-risk', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_td_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_td_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'              => $td_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // I5. Thailand — Health Advice
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_td_health',
+        'title'    => 'Thailand — Health Advice',
+        'fields'   => array(
+            array( 'key' => 'field_ep_td_health_badge', 'label' => 'Badge Text', 'name' => 'td_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
+            array( 'key' => 'field_ep_td_health_title', 'label' => 'Title', 'name' => 'td_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in Thailand' ),
+            array( 'key' => 'field_ep_td_health_subtitle', 'label' => 'Subtitle', 'name' => 'td_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe tropical adventure' ),
+            array(
+                'key'          => 'field_ep_td_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'td_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Tip',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_ep_td_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-glass-water', 'placeholder' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_ep_td_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_td_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_ep_td_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'              => $td_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // I6. Thailand — Final CTA
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_td_cta',
+        'title'    => 'Thailand — Final CTA',
+        'fields'   => array(
+            array( 'key' => 'field_ep_td_cta_title', 'label' => 'Title', 'name' => 'td_cta_title', 'type' => 'text', 'default_value' => 'Ready for your Thailand adventure?' ),
+            array( 'key' => 'field_ep_td_cta_description', 'label' => 'Description', 'name' => 'td_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your Thailand travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_ep_td_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'td_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Thailand Consultation' ),
+            array( 'key' => 'field_ep_td_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'td_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_ep_td_cta_check_1', 'label' => 'Check 1', 'name' => 'td_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
+            array( 'key' => 'field_ep_td_cta_check_2', 'label' => 'Check 2', 'name' => 'td_cta_check_2', 'type' => 'text', 'default_value' => 'Expert Thailand Advice' ),
+            array( 'key' => 'field_ep_td_cta_check_3', 'label' => 'Check 3', 'name' => 'td_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines Available' ),
+        ),
+        'location'              => $td_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );

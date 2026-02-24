@@ -11,7 +11,7 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 60px 0 80px;
+  padding: 20px 0 80px;
   overflow: hidden;
   background-image: url('https://c.animaapp.com/mh1jrgnmeI4wDl/assets/5.jpg');
   background-size: cover;
@@ -127,16 +127,16 @@
    ============================================ */
 .thailand-stats-section {
   position: relative;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
+  background: linear-gradient(135deg, #1a1530 0%, #2d2252 50%, #1a1530 100%);
   padding: 3.5rem 0;
   overflow: hidden;
-  box-shadow: 0 10px 30px -10px rgba(109, 104, 181, 0.3);
+  border-bottom: 1px solid rgba(163, 158, 227, 0.15);
 }
 
 .thailand-stats-shimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  background: linear-gradient(90deg, transparent, rgba(163, 158, 227, 0.06), transparent);
   animation: shimmer 4s infinite;
 }
 
@@ -175,29 +175,25 @@
 .thailand-stat-icon {
   width: 4rem;
   height: 4rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(163, 158, 227, 0.2);
   border-radius: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(163, 158, 227, 0.35);
+  box-shadow: 0 0 20px rgba(163, 158, 227, 0.15);
   transition: all 0.3s ease;
 }
 
 .thailand-stat-item:hover .thailand-stat-icon {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(163, 158, 227, 0.3);
+  border-color: rgba(163, 158, 227, 0.5);
 }
 
 .thailand-stat-icon i {
   font-size: 1.5rem;
-  color: var(--white);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  color: var(--brand-purple);
 }
 
 .thailand-stat-content {
