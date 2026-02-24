@@ -204,10 +204,17 @@
 
 .travel-stats-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
   position: relative;
   z-index: 10;
+}
+
+@media (min-width: 480px) {
+  .travel-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -220,31 +227,41 @@
 .travel-stat-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  justify-content: center; /* Centered on mobile */
+  gap: 0.875rem;
+  justify-content: flex-start;
+  min-width: 0; /* Prevent overflow from flex children */
 }
 
 @media (min-width: 768px) {
   .travel-stat-item {
-    justify-content: flex-start; /* Left aligned on desktop */
+    gap: 1rem;
   }
 }
 
 .travel-stat-image-wrapper {
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 4rem;
+  height: 4rem;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-radius: 1.25rem;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  padding: 0.75rem;
+  padding: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 768px) {
+  .travel-stat-image-wrapper {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 1.25rem;
+    padding: 0.75rem;
+  }
 }
 
 .travel-stat-image {
@@ -252,8 +269,6 @@
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-  opacity: 1;
-  transform: scale(1.1);
 }
 
 .travel-stat-icon-fallback {
@@ -277,19 +292,31 @@
 
 .travel-stat-number {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: 1.375rem;
   font-weight: 900;
   color: var(--white);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
+@media (min-width: 768px) {
+  .travel-stat-number {
+    font-size: 1.75rem;
+  }
+}
+
 .travel-stat-label {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.85);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+  .travel-stat-label {
+    font-size: 0.8125rem;
+  }
 }
 
 
