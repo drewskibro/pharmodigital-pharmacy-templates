@@ -203,8 +203,9 @@
 }
 
 .travel-stats-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1.25rem;
   position: relative;
   z-index: 10;
@@ -212,6 +213,7 @@
 
 @media (min-width: 480px) {
   .travel-stats-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
@@ -228,13 +230,14 @@
   display: flex;
   align-items: center;
   gap: 0.875rem;
-  justify-content: flex-start;
-  min-width: 0; /* Prevent overflow from flex children */
+  justify-content: center;
+  min-width: 0;
 }
 
 @media (min-width: 768px) {
   .travel-stat-item {
     gap: 1rem;
+    justify-content: flex-start;
   }
 }
 
@@ -251,7 +254,7 @@
   flex-shrink: 0;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -260,15 +263,13 @@
     width: 5.5rem;
     height: 5.5rem;
     border-radius: 1.25rem;
-    padding: 0.75rem;
   }
 }
 
 .travel-stat-image {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 .travel-stat-icon-fallback {
