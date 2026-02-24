@@ -410,86 +410,79 @@ get_header();
       </h2>
     </div>
 
-    <?php if ( have_rows( 'th_process_steps' ) ) : $step_index = 0; while ( have_rows( 'th_process_steps' ) ) : the_row(); $step_index++;
-      $step_class = ( $step_index % 2 === 0 ) ? 'travel-process-step travel-process-step-right' : 'travel-process-step travel-process-step-left';
-      $step_image_id = get_sub_field( 'image' );
-      $step_image_url = $step_image_id ? wp_get_attachment_image_url( $step_image_id, 'large' ) : '';
-      $step_icon_id = get_sub_field( 'icon_image' );
-      $step_icon_url = $step_icon_id ? wp_get_attachment_image_url( $step_icon_id, 'medium' ) : '';
-    ?>
-      <div class="<?php echo esc_attr( $step_class ); ?>">
-        <div class="travel-process-step-content">
-          <div class="travel-process-step-icon-premium">
-            <?php if ( $step_icon_url ) : ?>
-              <img src="<?php echo esc_url( $step_icon_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" class="travel-process-passport-icon" />
-            <?php else : ?>
-              <div class="travel-process-icon-gradient">
-                <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+    <div class="travel-process-timeline">
+      <?php if ( have_rows( 'th_process_steps' ) ) : $step_index = 0; while ( have_rows( 'th_process_steps' ) ) : the_row(); $step_index++;
+        $step_image_id = get_sub_field( 'image' );
+        $step_image_url = $step_image_id ? wp_get_attachment_image_url( $step_image_id, 'large' ) : '';
+      ?>
+        <div class="travel-process-card">
+          <div class="travel-process-card-number">
+            <span><?php echo esc_html( $step_index ); ?></span>
+          </div>
+          <div class="travel-process-card-body">
+            <div class="travel-process-card-text">
+              <h3 class="travel-process-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+              <p class="travel-process-step-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+              <div class="travel-process-step-meta">
+                <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'meta_icon' ) ) ); ?>"></i>
+                <span><?php echo esc_html( get_sub_field( 'meta_text' ) ); ?></span>
+              </div>
+            </div>
+            <?php if ( $step_image_url ) : ?>
+              <div class="travel-process-card-image">
+                <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
               </div>
             <?php endif; ?>
           </div>
-          <h3 class="travel-process-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-          <p class="travel-process-step-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
-          <div class="travel-process-step-meta">
-            <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'meta_icon' ) ) ); ?>"></i>
-            <span><?php echo esc_html( get_sub_field( 'meta_text' ) ); ?></span>
-          </div>
         </div>
-        <?php if ( $step_image_url ) : ?>
-          <div class="travel-process-step-image">
-            <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
-          </div>
-        <?php endif; ?>
-      </div>
-    <?php endwhile; else : ?>
-      <?php
-      $steps = array(
-        array(
-          'title' => 'Book Consultation',
-          'desc' => 'Book your appointment online or call us. We recommend booking 6-8 weeks before travel, but we can often accommodate last-minute trips.',
-          'meta_icon' => 'fas fa-clock',
-          'meta_text' => 'Book online 24/7',
-          'image' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=500&fit=crop',
-          'layout' => 'left',
-        ),
-        array(
-          'title' => 'Consultation & Vaccination',
-          'desc' => 'Meet with our pharmacist to discuss your itinerary and health history. We\'ll administer necessary vaccinations and provide health advice.',
-          'meta_icon' => 'fas fa-check-circle',
-          'meta_text' => 'Safe & professional',
-          'image' => 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=500&fit=crop',
-          'layout' => 'right',
-        ),
-        array(
-          'title' => 'Travel with Confidence',
-          'desc' => 'Leave with your vaccination record card, any necessary medication (like antimalarials), and the peace of mind that you\'re protected.',
-          'meta_icon' => 'fas fa-passport',
-          'meta_text' => 'Official certificates',
-          'image' => 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=500&fit=crop',
-          'layout' => 'left',
-        ),
-      );
-      foreach ( $steps as $step ) :
-        $step_class = $step['layout'] === 'right' ? 'travel-process-step travel-process-step-right' : 'travel-process-step travel-process-step-left';
-      ?>
-        <div class="<?php echo esc_attr( $step_class ); ?>">
-          <div class="travel-process-step-content">
-            <div class="travel-process-step-icon-premium">
-              <img src="https://c.animaapp.com/mlxl197ser1khJ/img/uploaded-asset-1771832461325-1.png" alt="Passport" class="travel-process-passport-icon" />
+      <?php endwhile; else : ?>
+        <?php
+        $steps = array(
+          array(
+            'title' => 'Book Consultation',
+            'desc' => 'Book your appointment online or call us. We recommend booking 6-8 weeks before travel, but we can often accommodate last-minute trips.',
+            'meta_icon' => 'fas fa-clock',
+            'meta_text' => 'Book online 24/7',
+            'image' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
+          ),
+          array(
+            'title' => 'Consultation & Vaccination',
+            'desc' => 'Meet with our pharmacist to discuss your itinerary and health history. We\'ll administer necessary vaccinations and provide health advice.',
+            'meta_icon' => 'fas fa-check-circle',
+            'meta_text' => 'Safe & professional',
+            'image' => 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop',
+          ),
+          array(
+            'title' => 'Travel with Confidence',
+            'desc' => 'Leave with your vaccination record card, any necessary medication (like antimalarials), and the peace of mind that you\'re protected.',
+            'meta_icon' => 'fas fa-passport',
+            'meta_text' => 'Official certificates',
+            'image' => 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop',
+          ),
+        );
+        foreach ( $steps as $i => $step ) :
+        ?>
+          <div class="travel-process-card">
+            <div class="travel-process-card-number">
+              <span><?php echo esc_html( $i + 1 ); ?></span>
             </div>
-            <h3 class="travel-process-step-title"><?php echo esc_html( $step['title'] ); ?></h3>
-            <p class="travel-process-step-description"><?php echo esc_html( $step['desc'] ); ?></p>
-            <div class="travel-process-step-meta">
-              <i class="<?php echo esc_attr( $step['meta_icon'] ); ?>"></i>
-              <span><?php echo esc_html( $step['meta_text'] ); ?></span>
+            <div class="travel-process-card-body">
+              <div class="travel-process-card-text">
+                <h3 class="travel-process-step-title"><?php echo esc_html( $step['title'] ); ?></h3>
+                <p class="travel-process-step-description"><?php echo esc_html( $step['desc'] ); ?></p>
+                <div class="travel-process-step-meta">
+                  <i class="<?php echo esc_attr( $step['meta_icon'] ); ?>"></i>
+                  <span><?php echo esc_html( $step['meta_text'] ); ?></span>
+                </div>
+              </div>
+              <div class="travel-process-card-image">
+                <img src="<?php echo esc_url( $step['image'] ); ?>" alt="<?php echo esc_attr( $step['title'] ); ?>" />
+              </div>
             </div>
           </div>
-          <div class="travel-process-step-image">
-            <img src="<?php echo esc_url( $step['image'] ); ?>" alt="<?php echo esc_attr( $step['title'] ); ?>" />
-          </div>
-        </div>
-      <?php endforeach; ?>
-    <?php endif; ?>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
   </div>
 </section>
 
