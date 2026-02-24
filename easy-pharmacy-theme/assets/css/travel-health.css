@@ -11,7 +11,7 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 140px 0 80px;
+  padding: 20px 0 80px;
   overflow: hidden;
   background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=900&fit=crop');
   background-size: cover;
@@ -184,10 +184,10 @@
    ============================================ */
 .travel-stats-section {
   position: relative;
-  background: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-dark) 100%);
+  background: linear-gradient(135deg, #1a1530 0%, #2d2252 50%, #1a1530 100%);
   padding: 2.5rem 0;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(163, 158, 227, 0.15);
 }
 
 @media (min-width: 768px) {
@@ -199,7 +199,7 @@
 .travel-stats-shimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  background: linear-gradient(90deg, transparent, rgba(163, 158, 227, 0.06), transparent);
   animation: shimmer 4s infinite;
 }
 
@@ -231,17 +231,17 @@
   align-items: center;
   text-align: center;
   gap: 0.875rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(163, 158, 227, 0.08);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(163, 158, 227, 0.15);
   border-radius: 1.25rem;
   padding: 1.5rem 1rem;
   transition: all 0.3s ease;
 }
 
 .travel-stat-item:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(163, 158, 227, 0.15);
   transform: translateY(-4px);
 }
 
@@ -273,18 +273,19 @@
 .travel-stat-icon {
   width: 3.5rem;
   height: 3.5rem;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(163, 158, 227, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(163, 158, 227, 0.35);
+  box-shadow: 0 0 20px rgba(163, 158, 227, 0.15);
 }
 
 .travel-stat-icon i {
   font-size: 1.25rem;
-  color: var(--white);
+  color: var(--brand-purple);
 }
 
 @media (min-width: 768px) {
@@ -314,7 +315,7 @@
 
 .travel-stat-icon-fallback i {
   font-size: 1.5rem;
-  color: var(--white);
+  color: var(--brand-purple);
 }
 
 .travel-stat-content {
@@ -341,7 +342,7 @@
 .travel-stat-label {
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

@@ -208,6 +208,27 @@ function ep_field( $field_name, $default = '' ) {
 }
 
 /**
+ * Helper: Ensure Font Awesome icon class has a style prefix.
+ * Users often enter just "fa-file-medical" but FA6 requires "fas fa-file-medical".
+ * This auto-prefixes "fas " (solid) when no style prefix is present.
+ */
+function ep_fa_class( $icon_class ) {
+    $icon_class = trim( $icon_class );
+    if ( empty( $icon_class ) ) {
+        return '';
+    }
+    // Already has a Font Awesome style prefix — return as-is
+    if ( preg_match( '/^(fas|far|fab|fal|fad|fat|fass|fasr|fasl|fa-solid|fa-regular|fa-brands|fa-light|fa-duotone|fa-thin|fa-sharp)\s/', $icon_class ) ) {
+        return $icon_class;
+    }
+    // Just the icon name (e.g. "fa-file-medical") — add solid prefix
+    if ( strpos( $icon_class, 'fa-' ) === 0 ) {
+        return 'fas ' . $icon_class;
+    }
+    return $icon_class;
+}
+
+/**
  * Helper: Get the pharmacy logo URL
  */
 function ep_logo_url() {

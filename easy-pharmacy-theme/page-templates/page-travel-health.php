@@ -75,7 +75,7 @@ get_header();
       <?php if ( have_rows( 'th_stats' ) ) : while ( have_rows( 'th_stats' ) ) : the_row(); ?>
         <div class="travel-stat-item">
           <div class="travel-stat-icon">
-            <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
+            <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
           </div>
           <div class="travel-stat-content">
             <p class="travel-stat-number"><?php echo esc_html( get_sub_field( 'number' ) ); ?></p>
@@ -281,7 +281,7 @@ get_header();
           </div>
           <div class="travel-service-content">
             <div class="travel-service-icon-small">
-              <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
+              <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
             </div>
             <h3 class="travel-service-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
             <p class="travel-service-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
@@ -335,7 +335,7 @@ get_header();
       ?>
         <div class="<?php echo esc_attr( $card_class ); ?>">
           <div class="travel-vaccine-icon">
-            <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
+            <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
           </div>
           <h4 class="travel-vaccine-name"><?php echo esc_html( get_sub_field( 'name' ) ); ?></h4>
           <?php if ( $badge = get_sub_field( 'badge' ) ) : ?>
@@ -424,14 +424,14 @@ get_header();
               <img src="<?php echo esc_url( $step_icon_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" class="travel-process-passport-icon" />
             <?php else : ?>
               <div class="travel-process-icon-gradient">
-                <i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i>
+                <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
               </div>
             <?php endif; ?>
           </div>
           <h3 class="travel-process-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
           <p class="travel-process-step-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
           <div class="travel-process-step-meta">
-            <i class="<?php echo esc_attr( get_sub_field( 'meta_icon' ) ); ?>"></i>
+            <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'meta_icon' ) ) ); ?>"></i>
             <span><?php echo esc_html( get_sub_field( 'meta_text' ) ); ?></span>
           </div>
         </div>
