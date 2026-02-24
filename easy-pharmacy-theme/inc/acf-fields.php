@@ -4677,47 +4677,6 @@ function ep_register_acf_field_groups() {
     ) );
 
     // -------------------------------------------------------------------------
-    // H9. Travel Health — About Section
-    // -------------------------------------------------------------------------
-    acf_add_local_field_group( array(
-        'key'      => 'group_ep_th_about',
-        'title'    => 'Travel Health — About Section',
-        'fields'   => array(
-            array( 'key' => 'field_ep_th_about_badge', 'label' => 'Badge Text', 'name' => 'th_about_badge', 'type' => 'text', 'default_value' => 'ABOUT EASY PHARMACY' ),
-            array( 'key' => 'field_ep_th_about_title_highlight', 'label' => 'Title Highlight', 'name' => 'th_about_title_highlight', 'type' => 'text', 'default_value' => 'Your trusted' ),
-            array( 'key' => 'field_ep_th_about_title_rest', 'label' => 'Title Rest', 'name' => 'th_about_title_rest', 'type' => 'text', 'default_value' => 'travel health partner in Ashford' ),
-            array( 'key' => 'field_ep_th_about_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'th_about_eyebrow', 'type' => 'text', 'default_value' => 'COMPREHENSIVE TRAVEL HEALTH SERVICE' ),
-            array( 'key' => 'field_ep_th_about_intro', 'label' => 'Intro Text', 'name' => 'th_about_intro', 'type' => 'textarea', 'rows' => 4, 'default_value' => "Our travel health service provides everything you need for safe international travel. From expert consultations to official vaccination certificates, we ensure you're fully prepared for your journey with comprehensive support before, during, and after your trip." ),
-            array(
-                'key'          => 'field_ep_th_about_features',
-                'label'        => 'Feature Cards',
-                'name'         => 'th_about_features',
-                'type'         => 'repeater',
-                'layout'       => 'block',
-                'min'          => 0,
-                'max'          => 6,
-                'button_label' => 'Add Feature',
-                'sub_fields'   => array(
-                    array( 'key' => 'field_ep_th_about_feat_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_ep_th_about_feat_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '70' ) ),
-                ),
-            ),
-            array( 'key' => 'field_ep_th_about_cta_text', 'label' => 'CTA Text', 'name' => 'th_about_cta_text', 'type' => 'text', 'default_value' => 'Book Your Travel Consultation' ),
-            array( 'key' => 'field_ep_th_about_cta_url', 'label' => 'CTA URL', 'name' => 'th_about_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
-            array( 'key' => 'field_ep_th_about_image', 'label' => 'About Image', 'name' => 'th_about_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
-            array( 'key' => 'field_ep_th_about_badge_number', 'label' => 'Floating Badge Number', 'name' => 'th_about_badge_number', 'type' => 'text', 'default_value' => '10+' ),
-            array( 'key' => 'field_ep_th_about_badge_label', 'label' => 'Floating Badge Label', 'name' => 'th_about_badge_label', 'type' => 'text', 'default_value' => 'Years Serving Ashford' ),
-        ),
-        'location'              => $th_location,
-        'menu_order'            => 40,
-        'position'              => 'normal',
-        'style'                 => 'default',
-        'label_placement'       => 'top',
-        'instruction_placement' => 'label',
-        'active'                => true,
-    ) );
-
-    // -------------------------------------------------------------------------
     // H10. Travel Health — FAQ Section
     // -------------------------------------------------------------------------
     acf_add_local_field_group( array(
