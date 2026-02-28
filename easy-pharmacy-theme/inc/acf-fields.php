@@ -1780,6 +1780,93 @@ function ep_register_acf_field_groups() {
                     ),
                 ),
             ),
+            // Trust Stats — the 3 stat boxes below the features
+            array(
+                'key'          => 'field_ep_switching_trust_stats_tab',
+                'label'        => 'Trust Stats',
+                'type'         => 'tab',
+            ),
+            array(
+                'key'          => 'field_ep_switching_trust_stats_info',
+                'label'        => '',
+                'type'         => 'message',
+                'message'      => 'Configure the 3 trust stat boxes that appear below the feature cards (e.g. "50+ Switched Monthly", "4.7/5 Google Rating", "24h Delivery Time"). Leave fields blank to use built-in defaults.',
+            ),
+            // Stat 1
+            array(
+                'key'           => 'field_ep_switching_trust_1_icon',
+                'label'         => 'Stat 1 — Icon',
+                'name'          => 'switching_trust_1_icon',
+                'type'          => 'text',
+                'instructions'  => 'Font Awesome class, e.g. fas fa-user-group',
+                'default_value' => 'fas fa-user-group',
+            ),
+            array(
+                'key'           => 'field_ep_switching_trust_1_value',
+                'label'         => 'Stat 1 — Value',
+                'name'          => 'switching_trust_1_value',
+                'type'          => 'text',
+                'instructions'  => 'The big number/text, e.g. "50+"',
+                'default_value' => '50+',
+            ),
+            array(
+                'key'           => 'field_ep_switching_trust_1_label',
+                'label'         => 'Stat 1 — Label',
+                'name'          => 'switching_trust_1_label',
+                'type'          => 'text',
+                'instructions'  => 'Description below the value, e.g. "Switched Monthly"',
+                'default_value' => 'Switched Monthly',
+            ),
+            // Stat 2
+            array(
+                'key'           => 'field_ep_switching_trust_2_icon',
+                'label'         => 'Stat 2 — Icon',
+                'name'          => 'switching_trust_2_icon',
+                'type'          => 'text',
+                'instructions'  => 'Font Awesome class, e.g. fas fa-star',
+                'default_value' => 'fas fa-star',
+            ),
+            array(
+                'key'           => 'field_ep_switching_trust_2_value',
+                'label'         => 'Stat 2 — Value',
+                'name'          => 'switching_trust_2_value',
+                'type'          => 'text',
+                'instructions'  => 'The big number/text, e.g. "4.7/5"',
+                'default_value' => '4.7/5',
+            ),
+            array(
+                'key'           => 'field_ep_switching_trust_2_label',
+                'label'         => 'Stat 2 — Label',
+                'name'          => 'switching_trust_2_label',
+                'type'          => 'text',
+                'instructions'  => 'Description below the value, e.g. "Google Rating"',
+                'default_value' => 'Google Rating',
+            ),
+            // Stat 3
+            array(
+                'key'           => 'field_ep_switching_trust_3_icon',
+                'label'         => 'Stat 3 — Icon',
+                'name'          => 'switching_trust_3_icon',
+                'type'          => 'text',
+                'instructions'  => 'Font Awesome class, e.g. fas fa-truck-fast',
+                'default_value' => 'fas fa-truck-fast',
+            ),
+            array(
+                'key'           => 'field_ep_switching_trust_3_value',
+                'label'         => 'Stat 3 — Value',
+                'name'          => 'switching_trust_3_value',
+                'type'          => 'text',
+                'instructions'  => 'The big number/text, e.g. "24h"',
+                'default_value' => '24h',
+            ),
+            array(
+                'key'           => 'field_ep_switching_trust_3_label',
+                'label'         => 'Stat 3 — Label',
+                'name'          => 'switching_trust_3_label',
+                'type'          => 'text',
+                'instructions'  => 'Description below the value, e.g. "Delivery Time"',
+                'default_value' => 'Delivery Time',
+            ),
         ),
         'location' => array(
             array(

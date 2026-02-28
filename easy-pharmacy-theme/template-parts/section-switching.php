@@ -70,7 +70,18 @@ if ( empty( $features ) ) {
     $features = $default_features;
 }
 
-// Trust stats from options
+// Trust stats — editable via ACF on the Home Page
+$trust_1_icon  = ep_field( 'switching_trust_1_icon', 'fas fa-user-group' );
+$trust_1_value = ep_field( 'switching_trust_1_value', '50+' );
+$trust_1_label = ep_field( 'switching_trust_1_label', 'Switched Monthly' );
+$trust_2_icon  = ep_field( 'switching_trust_2_icon', 'fas fa-star' );
+$trust_2_value = ep_field( 'switching_trust_2_value', '4.7/5' );
+$trust_2_label = ep_field( 'switching_trust_2_label', 'Google Rating' );
+$trust_3_icon  = ep_field( 'switching_trust_3_icon', 'fas fa-truck-fast' );
+$trust_3_value = ep_field( 'switching_trust_3_value', '24h' );
+$trust_3_label = ep_field( 'switching_trust_3_label', 'Delivery Time' );
+
+// Rating badge stats from options (right-side image card)
 $google_rating       = ep_option( 'google_rating', '4.7' );
 $google_review_count = ep_option( 'google_review_count', '300+' );
 $patients_treated    = ep_option( 'patients_treated', '5,000+' );
@@ -130,11 +141,11 @@ $established_year    = ep_option( 'established_year', '2008' );
                     <!-- Item 1 -->
                     <div class="switching-trust-item">
                         <div class="switching-trust-icon">
-                            <i class="fas fa-user-group"></i>
+                            <i class="<?php echo esc_attr( $trust_1_icon ); ?>"></i>
                         </div>
                         <div class="switching-trust-info">
-                            <div class="switching-trust-number gradient-text">50+</div>
-                            <div class="switching-trust-label">Switched Monthly</div>
+                            <div class="switching-trust-number gradient-text"><?php echo esc_html( $trust_1_value ); ?></div>
+                            <div class="switching-trust-label"><?php echo esc_html( $trust_1_label ); ?></div>
                         </div>
                     </div>
 
@@ -144,11 +155,11 @@ $established_year    = ep_option( 'established_year', '2008' );
                     <!-- Item 2 -->
                     <div class="switching-trust-item">
                         <div class="switching-trust-icon">
-                            <i class="fas fa-star"></i>
+                            <i class="<?php echo esc_attr( $trust_2_icon ); ?>"></i>
                         </div>
                         <div class="switching-trust-info">
-                            <div class="switching-trust-number gradient-text"><?php echo esc_html( $google_rating ); ?>/5</div>
-                            <div class="switching-trust-label">Google Rating</div>
+                            <div class="switching-trust-number gradient-text"><?php echo esc_html( $trust_2_value ); ?></div>
+                            <div class="switching-trust-label"><?php echo esc_html( $trust_2_label ); ?></div>
                         </div>
                     </div>
 
@@ -158,11 +169,11 @@ $established_year    = ep_option( 'established_year', '2008' );
                     <!-- Item 3 -->
                     <div class="switching-trust-item">
                         <div class="switching-trust-icon">
-                            <i class="fas fa-truck-fast"></i>
+                            <i class="<?php echo esc_attr( $trust_3_icon ); ?>"></i>
                         </div>
                         <div class="switching-trust-info">
-                            <div class="switching-trust-number gradient-text">24h</div>
-                            <div class="switching-trust-label">Delivery Time</div>
+                            <div class="switching-trust-number gradient-text"><?php echo esc_html( $trust_3_value ); ?></div>
+                            <div class="switching-trust-label"><?php echo esc_html( $trust_3_label ); ?></div>
                         </div>
                     </div>
 
