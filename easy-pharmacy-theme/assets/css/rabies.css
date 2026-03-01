@@ -9,7 +9,7 @@
 .rabies-breadcrumb {
   padding: 1rem 0;
   background: var(--white);
-  border-bottom: 1px solid rgba(163, 158, 227, 0.1);
+  border-bottom: 1px solid rgba(196, 122, 101, 0.1);
   margin-top: 0; /* Body already has padding-top: 80px for fixed nav */
 }
 
@@ -58,7 +58,7 @@
 .rabies-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(109, 104, 181, 0.95), rgba(163, 158, 227, 0.85), rgba(163, 158, 227, 0.4));
+  background: linear-gradient(to right, rgba(107, 79, 160, 0.95), rgba(139, 109, 186, 0.85), rgba(163, 138, 207, 0.4));
   z-index: 1;
 }
 
@@ -187,7 +187,7 @@
 .rabies-protect-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -217,7 +217,7 @@
   position: relative;
   border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(163, 158, 227, 0.15);
+  box-shadow: 0 20px 60px rgba(196, 122, 101, 0.12);
   border: 4px solid var(--white);
 }
 
@@ -242,7 +242,7 @@
   display: block;
   font-size: 1.125rem;
   font-weight: 800;
-  color: #111827;
+  color: #2D1B4E;
   font-family: var(--font-heading);
 }
 
@@ -257,14 +257,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(163, 158, 227, 0.15);
+  background: rgba(196, 122, 101, 0.08);
   color: var(--brand-dark);
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   font-weight: 700;
   font-size: 0.875rem;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(163, 158, 227, 0.3);
+  border: 1px solid rgba(196, 122, 101, 0.2);
 }
 
 .rabies-protect-badge-box i {
@@ -274,7 +274,7 @@
 .rabies-protect-subtitle {
   font-size: 1.75rem;
   font-weight: 800;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
   line-height: 1.3;
 }
@@ -315,13 +315,13 @@
   justify-content: center;
   color: var(--white);
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(163, 158, 227, 0.3);
+  box-shadow: 0 4px 10px rgba(196, 122, 101, 0.25);
 }
 
 .rabies-protect-feature .text strong {
   display: block;
   font-size: 1rem;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 0.25rem;
 }
 
@@ -437,7 +437,7 @@
 .rabies-about-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -472,7 +472,7 @@
   position: relative;
   border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(163, 158, 227, 0.15);
+  box-shadow: 0 20px 60px rgba(196, 122, 101, 0.12);
   aspect-ratio: 3/4;
 }
 
@@ -504,13 +504,13 @@
   padding: 2rem;
   border-radius: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(163, 158, 227, 0.15);
+  border: 1px solid rgba(196, 122, 101, 0.12);
   transition: transform 0.3s ease;
 }
 
 .rabies-info-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px rgba(196, 122, 101, 0.1);
 }
 
 .rabies-info-card .icon {
@@ -524,13 +524,13 @@
   color: var(--white);
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 10px rgba(163, 158, 227, 0.3);
+  box-shadow: 0 4px 10px rgba(196, 122, 101, 0.25);
 }
 
 .rabies-info-card h3 {
   font-size: 1.25rem;
   font-weight: 800;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 0.75rem;
 }
 
@@ -591,7 +591,7 @@
 .rabies-needs-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -706,7 +706,7 @@
 .rabies-risk-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -738,7 +738,7 @@
   border-radius: 2rem;
   overflow: hidden;
   margin-bottom: 2rem;
-  box-shadow: 0 15px 40px rgba(163, 158, 227, 0.12);
+  box-shadow: 0 15px 40px rgba(196, 122, 101, 0.1);
 }
 
 .rabies-destination-image img {
@@ -757,7 +757,7 @@
   border-radius: 2rem;
   padding: 2.5rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(163, 158, 227, 0.15);
+  border: 1px solid rgba(196, 122, 101, 0.12);
 }
 
 .rabies-risk-card.high {
@@ -792,7 +792,7 @@
 .rabies-risk-card h3 {
   font-size: 1.75rem;
   font-weight: 800;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -828,13 +828,13 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.1), rgba(109, 104, 181, 0.05));
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.08), rgba(196, 122, 101, 0.04));
   color: var(--brand-dark);
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   font-weight: 600;
   margin-bottom: 2.5rem;
-  border: 1px solid rgba(163, 158, 227, 0.2);
+  border: 1px solid rgba(196, 122, 101, 0.2);
 }
 
 .rabies-risk-footer .info-badge i {
@@ -864,7 +864,7 @@
 .rabies-details-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -902,7 +902,7 @@
 .rabies-detail-card:hover {
   background: var(--white);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border-color: rgba(163, 158, 227, 0.3);
+  border-color: rgba(196, 122, 101, 0.25);
   transform: translateY(-4px);
 }
 
@@ -922,7 +922,7 @@
 .rabies-detail-card h3 {
   font-size: 1.25rem;
   font-weight: 800;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 0.75rem;
 }
 
@@ -948,7 +948,7 @@
 .rabies-faq-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -970,13 +970,13 @@
 }
 
 .rabies-faq-item:hover {
-  border-color: rgba(163, 158, 227, 0.4);
-  box-shadow: 0 20px 50px rgba(163, 158, 227, 0.15);
+  border-color: rgba(196, 122, 101, 0.3);
+  box-shadow: 0 20px 50px rgba(196, 122, 101, 0.12);
   transform: translateY(-2px);
 }
 
 .rabies-faq-item.travel-faq-active {
-  box-shadow: 0 8px 20px rgba(163, 158, 227, 0.1);
+  box-shadow: 0 8px 20px rgba(196, 122, 101, 0.1);
   border-color: var(--brand-purple);
   background: var(--white);
 }
@@ -998,7 +998,7 @@
   font-size: 1rem;
   font-weight: 900;
   color: var(--white);
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -1006,14 +1006,14 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(163, 158, 227, 0.3);
+  box-shadow: 0 4px 10px rgba(196, 122, 101, 0.3);
 }
 
 .rabies-faq-btn .text {
   flex: 1;
   font-size: 1.125rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
 }
 
 .rabies-faq-btn .icon {
@@ -1059,7 +1059,7 @@
    ============================================ */
 .rabies-cta-section {
   position: relative;
-  background: linear-gradient(to right, #a39ee3, #8b85d6, #6d68b5);
+  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
   padding: 6rem 0;
   overflow: hidden;
   text-align: center;
@@ -1120,7 +1120,7 @@
 
 .rabies-cta-actions .white-btn {
   background: #ffffff;
-  color: #6d68b5;
+  color: var(--brand-dark);
 }
 
 .rabies-cta-actions .white-btn:hover {

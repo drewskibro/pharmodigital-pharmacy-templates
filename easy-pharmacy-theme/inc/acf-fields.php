@@ -5912,5 +5912,342 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // =============================================
+    // N — RABIES VACCINATION PAGE
+    // =============================================
+    $rab_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-rabies.php',
+            ),
+        ),
+    );
+
+    // ── N1. Hero ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_rab_hero',
+        'title'    => 'Rabies — Hero',
+        'fields'   => array(
+            array( 'key' => 'field_ep_rab_name', 'label' => 'Vaccine Name', 'name' => 'vaccine_name', 'type' => 'text', 'default_value' => 'Rabies' ),
+            array( 'key' => 'field_ep_rab_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'vaccine_parent_url', 'type' => 'url', 'default_value' => '/travel-health/' ),
+            array( 'key' => 'field_ep_rab_hero_label', 'label' => 'Hero Label', 'name' => 'vaccine_hero_label', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH PROTECTION' ),
+            array( 'key' => 'field_ep_rab_hero_title', 'label' => 'Hero Title', 'name' => 'vaccine_hero_title', 'type' => 'text', 'default_value' => 'Rabies Vaccination Service in Ashford' ),
+            array( 'key' => 'field_ep_rab_hero_desc', 'label' => 'Hero Description', 'name' => 'vaccine_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Protect yourself against rabies with our expert travel health service. Essential for travel to high-risk areas in Asia, Africa, and South America.' ),
+            array( 'key' => 'field_ep_rab_cta_text', 'label' => 'CTA Button Text', 'name' => 'vaccine_cta_text', 'type' => 'text', 'default_value' => 'Book Rabies Vaccination' ),
+            array( 'key' => 'field_ep_rab_cta_url', 'label' => 'CTA Button URL', 'name' => 'vaccine_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_ep_rab_phone', 'label' => 'Phone (digits)', 'name' => 'vaccine_phone', 'type' => 'text', 'default_value' => '01784255222' ),
+            array( 'key' => 'field_ep_rab_phone_display', 'label' => 'Phone (display)', 'name' => 'vaccine_phone_display', 'type' => 'text', 'default_value' => 'Call 01784 255 222' ),
+            array(
+                'key'        => 'field_ep_rab_hero_badges',
+                'label'      => 'Hero Badges',
+                'name'       => 'vaccine_hero_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 5,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_rab_hero_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $rab_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N2. Protection Section ───────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_rab_protect',
+        'title'    => 'Rabies — Protection',
+        'fields'   => array(
+            array( 'key' => 'field_ep_rab_protect_badge', 'label' => 'Badge Text', 'name' => 'vaccine_protect_badge', 'type' => 'text', 'default_value' => 'ESSENTIAL PROTECTION' ),
+            array( 'key' => 'field_ep_rab_protect_title', 'label' => 'Title', 'name' => 'vaccine_protect_title', 'type' => 'text', 'default_value' => 'Understanding Rabies Risk' ),
+            array( 'key' => 'field_ep_rab_protect_desc', 'label' => 'Description', 'name' => 'vaccine_protect_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'A serious viral infection spread by infected animals' ),
+            array( 'key' => 'field_ep_rab_protect_image', 'label' => 'Image URL', 'name' => 'vaccine_protect_image', 'type' => 'url', 'default_value' => 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&h=1000&fit=crop' ),
+            array( 'key' => 'field_ep_rab_protect_image_alt', 'label' => 'Image Alt Text', 'name' => 'vaccine_protect_image_alt', 'type' => 'text', 'default_value' => 'Travel health consultation for rabies' ),
+            array( 'key' => 'field_ep_rab_protect_nametag_name', 'label' => 'Name Tag — Name', 'name' => 'vaccine_protect_nametag_name', 'type' => 'text', 'default_value' => 'Expert Care' ),
+            array( 'key' => 'field_ep_rab_protect_nametag_role', 'label' => 'Name Tag — Role', 'name' => 'vaccine_protect_nametag_role', 'type' => 'text', 'default_value' => 'Travel Health Team' ),
+            array( 'key' => 'field_ep_rab_protect_highlight', 'label' => 'Highlight Text', 'name' => 'vaccine_protect_highlight', 'type' => 'text', 'default_value' => 'Recommended for High-Risk Areas' ),
+            array( 'key' => 'field_ep_rab_protect_subtitle', 'label' => 'Subtitle', 'name' => 'vaccine_protect_subtitle', 'type' => 'text', 'default_value' => 'Why Vaccination is Critical' ),
+            array( 'key' => 'field_ep_rab_protect_text', 'label' => 'Body Text', 'name' => 'vaccine_protect_text', 'type' => 'textarea', 'rows' => 4, 'default_value' => 'Rabies is a viral infection of the brain and nerves. It is almost always fatal once symptoms appear. Vaccination provides vital protection and simplifies treatment if you are bitten or scratched by an animal abroad.' ),
+            array(
+                'key'        => 'field_ep_rab_protect_features',
+                'label'      => 'Features',
+                'name'       => 'vaccine_protect_features',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_rab_protect_feat_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe' ),
+                    array( 'key' => 'field_ep_rab_protect_feat_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_rab_protect_feat_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $rab_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N3. Stats Bar ────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_rab_stats',
+        'title'    => 'Rabies — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_rab_stats',
+                'label'      => 'Stats',
+                'name'       => 'vaccine_stats',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 5,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_rab_stat_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe' ),
+                    array( 'key' => 'field_ep_rab_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_rab_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $rab_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N4. About Section ────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_rab_about',
+        'title'    => 'Rabies — About',
+        'fields'   => array(
+            array( 'key' => 'field_ep_rab_about_badge', 'label' => 'Badge Text', 'name' => 'vaccine_about_badge', 'type' => 'text', 'default_value' => 'KNOW THE RISKS' ),
+            array( 'key' => 'field_ep_rab_about_title', 'label' => 'Title', 'name' => 'vaccine_about_title', 'type' => 'text', 'default_value' => 'What is Rabies?' ),
+            array( 'key' => 'field_ep_rab_about_desc', 'label' => 'Description', 'name' => 'vaccine_about_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Understanding transmission and prevention' ),
+            array( 'key' => 'field_ep_rab_about_image', 'label' => 'Image URL', 'name' => 'vaccine_about_image', 'type' => 'url', 'default_value' => 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&h=1000&fit=crop' ),
+            array( 'key' => 'field_ep_rab_about_image_alt', 'label' => 'Image Alt Text', 'name' => 'vaccine_about_image_alt', 'type' => 'text', 'default_value' => 'Stray dog in travel destination' ),
+            array(
+                'key'        => 'field_ep_rab_about_cards',
+                'label'      => 'Info Cards',
+                'name'       => 'vaccine_about_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_rab_about_card_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-virus' ),
+                    array( 'key' => 'field_ep_rab_about_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_rab_about_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+            array( 'key' => 'field_ep_rab_callout_badge', 'label' => 'Callout Badge', 'name' => 'vaccine_callout_badge', 'type' => 'text', 'default_value' => 'CRITICAL WARNING' ),
+            array( 'key' => 'field_ep_rab_callout_title', 'label' => 'Callout Title', 'name' => 'vaccine_callout_title', 'type' => 'text', 'default_value' => '100% Fatal Once Symptoms Appear' ),
+            array( 'key' => 'field_ep_rab_callout_text', 'label' => 'Callout Text', 'name' => 'vaccine_callout_text', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Rabies is almost always fatal once symptoms develop. Vaccination is your best defence. If you are bitten or scratched by an animal abroad, seek medical help immediately, even if you have been vaccinated.' ),
+        ),
+        'location'              => $rab_location,
+        'menu_order'            => 15,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N5. Who Needs Vaccination ────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_rab_needs',
+        'title'    => 'Rabies — Who Needs Vaccination',
+        'fields'   => array(
+            array( 'key' => 'field_ep_rab_needs_badge', 'label' => 'Badge Text', 'name' => 'vaccine_needs_badge', 'type' => 'text', 'default_value' => 'WHO NEEDS VACCINATION' ),
+            array( 'key' => 'field_ep_rab_needs_title', 'label' => 'Title', 'name' => 'vaccine_needs_title', 'type' => 'text', 'default_value' => 'Should you get vaccinated?' ),
+            array( 'key' => 'field_ep_rab_needs_desc', 'label' => 'Description', 'name' => 'vaccine_needs_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Recommended for many travellers to risk areas' ),
+            array(
+                'key'        => 'field_ep_rab_needs_cards',
+                'label'      => 'Needs Cards',
+                'name'       => 'vaccine_needs_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 4,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_rab_needs_card_type', 'label' => 'Type', 'name' => 'type', 'type' => 'select', 'choices' => array( 'recommended' => 'Recommended', 'consider' => 'Consider' ), 'default_value' => 'recommended' ),
+                    array( 'key' => 'field_ep_rab_needs_card_badge', 'label' => 'Badge', 'name' => 'badge', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_rab_needs_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_rab_needs_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'        => 'field_ep_rab_needs_card_items',
+                        'label'      => 'Checklist Items',
+                        'name'       => 'items',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'min'        => 0,
+                        'max'        => 6,
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_rab_needs_item_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $rab_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N6. Risk Zones ───────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_rab_risk',
+        'title'    => 'Rabies — Risk Zones',
+        'fields'   => array(
+            array( 'key' => 'field_ep_rab_risk_badge', 'label' => 'Badge Text', 'name' => 'vaccine_risk_badge', 'type' => 'text', 'default_value' => 'GLOBAL RISK ZONES' ),
+            array( 'key' => 'field_ep_rab_risk_title', 'label' => 'Title', 'name' => 'vaccine_risk_title', 'type' => 'text', 'default_value' => 'Where is Rabies found?' ),
+            array( 'key' => 'field_ep_rab_risk_desc', 'label' => 'Description', 'name' => 'vaccine_risk_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Rabies is present on all continents except Antarctica, but over 95% of human deaths occur in Asia and Africa.' ),
+            array(
+                'key'        => 'field_ep_rab_risk_zones',
+                'label'      => 'Risk Zones',
+                'name'       => 'vaccine_risk_zones',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 4,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_rab_risk_zone_image', 'label' => 'Image URL', 'name' => 'image', 'type' => 'url' ),
+                    array( 'key' => 'field_ep_rab_risk_zone_level', 'label' => 'Risk Level', 'name' => 'level', 'type' => 'select', 'choices' => array( 'high' => 'High', 'moderate' => 'Moderate' ), 'default_value' => 'high' ),
+                    array( 'key' => 'field_ep_rab_risk_zone_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-exclamation-triangle' ),
+                    array( 'key' => 'field_ep_rab_risk_zone_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_rab_risk_zone_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'        => 'field_ep_rab_risk_zone_countries',
+                        'label'      => 'Countries',
+                        'name'       => 'countries',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'min'        => 0,
+                        'max'        => 20,
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_rab_risk_country_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_ep_rab_risk_footer', 'label' => 'Footer Text', 'name' => 'vaccine_risk_footer', 'type' => 'text', 'default_value' => "Unsure about your destination? We'll check the latest risk data for you." ),
+        ),
+        'location'              => $rab_location,
+        'menu_order'            => 25,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N7. Vaccination Details ──────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_rab_details',
+        'title'    => 'Rabies — Vaccination Details',
+        'fields'   => array(
+            array( 'key' => 'field_ep_rab_details_badge', 'label' => 'Badge Text', 'name' => 'vaccine_details_badge', 'type' => 'text', 'default_value' => 'VACCINATION DETAILS' ),
+            array( 'key' => 'field_ep_rab_details_title', 'label' => 'Title', 'name' => 'vaccine_details_title', 'type' => 'text', 'default_value' => 'What to expect at your appointment' ),
+            array( 'key' => 'field_ep_rab_details_desc', 'label' => 'Description', 'name' => 'vaccine_details_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Simple, straightforward vaccination process at our Ashford clinic' ),
+            array(
+                'key'        => 'field_ep_rab_details',
+                'label'      => 'Detail Cards',
+                'name'       => 'vaccine_details',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 8,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_rab_detail_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe' ),
+                    array( 'key' => 'field_ep_rab_detail_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_rab_detail_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $rab_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N8. FAQ ──────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_rab_faq',
+        'title'    => 'Rabies — FAQ',
+        'fields'   => array(
+            array( 'key' => 'field_ep_rab_faq_badge', 'label' => 'Badge Text', 'name' => 'vaccine_faq_badge', 'type' => 'text', 'default_value' => 'RABIES FAQs' ),
+            array( 'key' => 'field_ep_rab_faq_title', 'label' => 'Title', 'name' => 'vaccine_faq_title', 'type' => 'text', 'default_value' => 'Common Questions' ),
+            array(
+                'key'        => 'field_ep_rab_faqs',
+                'label'      => 'FAQs',
+                'name'       => 'vaccine_faqs',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 10,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_rab_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_rab_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $rab_location,
+        'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N9. Final CTA ────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_rab_cta',
+        'title'    => 'Rabies — Final CTA',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_rab_cta_badges',
+                'label'      => 'CTA Badges',
+                'name'       => 'vaccine_cta_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 5,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_rab_cta_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_rab_cta_title', 'label' => 'Title', 'name' => 'vaccine_cta_title', 'type' => 'text', 'default_value' => 'Protect your health while travelling' ),
+            array( 'key' => 'field_ep_rab_cta_desc', 'label' => 'Description', 'name' => 'vaccine_cta_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your Rabies vaccination with our expert team today. Quick, convenient, and professional service in Ashford.' ),
+        ),
+        'location'              => $rab_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );
