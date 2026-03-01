@@ -1607,6 +1607,168 @@ html {
 
 
 /* ============================================
+   HERO WARM PALETTE OVERRIDES (scoped to .hero-section only)
+   ============================================ */
+
+/* Background — soft cream/blush */
+.hero-section {
+  background: #FDF6F3;
+}
+
+/* Decorative blobs — warm terracotta tint instead of purple */
+.hero-section .hero-bg-shape-1 {
+  background: rgba(196, 122, 101, 0.08);
+}
+
+.hero-section .hero-bg-shape-2 {
+  background: rgba(212, 144, 124, 0.08);
+}
+
+/* Visual glow — warm tint */
+.hero-section .hero-visual-glow {
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.12), #FDF6F3);
+}
+
+/* Headlines — deeper purple #6B4FA0 (hero only) */
+.hero-section .gradient-text {
+  background: linear-gradient(135deg, #6B4FA0 0%, #8B6BBF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-section .hero-accent-text {
+  color: #2D1B4E;
+}
+
+/* Body text — dark purple-charcoal */
+.hero-section .hero-description {
+  color: #2D1B4E;
+}
+
+.hero-section .hero-badge-text {
+  color: #2D1B4E;
+}
+
+.hero-section .hero-badge:hover .hero-badge-text {
+  color: #6B4FA0;
+}
+
+/* Badge border — warm tint */
+.hero-section .hero-badge {
+  border-color: rgba(196, 122, 101, 0.15);
+  box-shadow: 0 8px 30px rgba(196, 122, 101, 0.10), 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Pulse dot — deep purple to match headline */
+.hero-section .pulse-dot span:first-child {
+  background: #6B4FA0;
+}
+
+.hero-section .pulse-dot span:last-child {
+  background: #6B4FA0;
+}
+
+/* Primary CTA — saturated terracotta */
+.hero-section .primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  box-shadow: 0 10px 25px -3px rgba(196, 122, 101, 0.35), 0 4px 10px -2px rgba(196, 122, 101, 0.15);
+}
+
+.hero-section .primary-cta:hover {
+  background: linear-gradient(135deg, #D4907C, #C47A65);
+  box-shadow: 0 20px 35px -5px rgba(196, 122, 101, 0.4), 0 8px 15px -3px rgba(196, 122, 101, 0.2);
+}
+
+/* Secondary CTA — warm accent border */
+.hero-section .secondary-cta {
+  color: #6B4FA0;
+  border-color: rgba(196, 122, 101, 0.25);
+}
+
+.hero-section .secondary-cta:hover {
+  border-color: #C47A65;
+  color: #C47A65;
+}
+
+/* Trust indicators — muted sage green ticks */
+.hero-section .trust-item i {
+  color: #7A9E7E;
+  opacity: 0.9;
+}
+
+.hero-section .trust-item:hover i {
+  opacity: 1;
+}
+
+.hero-section .trust-item span {
+  color: #2D1B4E;
+}
+
+.hero-section .dot-separator {
+  background: rgba(196, 122, 101, 0.3);
+}
+
+/* Testimonial card — warm shadow */
+.hero-section .hero-testimonial {
+  box-shadow: 0 8px 30px rgba(196, 122, 101, 0.12);
+  border-color: rgba(196, 122, 101, 0.08);
+}
+
+.hero-section .quote-icon {
+  background: #6B4FA0;
+}
+
+.hero-section .hero-quote {
+  color: #2D1B4E;
+}
+
+.hero-section .author-name {
+  color: #2D1B4E;
+}
+
+.hero-section .result-badge {
+  background: #C47A65;
+}
+
+.hero-section .hero-testimonial:hover .result-badge {
+  background: #B8694F;
+}
+
+.hero-section .hero-testimonial-accent {
+  background: linear-gradient(90deg, #C47A65, #D4907C);
+}
+
+/* Image card — warm shadow */
+.hero-section .hero-image-card {
+  box-shadow: 0 30px 60px -15px rgba(196, 122, 101, 0.25);
+}
+
+/* Image caption — deep purple instead of brand-purple */
+.hero-section .hero-image-caption {
+  background: rgba(107, 79, 160, 0.9);
+  box-shadow: 0 10px 30px -5px rgba(107, 79, 160, 0.35);
+}
+
+.hero-section .hero-image-card:hover .hero-image-caption {
+  background: rgba(107, 79, 160, 0.95);
+}
+
+/* Rating badge — warm shadow */
+.hero-section .rating-badge {
+  box-shadow: 0 20px 60px -15px rgba(196, 122, 101, 0.12);
+}
+
+.hero-section .rating-location i {
+  color: #6B4FA0;
+}
+
+.hero-section .rating-link {
+  color: #C47A65;
+}
+
+
+/* ============================================
    STATS BAR
    ============================================ */
 .stats-section {
