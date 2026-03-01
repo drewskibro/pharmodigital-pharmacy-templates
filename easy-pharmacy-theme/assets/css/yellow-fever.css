@@ -10,7 +10,7 @@
   padding: 1rem 0;
   background: var(--white);
   border-bottom: 1px solid rgba(163, 158, 227, 0.1);
-  margin-top: 80px; /* Offset fixed nav */
+  margin-top: 0; /* Body already has padding-top: 80px for fixed nav */
 }
 
 .yellowfever-breadcrumb .section-container {
