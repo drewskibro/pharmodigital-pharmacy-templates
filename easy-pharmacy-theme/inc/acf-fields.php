@@ -4287,35 +4287,6 @@ function ep_register_acf_field_groups() {
     ) );
 
     // -------------------------------------------------------------------------
-    // G8. Weight Loss — Calculator Section
-    // -------------------------------------------------------------------------
-    acf_add_local_field_group( array(
-        'key'      => 'group_ep_wl_calculator',
-        'title'    => 'Weight Loss — Calculator Section',
-        'fields'   => array(
-            array( 'key' => 'field_ep_wl_calc_badge', 'label' => 'Badge Text', 'name' => 'wl_calc_badge', 'type' => 'text', 'default_value' => 'CLINICAL ESTIMATOR' ),
-            array( 'key' => 'field_ep_wl_calc_title', 'label' => 'Title', 'name' => 'wl_calc_title', 'type' => 'text', 'default_value' => 'Estimate Your Weight Loss Journey' ),
-            array( 'key' => 'field_ep_wl_calc_description', 'label' => 'Description', 'name' => 'wl_calc_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Based on clinical trial data for GLP-1 medications like Mounjaro and Wegovy. See what\'s medically achievable for you.' ),
-            array(
-                'key'           => 'field_ep_wl_calc_image',
-                'label'         => 'Calculator Image',
-                'name'          => 'wl_calc_image',
-                'type'          => 'image',
-                'return_format' => 'id',
-                'preview_size'  => 'medium',
-                'instructions'  => 'Recommended: 600x800px portrait.',
-            ),
-        ),
-        'location'              => $wl_location,
-        'menu_order'            => 47,
-        'position'              => 'normal',
-        'style'                 => 'default',
-        'label_placement'       => 'top',
-        'instruction_placement' => 'label',
-        'active'                => true,
-    ) );
-
-    // -------------------------------------------------------------------------
     // G9. Weight Loss — FAQ Section
     // -------------------------------------------------------------------------
     acf_add_local_field_group( array(
