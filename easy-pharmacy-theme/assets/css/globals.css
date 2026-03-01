@@ -1061,10 +1061,10 @@ html {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(163, 158, 227, 0.15);
+  border: 1px solid rgba(196, 122, 101, 0.12);
   border-radius: 9999px;
   margin-bottom: 2rem;
-  box-shadow: 0 8px 30px rgba(163, 158, 227, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 30px rgba(196, 122, 101, 0.10), 0 2px 8px rgba(0, 0, 0, 0.03);
   cursor: default;
 }
 
@@ -1788,14 +1788,14 @@ html {
   padding: 2.5rem 3rem;
   box-shadow:
     0 20px 60px -15px rgba(0, 0, 0, 0.08),
-    0 0 0 1px rgba(163, 158, 227, 0.05);
+    0 0 0 1px rgba(196, 122, 101, 0.05);
   transition: box-shadow 0.3s ease;
 }
 
 .stats-bar:hover {
   box-shadow:
     0 25px 70px -15px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(163, 158, 227, 0.1);
+    0 0 0 1px rgba(196, 122, 101, 0.1);
 }
 
 /* Individual stat */
@@ -1811,7 +1811,7 @@ html {
   width: 3rem;
   height: 3rem;
   border-radius: 0.75rem;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.25), rgba(109, 104, 181, 0.2));
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.15), rgba(184, 105, 79, 0.10));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1821,12 +1821,12 @@ html {
 
 .stat-icon i {
   font-size: 1.125rem;
-  color: var(--brand-purple);
+  color: var(--terracotta);
   transition: color 0.3s ease;
 }
 
 .stat-item:hover .stat-icon {
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
 }
 
 .stat-item:hover .stat-icon i {
@@ -1859,7 +1859,7 @@ html {
 .stat-divider {
   width: 1px;
   height: 3rem;
-  background: linear-gradient(to bottom, transparent, rgba(163, 158, 227, 0.3), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(196, 122, 101, 0.2), transparent);
   flex-shrink: 0;
 }
 
@@ -1923,9 +1923,9 @@ html {
     margin: 0 auto;
     width: 3.5rem;
     height: 3.5rem;
-    box-shadow: 0 4px 12px rgba(163, 158, 227, 0.15); /* Added depth */
-    background: linear-gradient(135deg, #f3f0ff, #ffffff); /* Subtle gradient */
-    border: 1px solid rgba(163, 158, 227, 0.1);
+    box-shadow: 0 4px 12px rgba(196, 122, 101, 0.12);
+    background: linear-gradient(135deg, #fef6f4, #ffffff);
+    border: 1px solid rgba(196, 122, 101, 0.1);
   }
 
   .stat-content {
@@ -1949,12 +1949,12 @@ html {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(248, 247, 255, 0.9));
-    border: 1px solid rgba(163, 158, 227, 0.25);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(254, 246, 244, 0.9));
+    border: 1px solid rgba(196, 122, 101, 0.15);
     padding: 1rem 1.5rem;
     border-radius: 1rem;
     margin-top: 0.75rem;
-    box-shadow: 0 4px 15px rgba(163, 158, 227, 0.08); /* Lifted effect */
+    box-shadow: 0 4px 15px rgba(196, 122, 101, 0.08);
     gap: 1rem;
   }
 
@@ -1962,15 +1962,15 @@ html {
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background: rgba(163, 158, 227, 0.1);
-    color: var(--brand-purple);
+    background: rgba(196, 122, 101, 0.08);
+    color: var(--terracotta);
     box-shadow: none;
     border: none;
     transition: all 0.3s ease;
   }
 
   .stat-item:last-child:hover .stat-icon {
-    background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+    background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
     color: var(--white);
   }
 
@@ -2009,7 +2009,7 @@ html {
   transform: translateX(-50%);
   width: 600px;
   height: 600px;
-  background: rgba(163, 158, 227, 0.05);
+  background: rgba(196, 122, 101, 0.04);
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
@@ -2082,12 +2082,12 @@ html {
 .how-it-works-step-card {
   position: relative;
   background: var(--white);
-  border: 2px solid rgba(163, 158, 227, 0.15);
+  border: 2px solid rgba(196, 122, 101, 0.12);
   border-radius: 1.5rem;
   padding: 2.5rem 2rem;
   text-align: center;
   transition: all 0.4s ease;
-  box-shadow: 0 4px 20px rgba(163, 158, 227, 0.08);
+  box-shadow: 0 4px 20px rgba(196, 122, 101, 0.08);
   width: 100%;
   max-width: 400px;
   z-index: 2;
@@ -2095,8 +2095,8 @@ html {
 
 .how-it-works-step-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(163, 158, 227, 0.2);
-  border-color: var(--brand-purple);
+  box-shadow: 0 20px 50px rgba(196, 122, 101, 0.18);
+  border-color: var(--terracotta-soft);
 }
 
 @media (min-width: 768px) {
@@ -2113,12 +2113,12 @@ html {
   transform: translateX(-50%);
   width: 2.5rem;
   height: 2.5rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(163, 158, 227, 0.3);
+  box-shadow: 0 8px 20px rgba(196, 122, 101, 0.3);
   z-index: 10;
 }
 
@@ -2133,7 +2133,7 @@ html {
 .how-it-works-step-icon {
   width: 5rem;
   height: 5rem;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.15), rgba(109, 104, 181, 0.1));
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.10), rgba(184, 105, 79, 0.06));
   border-radius: 1.25rem;
   display: flex;
   align-items: center;
@@ -2143,13 +2143,13 @@ html {
 }
 
 .how-it-works-step-card:hover .how-it-works-step-icon {
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));
   transform: scale(1.1) rotate(5deg);
 }
 
 .how-it-works-step-icon i {
   font-size: 2rem;
-  color: var(--brand-purple);
+  color: var(--terracotta);
   transition: color 0.4s ease;
 }
 
@@ -2169,7 +2169,7 @@ html {
 }
 
 .how-it-works-step-card:hover .how-it-works-step-title {
-  color: var(--brand-purple);
+  color: var(--terracotta);
 }
 
 @media (min-width: 768px) {
@@ -2198,21 +2198,21 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(163, 158, 227, 0.1);
+  background: rgba(196, 122, 101, 0.08);
   padding: 0.5rem 1rem;
   border-radius: 9999px;
-  border: 1px solid rgba(163, 158, 227, 0.2);
+  border: 1px solid rgba(196, 122, 101, 0.15);
   transition: all 0.3s ease;
 }
 
 .how-it-works-step-card:hover .how-it-works-step-time {
-  background: var(--brand-purple);
-  border-color: var(--brand-purple);
+  background: var(--terracotta);
+  border-color: var(--terracotta);
 }
 
 .how-it-works-step-time i {
   font-size: 0.875rem;
-  color: var(--brand-purple);
+  color: var(--terracotta);
   transition: color 0.3s ease;
 }
 
@@ -2223,7 +2223,7 @@ html {
 .how-it-works-step-time span {
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--brand-dark);
+  color: var(--terracotta-dark);
   transition: color 0.3s ease;
 }
 
@@ -2244,7 +2244,7 @@ html {
     left: 50%;
     width: 100%;
     height: 3px;
-    background: linear-gradient(to right, var(--brand-purple), var(--brand-dark));
+    background: linear-gradient(to right, var(--terracotta-soft), var(--terracotta-dark));
     z-index: 1;
   }
 
@@ -2261,9 +2261,9 @@ html {
     transform: translateY(-50%);
     width: 12px;
     height: 12px;
-    background: var(--brand-dark);
+    background: var(--terracotta-dark);
     border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(163, 158, 227, 0.2);
+    box-shadow: 0 0 0 4px rgba(196, 122, 101, 0.2);
   }
 }
 
@@ -2283,7 +2283,7 @@ html {
   padding-top: 1.5rem;
   padding-bottom: 0;
   margin-bottom: 0;
-  border-top: 1px solid rgba(163, 158, 227, 0.15);
+  border-top: 1px solid rgba(196, 122, 101, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2356,10 +2356,10 @@ html {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(163, 158, 227, 0.15);
+  border: 1px solid rgba(196, 122, 101, 0.12);
   border-radius: 9999px;
   margin-bottom: 2rem;
-  box-shadow: 0 8px 30px rgba(163, 158, 227, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 30px rgba(196, 122, 101, 0.10), 0 2px 8px rgba(0, 0, 0, 0.03);
   cursor: default;
 }
 
@@ -2373,7 +2373,7 @@ html {
 }
 
 .section-badge:hover .section-badge-text {
-  color: var(--brand-purple);
+  color: var(--brand-dark);
 }
 
 .treatments-title {
@@ -2570,7 +2570,7 @@ html {
 .pharmacist-image-glow {
   position: absolute;
   inset: 0;
-  background: rgba(163, 158, 227, 0.2);
+  background: rgba(196, 122, 101, 0.15);
   border-radius: 2.5rem;
   transform: rotate(3deg) scale(1.05);
   filter: blur(20px);
@@ -2945,8 +2945,8 @@ html {
 .switching-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 0% 50%, rgba(163, 158, 227, 0.08), transparent 40%),
-              radial-gradient(circle at 100% 0%, rgba(109, 104, 181, 0.05), transparent 40%);
+  background: radial-gradient(circle at 0% 50%, rgba(196, 122, 101, 0.06), transparent 40%),
+              radial-gradient(circle at 100% 0%, rgba(184, 105, 79, 0.04), transparent 40%);
   pointer-events: none;
 }
 
@@ -3045,8 +3045,8 @@ html {
   padding: 2.5rem;
   background: var(--white);
   border-radius: 1.5rem;
-  border: 3px solid rgba(163, 158, 227, 0.25);
-  box-shadow: 0 10px 40px rgba(163, 158, 227, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 3px solid rgba(196, 122, 101, 0.15);
+  box-shadow: 0 10px 40px rgba(196, 122, 101, 0.10), 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
@@ -3059,14 +3059,14 @@ html {
   left: 0;
   width: 6px;
   height: 100%;
-  background: linear-gradient(to bottom, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(to bottom, var(--terracotta-soft), var(--terracotta-dark));
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .switching-feature-premium:hover {
-  border-color: var(--brand-purple);
-  box-shadow: 0 25px 70px rgba(163, 158, 227, 0.25), 0 8px 20px rgba(109, 104, 181, 0.15);
+  border-color: var(--terracotta);
+  box-shadow: 0 25px 70px rgba(196, 122, 101, 0.20), 0 8px 20px rgba(184, 105, 79, 0.12);
   transform: translateY(-6px);
 }
 
@@ -3084,17 +3084,17 @@ html {
   background: var(--white);
   border-radius: 1.5rem;
   padding: 1rem;
-  border: 3px solid rgba(163, 158, 227, 0.2);
+  border: 3px solid rgba(196, 122, 101, 0.15);
   transition: all 0.4s ease;
   position: relative;
   z-index: 10;
-  box-shadow: 0 10px 30px rgba(163, 158, 227, 0.2);
+  box-shadow: 0 10px 30px rgba(196, 122, 101, 0.15);
 }
 
 .switching-feature-premium:hover .switching-feature-product {
   transform: scale(1.08) rotate(-3deg);
-  border-color: var(--brand-purple);
-  box-shadow: 0 20px 50px rgba(163, 158, 227, 0.35);
+  border-color: var(--terracotta);
+  box-shadow: 0 20px 50px rgba(196, 122, 101, 0.25);
 }
 
 .switching-product-image {
@@ -3127,7 +3127,7 @@ html {
 }
 
 .switching-feature-premium:hover .switching-feature-title {
-  color: var(--brand-purple);
+  color: var(--terracotta);
 }
 
 .switching-feature-desc {
@@ -3159,14 +3159,14 @@ html {
   padding: 1.5rem 2rem;
   border-radius: 1.25rem;
   margin-bottom: 2.5rem;
-  border: 1px solid rgba(163, 158, 227, 0.15);
-  box-shadow: 0 10px 30px -5px rgba(163, 158, 227, 0.15);
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  box-shadow: 0 10px 30px -5px rgba(196, 122, 101, 0.10);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .switching-trust-proof:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 40px -5px rgba(163, 158, 227, 0.2);
+  box-shadow: 0 15px 40px -5px rgba(196, 122, 101, 0.15);
 }
 
 .switching-trust-item {
@@ -3181,18 +3181,18 @@ html {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.15), rgba(109, 104, 181, 0.1));
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.12), rgba(184, 105, 79, 0.08));
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--brand-purple);
+  color: var(--terracotta);
   font-size: 1.125rem;
   transition: all 0.3s ease;
 }
 
 .switching-trust-item:hover .switching-trust-icon {
-  background: var(--brand-purple);
+  background: var(--terracotta);
   color: var(--white);
   transform: scale(1.1);
 }
@@ -3221,7 +3221,7 @@ html {
 .switching-trust-divider {
   width: 1px;
   height: 3rem;
-  background: linear-gradient(to bottom, transparent, rgba(163, 158, 227, 0.2), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(196, 122, 101, 0.15), transparent);
   flex-shrink: 0;
   margin: 0 1rem;
 }
@@ -3284,7 +3284,7 @@ html {
 .switching-image-glow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.2), transparent);
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.15), transparent);
   border-radius: 3rem;
   transform: rotate(3deg);
   filter: blur(20px);
@@ -3616,7 +3616,7 @@ html {
   left: -5%;
   width: 600px;
   height: 600px;
-  background: rgba(163, 158, 227, 0.08);
+  background: rgba(196, 122, 101, 0.06);
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
@@ -3629,7 +3629,7 @@ html {
   right: -5%;
   width: 500px;
   height: 500px;
-  background: rgba(139, 133, 214, 0.06);
+  background: rgba(212, 144, 124, 0.04);
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
@@ -3709,20 +3709,20 @@ html {
 .safe-feature-card {
   position: relative;
   background: var(--white);
-  border: 2px solid rgba(163, 158, 227, 0.15);
+  border: 2px solid rgba(196, 122, 101, 0.12);
   border-radius: 1.5rem;
   padding: 2rem;
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
   transition: all 0.4s ease;
-  box-shadow: 0 4px 20px rgba(163, 158, 227, 0.08);
+  box-shadow: 0 4px 20px rgba(196, 122, 101, 0.08);
 }
 
 .safe-feature-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(163, 158, 227, 0.2);
-  border-color: var(--brand-purple);
+  box-shadow: 0 20px 50px rgba(196, 122, 101, 0.18);
+  border-color: var(--terracotta-soft);
 }
 
 @media (min-width: 768px) {
@@ -3766,7 +3766,7 @@ html {
 }
 
 .safe-feature-card:hover .safe-feature-title {
-  color: var(--brand-purple);
+  color: var(--terracotta);
 }
 
 @media (min-width: 768px) {
@@ -3790,7 +3790,7 @@ html {
 .safe-card-glow {
   position: absolute;
   inset: -20px;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.15), rgba(109, 104, 181, 0.1));
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.12), rgba(184, 105, 79, 0.08));
   border-radius: 2rem;
   filter: blur(30px);
   opacity: 0.8;
@@ -3800,16 +3800,16 @@ html {
 .safe-card {
   position: relative;
   background: var(--white);
-  border: 3px solid var(--brand-purple);
+  border: 3px solid var(--brand-dark);
   border-radius: 2rem;
   padding: 2.5rem;
-  box-shadow: 0 20px 60px rgba(163, 158, 227, 0.25);
+  box-shadow: 0 20px 60px rgba(196, 122, 101, 0.18);
   transition: all 0.4s ease;
 }
 
 .safe-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 30px 80px rgba(163, 158, 227, 0.35);
+  box-shadow: 0 30px 80px rgba(196, 122, 101, 0.25);
 }
 
 @media (min-width: 768px) {
@@ -3880,7 +3880,7 @@ html {
   align-items: flex-start;
   gap: 1.25rem;
   padding-bottom: 2rem;
-  border-bottom: 2px solid rgba(163, 158, 227, 0.15);
+  border-bottom: 2px solid rgba(196, 122, 101, 0.12);
 }
 
 .safe-detail:last-child {
@@ -4518,7 +4518,7 @@ html {
   left: -5%;
   width: 600px;
   height: 600px;
-  background: rgba(163, 158, 227, 0.08);
+  background: rgba(196, 122, 101, 0.06);
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
@@ -4586,7 +4586,7 @@ html {
   border-radius: 9999px;
   font-weight: 700;
   font-size: 1rem;
-  border: 1px solid rgba(163, 158, 227, 0.2);
+  border: 1px solid rgba(196, 122, 101, 0.15);
   box-shadow: var(--shadow-lg);
   transition: all 0.3s ease;
   flex-shrink: 0;
@@ -4594,7 +4594,7 @@ html {
 }
 
 .healthhub-view-all:hover {
-  border-color: var(--brand-purple);
+  border-color: var(--terracotta);
   transform: scale(1.05);
 }
 
@@ -4651,7 +4651,7 @@ html {
 .healthhub-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-2xl);
-  border-color: rgba(163, 158, 227, 0.3);
+  border-color: rgba(196, 122, 101, 0.2);
 }
 
 /* Card image */
@@ -4806,7 +4806,7 @@ html {
 }
 
 .location-card:hover {
-  box-shadow: 0 30px 100px -15px rgba(163, 158, 227, 0.2);
+  box-shadow: 0 30px 100px -15px rgba(196, 122, 101, 0.15);
 }
 
 @media (max-width: 767px) {
@@ -5077,7 +5077,7 @@ html {
   right: -5%;
   width: 600px;
   height: 600px;
-  background: rgba(163, 158, 227, 0.07);
+  background: rgba(196, 122, 101, 0.05);
   border-radius: 50%;
   filter: blur(80px);
   z-index: 0;
@@ -5141,7 +5141,7 @@ html {
   align-items: flex-start;
   gap: 0.75rem;
   background: var(--brand-light);
-  border: 1px solid rgba(163, 158, 227, 0.2);
+  border: 1px solid rgba(196, 122, 101, 0.15);
   border-radius: 0.75rem;
   padding: 1rem 1.5rem;
   max-width: 640px;
@@ -5392,7 +5392,7 @@ html {
 }
 
 .testimonial-card-large:hover {
-  border-color: rgba(163, 158, 227, 0.3);
+  border-color: rgba(196, 122, 101, 0.2);
   box-shadow: var(--shadow-2xl);
 }
 
@@ -5415,7 +5415,7 @@ html {
 }
 
 .testimonial-card-medium:hover {
-  border-color: rgba(163, 158, 227, 0.3);
+  border-color: rgba(196, 122, 101, 0.2);
   box-shadow: var(--shadow-xl);
 }
 
