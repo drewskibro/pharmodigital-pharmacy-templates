@@ -5545,7 +5545,7 @@ function ep_register_acf_field_groups() {
         'key'      => 'group_ep_yf_hero',
         'title'    => 'Yellow Fever — Hero',
         'fields'   => array(
-            array( 'key' => 'field_ep_yf_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'yf_parent_url', 'type' => 'url', 'default_value' => '', 'instructions' => 'Travel Health page URL. Leave blank for /travel-health/.' ),
+            array( 'key' => 'field_ep_yf_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'yf_parent_url', 'type' => 'text', 'default_value' => '/travel-health/', 'instructions' => 'Relative path to the parent page shown in the breadcrumb (e.g. /travel-health/). This is NOT the current page URL.' ),
             array( 'key' => 'field_ep_yf_hero_label', 'label' => 'Hero Label', 'name' => 'yf_hero_label', 'type' => 'text', 'default_value' => 'OFFICIAL YELLOW FEVER CENTRE' ),
             array( 'key' => 'field_ep_yf_hero_title', 'label' => 'Hero Title', 'name' => 'yf_hero_title', 'type' => 'text', 'default_value' => 'Yellow Fever Vaccination Service in Ashford' ),
             array( 'key' => 'field_ep_yf_hero_description', 'label' => 'Hero Description', 'name' => 'yf_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'We are an official NHS Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Easy Pharmacy Ashford.' ),
@@ -5931,7 +5931,7 @@ function ep_register_acf_field_groups() {
         'title'    => 'Rabies — Hero',
         'fields'   => array(
             array( 'key' => 'field_ep_rab_name', 'label' => 'Vaccine Name', 'name' => 'vaccine_name', 'type' => 'text', 'default_value' => 'Rabies' ),
-            array( 'key' => 'field_ep_rab_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'vaccine_parent_url', 'type' => 'url', 'default_value' => '/travel-health/' ),
+            array( 'key' => 'field_ep_rab_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'vaccine_parent_url', 'type' => 'text', 'default_value' => '/travel-health/', 'instructions' => 'Relative path to the parent page shown in the breadcrumb (e.g. /travel-health/). This is NOT the current page URL.' ),
             array( 'key' => 'field_ep_rab_hero_label', 'label' => 'Hero Label', 'name' => 'vaccine_hero_label', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH PROTECTION' ),
             array( 'key' => 'field_ep_rab_hero_title', 'label' => 'Hero Title', 'name' => 'vaccine_hero_title', 'type' => 'text', 'default_value' => 'Rabies Vaccination Service in Ashford' ),
             array( 'key' => 'field_ep_rab_hero_desc', 'label' => 'Hero Description', 'name' => 'vaccine_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Protect yourself against rabies with our expert travel health service. Essential for travel to high-risk areas in Asia, Africa, and South America.' ),
