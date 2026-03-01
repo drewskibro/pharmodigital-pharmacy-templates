@@ -1531,6 +1531,13 @@ function ep_register_acf_field_groups() {
                     'value'    => 'page-templates/page-home.php',
                 ),
             ),
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-weight-loss.php',
+                ),
+            ),
         ),
         'menu_order'            => 30,
         'position'              => 'normal',
