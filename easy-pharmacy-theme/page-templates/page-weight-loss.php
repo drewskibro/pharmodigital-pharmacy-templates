@@ -40,7 +40,7 @@ get_header();
         </p>
 
         <div class="wl-hero-actions">
-          <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '#calculator' ) ); ?>" class="cta-button primary-cta">
+          <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '' ) ?: ep_booking_url() ); ?>" class="cta-button primary-cta">
             <?php echo esc_html( ep_field( 'wl_hero_cta_text', 'Book Consultation' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
@@ -203,7 +203,7 @@ get_header();
         <h3 class="wl-cta-bar-title"><?php echo esc_html( ep_field( 'wl_cta_bar_title', 'Ready to transform your health?' ) ); ?></h3>
         <p class="wl-cta-bar-subtitle"><?php echo esc_html( ep_field( 'wl_cta_bar_subtitle', 'Book your consultation with Dilip today' ) ); ?></p>
       </div>
-      <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '#calculator' ) ); ?>" class="cta-button primary-cta wl-cta-bar-button">
+      <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '' ) ?: ep_booking_url() ); ?>" class="cta-button primary-cta wl-cta-bar-button">
         <?php echo esc_html( ep_field( 'wl_hero_cta_text', 'Book Consultation' ) ); ?>
         <i class="fas fa-arrow-right"></i>
       </a>
@@ -288,7 +288,7 @@ get_header();
         <?php endif; ?>
 
         <div class="wl-features-actions">
-          <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '#calculator' ) ); ?>" class="cta-button primary-cta">
+          <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '' ) ?: ep_booking_url() ); ?>" class="cta-button primary-cta">
             Start Your Journey <i class="fas fa-arrow-right"></i>
           </a>
           <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta">
@@ -451,112 +451,6 @@ get_header();
         </div>
       </div>
     <?php endif; ?>
-  </div>
-</section>
-
-<!-- ============================================
-     CALCULATOR SECTION
-     ============================================ -->
-<section class="wl-calculator-section" id="calculator">
-  <div class="section-container">
-    <div class="wl-calculator-header">
-      <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html( ep_field( 'wl_calc_badge', 'CLINICAL ESTIMATOR' ) ); ?></span>
-      </div>
-      <h2 class="wl-calculator-title"><?php echo esc_html( ep_field( 'wl_calc_title', 'Estimate Your Weight Loss Journey' ) ); ?></h2>
-      <p class="wl-calculator-description"><?php echo esc_html( ep_field( 'wl_calc_description', 'Based on clinical trial data for GLP-1 medications like Mounjaro and Wegovy. See what\'s medically achievable for you.' ) ); ?></p>
-    </div>
-
-    <div class="wl-calculator-grid">
-      <div class="wl-calculator-image-wrapper">
-        <div class="wl-calculator-image-card">
-          <?php
-          $calc_image_id  = ep_field( 'wl_calc_image' );
-          $calc_image_url = $calc_image_id ? wp_get_attachment_image_url( $calc_image_id, 'large' ) : '';
-          if ( $calc_image_url ) :
-          ?>
-            <img src="<?php echo esc_url( $calc_image_url ); ?>" alt="Weight loss transformation" />
-          <?php endif; ?>
-        </div>
-        <div class="wl-calculator-badge">
-          <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="wl-calculator-badge-number">15-20%</p>
-          <p class="wl-calculator-badge-text">Avg. Body Weight Loss</p>
-        </div>
-      </div>
-
-      <div class="wl-calculator-form-wrapper">
-        <div class="wl-calculator-form-header">
-          <i class="fas fa-calculator"></i>
-          <h3 class="wl-calculator-form-title">Weight Loss Estimator</h3>
-        </div>
-        <form class="wl-calculator-form" id="weightLossCalculator">
-          <div class="wl-calculator-input-group">
-            <label class="wl-calculator-label">Current Weight</label>
-            <div class="wl-calculator-input-wrapper">
-              <input type="number" id="weightInput" class="wl-calculator-input" placeholder="Enter weight" min="40" max="300" required />
-              <div class="wl-calculator-toggle">
-                <button type="button" class="wl-calculator-toggle-btn wl-calculator-toggle-active" data-unit="kg">kg</button>
-                <button type="button" class="wl-calculator-toggle-btn" data-unit="st">st</button>
-              </div>
-            </div>
-          </div>
-          <div class="wl-calculator-input-group">
-            <label class="wl-calculator-label">Height</label>
-            <div class="wl-calculator-input-wrapper">
-              <input type="number" id="heightInput" class="wl-calculator-input" placeholder="Enter height" min="120" max="250" required />
-              <div class="wl-calculator-toggle">
-                <button type="button" class="wl-calculator-toggle-btn wl-calculator-toggle-active" data-unit="cm">cm</button>
-                <button type="button" class="wl-calculator-toggle-btn" data-unit="ft">ft/in</button>
-              </div>
-            </div>
-          </div>
-          <button type="submit" class="cta-button primary-cta wl-calculator-submit">
-            Calculate Potential Results <i class="fas fa-arrow-right"></i>
-          </button>
-        </form>
-
-        <div class="wl-calculator-results" id="calculatorResults" style="display: none;">
-          <div class="wl-calculator-results-header">
-            <i class="fas fa-chart-line"></i>
-            <h4 class="wl-calculator-results-title">Your Estimated Results</h4>
-          </div>
-          <div class="wl-calculator-bmi-card">
-            <div class="wl-calculator-bmi-circle">
-              <span class="wl-calculator-bmi-number" id="bmiNumber">0</span>
-            </div>
-            <div class="wl-calculator-bmi-text">
-              <p class="wl-calculator-bmi-label">Current BMI</p>
-              <p class="wl-calculator-bmi-category" id="bmiCategory">Normal</p>
-            </div>
-          </div>
-          <div class="wl-calculator-projection-card">
-            <h5 class="wl-calculator-projection-title">Projected 12-Month Result</h5>
-            <p class="wl-calculator-projection-range" id="projectionRange">0 - 0 kg</p>
-            <p class="wl-calculator-projection-subtitle">Based on 10-15% weight loss</p>
-          </div>
-          <div class="wl-calculator-timeline">
-            <div class="wl-calculator-timeline-item">
-              <div class="wl-calculator-timeline-bar"><div class="wl-calculator-timeline-fill" style="width: 25%;"></div></div>
-              <p class="wl-calculator-timeline-label">Month 3</p>
-            </div>
-            <div class="wl-calculator-timeline-item">
-              <div class="wl-calculator-timeline-bar"><div class="wl-calculator-timeline-fill" style="width: 50%;"></div></div>
-              <p class="wl-calculator-timeline-label">Month 6</p>
-            </div>
-            <div class="wl-calculator-timeline-item">
-              <div class="wl-calculator-timeline-bar"><div class="wl-calculator-timeline-fill wl-calculator-timeline-fill-full" style="width: 100%;"></div></div>
-              <p class="wl-calculator-timeline-label">Month 12</p>
-            </div>
-          </div>
-          <p class="wl-calculator-disclaimer"><i class="fas fa-info-circle"></i> Results are estimates based on clinical trial data. Individual results may vary.</p>
-          <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button primary-cta">
-            Book Your Consultation <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
