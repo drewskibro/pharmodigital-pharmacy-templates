@@ -345,7 +345,7 @@ get_header();
 </section>
 
 <!-- ============================================
-     JOURNEY STEPS
+     JOURNEY STEPS — Tab + Card Grid Layout
      ============================================ -->
 <section class="wl-journey-section">
   <div class="section-container">
@@ -354,103 +354,67 @@ get_header();
         <span class="pulse-dot"><span></span><span></span></span>
         <span class="section-badge-text"><?php echo esc_html( ep_field( 'wl_journey_badge', 'HOW WE SUPPORT YOU' ) ); ?></span>
       </div>
-      <h2 class="wl-journey-title">Your path to <span class="gradient-text"><?php echo esc_html( ep_field( 'wl_journey_title_highlight', 'lasting weight loss' ) ); ?></span></h2>
+      <h2 class="wl-journey-title">
+        <span class="gradient-text"><?php echo esc_html( ep_field( 'wl_journey_title_highlight', 'Your Path To' ) ); ?></span>
+        <span class="wl-journey-accent-text"><?php echo esc_html( ep_field( 'wl_journey_title_line2', ' Lasting Weight Loss' ) ); ?></span>
+      </h2>
       <p class="wl-journey-description">
         <?php echo esc_html( ep_field( 'wl_journey_description', 'A structured, evidence-based approach with regular face-to-face support every step of the way.' ) ); ?>
       </p>
     </div>
 
-    <?php if ( have_rows( 'wl_journey_steps' ) ) : $step_count = 0; while ( have_rows( 'wl_journey_steps' ) ) : the_row(); $step_count++;
-      $direction = ( $step_count % 2 === 1 ) ? 'left' : 'right';
-      $step_image_id  = get_sub_field( 'image' );
-      $step_image_url = $step_image_id ? wp_get_attachment_image_url( $step_image_id, 'large' ) : '';
-      $floating_badge  = get_sub_field( 'floating_badge' );
+    <?php
+    // Default steps data
+    $default_journey_steps = array(
+        array( 'title' => 'Initial Consultation', 'description' => 'Meet with our expert team at our Ashford pharmacy for a comprehensive health assessment. We\'ll discuss your goals, medical history, and create a personalised plan.', 'image' => '' ),
+        array( 'title' => 'Begin Treatment', 'description' => 'If suitable, we\'ll prescribe Mounjaro, Wegovy, or other GLP-1 treatments. You\'ll receive clear instructions and guidance on what to expect.', 'image' => '' ),
+        array( 'title' => 'Monthly Check-Ins', 'description' => 'Pop into the pharmacy for face-to-face appointments. We\'ll monitor your progress, adjust medication if needed, and provide ongoing encouragement.', 'image' => '' ),
+        array( 'title' => 'Reach Your Goals', 'description' => 'With consistent support and proven medical treatments, most patients reach their target weight within 12 months. We\'ll help you maintain results long-term.', 'image' => '' ),
+    );
+
+    $has_journey_steps = have_rows( 'wl_journey_steps' );
+    $journey_steps     = array();
+
+    if ( $has_journey_steps ) {
+        while ( have_rows( 'wl_journey_steps' ) ) {
+            the_row();
+            $img_id  = get_sub_field( 'image' );
+            $img_url = $img_id ? wp_get_attachment_image_url( $img_id, 'medium_large' ) : '';
+            $journey_steps[] = array(
+                'title'       => get_sub_field( 'title' ),
+                'description' => get_sub_field( 'description' ),
+                'image'       => $img_url,
+            );
+        }
+    } else {
+        $journey_steps = $default_journey_steps;
+    }
     ?>
-      <div class="wl-journey-step wl-journey-step-<?php echo esc_attr( $direction ); ?>">
-        <?php if ( $direction === 'right' && $step_image_url ) : ?>
-          <div class="wl-journey-step-image">
-            <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
-            <?php if ( $floating_badge ) : ?>
-              <div class="wl-journey-step-floating-badge">
-                <i class="<?php echo esc_attr( get_sub_field( 'floating_badge_icon' ) ); ?>"></i>
-                <span><?php echo esc_html( $floating_badge ); ?></span>
-              </div>
-            <?php endif; ?>
-          </div>
-        <?php endif; ?>
 
-        <div class="wl-journey-step-content">
-          <div class="wl-journey-step-number"><?php echo esc_html( $step_count ); ?></div>
-          <div class="wl-journey-step-icon"><i class="<?php echo esc_attr( get_sub_field( 'icon' ) ); ?>"></i></div>
-          <h3 class="wl-journey-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-          <p class="wl-journey-step-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
-          <div class="wl-journey-step-meta">
-            <i class="<?php echo esc_attr( get_sub_field( 'meta_icon' ) ); ?>"></i>
-            <span><?php echo esc_html( get_sub_field( 'meta_text' ) ); ?></span>
-          </div>
+    <!-- Numbered Tabs Navigation -->
+    <div class="wl-journey-tabs">
+      <?php foreach ( $journey_steps as $i => $step ) : ?>
+        <div class="wl-journey-tab<?php echo $i === 0 ? ' wl-journey-tab-active' : ''; ?>">
+          <span class="wl-journey-tab-counter"><?php echo esc_html( $i + 1 ); ?></span>
+          <strong class="wl-journey-tab-title"><?php echo esc_html( $step['title'] ); ?></strong>
         </div>
+      <?php endforeach; ?>
+    </div>
 
-        <?php if ( $direction === 'left' && $step_image_url ) : ?>
-          <div class="wl-journey-step-image">
-            <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
-            <?php if ( $floating_badge ) : ?>
-              <div class="wl-journey-step-floating-badge">
-                <i class="<?php echo esc_attr( get_sub_field( 'floating_badge_icon' ) ); ?>"></i>
-                <span><?php echo esc_html( $floating_badge ); ?></span>
-              </div>
-            <?php endif; ?>
-          </div>
-        <?php endif; ?>
-      </div>
-    <?php endwhile; else : ?>
-      <!-- Default journey steps when no ACF data -->
-      <div class="wl-journey-step wl-journey-step-left">
-        <div class="wl-journey-step-content">
-          <div class="wl-journey-step-number">1</div>
-          <div class="wl-journey-step-icon"><i class="fas fa-calendar-check"></i></div>
-          <h3 class="wl-journey-step-title">Initial consultation</h3>
-          <p class="wl-journey-step-description">Meet with our expert team at our Ashford pharmacy for a comprehensive health assessment. We'll discuss your goals, medical history, and create a personalised plan that works for you.</p>
-          <div class="wl-journey-step-meta"><i class="fas fa-clock"></i><span>30-45 minutes | Private consultation</span></div>
+    <!-- Step Content Cards Grid -->
+    <div class="wl-journey-cards">
+      <?php foreach ( $journey_steps as $i => $step ) : ?>
+        <div class="wl-journey-card">
+          <?php if ( $step['image'] ) : ?>
+            <figure class="wl-journey-card-image">
+              <img src="<?php echo esc_url( $step['image'] ); ?>" alt="<?php echo esc_attr( $step['title'] ); ?>" />
+            </figure>
+          <?php endif; ?>
+          <h4 class="wl-journey-card-title"><?php echo esc_html( $step['title'] ); ?></h4>
+          <p class="wl-journey-card-description"><?php echo esc_html( $step['description'] ); ?></p>
         </div>
-        <div class="wl-journey-step-image"><img src="" alt="Initial consultation" /></div>
-      </div>
-      <div class="wl-journey-step wl-journey-step-right">
-        <div class="wl-journey-step-image">
-          <img src="" alt="Treatment" />
-          <div class="wl-journey-step-floating-badge"><i class="fas fa-bolt"></i><span>Same Day</span></div>
-        </div>
-        <div class="wl-journey-step-content">
-          <div class="wl-journey-step-number">2</div>
-          <div class="wl-journey-step-icon"><i class="fas fa-pills"></i></div>
-          <h3 class="wl-journey-step-title">Begin Mounjaro or Wegovy treatment</h3>
-          <p class="wl-journey-step-description">If suitable, we'll prescribe Mounjaro, Wegovy, or other GLP-1 treatments. You'll receive clear instructions and guidance on what to expect from your Ashford weight loss programme.</p>
-          <div class="wl-journey-step-meta"><i class="fas fa-bolt"></i><span>Same-day prescription available</span></div>
-        </div>
-      </div>
-      <div class="wl-journey-step wl-journey-step-left">
-        <div class="wl-journey-step-content">
-          <div class="wl-journey-step-number">3</div>
-          <div class="wl-journey-step-icon"><i class="fas fa-user-doctor"></i></div>
-          <h3 class="wl-journey-step-title">Monthly check-ins</h3>
-          <p class="wl-journey-step-description">Pop into the pharmacy for face-to-face appointments. We'll monitor your progress, adjust medication if needed, and provide ongoing encouragement. You're never doing this alone.</p>
-          <div class="wl-journey-step-meta"><i class="fas fa-calendar"></i><span>Monthly appointments</span></div>
-        </div>
-        <div class="wl-journey-step-image"><img src="" alt="Monthly check-in" /></div>
-      </div>
-      <div class="wl-journey-step wl-journey-step-right">
-        <div class="wl-journey-step-image">
-          <img src="" alt="Goal achievement" />
-          <div class="wl-journey-step-floating-badge wl-journey-step-floating-badge-trophy"><i class="fas fa-trophy"></i></div>
-        </div>
-        <div class="wl-journey-step-content">
-          <div class="wl-journey-step-number">4</div>
-          <div class="wl-journey-step-icon"><i class="fas fa-trophy"></i></div>
-          <h3 class="wl-journey-step-title">Reach your goals</h3>
-          <p class="wl-journey-step-description">With consistent support and proven medical treatments, most patients reach their target weight within 12 months. We'll help you maintain results long-term.</p>
-          <div class="wl-journey-step-meta"><i class="fas fa-infinity"></i><span>Ongoing maintenance support</span></div>
-        </div>
-      </div>
-    <?php endif; ?>
+      <?php endforeach; ?>
+    </div>
   </div>
 </section>
 
