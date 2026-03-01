@@ -1621,15 +1621,15 @@
 
 /* Dark Content Box with Checklist */
 .process-included-box {
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.08) 0%, rgba(109, 104, 181, 0.05) 100%);
-  border: 2px solid rgba(163, 158, 227, 0.2);
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #f0edff 100%);
+  border: 2px solid rgba(163, 158, 227, 0.3);
   border-radius: 40px;
   padding: 70px;
   position: relative;
   z-index: 10;
   max-width: 1183px;
   margin: 0 auto;
-  box-shadow: 0 20px 60px rgba(163, 158, 227, 0.15);
+  box-shadow: 0 20px 60px rgba(109, 104, 181, 0.12), 0 0 0 1px rgba(163, 158, 227, 0.08);
 }
 
 @media (max-width: 767px) {
@@ -1639,26 +1639,25 @@
 }
 
 .process-included-content {
-  color: #111827;
   max-width: 650px;
 }
 
 .process-included-eyebrow {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--brand-purple);
-  margin-bottom: 16px;
-  letter-spacing: 0.03em;
-  opacity: 0.7;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .process-included-title {
   font-size: 42px;
   font-weight: 700;
-  color: #000000;
-  margin-top: 0; /* Prevent margin stacking */
+  color: #0f172a;
+  margin-top: 0;
   margin-bottom: 48px;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   font-family: var(--font-heading);
 }
@@ -1672,59 +1671,61 @@
 .process-included-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 40px 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
 }
 
 .process-included-list li {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.7;
-  color: #374151;
+  color: #1e293b;
   letter-spacing: -0.01em;
 }
 
 .process-included-list i {
-  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 28px;
   flex-shrink: 0;
-  margin-top: 2px;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin-top: 3px;
+  color: var(--brand-dark);
 }
 
 .process-included-cta {
   display: flex;
   justify-content: flex-start;
-  margin-top: 56px;
+  margin-top: 48px;
 }
 
 .process-cta-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
   border: 2px solid transparent;
   color: #ffffff;
   padding: 20px 48px;
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
   letter-spacing: -0.01em;
-  box-shadow: 0 10px 30px rgba(163, 158, 227, 0.35);
+  box-shadow: 0 8px 24px rgba(109, 104, 181, 0.35), 0 2px 6px rgba(109, 104, 181, 0.2);
 }
 
 .process-cta-button:hover {
-  background: linear-gradient(to right, var(--brand-dark), var(--brand-purple));
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-purple));
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(163, 158, 227, 0.4);
+  box-shadow: 0 14px 36px rgba(109, 104, 181, 0.45), 0 4px 10px rgba(109, 104, 181, 0.25);
 }
 
 .button-title {
