@@ -4,15 +4,21 @@
 :root {
   --brand-purple: #a39ee3;
   --brand-light: #fef6f4;
-  --brand-dark: #6d68b5;
+  --brand-dark: #6B4FA0;
   --brand-accent: #8b85d6;
-  --text-dark: #1a202c;
-  --text-gray: #4a5568;
-  --text-slate: #64748b;
+  --text-dark: #2D1B4E;
+  --text-gray: #4A3D5C;
+  --text-slate: #6B5F7A;
   --white: #ffffff;
   --font-primary: 'DM Sans', sans-serif;
   --font-heading: 'Playfair Display', serif;
   --font-accent: 'Syne', sans-serif;
+
+  /* Warm accent palette */
+  --terracotta: #C47A65;
+  --terracotta-soft: #D4907C;
+  --terracotta-dark: #B8694F;
+  --trust-green: #7A9E7E;
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -1092,7 +1098,7 @@ html {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #475569;
+  color: var(--text-slate);
   transition: color 0.3s ease;
 }
 
@@ -1104,7 +1110,7 @@ html {
     .hero-title {
       font-size: 3rem;
       font-weight: 800; /* Extra bold for authority */
-      color: #0f172a; /* Richer black/navy */
+      color: #2D1B4E; /* Richer black/navy */
       margin-bottom: 1.5rem;
       letter-spacing: -0.05em; /* Tighter, editorial tracking */
       line-height: 1.05; /* Compact leading for a solid block feel */
@@ -1305,7 +1311,7 @@ html {
 
 .author-name {
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   font-size: 1rem;
 }
 
@@ -1509,7 +1515,7 @@ html {
 .rating-label > span {
   font-weight: 700;
   font-size: 0.875rem;
-  color: #1f2937;
+  color: #2D1B4E;
 }
 
 .badge-success {
@@ -1547,7 +1553,7 @@ html {
   font-weight: 900;
   font-family: var(--font-heading);
   line-height: 1;
-  color: #111827;
+  color: #2D1B4E;
   letter-spacing: -0.02em;
 }
 
@@ -1637,11 +1643,7 @@ html {
   background-clip: text;
 }
 
-.hero-section .hero-accent-text {
-  color: #2D1B4E;
-}
-
-/* Body text — dark purple-charcoal */
+/* Body text — dark purple-charcoal (hero gets darker than --text-gray default) */
 .hero-section .hero-description {
   color: #2D1B4E;
 }
@@ -1720,10 +1722,6 @@ html {
 }
 
 .hero-section .hero-quote {
-  color: #2D1B4E;
-}
-
-.hero-section .author-name {
   color: #2D1B4E;
 }
 
@@ -1845,7 +1843,7 @@ html {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -2030,7 +2028,7 @@ html {
 .how-it-works-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -2164,7 +2162,7 @@ html {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
   line-height: 1.2;
   transition: color 0.3s ease;
@@ -2370,7 +2368,7 @@ html {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #475569;
+  color: var(--text-slate);
   transition: color 0.3s ease;
 }
 
@@ -2381,7 +2379,7 @@ html {
 .treatments-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
 }
@@ -2778,7 +2776,7 @@ html {
 .pharmacist-name {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1.5rem;
   line-height: 1.15;
 }
@@ -3006,7 +3004,7 @@ html {
   font-size: 2.5rem;
   font-weight: 900;
   font-family: var(--font-heading);
-  color: #111827;
+  color: #2D1B4E;
   line-height: 1.15;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
@@ -3122,7 +3120,7 @@ html {
   font-family: var(--font-primary);
   font-size: 1.375rem;
   font-weight: 800;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 0.75rem;
   letter-spacing: -0.01em;
   transition: color 0.3s ease;
@@ -3399,11 +3397,11 @@ html {
   font-size: 2rem;
   font-weight: 900;
   font-family: var(--font-heading);
-  color: #111827;
+  color: #2D1B4E;
   line-height: 1;
   margin-bottom: 0.25rem;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #111827, var(--brand-dark));
+  background: linear-gradient(135deg, #2D1B4E, var(--brand-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -3653,7 +3651,7 @@ html {
 .safe-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -3761,7 +3759,7 @@ html {
   font-family: var(--font-primary);
   font-size: 1.375rem;
   font-weight: 800;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 0.75rem;
   line-height: 1.2;
   transition: color 0.3s ease;
@@ -3857,7 +3855,7 @@ html {
   font-family: var(--font-heading);
   font-size: 1.875rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 2.5rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -3921,7 +3919,7 @@ html {
   font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -4566,7 +4564,7 @@ html {
 .healthhub-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   line-height: 1.15;
   text-align: left;
   letter-spacing: -0.02em;
@@ -4703,7 +4701,7 @@ html {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   line-height: 1.3;
   letter-spacing: -0.02em;
   transition: color 0.3s ease;
@@ -4874,7 +4872,7 @@ html {
 .location-card-title {
   font-size: 2rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
@@ -4944,7 +4942,7 @@ html {
 
 .location-detail-value {
   font-size: 1rem;
-  color: #111827;
+  color: #2D1B4E;
   line-height: 1.6;
   font-weight: 500;
 }
@@ -4993,7 +4991,7 @@ html {
 .location-hours-time {
   font-size: 0.9375rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
 }
 
 .location-hours-closed {
@@ -5005,7 +5003,7 @@ html {
   display: block;
   font-size: 1rem;
   font-weight: 600;
-  color: #111827;
+  color: #2D1B4E;
   transition: color 0.3s ease;
   margin-bottom: 0.25rem;
 }
@@ -5113,7 +5111,7 @@ html {
 .testimonials-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1.5rem;
   line-height: 1.15;
 }
@@ -5233,7 +5231,7 @@ html {
 .testimonial-quote {
   font-family: var(--font-heading);
   font-style: italic;
-  color: #1f2937;
+  color: #2D1B4E;
   font-size: 1.125rem;
   line-height: 1.7;
   margin-bottom: 2rem;
@@ -5306,7 +5304,7 @@ html {
 .testimonial-author-name {
   font-family: var(--font-primary);
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   font-size: 1.25rem;
   margin-bottom: 0.125rem;
 }
@@ -5381,7 +5379,7 @@ html {
 .testimonial-check span {
   font-size: 1rem;
   font-weight: 600;
-  color: #111827;
+  color: #2D1B4E;
 }
 
 /* ---- Card sizes ---- */
