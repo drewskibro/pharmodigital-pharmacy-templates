@@ -1,19 +1,19 @@
 /* ============================================
    HEPATITIS PAGE STYLES
-   Uses hep- prefix
+   Uses hepatitis- prefix
    ============================================ */
 
 /* ============================================
    BREADCRUMB
    ============================================ */
-.hep-breadcrumb {
+.hepatitis-breadcrumb {
   padding: 1rem 0;
   background: var(--white);
   border-bottom: 1px solid rgba(163, 158, 227, 0.1);
   margin-top: 0; /* Body already has padding-top: 80px for fixed nav */
 }
 
-.hep-breadcrumb .section-container {
+.hepatitis-breadcrumb .section-container {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -21,21 +21,21 @@
   color: var(--text-gray);
 }
 
-.hep-breadcrumb a {
+.hepatitis-breadcrumb a {
   color: var(--text-gray);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.hep-breadcrumb a:hover {
+.hepatitis-breadcrumb a:hover {
   color: var(--brand-purple);
 }
 
-.hep-breadcrumb .separator {
+.hepatitis-breadcrumb .separator {
   color: #cbd5e1;
 }
 
-.hep-breadcrumb .current {
+.hepatitis-breadcrumb .current {
   color: var(--brand-purple);
   font-weight: 600;
 }
@@ -43,26 +43,26 @@
 /* ============================================
    HERO SECTION
    ============================================ */
-.hep-hero-section {
+.hepatitis-hero-section {
   position: relative;
   min-height: 80vh;
   display: flex;
   align-items: center;
   padding: 80px 0;
   overflow: hidden;
-  background-image: url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1600&h=900&fit=crop');
+  background-color: #6d68b5;
   background-size: cover;
   background-position: center;
 }
 
-.hep-hero-overlay {
+.hepatitis-hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to right, rgba(109, 104, 181, 0.95), rgba(163, 158, 227, 0.85), rgba(163, 158, 227, 0.4));
   z-index: 1;
 }
 
-.hep-hero-dots {
+.hepatitis-hero-dots {
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
@@ -70,14 +70,14 @@
   z-index: 2;
 }
 
-.hep-hero-content {
+.hepatitis-hero-content {
   position: relative;
   z-index: 10;
   max-width: 700px;
   color: var(--white);
 }
 
-.hep-hero-line {
+.hepatitis-hero-line {
   width: 60px;
   height: 4px;
   background: var(--white);
@@ -85,7 +85,7 @@
   border-radius: 9999px;
 }
 
-.hep-hero-label {
+.hepatitis-hero-label {
   display: block;
   font-size: 0.875rem;
   font-weight: 800;
@@ -95,7 +95,7 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-.hep-hero-title {
+.hepatitis-hero-title {
   font-size: 3rem;
   font-weight: 900;
   line-height: 1.1;
@@ -105,12 +105,12 @@
 }
 
 @media (min-width: 768px) {
-  .hep-hero-title {
+  .hepatitis-hero-title {
     font-size: 4rem;
   }
 }
 
-.hep-hero-description {
+.hepatitis-hero-description {
   font-size: 1.25rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;
@@ -118,7 +118,7 @@
   font-weight: 500;
 }
 
-.hep-hero-actions {
+.hepatitis-hero-actions {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -126,41 +126,41 @@
 }
 
 @media (min-width: 640px) {
-  .hep-hero-actions {
+  .hepatitis-hero-actions {
     flex-direction: row;
   }
 }
 
-.hep-btn-primary {
+.hepatitis-btn-primary {
   background: var(--white);
   color: var(--brand-dark);
   border: none;
 }
 
-.hep-btn-primary:hover {
+.hepatitis-btn-primary:hover {
   background: rgba(255, 255, 255, 0.9);
   transform: scale(1.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.hep-btn-secondary {
+.hepatitis-btn-secondary {
   background: transparent;
   color: var(--white);
   border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
-.hep-btn-secondary:hover {
+.hepatitis-btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: var(--white);
 }
 
-.hep-hero-badges {
+.hepatitis-hero-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.hep-hero-badge {
+.hepatitis-hero-badge {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   padding: 0.5rem 1rem;
@@ -174,29 +174,29 @@
 /* ============================================
    PROTECTION SECTION
    ============================================ */
-.hep-protect-section {
+.hepatitis-protect-section {
   padding: 6rem 0;
   background: var(--white);
 }
 
-.hep-protect-header {
+.hepatitis-protect-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hep-protect-title {
+.hepatitis-protect-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
   margin-bottom: 1rem;
 }
 
-.hep-protect-desc {
+.hepatitis-protect-desc {
   font-size: 1.125rem;
   color: var(--text-gray);
 }
 
-.hep-protect-grid {
+.hepatitis-protect-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 4rem;
@@ -204,16 +204,16 @@
 }
 
 @media (min-width: 1024px) {
-  .hep-protect-grid {
+  .hepatitis-protect-grid {
     grid-template-columns: 5fr 7fr;
   }
 }
 
-.hep-protect-image-wrapper {
+.hepatitis-protect-image-wrapper {
   position: relative;
 }
 
-.hep-protect-image-card {
+.hepatitis-protect-image-card {
   position: relative;
   border-radius: 2rem;
   overflow: hidden;
@@ -221,13 +221,13 @@
   border: 4px solid var(--white);
 }
 
-.hep-protect-image {
+.hepatitis-protect-image {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.hep-protect-name-tag {
+.hepatitis-protect-name-tag {
   position: absolute;
   bottom: 2rem;
   left: 2rem;
@@ -238,7 +238,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.hep-protect-name-tag .name {
+.hepatitis-protect-name-tag .name {
   display: block;
   font-size: 1.125rem;
   font-weight: 800;
@@ -246,14 +246,14 @@
   font-family: var(--font-heading);
 }
 
-.hep-protect-name-tag .role {
+.hepatitis-protect-name-tag .role {
   display: block;
   font-size: 0.875rem;
   color: var(--text-gray);
   font-weight: 600;
 }
 
-.hep-protect-badge-box {
+.hepatitis-protect-badge-box {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -267,11 +267,11 @@
   border: 1px solid rgba(163, 158, 227, 0.3);
 }
 
-.hep-protect-badge-box i {
+.hepatitis-protect-badge-box i {
   font-size: 1rem;
 }
 
-.hep-protect-subtitle {
+.hepatitis-protect-subtitle {
   font-size: 1.75rem;
   font-weight: 800;
   color: #111827;
@@ -279,14 +279,14 @@
   line-height: 1.3;
 }
 
-.hep-protect-text {
+.hepatitis-protect-text {
   font-size: 1.125rem;
   color: var(--text-gray);
   line-height: 1.7;
   margin-bottom: 2rem;
 }
 
-.hep-protect-features {
+.hepatitis-protect-features {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -294,18 +294,18 @@
 }
 
 @media (min-width: 768px) {
-  .hep-protect-features {
+  .hepatitis-protect-features {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.hep-protect-feature {
+.hepatitis-protect-feature {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
 }
 
-.hep-protect-feature .icon {
+.hepatitis-protect-feature .icon {
   width: 2.5rem;
   height: 2.5rem;
   background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
@@ -318,20 +318,20 @@
   box-shadow: 0 4px 10px rgba(163, 158, 227, 0.3);
 }
 
-.hep-protect-feature .text strong {
+.hepatitis-protect-feature .text strong {
   display: block;
   font-size: 1rem;
   color: #111827;
   margin-bottom: 0.25rem;
 }
 
-.hep-protect-feature .text p {
+.hepatitis-protect-feature .text p {
   font-size: 0.9375rem;
   color: var(--text-gray);
   line-height: 1.5;
 }
 
-.hep-protect-actions {
+.hepatitis-protect-actions {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -339,7 +339,7 @@
 }
 
 @media (min-width: 640px) {
-  .hep-protect-actions {
+  .hepatitis-protect-actions {
     flex-direction: row;
   }
 }
@@ -347,14 +347,14 @@
 /* ============================================
    STATS BAR
    ============================================ */
-.hep-stats-section {
+.hepatitis-stats-section {
   background: linear-gradient(to right, var(--brand-purple), var(--brand-dark));
   padding: 3rem 0;
   position: relative;
   overflow: hidden;
 }
 
-.hep-stats-bar {
+.hepatitis-stats-bar {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -363,19 +363,19 @@
 }
 
 @media (min-width: 768px) {
-  .hep-stats-bar {
+  .hepatitis-stats-bar {
     flex-direction: row;
     justify-content: space-between;
   }
 }
 
-.hep-stat-item {
+.hepatitis-stat-item {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.hep-stat-item .icon {
+.hepatitis-stat-item .icon {
   width: 3.5rem;
   height: 3.5rem;
   background: rgba(255, 255, 255, 0.2);
@@ -387,12 +387,12 @@
   font-size: 1.5rem;
 }
 
-.hep-stat-item .content {
+.hepatitis-stat-item .content {
   display: flex;
   flex-direction: column;
 }
 
-.hep-stat-item .number {
+.hepatitis-stat-item .number {
   font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 900;
@@ -400,7 +400,7 @@
   line-height: 1;
 }
 
-.hep-stat-item .label {
+.hepatitis-stat-item .label {
   font-size: 0.875rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
@@ -408,7 +408,7 @@
   letter-spacing: 0.05em;
 }
 
-.hep-stat-divider {
+.hepatitis-stat-divider {
   display: none;
   width: 1px;
   height: 3rem;
@@ -416,7 +416,7 @@
 }
 
 @media (min-width: 768px) {
-  .hep-stat-divider {
+  .hepatitis-stat-divider {
     display: block;
   }
 }
@@ -424,30 +424,30 @@
 /* ============================================
    ABOUT SECTION
    ============================================ */
-.hep-about-section {
+.hepatitis-about-section {
   padding: 6rem 0;
   background: var(--brand-light);
 }
 
-.hep-about-header {
+.hepatitis-about-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hep-about-title {
+.hepatitis-about-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
   margin-bottom: 1rem;
 }
 
-.hep-about-desc {
+.hepatitis-about-desc {
   font-size: 1.125rem;
   color: var(--text-gray);
 }
 
 /* Enhanced Grid Layout */
-.hep-about-content-grid {
+.hepatitis-about-content-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
@@ -457,18 +457,18 @@
 }
 
 @media (min-width: 1024px) {
-  .hep-about-content-grid {
+  .hepatitis-about-content-grid {
     grid-template-columns: 40% 1fr;
     gap: 4rem;
   }
 }
 
-.hep-about-image-wrapper {
+.hepatitis-about-image-wrapper {
   position: relative;
   width: 100%;
 }
 
-.hep-about-image-card {
+.hepatitis-about-image-card {
   position: relative;
   border-radius: 2rem;
   overflow: hidden;
@@ -476,30 +476,30 @@
   aspect-ratio: 3/4;
 }
 
-.hep-about-image-card img {
+.hepatitis-about-image-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.7s ease;
 }
 
-.hep-about-image-card:hover img {
+.hepatitis-about-image-card:hover img {
   transform: scale(1.05);
 }
 
-.hep-about-cards-grid {
+.hepatitis-about-cards-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
 @media (min-width: 768px) {
-  .hep-about-cards-grid {
+  .hepatitis-about-cards-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.hep-info-card {
+.hepatitis-info-card {
   background: var(--white);
   padding: 2rem;
   border-radius: 1.5rem;
@@ -508,12 +508,12 @@
   transition: transform 0.3s ease;
 }
 
-.hep-info-card:hover {
+.hepatitis-info-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
-.hep-info-card .icon {
+.hepatitis-info-card .icon {
   width: 3rem;
   height: 3rem;
   background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
@@ -527,20 +527,20 @@
   box-shadow: 0 4px 10px rgba(163, 158, 227, 0.3);
 }
 
-.hep-info-card h3 {
+.hepatitis-info-card h3 {
   font-size: 1.25rem;
   font-weight: 800;
   color: #111827;
   margin-bottom: 0.75rem;
 }
 
-.hep-info-card p {
+.hepatitis-info-card p {
   font-size: 1rem;
   color: var(--text-gray);
   line-height: 1.6;
 }
 
-.hep-about-callout {
+.hepatitis-about-callout {
   background: #fff1f2;
   border: 2px solid #fecaca;
   border-radius: 1.5rem;
@@ -550,7 +550,7 @@
   margin: 0 auto;
 }
 
-.hep-about-callout .badge {
+.hepatitis-about-callout .badge {
   display: inline-block;
   background: #e11d48;
   color: var(--white);
@@ -562,14 +562,14 @@
   letter-spacing: 0.05em;
 }
 
-.hep-about-callout h3 {
+.hepatitis-about-callout h3 {
   font-size: 1.5rem;
   font-weight: 800;
   color: #9f1239;
   margin-bottom: 1rem;
 }
 
-.hep-about-callout p {
+.hepatitis-about-callout p {
   font-size: 1.125rem;
   color: #881337;
   line-height: 1.6;
@@ -578,29 +578,29 @@
 /* ============================================
    WHO NEEDS VACCINATION
    ============================================ */
-.hep-needs-section {
+.hepatitis-needs-section {
   padding: 6rem 0;
   background: var(--white);
 }
 
-.hep-needs-header {
+.hepatitis-needs-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hep-needs-title {
+.hepatitis-needs-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
   margin-bottom: 1rem;
 }
 
-.hep-needs-desc {
+.hepatitis-needs-desc {
   font-size: 1.125rem;
   color: var(--text-gray);
 }
 
-.hep-needs-grid {
+.hepatitis-needs-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -608,29 +608,29 @@
 }
 
 @media (min-width: 768px) {
-  .hep-needs-grid {
+  .hepatitis-needs-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.hep-needs-card {
+.hepatitis-needs-card {
   padding: 2.5rem;
   border-radius: 2rem;
   position: relative;
   overflow: hidden;
 }
 
-.hep-needs-card.recommended {
+.hepatitis-needs-card.recommended {
   background: #f0fdf4;
   border: 2px solid #bbf7d0;
 }
 
-.hep-needs-card.consider {
+.hepatitis-needs-card.consider {
   background: #fffbeb;
   border: 2px solid #fcd34d;
 }
 
-.hep-needs-card .card-badge {
+.hepatitis-needs-card .card-badge {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
@@ -640,35 +640,35 @@
   border-radius: 9999px;
 }
 
-.hep-needs-card.recommended .card-badge {
+.hepatitis-needs-card.recommended .card-badge {
   background: #16a34a;
   color: var(--white);
 }
 
-.hep-needs-card.consider .card-badge {
+.hepatitis-needs-card.consider .card-badge {
   background: #f59f00;
   color: var(--white);
 }
 
-.hep-needs-card h3 {
+.hepatitis-needs-card h3 {
   font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
 }
 
-.hep-needs-card.recommended h3 { color: #14532d; }
-.hep-needs-card.consider h3 { color: #92400e; }
+.hepatitis-needs-card.recommended h3 { color: #14532d; }
+.hepatitis-needs-card.consider h3 { color: #92400e; }
 
-.hep-needs-card p {
+.hepatitis-needs-card p {
   font-size: 1.0625rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-.hep-needs-card.recommended p { color: #14532d; }
-.hep-needs-card.consider p { color: #78350f; }
+.hepatitis-needs-card.recommended p { color: #14532d; }
+.hepatitis-needs-card.consider p { color: #78350f; }
 
-.hep-needs-card .check-list {
+.hepatitis-needs-card .check-list {
   list-style: none;
   padding: 0;
   display: flex;
@@ -676,64 +676,64 @@
   gap: 0.75rem;
 }
 
-.hep-needs-card .check-list li {
+.hepatitis-needs-card .check-list li {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
   font-weight: 600;
 }
 
-.hep-needs-card.recommended .check-list li { color: #14532d; }
-.hep-needs-card.consider .check-list li { color: #92400e; }
+.hepatitis-needs-card.recommended .check-list li { color: #14532d; }
+.hepatitis-needs-card.consider .check-list li { color: #92400e; }
 
-.hep-needs-card .check-list i {
+.hepatitis-needs-card .check-list i {
   margin-top: 0.25rem;
 }
 
 /* ============================================
    DETAILS SECTION
    ============================================ */
-.hep-details-section {
+.hepatitis-details-section {
   padding: 6rem 0;
   background: var(--white);
 }
 
-.hep-details-header {
+.hepatitis-details-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hep-details-title {
+.hepatitis-details-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
   margin-bottom: 1rem;
 }
 
-.hep-details-desc {
+.hepatitis-details-desc {
   font-size: 1.125rem;
   color: var(--text-gray);
 }
 
-.hep-details-grid {
+.hepatitis-details-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
 @media (min-width: 768px) {
-  .hep-details-grid {
+  .hepatitis-details-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .hep-details-grid {
+  .hepatitis-details-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.hep-detail-card {
+.hepatitis-detail-card {
   background: #f9fafb;
   padding: 2rem;
   border-radius: 1.5rem;
@@ -741,14 +741,14 @@
   transition: all 0.3s ease;
 }
 
-.hep-detail-card:hover {
+.hepatitis-detail-card:hover {
   background: var(--white);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   border-color: rgba(163, 158, 227, 0.3);
   transform: translateY(-4px);
 }
 
-.hep-detail-card .icon {
+.hepatitis-detail-card .icon {
   width: 3rem;
   height: 3rem;
   background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
@@ -761,14 +761,14 @@
   margin-bottom: 1.5rem;
 }
 
-.hep-detail-card h3 {
+.hepatitis-detail-card h3 {
   font-size: 1.25rem;
   font-weight: 800;
   color: #111827;
   margin-bottom: 0.75rem;
 }
 
-.hep-detail-card p {
+.hepatitis-detail-card p {
   font-size: 1rem;
   color: var(--text-gray);
   line-height: 1.6;
@@ -777,31 +777,31 @@
 /* ============================================
    RISK ZONES
    ============================================ */
-.hep-risk-section {
+.hepatitis-risk-section {
   padding: 6rem 0;
   background: var(--brand-light);
 }
 
-.hep-risk-header {
+.hepatitis-risk-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hep-risk-title {
+.hepatitis-risk-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
   margin-bottom: 1rem;
 }
 
-.hep-risk-desc {
+.hepatitis-risk-desc {
   font-size: 1.125rem;
   color: var(--text-gray);
   max-width: 800px;
   margin: 0 auto;
 }
 
-.hep-risk-grid {
+.hepatitis-risk-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -809,13 +809,13 @@
 }
 
 @media (min-width: 1024px) {
-  .hep-risk-grid {
+  .hepatitis-risk-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 /* Destination Images */
-.hep-destination-image {
+.hepatitis-destination-image {
   position: relative;
   width: 100%;
   height: 300px;
@@ -825,18 +825,18 @@
   box-shadow: 0 15px 40px rgba(163, 158, 227, 0.12);
 }
 
-.hep-destination-image img {
+.hepatitis-destination-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.7s ease;
 }
 
-.hep-destination-image:hover img {
+.hepatitis-destination-image:hover img {
   transform: scale(1.05);
 }
 
-.hep-risk-card {
+.hepatitis-risk-card {
   background: var(--white);
   border-radius: 2rem;
   padding: 2.5rem;
@@ -844,15 +844,15 @@
   border: 1px solid rgba(163, 158, 227, 0.15);
 }
 
-.hep-risk-card.high {
+.hepatitis-risk-card.high {
   border-top: 6px solid #e11d48;
 }
 
-.hep-risk-card.moderate {
+.hepatitis-risk-card.moderate {
   border-top: 6px solid #f59f00;
 }
 
-.hep-risk-card .card-icon {
+.hepatitis-risk-card .card-icon {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -863,38 +863,38 @@
   margin-bottom: 1.5rem;
 }
 
-.hep-risk-card.high .card-icon {
+.hepatitis-risk-card.high .card-icon {
   background: #fff1f2;
   color: #e11d48;
 }
 
-.hep-risk-card.moderate .card-icon {
+.hepatitis-risk-card.moderate .card-icon {
   background: #fffbeb;
   color: #f59f00;
 }
 
-.hep-risk-card h3 {
+.hepatitis-risk-card h3 {
   font-size: 1.75rem;
   font-weight: 800;
   color: #111827;
   margin-bottom: 1rem;
 }
 
-.hep-risk-card .desc {
+.hepatitis-risk-card .desc {
   font-size: 1.0625rem;
   color: var(--text-gray);
   margin-bottom: 2rem;
   line-height: 1.6;
 }
 
-.hep-risk-card .country-list {
+.hepatitis-risk-card .country-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
 
-.hep-risk-card .country-list span {
+.hepatitis-risk-card .country-list span {
   background: #f3f4f6;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -903,12 +903,12 @@
   color: #374151;
 }
 
-.hep-risk-footer {
+.hepatitis-risk-footer {
   text-align: center;
   margin-top: 4rem;
 }
 
-.hep-risk-footer .info-badge {
+.hepatitis-risk-footer .info-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -921,11 +921,11 @@
   border: 1px solid rgba(163, 158, 227, 0.2);
 }
 
-.hep-risk-footer .info-badge i {
+.hepatitis-risk-footer .info-badge i {
   color: var(--brand-purple);
 }
 
-.hep-risk-footer .actions {
+.hepatitis-risk-footer .actions {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
@@ -935,24 +935,24 @@
 /* ============================================
    FAQ SECTION
    ============================================ */
-.hep-faq-section {
+.hepatitis-faq-section {
   padding: 6rem 0;
   background: var(--brand-light);
 }
 
-.hep-faq-header {
+.hepatitis-faq-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hep-faq-title {
+.hepatitis-faq-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
   margin-bottom: 1rem;
 }
 
-.hep-faq-list {
+.hepatitis-faq-list {
   max-width: 800px;
   margin: 0 auto;
   display: flex;
@@ -960,7 +960,7 @@
   gap: 1rem;
 }
 
-.hep-faq-item {
+.hepatitis-faq-item {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   border-radius: 1.5rem;
@@ -969,19 +969,19 @@
   transition: all 0.4s ease;
 }
 
-.hep-faq-item:hover {
+.hepatitis-faq-item:hover {
   border-color: rgba(163, 158, 227, 0.4);
   box-shadow: 0 20px 50px rgba(163, 158, 227, 0.15);
   transform: translateY(-2px);
 }
 
-.hep-faq-item.travel-faq-active {
+.hepatitis-faq-item.travel-faq-active {
   box-shadow: 0 8px 20px rgba(163, 158, 227, 0.1);
   border-color: var(--brand-purple);
   background: var(--white);
 }
 
-.hep-faq-btn {
+.hepatitis-faq-btn {
   width: 100%;
   display: flex;
   align-items: center;
@@ -993,7 +993,7 @@
   text-align: left;
 }
 
-.hep-faq-btn .num {
+.hepatitis-faq-btn .num {
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 900;
@@ -1009,47 +1009,47 @@
   box-shadow: 0 4px 10px rgba(163, 158, 227, 0.3);
 }
 
-.hep-faq-btn .text {
+.hepatitis-faq-btn .text {
   flex: 1;
   font-size: 1.125rem;
   font-weight: 700;
   color: #111827;
 }
 
-.hep-faq-btn .icon {
+.hepatitis-faq-btn .icon {
   color: var(--brand-purple);
   transition: transform 0.3s ease;
   font-size: 1.25rem;
 }
 
-.hep-faq-item.travel-faq-active .icon {
+.hepatitis-faq-item.travel-faq-active .icon {
   transform: rotate(45deg);
 }
 
-.hep-faq-content {
+.hepatitis-faq-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
-.hep-faq-item.travel-faq-active .hep-faq-content {
+.hepatitis-faq-item.travel-faq-active .hepatitis-faq-content {
   max-height: 300px;
   padding: 0 2rem 2rem 5.5rem;
 }
 
-.hep-faq-content p {
+.hepatitis-faq-content p {
   font-size: 1.0625rem;
   color: var(--text-gray);
   line-height: 1.7;
 }
 
 @media (max-width: 640px) {
-  .hep-faq-btn {
+  .hepatitis-faq-btn {
     padding: 1.25rem;
     gap: 1rem;
   }
   
-  .hep-faq-item.travel-faq-active .hep-faq-content {
+  .hepatitis-faq-item.travel-faq-active .hepatitis-faq-content {
     padding: 0 1.25rem 1.5rem 1.25rem;
   }
 }
@@ -1057,7 +1057,7 @@
 /* ============================================
    CTA SECTION
    ============================================ */
-.hep-cta-section {
+.hepatitis-cta-section {
   position: relative;
   background: linear-gradient(to right, #a39ee3, #8b85d6, #6d68b5);
   padding: 6rem 0;
@@ -1065,19 +1065,19 @@
   text-align: center;
 }
 
-.hep-cta-bg {
+.hepatitis-cta-bg {
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
 }
 
-.hep-cta-content {
+.hepatitis-cta-content {
   position: relative;
   z-index: 10;
 }
 
-.hep-cta-badges {
+.hepatitis-cta-badges {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -1085,7 +1085,7 @@
   flex-wrap: wrap;
 }
 
-.hep-cta-badges .badge {
+.hepatitis-cta-badges .badge {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   padding: 0.5rem 1.25rem;
@@ -1096,14 +1096,14 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.hep-cta-title {
+.hepatitis-cta-title {
   font-size: 3rem;
   font-weight: 900;
   color: var(--white);
   margin-bottom: 1.5rem;
 }
 
-.hep-cta-desc {
+.hepatitis-cta-desc {
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.95);
   max-width: 700px;
@@ -1111,29 +1111,29 @@
   line-height: 1.6;
 }
 
-.hep-cta-actions {
+.hepatitis-cta-actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 3rem;
 }
 
-.hep-cta-actions .white-btn {
+.hepatitis-cta-actions .white-btn {
   background: #ffffff;
   color: #6d68b5;
 }
 
-.hep-cta-actions .white-btn:hover {
+.hepatitis-cta-actions .white-btn:hover {
   background: rgba(255, 255, 255, 0.9);
 }
 
-.hep-cta-actions .outline-btn {
+.hepatitis-cta-actions .outline-btn {
   background: transparent;
   color: var(--white);
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-.hep-cta-actions .outline-btn:hover {
+.hepatitis-cta-actions .outline-btn:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: var(--white);
 }

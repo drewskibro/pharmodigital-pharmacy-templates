@@ -21,7 +21,11 @@ $vaccine_name = ep_field('vaccine_name', 'Typhoid');
 </div>
 
 <!-- Hero Section -->
-<section class="typhoid-hero-section">
+<?php
+$hero_image_id  = ep_field( 'vaccine_hero_image' );
+$hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'full' ) : '';
+?>
+<section class="typhoid-hero-section"<?php if ( $hero_image_url ) : ?> style="background-image: url('<?php echo esc_url( $hero_image_url ); ?>');"<?php endif; ?>>
   <div class="typhoid-hero-overlay"></div>
   <div class="typhoid-hero-dots"></div>
 
