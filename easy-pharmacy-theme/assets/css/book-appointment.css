@@ -771,6 +771,11 @@
   z-index: 10;
 }
 
+/* When card has no image, don't pull the icon up into clipped area */
+.book-service-content:first-child .book-service-icon-floating {
+  margin-top: 0;
+}
+
 .book-service-title {
   font-size: 1.5rem;
   font-weight: 700;
