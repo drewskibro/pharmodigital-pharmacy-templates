@@ -151,6 +151,7 @@ function easy_pharmacy_scripts() {
 
     if ( is_page_template( 'page-templates/page-typhoid.php' ) ) {
         wp_enqueue_style( 'easy-pharmacy-typhoid', EASY_PHARMACY_URI . '/assets/css/typhoid.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_script( 'easy-pharmacy-typhoid-js', EASY_PHARMACY_URI . '/assets/js/typhoid.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
     // Travel destination pages

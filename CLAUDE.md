@@ -492,6 +492,48 @@ Template parts loaded via `get_template_part()` (e.g. `section-revslider.php`) u
 
 **Example:** The Switch Provider page originally used `get_template_part( 'template-parts/section', 'revslider' )`, which showed travel-themed defaults because the B7 field group only targets the homepage. Fixed by inlining a dedicated banner section with weight-loss defaults and its own F8 field group.
 
+### Image Fields Must Use `type => 'image'`, Never `type => 'url'`
+
+Every ACF field that holds an image **must** be registered as `'type' => 'image'` with `'return_format' => 'id'`. Never use `'type' => 'url'` or `'type' => 'text'` for image fields.
+
+**Why this matters:** A `url` field renders as a plain text input in the WordPress editor — the client has to paste an image URL manually. An `image` field renders the **Media Library picker**, which is the standard WordPress experience: click a button, choose or upload an image, done. Using `url` also bypasses WordPress's image processing (srcset, cropping, responsive sizes).
+
+**The rule:** Always register image fields like this:
+
+```php
+array(
+    'key'           => 'field_ep_[context]_[name]',
+    'label'         => 'Image',
+    'name'          => '[section]_image',
+    'type'          => 'image',
+    'return_format' => 'id',
+    'preview_size'  => 'medium',
+),
+```
+
+And consume them in templates like this:
+
+```php
+$image_id  = ep_field( 'section_image' );
+$image_url = $image_id ? wp_get_attachment_image_url( $image_id, 'large' ) : '';
+if ( $image_url ) :
+    ?>
+    <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( ep_field( 'section_image_alt', 'Default alt' ) ); ?>" />
+<?php endif; ?>
+```
+
+**Never do this:**
+
+```php
+// WRONG — renders a text input, not the Media Library picker
+array( 'key' => '...', 'label' => 'Image URL', 'name' => '...', 'type' => 'url' ),
+
+// WRONG — echoes a raw URL with no WordPress image handling
+<img src="<?php echo esc_url( ep_field( 'some_image', 'https://...' ) ); ?>" />
+```
+
+**Symptom if broken:** The client sees a plain text box labelled "Image URL" in the WordPress editor instead of a clickable Media Library button with image preview.
+
 ---
 
 ## Git Workflow
