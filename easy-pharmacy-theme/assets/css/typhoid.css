@@ -50,7 +50,7 @@
   align-items: center;
   padding: 80px 0;
   overflow: hidden;
-  background-image: url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=1600&h=900&fit=crop');
+  background-color: #6d68b5;
   background-size: cover;
   background-position: center;
 }
