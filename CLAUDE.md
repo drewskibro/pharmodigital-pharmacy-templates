@@ -175,8 +175,16 @@ All fields are registered in `inc/acf-fields.php` using `acf_add_local_field_gro
 - **B1–B12** — Home page section field groups (one per section)
 - **C1** — Blog post fields (reading time, author)
 - **D1** — Flexible content builder for `page-custom.php`
+- **E** — Ear Wax Removal page field groups
 - **F1–F8** — Switch Provider page field groups (hero, stats, comparison, social proof, banner, evidence, process, final CTA)
 - **G1–G11** — Weight Loss page field groups (hero, social proof, results, CTA bar, features, banner, journey, calculator, FAQ, testimonials, final CTA)
+- **H** — Travel Health page field groups
+- **I–L** — Travel destination page field groups (Thailand, Kenya, India, Cape Verde)
+- **M** — Yellow Fever vaccination page field groups (`yf_` prefix)
+- **N** — Rabies vaccination page field groups (`vaccine_` prefix)
+- **P** — Typhoid vaccination page field groups (`vaccine_` prefix)
+- **Q** — Book Appointment page field groups
+- **R** — Hepatitis vaccination page field groups (`vaccine_` prefix) — hero image only; remaining fields not yet registered
 
 **Naming convention for field keys:** `field_ep_[context]_[name]`
 - Example: `field_ep_home_hero_title_line_1`, `field_ep_location_map_image`
