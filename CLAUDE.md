@@ -217,6 +217,119 @@ All fields are registered in `inc/acf-fields.php` using `acf_add_local_field_gro
 --shadow-sm / --shadow-md / --shadow-lg / --shadow-xl / --shadow-2xl
 ```
 
+### Hero Section Design Language (Warm Palette Standard)
+
+Hero sections must follow the **warm cream + terracotta** design language established on the homepage — NOT default to a solid purple background. The principle is **70% warm tones / 30% deep purple accents**.
+
+**Do NOT** build hero sections with solid purple/gradient backgrounds and all-white text. That produces a flat, one-dimensional look. Instead, use the warm cream background with terracotta and deep purple accents for depth and visual hierarchy.
+
+#### Warm Hero Colour Palette
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| Hero background | `#FDF6F3` | Warm cream — the hero's base background colour |
+| Terracotta | `#C47A65` | Primary warm accent — CTAs, badges, shadows, accent bars |
+| Terracotta soft | `#D4907C` | Gradient endpoints, hover states |
+| Terracotta dark | `#B8694F` | CTA gradient dark end, strong emphasis |
+| Sage green | `#7A9E7E` | Trust pill icons, success indicators |
+| Dark purple text | `#2D1B4E` | Hero titles, trust pill text |
+| Deep purple accent | `#6B4FA0` | Secondary CTA text, `.gradient-text` start colour |
+| Gradient text end | `#8B6BBF` | `.gradient-text` gradient endpoint |
+
+#### Element-by-Element Pattern
+
+```css
+/* Background: warm cream, NOT purple gradient */
+.page-hero-section { background: #FDF6F3; }
+
+/* Decorative blobs: terracotta-tinted, NOT white glows */
+.page-hero-glow-1 { background: rgba(196, 122, 101, 0.08); }
+.page-hero-glow-2 { background: rgba(212, 144, 124, 0.08); }
+
+/* Dots grid: hidden (too busy on warm backgrounds) */
+.page-hero-dots { display: none; }
+
+/* Badge: glassmorphic white with warm border */
+.page-hero .section-badge {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  box-shadow: 0 8px 30px rgba(196, 122, 101, 0.10);
+}
+
+/* Title: dark purple, NOT white */
+.page-hero-title { color: #2D1B4E; }
+
+/* .gradient-text: purple gradient, NOT overridden to white */
+.page-hero-title .gradient-text {
+  background: linear-gradient(to right, #6B4FA0, #8B6BBF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Description text: dark gray */
+.page-hero-description { color: #4a5568; }
+
+/* Primary CTA: terracotta gradient, NOT purple */
+.page-hero .primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: #fff;
+  box-shadow: 0 10px 25px -3px rgba(196, 122, 101, 0.35);
+}
+
+/* Secondary CTA: deep purple text with warm border */
+.page-hero .secondary-cta {
+  color: #6B4FA0;
+  border: 2px solid rgba(196, 122, 101, 0.25);
+  background: transparent;
+}
+
+/* Trust pills: warm glassmorphic, sage green icons */
+.page-hero-trust-pill {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(196, 122, 101, 0.12);
+}
+.page-hero-trust-pill i { color: #7A9E7E; }
+.page-hero-trust-pill span { color: #2D1B4E; }
+
+/* Result/price badge: terracotta, NOT brand-purple */
+.page-hero-result-badge { background: #C47A65; }
+
+/* Testimonial card: warm shadow + terracotta accent bar */
+.page-hero-testimonial-card {
+  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.15);
+}
+.page-hero-testimonial-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #C47A65, #D4907C);
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+
+/* Image card: warm terracotta shadow */
+.page-hero-image-card {
+  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.18);
+}
+```
+
+#### Pages Already Using This Pattern
+
+- **Homepage** (`globals.css` hero overrides) — the original reference implementation
+- **Book Appointment** (`book-appointment.css`) — upgraded to warm palette
+
+#### Quick Checklist for New Hero Sections
+
+1. Background is `#FDF6F3` (warm cream), not a purple gradient
+2. Title text is `#2D1B4E` (dark purple), not white
+3. `.gradient-text` shows the purple gradient, not overridden to white
+4. Primary CTA uses terracotta gradient (`#C47A65 → #B8694F`), not purple
+5. Trust pill icons use sage green (`#7A9E7E`), not white or purple
+6. Decorative blobs use `rgba(196, 122, 101, 0.08)`, not white/translucent glows
+7. Shadows use terracotta-tinted `rgba(196, 122, 101, ...)`, not plain black
+8. Overall balance feels 70% warm / 30% purple accent
+
 ### Key Shared CSS Classes
 
 | Class | Purpose |
