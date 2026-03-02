@@ -73,7 +73,12 @@ $vaccine_name = ep_field('vaccine_name', 'Typhoid');
     <div class="typhoid-protect-grid">
       <div class="typhoid-protect-image-wrapper">
         <div class="typhoid-protect-image-card">
-          <img src="<?php echo esc_url(ep_field('vaccine_protect_image', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=1000&fit=crop')); ?>" alt="<?php echo esc_attr(ep_field('vaccine_protect_image_alt', 'Travel health consultation')); ?>" class="typhoid-protect-image" />
+          <?php
+          $protect_image_id = ep_field('vaccine_protect_image');
+          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : '';
+          if ($protect_image_url) : ?>
+            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(ep_field('vaccine_protect_image_alt', 'Travel health consultation')); ?>" class="typhoid-protect-image" />
+          <?php endif; ?>
           <div class="typhoid-protect-name-tag">
             <span class="name"><?php echo esc_html(ep_field('vaccine_protect_nametag_name', 'Expert Advice')); ?></span>
             <span class="role"><?php echo esc_html(ep_field('vaccine_protect_nametag_role', 'Travel Health Team')); ?></span>
@@ -165,7 +170,12 @@ $vaccine_name = ep_field('vaccine_name', 'Typhoid');
     <div class="typhoid-about-content-grid">
       <div class="typhoid-about-image-wrapper">
         <div class="typhoid-about-image-card">
-          <img src="<?php echo esc_url(ep_field('vaccine_about_image', 'https://images.unsplash.com/photo-1533630762679-992524b7758c?w=800&h=1000&fit=crop')); ?>" alt="<?php echo esc_attr(ep_field('vaccine_about_image_alt', 'Street food market in Asia')); ?>" />
+          <?php
+          $about_image_id = ep_field('vaccine_about_image');
+          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : '';
+          if ($about_image_url) : ?>
+            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(ep_field('vaccine_about_image_alt', 'Street food market in Asia')); ?>" />
+          <?php endif; ?>
         </div>
       </div>
 
@@ -250,11 +260,16 @@ $vaccine_name = ep_field('vaccine_name', 'Typhoid');
     </div>
 
     <div class="typhoid-risk-grid">
-      <?php if (have_rows('vaccine_risk_zones')) : while (have_rows('vaccine_risk_zones')) : the_row(); ?>
+      <?php if (have_rows('vaccine_risk_zones')) : while (have_rows('vaccine_risk_zones')) : the_row();
+        $zone_image_id = get_sub_field('image');
+        $zone_image_url = $zone_image_id ? wp_get_attachment_image_url($zone_image_id, 'large') : '';
+      ?>
         <div class="typhoid-risk-column">
+          <?php if ($zone_image_url) : ?>
           <div class="typhoid-destination-image">
-            <img src="<?php echo esc_url(get_sub_field('image')); ?>" alt="<?php echo esc_attr(get_sub_field('title')); ?>" />
+            <img src="<?php echo esc_url($zone_image_url); ?>" alt="<?php echo esc_attr(get_sub_field('title')); ?>" />
           </div>
+          <?php endif; ?>
           <div class="typhoid-risk-card <?php echo esc_attr(get_sub_field('level')); ?>">
             <div class="card-icon"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div>
             <h3><?php echo esc_html(get_sub_field('title')); ?></h3>

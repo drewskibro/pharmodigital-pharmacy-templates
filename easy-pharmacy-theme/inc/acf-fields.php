@@ -5969,7 +5969,7 @@ function ep_register_acf_field_groups() {
             array( 'key' => 'field_ep_rab_protect_badge', 'label' => 'Badge Text', 'name' => 'vaccine_protect_badge', 'type' => 'text', 'default_value' => 'ESSENTIAL PROTECTION' ),
             array( 'key' => 'field_ep_rab_protect_title', 'label' => 'Title', 'name' => 'vaccine_protect_title', 'type' => 'text', 'default_value' => 'Understanding Rabies Risk' ),
             array( 'key' => 'field_ep_rab_protect_desc', 'label' => 'Description', 'name' => 'vaccine_protect_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'A serious viral infection spread by infected animals' ),
-            array( 'key' => 'field_ep_rab_protect_image', 'label' => 'Image URL', 'name' => 'vaccine_protect_image', 'type' => 'url', 'default_value' => 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&h=1000&fit=crop' ),
+            array( 'key' => 'field_ep_rab_protect_image', 'label' => 'Image', 'name' => 'vaccine_protect_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
             array( 'key' => 'field_ep_rab_protect_image_alt', 'label' => 'Image Alt Text', 'name' => 'vaccine_protect_image_alt', 'type' => 'text', 'default_value' => 'Travel health consultation for rabies' ),
             array( 'key' => 'field_ep_rab_protect_nametag_name', 'label' => 'Name Tag — Name', 'name' => 'vaccine_protect_nametag_name', 'type' => 'text', 'default_value' => 'Expert Care' ),
             array( 'key' => 'field_ep_rab_protect_nametag_role', 'label' => 'Name Tag — Role', 'name' => 'vaccine_protect_nametag_role', 'type' => 'text', 'default_value' => 'Travel Health Team' ),
@@ -6037,7 +6037,7 @@ function ep_register_acf_field_groups() {
             array( 'key' => 'field_ep_rab_about_badge', 'label' => 'Badge Text', 'name' => 'vaccine_about_badge', 'type' => 'text', 'default_value' => 'KNOW THE RISKS' ),
             array( 'key' => 'field_ep_rab_about_title', 'label' => 'Title', 'name' => 'vaccine_about_title', 'type' => 'text', 'default_value' => 'What is Rabies?' ),
             array( 'key' => 'field_ep_rab_about_desc', 'label' => 'Description', 'name' => 'vaccine_about_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Understanding transmission and prevention' ),
-            array( 'key' => 'field_ep_rab_about_image', 'label' => 'Image URL', 'name' => 'vaccine_about_image', 'type' => 'url', 'default_value' => 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&h=1000&fit=crop' ),
+            array( 'key' => 'field_ep_rab_about_image', 'label' => 'Image', 'name' => 'vaccine_about_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
             array( 'key' => 'field_ep_rab_about_image_alt', 'label' => 'Image Alt Text', 'name' => 'vaccine_about_image_alt', 'type' => 'text', 'default_value' => 'Stray dog in travel destination' ),
             array(
                 'key'        => 'field_ep_rab_about_cards',
@@ -6128,7 +6128,7 @@ function ep_register_acf_field_groups() {
                 'min'        => 0,
                 'max'        => 4,
                 'sub_fields' => array(
-                    array( 'key' => 'field_ep_rab_risk_zone_image', 'label' => 'Image URL', 'name' => 'image', 'type' => 'url' ),
+                    array( 'key' => 'field_ep_rab_risk_zone_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
                     array( 'key' => 'field_ep_rab_risk_zone_level', 'label' => 'Risk Level', 'name' => 'level', 'type' => 'select', 'choices' => array( 'high' => 'High', 'moderate' => 'Moderate' ), 'default_value' => 'high' ),
                     array( 'key' => 'field_ep_rab_risk_zone_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-exclamation-triangle' ),
                     array( 'key' => 'field_ep_rab_risk_zone_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
@@ -6306,7 +6306,7 @@ function ep_register_acf_field_groups() {
             array( 'key' => 'field_ep_typ_protect_badge', 'label' => 'Badge Text', 'name' => 'vaccine_protect_badge', 'type' => 'text', 'default_value' => 'ESSENTIAL PROTECTION' ),
             array( 'key' => 'field_ep_typ_protect_title', 'label' => 'Title', 'name' => 'vaccine_protect_title', 'type' => 'text', 'default_value' => 'Safe & Effective Typhoid Prevention' ),
             array( 'key' => 'field_ep_typ_protect_desc', 'label' => 'Description', 'name' => 'vaccine_protect_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Choose the vaccination method that suits you best' ),
-            array( 'key' => 'field_ep_typ_protect_image', 'label' => 'Image URL', 'name' => 'vaccine_protect_image', 'type' => 'url', 'default_value' => 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=1000&fit=crop' ),
+            array( 'key' => 'field_ep_typ_protect_image', 'label' => 'Image', 'name' => 'vaccine_protect_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
             array( 'key' => 'field_ep_typ_protect_image_alt', 'label' => 'Image Alt Text', 'name' => 'vaccine_protect_image_alt', 'type' => 'text', 'default_value' => 'Travel health consultation' ),
             array( 'key' => 'field_ep_typ_protect_nametag_name', 'label' => 'Name Tag — Name', 'name' => 'vaccine_protect_nametag_name', 'type' => 'text', 'default_value' => 'Expert Advice' ),
             array( 'key' => 'field_ep_typ_protect_nametag_role', 'label' => 'Name Tag — Role', 'name' => 'vaccine_protect_nametag_role', 'type' => 'text', 'default_value' => 'Travel Health Team' ),
@@ -6374,7 +6374,7 @@ function ep_register_acf_field_groups() {
             array( 'key' => 'field_ep_typ_about_badge', 'label' => 'Badge Text', 'name' => 'vaccine_about_badge', 'type' => 'text', 'default_value' => 'ABOUT THE DISEASE' ),
             array( 'key' => 'field_ep_typ_about_title', 'label' => 'Title', 'name' => 'vaccine_about_title', 'type' => 'text', 'default_value' => 'What is Typhoid Fever?' ),
             array( 'key' => 'field_ep_typ_about_desc', 'label' => 'Description', 'name' => 'vaccine_about_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'A bacterial infection that can be serious if not treated' ),
-            array( 'key' => 'field_ep_typ_about_image', 'label' => 'Image URL', 'name' => 'vaccine_about_image', 'type' => 'url', 'default_value' => 'https://images.unsplash.com/photo-1533630762679-992524b7758c?w=800&h=1000&fit=crop' ),
+            array( 'key' => 'field_ep_typ_about_image', 'label' => 'Image', 'name' => 'vaccine_about_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
             array( 'key' => 'field_ep_typ_about_image_alt', 'label' => 'Image Alt Text', 'name' => 'vaccine_about_image_alt', 'type' => 'text', 'default_value' => 'Street food market in Asia' ),
             array(
                 'key'        => 'field_ep_typ_about_cards',
@@ -6462,7 +6462,7 @@ function ep_register_acf_field_groups() {
                 'min'        => 0,
                 'max'        => 4,
                 'sub_fields' => array(
-                    array( 'key' => 'field_ep_typ_risk_zone_image', 'label' => 'Image URL', 'name' => 'image', 'type' => 'url' ),
+                    array( 'key' => 'field_ep_typ_risk_zone_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
                     array( 'key' => 'field_ep_typ_risk_zone_level', 'label' => 'Risk Level', 'name' => 'level', 'type' => 'select', 'choices' => array( 'asia' => 'Asia (amber)', 'africa' => 'Africa (purple)' ), 'default_value' => 'asia' ),
                     array( 'key' => 'field_ep_typ_risk_zone_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-globe-asia' ),
                     array( 'key' => 'field_ep_typ_risk_zone_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
