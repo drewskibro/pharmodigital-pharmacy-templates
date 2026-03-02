@@ -333,7 +333,7 @@
   transform: rotate(0deg);
   transition: transform 0.5s ease;
   z-index: 20;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Terracotta accent bar at bottom of testimonial card */
@@ -769,6 +769,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 10;
+}
+
+/* When card has no image, don't pull the icon up into clipped area */
+.book-service-content:first-child .book-service-icon-floating {
+  margin-top: 0;
 }
 
 .book-service-title {

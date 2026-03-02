@@ -61,15 +61,14 @@ get_header();
       </div>
 
       <!-- Right: Visual -->
+      <?php
+      $hero_image_id  = ep_field('book_hero_image');
+      $hero_image_url = $hero_image_id ? wp_get_attachment_image_url($hero_image_id, 'large') : '';
+      if ($hero_image_url) : ?>
       <div class="book-hero-visual">
         <div class="book-hero-image-card">
           <div class="book-hero-image-inner">
-            <?php
-            $hero_image_id = ep_field('book_hero_image');
-            $hero_image_url = $hero_image_id ? wp_get_attachment_image_url($hero_image_id, 'large') : '';
-            if ($hero_image_url) : ?>
               <img src="<?php echo esc_url($hero_image_url); ?>" alt="<?php echo esc_attr(ep_field('book_hero_image_alt', 'Lead Pharmacist')); ?>" class="book-hero-image" />
-            <?php endif; ?>
             <div class="book-hero-overlay"></div>
           </div>
 
@@ -95,6 +94,7 @@ get_header();
           </div>
         </div>
       </div>
+      <?php endif; ?>
     </div>
   </div>
 </section>
