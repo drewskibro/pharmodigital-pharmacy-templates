@@ -5549,6 +5549,7 @@ function ep_register_acf_field_groups() {
             array( 'key' => 'field_ep_yf_hero_label', 'label' => 'Hero Label', 'name' => 'yf_hero_label', 'type' => 'text', 'default_value' => 'OFFICIAL YELLOW FEVER CENTRE' ),
             array( 'key' => 'field_ep_yf_hero_title', 'label' => 'Hero Title', 'name' => 'yf_hero_title', 'type' => 'text', 'default_value' => 'Yellow Fever Vaccination Service in Ashford' ),
             array( 'key' => 'field_ep_yf_hero_description', 'label' => 'Hero Description', 'name' => 'yf_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'We are an official NHS Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Easy Pharmacy Ashford.' ),
+            array( 'key' => 'field_ep_yf_hero_image', 'label' => 'Hero Background Image', 'name' => 'yf_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Background image for the hero section. Recommended size: 1600x900px.' ),
             array( 'key' => 'field_ep_yf_hero_cta_text', 'label' => 'Hero CTA Text', 'name' => 'yf_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Yellow Fever Vaccination' ),
             array( 'key' => 'field_ep_yf_hero_cta_url', 'label' => 'Hero CTA URL', 'name' => 'yf_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
             array(
@@ -6546,6 +6547,36 @@ function ep_register_acf_field_groups() {
         ),
         'location'              => $typ_location,
         'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ════════════════════════════════════════════════════════════════════════
+    // R. HEPATITIS PAGE FIELDS
+    // ════════════════════════════════════════════════════════════════════════
+
+    $hep_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-hepatitis.php',
+            ),
+        ),
+    );
+
+    // ── R1. Hero ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_hero',
+        'title'    => 'Hepatitis — Hero',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_hero_image', 'label' => 'Hero Background Image', 'name' => 'vaccine_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Background image for the hero section. Recommended size: 1600x900px.' ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 0,
         'position'              => 'normal',
         'style'                 => 'default',
         'label_placement'       => 'top',

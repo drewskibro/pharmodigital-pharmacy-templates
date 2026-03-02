@@ -21,7 +21,11 @@ $vaccine_name = ep_field('vaccine_name', 'Hepatitis A & B');
 </div>
 
 <!-- Hero Section -->
-<section class="hepatitis-hero-section">
+<?php
+$hero_image_id  = ep_field( 'vaccine_hero_image' );
+$hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'full' ) : '';
+?>
+<section class="hepatitis-hero-section"<?php if ( $hero_image_url ) : ?> style="background-image: url('<?php echo esc_url( $hero_image_url ); ?>');"<?php endif; ?>>
   <div class="hepatitis-hero-overlay"></div>
   <div class="hepatitis-hero-dots"></div>
 
