@@ -1,7 +1,13 @@
 /* ============================================
    BOOK APPOINTMENT PAGE STYLES
-   Uses book- prefix
+   Uses book- prefix — warm palette applied
    ============================================ */
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
 
 /* ============================================
    HERO SECTION
@@ -256,6 +262,7 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  pointer-events: none;
 }
 
 /* Floating Testimonial */
@@ -296,7 +303,7 @@
     width: 90%;
     max-width: 340px;
   }
-  
+
   .book-hero-image-card:hover .book-hero-testimonial-card {
     transform: translateX(-50%) translateY(-5px);
   }
@@ -314,7 +321,7 @@
   align-items: center;
   justify-content: center;
   color: var(--white);
-  box-shadow: 0 4px 12px rgba(163, 158, 227, 0.4);
+  box-shadow: 0 4px 12px rgba(196, 122, 101, 0.4);
 }
 
 .book-hero-quote-text {
@@ -335,7 +342,7 @@
 
 .book-hero-name {
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   font-size: 0.9375rem;
   display: block;
   margin-bottom: 0.125rem;
@@ -348,7 +355,19 @@
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
-  box-shadow: 0 4px 10px rgba(163, 158, 227, 0.3);
+  box-shadow: 0 4px 10px rgba(196, 122, 101, 0.3);
+}
+
+/* Star row (shared across hero testimonial and testimonial cards) */
+.star-row {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.star-row i {
+  color: #f59e0b;
+  font-size: 0.875rem;
 }
 
 /* ============================================
@@ -367,7 +386,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(163, 158, 227, 0.3), transparent);
+  background: linear-gradient(to right, transparent, rgba(196, 122, 101, 0.3), transparent);
   z-index: 0;
 }
 
@@ -381,7 +400,7 @@
 .book-process-title {
   font-size: 2rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   background: var(--white);
   display: inline-block;
   padding: 0 1.5rem;
@@ -412,7 +431,7 @@
   border: 1px solid #f3f4f6;
   border-radius: 2rem;
   padding: 2.5rem;
-  box-shadow: 0 10px 40px rgba(163, 158, 227, 0.1);
+  box-shadow: 0 10px 40px rgba(196, 122, 101, 0.1);
   text-align: center;
   position: relative;
   transition: all 0.4s ease;
@@ -420,8 +439,8 @@
 
 .book-process-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(163, 158, 227, 0.2);
-  border-color: rgba(163, 158, 227, 0.3);
+  box-shadow: 0 20px 60px rgba(196, 122, 101, 0.2);
+  border-color: rgba(196, 122, 101, 0.3);
 }
 
 .book-process-number {
@@ -439,13 +458,13 @@
   align-items: center;
   justify-content: center;
   border: 2px solid var(--white);
-  box-shadow: 0 4px 10px rgba(163, 158, 227, 0.3);
+  box-shadow: 0 4px 10px rgba(196, 122, 101, 0.3);
 }
 
 .book-process-icon {
   width: 5rem;
   height: 5rem;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.1), rgba(109, 104, 181, 0.05));
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.1), rgba(196, 122, 101, 0.05));
   border-radius: 1.5rem;
   display: flex;
   align-items: center;
@@ -463,7 +482,7 @@
 .book-process-card-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -478,7 +497,7 @@
   top: 50%;
   right: -1.5rem;
   transform: translateY(-50%);
-  color: rgba(163, 158, 227, 0.2);
+  color: rgba(196, 122, 101, 0.2);
   font-size: 1.5rem;
   z-index: 0;
 }
@@ -582,8 +601,9 @@
 .book-services-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
+  margin-top: 0;
 }
 
 .book-services-divider {
@@ -609,7 +629,7 @@
   background: var(--white);
   border: 2px solid #f3f4f6;
   border-radius: 2rem;
-  box-shadow: 0 15px 40px rgba(163, 158, 227, 0.12);
+  box-shadow: 0 15px 40px rgba(196, 122, 101, 0.12);
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
@@ -619,7 +639,7 @@
 
 .book-service-card-featured:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(163, 158, 227, 0.2);
+  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.2);
   border-color: var(--brand-purple);
 }
 
@@ -682,7 +702,7 @@
 .book-service-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
   transition: color 0.3s ease;
 }
@@ -760,7 +780,7 @@
   border: 2px solid #f3f4f6;
   border-radius: 1.5rem;
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(163, 158, 227, 0.08);
+  box-shadow: 0 10px 30px rgba(196, 122, 101, 0.08);
   transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
@@ -768,8 +788,8 @@
 
 .book-service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(163, 158, 227, 0.15);
-  border-color: rgba(163, 158, 227, 0.3);
+  box-shadow: 0 20px 50px rgba(196, 122, 101, 0.15);
+  border-color: rgba(196, 122, 101, 0.3);
 }
 
 .book-service-header-row {
@@ -782,7 +802,7 @@
 .book-service-icon-small {
   width: 3.5rem;
   height: 3.5rem;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.15), rgba(109, 104, 181, 0.1));
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.15), rgba(196, 122, 101, 0.1));
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -792,7 +812,7 @@
 }
 
 .book-service-price-badge {
-  background: rgba(163, 158, 227, 0.1);
+  background: rgba(196, 122, 101, 0.1);
   color: var(--brand-dark);
   font-weight: 800;
   padding: 0.5rem 1rem;
@@ -810,7 +830,7 @@
    ============================================ */
 .book-amelia-section {
   padding: 6rem 0;
-  background: rgba(163, 158, 227, 0.05);
+  background: rgba(196, 122, 101, 0.05);
   position: relative;
   overflow: hidden;
 }
@@ -821,7 +841,7 @@
   right: -5%;
   width: 600px;
   height: 600px;
-  background: rgba(163, 158, 227, 0.1);
+  background: rgba(196, 122, 101, 0.1);
   border-radius: 50%;
   filter: blur(80px);
 }
@@ -832,7 +852,7 @@
   left: -5%;
   width: 500px;
   height: 500px;
-  background: rgba(139, 133, 214, 0.08);
+  background: rgba(196, 122, 101, 0.08);
   border-radius: 50%;
   filter: blur(80px);
 }
@@ -847,7 +867,7 @@
 .book-amelia-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -867,8 +887,8 @@
   margin: 0 auto;
   background: var(--white);
   border-radius: 2rem;
-  box-shadow: 0 25px 60px rgba(163, 158, 227, 0.15);
-  border: 1px solid rgba(163, 158, 227, 0.1);
+  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.15);
+  border: 1px solid rgba(196, 122, 101, 0.1);
   padding: 3rem;
   min-height: 700px;
   display: flex;
@@ -880,7 +900,7 @@
 
 .book-amelia-placeholder {
   text-align: center;
-  color: rgba(163, 158, 227, 0.5);
+  color: rgba(196, 122, 101, 0.5);
 }
 
 .book-amelia-placeholder i {
@@ -925,7 +945,7 @@
 .book-testimonials-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -956,12 +976,12 @@
   border: 1px solid #f3f4f6;
   border-radius: 1.5rem;
   padding: 2rem;
-  box-shadow: 0 8px 20px rgba(163, 158, 227, 0.08);
+  box-shadow: 0 8px 20px rgba(196, 122, 101, 0.08);
   transition: all 0.3s ease;
 }
 
 .book-testimonial-card:hover {
-  box-shadow: 0 15px 40px rgba(163, 158, 227, 0.15);
+  box-shadow: 0 15px 40px rgba(196, 122, 101, 0.15);
   transform: translateY(-4px);
 }
 
@@ -988,7 +1008,7 @@
   overflow: hidden;
   flex-shrink: 0;
   border: 2px solid var(--white);
-  box-shadow: 0 4px 10px rgba(163, 158, 227, 0.2);
+  box-shadow: 0 4px 10px rgba(196, 122, 101, 0.2);
 }
 
 .book-testimonial-avatar img {
@@ -1004,7 +1024,7 @@
 
 .book-testimonial-name {
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   font-size: 0.9375rem;
 }
 
@@ -1018,7 +1038,7 @@
    ============================================ */
 .book-faq-section {
   padding: 6rem 0;
-  background: linear-gradient(to bottom, var(--white), rgba(163, 158, 227, 0.03), var(--white));
+  background: linear-gradient(to bottom, var(--white), rgba(196, 122, 101, 0.03), var(--white));
 }
 
 .book-faq-header {
@@ -1029,7 +1049,7 @@
 .book-faq-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -1055,13 +1075,13 @@
 }
 
 .book-faq-item:hover {
-  border-color: rgba(163, 158, 227, 0.4);
-  box-shadow: 0 10px 30px rgba(163, 158, 227, 0.1);
+  border-color: rgba(196, 122, 101, 0.4);
+  box-shadow: 0 10px 30px rgba(196, 122, 101, 0.1);
 }
 
 .book-faq-item.active {
   border-color: var(--brand-purple);
-  box-shadow: 0 10px 30px rgba(163, 158, 227, 0.15);
+  box-shadow: 0 10px 30px rgba(196, 122, 101, 0.15);
 }
 
 .book-faq-btn {
@@ -1085,7 +1105,7 @@
 .book-faq-number {
   width: 2rem;
   height: 2rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, var(--terracotta, #C47A65), var(--terracotta-dark, #B8694F));
   color: var(--white);
   font-weight: 700;
   border-radius: 0.5rem;
@@ -1099,13 +1119,13 @@
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
 }
 
 .book-faq-icon {
   width: 2.75rem;
   height: 2.75rem;
-  background: rgba(163, 158, 227, 0.1);
+  background: rgba(196, 122, 101, 0.1);
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
@@ -1153,6 +1173,7 @@
   inset: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
+  pointer-events: none;
 }
 
 .book-cta-bg-blobs {
@@ -1164,6 +1185,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   filter: blur(100px);
+  pointer-events: none;
 }
 
 .book-cta-content {

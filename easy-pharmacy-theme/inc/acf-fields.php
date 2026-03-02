@@ -6551,5 +6551,283 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // ════════════════════════════════════════════════════════════════════════
+    // Q. BOOK APPOINTMENT PAGE FIELDS
+    // ════════════════════════════════════════════════════════════════════════
+
+    $book_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-book-appointment.php',
+            ),
+        ),
+    );
+
+    // ── Q1. Hero ────────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_book_hero',
+        'title'    => 'Book Appointment — Hero',
+        'fields'   => array(
+            array( 'key' => 'field_ep_book_hero_badge', 'label' => 'Badge Text', 'name' => 'book_hero_badge', 'type' => 'text', 'default_value' => 'ONLINE BOOKING AVAILABLE' ),
+            array( 'key' => 'field_ep_book_hero_title', 'label' => 'Title (HTML allowed)', 'name' => 'book_hero_title', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book Your <br /><span class="gradient-text">Appointment</span>', 'instructions' => 'HTML allowed for line breaks and gradient text spans.' ),
+            array( 'key' => 'field_ep_book_hero_desc', 'label' => 'Description', 'name' => 'book_hero_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Choose your service below and find a time that suits you with our expert Ashford team. Same-day appointments often available.' ),
+            array( 'key' => 'field_ep_book_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'book_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Now' ),
+            array( 'key' => 'field_ep_book_hero_image', 'label' => 'Hero Image', 'name' => 'book_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_book_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'book_hero_image_alt', 'type' => 'text', 'default_value' => 'Lead Pharmacist' ),
+            array(
+                'key'        => 'field_ep_book_hero_trust',
+                'label'      => 'Trust Pills',
+                'name'       => 'book_hero_trust_pills',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 5,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_book_hero_trust_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle' ),
+                    array( 'key' => 'field_ep_book_hero_trust_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_book_hero_testi_quote', 'label' => 'Testimonial Quote', 'name' => 'book_hero_testimonial_quote', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Booking was so easy and Dilip was fantastic. I was seen on time and the advice was excellent.' ),
+            array( 'key' => 'field_ep_book_hero_testi_name', 'label' => 'Testimonial Name', 'name' => 'book_hero_testimonial_name', 'type' => 'text', 'default_value' => 'Sarah J.' ),
+            array( 'key' => 'field_ep_book_hero_testi_badge', 'label' => 'Testimonial Badge', 'name' => 'book_hero_testimonial_badge', 'type' => 'text', 'default_value' => 'Verified Patient' ),
+        ),
+        'location'              => $book_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── Q2. How It Works ────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_book_process',
+        'title'    => 'Book Appointment — How It Works',
+        'fields'   => array(
+            array( 'key' => 'field_ep_book_process_title', 'label' => 'Title', 'name' => 'book_process_title', 'type' => 'text', 'default_value' => 'How It Works' ),
+            array(
+                'key'        => 'field_ep_book_process_steps',
+                'label'      => 'Steps',
+                'name'       => 'book_process_steps',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 5,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_book_process_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-hand-pointer' ),
+                    array( 'key' => 'field_ep_book_process_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_book_process_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $book_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── Q3. Stats Bar ───────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_book_stats',
+        'title'    => 'Book Appointment — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_book_stats',
+                'label'      => 'Stats',
+                'name'       => 'book_stats',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 6,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_book_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-clock' ),
+                    array( 'key' => 'field_ep_book_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_book_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $book_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── Q4. Priority Services ───────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_book_services',
+        'title'    => 'Book Appointment — Priority Services',
+        'fields'   => array(
+            array( 'key' => 'field_ep_book_services_badge', 'label' => 'Badge Text', 'name' => 'book_services_badge', 'type' => 'text', 'default_value' => 'PRIORITY SERVICES' ),
+            array( 'key' => 'field_ep_book_services_title', 'label' => 'Title', 'name' => 'book_services_title', 'type' => 'text', 'default_value' => 'Most Popular Services' ),
+            array(
+                'key'        => 'field_ep_book_priority_services',
+                'label'      => 'Services',
+                'name'       => 'book_priority_services',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_book_ps_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-weight-scale' ),
+                    array( 'key' => 'field_ep_book_ps_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_book_ps_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array( 'key' => 'field_ep_book_ps_price', 'label' => 'Price', 'name' => 'price', 'type' => 'text', 'instructions' => 'e.g. £125' ),
+                    array( 'key' => 'field_ep_book_ps_price_label', 'label' => 'Price Label', 'name' => 'price_label', 'type' => 'text', 'instructions' => 'e.g. / month starting price' ),
+                    array( 'key' => 'field_ep_book_ps_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+                    array( 'key' => 'field_ep_book_ps_popular', 'label' => 'Show POPULAR Badge', 'name' => 'popular', 'type' => 'true_false', 'default_value' => 0 ),
+                    array( 'key' => 'field_ep_book_ps_refund', 'label' => 'Refund Badge Text', 'name' => 'refund_text', 'type' => 'text', 'instructions' => 'Leave blank to hide. e.g. Refundable with 2+ vaccines' ),
+                    array( 'key' => 'field_ep_book_ps_btn', 'label' => 'Button Text', 'name' => 'button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+                ),
+            ),
+        ),
+        'location'              => $book_location,
+        'menu_order'            => 15,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── Q5. Additional Services ─────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_book_additional',
+        'title'    => 'Book Appointment — Additional Services',
+        'fields'   => array(
+            array( 'key' => 'field_ep_book_add_badge', 'label' => 'Badge Text', 'name' => 'book_additional_badge', 'type' => 'text', 'default_value' => 'ESSENTIAL HEALTHCARE' ),
+            array( 'key' => 'field_ep_book_add_title', 'label' => 'Title', 'name' => 'book_additional_title', 'type' => 'text', 'default_value' => 'Everyday Health Services' ),
+            array(
+                'key'        => 'field_ep_book_additional_services',
+                'label'      => 'Services',
+                'name'       => 'book_additional_services',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_book_as_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe' ),
+                    array( 'key' => 'field_ep_book_as_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_book_as_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array( 'key' => 'field_ep_book_as_price', 'label' => 'Price', 'name' => 'price', 'type' => 'text', 'instructions' => 'e.g. £15 or VARIES' ),
+                    array( 'key' => 'field_ep_book_as_btn', 'label' => 'Button Text', 'name' => 'button_text', 'type' => 'text', 'default_value' => 'Book Service' ),
+                ),
+            ),
+        ),
+        'location'              => $book_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── Q6. Amelia Booking Widget ───────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_book_amelia',
+        'title'    => 'Book Appointment — Booking Widget',
+        'fields'   => array(
+            array( 'key' => 'field_ep_book_amelia_title', 'label' => 'Title', 'name' => 'book_amelia_title', 'type' => 'text', 'default_value' => 'Select Your Appointment Time' ),
+            array( 'key' => 'field_ep_book_amelia_desc', 'label' => 'Description', 'name' => 'book_amelia_description', 'type' => 'text', 'default_value' => 'Choose a convenient time with our Ashford healthcare team' ),
+            array( 'key' => 'field_ep_book_amelia_shortcode', 'label' => 'Amelia Shortcode', 'name' => 'book_amelia_shortcode', 'type' => 'text', 'default_value' => '[ameliabooking]', 'instructions' => 'The Amelia booking plugin shortcode to embed. e.g. [ameliabooking] or [ameliabooking category=1]' ),
+        ),
+        'location'              => $book_location,
+        'menu_order'            => 25,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── Q7. Testimonials ────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_book_testimonials',
+        'title'    => 'Book Appointment — Testimonials',
+        'fields'   => array(
+            array( 'key' => 'field_ep_book_testi_title', 'label' => 'Title', 'name' => 'book_testimonials_title', 'type' => 'text', 'default_value' => 'What Our Patients Say' ),
+            array(
+                'key'        => 'field_ep_book_testimonials',
+                'label'      => 'Testimonials',
+                'name'       => 'book_testimonials',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_book_testi_quote', 'label' => 'Quote', 'name' => 'quote', 'type' => 'textarea', 'rows' => 3 ),
+                    array( 'key' => 'field_ep_book_testi_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_book_testi_service', 'label' => 'Service', 'name' => 'service', 'type' => 'text', 'instructions' => 'e.g. Travel Health Patient' ),
+                    array( 'key' => 'field_ep_book_testi_avatar', 'label' => 'Avatar', 'name' => 'avatar', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'thumbnail' ),
+                ),
+            ),
+        ),
+        'location'              => $book_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── Q8. FAQ ─────────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_book_faq',
+        'title'    => 'Book Appointment — FAQ',
+        'fields'   => array(
+            array( 'key' => 'field_ep_book_faq_badge', 'label' => 'Badge Text', 'name' => 'book_faq_badge', 'type' => 'text', 'default_value' => 'EVERYTHING YOU NEED TO KNOW' ),
+            array( 'key' => 'field_ep_book_faq_title', 'label' => 'Title', 'name' => 'book_faq_title', 'type' => 'text', 'default_value' => 'Common Questions' ),
+            array( 'key' => 'field_ep_book_faq_desc', 'label' => 'Description', 'name' => 'book_faq_description', 'type' => 'text', 'default_value' => 'Clear answers about our services, location, and team to help you book with confidence.' ),
+            array(
+                'key'        => 'field_ep_book_faqs',
+                'label'      => 'FAQs',
+                'name'       => 'book_faqs',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 10,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_book_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_book_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $book_location,
+        'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── Q9. Final CTA ───────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_book_cta',
+        'title'    => 'Book Appointment — Final CTA',
+        'fields'   => array(
+            array( 'key' => 'field_ep_book_cta_title', 'label' => 'Title', 'name' => 'book_cta_title', 'type' => 'text', 'default_value' => 'Need Help Booking?' ),
+            array( 'key' => 'field_ep_book_cta_desc', 'label' => 'Description', 'name' => 'book_cta_description', 'type' => 'text', 'default_value' => 'Our friendly Ashford team is here to answer your questions' ),
+            array( 'key' => 'field_ep_book_cta_hours', 'label' => 'Hours Text', 'name' => 'book_cta_hours', 'type' => 'text', 'default_value' => 'Mon-Fri: 9am-6pm' ),
+        ),
+        'location'              => $book_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );
