@@ -48,12 +48,13 @@ pharmodigital-pharmacy-templates/
     │   ├── page-typhoid.php
     │   └── page-travel-*.php         # 6 travel destination pages
     │
-    ├── template-parts/               # Reusable section components (14 total)
+    ├── template-parts/               # Reusable section components (15 total)
     │   ├── section-hero.php
     │   ├── section-stats.php
     │   ├── section-treatments.php
     │   ├── section-pharmacist.php
     │   ├── section-how-it-works.php
+    │   ├── section-quick-book.php    # Quick Book CTA card
     │   ├── section-switching.php
     │   ├── section-revslider.php
     │   ├── section-safe-secure.php
@@ -61,16 +62,18 @@ pharmodigital-pharmacy-templates/
     │   ├── section-location.php
     │   ├── section-testimonials.php
     │   ├── section-sticky-cta.php
-    │   ├── article-card.php
-    │   └── featured-article-card.php
+    │   ├── article-card.php          # Blog grid card
+    │   └── featured-article-card.php # Large featured blog card
     │
     └── assets/
         ├── css/
         │   ├── globals.css           # Base styles, variables, shared components
         │   ├── nav.css               # Mega-menu styles
+        │   ├── blog.css              # Health Hub listing + single post styles
         │   └── [page-name].css       # One CSS file per page template
         ├── js/
         │   ├── mega-menu.js          # Loaded on all pages
+        │   ├── blog.js               # FAQ accordion, pagination scroll
         │   └── [page-name].js        # One JS file per page template
         └── images/
             └── logo.svg              # Default logo fallback
@@ -80,20 +83,21 @@ pharmodigital-pharmacy-templates/
 
 ## Home Page Section Order
 
-The home page (`page-templates/page-home.php`) loads 12 sections sequentially:
+The home page (`page-templates/page-home.php`) loads 13 sections sequentially:
 
 1. **Hero** — Headline, CTA buttons, trust badges, testimonial card, Google rating
 2. **Stats** — 5-metric stats bar (patients, rating, years, registration, delivery)
 3. **Treatments** — 5-card grid of popular services
 4. **Pharmacist** — Meet the pharmacist with photo, credentials, video link
 5. **How It Works** — 3-step process (Book, Consult, Receive)
-6. **Switching** — Provider switching benefits with feature boxes
-7. **RevSlider** — Travel banner (Revolution Slider or static fallback)
-8. **Safe & Secure** — GPhC trust features
-9. **Health Hub** — Latest blog articles teaser
-10. **Location** — Map + floating info card with address, hours, contact
-11. **Testimonials** — Patient review cards with CTA
-12. **Sticky CTA** — Fixed bottom bar with Book Now
+6. **Quick Book** — Floating CTA card with booking prompt
+7. **Switching** — Provider switching benefits with feature boxes
+8. **RevSlider** — Travel banner (Revolution Slider or static fallback)
+9. **Safe & Secure** — GPhC trust features
+10. **Health Hub** — Latest blog articles teaser
+11. **Location** — Map + floating info card with address, hours, contact
+12. **Testimonials** — Patient review cards with CTA
+13. **Sticky CTA** — Fixed bottom bar with Book Now
 
 ---
 
@@ -128,6 +132,66 @@ The Weight Loss page (`page-templates/page-weight-loss.php`) loads 12 sections:
 10. **FAQ** — Accordion with numbered questions (repeater), expand/collapse via JS
 11. **Testimonials** — 3 cards with weight-lost circles, quotes, stars, author (repeater)
 12. **Final CTA** — Gradient section with trust badges, title, CTAs, trust checks
+
+---
+
+## Health Hub Page (Blog Listing)
+
+The Health Hub page (`page-templates/page-health-hub.php`) is the main blog listing. It uses server-side filtering and pagination:
+
+1. **Hero** — Badge, title (ACF field), description, category filter pills (server-side via `?category=` query param)
+2. **Featured Article** — Page 1 only, no category filter: large featured card (sticky posts) with image, category, reading time, title, excerpt, author, CTA
+3. **Articles Grid** — 9 posts per page in a 3-column responsive grid, filtered by category if selected. Excludes featured post on page 1
+4. **Pagination** — Numbered pills that preserve category filter in query strings
+5. **CTA** — Purple gradient section with "Ready to Transform Your Health?" and booking CTA
+
+**Filter logic:** Server-side via `$_GET['category']` sanitised and passed to `WP_Query`. JS smoothly scrolls to grid when returning from pagination (detects `?paged=` in URL).
+
+`archive.php` and `index.php` reuse the same hero + grid + pagination layout (without the featured article section) and share `.healthhub-*` CSS classes.
+
+---
+
+## Single Blog Post Layout
+
+The single post template (`single.php`) displays articles in a premium editorial layout with warm cream/terracotta palette. It loads these sections:
+
+1. **Article Hero** — Breadcrumb (Home > Health Hub > Category), category badge, reading time, `<h1>` title, excerpt, author avatar + name + role, publication date
+2. **Featured Image** — Conditional (only if post has a featured image). Rounded card with warm terracotta shadow
+3. **Pillar Backlink** — Conditional (only on cluster posts): link back to parent pillar post with "Part of our guide" label
+4. **Article Body** — Main content via `the_content()` with premium typography (h2 with terracotta left border, enlarged first paragraph, warm-styled blockquotes, styled tables/lists)
+5. **Tags** — Tag pills below content
+6. **Clinically Reviewed Block** — E-E-A-T trust block: author avatar + name + role, reviewer avatar + name + GPhC number + verification link, "Last updated" date
+7. **Post Navigation** — Previous / Next article links
+8. **FAQ Section** — Conditional (only if `post_faqs` repeater is populated): numbered accordion with expand/collapse, generates FAQPage schema
+9. **Cluster Hub** — Conditional (only on pillar posts): "In This Series" grid of all cluster posts
+10. **Related Posts** — 3-card grid of related articles from the same category
+11. **CTA** — Purple gradient section with booking CTA
+
+### Author & Reviewer Info Fallback Chain
+
+| Field | Fallback chain |
+|-------|---------------|
+| Author name | WordPress post author |
+| Author role | `default_author_role` option → `'Lead Pharmacist'` |
+| Author photo | `author_photo` post field → `pharmacist_image` option → Gravatar |
+| Reviewer name | `superintendent_pharmacist` option → `'Dilip Modhvadia'` |
+| Reviewer GPhC | `superintendent_gphc_number` option → `'2050606'` |
+| Reviewer photo | `reviewer_photo` post field → `pharmacist_image` option |
+
+### Structured Data (JSON-LD)
+
+`functions.php` outputs two schemas on single posts via `wp_head`:
+
+1. **MedicalWebPage** — headline, description, dates, author (name + jobTitle), reviewedBy (superintendent + GPhC), publisher (pharmacy + logo)
+2. **FAQPage** — Generated from the `post_faqs` repeater if populated. Enables Google FAQ rich snippets
+
+### Permalink & Category Setup
+
+On theme activation (`after_switch_theme`), `functions.php`:
+- Creates 5 default blog categories: Weight Loss, Travel Health, Ear Wax Removal, Hair Loss, NHS Services
+- Sets permalink structure to `/health-hub/%postname%/`
+
+A separate `init` hook (`easy_pharmacy_ensure_permalinks()`) checks once per hour (via transient) that rewrite rules haven't been flushed by plugin updates or Kinsta deployments, and re-registers them if needed. This prevents blog post 404s after deploys.
 
 ---
 
@@ -173,7 +237,9 @@ All fields are registered in `inc/acf-fields.php` using `acf_add_local_field_gro
 - **A1–A7** — Options page field groups (global settings)
 - **A8–A9** — Navigation field groups (top-level menu items & dropdown sub-links)
 - **B1–B12** — Home page section field groups (one per section)
-- **C1** — Blog post fields (reading time, author)
+- **C1** — Blog post fields (reading time, author/reviewer photo overrides)
+- **C2** — Pillar/cluster content strategy (is_pillar_post toggle, cluster_posts relationship, cluster_section_title)
+- **C3** — Blog post FAQ section (post_faq_title, post_faqs repeater with question/answer pairs, max 20)
 - **D1** — Flexible content builder for `page-custom.php`
 - **E** — Ear Wax Removal page field groups
 - **F1–F8** — Switch Provider page field groups (hero, stats, comparison, social proof, banner, evidence, process, final CTA)
@@ -353,6 +419,13 @@ if ( is_page_template( 'page-templates/page-weight-loss.php' ) ) {
 }
 ```
 
+**Blog assets** (`blog.css` + `blog.js`) are loaded on Health Hub, archives, index, and single posts:
+```php
+if ( is_page_template( 'page-templates/page-health-hub.php' ) ||
+     is_home() || is_category() || is_tag() || is_archive() ) { /* enqueue */ }
+if ( is_single() ) { /* also enqueue */ }
+```
+
 **Always loaded:** Google Fonts (DM Sans, Playfair Display, Syne), Font Awesome 6.4.0, `globals.css`, `nav.css`, `mega-menu.js`.
 
 ---
@@ -422,13 +495,13 @@ if ( is_page_template( 'page-templates/page-weight-loss.php' ) ) {
 - **WordPress:** 5.9+
 - **Required plugin:** Advanced Custom Fields PRO (for options pages, repeaters, flexible content)
 - **Optional plugin:** Revolution Slider (for travel banner; static fallback if not installed)
-- **Editor:** Gutenberg is auto-disabled for all custom page templates (Classic Editor forced for clean ACF editing)
+- **Editor:** Gutenberg is auto-disabled for custom page templates only (`page-templates/*`). Blog posts use the default WordPress editor (Gutenberg unless Classic Editor plugin is installed)
 
 ---
 
 ## Key Design Decisions
 
-- **No Gutenberg:** All page templates force Classic Editor for a clean ACF-only editing experience
+- **No Gutenberg on page templates:** All custom page templates (`page-templates/*`) force Classic Editor for a clean ACF-only editing experience. Blog posts use the default editor (Gutenberg) since their content comes from the block editor, not ACF
 - **Defaults everywhere:** Every ACF field has a hardcoded default, so the theme works before any content is entered
 - **Image fallbacks:** Template parts gracefully hide image sections when no image is uploaded, or fall back to embeds (e.g. Google Maps iframe)
 - **Component-based:** Each home page section is a standalone template part that can be reused or reordered
@@ -567,6 +640,22 @@ The `body` has a global `padding-top: 80px` to clear the fixed navigation. Each 
 **Symptom if broken:** Huge gap between the nav bar and the hero badge/title compared to the homepage.
 
 **The rule:** Hero section `padding-top` should be ~20px (not 120px+), since the body already provides the 80px nav clearance. Total distance from viewport top to content = body `80px` + section padding.
+
+### Single Post Section Spacing
+
+The single blog post (`single.php`) has three stacked sections: `.article-hero` → `.article-image-section` → `.article-body-section`. Each section must have explicit padding to create separation, because margins between sections can behave unpredictably.
+
+**The rule:** Never use `padding: 0` on `.article-body-section` — the article content will slam directly against the featured image above with no breathing room. Current correct values:
+
+```css
+.article-hero          { padding: 5rem 0 4rem; }   /* generous top (nav clearance) + bottom */
+.article-image-section { margin-top: 0; padding-bottom: 3rem; }  /* NO negative margin */
+.article-body-section  { padding: 3rem 0 4rem; }   /* top padding separates from image */
+```
+
+**Never use negative `margin-top`** on `.article-image-section` to create visual overlap — it eats into the spacing and makes the title appear to crowd the featured image.
+
+**Symptom if broken:** Post title or body content appears to overlap with or sit too close to the featured image.
 
 ### Margin Collapse in Grid/Flex Containers
 
