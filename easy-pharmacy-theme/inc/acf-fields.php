@@ -2398,6 +2398,81 @@ function ep_register_acf_field_groups() {
     ) );
 
     // =========================================================================
+    // C2. PILLAR / CLUSTER CONTENT STRATEGY
+    // =========================================================================
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_pillar_cluster',
+        'title'    => 'Content Cluster (Pillar & Cluster Posts)',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_is_pillar_post',
+                'label'         => 'Is this a Pillar Post?',
+                'name'          => 'is_pillar_post',
+                'type'          => 'true_false',
+                'instructions'  => 'Enable this if this post is a pillar (main guide). You can then select its supporting cluster posts below.',
+                'default_value' => 0,
+                'ui'            => 1,
+                'ui_on_text'    => 'Yes',
+                'ui_off_text'   => 'No',
+            ),
+            array(
+                'key'               => 'field_ep_cluster_posts',
+                'label'             => 'Cluster Posts',
+                'name'              => 'cluster_posts',
+                'type'              => 'relationship',
+                'instructions'      => 'Select the supporting cluster posts that relate to this pillar post. They will appear in a dedicated section on this page, and each cluster post will show a link back to this pillar.',
+                'post_type'         => array( 'post' ),
+                'filters'           => array( 'search', 'taxonomy' ),
+                'return_format'     => 'id',
+                'min'               => 0,
+                'max'               => '',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_ep_is_pillar_post',
+                            'operator' => '==',
+                            'value'    => '1',
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'key'           => 'field_ep_cluster_section_title',
+                'label'         => 'Cluster Section Title',
+                'name'          => 'cluster_section_title',
+                'type'          => 'text',
+                'instructions'  => 'Heading shown above the cluster posts on this page.',
+                'default_value' => 'In This Series',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_ep_is_pillar_post',
+                            'operator' => '==',
+                            'value'    => '1',
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'post',
+                ),
+            ),
+        ),
+        'menu_order'            => 1,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
     // D. FLEXIBLE CONTENT BUILDER (Custom Page Template)
     // =========================================================================
 
