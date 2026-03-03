@@ -272,6 +272,13 @@ function ep_register_acf_field_groups() {
                 'name'  => 'gphc_verify_url',
                 'type'  => 'url',
             ),
+            array(
+                'key'           => 'field_ep_reviewer_profile_url',
+                'label'         => 'Reviewer Profile Page URL',
+                'name'          => 'reviewer_profile_url',
+                'type'          => 'url',
+                'instructions'  => 'Link to the superintendent pharmacist\'s profile page (shown in the Clinically Reviewed Content block on blog posts).',
+            ),
         ),
         'location' => array(
             array(
