@@ -219,6 +219,13 @@ if ( empty( $author_avatar ) ) {
                   <i class="fas fa-external-link-alt"></i> Verify on GPhC Register
                 </a>
               <?php endif; ?>
+              <?php
+              $reviewer_profile_url = ep_option( 'reviewer_profile_url', '' );
+              if ( $reviewer_profile_url ) : ?>
+                <a href="<?php echo esc_url( $reviewer_profile_url ); ?>" class="article-fact-check-verify">
+                  <i class="fas fa-user-circle"></i> View Full Profile
+                </a>
+              <?php endif; ?>
             </div>
           </div>
         </div>
