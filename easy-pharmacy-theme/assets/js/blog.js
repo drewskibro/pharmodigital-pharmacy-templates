@@ -1,42 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const filterButtons = document.querySelectorAll('.healthhub-filter-btn');
-  const articles = document.querySelectorAll('.healthhub-article-card');
+/**
+ * Health Hub — Filter pill active state (visual enhancement only).
+ *
+ * Filtering is handled server-side via URL ?category= parameter so that
+ * pagination, crawlability, and internal linking all work correctly.
+ * This JS just adds subtle hover/active feedback for the pills.
+ */
+document.addEventListener('DOMContentLoaded', function () {
+  // Smooth scroll back to grid when returning from pagination
+  var urlParams = new URLSearchParams(window.location.search);
+  var page = urlParams.get('paged') || urlParams.get('/page/');
 
-  // Function to filter articles
-  function filterArticles(category) {
-    articles.forEach(article => {
-      const badge = article.querySelector('.healthhub-category-badge-overlay');
-      const articleCategory = badge ? badge.textContent.trim() : '';
-
-      // Reset animation
-      article.style.animation = 'none';
-      article.offsetHeight; /* trigger reflow */
-      article.style.animation = null; 
-
-      if (category === 'All Articles' || articleCategory === category) {
-        article.style.display = 'flex';
-        // Add a subtle fade-in animation
-        article.style.animation = 'fadeInUp 0.5s ease forwards';
-      } else {
-        article.style.display = 'none';
-      }
-    });
+  if (page && parseInt(page, 10) > 1) {
+    var grid = document.querySelector('.healthhub-grid-section');
+    if (grid) {
+      grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
-
-  // Add click event listeners to buttons
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', function() {
-      // Remove active class from all buttons
-      filterButtons.forEach(b => b.classList.remove('active'));
-      
-      // Add active class to clicked button
-      this.classList.add('active');
-      
-      // Get the category text
-      const selectedCategory = this.textContent.trim();
-      
-      // Filter the articles
-      filterArticles(selectedCategory);
-    });
-  });
 });
