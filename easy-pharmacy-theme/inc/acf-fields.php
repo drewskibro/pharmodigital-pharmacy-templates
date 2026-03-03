@@ -2282,6 +2282,24 @@ function ep_register_acf_field_groups() {
                 'name'  => 'article_author',
                 'type'  => 'text',
             ),
+            array(
+                'key'           => 'field_ep_author_avatar',
+                'label'         => 'Author Avatar',
+                'name'          => 'author_photo',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'thumbnail',
+                'instructions'  => 'Upload a profile photo for the post author. Used in the hero and the Clinically Reviewed Content block.',
+            ),
+            array(
+                'key'           => 'field_ep_reviewer_avatar',
+                'label'         => 'Reviewer Avatar',
+                'name'          => 'reviewer_photo',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'thumbnail',
+                'instructions'  => 'Optional override for the reviewer photo. Leave blank to use the pharmacist image from Pharmacy Settings.',
+            ),
         ),
         'location' => array(
             array(

@@ -29,11 +29,10 @@ $author_id     = get_the_author_meta( 'ID' );
 $author_bio    = get_the_author_meta( 'description' );
 $author_avatar = '';
 
-if ( function_exists( 'get_field' ) ) {
-    $acf_avatar = get_field( 'author_avatar', 'user_' . $author_id );
-    if ( $acf_avatar ) {
-        $author_avatar = is_array( $acf_avatar ) ? $acf_avatar['url'] : wp_get_attachment_image_url( $acf_avatar, 'thumbnail' );
-    }
+// Author avatar: post-level field → pharmacist image → Gravatar
+$author_photo_id = get_field( 'author_photo' );
+if ( $author_photo_id ) {
+    $author_avatar = wp_get_attachment_image_url( $author_photo_id, 'thumbnail' );
 }
 if ( empty( $author_avatar ) ) {
     $pharmacist_image = ep_option( 'pharmacist_image' );
@@ -173,12 +172,18 @@ if ( empty( $author_avatar ) ) {
       $reviewer_url      = ep_option( 'gphc_verify_url', '' );
       $reviewer_avatar   = '';
 
-      // Reviewer avatar: use pharmacist image from options
-      $reviewer_image_id = ep_option( 'pharmacist_image' );
-      if ( $reviewer_image_id ) {
-          $reviewer_avatar = is_numeric( $reviewer_image_id )
-              ? wp_get_attachment_image_url( $reviewer_image_id, 'thumbnail' )
-              : ( is_array( $reviewer_image_id ) ? $reviewer_image_id['url'] : $reviewer_image_id );
+      // Reviewer avatar: post-level override → pharmacist image from options
+      $reviewer_photo_id = get_field( 'reviewer_photo' );
+      if ( $reviewer_photo_id ) {
+          $reviewer_avatar = wp_get_attachment_image_url( $reviewer_photo_id, 'thumbnail' );
+      }
+      if ( empty( $reviewer_avatar ) ) {
+          $reviewer_image_id = ep_option( 'pharmacist_image' );
+          if ( $reviewer_image_id ) {
+              $reviewer_avatar = is_numeric( $reviewer_image_id )
+                  ? wp_get_attachment_image_url( $reviewer_image_id, 'thumbnail' )
+                  : ( is_array( $reviewer_image_id ) ? $reviewer_image_id['url'] : $reviewer_image_id );
+          }
       }
 
       $last_modified = get_the_modified_date( 'M j, Y' );
