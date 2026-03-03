@@ -525,8 +525,7 @@
   }
 
   .book-qb-floating-badge {
-    right: 0;
-    bottom: -1.5rem;
+    display: none;
   }
 }
 
@@ -537,15 +536,6 @@
 
   .book-qb-service-grid {
     grid-template-columns: 1fr;
-  }
-
-  .book-qb-floating-badge {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    margin-top: 1.5rem;
-    justify-content: center;
-    animation: none;
   }
 }
 
