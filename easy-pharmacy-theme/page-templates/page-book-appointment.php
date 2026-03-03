@@ -198,6 +198,9 @@ get_header();
             </div>
           <?php endif; ?>
           <div class="book-service-content">
+            <?php if ( ! $service_image_url && $is_popular ) : ?>
+              <div class="book-service-badge-inline">POPULAR</div>
+            <?php endif; ?>
             <div class="book-service-icon-floating">
               <i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i>
             </div>
@@ -219,10 +222,8 @@ get_header();
       <?php endwhile; else : ?>
         <!-- Weight Loss -->
         <div class="book-service-card-featured">
-          <div class="book-service-image-wrapper">
-            <div class="book-service-badge-popular">POPULAR</div>
-          </div>
           <div class="book-service-content">
+            <div class="book-service-badge-inline">POPULAR</div>
             <div class="book-service-icon-floating"><i class="fas fa-weight-scale"></i></div>
             <h3 class="book-service-title">Weight Loss Programme</h3>
             <p class="book-service-desc">Personalised weight management with GLP-1 treatments and ongoing pharmacist support.</p>
@@ -243,10 +244,8 @@ get_header();
         </div>
         <!-- Ear Wax Removal -->
         <div class="book-service-card-featured">
-          <div class="book-service-image-wrapper">
-            <div class="book-service-badge-popular">POPULAR</div>
-          </div>
           <div class="book-service-content">
+            <div class="book-service-badge-inline">POPULAR</div>
             <div class="book-service-icon-floating"><i class="fas fa-ear-listen"></i></div>
             <h3 class="book-service-title">Ear Wax Removal</h3>
             <p class="book-service-desc">Professional microsuction ear cleaning by experienced healthcare professionals.</p>
