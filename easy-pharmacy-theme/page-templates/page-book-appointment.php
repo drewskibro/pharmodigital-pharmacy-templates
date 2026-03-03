@@ -143,54 +143,6 @@ get_header();
 </section>
 
 <!-- ============================================
-     HOW IT WORKS SECTION
-     ============================================ -->
-<section class="book-process-section">
-  <div class="section-container">
-    <div class="book-process-header">
-      <h2 class="book-process-title"><?php echo esc_html(ep_field('book_process_title', 'How It Works')); ?></h2>
-    </div>
-
-    <div class="book-process-grid">
-      <?php if (have_rows('book_process_steps')) : $step_num = 0; while (have_rows('book_process_steps')) : the_row(); $step_num++; ?>
-        <div class="book-process-card">
-          <div class="book-process-number"><?php echo esc_html($step_num); ?></div>
-          <div class="book-process-icon">
-            <i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i>
-          </div>
-          <h3 class="book-process-card-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
-          <p class="book-process-card-desc"><?php echo esc_html(get_sub_field('description')); ?></p>
-          <?php if ($step_num < 3) : ?>
-            <div class="book-process-arrow desktop-only"><i class="fas fa-chevron-right"></i></div>
-          <?php endif; ?>
-        </div>
-      <?php endwhile; else : ?>
-        <div class="book-process-card">
-          <div class="book-process-number">1</div>
-          <div class="book-process-icon"><i class="fas fa-hand-pointer"></i></div>
-          <h3 class="book-process-card-title">Choose Service</h3>
-          <p class="book-process-card-desc">Select the specific health service you need from our comprehensive options below.</p>
-          <div class="book-process-arrow desktop-only"><i class="fas fa-chevron-right"></i></div>
-        </div>
-        <div class="book-process-card">
-          <div class="book-process-number">2</div>
-          <div class="book-process-icon"><i class="fas fa-calendar-check"></i></div>
-          <h3 class="book-process-card-title">Select Time</h3>
-          <p class="book-process-card-desc">Pick a convenient date and time slot that fits your schedule perfectly.</p>
-          <div class="book-process-arrow desktop-only"><i class="fas fa-chevron-right"></i></div>
-        </div>
-        <div class="book-process-card">
-          <div class="book-process-number">3</div>
-          <div class="book-process-icon"><i class="fas fa-hospital-user"></i></div>
-          <h3 class="book-process-card-title">Visit Clinic</h3>
-          <p class="book-process-card-desc">Come to our Ashford clinic for your expert consultation with our friendly team.</p>
-        </div>
-      <?php endif; ?>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
      STATS BAR
      ============================================ -->
 <section class="book-stats-section">
