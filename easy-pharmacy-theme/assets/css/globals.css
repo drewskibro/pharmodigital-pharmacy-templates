@@ -2339,7 +2339,7 @@ html {
    ============================================ */
 .treatments-section {
   padding: 5rem 0 6rem;
-  background: var(--brand-light);
+  background: #ffffff;
 }
 
 /* Section header */
@@ -2937,7 +2937,7 @@ html {
    ============================================ */
 .switching-section {
   position: relative;
-  background: linear-gradient(to bottom, #ffffff 0%, #fef6f4 100%);
+  background: #ffffff;
   padding: 6rem 0;
   overflow: hidden;
 }
@@ -2945,8 +2945,7 @@ html {
 .switching-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 0% 50%, rgba(196, 122, 101, 0.06), transparent 40%),
-              radial-gradient(circle at 100% 0%, rgba(184, 105, 79, 0.04), transparent 40%);
+  background: none;
   pointer-events: none;
 }
 
@@ -3598,7 +3597,7 @@ html {
    ============================================ */
 .safe-section {
   position: relative;
-  background: var(--brand-light);
+  background: #ffffff;
   padding: 6rem 0;
   overflow: hidden;
 }
@@ -3606,7 +3605,7 @@ html {
 .safe-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(254, 246, 244, 0.5), var(--white), rgba(254, 246, 244, 0.8));
+  background: none;
   pointer-events: none;
 }
 
@@ -4752,7 +4751,7 @@ html {
    ============================================ */
 .location-section {
   position: relative;
-  background: var(--brand-light);
+  background: #ffffff;
   padding-bottom: 6rem;
 }
 
@@ -5064,7 +5063,7 @@ html {
    ============================================ */
 .testimonials-section {
   padding: 5rem 0 6rem;
-  background: linear-gradient(to bottom, #fef6f4 0%, #fff 100%);
+  background: #FDF6F3;
   position: relative;
   overflow: hidden;
 }
@@ -5533,7 +5532,7 @@ html {
 .qb-section {
   position: relative;
   padding: 6rem 0;
-  background: linear-gradient(to bottom, var(--white), rgba(196, 122, 101, 0.04), var(--white));
+  background: #FDF6F3;
   overflow: hidden;
 }
 
