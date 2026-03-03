@@ -834,7 +834,7 @@
    SINGLE POST — FEATURED IMAGE
    ============================================ */
 .article-image-section {
-  margin-top: -2rem;
+  margin-top: 0;
   position: relative;
   z-index: 15;
   padding-bottom: 3rem;
