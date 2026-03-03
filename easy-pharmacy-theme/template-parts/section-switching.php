@@ -26,11 +26,11 @@ $switching_image_url = $switching_image_id ? wp_get_attachment_image_url( $switc
 
 // Default feature images from standalone ACF fields
 $feature_1_image_id  = ep_field( 'switching_feature_1_image' );
-$feature_1_image_url = $feature_1_image_id ? wp_get_attachment_image_url( $feature_1_image_id, 'thumbnail' ) : '';
+$feature_1_image_url = $feature_1_image_id ? wp_get_attachment_image_url( $feature_1_image_id, 'medium_large' ) : '';
 $feature_2_image_id  = ep_field( 'switching_feature_2_image' );
-$feature_2_image_url = $feature_2_image_id ? wp_get_attachment_image_url( $feature_2_image_id, 'thumbnail' ) : '';
+$feature_2_image_url = $feature_2_image_id ? wp_get_attachment_image_url( $feature_2_image_id, 'medium_large' ) : '';
 $feature_3_image_id  = ep_field( 'switching_feature_3_image' );
-$feature_3_image_url = $feature_3_image_id ? wp_get_attachment_image_url( $feature_3_image_id, 'thumbnail' ) : '';
+$feature_3_image_url = $feature_3_image_id ? wp_get_attachment_image_url( $feature_3_image_id, 'medium_large' ) : '';
 
 // Default features
 $default_features = array(
@@ -57,7 +57,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'switching_features' ) ) {
     while ( have_rows( 'switching_features' ) ) {
         the_row();
         $feat_image_id  = get_sub_field( 'feature_image' );
-        $feat_image_url = $feat_image_id ? wp_get_attachment_image_url( $feat_image_id, 'thumbnail' ) : '';
+        $feat_image_url = $feat_image_id ? wp_get_attachment_image_url( $feat_image_id, 'medium_large' ) : '';
         $features[] = array(
             'feature_title' => get_sub_field( 'feature_title' ) ?: '',
             'feature_desc'  => get_sub_field( 'feature_description' ) ?: '',
