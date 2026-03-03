@@ -346,3 +346,32 @@ function easy_pharmacy_disable_gutenberg_for_templates( $use_block_editor, $post
     return $use_block_editor;
 }
 add_filter( 'use_block_editor_for_post', 'easy_pharmacy_disable_gutenberg_for_templates', 10, 2 );
+
+/**
+ * Theme Activation: Create default Health Hub categories and set permalink structure.
+ *
+ * Runs once when the theme is first activated. Creates the standard pharmacy
+ * content categories so they appear immediately in the post editor, and sets
+ * the permalink structure to /health-hub/post-slug/ for clean blog URLs.
+ */
+function easy_pharmacy_activation() {
+    // Pre-create standard pharmacy blog categories
+    $default_categories = array(
+        'Weight Loss'      => 'weight-loss',
+        'Travel Health'    => 'travel-health',
+        'Ear Wax Removal'  => 'ear-wax-removal',
+        'Hair Loss'        => 'hair-loss',
+        'Pharmacy Advice'  => 'pharmacy-advice',
+    );
+
+    foreach ( $default_categories as $name => $slug ) {
+        if ( ! term_exists( $name, 'category' ) ) {
+            wp_insert_term( $name, 'category', array( 'slug' => $slug ) );
+        }
+    }
+
+    // Set permalink structure: /health-hub/post-slug/
+    update_option( 'permalink_structure', '/health-hub/%postname%/' );
+    flush_rewrite_rules();
+}
+add_action( 'after_switch_theme', 'easy_pharmacy_activation' );
