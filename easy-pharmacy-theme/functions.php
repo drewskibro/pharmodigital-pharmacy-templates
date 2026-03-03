@@ -107,6 +107,7 @@ function easy_pharmacy_scripts() {
 
     if ( is_single() ) {
         wp_enqueue_style( 'easy-pharmacy-blog', EASY_PHARMACY_URI . '/assets/css/blog.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_script( 'easy-pharmacy-blog-js', EASY_PHARMACY_URI . '/assets/js/blog.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-book-appointment.php' ) ) {
