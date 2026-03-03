@@ -5945,8 +5945,7 @@ html {
   }
 
   .qb-floating-badge {
-    right: 0;
-    bottom: -1.5rem;
+    display: none;
   }
 }
 
@@ -5957,14 +5956,5 @@ html {
 
   .qb-card-service-grid {
     grid-template-columns: 1fr;
-  }
-
-  .qb-floating-badge {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    margin-top: 1.5rem;
-    justify-content: center;
-    animation: none;
   }
 }
