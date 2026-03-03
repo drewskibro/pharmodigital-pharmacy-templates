@@ -60,41 +60,84 @@ get_header();
         </div>
       </div>
 
-      <!-- Right: Visual -->
-      <?php
-      $hero_image_id  = ep_field('book_hero_image');
-      $hero_image_url = $hero_image_id ? wp_get_attachment_image_url($hero_image_id, 'large') : '';
-      if ($hero_image_url) : ?>
+      <!-- Right: Quick Book Card -->
       <div class="book-hero-visual">
-        <div class="book-hero-image-card">
-          <div class="book-hero-image-inner">
-              <img src="<?php echo esc_url($hero_image_url); ?>" alt="<?php echo esc_attr(ep_field('book_hero_image_alt', 'Lead Pharmacist')); ?>" class="book-hero-image" />
-            <div class="book-hero-overlay"></div>
+        <div class="book-hero-quick-book">
+
+          <!-- Header -->
+          <div class="book-qb-header">
+            <div class="book-qb-icon-circle">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div>
+              <h2 class="book-qb-heading"><?php echo esc_html(ep_field('book_qb_heading', 'Book Your Visit')); ?></h2>
+              <div class="book-qb-available">
+                <span class="pulse-dot"><span></span><span></span></span>
+                <span><?php echo esc_html(ep_field('book_qb_available_text', 'Same-day appointments available')); ?></span>
+              </div>
+            </div>
           </div>
 
-          <!-- Floating Testimonial Card -->
-          <div class="book-hero-testimonial-card">
-            <div class="book-hero-quote-icon">
-              <i class="fas fa-quote-left"></i>
-            </div>
-            <p class="book-hero-quote-text">
-              "<?php echo esc_html(ep_field('book_hero_testimonial_quote', 'Booking was so easy and Dilip was fantastic. I was seen on time and the advice was excellent.')); ?>"
-            </p>
-            <div class="book-hero-quote-footer">
-              <div class="book-hero-author">
-                <span class="book-hero-name"><?php echo esc_html(ep_field('book_hero_testimonial_name', 'Sarah J.')); ?></span>
-                <div class="star-row">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <!-- Divider -->
+          <div class="book-qb-divider"></div>
+
+          <!-- Service quick-select -->
+          <p class="book-qb-services-label"><?php echo esc_html(ep_field('book_qb_services_label', 'Choose a service to get started:')); ?></p>
+
+          <div class="book-qb-service-grid">
+            <?php if (have_rows('book_qb_services')) : while (have_rows('book_qb_services')) : the_row(); ?>
+              <button class="book-qb-service" onclick="scrollToBooking()">
+                <div class="book-qb-service-icon">
+                  <i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i>
                 </div>
-              </div>
-              <div class="book-hero-result-badge">
-                <span><?php echo esc_html(ep_field('book_hero_testimonial_badge', 'Verified Patient')); ?></span>
-              </div>
+                <span><?php echo esc_html(get_sub_field('label')); ?></span>
+              </button>
+            <?php endwhile; else : ?>
+              <button class="book-qb-service" onclick="scrollToBooking()">
+                <div class="book-qb-service-icon"><i class="fas fa-weight-scale"></i></div>
+                <span>Weight Loss</span>
+              </button>
+              <button class="book-qb-service" onclick="scrollToBooking()">
+                <div class="book-qb-service-icon"><i class="fas fa-plane-departure"></i></div>
+                <span>Travel Health</span>
+              </button>
+              <button class="book-qb-service" onclick="scrollToBooking()">
+                <div class="book-qb-service-icon"><i class="fas fa-ear-listen"></i></div>
+                <span>Ear Wax Removal</span>
+              </button>
+              <button class="book-qb-service" onclick="scrollToBooking()">
+                <div class="book-qb-service-icon"><i class="fas fa-syringe"></i></div>
+                <span>Vaccinations</span>
+              </button>
+            <?php endif; ?>
+          </div>
+
+          <!-- Main CTA -->
+          <button onclick="scrollToBooking()" class="cta-button primary-cta book-qb-cta">
+            <?php echo esc_html(ep_field('book_qb_cta_text', 'View Available Times')); ?>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+
+          <!-- Footer info -->
+          <div class="book-qb-footer">
+            <div class="book-qb-footer-item">
+              <i class="fas fa-clock"></i>
+              <span><?php echo esc_html(ep_field('book_qb_hours', 'Mon–Fri: 9am – 6pm')); ?></span>
+            </div>
+            <div class="book-qb-footer-item">
+              <i class="fas fa-bolt"></i>
+              <span><?php echo esc_html(ep_field('book_qb_confirm_text', 'Instant confirmation')); ?></span>
             </div>
           </div>
+
+        </div>
+
+        <!-- Floating trust badge -->
+        <div class="book-qb-floating-badge">
+          <i class="fas fa-square-parking"></i>
+          <span><?php echo esc_html(ep_field('book_qb_floating_badge', 'Free Parking Available')); ?></span>
         </div>
       </div>
-      <?php endif; ?>
     </div>
   </div>
 </section>
