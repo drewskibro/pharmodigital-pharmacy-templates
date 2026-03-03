@@ -1504,7 +1504,7 @@
    FAQ ACCORDION SECTION
    ============================================ */
 .article-faq-section {
-  padding: 5rem 0;
+  padding: 1rem 0 4rem;
   background: #fff;
 }
 
@@ -1515,7 +1515,7 @@
 
 .article-faq-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .article-faq-header .section-badge {
