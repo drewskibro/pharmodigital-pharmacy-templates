@@ -166,20 +166,60 @@ if ( empty( $author_avatar ) ) {
         </div>
       <?php endif; ?>
 
-      <!-- Author Bio -->
-      <div class="article-author-bio">
-        <?php if ( $author_avatar ) : ?>
-          <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_name ); ?>" class="article-bio-avatar" />
-        <?php endif; ?>
-        <div class="article-bio-text">
-          <span class="article-bio-label">Written by</span>
-          <span class="article-bio-name"><?php echo esc_html( $author_name ); ?></span>
-          <span class="article-bio-role"><?php echo esc_html( $author_role ); ?>, <?php echo esc_html( ep_pharmacy_name() ); ?></span>
-          <?php if ( $author_bio ) : ?>
-            <p class="article-bio-desc"><?php echo esc_html( $author_bio ); ?></p>
-          <?php else : ?>
-            <p class="article-bio-desc">Providing expert health advice and clinical pharmacy services to the local community.</p>
-          <?php endif; ?>
+      <!-- Medical Reviewer / Fact-Check Block -->
+      <?php
+      $reviewer_name     = ep_option( 'superintendent_pharmacist', 'Dilip Modhvadia' );
+      $reviewer_gphc     = ep_option( 'superintendent_gphc_number', '2050606' );
+      $reviewer_url      = ep_option( 'gphc_verify_url', '' );
+      $reviewer_avatar   = '';
+
+      // Reviewer avatar: use pharmacist image from options
+      $reviewer_image_id = ep_option( 'pharmacist_image' );
+      if ( $reviewer_image_id ) {
+          $reviewer_avatar = is_numeric( $reviewer_image_id )
+              ? wp_get_attachment_image_url( $reviewer_image_id, 'thumbnail' )
+              : ( is_array( $reviewer_image_id ) ? $reviewer_image_id['url'] : $reviewer_image_id );
+      }
+
+      $last_modified = get_the_modified_date( 'M j, Y' );
+      ?>
+      <div class="article-fact-check">
+        <div class="article-fact-check-header">
+          <i class="fas fa-shield-halved"></i>
+          <span>Clinically Reviewed Content</span>
+        </div>
+        <div class="article-fact-check-people">
+          <!-- Written by -->
+          <div class="article-fact-check-person">
+            <?php if ( $author_avatar ) : ?>
+              <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_name ); ?>" class="article-fact-check-avatar" />
+            <?php endif; ?>
+            <div class="article-fact-check-info">
+              <span class="article-fact-check-label">Written by</span>
+              <span class="article-fact-check-name"><?php echo esc_html( $author_name ); ?></span>
+              <span class="article-fact-check-role"><?php echo esc_html( $author_role ); ?></span>
+            </div>
+          </div>
+          <!-- Reviewed by -->
+          <div class="article-fact-check-person">
+            <?php if ( $reviewer_avatar ) : ?>
+              <img src="<?php echo esc_url( $reviewer_avatar ); ?>" alt="<?php echo esc_attr( $reviewer_name ); ?>" class="article-fact-check-avatar" />
+            <?php endif; ?>
+            <div class="article-fact-check-info">
+              <span class="article-fact-check-label">Reviewed &amp; fact-checked by</span>
+              <span class="article-fact-check-name"><?php echo esc_html( $reviewer_name ); ?></span>
+              <span class="article-fact-check-role">Superintendent Pharmacist<?php if ( $reviewer_gphc ) : ?> &middot; GPhC: <?php echo esc_html( $reviewer_gphc ); ?><?php endif; ?></span>
+              <?php if ( $reviewer_url ) : ?>
+                <a href="<?php echo esc_url( $reviewer_url ); ?>" class="article-fact-check-verify" target="_blank" rel="noopener">
+                  <i class="fas fa-external-link-alt"></i> Verify on GPhC Register
+                </a>
+              <?php endif; ?>
+            </div>
+          </div>
+        </div>
+        <div class="article-fact-check-footer">
+          <span><i class="far fa-calendar-alt"></i> Last updated: <?php echo esc_html( $last_modified ); ?></span>
+          <span><i class="fas fa-check-circle"></i> Medically reviewed</span>
         </div>
       </div>
 
@@ -207,6 +247,45 @@ if ( empty( $author_avatar ) ) {
 
     </div>
   </section>
+
+  <!-- ============================================
+       FAQ SECTION (per-post accordion)
+       ============================================ -->
+  <?php
+  $faqs = get_field( 'post_faqs' );
+  if ( ! empty( $faqs ) ) :
+      $faq_title = get_field( 'post_faq_title' );
+      if ( ! $faq_title ) {
+          $faq_title = 'Frequently Asked Questions';
+      }
+  ?>
+  <section class="article-faq-section">
+    <div class="section-container">
+      <div class="article-faq-inner">
+        <div class="article-faq-header">
+          <span class="section-badge"><span class="pulse-dot"></span> FAQs</span>
+          <h2 class="article-faq-title"><?php echo esc_html( $faq_title ); ?></h2>
+        </div>
+        <div class="article-faq-list">
+          <?php foreach ( $faqs as $i => $faq ) : ?>
+            <div class="article-faq-item">
+              <button class="article-faq-question" aria-expanded="false" aria-controls="faq-answer-<?php echo esc_attr( $i ); ?>">
+                <span class="article-faq-number"><?php echo esc_html( str_pad( $i + 1, 2, '0', STR_PAD_LEFT ) ); ?></span>
+                <span class="article-faq-question-text"><?php echo esc_html( $faq['question'] ); ?></span>
+                <span class="article-faq-toggle"><i class="fas fa-plus"></i></span>
+              </button>
+              <div class="article-faq-answer" id="faq-answer-<?php echo esc_attr( $i ); ?>">
+                <div class="article-faq-answer-inner">
+                  <?php echo wp_kses_post( $faq['answer'] ); ?>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
+  </section>
+  <?php endif; ?>
 
   <!-- ============================================
        CLUSTER HUB (shown on pillar posts)

@@ -2473,6 +2473,67 @@ function ep_register_acf_field_groups() {
     ) );
 
     // =========================================================================
+    // C3. FAQ SECTION (Per-Post Accordion)
+    // =========================================================================
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_post_faq',
+        'title'    => 'FAQ Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_post_faq_title',
+                'label'         => 'FAQ Section Title',
+                'name'          => 'post_faq_title',
+                'type'          => 'text',
+                'default_value' => 'Frequently Asked Questions',
+            ),
+            array(
+                'key'          => 'field_ep_post_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'post_faqs',
+                'type'         => 'repeater',
+                'instructions' => 'Add question and answer pairs. These will display as an accordion and generate FAQPage schema for rich search results.',
+                'min'          => 0,
+                'max'          => 20,
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_post_faq_question',
+                        'label' => 'Question',
+                        'name'  => 'question',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_post_faq_answer',
+                        'label' => 'Answer',
+                        'name'  => 'answer',
+                        'type'  => 'wysiwyg',
+                        'tabs'  => 'all',
+                        'toolbar' => 'basic',
+                        'media_upload' => 0,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'post',
+                ),
+            ),
+        ),
+        'menu_order'            => 2,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
     // D. FLEXIBLE CONTENT BUILDER (Custom Page Template)
     // =========================================================================
 

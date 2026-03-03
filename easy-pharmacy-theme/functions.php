@@ -405,3 +405,123 @@ function easy_pharmacy_ensure_permalinks() {
     }
 }
 add_action( 'init', 'easy_pharmacy_ensure_permalinks' );
+
+/**
+ * Output structured data (JSON-LD) for single blog posts.
+ *
+ * Generates MedicalWebPage schema with author, reviewer, publisher,
+ * and FAQPage schema when FAQ fields are populated.
+ */
+function easy_pharmacy_post_schema() {
+    if ( ! is_single() || get_post_type() !== 'post' ) {
+        return;
+    }
+
+    $post_id   = get_the_ID();
+    $permalink = get_permalink( $post_id );
+    $title     = get_the_title( $post_id );
+    $excerpt   = get_the_excerpt( $post_id );
+
+    // Dates
+    $date_published = get_the_date( 'c', $post_id );
+    $date_modified  = get_the_modified_date( 'c', $post_id );
+
+    // Featured image
+    $image_url = get_the_post_thumbnail_url( $post_id, 'large' );
+
+    // Author
+    $author_name = get_the_author();
+    $author_role = ep_option( 'default_author_role', 'Lead Pharmacist' );
+
+    // Reviewer (superintendent pharmacist)
+    $reviewer_name = ep_option( 'superintendent_pharmacist', 'Dilip Modhvadia' );
+    $reviewer_gphc = ep_option( 'superintendent_gphc_number', '' );
+    $reviewer_url  = ep_option( 'gphc_verify_url', '' );
+
+    // Publisher
+    $pharmacy_name = ep_pharmacy_name();
+    $logo_url      = ep_logo_url();
+
+    // Build MedicalWebPage schema
+    $schema = array(
+        '@context'      => 'https://schema.org',
+        '@type'         => 'MedicalWebPage',
+        'headline'      => $title,
+        'description'   => $excerpt,
+        'url'           => $permalink,
+        'datePublished' => $date_published,
+        'dateModified'  => $date_modified,
+        'author'        => array(
+            '@type'     => 'Person',
+            'name'      => $author_name,
+            'jobTitle'  => $author_role,
+        ),
+        'reviewedBy'    => array(
+            '@type'     => 'Person',
+            'name'      => $reviewer_name,
+            'jobTitle'  => 'Superintendent Pharmacist',
+        ),
+        'publisher'     => array(
+            '@type' => 'Organization',
+            'name'  => $pharmacy_name,
+        ),
+        'mainEntityOfPage' => array(
+            '@type' => 'WebPage',
+            '@id'   => $permalink,
+        ),
+    );
+
+    if ( $image_url ) {
+        $schema['image'] = $image_url;
+    }
+
+    if ( $logo_url ) {
+        $schema['publisher']['logo'] = array(
+            '@type' => 'ImageObject',
+            'url'   => $logo_url,
+        );
+    }
+
+    if ( $reviewer_gphc ) {
+        $schema['reviewedBy']['identifier'] = array(
+            '@type'    => 'PropertyValue',
+            'name'     => 'GPhC Registration Number',
+            'value'    => $reviewer_gphc,
+        );
+    }
+
+    if ( $reviewer_url ) {
+        $schema['reviewedBy']['url'] = $reviewer_url;
+    }
+
+    echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+
+    // FAQ schema (if FAQs exist on this post)
+    if ( function_exists( 'get_field' ) ) {
+        $faqs = get_field( 'post_faqs', $post_id );
+        if ( ! empty( $faqs ) ) {
+            $faq_entities = array();
+            foreach ( $faqs as $faq ) {
+                if ( ! empty( $faq['question'] ) && ! empty( $faq['answer'] ) ) {
+                    $faq_entities[] = array(
+                        '@type'          => 'Question',
+                        'name'           => $faq['question'],
+                        'acceptedAnswer' => array(
+                            '@type' => 'Answer',
+                            'text'  => wp_strip_all_tags( $faq['answer'] ),
+                        ),
+                    );
+                }
+            }
+            if ( ! empty( $faq_entities ) ) {
+                $faq_schema = array(
+                    '@context'   => 'https://schema.org',
+                    '@type'      => 'FAQPage',
+                    'mainEntity' => $faq_entities,
+                );
+                echo '<script type="application/ld+json">' . wp_json_encode( $faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+            }
+        }
+    }
+}
+add_action( 'wp_head', 'easy_pharmacy_post_schema' );
