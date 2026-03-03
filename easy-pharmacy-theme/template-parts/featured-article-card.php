@@ -2,8 +2,8 @@
 /**
  * Template Part: Featured Article Card
  *
- * Large featured article card for the Health Hub / blog page.
- * Expects to be used within a WordPress loop or with a specific post passed via $args.
+ * Large featured article card for the Health Hub page.
+ * Expects to be used within a WordPress loop.
  *
  * @package Easy_Pharmacy
  */
@@ -12,10 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// Get the post object - either from the loop or passed as argument
-$article_id = get_the_ID();
-
-// Post data
+$article_id    = get_the_ID();
 $title         = get_the_title();
 $permalink     = get_permalink();
 $excerpt       = get_the_excerpt();
@@ -25,16 +22,17 @@ $thumbnail_url = get_the_post_thumbnail_url( $article_id, 'health-hub-featured' 
 $categories    = get_the_category();
 $category_name = ! empty( $categories ) ? $categories[0]->name : 'Health';
 
-// Reading time estimate (based on word count)
+// Reading time estimate
 $content    = get_the_content();
 $word_count = str_word_count( wp_strip_all_tags( $content ) );
 $read_time  = max( 1, ceil( $word_count / 250 ) );
 
-// Author
+// Author info
 $author_name   = get_the_author();
 $author_role   = ep_option( 'default_author_role', 'Lead Pharmacist' );
 $author_avatar = '';
 $author_id     = get_the_author_meta( 'ID' );
+
 if ( function_exists( 'get_field' ) ) {
     $acf_avatar = get_field( 'author_avatar', 'user_' . $author_id );
     if ( $acf_avatar ) {
@@ -62,7 +60,7 @@ if ( empty( $author_avatar ) ) {
         <div class="healthhub-author-row">
             <div class="healthhub-author-info">
                 <?php if ( $author_avatar ) : ?>
-                    <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_name ); ?>" class="healthhub-author-avatar" />
+                    <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_name ); ?>" class="healthhub-author-avatar" loading="lazy" />
                 <?php endif; ?>
                 <span class="healthhub-author-name"><?php echo esc_html( $author_name ); ?>, <?php echo esc_html( $author_role ); ?></span>
             </div>
@@ -74,9 +72,9 @@ if ( empty( $author_avatar ) ) {
 
     <div class="healthhub-featured-image-wrapper">
         <?php if ( $thumbnail_url ) : ?>
-            <img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-featured-image" />
+            <img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-featured-image" loading="lazy" />
         <?php else : ?>
-            <img src="<?php echo esc_url( EASY_PHARMACY_URI . '/assets/images/blog-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-featured-image" />
+            <img src="<?php echo esc_url( EASY_PHARMACY_URI . '/assets/images/blog-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-featured-image" loading="lazy" />
         <?php endif; ?>
     </div>
 </a>

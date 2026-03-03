@@ -12,10 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// Get the post object
-$article_id = get_the_ID();
-
-// Post data
+$article_id    = get_the_ID();
 $title         = get_the_title();
 $permalink     = get_permalink();
 $excerpt       = get_the_excerpt();
@@ -26,7 +23,7 @@ $publish_date  = get_the_date( 'M d, Y' );
 $categories    = get_the_category();
 $category_name = ! empty( $categories ) ? $categories[0]->name : 'Health';
 
-// Reading time estimate (based on word count)
+// Reading time estimate (based on word count, ~250 words per minute)
 $content    = get_the_content();
 $word_count = str_word_count( wp_strip_all_tags( $content ) );
 $read_time  = max( 1, ceil( $word_count / 250 ) );
@@ -35,9 +32,9 @@ $read_time  = max( 1, ceil( $word_count / 250 ) );
 <a href="<?php echo esc_url( $permalink ); ?>" class="healthhub-article-card">
     <div class="healthhub-card-image-wrapper">
         <?php if ( $thumbnail_url ) : ?>
-            <img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-card-image" />
+            <img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-card-image" loading="lazy" />
         <?php else : ?>
-            <img src="<?php echo esc_url( EASY_PHARMACY_URI . '/assets/images/blog-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-card-image" />
+            <img src="<?php echo esc_url( EASY_PHARMACY_URI . '/assets/images/blog-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-card-image" loading="lazy" />
         <?php endif; ?>
         <span class="healthhub-category-badge-overlay"><?php echo esc_html( $category_name ); ?></span>
     </div>

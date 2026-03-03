@@ -6945,5 +6945,95 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // ═══════════════════════════════════════════════════════════════════════
+    // S — HEALTH HUB PAGE
+    // ═══════════════════════════════════════════════════════════════════════
+
+    $hh_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-health-hub.php',
+            ),
+        ),
+    );
+
+    // ── S1. Hero ──────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hh_hero',
+        'title'    => 'Health Hub — Hero',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_hh_badge_text',
+                'label'         => 'Badge Text',
+                'name'          => 'hh_badge_text',
+                'type'          => 'text',
+                'default_value' => 'HEALTH HUB',
+            ),
+            array(
+                'key'           => 'field_ep_hh_hero_title',
+                'label'         => 'Hero Title',
+                'name'          => 'hh_hero_title',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'new_lines'     => '',
+                'instructions'  => 'Supports <span class="gradient-text">highlighted text</span> for gradient effect.',
+                'default_value' => 'Expert insights on weight loss, travel health, and <span class="gradient-text">living your healthiest life</span>',
+            ),
+        ),
+        'location'              => $hh_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── S2. CTA Section ──────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hh_cta',
+        'title'    => 'Health Hub — CTA Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_hh_cta_title',
+                'label'         => 'CTA Title',
+                'name'          => 'hh_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready to Transform Your Health?',
+            ),
+            array(
+                'key'           => 'field_ep_hh_cta_description',
+                'label'         => 'CTA Description',
+                'name'          => 'hh_cta_description',
+                'type'          => 'text',
+                'default_value' => 'Expert advice from pharmacists you can trust',
+            ),
+            array(
+                'key'           => 'field_ep_hh_cta_text',
+                'label'         => 'CTA Button Text',
+                'name'          => 'hh_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Explore Our Services',
+            ),
+            array(
+                'key'           => 'field_ep_hh_cta_url',
+                'label'         => 'CTA Button URL',
+                'name'          => 'hh_cta_url',
+                'type'          => 'text',
+                'instructions'  => 'Leave blank to default to booking page.',
+                'default_value' => '',
+            ),
+        ),
+        'location'              => $hh_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );
