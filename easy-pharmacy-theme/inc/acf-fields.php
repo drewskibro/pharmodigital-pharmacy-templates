@@ -2207,6 +2207,59 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // -------------------------------------------------------------------------
+    // B13. Quick Book Section (after How It Works)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_home_quick_book',
+        'title'    => 'Quick Book Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_qb_badge', 'label' => 'Badge Text', 'name' => 'qb_badge_text', 'type' => 'text', 'default_value' => 'Book Online' ),
+            array( 'key' => 'field_ep_qb_title_1', 'label' => 'Title Line 1', 'name' => 'qb_title_line_1', 'type' => 'text', 'default_value' => 'Ready to' ),
+            array( 'key' => 'field_ep_qb_title_2', 'label' => 'Title Line 2 (gradient)', 'name' => 'qb_title_line_2', 'type' => 'text', 'default_value' => 'Get Started?' ),
+            array( 'key' => 'field_ep_qb_desc', 'label' => 'Description', 'name' => 'qb_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Choose your service and book a time that works for you. Our expert team is ready to help — whether it\'s a face-to-face consultation or a quick prescription pickup.' ),
+            array( 'key' => 'field_ep_qb_trust_1', 'label' => 'Trust Check 1', 'name' => 'qb_trust_1', 'type' => 'text', 'default_value' => 'Same-day appointments often available' ),
+            array( 'key' => 'field_ep_qb_trust_2', 'label' => 'Trust Check 2', 'name' => 'qb_trust_2', 'type' => 'text', 'default_value' => 'GPhC registered pharmacy' ),
+            array( 'key' => 'field_ep_qb_trust_3', 'label' => 'Trust Check 3', 'name' => 'qb_trust_3', 'type' => 'text', 'default_value' => 'Free parking on site' ),
+            array( 'key' => 'field_ep_qb_trust_4', 'label' => 'Trust Check 4', 'name' => 'qb_trust_4', 'type' => 'text', 'default_value' => 'No obligation — cancel anytime' ),
+            array( 'key' => 'field_ep_qb_card_heading', 'label' => 'Card Heading', 'name' => 'qb_card_heading', 'type' => 'text', 'default_value' => 'Book Your Visit' ),
+            array( 'key' => 'field_ep_qb_card_available', 'label' => 'Card Availability Text', 'name' => 'qb_card_available', 'type' => 'text', 'default_value' => 'Same-day appointments available' ),
+            array( 'key' => 'field_ep_qb_card_svc_label', 'label' => 'Card Services Label', 'name' => 'qb_card_services_label', 'type' => 'text', 'default_value' => 'Choose a service to get started:' ),
+            array(
+                'key'        => 'field_ep_qb_card_services',
+                'label'      => 'Card Quick Services',
+                'name'       => 'qb_card_services',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 6,
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_qb_card_svc_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-weight-scale', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe' ),
+                    array( 'key' => 'field_ep_qb_card_svc_name', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_qb_card_cta', 'label' => 'Card CTA Text', 'name' => 'qb_card_cta_text', 'type' => 'text', 'default_value' => 'View All Services' ),
+            array( 'key' => 'field_ep_qb_card_hours', 'label' => 'Card Hours Text', 'name' => 'qb_card_hours', 'type' => 'text', 'default_value' => 'Mon–Fri: 9am – 6pm' ),
+            array( 'key' => 'field_ep_qb_card_confirm', 'label' => 'Card Confirmation Text', 'name' => 'qb_card_confirm', 'type' => 'text', 'default_value' => 'Instant confirmation' ),
+            array( 'key' => 'field_ep_qb_card_badge', 'label' => 'Floating Badge Text', 'name' => 'qb_card_floating_badge', 'type' => 'text', 'default_value' => 'Free Parking Available' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-home.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 55,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // =========================================================================
     // C. BLOG POST FIELDS
     // =========================================================================
