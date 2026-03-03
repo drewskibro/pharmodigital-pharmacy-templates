@@ -375,3 +375,33 @@ function easy_pharmacy_activation() {
     flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'easy_pharmacy_activation' );
+
+/**
+ * Ensure permalink structure stays set to /health-hub/%postname%/.
+ *
+ * The after_switch_theme hook only fires once. If rewrite rules are lost
+ * (plugin flush, WP update, Kinsta deploy), posts return 404. This checks
+ * on init and flushes when the structure drifts or when rules are empty.
+ * A transient prevents flushing on every page load.
+ */
+function easy_pharmacy_ensure_permalinks() {
+    $desired = '/health-hub/%postname%/';
+
+    // If the permalink option itself was changed, fix it immediately.
+    if ( get_option( 'permalink_structure' ) !== $desired ) {
+        update_option( 'permalink_structure', $desired );
+        flush_rewrite_rules();
+        return;
+    }
+
+    // If rewrite rules are empty (cleared by plugin/update/deploy), regenerate.
+    // Use a transient so we only check once per hour, not every request.
+    if ( false === get_transient( 'ep_rewrite_rules_ok' ) ) {
+        $rules = get_option( 'rewrite_rules' );
+        if ( empty( $rules ) ) {
+            flush_rewrite_rules();
+        }
+        set_transient( 'ep_rewrite_rules_ok', 1, HOUR_IN_SECONDS );
+    }
+}
+add_action( 'init', 'easy_pharmacy_ensure_permalinks' );
