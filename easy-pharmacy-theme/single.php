@@ -111,6 +111,42 @@ if ( empty( $author_avatar ) ) {
   <?php endif; ?>
 
   <!-- ============================================
+       PILLAR BACKLINK (shown on cluster posts)
+       ============================================ -->
+  <?php
+  // Find if this post is a cluster of any pillar post.
+  $pillar_query = new WP_Query( array(
+      'post_type'      => 'post',
+      'posts_per_page' => 1,
+      'meta_query'     => array(
+          array(
+              'key'     => 'cluster_posts',
+              'value'   => '"' . get_the_ID() . '"',
+              'compare' => 'LIKE',
+          ),
+      ),
+      'fields'         => 'ids',
+  ) );
+  if ( $pillar_query->have_posts() ) :
+      $pillar_id    = $pillar_query->posts[0];
+      $pillar_title = get_the_title( $pillar_id );
+      $pillar_url   = get_permalink( $pillar_id );
+      wp_reset_postdata();
+  ?>
+  <div class="cluster-pillar-backlink">
+    <div class="section-container">
+      <a href="<?php echo esc_url( $pillar_url ); ?>" class="cluster-pillar-backlink-inner">
+        <span class="cluster-pillar-backlink-icon"><i class="fas fa-layer-group"></i></span>
+        <span class="cluster-pillar-backlink-text">
+          <span class="cluster-pillar-backlink-label">Part of our guide</span>
+          <span class="cluster-pillar-backlink-title"><?php echo esc_html( $pillar_title ); ?> <i class="fas fa-arrow-right"></i></span>
+        </span>
+      </a>
+    </div>
+  </div>
+  <?php else : wp_reset_postdata(); endif; ?>
+
+  <!-- ============================================
        ARTICLE CONTENT
        ============================================ -->
   <section class="article-body-section">
@@ -171,6 +207,44 @@ if ( empty( $author_avatar ) ) {
 
     </div>
   </section>
+
+  <!-- ============================================
+       CLUSTER HUB (shown on pillar posts)
+       ============================================ -->
+  <?php
+  $is_pillar     = get_field( 'is_pillar_post' );
+  $cluster_ids   = $is_pillar ? get_field( 'cluster_posts' ) : array();
+  if ( $is_pillar && ! empty( $cluster_ids ) ) :
+      $cluster_title = get_field( 'cluster_section_title' );
+      if ( ! $cluster_title ) {
+          $cluster_title = 'In This Series';
+      }
+      $cluster_query = new WP_Query( array(
+          'post_type'      => 'post',
+          'post__in'       => $cluster_ids,
+          'orderby'        => 'post__in',
+          'posts_per_page' => count( $cluster_ids ),
+      ) );
+  ?>
+  <section class="cluster-hub-section">
+    <div class="section-container">
+      <div class="cluster-hub-header">
+        <span class="cluster-hub-icon"><i class="fas fa-layer-group"></i></span>
+        <h2 class="cluster-hub-title"><?php echo esc_html( $cluster_title ); ?></h2>
+        <p class="cluster-hub-subtitle"><?php echo esc_html( count( $cluster_ids ) ); ?> related articles in this content series</p>
+      </div>
+      <div class="cluster-hub-grid">
+        <?php
+        while ( $cluster_query->have_posts() ) :
+            $cluster_query->the_post();
+            get_template_part( 'template-parts/article-card' );
+        endwhile;
+        wp_reset_postdata();
+        ?>
+      </div>
+    </div>
+  </section>
+  <?php endif; ?>
 
   <!-- ============================================
        RELATED POSTS
