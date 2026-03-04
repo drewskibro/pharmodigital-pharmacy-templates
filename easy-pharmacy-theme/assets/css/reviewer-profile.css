@@ -190,40 +190,101 @@
 /* ---- BIO SECTION ---- */
 .rp-bio-section {
     background: #ffffff;
-    padding: 5rem 0;
+    padding: 5rem 0 6rem;
 }
 
 .rp-bio-inner {
-    max-width: 780px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Highlight card (left on desktop) */
+.rp-bio-highlight {
+    width: 100%;
+    max-width: 380px;
+}
+
+.rp-bio-highlight-card {
+    background: #FDF6F3;
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: 1px solid rgba(196, 122, 101, 0.1);
+    box-shadow: 0 10px 40px rgba(196, 122, 101, 0.08);
+}
+
+.rp-bio-highlight-number {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.25rem;
+}
+
+.rp-bio-highlight-label {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2D1B4E;
+    margin-bottom: 1.5rem;
+}
+
+.rp-bio-highlight-divider {
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #C47A65, #D4907C);
+    border-radius: 3px;
+    margin: 0 auto 1.5rem;
+}
+
+.rp-bio-highlight-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.rp-bio-highlight-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    justify-content: center;
+}
+
+.rp-bio-highlight-stat i {
+    color: #7A9E7E;
+    font-size: 0.85rem;
+    width: 18px;
     text-align: center;
 }
 
+/* Bio text (right on desktop) */
+.rp-bio-content {
+    flex: 1;
+    text-align: left;
+}
+
 .rp-bio-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(196, 122, 101, 0.12);
-    border-radius: 2rem;
-    padding: 0.5rem 1.2rem;
-    font-family: var(--font-primary);
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #2D1B4E;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 15px rgba(196, 122, 101, 0.08);
+    margin-bottom: 1.5rem;
 }
 
 .rp-bio-text {
     font-family: var(--font-primary);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.85;
     color: var(--text-gray);
 }
 
 .rp-bio-text p:first-child {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: #2D1B4E;
     font-weight: 500;
     line-height: 1.8;
@@ -231,6 +292,33 @@
 
 .rp-bio-text p:last-child {
     margin-bottom: 0;
+}
+
+.rp-bio-accent-bar {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #C47A65, #D4907C);
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .rp-bio-inner {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 4rem;
+    }
+
+    .rp-bio-highlight {
+        flex-shrink: 0;
+    }
+
+    .rp-bio-highlight-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 
@@ -343,30 +431,48 @@
     padding: 5rem 0 6rem;
 }
 
-.rp-qualifications-list {
-    max-width: 780px;
+.rp-qualifications-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 950px;
     margin: 0 auto;
+}
+
+.rp-qualification-card {
+    position: relative;
+    background: #FDF6F3;
+    border-radius: 1.25rem;
+    padding: 2rem 2rem 2rem 2rem;
+    border: 1px solid rgba(196, 122, 101, 0.08);
     display: flex;
     flex-direction: column;
-    gap: 0;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
 }
 
-.rp-qualification-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(196, 122, 101, 0.1);
-    position: relative;
+.rp-qualification-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(196, 122, 101, 0.1);
+    border-color: rgba(196, 122, 101, 0.18);
 }
 
-.rp-qualification-item:last-child {
-    border-bottom: none;
+/* Numbered index */
+.rp-qualification-number {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: rgba(196, 122, 101, 0.25);
 }
 
 .rp-qualification-icon {
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
     display: flex;
@@ -376,13 +482,8 @@
 }
 
 .rp-qualification-icon i {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #ffffff;
-}
-
-.rp-qualification-content {
-    flex: 1;
-    padding-top: 0.15rem;
 }
 
 .rp-qualification-name {
@@ -390,14 +491,61 @@
     font-size: 1.05rem;
     font-weight: 600;
     color: #2D1B4E;
-    margin: 0 0 0.15rem;
+    margin: 0;
 }
 
 .rp-qualification-institution {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     font-family: var(--font-primary);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--text-slate);
     margin: 0;
+}
+
+.rp-qualification-institution i {
+    font-size: 0.75rem;
+    color: #C47A65;
+}
+
+/* Featured card — Independent Prescriber */
+.rp-qualification-featured {
+    background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+    border-color: transparent;
+}
+
+.rp-qualification-featured .rp-qualification-number {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.rp-qualification-featured .rp-qualification-icon {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.rp-qualification-featured .rp-qualification-name {
+    color: #ffffff;
+    font-size: 1.15rem;
+}
+
+.rp-qualification-featured:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(107, 79, 160, 0.3);
+}
+
+@media (min-width: 768px) {
+    .rp-qualifications-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Featured card spans full width */
+    .rp-qualification-featured {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        justify-self: center;
+        width: 100%;
+    }
 }
 
 
