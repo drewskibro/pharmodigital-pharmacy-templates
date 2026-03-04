@@ -69,21 +69,29 @@ document.addEventListener('DOMContentLoaded', function () {
   var progressBar = document.getElementById('readingProgressBar');
   var articleBody = document.querySelector('.article-body-section');
   if (progressBar && articleBody) {
-    window.addEventListener('scroll', function () {
-      var articleTop = articleBody.offsetTop;
+    function updateProgressBar() {
+      var rect = articleBody.getBoundingClientRect();
+      var articleTop = rect.top + window.pageYOffset;
       var articleHeight = articleBody.offsetHeight;
       var scrollY = window.pageYOffset;
       var windowHeight = window.innerHeight;
+      var scrollable = articleTop + articleHeight - windowHeight;
 
-      if (scrollY < articleTop) {
+      if (scrollable <= 0) {
+        // Article is shorter than the viewport — full once visible
+        progressBar.style.width = scrollY >= articleTop ? '100%' : '0%';
+      } else if (scrollY <= 0) {
         progressBar.style.width = '0%';
-      } else if (scrollY + windowHeight >= articleTop + articleHeight) {
+      } else if (scrollY >= scrollable) {
         progressBar.style.width = '100%';
       } else {
-        var progress = (scrollY - articleTop) / (articleHeight - windowHeight);
-        progressBar.style.width = Math.min(100, Math.max(0, progress * 100)) + '%';
+        var progress = (scrollY / scrollable) * 100;
+        progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
       }
-    }, { passive: true });
+    }
+
+    window.addEventListener('scroll', updateProgressBar, { passive: true });
+    updateProgressBar(); // run once on load in case page is already scrolled
   }
 
   // FAQ accordion toggle
