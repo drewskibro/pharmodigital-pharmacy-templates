@@ -1936,6 +1936,75 @@
 }
 
 /* ============================================
+   SINGLE POST — SOCIAL PROOF / GOOGLE RATING
+   Soft purple band on single posts, placed
+   before the CTA section to build trust.
+   ============================================ */
+.article-social-proof-section {
+  background: #f8f6fb;
+  padding: 4rem 0;
+}
+
+.article-social-proof-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .article-social-proof-wrapper {
+    flex-direction: row;
+    text-align: left;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+.article-social-proof-section .rating-badge {
+  position: static;
+  flex-shrink: 0;
+}
+
+.article-social-proof-content {
+  max-width: 550px;
+}
+
+.article-social-proof-eyebrow {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6B4FA0;
+  margin: 0 0 0.75rem;
+}
+
+.article-social-proof-headline {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #2D1B4E;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .article-social-proof-headline {
+    font-size: 2.25rem;
+  }
+}
+
+.article-social-proof-subtext {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================
    SINGLE POST — ARTICLE CTA SECTION
    Full-width purple section with trust badges,
    placed after article content, before
