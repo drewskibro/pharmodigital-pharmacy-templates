@@ -505,6 +505,91 @@
 }
 
 
+/* ---- SOCIAL PROOF SECTION ---- */
+.rp-social-proof-section {
+    background: #f8f6fb;
+    padding: 4.5rem 0;
+}
+
+.rp-social-proof-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+}
+
+/* Override absolute positioning from globals.css for inline use */
+.rp-social-proof-wrapper .rating-badge {
+    position: static;
+    flex-shrink: 0;
+    min-width: 260px;
+}
+
+.rp-social-proof-content {
+    flex: 1;
+}
+
+.rp-social-proof-eyebrow {
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--brand-purple);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.rp-social-proof-headline {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #2D1B4E;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    letter-spacing: -0.03em;
+}
+
+.rp-social-proof-subtext {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #4a5568;
+    line-height: 1.65;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+@media (max-width: 767px) {
+    .rp-social-proof-section {
+        padding: 3rem 0;
+    }
+
+    .rp-social-proof-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .rp-social-proof-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rp-social-proof-wrapper .rating-badge {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .rp-social-proof-headline {
+        font-size: 1.65rem;
+    }
+
+    .rp-social-proof-subtext {
+        font-size: 1rem;
+    }
+}
+
+
 /* ---- SPECIALISMS SECTION ---- */
 .rp-specialisms-section {
     background: #FDF6F3;

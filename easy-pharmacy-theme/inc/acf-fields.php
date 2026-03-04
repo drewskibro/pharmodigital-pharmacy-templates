@@ -7406,6 +7406,68 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // S2d — Reviewer Profile: Social Proof (Google Rating)
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_rp_social_proof',
+        'title'                 => 'Reviewer Profile — Social Proof',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_rp_social_rating_score',
+                'label'         => 'Rating Score',
+                'name'          => 'rp_social_rating_score',
+                'type'          => 'text',
+                'instructions'  => 'Leave blank to pull from Pharmacy Settings > Branding > Google Rating.',
+                'default_value' => '',
+            ),
+            array(
+                'key'           => 'field_ep_rp_social_rating_count',
+                'label'         => 'Rating Count Text',
+                'name'          => 'rp_social_rating_count',
+                'type'          => 'text',
+                'default_value' => 'Based on 300+ reviews',
+            ),
+            array(
+                'key'           => 'field_ep_rp_social_rating_location',
+                'label'         => 'Rating Location',
+                'name'          => 'rp_social_rating_location',
+                'type'          => 'text',
+                'instructions'  => 'Leave blank to auto-generate from Pharmacy Settings town.',
+                'default_value' => '',
+            ),
+            array(
+                'key'           => 'field_ep_rp_social_eyebrow',
+                'label'         => 'Eyebrow Text',
+                'name'          => 'rp_social_eyebrow',
+                'type'          => 'text',
+                'default_value' => '',
+                'instructions'  => 'e.g. "TRUSTED BY ASHFORD". Leave blank to auto-generate from town name.',
+            ),
+            array(
+                'key'           => 'field_ep_rp_social_headline',
+                'label'         => 'Headline',
+                'name'          => 'rp_social_headline',
+                'type'          => 'text',
+                'default_value' => '',
+                'instructions'  => 'Leave blank for default: "Your health, guided by one of [town]\'s most experienced pharmacists".',
+            ),
+            array(
+                'key'           => 'field_ep_rp_social_subtext',
+                'label'         => 'Subtext',
+                'name'          => 'rp_social_subtext',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Over 15 years of clinical experience, hundreds of 5-star reviews, and a commitment to face-to-face care that puts you first.',
+            ),
+        ),
+        'location'              => $rp_location,
+        'menu_order'            => 2,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // S3 — Reviewer Profile: Specialisms
     acf_add_local_field_group( array(
         'key'                   => 'group_ep_rp_specialisms',

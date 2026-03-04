@@ -123,6 +123,14 @@ if ( ! $cta_button_url ) {
 }
 
 $pharmacy_name = ep_pharmacy_name();
+
+// Social proof
+$sp_rating_score    = ep_field( 'rp_social_rating_score', ep_option( 'google_rating', '4.8' ) );
+$sp_rating_count    = ep_field( 'rp_social_rating_count', 'Based on 300+ reviews' );
+$sp_rating_location = ep_field( 'rp_social_rating_location', ep_option( 'pharmacy_town', 'Ashford' ) . ', UK' );
+$sp_eyebrow         = ep_field( 'rp_social_eyebrow', 'TRUSTED BY ' . strtoupper( ep_option( 'pharmacy_town', 'ASHFORD' ) ) );
+$sp_headline        = ep_field( 'rp_social_headline', 'Your health, guided by one of ' . ep_option( 'pharmacy_town', 'Ashford' ) . '\'s most experienced pharmacists' );
+$sp_subtext         = ep_field( 'rp_social_subtext', 'Over 15 years of clinical experience, hundreds of 5-star reviews, and a commitment to face-to-face care that puts you first.' );
 ?>
 
 <!-- ============================================
@@ -256,6 +264,60 @@ $pharmacy_name = ep_pharmacy_name();
                         </div>
                     </div>
                 <?php endif; ?>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SOCIAL PROOF — GOOGLE RATING
+     ============================================ -->
+<section class="rp-social-proof-section">
+    <div class="section-container">
+        <div class="rp-social-proof-wrapper">
+
+            <!-- Left: Google Rating Badge (shared .rating-badge from globals.css) -->
+            <div class="rating-badge">
+                <div class="rating-header">
+                    <div class="rating-label">
+                        <div class="google-icon-wrapper">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <span>Google Rating</span>
+                    </div>
+                    <div class="badge-success">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Excellent</span>
+                    </div>
+                </div>
+                <div class="rating-score">
+                    <span class="score-number"><?php echo esc_html( $sp_rating_score ); ?></span>
+                    <div class="rating-score-detail">
+                        <div class="star-row">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-count"><?php echo esc_html( $sp_rating_count ); ?></span>
+                    </div>
+                </div>
+                <div class="rating-footer">
+                    <div class="rating-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><?php echo esc_html( $sp_rating_location ); ?></span>
+                    </div>
+                    <a href="#reviews" class="rating-link">View Reviews</a>
+                </div>
+            </div>
+
+            <!-- Right: Text Content -->
+            <div class="rp-social-proof-content">
+                <p class="rp-social-proof-eyebrow"><?php echo esc_html( $sp_eyebrow ); ?></p>
+                <h2 class="rp-social-proof-headline"><?php echo esc_html( $sp_headline ); ?></h2>
+                <p class="rp-social-proof-subtext"><?php echo esc_html( $sp_subtext ); ?></p>
             </div>
 
         </div>
