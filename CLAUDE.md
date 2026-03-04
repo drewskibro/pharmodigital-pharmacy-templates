@@ -31,7 +31,7 @@ pharmodigital-pharmacy-templates/
     │   ├── acf-options.php           # ACF options pages (Pharmacy Settings menu)
     │   └── acf-fields.php            # ALL ACF field group definitions
     │
-    ├── page-templates/               # WordPress page templates (20 total)
+    ├── page-templates/               # WordPress page templates (21 total)
     │   ├── page-home.php             # Home page — loads 12 sections in order
     │   ├── page-custom.php           # Flexible content builder page
     │   ├── page-weight-loss.php
@@ -42,6 +42,7 @@ pharmodigital-pharmacy-templates/
     │   ├── page-team.php
     │   ├── page-switch-provider.php
     │   ├── page-health-hub.php
+    │   ├── page-reviewer-profile.php # Lead pharmacist / prescriber profile (E-E-A-T)
     │   ├── page-rabies.php           # Vaccination pages
     │   ├── page-hepatitis.php
     │   ├── page-yellow-fever.php
@@ -132,6 +133,60 @@ The Weight Loss page (`page-templates/page-weight-loss.php`) loads 12 sections:
 10. **FAQ** — Accordion with numbered questions (repeater), expand/collapse via JS
 11. **Testimonials** — 3 cards with weight-lost circles, quotes, stars, author (repeater)
 12. **Final CTA** — Gradient section with trust badges, title, CTAs, trust checks
+
+---
+
+## Reviewer Profile Page (Prescriber / E-E-A-T)
+
+The Reviewer Profile page (`page-templates/page-reviewer-profile.php`) is a standalone pharmacist profile page designed to boost E-E-A-T (Experience, Expertise, Authority, Trust) signals. It has its own CSS file (`assets/css/reviewer-profile.css`) and follows the warm cream + terracotta design language. It loads 7 sections:
+
+1. **Hero** — Centred layout: circular profile photo with terracotta ring + GPhC verification badge (links to pharmacyregulation.org), name, title, credential pills (Independent Prescriber, location, LinkedIn)
+2. **Bio + Team** — Two-column layout. Left: highlight card with "15+" ring stat, divider, 3 credential stats (locations, prescriber status, patients treated). Right: "About Dilip" badge, bio text, terracotta accent bar, and "Your Clinical Team" section with 2-column grid of team member profile cards (lead pharmacist card is slightly larger with purple "Lead" badge; colleague cards show circular photo, name, role)
+3. **Social Proof** — Soft purple band (`#f8f6fb`) adapted from the Switch Provider page. Left: shared `.rating-badge` component (Google icon, 4.8 score, 5 stars, "Excellent" green pill, location, "View Reviews"). Right: "TRUSTED BY ASHFORD" eyebrow, headline about the pharmacist's experience, subtext. Rating score and location auto-pull from Pharmacy Settings when left blank
+4. **Specialisms** — "Areas of Expertise" badge + "Clinical Specialisms" title, 5-card grid with Font Awesome icons (weight loss, travel health, ear wax, prescribing, consultations)
+5. **Qualifications** — "Education & Training" badge + "Qualifications & Credentials" title, numbered card grid (BPharm, PG Cert, Master's, Diploma, Independent Prescriber Status). Cards without an institution get a featured style with award icon
+6. **Lead Magnet** — Newsletter signup card with icon, heading, subheading, name + email inputs, submit button, disclaimer text
+7. **Final CTA** — Purple gradient section with title, description, Book an Appointment + phone CTAs, trust checks (GPhC Registered, Same-Day Appointments, No Referral Needed)
+
+### ACF Field Prefix
+
+All Reviewer Profile fields use the `rp_` prefix: `rp_name`, `rp_bio`, `rp_highlight_number`, etc.
+
+### Key Image Fallback
+
+The profile image falls back to the global `pharmacist_image` option (Pharmacy Settings), so it works if only the global photo is uploaded:
+```php
+$profile_image_id = ep_field( 'rp_profile_image' );
+if ( ! $profile_image_id ) {
+    $profile_image_id = ep_option( 'pharmacist_image' );
+}
+```
+
+### Team Members
+
+The "Your Clinical Team" section in the bio area only renders when the `rp_team_members` repeater has entries. Each team member has name, role, and photo (Media Library picker). The lead pharmacist's card is auto-generated from the hero data — not part of the repeater. Max 4 team members.
+
+### Social Proof Section (Shared Pattern)
+
+The social proof / Google rating band is a reusable pattern that appears on both the **Switch Provider** page and the **Reviewer Profile** page. It uses the shared `.rating-badge` component from `globals.css` with `position: static` override for inline use. Each page has its own ACF fields and contextual defaults:
+
+| Page | CSS class prefix | Eyebrow default | Headline focus |
+|------|-----------------|-----------------|----------------|
+| Switch Provider | `.switch-social-proof-*` | "TRUSTED BY ASHFORD" | Switching providers |
+| Reviewer Profile | `.rp-social-proof-*` | "TRUSTED BY ASHFORD" | Pharmacist experience |
+
+### ACF Field Groups (in `acf-fields.php`)
+
+| Group | Code | What it controls |
+|-------|------|-----------------|
+| S1 | `group_ep_rp_hero` | Hero: profile image, name, title, GPhC number, LinkedIn URL |
+| S2 | `group_ep_rp_bio` | Bio: bio text, highlight card (number, label, stats repeater) |
+| S2c | `group_ep_rp_team` | Team: team label, team members repeater (name, role, photo) |
+| S2d | `group_ep_rp_social_proof` | Social proof: rating score, count, location, eyebrow, headline, subtext |
+| S3 | `group_ep_rp_specialisms` | Specialisms repeater (title, detail) |
+| S4 | `group_ep_rp_qualifications` | Qualifications repeater (name, institution) |
+| S5 | `group_ep_rp_leadmagnet` | Lead magnet: heading, subheading, button text, disclaimer |
+| S6 | `group_ep_rp_cta` | Final CTA: title, description, button text, button URL |
 
 ---
 
@@ -251,6 +306,7 @@ All fields are registered in `inc/acf-fields.php` using `acf_add_local_field_gro
 - **P** — Typhoid vaccination page field groups (`vaccine_` prefix)
 - **Q** — Book Appointment page field groups
 - **R** — Hepatitis vaccination page field groups (`vaccine_` prefix) — hero image only; remaining fields not yet registered
+- **S1–S6** — Reviewer Profile page field groups (`rp_` prefix): hero, bio + highlight card, team members, social proof, specialisms, qualifications, lead magnet, final CTA
 
 **Naming convention for field keys:** `field_ep_[context]_[name]`
 - Example: `field_ep_home_hero_title_line_1`, `field_ep_location_map_image`
@@ -384,6 +440,7 @@ Hero sections must follow the **warm cream + terracotta** design language establ
 
 - **Homepage** (`globals.css` hero overrides) — the original reference implementation
 - **Book Appointment** (`book-appointment.css`) — upgraded to warm palette
+- **Reviewer Profile** (`reviewer-profile.css`) — centred hero with warm cream background, terracotta photo ring, warm shadows
 
 #### Quick Checklist for New Hero Sections
 
@@ -407,6 +464,7 @@ Hero sections must follow the **warm cream + terracotta** design language establ
 | `.secondary-cta` | White/outlined button |
 | `.section-badge` | Small badge above section titles with pulse dot |
 | `.pulse-dot` | Animated green/purple pulsing dot used in badges |
+| `.rating-badge` | Google rating card (glassmorphic, absolute by default). Override to `position: static` for inline use in social proof sections |
 | `.desktop-only` / `.mobile-only` | Responsive visibility |
 
 ### How Page-Specific CSS Is Loaded
