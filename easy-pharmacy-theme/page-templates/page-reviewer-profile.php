@@ -21,6 +21,30 @@ $linkedin    = ep_field( 'rp_linkedin_url', 'https://uk.linkedin.com/in/dilip-mo
 // Bio
 $bio = ep_field( 'rp_bio', 'With over 15 years of experience, Dilip leads our clinical team across Ashford, Chertsey, and Walton-on-Thames. As an Independent Prescriber, he specialises in weight loss treatment, travel health, and ear wax removal—the services most patients wish they\'d accessed sooner. His approach is straightforward: no GP referral needed, no waiting lists, and treatment plans built around your life, not a system designed to make you wait.' );
 
+// Highlight card
+$highlight_number = ep_field( 'rp_highlight_number', '15+' );
+$highlight_label  = ep_field( 'rp_highlight_label', 'Years of Clinical Experience' );
+
+$default_highlight_stats = array(
+    array( 'highlight_stat_icon' => 'fa-map-marker-alt', 'highlight_stat_text' => '3 locations across Surrey' ),
+    array( 'highlight_stat_icon' => 'fa-prescription-bottle-medical', 'highlight_stat_text' => 'Independent Prescriber' ),
+    array( 'highlight_stat_icon' => 'fa-user-group', 'highlight_stat_text' => '5,000+ patients treated' ),
+);
+
+$highlight_stats = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'rp_highlight_stats' ) ) {
+    while ( have_rows( 'rp_highlight_stats' ) ) {
+        the_row();
+        $highlight_stats[] = array(
+            'highlight_stat_icon' => get_sub_field( 'highlight_stat_icon' ) ?: 'fa-check',
+            'highlight_stat_text' => get_sub_field( 'highlight_stat_text' ) ?: '',
+        );
+    }
+}
+if ( empty( $highlight_stats ) ) {
+    $highlight_stats = $default_highlight_stats;
+}
+
 // Specialisms (repeater with defaults)
 $default_specialisms = array(
     array( 'specialism_title' => 'Weight Loss Treatment', 'specialism_detail' => 'Mounjaro, Wegovy, Saxenda' ),
@@ -105,10 +129,11 @@ $pharmacy_name = ep_pharmacy_name();
                         </div>
                     <?php endif; ?>
                 </div>
-                <div class="rp-hero-gphc-badge">
+                <a href="https://www.pharmacyregulation.org/registers/pharmacist/<?php echo esc_attr( $gphc_number ); ?>" target="_blank" rel="noopener noreferrer" class="rp-hero-gphc-badge rp-hero-gphc-link">
                     <i class="fas fa-shield-halved"></i>
                     <span>GPhC: <?php echo esc_html( $gphc_number ); ?></span>
-                </div>
+                    <i class="fas fa-external-link-alt rp-gphc-external"></i>
+                </a>
             </div>
 
             <!-- Name & Title -->
@@ -147,22 +172,18 @@ $pharmacy_name = ep_pharmacy_name();
             <!-- Left: highlight card -->
             <div class="rp-bio-highlight">
                 <div class="rp-bio-highlight-card">
-                    <div class="rp-bio-highlight-number">15+</div>
-                    <div class="rp-bio-highlight-label">Years of Clinical Experience</div>
+                    <div class="rp-bio-highlight-ring">
+                        <div class="rp-bio-highlight-number"><?php echo esc_html( $highlight_number ); ?></div>
+                    </div>
+                    <div class="rp-bio-highlight-label"><?php echo esc_html( $highlight_label ); ?></div>
                     <div class="rp-bio-highlight-divider"></div>
                     <div class="rp-bio-highlight-stats">
-                        <div class="rp-bio-highlight-stat">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>3 locations across Surrey</span>
-                        </div>
-                        <div class="rp-bio-highlight-stat">
-                            <i class="fas fa-prescription-bottle-medical"></i>
-                            <span>Independent Prescriber</span>
-                        </div>
-                        <div class="rp-bio-highlight-stat">
-                            <i class="fas fa-user-group"></i>
-                            <span>5,000+ patients treated</span>
-                        </div>
+                        <?php foreach ( $highlight_stats as $stat ) : ?>
+                            <div class="rp-bio-highlight-stat">
+                                <i class="fas <?php echo esc_attr( $stat['highlight_stat_icon'] ); ?>"></i>
+                                <span><?php echo esc_html( $stat['highlight_stat_text'] ); ?></span>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
