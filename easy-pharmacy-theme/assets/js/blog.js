@@ -65,6 +65,27 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Reading progress bar — tracks scroll through article content
+  var progressBar = document.getElementById('readingProgressBar');
+  var articleBody = document.querySelector('.article-body-section');
+  if (progressBar && articleBody) {
+    window.addEventListener('scroll', function () {
+      var articleTop = articleBody.offsetTop;
+      var articleHeight = articleBody.offsetHeight;
+      var scrollY = window.pageYOffset;
+      var windowHeight = window.innerHeight;
+
+      if (scrollY < articleTop) {
+        progressBar.style.width = '0%';
+      } else if (scrollY + windowHeight >= articleTop + articleHeight) {
+        progressBar.style.width = '100%';
+      } else {
+        var progress = (scrollY - articleTop) / (articleHeight - windowHeight);
+        progressBar.style.width = Math.min(100, Math.max(0, progress * 100)) + '%';
+      }
+    }, { passive: true });
+  }
+
   // FAQ accordion toggle
   var faqButtons = document.querySelectorAll('.article-faq-question');
   faqButtons.forEach(function (btn) {

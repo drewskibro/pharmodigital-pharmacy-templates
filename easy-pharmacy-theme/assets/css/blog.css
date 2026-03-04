@@ -807,6 +807,23 @@
 }
 
 /* ============================================
+   SINGLE POST — READING PROGRESS BAR
+   Fixed thin bar below the nav that fills as
+   the reader scrolls through article content.
+   ============================================ */
+.reading-progress-bar {
+  position: fixed;
+  top: 80px; /* sits directly below the fixed nav */
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #C47A65, #D4907C);
+  z-index: 9998; /* just below nav's 9999 */
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ============================================
    SINGLE POST — ARTICLE HERO
    ============================================ */
 .article-hero {
