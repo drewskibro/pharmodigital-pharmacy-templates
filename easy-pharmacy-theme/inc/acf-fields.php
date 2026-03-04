@@ -7443,6 +7443,66 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // S2c — Reviewer Profile: Team Members (highlight card)
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_rp_team',
+        'title'                 => 'Reviewer Profile — Team Members',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_rp_team_label',
+                'label'         => 'Team Label',
+                'name'          => 'rp_team_label',
+                'type'          => 'text',
+                'instructions'  => 'Text shown below the avatar stack, e.g. "Your Clinical Team".',
+                'default_value' => 'Your Clinical Team',
+            ),
+            array(
+                'key'           => 'field_ep_rp_team_members',
+                'label'         => 'Team Members',
+                'name'          => 'rp_team_members',
+                'type'          => 'repeater',
+                'layout'        => 'block',
+                'button_label'  => 'Add Team Member',
+                'min'           => 0,
+                'max'           => 4,
+                'instructions'  => 'Colleagues who appear alongside the lead pharmacist. Their photos display as overlapping avatars on the highlight card.',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_rp_team_member_name',
+                        'label'         => 'Name',
+                        'name'          => 'team_member_name',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_ep_rp_team_member_role',
+                        'label'         => 'Role',
+                        'name'          => 'team_member_role',
+                        'type'          => 'text',
+                        'instructions'  => 'e.g. "Pharmacy Technician"',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_ep_rp_team_member_photo',
+                        'label'         => 'Photo',
+                        'name'          => 'team_member_photo',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'thumbnail',
+                        'wrapper'       => array( 'width' => '40' ),
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $rp_location,
+        'menu_order'            => 1,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // S3 — Reviewer Profile: Specialisms
     acf_add_local_field_group( array(
         'key'                   => 'group_ep_rp_specialisms',

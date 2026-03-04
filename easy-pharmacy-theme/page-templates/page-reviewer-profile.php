@@ -45,6 +45,22 @@ if ( empty( $highlight_stats ) ) {
     $highlight_stats = $default_highlight_stats;
 }
 
+// Team members for highlight card
+$team_label = ep_field( 'rp_team_label', 'Your Clinical Team' );
+
+$team_members = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'rp_team_members' ) ) {
+    while ( have_rows( 'rp_team_members' ) ) {
+        the_row();
+        $tm_photo_id = get_sub_field( 'team_member_photo' );
+        $team_members[] = array(
+            'team_member_name'  => get_sub_field( 'team_member_name' ) ?: '',
+            'team_member_role'  => get_sub_field( 'team_member_role' ) ?: '',
+            'team_member_photo' => $tm_photo_id ? wp_get_attachment_image_url( $tm_photo_id, 'thumbnail' ) : '',
+        );
+    }
+}
+
 // Specialisms (repeater with defaults)
 $default_specialisms = array(
     array( 'specialism_title' => 'Weight Loss Treatment', 'specialism_detail' => 'Mounjaro, Wegovy, Saxenda' ),
@@ -185,6 +201,31 @@ $pharmacy_name = ep_pharmacy_name();
                             </div>
                         <?php endforeach; ?>
                     </div>
+
+                    <?php if ( ! empty( $team_members ) ) : ?>
+                        <div class="rp-bio-highlight-divider rp-bio-highlight-divider-team"></div>
+                        <div class="rp-bio-team">
+                            <div class="rp-bio-team-avatars">
+                                <!-- Lead pharmacist first -->
+                                <?php if ( $profile_image_url ) : ?>
+                                    <div class="rp-bio-team-avatar rp-bio-team-avatar-lead" title="<?php echo esc_attr( $name ); ?>">
+                                        <img src="<?php echo esc_url( $profile_image_url ); ?>" alt="<?php echo esc_attr( $name ); ?>" />
+                                    </div>
+                                <?php endif; ?>
+                                <!-- Colleagues -->
+                                <?php foreach ( $team_members as $member ) : ?>
+                                    <div class="rp-bio-team-avatar" title="<?php echo esc_attr( $member['team_member_name'] ); ?>">
+                                        <?php if ( ! empty( $member['team_member_photo'] ) ) : ?>
+                                            <img src="<?php echo esc_url( $member['team_member_photo'] ); ?>" alt="<?php echo esc_attr( $member['team_member_name'] ); ?>" />
+                                        <?php else : ?>
+                                            <i class="fas fa-user"></i>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <span class="rp-bio-team-label"><?php echo esc_html( $team_label ); ?></span>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
 
