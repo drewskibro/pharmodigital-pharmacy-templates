@@ -143,13 +143,42 @@ $pharmacy_name = ep_pharmacy_name();
 <section class="rp-bio-section">
     <div class="section-container">
         <div class="rp-bio-inner">
-            <div class="rp-bio-badge">
-                <span class="pulse-dot"><span></span><span></span></span>
-                <span class="section-badge-text">About <?php echo esc_html( explode( ' ', $name )[0] ); ?></span>
+
+            <!-- Left: highlight card -->
+            <div class="rp-bio-highlight">
+                <div class="rp-bio-highlight-card">
+                    <div class="rp-bio-highlight-number">15+</div>
+                    <div class="rp-bio-highlight-label">Years of Clinical Experience</div>
+                    <div class="rp-bio-highlight-divider"></div>
+                    <div class="rp-bio-highlight-stats">
+                        <div class="rp-bio-highlight-stat">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>3 locations across Surrey</span>
+                        </div>
+                        <div class="rp-bio-highlight-stat">
+                            <i class="fas fa-prescription-bottle-medical"></i>
+                            <span>Independent Prescriber</span>
+                        </div>
+                        <div class="rp-bio-highlight-stat">
+                            <i class="fas fa-user-group"></i>
+                            <span>5,000+ patients treated</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="rp-bio-text">
-                <?php echo wp_kses_post( wpautop( $bio ) ); ?>
+
+            <!-- Right: bio text -->
+            <div class="rp-bio-content">
+                <div class="section-badge rp-bio-badge">
+                    <span class="pulse-dot"><span></span><span></span></span>
+                    <span class="section-badge-text">About <?php echo esc_html( explode( ' ', $name )[0] ); ?></span>
+                </div>
+                <div class="rp-bio-text">
+                    <?php echo wp_kses_post( wpautop( $bio ) ); ?>
+                </div>
+                <div class="rp-bio-accent-bar"></div>
             </div>
+
         </div>
     </div>
 </section>
@@ -206,18 +235,27 @@ $pharmacy_name = ep_pharmacy_name();
             </div>
             <h2 class="rp-section-title">Qualifications & <span class="gradient-text">Credentials</span></h2>
         </div>
-        <div class="rp-qualifications-list">
-            <?php foreach ( $qualifications as $qual ) : ?>
-                <div class="rp-qualification-item">
+        <div class="rp-qualifications-grid">
+            <?php foreach ( $qualifications as $i => $qual ) :
+                $is_featured = empty( $qual['qual_institution'] );
+                $card_class  = 'rp-qualification-card' . ( $is_featured ? ' rp-qualification-featured' : '' );
+            ?>
+                <div class="<?php echo esc_attr( $card_class ); ?>">
+                    <div class="rp-qualification-number"><?php echo esc_html( str_pad( $i + 1, 2, '0', STR_PAD_LEFT ) ); ?></div>
                     <div class="rp-qualification-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="rp-qualification-content">
-                        <h3 class="rp-qualification-name"><?php echo esc_html( $qual['qual_name'] ); ?></h3>
-                        <?php if ( ! empty( $qual['qual_institution'] ) ) : ?>
-                            <p class="rp-qualification-institution"><?php echo esc_html( $qual['qual_institution'] ); ?></p>
+                        <?php if ( $is_featured ) : ?>
+                            <i class="fas fa-award"></i>
+                        <?php else : ?>
+                            <i class="fas fa-graduation-cap"></i>
                         <?php endif; ?>
                     </div>
+                    <h3 class="rp-qualification-name"><?php echo esc_html( $qual['qual_name'] ); ?></h3>
+                    <?php if ( ! empty( $qual['qual_institution'] ) ) : ?>
+                        <p class="rp-qualification-institution">
+                            <i class="fas fa-building-columns"></i>
+                            <?php echo esc_html( $qual['qual_institution'] ); ?>
+                        </p>
+                    <?php endif; ?>
                 </div>
             <?php endforeach; ?>
         </div>
