@@ -7196,5 +7196,260 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // =========================================================================
+    // S — Reviewer Profile Page
+    // =========================================================================
+
+    $rp_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-reviewer-profile.php',
+            ),
+        ),
+    );
+
+    // S1 — Reviewer Profile: Hero
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_rp_hero',
+        'title'                 => 'Reviewer Profile — Hero',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_rp_profile_image',
+                'label'         => 'Profile Photo',
+                'name'          => 'rp_profile_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Large, high-quality headshot. Falls back to Pharmacy Settings pharmacist image.',
+            ),
+            array(
+                'key'           => 'field_ep_rp_name',
+                'label'         => 'Full Name',
+                'name'          => 'rp_name',
+                'type'          => 'text',
+                'default_value' => 'Dilip Modhvadia',
+            ),
+            array(
+                'key'           => 'field_ep_rp_title',
+                'label'         => 'Job Title',
+                'name'          => 'rp_title',
+                'type'          => 'text',
+                'default_value' => 'Lead Pharmacist & Independent Prescriber',
+            ),
+            array(
+                'key'           => 'field_ep_rp_gphc_number',
+                'label'         => 'GPhC Number',
+                'name'          => 'rp_gphc_number',
+                'type'          => 'text',
+                'default_value' => '2050606',
+            ),
+            array(
+                'key'           => 'field_ep_rp_linkedin_url',
+                'label'         => 'LinkedIn URL',
+                'name'          => 'rp_linkedin_url',
+                'type'          => 'url',
+                'default_value' => 'https://uk.linkedin.com/in/dilip-modhvadia-60394a137',
+            ),
+        ),
+        'location'              => $rp_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // S2 — Reviewer Profile: Bio
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_rp_bio',
+        'title'                 => 'Reviewer Profile — Bio',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_rp_bio',
+                'label'         => 'Biography',
+                'name'          => 'rp_bio',
+                'type'          => 'textarea',
+                'rows'          => 6,
+                'default_value' => 'With over 15 years of experience, Dilip leads our clinical team across Ashford, Chertsey, and Walton-on-Thames. As an Independent Prescriber, he specialises in weight loss treatment, travel health, and ear wax removal—the services most patients wish they\'d accessed sooner. His approach is straightforward: no GP referral needed, no waiting lists, and treatment plans built around your life, not a system designed to make you wait.',
+            ),
+        ),
+        'location'              => $rp_location,
+        'menu_order'            => 1,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // S3 — Reviewer Profile: Specialisms
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_rp_specialisms',
+        'title'                 => 'Reviewer Profile — Specialisms',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_rp_specialisms',
+                'label'         => 'Specialisms',
+                'name'          => 'rp_specialisms',
+                'type'          => 'repeater',
+                'layout'        => 'block',
+                'button_label'  => 'Add Specialism',
+                'max'           => 10,
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_rp_specialism_title',
+                        'label'         => 'Specialism Title',
+                        'name'          => 'specialism_title',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_rp_specialism_detail',
+                        'label'         => 'Detail / Subtitle',
+                        'name'          => 'specialism_detail',
+                        'type'          => 'text',
+                        'instructions'  => 'e.g. "Mounjaro, Wegovy, Saxenda"',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $rp_location,
+        'menu_order'            => 2,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // S4 — Reviewer Profile: Qualifications
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_rp_qualifications',
+        'title'                 => 'Reviewer Profile — Qualifications',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_rp_qualifications',
+                'label'         => 'Qualifications',
+                'name'          => 'rp_qualifications',
+                'type'          => 'repeater',
+                'layout'        => 'block',
+                'button_label'  => 'Add Qualification',
+                'max'           => 15,
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_rp_qual_name',
+                        'label'         => 'Qualification Name',
+                        'name'          => 'qual_name',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_rp_qual_institution',
+                        'label'         => 'Institution',
+                        'name'          => 'qual_institution',
+                        'type'          => 'text',
+                        'instructions'  => 'Leave blank if not applicable.',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $rp_location,
+        'menu_order'            => 3,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // S5 — Reviewer Profile: Lead Magnet
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_rp_leadmagnet',
+        'title'                 => 'Reviewer Profile — Newsletter Signup',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_rp_lm_heading',
+                'label'         => 'Heading',
+                'name'          => 'rp_lm_heading',
+                'type'          => 'text',
+                'default_value' => 'Get Expert Health Advice Delivered to Your Inbox',
+            ),
+            array(
+                'key'           => 'field_ep_rp_lm_subheading',
+                'label'         => 'Subheading',
+                'name'          => 'rp_lm_subheading',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Latest treatment updates, health tips, and appointment availability—no spam, just useful information.',
+            ),
+            array(
+                'key'           => 'field_ep_rp_lm_button_text',
+                'label'         => 'Button Text',
+                'name'          => 'rp_lm_button_text',
+                'type'          => 'text',
+                'default_value' => 'Subscribe',
+            ),
+            array(
+                'key'           => 'field_ep_rp_lm_disclaimer',
+                'label'         => 'Disclaimer Text',
+                'name'          => 'rp_lm_disclaimer',
+                'type'          => 'text',
+                'default_value' => 'Opt out at any time by clicking the unsubscribe link or by contacting us.',
+            ),
+        ),
+        'location'              => $rp_location,
+        'menu_order'            => 4,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // S6 — Reviewer Profile: CTA
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_rp_cta',
+        'title'                 => 'Reviewer Profile — Final CTA',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_rp_cta_title',
+                'label'         => 'CTA Title',
+                'name'          => 'rp_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready to Book a Consultation?',
+            ),
+            array(
+                'key'           => 'field_ep_rp_cta_description',
+                'label'         => 'CTA Description',
+                'name'          => 'rp_cta_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Speak directly with Dilip and our clinical team — no waiting lists, no referrals needed.',
+            ),
+            array(
+                'key'           => 'field_ep_rp_cta_button_text',
+                'label'         => 'CTA Button Text',
+                'name'          => 'rp_cta_button_text',
+                'type'          => 'text',
+                'default_value' => 'Book an Appointment',
+            ),
+            array(
+                'key'           => 'field_ep_rp_cta_button_url',
+                'label'         => 'CTA Button URL',
+                'name'          => 'rp_cta_button_url',
+                'type'          => 'url',
+                'instructions'  => 'Leave blank to default to booking page.',
+            ),
+        ),
+        'location'              => $rp_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );

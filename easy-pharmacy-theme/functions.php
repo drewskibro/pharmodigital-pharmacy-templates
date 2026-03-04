@@ -155,6 +155,10 @@ function easy_pharmacy_scripts() {
         wp_enqueue_script( 'easy-pharmacy-typhoid-js', EASY_PHARMACY_URI . '/assets/js/typhoid.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
+    if ( is_page_template( 'page-templates/page-reviewer-profile.php' ) ) {
+        wp_enqueue_style( 'easy-pharmacy-reviewer-profile', EASY_PHARMACY_URI . '/assets/css/reviewer-profile.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+    }
+
     // Travel destination pages
     $travel_destinations = array( 'brazil', 'kenya', 'vietnam', 'india', 'thailand', 'cape-verde' );
     foreach ( $travel_destinations as $destination ) {

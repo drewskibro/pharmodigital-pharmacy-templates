@@ -1,0 +1,629 @@
+/* ============================================
+   REVIEWER PROFILE PAGE
+   Premium pharmacist profile — warm palette
+   ============================================ */
+
+/* ---- HERO SECTION ---- */
+.rp-hero-section {
+    background: #FDF6F3;
+    padding: 4rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.rp-hero-glow-1 {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: rgba(196, 122, 101, 0.08);
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.rp-hero-glow-2 {
+    position: absolute;
+    bottom: -15%;
+    left: -8%;
+    width: 500px;
+    height: 500px;
+    background: rgba(212, 144, 124, 0.06);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.rp-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Profile photo */
+.rp-hero-photo-wrap {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.rp-hero-photo-ring {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(135deg, #C47A65, #D4907C, #6B4FA0);
+    box-shadow: 0 20px 60px rgba(196, 122, 101, 0.25);
+}
+
+.rp-hero-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.rp-hero-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--brand-purple);
+}
+
+.rp-hero-gphc-badge {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border: 2px solid rgba(196, 122, 101, 0.15);
+    border-radius: 2rem;
+    padding: 0.4rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: #2D1B4E;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(196, 122, 101, 0.12);
+}
+
+.rp-hero-gphc-badge i {
+    color: #7A9E7E;
+    font-size: 0.85rem;
+}
+
+/* Name & Title */
+.rp-hero-name {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2D1B4E;
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+}
+
+.rp-hero-title {
+    font-family: var(--font-primary);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--text-gray);
+    margin: 0 0 1.5rem;
+}
+
+/* Credential pills */
+.rp-hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.rp-hero-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(196, 122, 101, 0.12);
+    border-radius: 2rem;
+    padding: 0.55rem 1.2rem;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #2D1B4E;
+    backdrop-filter: blur(12px);
+}
+
+.rp-hero-pill i {
+    color: #7A9E7E;
+    font-size: 0.9rem;
+}
+
+.rp-hero-pill-link {
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rp-hero-pill-link i {
+    color: #0A66C2;
+}
+
+.rp-hero-pill-link:hover {
+    background: #ffffff;
+    border-color: #0A66C2;
+    box-shadow: 0 4px 15px rgba(10, 102, 194, 0.12);
+    transform: translateY(-1px);
+}
+
+@media (min-width: 768px) {
+    .rp-hero-section {
+        padding: 5rem 0 6rem;
+    }
+
+    .rp-hero-photo-ring {
+        width: 240px;
+        height: 240px;
+    }
+
+    .rp-hero-name {
+        font-size: 3.5rem;
+    }
+
+    .rp-hero-title {
+        font-size: 1.25rem;
+    }
+}
+
+
+/* ---- BIO SECTION ---- */
+.rp-bio-section {
+    background: #ffffff;
+    padding: 5rem 0;
+}
+
+.rp-bio-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rp-bio-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(196, 122, 101, 0.12);
+    border-radius: 2rem;
+    padding: 0.5rem 1.2rem;
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #2D1B4E;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(196, 122, 101, 0.08);
+}
+
+.rp-bio-text {
+    font-family: var(--font-primary);
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: var(--text-gray);
+}
+
+.rp-bio-text p:first-child {
+    font-size: 1.25rem;
+    color: #2D1B4E;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+.rp-bio-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ---- SPECIALISMS SECTION ---- */
+.rp-specialisms-section {
+    background: #FDF6F3;
+    padding: 5rem 0 6rem;
+}
+
+.rp-section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.rp-section-header .section-badge {
+    margin-bottom: 1rem;
+}
+
+.rp-section-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2D1B4E;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.rp-specialisms-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.rp-specialism-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: #ffffff;
+    border-radius: 1.25rem;
+    padding: 1.5rem 2rem;
+    border: 1px solid rgba(196, 122, 101, 0.1);
+    box-shadow: 0 4px 20px rgba(196, 122, 101, 0.06);
+    transition: all 0.3s ease;
+}
+
+.rp-specialism-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(196, 122, 101, 0.12);
+    border-color: rgba(196, 122, 101, 0.2);
+}
+
+.rp-specialism-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(196, 122, 101, 0.1), rgba(212, 144, 124, 0.08));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.rp-specialism-icon i {
+    font-size: 1.3rem;
+    color: #C47A65;
+}
+
+.rp-specialism-content {
+    flex: 1;
+}
+
+.rp-specialism-title {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2D1B4E;
+    margin: 0 0 0.2rem;
+}
+
+.rp-specialism-detail {
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    color: var(--text-slate);
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .rp-specialisms-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Last card (odd count) spans full width centered */
+    .rp-specialisms-grid .rp-specialism-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        justify-self: center;
+    }
+
+    .rp-section-title {
+        font-size: 2.6rem;
+    }
+}
+
+
+/* ---- QUALIFICATIONS SECTION ---- */
+.rp-qualifications-section {
+    background: #ffffff;
+    padding: 5rem 0 6rem;
+}
+
+.rp-qualifications-list {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.rp-qualification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(196, 122, 101, 0.1);
+    position: relative;
+}
+
+.rp-qualification-item:last-child {
+    border-bottom: none;
+}
+
+.rp-qualification-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.rp-qualification-icon i {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.rp-qualification-content {
+    flex: 1;
+    padding-top: 0.15rem;
+}
+
+.rp-qualification-name {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2D1B4E;
+    margin: 0 0 0.15rem;
+}
+
+.rp-qualification-institution {
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    color: var(--text-slate);
+    margin: 0;
+}
+
+
+/* ---- LEAD MAGNET SECTION ---- */
+.rp-leadmagnet-section {
+    background: #FDF6F3;
+    padding: 5rem 0 6rem;
+}
+
+.rp-leadmagnet-card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 2rem;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    border: 1px solid rgba(196, 122, 101, 0.1);
+    box-shadow: 0 15px 50px rgba(196, 122, 101, 0.08);
+}
+
+.rp-leadmagnet-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, rgba(107, 79, 160, 0.1), rgba(139, 107, 191, 0.08));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.rp-leadmagnet-icon i {
+    font-size: 1.6rem;
+    color: #6B4FA0;
+}
+
+.rp-leadmagnet-heading {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2D1B4E;
+    margin: 0 0 0.75rem;
+    line-height: 1.3;
+}
+
+.rp-leadmagnet-subheading {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin: 0 0 2rem;
+    line-height: 1.6;
+}
+
+.rp-leadmagnet-form {
+    margin-bottom: 1rem;
+}
+
+.rp-leadmagnet-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.rp-leadmagnet-input {
+    width: 100%;
+    padding: 0.9rem 1.25rem;
+    border: 1.5px solid rgba(196, 122, 101, 0.15);
+    border-radius: 0.85rem;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background: #ffffff;
+    transition: all 0.3s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.rp-leadmagnet-input::placeholder {
+    color: var(--text-slate);
+}
+
+.rp-leadmagnet-input:focus {
+    border-color: #6B4FA0;
+    box-shadow: 0 0 0 3px rgba(107, 79, 160, 0.1);
+}
+
+.rp-leadmagnet-button {
+    width: 100%;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+    color: #ffffff;
+    border: none;
+    border-radius: 0.85rem;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.rp-leadmagnet-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(107, 79, 160, 0.3);
+}
+
+.rp-leadmagnet-disclaimer {
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    color: var(--text-slate);
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+    .rp-leadmagnet-fields {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .rp-leadmagnet-input {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .rp-leadmagnet-button {
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .rp-leadmagnet-card {
+        padding: 3.5rem 3rem;
+    }
+}
+
+
+/* ---- CTA SECTION ---- */
+.rp-cta-section {
+    background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.rp-cta-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.rp-cta-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    line-height: 1.3;
+}
+
+.rp-cta-description {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 2rem;
+    line-height: 1.6;
+}
+
+.rp-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.rp-cta-section .primary-cta {
+    background: linear-gradient(135deg, #C47A65, #B8694F);
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.rp-cta-section .primary-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+}
+
+.rp-cta-section .secondary-cta {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.rp-cta-section .secondary-cta:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.rp-cta-trust {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.rp-cta-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.rp-cta-trust-item i {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+}
+
+@media (min-width: 640px) {
+    .rp-cta-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .rp-cta-title {
+        font-size: 2.6rem;
+    }
+}
