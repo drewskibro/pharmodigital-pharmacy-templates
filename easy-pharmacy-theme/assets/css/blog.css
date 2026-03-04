@@ -1251,6 +1251,46 @@
 }
 
 /* ============================================
+   SINGLE POST — VIDEO EMBED [ep_video]
+   Premium media box for YouTube embeds via
+   shortcode. Used inline within article content.
+   ============================================ */
+.ep-video-embed {
+  margin: 3.75rem auto;
+}
+
+.ep-video-center {
+  max-width: 800px;
+}
+
+.ep-video-full {
+  max-width: 100%;
+}
+
+.ep-video-frame {
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border: 2px solid rgba(163, 158, 227, 0.2);
+  box-shadow: 0 4px 20px rgba(163, 158, 227, 0.12);
+}
+
+.ep-video-frame iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.5rem;
+}
+
+.ep-video-caption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-slate);
+  margin: 0.75rem 0 0;
+  line-height: 1.5;
+}
+
+/* ============================================
    SINGLE POST — TAGS
    ============================================ */
 .article-tags {
