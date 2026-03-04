@@ -405,22 +405,6 @@
     font-size: 1.4rem;
 }
 
-.rp-bio-team-card-badge {
-    position: absolute;
-    bottom: -2px;
-    right: -2px;
-    background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
-    color: #fff;
-    font-family: var(--font-primary);
-    font-size: 0.6rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 2px 8px;
-    border-radius: 6px;
-    line-height: 1.4;
-}
-
 .rp-bio-team-card-info {
     display: flex;
     flex-direction: column;

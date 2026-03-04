@@ -233,7 +233,6 @@ $sp_subtext         = ep_field( 'rp_social_subtext', 'Over 15 years of clinical 
                                 <div class="rp-bio-team-card rp-bio-team-card-lead">
                                     <div class="rp-bio-team-card-photo">
                                         <img src="<?php echo esc_url( $profile_image_url ); ?>" alt="<?php echo esc_attr( $name ); ?>" />
-                                        <div class="rp-bio-team-card-badge">Lead</div>
                                     </div>
                                     <div class="rp-bio-team-card-info">
                                         <span class="rp-bio-team-card-name"><?php echo esc_html( $name ); ?></span>
