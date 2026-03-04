@@ -17,6 +17,54 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Table of Contents — collapse/expand and smooth scroll
+  var toc = document.querySelector('.article-toc');
+  if (toc) {
+    var tocToggle = toc.querySelector('.article-toc-toggle');
+    var tocList = toc.querySelector('.article-toc-list');
+
+    // Set initial max-height so CSS transition works
+    if (tocList) {
+      tocList.style.maxHeight = tocList.scrollHeight + 'px';
+    }
+
+    if (tocToggle) {
+      tocToggle.addEventListener('click', function () {
+        var isCollapsed = toc.getAttribute('data-collapsed') === 'true';
+        if (isCollapsed) {
+          toc.setAttribute('data-collapsed', 'false');
+          tocToggle.setAttribute('aria-expanded', 'true');
+          if (tocList) {
+            tocList.style.maxHeight = tocList.scrollHeight + 'px';
+          }
+        } else {
+          toc.setAttribute('data-collapsed', 'true');
+          tocToggle.setAttribute('aria-expanded', 'false');
+          if (tocList) {
+            tocList.style.maxHeight = null;
+          }
+        }
+      });
+    }
+
+    // Smooth scroll for TOC links — offset for fixed nav
+    var tocLinks = toc.querySelectorAll('.article-toc-list a[href^="#"]');
+    tocLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var targetId = link.getAttribute('href').substring(1);
+        var target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          var navHeight = 90; // fixed nav height + breathing room
+          var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+          // Update URL hash without jumping
+          history.pushState(null, null, '#' + targetId);
+        }
+      });
+    });
+  }
+
   // FAQ accordion toggle
   var faqButtons = document.querySelectorAll('.article-faq-question');
   faqButtons.forEach(function (btn) {

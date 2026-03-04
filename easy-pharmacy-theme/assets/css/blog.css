@@ -674,6 +674,139 @@
 }
 
 /* ============================================
+   TABLE OF CONTENTS (auto-generated)
+   ============================================ */
+.article-toc {
+  background: #FDF6F3;
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  border-left: 4px solid #C47A65;
+  border-radius: 0 1rem 1rem 0;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.article-toc-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.125rem 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  transition: background-color 0.2s ease;
+}
+
+.article-toc-toggle:hover {
+  background: rgba(196, 122, 101, 0.04);
+}
+
+.article-toc-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: #fff;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.article-toc-toggle-label {
+  flex: 1;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #2D1B4E;
+}
+
+.article-toc-toggle-chevron {
+  flex-shrink: 0;
+  color: #C47A65;
+  font-size: 0.875rem;
+  transition: transform 0.3s ease;
+}
+
+.article-toc[data-collapsed="true"] .article-toc-toggle-chevron {
+  transform: rotate(180deg);
+}
+
+.article-toc-list {
+  list-style: none;
+  counter-reset: toc-counter;
+  margin: 0;
+  padding: 0 1.5rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+  overflow: hidden;
+}
+
+.article-toc[data-collapsed="true"] .article-toc-list {
+  max-height: 0 !important;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.article-toc-list li {
+  counter-increment: toc-counter;
+  margin: 0;
+  padding: 0;
+}
+
+.article-toc-list li a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.5rem;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #2D1B4E;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+
+.article-toc-list li a::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #C47A65;
+  min-width: 1.5rem;
+}
+
+.article-toc-list li a:hover {
+  background: rgba(196, 122, 101, 0.08);
+  color: #6B4FA0;
+}
+
+.article-toc-list li.article-toc-sub a {
+  padding-left: 2.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-gray);
+}
+
+.article-toc-list li.article-toc-sub a::before {
+  font-size: 0.75rem;
+  color: var(--text-slate);
+}
+
+.article-toc-list li.article-toc-sub a:hover {
+  color: #6B4FA0;
+  background: rgba(196, 122, 101, 0.06);
+}
+
+/* ============================================
    SINGLE POST — ARTICLE HERO
    ============================================ */
 .article-hero {

@@ -530,3 +530,105 @@ function easy_pharmacy_post_schema() {
     }
 }
 add_action( 'wp_head', 'easy_pharmacy_post_schema' );
+
+/**
+ * Auto-generate a Table of Contents for single blog posts.
+ *
+ * Parses all <h2> and <h3> headings in the post content, injects anchor
+ * IDs onto each heading, and prepends a TOC card. Headings that already
+ * have an id attribute are reused. The TOC is collapsible on mobile.
+ *
+ * Can be disabled per-post via the "show_table_of_contents" ACF field.
+ */
+function easy_pharmacy_add_toc( $content ) {
+    if ( ! is_single() || get_post_type() !== 'post' ) {
+        return $content;
+    }
+
+    // Check per-post toggle (default: show)
+    if ( function_exists( 'get_field' ) ) {
+        $show_toc = get_field( 'show_table_of_contents' );
+        // ACF true_false returns 0 for "No" — only skip when explicitly disabled
+        if ( $show_toc === 0 || $show_toc === false ) {
+            return $content;
+        }
+    }
+
+    // Find all h2 and h3 headings
+    if ( ! preg_match_all( '/<(h[23])((?:\s[^>]*)?)>(.*?)<\/\1>/is', $content, $matches, PREG_SET_ORDER ) ) {
+        return $content;
+    }
+
+    // Need at least 2 headings for a TOC to be useful
+    if ( count( $matches ) < 2 ) {
+        return $content;
+    }
+
+    $toc_items  = array();
+    $used_slugs = array();
+
+    foreach ( $matches as $match ) {
+        $tag        = $match[1]; // h2 or h3
+        $attrs      = $match[2];
+        $heading    = $match[3];
+        $plain_text = wp_strip_all_tags( $heading );
+
+        // Check if heading already has an id
+        if ( preg_match( '/\bid=["\']([^"\']+)["\']/i', $attrs, $id_match ) ) {
+            $slug = $id_match[1];
+        } else {
+            // Generate a slug from heading text
+            $slug = sanitize_title( $plain_text );
+            if ( empty( $slug ) ) {
+                $slug = 'section';
+            }
+        }
+
+        // Ensure unique slugs
+        $original_slug = $slug;
+        $counter = 2;
+        while ( in_array( $slug, $used_slugs, true ) ) {
+            $slug = $original_slug . '-' . $counter;
+            $counter++;
+        }
+        $used_slugs[] = $slug;
+
+        $toc_items[] = array(
+            'tag'   => $tag,
+            'slug'  => $slug,
+            'text'  => $plain_text,
+        );
+
+        // Inject id attribute onto the heading in the content
+        if ( preg_match( '/\bid=["\']/', $attrs ) ) {
+            // Already has an id — replace it
+            $new_attrs = preg_replace( '/\bid=["\'][^"\']*["\']/i', 'id="' . esc_attr( $slug ) . '"', $attrs );
+        } else {
+            // Add id attribute
+            $new_attrs = ' id="' . esc_attr( $slug ) . '"' . $attrs;
+        }
+
+        $new_heading = '<' . $tag . $new_attrs . '>' . $heading . '</' . $tag . '>';
+        $content     = str_replace( $match[0], $new_heading, $content );
+    }
+
+    // Build the TOC HTML
+    $toc  = '<nav class="article-toc" aria-label="Table of Contents">' . "\n";
+    $toc .= '  <button class="article-toc-toggle" aria-expanded="true">' . "\n";
+    $toc .= '    <span class="article-toc-toggle-icon"><i class="fas fa-list-ul"></i></span>' . "\n";
+    $toc .= '    <span class="article-toc-toggle-label">In This Article</span>' . "\n";
+    $toc .= '    <span class="article-toc-toggle-chevron"><i class="fas fa-chevron-up"></i></span>' . "\n";
+    $toc .= '  </button>' . "\n";
+    $toc .= '  <ol class="article-toc-list">' . "\n";
+
+    foreach ( $toc_items as $item ) {
+        $indent_class = $item['tag'] === 'h3' ? ' class="article-toc-sub"' : '';
+        $toc .= '    <li' . $indent_class . '><a href="#' . esc_attr( $item['slug'] ) . '">' . esc_html( $item['text'] ) . '</a></li>' . "\n";
+    }
+
+    $toc .= '  </ol>' . "\n";
+    $toc .= '</nav>' . "\n";
+
+    return $toc . $content;
+}
+add_filter( 'the_content', 'easy_pharmacy_add_toc', 8 );

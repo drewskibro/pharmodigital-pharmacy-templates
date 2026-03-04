@@ -2423,6 +2423,43 @@ function ep_register_acf_field_groups() {
     ) );
 
     // =========================================================================
+    // C1b. TABLE OF CONTENTS TOGGLE
+    // =========================================================================
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_post_toc',
+        'title'    => 'Table of Contents',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_show_toc',
+                'label'         => 'Show Table of Contents',
+                'name'          => 'show_table_of_contents',
+                'type'          => 'true_false',
+                'instructions'  => 'Display an auto-generated table of contents at the top of the article. Requires at least 2 headings (H2/H3) in the post content.',
+                'default_value' => 1,
+                'ui'            => 1,
+                'ui_on_text'    => 'Show',
+                'ui_off_text'   => 'Hide',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'post',
+                ),
+            ),
+        ),
+        'menu_order'            => 0,
+        'position'              => 'side',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
     // C2. PILLAR / CLUSTER CONTENT STRATEGY
     // =========================================================================
 
