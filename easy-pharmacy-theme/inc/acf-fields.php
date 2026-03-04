@@ -7285,6 +7285,67 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // S2b — Reviewer Profile: Highlight Card
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_rp_highlight',
+        'title'                 => 'Reviewer Profile — Highlight Card',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_rp_highlight_number',
+                'label'         => 'Big Number',
+                'name'          => 'rp_highlight_number',
+                'type'          => 'text',
+                'instructions'  => 'The large stat shown at the top of the card, e.g. "15+", "20+", "10K".',
+                'default_value' => '15+',
+            ),
+            array(
+                'key'           => 'field_ep_rp_highlight_label',
+                'label'         => 'Number Label',
+                'name'          => 'rp_highlight_label',
+                'type'          => 'text',
+                'instructions'  => 'Text below the big number, e.g. "Years of Clinical Experience".',
+                'default_value' => 'Years of Clinical Experience',
+            ),
+            array(
+                'key'           => 'field_ep_rp_highlight_stats',
+                'label'         => 'Quick Stats',
+                'name'          => 'rp_highlight_stats',
+                'type'          => 'repeater',
+                'layout'        => 'block',
+                'button_label'  => 'Add Stat',
+                'min'           => 1,
+                'max'           => 5,
+                'instructions'  => 'Short facts shown below the divider. Each needs a Font Awesome icon class and a short text.',
+                'sub_fields'    => array(
+                    array(
+                        'key'           => 'field_ep_rp_highlight_stat_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'highlight_stat_icon',
+                        'type'          => 'text',
+                        'instructions'  => 'Font Awesome icon class without "fas", e.g. "fa-map-marker-alt", "fa-user-group".',
+                        'default_value' => 'fa-check',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_ep_rp_highlight_stat_text',
+                        'label'         => 'Text',
+                        'name'          => 'highlight_stat_text',
+                        'type'          => 'text',
+                        'instructions'  => 'e.g. "3 locations across Surrey"',
+                        'wrapper'       => array( 'width' => '70' ),
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $rp_location,
+        'menu_order'            => 1,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // S3 — Reviewer Profile: Specialisms
     acf_add_local_field_group( array(
         'key'                   => 'group_ep_rp_specialisms',

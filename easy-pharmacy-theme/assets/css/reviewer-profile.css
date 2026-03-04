@@ -104,6 +104,32 @@
     font-size: 0.85rem;
 }
 
+/* GPhC link behaviour */
+.rp-hero-gphc-link {
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rp-hero-gphc-link:hover {
+    background: #ffffff;
+    border-color: #7A9E7E;
+    box-shadow: 0 6px 20px rgba(122, 158, 126, 0.18);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+.rp-gphc-external {
+    font-size: 0.65rem !important;
+    color: var(--text-slate) !important;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.rp-hero-gphc-link:hover .rp-gphc-external {
+    opacity: 1;
+    color: #7A9E7E !important;
+}
+
 /* Name & Title */
 .rp-hero-name {
     font-family: var(--font-heading);
@@ -207,32 +233,63 @@
 }
 
 .rp-bio-highlight-card {
-    background: #FDF6F3;
-    border-radius: 1.5rem;
-    padding: 2.5rem 2rem;
+    background: linear-gradient(160deg, #FDF6F3 0%, #f9ece7 100%);
+    border-radius: 1.75rem;
+    padding: 2.75rem 2rem 2.5rem;
     text-align: center;
-    border: 1px solid rgba(196, 122, 101, 0.1);
+    border: 1px solid rgba(196, 122, 101, 0.12);
     box-shadow: 0 10px 40px rgba(196, 122, 101, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle decorative glow inside card */
+.rp-bio-highlight-card::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -30%;
+    width: 200px;
+    height: 200px;
+    background: rgba(107, 79, 160, 0.05);
+    border-radius: 50%;
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+/* Ring around the number */
+.rp-bio-highlight-ring {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    border: 3px solid rgba(107, 79, 160, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(107, 79, 160, 0.08);
+    position: relative;
 }
 
 .rp-bio-highlight-number {
     font-family: var(--font-heading);
-    font-size: 4rem;
+    font-size: 3.2rem;
     font-weight: 700;
     line-height: 1;
     background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 0.25rem;
 }
 
 .rp-bio-highlight-label {
     font-family: var(--font-primary);
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #2D1B4E;
     margin-bottom: 1.5rem;
+    line-height: 1.4;
 }
 
 .rp-bio-highlight-divider {
@@ -246,7 +303,7 @@
 .rp-bio-highlight-stats {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0.75rem;
 }
 
 .rp-bio-highlight-stat {
@@ -254,9 +311,13 @@
     align-items: center;
     gap: 0.6rem;
     font-family: var(--font-primary);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--text-gray);
     justify-content: center;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.5rem 1rem;
+    border-radius: 0.65rem;
+    border: 1px solid rgba(196, 122, 101, 0.06);
 }
 
 .rp-bio-highlight-stat i {
@@ -264,6 +325,7 @@
     font-size: 0.85rem;
     width: 18px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 /* Bio text (right on desktop) */
