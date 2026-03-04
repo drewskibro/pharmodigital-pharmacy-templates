@@ -201,35 +201,10 @@ $pharmacy_name = ep_pharmacy_name();
                             </div>
                         <?php endforeach; ?>
                     </div>
-
-                    <?php if ( ! empty( $team_members ) ) : ?>
-                        <div class="rp-bio-highlight-divider rp-bio-highlight-divider-team"></div>
-                        <div class="rp-bio-team">
-                            <div class="rp-bio-team-avatars">
-                                <!-- Lead pharmacist first -->
-                                <?php if ( $profile_image_url ) : ?>
-                                    <div class="rp-bio-team-avatar rp-bio-team-avatar-lead" title="<?php echo esc_attr( $name ); ?>">
-                                        <img src="<?php echo esc_url( $profile_image_url ); ?>" alt="<?php echo esc_attr( $name ); ?>" />
-                                    </div>
-                                <?php endif; ?>
-                                <!-- Colleagues -->
-                                <?php foreach ( $team_members as $member ) : ?>
-                                    <div class="rp-bio-team-avatar" title="<?php echo esc_attr( $member['team_member_name'] ); ?>">
-                                        <?php if ( ! empty( $member['team_member_photo'] ) ) : ?>
-                                            <img src="<?php echo esc_url( $member['team_member_photo'] ); ?>" alt="<?php echo esc_attr( $member['team_member_name'] ); ?>" />
-                                        <?php else : ?>
-                                            <i class="fas fa-user"></i>
-                                        <?php endif; ?>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                            <span class="rp-bio-team-label"><?php echo esc_html( $team_label ); ?></span>
-                        </div>
-                    <?php endif; ?>
                 </div>
             </div>
 
-            <!-- Right: bio text -->
+            <!-- Right: bio text + team -->
             <div class="rp-bio-content">
                 <div class="section-badge rp-bio-badge">
                     <span class="pulse-dot"><span></span><span></span></span>
@@ -239,6 +214,48 @@ $pharmacy_name = ep_pharmacy_name();
                     <?php echo wp_kses_post( wpautop( $bio ) ); ?>
                 </div>
                 <div class="rp-bio-accent-bar"></div>
+
+                <?php if ( ! empty( $team_members ) ) : ?>
+                    <!-- Team profiles -->
+                    <div class="rp-bio-team-section">
+                        <h3 class="rp-bio-team-heading"><?php echo esc_html( $team_label ); ?></h3>
+                        <div class="rp-bio-team-grid">
+                            <!-- Lead pharmacist card -->
+                            <?php if ( $profile_image_url ) : ?>
+                                <div class="rp-bio-team-card rp-bio-team-card-lead">
+                                    <div class="rp-bio-team-card-photo">
+                                        <img src="<?php echo esc_url( $profile_image_url ); ?>" alt="<?php echo esc_attr( $name ); ?>" />
+                                        <div class="rp-bio-team-card-badge">Lead</div>
+                                    </div>
+                                    <div class="rp-bio-team-card-info">
+                                        <span class="rp-bio-team-card-name"><?php echo esc_html( $name ); ?></span>
+                                        <span class="rp-bio-team-card-role"><?php echo esc_html( $title ); ?></span>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            <!-- Colleague cards -->
+                            <?php foreach ( $team_members as $member ) : ?>
+                                <div class="rp-bio-team-card">
+                                    <div class="rp-bio-team-card-photo">
+                                        <?php if ( ! empty( $member['team_member_photo'] ) ) : ?>
+                                            <img src="<?php echo esc_url( $member['team_member_photo'] ); ?>" alt="<?php echo esc_attr( $member['team_member_name'] ); ?>" />
+                                        <?php else : ?>
+                                            <div class="rp-bio-team-card-placeholder">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="rp-bio-team-card-info">
+                                        <span class="rp-bio-team-card-name"><?php echo esc_html( $member['team_member_name'] ); ?></span>
+                                        <?php if ( ! empty( $member['team_member_role'] ) ) : ?>
+                                            <span class="rp-bio-team-card-role"><?php echo esc_html( $member['team_member_role'] ); ?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
 
         </div>

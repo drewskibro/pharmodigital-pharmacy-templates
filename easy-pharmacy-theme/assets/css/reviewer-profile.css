@@ -328,85 +328,125 @@
     flex-shrink: 0;
 }
 
-/* Team divider spacing */
-.rp-bio-highlight-divider-team {
-    margin-top: 1.5rem;
+/* Team profiles section (right-hand side) */
+.rp-bio-team-section {
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(196, 122, 101, 0.12);
 }
 
-/* Team avatar stack */
-.rp-bio-team {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
+.rp-bio-team-heading {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #2D1B4E;
+    margin: 0 0 1.5rem;
 }
 
-.rp-bio-team-avatars {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.rp-bio-team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
 }
 
-.rp-bio-team-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 3px solid #FDF6F3;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.8);
+.rp-bio-team-card {
     display: flex;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(196, 122, 101, 0.12);
-    margin-left: -10px;
-    position: relative;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(196, 122, 101, 0.1);
+    border-radius: 1rem;
+    padding: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.rp-bio-team-avatar:first-child {
-    margin-left: 0;
-    z-index: 3;
+.rp-bio-team-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(196, 122, 101, 0.12);
 }
 
-.rp-bio-team-avatar:nth-child(2) {
-    z-index: 2;
+.rp-bio-team-card-lead {
+    border-color: rgba(139, 107, 191, 0.2);
+    background: rgba(255, 255, 255, 0.95);
 }
 
-.rp-bio-team-avatar:nth-child(3) {
-    z-index: 1;
+.rp-bio-team-card-photo {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(196, 122, 101, 0.15);
 }
 
-.rp-bio-team-avatar:hover {
-    transform: translateY(-3px) scale(1.08);
-    box-shadow: 0 6px 16px rgba(196, 122, 101, 0.2);
-    z-index: 10;
+.rp-bio-team-card-lead .rp-bio-team-card-photo {
+    width: 72px;
+    height: 72px;
+    box-shadow: 0 4px 16px rgba(139, 107, 191, 0.2);
 }
 
-/* Lead pharmacist avatar — slightly larger with purple ring */
-.rp-bio-team-avatar-lead {
-    width: 52px;
-    height: 52px;
-    border-color: #8B6BBF;
-}
-
-.rp-bio-team-avatar img {
+.rp-bio-team-card-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.rp-bio-team-avatar i {
-    font-size: 1rem;
-    color: var(--brand-purple);
+.rp-bio-team-card-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0ece8, #e8e0da);
+    color: #C47A65;
+    font-size: 1.4rem;
 }
 
-.rp-bio-team-label {
+.rp-bio-team-card-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+    color: #fff;
     font-family: var(--font-primary);
-    font-size: 0.8rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 6px;
+    line-height: 1.4;
+}
+
+.rp-bio-team-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.rp-bio-team-card-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
     font-weight: 600;
     color: #2D1B4E;
-    letter-spacing: 0.02em;
+    line-height: 1.3;
+}
+
+.rp-bio-team-card-role {
+    font-family: var(--font-primary);
+    font-size: 0.82rem;
+    color: var(--text-slate);
+    line-height: 1.4;
+}
+
+@media (max-width: 599px) {
+    .rp-bio-team-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Bio text (right on desktop) */
