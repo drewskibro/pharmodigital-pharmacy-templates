@@ -338,6 +338,33 @@ if ( empty( $author_avatar ) ) {
   <?php endif; ?>
 
   <!-- ============================================
+       ARTICLE CTA SECTION
+       ============================================ -->
+  <section class="article-cta-section">
+    <div class="article-cta-dots"></div>
+    <div class="section-container">
+      <div class="article-cta-content">
+        <h2 class="article-cta-title">Ready to Take the Next Step?</h2>
+        <p class="article-cta-description">Book your consultation with <?php echo esc_html( ep_pharmacy_name() ); ?>'s clinical team in <?php echo esc_html( ep_option( 'pharmacy_town', 'Ashford' ) ); ?></p>
+        <div class="article-cta-trust">
+          <span class="article-cta-trust-item"><i class="fas fa-check-circle"></i> Same-Day Appointments</span>
+          <span class="article-cta-trust-item"><i class="fas fa-check-circle"></i> No GP Referral Needed</span>
+          <span class="article-cta-trust-item"><i class="fas fa-check-circle"></i> Expert Clinical Team</span>
+        </div>
+        <div class="article-cta-actions">
+          <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button primary-cta article-cta-button">
+            Book Your Consultation
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="article-cta-phone">
+            Or call <?php echo esc_html( ep_phone() ); ?>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
        RELATED POSTS
        ============================================ -->
   <?php
@@ -368,23 +395,6 @@ if ( empty( $author_avatar ) ) {
     </div>
   </section>
   <?php endif; ?>
-
-  <!-- ============================================
-       CTA SECTION
-       ============================================ -->
-  <section class="healthhub-cta-section">
-    <div class="healthhub-cta-dots"></div>
-    <div class="section-container">
-      <div class="healthhub-cta-content">
-        <h2 class="healthhub-cta-title">Ready to Transform Your Health?</h2>
-        <p class="healthhub-cta-description">Expert advice from pharmacists you can trust</p>
-        <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button primary-cta healthhub-cta-button">
-          Explore Our Services
-          <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-  </section>
 
 <?php endwhile; ?>
 
