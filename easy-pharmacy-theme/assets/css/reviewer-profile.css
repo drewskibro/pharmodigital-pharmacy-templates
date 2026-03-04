@@ -328,6 +328,87 @@
     flex-shrink: 0;
 }
 
+/* Team divider spacing */
+.rp-bio-highlight-divider-team {
+    margin-top: 1.5rem;
+}
+
+/* Team avatar stack */
+.rp-bio-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.rp-bio-team-avatars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rp-bio-team-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid #FDF6F3;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(196, 122, 101, 0.12);
+    margin-left: -10px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rp-bio-team-avatar:first-child {
+    margin-left: 0;
+    z-index: 3;
+}
+
+.rp-bio-team-avatar:nth-child(2) {
+    z-index: 2;
+}
+
+.rp-bio-team-avatar:nth-child(3) {
+    z-index: 1;
+}
+
+.rp-bio-team-avatar:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 6px 16px rgba(196, 122, 101, 0.2);
+    z-index: 10;
+}
+
+/* Lead pharmacist avatar — slightly larger with purple ring */
+.rp-bio-team-avatar-lead {
+    width: 52px;
+    height: 52px;
+    border-color: #8B6BBF;
+}
+
+.rp-bio-team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.rp-bio-team-avatar i {
+    font-size: 1rem;
+    color: var(--brand-purple);
+}
+
+.rp-bio-team-label {
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #2D1B4E;
+    letter-spacing: 0.02em;
+}
+
 /* Bio text (right on desktop) */
 .rp-bio-content {
     flex: 1;
