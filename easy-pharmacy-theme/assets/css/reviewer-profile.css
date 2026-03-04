@@ -796,13 +796,17 @@
 }
 
 .rp-cta-section .secondary-cta {
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.3);
+    color: #2D1B4E;
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
 }
 
 .rp-cta-section .secondary-cta:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: #ffffff;
+    border-color: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
 
 .rp-cta-trust {
