@@ -7233,6 +7233,111 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // ── S3. Social Proof Section ──────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hh_social_proof',
+        'title'    => 'Health Hub — Social Proof / Google Rating',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_hh_social_rating_score',
+                'label'         => 'Rating Score',
+                'name'          => 'hh_social_rating_score',
+                'type'          => 'text',
+                'instructions'  => 'Leave blank to use global Google Rating from Pharmacy Settings.',
+                'default_value' => '',
+            ),
+            array(
+                'key'           => 'field_ep_hh_social_rating_count',
+                'label'         => 'Rating Count Text',
+                'name'          => 'hh_social_rating_count',
+                'type'          => 'text',
+                'default_value' => 'Based on 300+ reviews',
+            ),
+            array(
+                'key'           => 'field_ep_hh_social_rating_location',
+                'label'         => 'Rating Location',
+                'name'          => 'hh_social_rating_location',
+                'type'          => 'text',
+                'instructions'  => 'Leave blank to use global Pharmacy Town.',
+                'default_value' => '',
+            ),
+            array(
+                'key'           => 'field_ep_hh_social_eyebrow',
+                'label'         => 'Eyebrow Text',
+                'name'          => 'hh_social_eyebrow',
+                'type'          => 'text',
+                'default_value' => 'TRUSTED BY ASHFORD',
+            ),
+            array(
+                'key'           => 'field_ep_hh_social_headline',
+                'label'         => 'Headline',
+                'name'          => 'hh_social_headline',
+                'type'          => 'text',
+                'default_value' => 'Join hundreds of Ashford patients who\'ve already made the switch',
+            ),
+            array(
+                'key'           => 'field_ep_hh_social_subtext',
+                'label'         => 'Subtext',
+                'name'          => 'hh_social_subtext',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'new_lines'     => '',
+                'default_value' => 'Expert health advice backed by real clinical experience and outstanding patient reviews',
+            ),
+        ),
+        'location'              => $hh_location,
+        'menu_order'            => 2,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── S4. In-Grid CTA Card ───────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hh_grid_cta',
+        'title'    => 'Health Hub — In-Grid CTA Card',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_hh_grid_cta_title',
+                'label'         => 'Card Title',
+                'name'          => 'hh_grid_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready to Book Your Consultation?',
+            ),
+            array(
+                'key'           => 'field_ep_hh_grid_cta_text',
+                'label'         => 'Card Subtext',
+                'name'          => 'hh_grid_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Same-day appointments available · No GP referral needed',
+            ),
+            array(
+                'key'           => 'field_ep_hh_grid_cta_button',
+                'label'         => 'Button Text',
+                'name'          => 'hh_grid_cta_button',
+                'type'          => 'text',
+                'default_value' => 'Check Availability',
+            ),
+            array(
+                'key'           => 'field_ep_hh_grid_cta_url',
+                'label'         => 'Button URL',
+                'name'          => 'hh_grid_cta_url',
+                'type'          => 'text',
+                'instructions'  => 'Leave blank to default to booking page.',
+                'default_value' => '',
+            ),
+        ),
+        'location'              => $hh_location,
+        'menu_order'            => 3,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // =========================================================================
     // S — Reviewer Profile Page
     // =========================================================================

@@ -58,6 +58,59 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
   </div>
 </section>
 
+<!-- ============================================
+     SOCIAL PROOF / GOOGLE RATING
+     ============================================ -->
+<section class="healthhub-social-proof-section">
+  <div class="section-container">
+    <div class="healthhub-social-proof-wrapper">
+
+      <!-- Left: Google Rating Badge (reuses globals.css .rating-badge) -->
+      <div class="rating-badge">
+        <div class="rating-header">
+          <div class="rating-label">
+            <div class="google-icon-wrapper">
+              <i class="fab fa-google"></i>
+            </div>
+            <span>Google Rating</span>
+          </div>
+          <div class="badge-success">
+            <i class="fas fa-check-circle"></i>
+            <span>Excellent</span>
+          </div>
+        </div>
+        <div class="rating-score">
+          <span class="score-number"><?php echo esc_html( ep_field( 'hh_social_rating_score', ep_option( 'google_rating', '4.7' ) ) ); ?></span>
+          <div class="rating-score-detail">
+            <div class="star-row">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="rating-count"><?php echo esc_html( ep_field( 'hh_social_rating_count', 'Based on 300+ reviews' ) ); ?></span>
+          </div>
+        </div>
+        <div class="rating-footer">
+          <div class="rating-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><?php echo esc_html( ep_field( 'hh_social_rating_location', ep_option( 'pharmacy_town', 'Ashford, UK' ) ) ); ?></span>
+          </div>
+          <a href="#reviews" class="rating-link">View Reviews</a>
+        </div>
+      </div>
+
+      <!-- Right: Text Content -->
+      <div class="healthhub-social-proof-content">
+        <p class="healthhub-social-proof-eyebrow"><?php echo esc_html( ep_field( 'hh_social_eyebrow', 'TRUSTED BY ASHFORD' ) ); ?></p>
+        <h2 class="healthhub-social-proof-headline"><?php echo esc_html( ep_field( 'hh_social_headline', 'Join hundreds of Ashford patients who\'ve already made the switch' ) ); ?></h2>
+        <p class="healthhub-social-proof-subtext"><?php echo esc_html( ep_field( 'hh_social_subtext', 'Expert health advice backed by real clinical experience and outstanding patient reviews' ) ); ?></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <?php
 // ============================================
 // FEATURED ARTICLE (only on page 1, no category filter)
@@ -125,11 +178,30 @@ endif;
     ?>
       <div class="healthhub-article-grid">
         <?php
+        $card_index = 0;
         while ( $grid_query->have_posts() ) :
           $grid_query->the_post();
+          $card_index++;
           get_template_part( 'template-parts/article-card' );
-        endwhile;
+
+          // Insert booking CTA card after position 3 on first page, then every 6
+          if ( ( $card_index === 3 && $paged <= 1 ) || ( $card_index > 3 && ( $card_index - 3 ) % 6 === 0 ) ) :
         ?>
+          <div class="healthhub-cta-card">
+            <div class="healthhub-cta-card-inner">
+              <div class="healthhub-cta-card-icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <h3 class="healthhub-cta-card-title"><?php echo esc_html( ep_field( 'hh_grid_cta_title', 'Ready to Book Your Consultation?' ) ); ?></h3>
+              <p class="healthhub-cta-card-text"><?php echo esc_html( ep_field( 'hh_grid_cta_text', 'Same-day appointments available · No GP referral needed' ) ); ?></p>
+              <a href="<?php echo esc_url( ep_field( 'hh_grid_cta_url', ep_booking_url() ) ); ?>" class="healthhub-cta-card-button">
+                <?php echo esc_html( ep_field( 'hh_grid_cta_button', 'Check Availability' ) ); ?>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        <?php endif; ?>
+        <?php endwhile; ?>
       </div>
 
       <!-- Pagination -->
