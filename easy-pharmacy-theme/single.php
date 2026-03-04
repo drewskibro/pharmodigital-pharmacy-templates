@@ -338,6 +338,59 @@ if ( empty( $author_avatar ) ) {
   <?php endif; ?>
 
   <!-- ============================================
+       SOCIAL PROOF / GOOGLE RATING
+       ============================================ -->
+  <section class="article-social-proof-section">
+    <div class="section-container">
+      <div class="article-social-proof-wrapper">
+
+        <!-- Google Rating Badge (reuses globals.css .rating-badge) -->
+        <div class="rating-badge">
+          <div class="rating-header">
+            <div class="rating-label">
+              <div class="google-icon-wrapper">
+                <i class="fab fa-google"></i>
+              </div>
+              <span>Google Rating</span>
+            </div>
+            <div class="badge-success">
+              <i class="fas fa-check-circle"></i>
+              <span>Excellent</span>
+            </div>
+          </div>
+          <div class="rating-score">
+            <span class="score-number"><?php echo esc_html( ep_option( 'google_rating', '4.7' ) ); ?></span>
+            <div class="rating-score-detail">
+              <div class="star-row">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">Based on 300+ reviews</span>
+            </div>
+          </div>
+          <div class="rating-footer">
+            <div class="rating-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span><?php echo esc_html( ep_option( 'pharmacy_town', 'Ashford, UK' ) ); ?></span>
+            </div>
+            <a href="#reviews" class="rating-link">View Reviews</a>
+          </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="article-social-proof-content">
+          <p class="article-social-proof-eyebrow">TRUSTED BY <?php echo esc_html( strtoupper( ep_option( 'pharmacy_town', 'ASHFORD' ) ) ); ?></p>
+          <h2 class="article-social-proof-headline">Expert health advice from <?php echo esc_html( ep_pharmacy_name() ); ?>'s clinical team</h2>
+          <p class="article-social-proof-subtext">Our articles are written and reviewed by qualified pharmacists and independent prescribers, so you can trust the advice you read here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
        ARTICLE CTA SECTION
        ============================================ -->
   <section class="article-cta-section">
