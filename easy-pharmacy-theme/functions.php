@@ -632,3 +632,59 @@ function easy_pharmacy_add_toc( $content ) {
     return $toc . $content;
 }
 add_filter( 'the_content', 'easy_pharmacy_add_toc', 8 );
+
+/**
+ * Shortcode: [ep_video] — Premium YouTube video embed for blog posts.
+ *
+ * Usage:
+ *   [ep_video url="https://www.youtube.com/watch?v=abc123"]
+ *   [ep_video url="https://youtu.be/abc123" caption="How Mounjaro works" width="full"]
+ *
+ * Attributes:
+ *   url     — YouTube URL (watch, youtu.be, or embed format)
+ *   caption — Optional text displayed below the video
+ *   width   — "center" (max 800px, default) or "full" (100% of article width)
+ */
+function ep_video_shortcode( $atts ) {
+    $atts = shortcode_atts( array(
+        'url'     => '',
+        'caption' => '',
+        'width'   => 'center',
+    ), $atts, 'ep_video' );
+
+    $url = trim( $atts['url'] );
+    if ( empty( $url ) ) {
+        return '';
+    }
+
+    // Extract YouTube video ID from common URL formats
+    $video_id = '';
+    if ( preg_match( '/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/', $url, $m ) ) {
+        $video_id = $m[1];
+    }
+
+    if ( empty( $video_id ) ) {
+        return '';
+    }
+
+    $width_class = $atts['width'] === 'full' ? 'ep-video-full' : 'ep-video-center';
+    $caption     = trim( $atts['caption'] );
+
+    $html  = '<div class="ep-video-embed ' . esc_attr( $width_class ) . '">';
+    $html .= '  <div class="ep-video-frame">';
+    $html .= '    <iframe src="https://www.youtube-nocookie.com/embed/' . esc_attr( $video_id ) . '" ';
+    $html .= '      title="' . ( $caption ? esc_attr( $caption ) : 'Video' ) . '" ';
+    $html .= '      frameborder="0" loading="lazy" ';
+    $html .= '      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ';
+    $html .= '      allowfullscreen></iframe>';
+    $html .= '  </div>';
+
+    if ( ! empty( $caption ) ) {
+        $html .= '<p class="ep-video-caption">' . esc_html( $caption ) . '</p>';
+    }
+
+    $html .= '</div>';
+
+    return $html;
+}
+add_shortcode( 'ep_video', 'ep_video_shortcode' );
