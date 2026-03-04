@@ -222,6 +222,23 @@ The single post template (`single.php`) displays articles in a premium editorial
 10. **Related Posts** — 3-card grid of related articles from the same category
 11. **CTA** — Purple gradient section with booking CTA
 
+### Table of Contents (Auto-Generated)
+
+Single blog posts automatically get an SEO-optimised table of contents injected at the top of `the_content()`. This is built entirely in the theme — no plugin required.
+
+**How it works:**
+- A `the_content` filter (`easy_pharmacy_add_toc()` in `functions.php`, priority 8) parses all `<h2>` and `<h3>` headings
+- Injects `id` attributes onto each heading for anchor linking
+- Prepends a `<nav class="article-toc">` card with numbered links
+- H3 headings are indented as sub-items
+- Requires at least 2 headings to render (skips short posts)
+- Collapsible via toggle button (JS in `blog.js`)
+- Smooth scroll with fixed-nav offset on link click
+
+**Per-post toggle:** The `show_table_of_contents` ACF field (C1b in `acf-fields.php`, sidebar position) defaults to "Show". Set to "Hide" to disable on individual posts.
+
+**SEO benefits:** Google can extract TOC anchors as jump-link sitelinks in search results, increasing SERP visibility.
+
 ### Author & Reviewer Info Fallback Chain
 
 | Field | Fallback chain |
@@ -293,6 +310,7 @@ All fields are registered in `inc/acf-fields.php` using `acf_add_local_field_gro
 - **A8–A9** — Navigation field groups (top-level menu items & dropdown sub-links)
 - **B1–B12** — Home page section field groups (one per section)
 - **C1** — Blog post fields (reading time, author/reviewer photo overrides)
+- **C1b** — Table of contents toggle (`show_table_of_contents`, sidebar position)
 - **C2** — Pillar/cluster content strategy (is_pillar_post toggle, cluster_posts relationship, cluster_section_title)
 - **C3** — Blog post FAQ section (post_faq_title, post_faqs repeater with question/answer pairs, max 20)
 - **D1** — Flexible content builder for `page-custom.php`
