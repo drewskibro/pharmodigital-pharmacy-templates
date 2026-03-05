@@ -8,12 +8,7 @@
  */
 
 get_header();
-?>
 
-<!-- Reading Progress Bar -->
-<div class="reading-progress-bar" id="readingProgressBar"></div>
-
-<?php
 while ( have_posts() ) : the_post();
 
 // Post data
