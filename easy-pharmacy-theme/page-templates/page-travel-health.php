@@ -62,7 +62,55 @@ get_header();
       </div>
 
       <!-- Right: Visual -->
-      <div class="travel-hero-visual"></div>
+      <div class="travel-hero-visual">
+        <div class="travel-hero-visual-glow"></div>
+
+        <!-- Main image card -->
+        <div class="travel-hero-image-card">
+          <div class="travel-hero-image-inner">
+            <?php
+            $th_hero_image_id  = ep_field( 'th_hero_image' );
+            if ( ! $th_hero_image_id ) {
+                $th_hero_image_id = ep_option( 'pharmacist_image' );
+            }
+            $th_hero_image_url = $th_hero_image_id ? wp_get_attachment_image_url( $th_hero_image_id, 'large' ) : 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=800&h=1000&fit=crop';
+            ?>
+            <img src="<?php echo esc_url( $th_hero_image_url ); ?>" alt="<?php echo esc_attr( ep_field( 'th_hero_image_alt', 'Travel health consultation at Easy Pharmacy' ) ); ?>" class="travel-hero-image" />
+            <div class="travel-hero-image-overlay"></div>
+          </div>
+
+          <!-- Floating badge: Yellow Fever -->
+          <div class="travel-hero-badge-yf">
+            <i class="fas fa-shield-virus"></i>
+            <div class="travel-hero-badge-yf-text">
+              <span class="travel-hero-badge-yf-label"><?php echo esc_html( ep_field( 'th_hero_badge_label', 'Official' ) ); ?></span>
+              <span class="travel-hero-badge-yf-value"><?php echo esc_html( ep_field( 'th_hero_badge_value', 'Yellow Fever Centre' ) ); ?></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial card -->
+        <div class="travel-hero-testimonial-card">
+          <div class="travel-hero-quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="travel-hero-quote-text">
+            <?php echo esc_html( ep_field( 'th_hero_testimonial_text', '"Dilip was brilliant — explained everything clearly and made the whole family feel at ease before our trip to Kenya."' ) ); ?>
+          </p>
+          <div class="travel-hero-quote-footer">
+            <div class="travel-hero-author">
+              <span class="travel-hero-author-name"><?php echo esc_html( ep_field( 'th_hero_testimonial_name', 'Ashford Patient' ) ); ?></span>
+              <div class="travel-hero-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+            <div class="travel-hero-dest-badge">
+              <i class="fas fa-plane-departure"></i>
+              <span><?php echo esc_html( ep_field( 'th_hero_testimonial_dest', 'Kenya' ) ); ?></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
