@@ -1289,6 +1289,68 @@
 }
 
 /* ============================================
+   LITE YOUTUBE EMBED
+   Shows HD thumbnail + play button instead of
+   the standard iframe. Iframe loads on click.
+   Used by both [ep_video] and oEmbed filter.
+   ============================================ */
+.ep-video-lite {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #000;
+}
+
+.ep-oembed-video .ep-video-lite {
+  border-radius: 0.75rem;
+}
+
+.ep-video-lite-thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.2s ease;
+}
+
+.ep-video-lite:hover .ep-video-lite-thumb {
+  opacity: 0.85;
+}
+
+/* YouTube play button — centred, scales on hover */
+.ep-video-lite-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  opacity: 0.9;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+.ep-video-lite:hover .ep-video-lite-play {
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 1;
+}
+
+/* Once activated, the lite wrapper holds an iframe */
+.ep-video-lite.is-active {
+  cursor: default;
+}
+
+.ep-video-lite.is-active iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: inherit;
+}
+
+/* ============================================
    SINGLE POST — TAGS
    ============================================ */
 .article-tags {
