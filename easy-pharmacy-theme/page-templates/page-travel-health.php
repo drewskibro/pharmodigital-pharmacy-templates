@@ -24,8 +24,9 @@ get_header();
         </div>
 
         <h1 class="travel-hero-title">
-          <?php echo esc_html( ep_field( 'th_hero_title_line1', "Ashford's Leading" ) ); ?><br />
-          <span class="gradient-text"><?php echo esc_html( ep_field( 'th_hero_title_highlight', 'Travel Clinic' ) ); ?></span>
+          <span class="gradient-text"><?php echo esc_html( ep_field( 'th_hero_title_line1', 'Travel Safe.' ) ); ?></span>
+          <span class="hero-accent-text"><?php echo esc_html( ep_field( 'th_hero_title_line2', 'Stay Protected.' ) ); ?></span>
+          <span class="gradient-text"><?php echo esc_html( ep_field( 'th_hero_title_line3', 'Fly Happy.' ) ); ?></span>
         </h1>
 
         <p class="travel-hero-description">
