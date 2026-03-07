@@ -220,7 +220,7 @@ $tagline = ep_option( 'footer_tagline', 'Your trusted partner in health and well
     var m;
     // YouTube: various URL formats
     m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-    if (m) return 'https://www.youtube.com/embed/' + m[1] + '?autoplay=1&rel=0';
+    if (m) return 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1&rel=0&modestbranding=1&hd=1';
     // Vimeo
     m = url.match(/vimeo\.com\/(\d+)/);
     if (m) return 'https://player.vimeo.com/video/' + m[1] + '?autoplay=1';
@@ -230,7 +230,7 @@ $tagline = ep_option( 'footer_tagline', 'Your trusted partner in health and well
   window.openVideoModal = function(url) {
     var embedUrl = getEmbedUrl(url);
     if (embedUrl) {
-      content.innerHTML = '<iframe src="' + embedUrl + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+      content.innerHTML = '<iframe src="' + embedUrl + '" width="1920" height="1080" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
     } else {
       content.innerHTML = '<video src="' + url + '" controls autoplay></video>';
     }

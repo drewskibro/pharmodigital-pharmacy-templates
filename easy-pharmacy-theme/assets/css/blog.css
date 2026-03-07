@@ -1243,7 +1243,7 @@
 }
 
 .ep-video-center {
-  max-width: 800px;
+  max-width: 960px;
 }
 
 .ep-video-full {
@@ -1271,6 +1271,21 @@
   color: var(--text-slate);
   margin: 0.75rem 0 0;
   line-height: 1.5;
+}
+
+/* WordPress oEmbed YouTube — responsive 16:9 wrapper */
+.ep-oembed-video {
+  position: relative;
+  max-width: 960px;
+  margin: 3rem auto;
+}
+
+.ep-oembed-video iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 0.75rem;
 }
 
 /* ============================================
