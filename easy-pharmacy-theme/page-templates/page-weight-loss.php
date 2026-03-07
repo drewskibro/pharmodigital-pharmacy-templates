@@ -30,9 +30,9 @@ get_header();
         </div>
 
         <h1 class="wl-hero-title">
-          <span class="gradient-text"><?php echo esc_html( ep_field( 'wl_hero_title_line_1', 'Mounjaro & Wegovy' ) ); ?></span>
-          <span class="wl-hero-accent-text"><?php echo esc_html( ep_field( 'wl_hero_title_line_2', 'weight loss' ) ); ?></span>
-          <span class="gradient-text"><?php echo esc_html( ep_field( 'wl_hero_title_line_3', 'that works when diets have failed' ) ); ?></span>
+          <span class="gradient-text"><?php echo esc_html( ep_field( 'wl_hero_title_line_1', 'Lose Weight.' ) ); ?></span>
+          <span class="hero-accent-text"><?php echo esc_html( ep_field( 'wl_hero_title_line_2', 'Feel Amazing.' ) ); ?></span>
+          <span class="gradient-text"><?php echo esc_html( ep_field( 'wl_hero_title_line_3', 'Start Today.' ) ); ?></span>
         </h1>
 
         <p class="wl-hero-description">
@@ -176,8 +176,8 @@ get_header();
 
       <!-- Card 3: Patients Helped -->
       <div class="wl-results-card">
-        <div class="google-icon-wrapper" style="width: 4rem; height: 4rem; margin: 0 auto 1rem; box-shadow: 0 8px 24px rgba(163, 158, 227, 0.2);">
-          <i class="fas fa-heart" style="font-size: 2rem; background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
+        <div class="google-icon-wrapper" style="width: 4rem; height: 4rem; margin: 0 auto 1rem; box-shadow: 0 8px 24px rgba(196, 122, 101, 0.2);">
+          <i class="fas fa-heart" style="font-size: 2rem; background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"></i>
         </div>
         <p class="wl-results-number gradient-text"><?php echo esc_html( ep_field( 'wl_results_card3_number', '500+' ) ); ?></p>
         <p class="wl-results-label"><?php echo esc_html( ep_field( 'wl_results_card3_label', 'Patients Helped' ) ); ?></p>
