@@ -670,18 +670,22 @@ function ep_video_shortcode( $atts ) {
     $width_class = $atts['width'] === 'full' ? 'ep-video-full' : 'ep-video-center';
     $caption     = trim( $atts['caption'] );
 
-    $embed_params = 'rel=0&modestbranding=1&hd=1';
-    $embed_url    = 'https://www.youtube-nocookie.com/embed/' . esc_attr( $video_id ) . '?' . $embed_params;
+    // Lite-embed: render HD thumbnail + play button, load iframe on click.
+    // YouTube serves maxresdefault.jpg at 1280x720 — much sharper than the
+    // auto-selected low-res thumbnail inside the standard iframe embed.
+    $vid_id     = esc_attr( $video_id );
+    $title_attr = $caption ? esc_attr( $caption ) : 'Play video';
 
     $html  = '<div class="ep-video-embed ' . esc_attr( $width_class ) . '">';
-    $html .= '  <div class="ep-video-frame">';
-    $html .= '    <iframe src="' . esc_url( $embed_url ) . '" ';
-    $html .= '      width="1280" height="720" ';
-    $html .= '      title="' . ( $caption ? esc_attr( $caption ) : 'Video' ) . '" ';
-    $html .= '      frameborder="0" loading="lazy" ';
-    $html .= '      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ';
-    $html .= '      allowfullscreen></iframe>';
-    $html .= '  </div>';
+    $html .= '<div class="ep-video-frame">';
+    $html .= '<div class="ep-video-lite" data-video-id="' . $vid_id . '" role="button" tabindex="0" aria-label="' . $title_attr . '">';
+    $html .= '  <picture>';
+    $html .= '    <source srcset="https://i.ytimg.com/vi_webp/' . $vid_id . '/maxresdefault.webp" type="image/webp">';
+    $html .= '    <img src="https://i.ytimg.com/vi/' . $vid_id . '/maxresdefault.jpg" alt="' . $title_attr . '" class="ep-video-lite-thumb" width="1280" height="720">';
+    $html .= '  </picture>';
+    $html .= '  <div class="ep-video-lite-play"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg></div>';
+    $html .= '</div>';
+    $html .= '</div>';
 
     if ( ! empty( $caption ) ) {
         $html .= '<p class="ep-video-caption">' . esc_html( $caption ) . '</p>';
@@ -694,40 +698,40 @@ function ep_video_shortcode( $atts ) {
 add_shortcode( 'ep_video', 'ep_video_shortcode' );
 
 /**
- * Force HD quality on WordPress oEmbed YouTube iframes.
+ * Lite-embed for WordPress oEmbed YouTube videos.
  *
- * When a YouTube URL is pasted directly into the editor, WordPress auto-embeds
- * it via oEmbed. This filter adds HD parameters to the embed URL and sets
- * large width/height attributes so YouTube serves 1080p instead of auto-selecting
- * a low resolution. The iframe is wrapped in a responsive container for proper
- * 16:9 display at any screen width.
+ * Replaces the standard YouTube iframe (which shows a low-res thumbnail) with
+ * a high-res thumbnail image + play button. The iframe loads only when clicked,
+ * using the same lite-embed pattern as [ep_video]. This gives a crisp 1280x720
+ * poster image and faster page loads.
  */
-function ep_youtube_oembed_hd( $html, $url ) {
+function ep_youtube_oembed_lite( $html, $url ) {
     if ( ! preg_match( '/youtube\.com|youtu\.be/', $url ) ) {
         return $html;
     }
 
-    // Add HD quality params to the iframe src
-    $html = preg_replace_callback(
-        '/src="([^"]*youtube[^"]*)"/',
-        function ( $matches ) {
-            $src       = $matches[1];
-            $separator = strpos( $src, '?' ) !== false ? '&' : '?';
-            $params    = 'hd=1&rel=0&modestbranding=1';
-            return 'src="' . $src . $separator . $params . '"';
-        },
-        $html
-    );
-
-    // Set large width/height attributes so YouTube detects HD capability
-    $html = preg_replace( '/width="\d+"/', 'width="1280"', $html );
-    $html = preg_replace( '/height="\d+"/', 'height="720"', $html );
-
-    // Wrap in responsive container if not already wrapped
-    if ( strpos( $html, 'ep-oembed-video' ) === false ) {
-        $html = '<div class="ep-oembed-video">' . $html . '</div>';
+    // Extract video ID from the original URL
+    $video_id = '';
+    if ( preg_match( '/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/', $url, $m ) ) {
+        $video_id = $m[1];
     }
 
-    return $html;
+    if ( empty( $video_id ) ) {
+        return $html;
+    }
+
+    $vid_id = esc_attr( $video_id );
+
+    $lite  = '<div class="ep-oembed-video">';
+    $lite .= '<div class="ep-video-lite" data-video-id="' . $vid_id . '" role="button" tabindex="0" aria-label="Play video">';
+    $lite .= '  <picture>';
+    $lite .= '    <source srcset="https://i.ytimg.com/vi_webp/' . $vid_id . '/maxresdefault.webp" type="image/webp">';
+    $lite .= '    <img src="https://i.ytimg.com/vi/' . $vid_id . '/maxresdefault.jpg" alt="Play video" class="ep-video-lite-thumb" width="1280" height="720">';
+    $lite .= '  </picture>';
+    $lite .= '  <div class="ep-video-lite-play"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg></div>';
+    $lite .= '</div>';
+    $lite .= '</div>';
+
+    return $lite;
 }
-add_filter( 'embed_oembed_html', 'ep_youtube_oembed_hd', 10, 2 );
+add_filter( 'embed_oembed_html', 'ep_youtube_oembed_lite', 10, 2 );
