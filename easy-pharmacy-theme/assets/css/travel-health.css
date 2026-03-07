@@ -223,6 +223,284 @@
 
 
 /* ============================================
+   HERO RIGHT VISUAL (Image Card + Floating Badges)
+   ============================================ */
+.travel-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.travel-hero-visual-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(196, 122, 101, 0.15) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main image card */
+.travel-hero-image-card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 640px;
+  border-radius: 2.5rem;
+  box-shadow: 0 40px 100px rgba(196, 122, 101, 0.2),
+              0 0 0 1px rgba(196, 122, 101, 0.08) inset;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+@media (max-width: 639px) {
+  .travel-hero-image-card {
+    height: 500px;
+    max-width: 100%;
+  }
+}
+
+.travel-hero-image-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 2.5rem;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.travel-hero-image-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.travel-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.travel-hero-image-card:hover .travel-hero-image {
+  transform: scale(1.05);
+}
+
+.travel-hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Floating Yellow Fever badge */
+.travel-hero-badge-yf {
+  position: absolute;
+  top: 2rem;
+  right: -2rem;
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  padding: 1rem 1.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 15px 40px rgba(196, 122, 101, 0.4),
+              0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.travel-hero-image-card:hover .travel-hero-badge-yf {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(196, 122, 101, 0.5);
+}
+
+@media (max-width: 1023px) {
+  .travel-hero-badge-yf {
+    right: 1rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .travel-hero-badge-yf {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+.travel-hero-badge-yf > i {
+  font-size: 1.5rem;
+  color: var(--white);
+  opacity: 0.9;
+}
+
+.travel-hero-badge-yf-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.travel-hero-badge-yf-label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.travel-hero-badge-yf-value {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* Testimonial card */
+.travel-hero-testimonial-card {
+  position: absolute;
+  bottom: -3rem;
+  left: -3rem;
+  width: 380px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 2rem;
+  border-radius: 1.75rem;
+  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.15),
+              0 0 0 1px rgba(196, 122, 101, 0.06) inset;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 20;
+}
+
+.travel-hero-testimonial-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #C47A65, #D4907C);
+  border-radius: 0 0 1.75rem 1.75rem;
+}
+
+.travel-hero-visual:hover .travel-hero-testimonial-card {
+  transform: translateY(-8px);
+  box-shadow: 0 35px 80px rgba(196, 122, 101, 0.2);
+}
+
+@media (max-width: 1023px) {
+  .travel-hero-testimonial-card {
+    left: 0;
+    right: 0;
+    bottom: -2rem;
+    width: calc(100% - 2rem);
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .travel-hero-testimonial-card {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 1.5rem;
+  }
+
+  .travel-hero-visual:hover .travel-hero-testimonial-card {
+    transform: translateY(-6px);
+  }
+}
+
+.travel-hero-quote-icon {
+  position: absolute;
+  top: -1.25rem;
+  left: -1.25rem;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  box-shadow: 0 8px 24px rgba(196, 122, 101, 0.4);
+  font-size: 0.875rem;
+}
+
+.travel-hero-quote-text {
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: #1f2937;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.travel-hero-quote-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.travel-hero-author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.travel-hero-author-name {
+  font-weight: 800;
+  color: #111827;
+  font-size: 0.9375rem;
+  display: block;
+  letter-spacing: -0.01em;
+}
+
+.travel-hero-stars {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.travel-hero-stars i {
+  font-size: 0.75rem;
+  color: #f59e0b;
+}
+
+.travel-hero-dest-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  box-shadow: 0 6px 16px rgba(196, 122, 101, 0.3);
+  letter-spacing: -0.01em;
+}
+
+.travel-hero-dest-badge i {
+  font-size: 0.75rem;
+}
+
+
+/* ============================================
    STATS BAR
    ============================================ */
 .travel-stats-section {
