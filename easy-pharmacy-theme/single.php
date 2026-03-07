@@ -43,6 +43,27 @@ if ( empty( $author_avatar ) ) {
 if ( empty( $author_avatar ) ) {
     $author_avatar = get_avatar_url( $author_id, array( 'size' => 96 ) );
 }
+
+// Reviewer / fact-check
+$reviewer_name     = ep_option( 'superintendent_pharmacist', 'Dilip Modhvadia' );
+$reviewer_gphc     = ep_option( 'superintendent_gphc_number', '2050606' );
+$reviewer_url      = ep_option( 'gphc_verify_url', '' );
+$reviewer_avatar   = '';
+
+$reviewer_photo_id = get_field( 'reviewer_photo' );
+if ( $reviewer_photo_id ) {
+    $reviewer_avatar = wp_get_attachment_image_url( $reviewer_photo_id, 'thumbnail' );
+}
+if ( empty( $reviewer_avatar ) ) {
+    $reviewer_image_id = ep_option( 'pharmacist_image' );
+    if ( $reviewer_image_id ) {
+        $reviewer_avatar = is_numeric( $reviewer_image_id )
+            ? wp_get_attachment_image_url( $reviewer_image_id, 'thumbnail' )
+            : ( is_array( $reviewer_image_id ) ? $reviewer_image_id['url'] : $reviewer_image_id );
+    }
+}
+
+$last_modified = get_the_modified_date( 'M j, Y' );
 ?>
 
   <!-- ============================================
@@ -146,48 +167,10 @@ if ( empty( $author_avatar ) ) {
   <?php else : wp_reset_postdata(); endif; ?>
 
   <!-- ============================================
-       ARTICLE CONTENT
+       CLINICALLY REVIEWED (E-E-A-T trust block)
        ============================================ -->
-  <section class="article-body-section">
+  <section class="article-fact-check-section">
     <div class="section-container">
-      <div class="article-content">
-        <?php the_content(); ?>
-      </div>
-
-      <!-- Tags -->
-      <?php $tags = get_the_tags(); ?>
-      <?php if ( ! empty( $tags ) ) : ?>
-        <div class="article-tags">
-          <i class="fas fa-tags"></i>
-          <?php foreach ( $tags as $tag ) : ?>
-            <a href="<?php echo esc_url( get_tag_link( $tag ) ); ?>" class="article-tag"><?php echo esc_html( $tag->name ); ?></a>
-          <?php endforeach; ?>
-        </div>
-      <?php endif; ?>
-
-      <!-- Medical Reviewer / Fact-Check Block -->
-      <?php
-      $reviewer_name     = ep_option( 'superintendent_pharmacist', 'Dilip Modhvadia' );
-      $reviewer_gphc     = ep_option( 'superintendent_gphc_number', '2050606' );
-      $reviewer_url      = ep_option( 'gphc_verify_url', '' );
-      $reviewer_avatar   = '';
-
-      // Reviewer avatar: post-level override → pharmacist image from options
-      $reviewer_photo_id = get_field( 'reviewer_photo' );
-      if ( $reviewer_photo_id ) {
-          $reviewer_avatar = wp_get_attachment_image_url( $reviewer_photo_id, 'thumbnail' );
-      }
-      if ( empty( $reviewer_avatar ) ) {
-          $reviewer_image_id = ep_option( 'pharmacist_image' );
-          if ( $reviewer_image_id ) {
-              $reviewer_avatar = is_numeric( $reviewer_image_id )
-                  ? wp_get_attachment_image_url( $reviewer_image_id, 'thumbnail' )
-                  : ( is_array( $reviewer_image_id ) ? $reviewer_image_id['url'] : $reviewer_image_id );
-          }
-      }
-
-      $last_modified = get_the_modified_date( 'M j, Y' );
-      ?>
       <div class="article-fact-check">
         <div class="article-fact-check-header">
           <i class="fas fa-shield-halved"></i>
@@ -234,6 +217,28 @@ if ( empty( $author_avatar ) ) {
           <span><i class="fas fa-check-circle"></i> Medically reviewed</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ARTICLE CONTENT
+       ============================================ -->
+  <section class="article-body-section">
+    <div class="section-container">
+      <div class="article-content">
+        <?php the_content(); ?>
+      </div>
+
+      <!-- Tags -->
+      <?php $tags = get_the_tags(); ?>
+      <?php if ( ! empty( $tags ) ) : ?>
+        <div class="article-tags">
+          <i class="fas fa-tags"></i>
+          <?php foreach ( $tags as $tag ) : ?>
+            <a href="<?php echo esc_url( get_tag_link( $tag ) ); ?>" class="article-tag"><?php echo esc_html( $tag->name ); ?></a>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
 
       <!-- Post Navigation -->
       <div class="article-navigation">

@@ -1545,10 +1545,15 @@
 
 /* ============================================
    MEDICAL REVIEWER / FACT-CHECK BLOCK
+   Now a standalone section above the article body.
    ============================================ */
+.article-fact-check-section {
+  padding: 0 0 1rem;
+}
+
 .article-fact-check {
   max-width: 820px;
-  margin: 3rem auto 0;
+  margin: 0 auto;
   border-radius: 1.25rem;
   border: 1px solid rgba(196, 122, 101, 0.12);
   background: #FDF6F3;
