@@ -670,9 +670,13 @@ function ep_video_shortcode( $atts ) {
     $width_class = $atts['width'] === 'full' ? 'ep-video-full' : 'ep-video-center';
     $caption     = trim( $atts['caption'] );
 
+    $embed_params = 'rel=0&modestbranding=1&hd=1';
+    $embed_url    = 'https://www.youtube-nocookie.com/embed/' . esc_attr( $video_id ) . '?' . $embed_params;
+
     $html  = '<div class="ep-video-embed ' . esc_attr( $width_class ) . '">';
     $html .= '  <div class="ep-video-frame">';
-    $html .= '    <iframe src="https://www.youtube-nocookie.com/embed/' . esc_attr( $video_id ) . '" ';
+    $html .= '    <iframe src="' . esc_url( $embed_url ) . '" ';
+    $html .= '      width="1280" height="720" ';
     $html .= '      title="' . ( $caption ? esc_attr( $caption ) : 'Video' ) . '" ';
     $html .= '      frameborder="0" loading="lazy" ';
     $html .= '      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ';
@@ -688,3 +692,42 @@ function ep_video_shortcode( $atts ) {
     return $html;
 }
 add_shortcode( 'ep_video', 'ep_video_shortcode' );
+
+/**
+ * Force HD quality on WordPress oEmbed YouTube iframes.
+ *
+ * When a YouTube URL is pasted directly into the editor, WordPress auto-embeds
+ * it via oEmbed. This filter adds HD parameters to the embed URL and sets
+ * large width/height attributes so YouTube serves 1080p instead of auto-selecting
+ * a low resolution. The iframe is wrapped in a responsive container for proper
+ * 16:9 display at any screen width.
+ */
+function ep_youtube_oembed_hd( $html, $url ) {
+    if ( ! preg_match( '/youtube\.com|youtu\.be/', $url ) ) {
+        return $html;
+    }
+
+    // Add HD quality params to the iframe src
+    $html = preg_replace_callback(
+        '/src="([^"]*youtube[^"]*)"/',
+        function ( $matches ) {
+            $src       = $matches[1];
+            $separator = strpos( $src, '?' ) !== false ? '&' : '?';
+            $params    = 'hd=1&rel=0&modestbranding=1';
+            return 'src="' . $src . $separator . $params . '"';
+        },
+        $html
+    );
+
+    // Set large width/height attributes so YouTube detects HD capability
+    $html = preg_replace( '/width="\d+"/', 'width="1280"', $html );
+    $html = preg_replace( '/height="\d+"/', 'height="720"', $html );
+
+    // Wrap in responsive container if not already wrapped
+    if ( strpos( $html, 'ep-oembed-video' ) === false ) {
+        $html = '<div class="ep-oembed-video">' . $html . '</div>';
+    }
+
+    return $html;
+}
+add_filter( 'embed_oembed_html', 'ep_youtube_oembed_hd', 10, 2 );
