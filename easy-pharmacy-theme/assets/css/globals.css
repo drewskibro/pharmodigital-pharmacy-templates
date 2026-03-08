@@ -2580,7 +2580,7 @@ html {
   position: relative;
   border-radius: 2.5rem;
   overflow: hidden;
-  box-shadow: var(--shadow-2xl);
+  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.18);
   border: 4px solid var(--white);
   cursor: pointer;
 }
@@ -2692,7 +2692,7 @@ html {
   font-size: 2.5rem;
   font-weight: 700;
   font-family: var(--font-heading);
-  color: var(--brand-purple);
+  color: #C47A65;
   line-height: 1.1;
   margin-bottom: 0.25rem;
 }
@@ -2791,7 +2791,7 @@ html {
   font-size: 1.25rem;
   font-weight: 700;
   font-family: var(--font-primary);
-  color: var(--brand-purple);
+  color: #C47A65;
   margin-bottom: 1.5rem;
 }
 
@@ -2842,7 +2842,7 @@ html {
 }
 
 .pharmacist-credential i {
-  color: var(--brand-purple);
+  color: #7A9E7E;
   font-size: 1rem;
 }
 
@@ -2855,6 +2855,11 @@ html {
 /* CTA */
 .pharmacist-cta {
   margin-top: 0;
+}
+
+.pharmacist-cta .primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  box-shadow: 0 10px 25px -3px rgba(196, 122, 101, 0.35);
 }
 
 

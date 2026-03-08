@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $badge_text     = ep_field( 'pharmacist_badge_text', 'Your Local Expert' );
 $name           = ep_field( 'pharmacist_name', 'Meet Dilip Modhvadia' );
 $role           = ep_field( 'pharmacist_role', 'Lead Pharmacist & Independent Prescriber' );
-$bio            = ep_field( 'pharmacist_bio', 'With over 15 years of experience, Dilip leads our clinical team dedicated to providing personalized, accessible healthcare in Ashford. As an Independent Prescriber, he oversees our service to ensure you receive safe, effective treatments without the wait.' );
-$quote          = ep_field( 'pharmacist_quote', '"My goal is to make expert healthcare accessible to everyone in Ashford. Whether you\'re starting a weight loss journey or need health advice, our team is here to support you every step of the way with honest, professional care delivered to your door."' );
+$bio            = ep_field( 'pharmacist_bio', 'With over 15 years of experience, Dilip leads our clinical team providing personalised, accessible healthcare in Ashford. As an Independent Prescriber, he ensures you receive safe, effective treatments without the wait.' );
+$quote          = ep_field( 'pharmacist_quote', '"My goal is to make expert healthcare accessible to everyone in Ashford — honest, professional care delivered to your door."' );
 $experience     = ep_field( 'pharmacist_experience_years', '15+' );
 $experience_lbl = ep_field( 'pharmacist_experience_label', 'Years Experience' );
 $cta_text       = ep_field( 'pharmacist_cta_text', 'Start Your Online Consultation' );
