@@ -20,29 +20,29 @@ $description = ep_field( 'treatments_description', 'Comprehensive healthcare sol
 // Default treatments
 $default_treatments = array(
     array(
-        'treatment_title' => 'Weight Loss',
-        'treatment_url'   => home_url( '/weight-loss/' ),
-        'treatment_image' => '',
+        'treatment_title'    => 'Weight Loss',
+        'treatment_url'      => home_url( '/weight-loss/' ),
+        'treatment_image_id' => 0,
     ),
     array(
-        'treatment_title' => 'Travel Health',
-        'treatment_url'   => home_url( '/travel-health/' ),
-        'treatment_image' => '',
+        'treatment_title'    => 'Travel Health',
+        'treatment_url'      => home_url( '/travel-health/' ),
+        'treatment_image_id' => 0,
     ),
     array(
-        'treatment_title' => 'Ear Wax Removal',
-        'treatment_url'   => home_url( '/ear-wax-removal/' ),
-        'treatment_image' => '',
+        'treatment_title'    => 'Ear Wax Removal',
+        'treatment_url'      => home_url( '/ear-wax-removal/' ),
+        'treatment_image_id' => 0,
     ),
     array(
-        'treatment_title' => 'Hair Loss',
-        'treatment_url'   => home_url( '/hair-loss/' ),
-        'treatment_image' => '',
+        'treatment_title'    => 'Hair Loss',
+        'treatment_url'      => home_url( '/hair-loss/' ),
+        'treatment_image_id' => 0,
     ),
     array(
-        'treatment_title' => 'Smoking Cessation',
-        'treatment_url'   => ep_booking_url(),
-        'treatment_image' => '',
+        'treatment_title'    => 'Smoking Cessation',
+        'treatment_url'      => ep_booking_url(),
+        'treatment_image_id' => 0,
     ),
 );
 
@@ -51,14 +51,12 @@ $treatments = array();
 if ( function_exists( 'have_rows' ) && have_rows( 'treatments' ) ) {
     while ( have_rows( 'treatments' ) ) {
         the_row();
-        $image_id  = get_sub_field( 'treatment_image' );
-        $image_url = $image_id ? wp_get_attachment_image_url( $image_id, 'treatment-card' ) : '';
-        $link      = get_sub_field( 'treatment_url' );
+        $link = get_sub_field( 'treatment_url' );
 
         $treatments[] = array(
-            'treatment_title' => get_sub_field( 'treatment_title' ) ?: '',
-            'treatment_url'   => $link ?: '#',
-            'treatment_image' => $image_url,
+            'treatment_title'    => get_sub_field( 'treatment_title' ) ?: '',
+            'treatment_url'      => $link ?: '#',
+            'treatment_image_id' => get_sub_field( 'treatment_image' ),
         );
     }
 }
@@ -88,12 +86,20 @@ if ( empty( $treatments ) ) {
         <div class="treatments-grid">
 
             <?php foreach ( $treatments as $treatment ) :
-                $img_url   = ! empty( $treatment['treatment_image'] ) ? $treatment['treatment_image'] : EASY_PHARMACY_URI . '/assets/images/treatment-placeholder.jpg';
-                $img_alt   = esc_attr( $treatment['treatment_title'] . ' treatment at ' . ep_pharmacy_name() );
+                $img_id  = ! empty( $treatment['treatment_image_id'] ) ? $treatment['treatment_image_id'] : 0;
+                $img_alt = $treatment['treatment_title'] . ' treatment at ' . ep_pharmacy_name();
             ?>
                 <a href="<?php echo esc_url( $treatment['treatment_url'] ); ?>" class="treatment-card">
                     <div class="treatment-card-inner">
-                        <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo $img_alt; ?>" class="treatment-card-image" />
+                        <?php if ( $img_id ) :
+                            echo wp_get_attachment_image( $img_id, 'large', false, array(
+                                'class' => 'treatment-card-image',
+                                'alt'   => esc_attr( $img_alt ),
+                                'sizes' => '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px',
+                            ) );
+                        else : ?>
+                            <img src="<?php echo esc_url( EASY_PHARMACY_URI . '/assets/images/treatment-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $img_alt ); ?>" class="treatment-card-image" />
+                        <?php endif; ?>
                         <div class="treatment-card-overlay"></div>
                         <div class="treatment-card-hover">
                             <span class="treatment-card-button">View Details</span>
