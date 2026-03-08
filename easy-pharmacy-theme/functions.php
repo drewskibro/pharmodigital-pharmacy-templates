@@ -654,6 +654,106 @@ function easy_pharmacy_add_toc( $content ) {
 add_filter( 'the_content', 'easy_pharmacy_add_toc', 8 );
 
 /**
+ * Consultation Closer — appended to the end of single blog post content.
+ *
+ * Mirrors the "Clinically Reviewed" block at the top of the article but
+ * flipped for conversion: pharmacist photo + credentials on the left,
+ * personal CTA on the right, compliance pills below.
+ *
+ * Runs at priority 12 so it appears after the TOC (priority 8) and after
+ * shortcode processing (priority 11 default).
+ */
+function easy_pharmacy_add_consultation_closer( $content ) {
+    if ( ! is_single() || get_post_type() !== 'post' ) {
+        return $content;
+    }
+
+    // Reviewer / pharmacist data (same fallback chain as single.php)
+    $reviewer_name = ep_option( 'superintendent_pharmacist', 'Dilip Modhvadia' );
+    $reviewer_gphc = ep_option( 'superintendent_gphc_number', '2050606' );
+    $author_role   = ep_option( 'default_author_role', 'Lead Pharmacist' );
+    $pharmacy_name = ep_pharmacy_name();
+    $pharmacy_town = ep_option( 'pharmacy_town', 'Ashford' );
+    $booking_url   = ep_booking_url();
+    $phone         = ep_phone();
+    $phone_link    = ep_phone_link();
+    $first_name    = explode( ' ', $reviewer_name )[0];
+
+    // Reviewer avatar: post field → pharmacist option → empty
+    $reviewer_avatar = '';
+    if ( function_exists( 'get_field' ) ) {
+        $reviewer_photo_id = get_field( 'reviewer_photo' );
+        if ( $reviewer_photo_id ) {
+            $reviewer_avatar = wp_get_attachment_image_url( $reviewer_photo_id, 'thumbnail' );
+        }
+    }
+    if ( empty( $reviewer_avatar ) ) {
+        $pharmacist_image = ep_option( 'pharmacist_image' );
+        if ( $pharmacist_image ) {
+            $reviewer_avatar = is_numeric( $pharmacist_image )
+                ? wp_get_attachment_image_url( $pharmacist_image, 'thumbnail' )
+                : ( is_array( $pharmacist_image ) ? $pharmacist_image['url'] : $pharmacist_image );
+        }
+    }
+
+    // Build the HTML
+    $avatar_html = '';
+    if ( $reviewer_avatar ) {
+        $avatar_html = '<img src="' . esc_url( $reviewer_avatar ) . '" alt="' . esc_attr( $reviewer_name ) . '" class="article-closer-avatar" />';
+    }
+
+    $gphc_html = '';
+    if ( $reviewer_gphc ) {
+        $gphc_html = '<span class="article-closer-pharmacist-gphc"><i class="fas fa-shield-halved"></i> GPhC: ' . esc_html( $reviewer_gphc ) . '</span>';
+    }
+
+    $closer  = '<div class="article-closer-card">';
+    $closer .= '  <div class="article-closer-header">';
+    $closer .= '    <i class="fas fa-calendar-check"></i>';
+    $closer .= '    <span>Your Next Step</span>';
+    $closer .= '  </div>';
+    $closer .= '  <div class="article-closer-body">';
+    $closer .= '    <div class="article-closer-pharmacist">';
+    $closer .= '      ' . $avatar_html;
+    $closer .= '      <div class="article-closer-pharmacist-info">';
+    $closer .= '        <span class="article-closer-pharmacist-label">Your consultation with</span>';
+    $closer .= '        <span class="article-closer-pharmacist-name">' . esc_html( $reviewer_name ) . '</span>';
+    $closer .= '        <span class="article-closer-pharmacist-role">' . esc_html( $author_role ) . ' &middot; Independent Prescriber</span>';
+    $closer .= '        ' . $gphc_html;
+    $closer .= '      </div>';
+    $closer .= '    </div>';
+    $closer .= '    <div class="article-closer-action">';
+    $closer .= '      <p class="article-closer-title">Ready to take the next step?</p>';
+    $closer .= '      <p class="article-closer-description">Book your consultation with ' . esc_html( $pharmacy_name ) . ' in ' . esc_html( $pharmacy_town ) . '. Same-day and next-day appointments usually available.</p>';
+    $closer .= '      <div class="article-closer-buttons">';
+    $closer .= '        <a href="' . esc_url( $booking_url ) . '" class="cta-button primary-cta article-closer-book">';
+    $closer .= '          Book with ' . esc_html( $first_name );
+    $closer .= '          <i class="fas fa-arrow-right"></i>';
+    $closer .= '        </a>';
+    $closer .= '        <a href="tel:' . esc_attr( $phone_link ) . '" class="article-closer-phone">';
+    $closer .= '          <i class="fas fa-phone"></i>';
+    $closer .= '          ' . esc_html( $phone );
+    $closer .= '        </a>';
+    $closer .= '      </div>';
+    $closer .= '    </div>';
+    $closer .= '  </div>';
+    $closer .= '  <div class="article-closer-trust">';
+    $closer .= '    <span class="article-closer-trust-item"><i class="fas fa-check-circle"></i> Same-Day Appointments</span>';
+    $closer .= '    <span class="article-closer-trust-item"><i class="fas fa-check-circle"></i> No GP Referral Needed</span>';
+    $closer .= '    <span class="article-closer-trust-item"><i class="fas fa-check-circle"></i> Face-to-Face Consultations</span>';
+    $closer .= '  </div>';
+    $closer .= '</div>';
+    $closer .= '<div class="article-closer-compliance">';
+    $closer .= '  <span class="article-closer-compliance-pill"><i class="fas fa-shield-halved"></i> GPhC Registered Pharmacy</span>';
+    $closer .= '  <span class="article-closer-compliance-pill"><i class="fas fa-pills"></i> Prescription-Only Medicine</span>';
+    $closer .= '  <span class="article-closer-compliance-pill"><i class="fas fa-user-doctor"></i> Clinical Criteria Apply</span>';
+    $closer .= '</div>';
+
+    return $content . "\n" . $closer;
+}
+add_filter( 'the_content', 'easy_pharmacy_add_consultation_closer', 12 );
+
+/**
  * Vimeo Video Shortcode — [vimeo url="..." title="..."]
  *
  * Renders a styled thumbnail card with play button inside blog post content.
