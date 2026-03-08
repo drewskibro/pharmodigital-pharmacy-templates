@@ -642,3 +642,88 @@ function easy_pharmacy_add_toc( $content ) {
 }
 add_filter( 'the_content', 'easy_pharmacy_add_toc', 8 );
 
+/**
+ * Vimeo Video Shortcode — [vimeo url="..." title="..."]
+ *
+ * Renders a styled thumbnail card with play button inside blog post content.
+ * Clicking the card opens the global video modal (video-modal.js).
+ *
+ * Fetches the Vimeo thumbnail via oEmbed API and caches it for 7 days.
+ *
+ * Attributes:
+ *   url   — (required) Vimeo video URL
+ *   title — (optional) Caption below the video card
+ */
+function easy_pharmacy_vimeo_shortcode( $atts ) {
+    $atts = shortcode_atts( array(
+        'url'   => '',
+        'title' => '',
+    ), $atts, 'vimeo' );
+
+    $url = esc_url( $atts['url'] );
+    if ( empty( $url ) ) {
+        return '';
+    }
+
+    // Extract video ID for cache key
+    $video_id = '';
+    if ( preg_match( '/vimeo\.com\/(\d+)/', $url, $m ) ) {
+        $video_id = $m[1];
+    } elseif ( preg_match( '/player\.vimeo\.com\/video\/(\d+)/', $url, $m ) ) {
+        $video_id = $m[1];
+    }
+
+    if ( empty( $video_id ) ) {
+        return '';
+    }
+
+    // Fetch thumbnail via Vimeo oEmbed, cached for 7 days
+    $transient_key = 'ep_vimeo_thumb_' . $video_id;
+    $thumbnail_url = get_transient( $transient_key );
+
+    if ( false === $thumbnail_url ) {
+        $oembed_url = 'https://vimeo.com/api/oembed.json?url=' . rawurlencode( $url ) . '&width=960';
+        $response   = wp_remote_get( $oembed_url, array( 'timeout' => 5 ) );
+
+        if ( ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response ) ) {
+            $data = json_decode( wp_remote_retrieve_body( $response ), true );
+            if ( ! empty( $data['thumbnail_url'] ) ) {
+                $thumbnail_url = $data['thumbnail_url'];
+            }
+        }
+
+        // Cache even empty result to avoid repeated failed requests
+        if ( empty( $thumbnail_url ) ) {
+            $thumbnail_url = '';
+        }
+        set_transient( $transient_key, $thumbnail_url, 7 * DAY_IN_SECONDS );
+    }
+
+    // Build the card
+    $title_attr = ! empty( $atts['title'] ) ? $atts['title'] : 'Play video';
+
+    ob_start();
+    ?>
+    <div class="vimeo-embed-card" onclick="openVideoModal('<?php echo esc_attr( $url ); ?>')" role="button" tabindex="0" aria-label="<?php echo esc_attr( $title_attr ); ?>" onkeydown="if(event.key==='Enter')openVideoModal('<?php echo esc_attr( $url ); ?>')">
+        <div class="vimeo-embed-thumbnail">
+            <?php if ( $thumbnail_url ) : ?>
+                <img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php echo esc_attr( $title_attr ); ?>" loading="lazy" />
+            <?php endif; ?>
+            <div class="vimeo-embed-overlay">
+                <div class="vimeo-embed-play">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </div>
+        <?php if ( ! empty( $atts['title'] ) ) : ?>
+            <div class="vimeo-embed-caption">
+                <i class="fas fa-video"></i>
+                <span><?php echo esc_html( $atts['title'] ); ?></span>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode( 'vimeo', 'easy_pharmacy_vimeo_shortcode' );
+
