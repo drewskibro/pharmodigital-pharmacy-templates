@@ -727,3 +727,136 @@ function easy_pharmacy_vimeo_shortcode( $atts ) {
 }
 add_shortcode( 'vimeo', 'easy_pharmacy_vimeo_shortcode' );
 
+/**
+ * Mounjaro Weight Loss Calculator Shortcode — [mounjaro_calculator]
+ *
+ * Interactive calculator for blog posts showing projected weight loss
+ * based on SURMOUNT-1 clinical trial data (tirzepatide 15 mg).
+ *
+ * Attributes:
+ *   cta_url  — (optional) CTA button URL. Defaults to booking page.
+ *   cta_text — (optional) CTA button text. Defaults to "Check Your Eligibility".
+ */
+function easy_pharmacy_mounjaro_calculator_shortcode( $atts ) {
+    $atts = shortcode_atts( array(
+        'cta_url'  => '',
+        'cta_text' => 'Check Your Eligibility',
+    ), $atts, 'mounjaro_calculator' );
+
+    $cta_url = $atts['cta_url'] ? esc_url( $atts['cta_url'] ) : esc_url( ep_booking_url() );
+
+    ob_start();
+    ?>
+    <div class="mj-calc" id="mj-calc">
+        <div class="mj-calc-header">
+            <div class="mj-calc-badge">
+                <span class="pulse-dot"></span>
+                Weight Loss Calculator
+            </div>
+            <h3 class="mj-calc-title">See Your <span class="gradient-text">Potential Results</span> with Mounjaro</h3>
+            <p class="mj-calc-subtitle">Based on SURMOUNT-1 clinical trial data for tirzepatide 15&nbsp;mg</p>
+        </div>
+
+        <div class="mj-calc-form">
+            <div class="mj-calc-input-group">
+                <label class="mj-calc-label" for="mj-calc-weight">Your Current Weight</label>
+                <div class="mj-calc-unit-toggle" role="radiogroup" aria-label="Weight unit">
+                    <button type="button" class="mj-calc-unit active" data-unit="kg" aria-pressed="true">kg</button>
+                    <button type="button" class="mj-calc-unit" data-unit="st" aria-pressed="false">stone</button>
+                    <button type="button" class="mj-calc-unit" data-unit="lbs" aria-pressed="false">lbs</button>
+                </div>
+                <div class="mj-calc-weight-fields">
+                    <div class="mj-calc-field mj-calc-field-kg active">
+                        <input type="number" id="mj-calc-weight" class="mj-calc-input" placeholder="e.g. 95" min="40" max="300" inputmode="decimal" />
+                        <span class="mj-calc-input-suffix">kg</span>
+                    </div>
+                    <div class="mj-calc-field mj-calc-field-st">
+                        <input type="number" class="mj-calc-input mj-calc-st" placeholder="e.g. 14" min="6" max="47" inputmode="numeric" />
+                        <span class="mj-calc-input-suffix">st</span>
+                        <input type="number" class="mj-calc-input mj-calc-st-lbs" placeholder="0" min="0" max="13" inputmode="numeric" />
+                        <span class="mj-calc-input-suffix">lbs</span>
+                    </div>
+                    <div class="mj-calc-field mj-calc-field-lbs">
+                        <input type="number" class="mj-calc-input" placeholder="e.g. 210" min="88" max="660" inputmode="numeric" />
+                        <span class="mj-calc-input-suffix">lbs</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="mj-calc-submit" id="mj-calc-submit">
+                <i class="fas fa-calculator"></i>
+                Calculate My Results
+            </button>
+        </div>
+
+        <div class="mj-calc-results" id="mj-calc-results" aria-live="polite">
+            <div class="mj-calc-results-header">
+                <div class="mj-calc-results-headline">
+                    You could lose up to
+                    <span class="mj-calc-highlight" id="mj-calc-total-loss">—</span>
+                </div>
+                <p class="mj-calc-results-subtext">Based on the average 20.9% body weight reduction observed in SURMOUNT-1</p>
+            </div>
+
+            <div class="mj-calc-timeline">
+                <div class="mj-calc-timeline-item">
+                    <div class="mj-calc-timeline-marker">
+                        <span class="mj-calc-timeline-week">Week 12</span>
+                    </div>
+                    <div class="mj-calc-timeline-value" id="mj-calc-w12">—</div>
+                    <div class="mj-calc-timeline-label">lost</div>
+                </div>
+                <div class="mj-calc-timeline-item">
+                    <div class="mj-calc-timeline-marker">
+                        <span class="mj-calc-timeline-week">Week 24</span>
+                    </div>
+                    <div class="mj-calc-timeline-value" id="mj-calc-w24">—</div>
+                    <div class="mj-calc-timeline-label">lost</div>
+                </div>
+                <div class="mj-calc-timeline-item mj-calc-timeline-featured">
+                    <div class="mj-calc-timeline-marker">
+                        <span class="mj-calc-timeline-week">Week 52</span>
+                    </div>
+                    <div class="mj-calc-timeline-value" id="mj-calc-w52">—</div>
+                    <div class="mj-calc-timeline-label">lost</div>
+                </div>
+                <div class="mj-calc-timeline-item">
+                    <div class="mj-calc-timeline-marker">
+                        <span class="mj-calc-timeline-week">Week 72</span>
+                    </div>
+                    <div class="mj-calc-timeline-value" id="mj-calc-w72">—</div>
+                    <div class="mj-calc-timeline-label">lost</div>
+                </div>
+            </div>
+
+            <div class="mj-calc-stats">
+                <div class="mj-calc-stat">
+                    <div class="mj-calc-stat-number">91%</div>
+                    <div class="mj-calc-stat-label">of patients lose 5%+ body weight</div>
+                </div>
+                <div class="mj-calc-stat">
+                    <div class="mj-calc-stat-number">57%</div>
+                    <div class="mj-calc-stat-label">of patients lose 20%+ body weight</div>
+                </div>
+                <div class="mj-calc-stat">
+                    <div class="mj-calc-stat-number">1 in 3</div>
+                    <div class="mj-calc-stat-label">patients lose 25%+ body weight</div>
+                </div>
+            </div>
+
+            <a href="<?php echo $cta_url; ?>" class="mj-calc-cta">
+                <?php echo esc_html( $atts['cta_text'] ); ?>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <p class="mj-calc-disclaimer">
+            <i class="fas fa-info-circle"></i>
+            Results shown are estimates based on average outcomes from the SURMOUNT-1 clinical trial (tirzepatide 15&nbsp;mg, 72-week data). Individual results may vary significantly. Weight loss depends on adherence to treatment, diet, exercise, and individual metabolic factors. This calculator is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before starting any weight loss treatment.
+        </p>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode( 'mounjaro_calculator', 'easy_pharmacy_mounjaro_calculator_shortcode' );
+
