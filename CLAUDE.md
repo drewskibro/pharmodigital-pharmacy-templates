@@ -74,7 +74,7 @@ pharmodigital-pharmacy-templates/
         │   └── [page-name].css       # One CSS file per page template
         ├── js/
         │   ├── mega-menu.js          # Loaded on all pages
-        │   ├── blog.js               # FAQ accordion, pagination scroll
+        │   ├── blog.js               # FAQ accordion, pagination scroll, video modal, calculator
         │   └── [page-name].js        # One JS file per page template
         └── images/
             └── logo.svg              # Default logo fallback
@@ -89,7 +89,7 @@ The home page (`page-templates/page-home.php`) loads 13 sections sequentially:
 1. **Hero** — Headline, CTA buttons, trust badges, testimonial card, Google rating
 2. **Stats** — 5-metric stats bar (patients, rating, years, registration, delivery)
 3. **Treatments** — 5-card grid of popular services
-4. **Pharmacist** — Meet the pharmacist with photo, credentials, video link
+4. **Pharmacist** — Meet the pharmacist with photo, credentials, Vimeo video modal
 5. **How It Works** — 3-step process (Book, Consult, Receive)
 6. **Quick Book** — Floating CTA card with booking prompt
 7. **Switching** — Provider switching benefits with feature boxes
@@ -213,14 +213,13 @@ The single post template (`single.php`) displays articles in a premium editorial
 1. **Article Hero** — Breadcrumb (Home > Health Hub > Category), category badge, reading time, `<h1>` title, excerpt, author avatar + name + role, publication date
 2. **Featured Image** — Conditional (only if post has a featured image). Rounded card with warm terracotta shadow
 3. **Pillar Backlink** — Conditional (only on cluster posts): link back to parent pillar post with "Part of our guide" label
-4. **Article Body** — Main content via `the_content()` with premium typography (h2 with terracotta left border, enlarged first paragraph, warm-styled blockquotes, styled tables/lists)
-5. **Tags** — Tag pills below content
-6. **Clinically Reviewed Block** — E-E-A-T trust block: author avatar + name + role, reviewer avatar + name + GPhC number + verification link, "Last updated" date
-7. **Post Navigation** — Previous / Next article links
-8. **FAQ Section** — Conditional (only if `post_faqs` repeater is populated): numbered accordion with expand/collapse, generates FAQPage schema
-9. **Cluster Hub** — Conditional (only on pillar posts): "In This Series" grid of all cluster posts
+4. **Clinically Reviewed Block** — E-E-A-T trust block positioned **above** the article body for maximum trust signalling: author avatar + name + role, reviewer avatar + name + GPhC number + verification link, "Last updated" date
+5. **Article Body** — Main content via `the_content()` with premium typography (h2 with terracotta left border, enlarged first paragraph, warm-styled blockquotes, styled tables/lists). Tags + post navigation sit below the content
+6. **FAQ Section** — Conditional (only if `post_faqs` repeater is populated): numbered accordion with expand/collapse, generates FAQPage schema
+7. **Cluster Hub** — Conditional (only on pillar posts): "In This Series" grid of all cluster posts
+8. **Social Proof** — Google rating badge + trust headline. Uses shared `.rating-badge` component with pharmacy rating auto-pulled from options
+9. **CTA** — Purple gradient section with booking CTA, trust checks, and phone number
 10. **Related Posts** — 3-card grid of related articles from the same category
-11. **CTA** — Purple gradient section with booking CTA
 
 ### Table of Contents (Auto-Generated)
 
@@ -457,6 +456,9 @@ Hero sections must follow the **warm cream + terracotta** design language establ
 #### Pages Already Using This Pattern
 
 - **Homepage** (`globals.css` hero overrides) — the original reference implementation
+- **Switch Provider** (`switch-provider.css`) — upgraded to warm palette with terracotta CTAs
+- **Weight Loss** (`weight-loss.css`) — redesigned hero typography with warm palette
+- **Travel Health** (`travel-health.css`) — hero image card with floating badges, warm palette
 - **Book Appointment** (`book-appointment.css`) — upgraded to warm palette
 - **Reviewer Profile** (`reviewer-profile.css`) — centred hero with warm cream background, terracotta photo ring, warm shadows
 
@@ -517,6 +519,64 @@ if ( is_single() ) { /* also enqueue */ }
 | `ep_phone_link()` | Digits-only phone for `tel:` links | — |
 | `ep_booking_url()` | Booking page permalink | `/book-appointment/` |
 | `ep_logo_url()` | Logo URL (ACF → theme mod → SVG fallback) | `logo.svg` |
+
+---
+
+## Shortcodes
+
+The theme registers two shortcodes in `functions.php` for use inside blog post content (Gutenberg editor):
+
+### `[vimeo]` — Video Embed
+
+Renders a click-to-play video card with auto-fetched thumbnail (via Vimeo oEmbed API, cached 7 days). Opens in a fullscreen modal overlay.
+
+```
+[vimeo url="https://vimeo.com/123456789" title="Watch our pharmacist explain"]
+```
+
+| Attribute | Required | Default | Description |
+|-----------|----------|---------|-------------|
+| `url` | Yes | — | Vimeo video URL |
+| `title` | No | `'Play video'` | Caption below thumbnail + aria-label |
+
+**CSS:** `.vimeo-embed-card`, `.vimeo-embed-thumbnail`, `.vimeo-embed-overlay` in `blog.css`
+**JS:** `openVideoModal()` / `closeVideoModal()` in `blog.js` — creates/destroys an iframe modal on click
+
+### `[mounjaro_calculator]` — Weight Loss Calculator
+
+Interactive calculator showing projected weight loss based on SURMOUNT-1 clinical trial data (tirzepatide 15 mg, 72-week outcomes). Users enter their weight, and the calculator shows a personalised timeline with 3 milestones (3 months, 6 months, 18 months) plus a single social proof bar.
+
+```
+[mounjaro_calculator cta_url="/book-appointment/" cta_text="Check Your Eligibility"]
+```
+
+| Attribute | Required | Default | Description |
+|-----------|----------|---------|-------------|
+| `cta_url` | No | Booking page URL | CTA button destination |
+| `cta_text` | No | `'Check Your Eligibility'` | CTA button label |
+
+**Design:** Warm cream card with terracotta accents. Results panel shows: headline total loss with count-up animation → before/after weight row → 3-card timeline (featured "Your Goal" card in dark purple) → sage green proof bar ("91% of patients…") → terracotta CTA button.
+
+**CSS:** `.mj-calc-*` classes in `blog.css`
+**JS:** Calculator logic in `blog.js` — `lossByWeek` object with clinical data points, `formatWeight()` for kg/lbs, animated count-up on headline
+
+---
+
+## Custom Image Sizes
+
+The theme registers custom image sizes beyond WordPress defaults:
+
+| Name | Dimensions | Crop | Usage |
+|------|-----------|------|-------|
+| `medium-large` | 720 × auto | No | Blog post content images — between Medium (300px) and Large (1024px) |
+| `treatment-card` | 600 × 400 | Yes | Treatment/service card thumbnails |
+| `health-hub-featured` | 800 × 600 | Yes | Featured article hero image |
+| `health-hub-card` | 600 × 400 | Yes | Blog grid card thumbnails |
+| `pharmacist-photo` | 600 × 750 | Yes | Pharmacist portrait photos |
+
+The `medium-large` size appears in the Gutenberg image block's Resolution dropdown as **"Medium Large (720px)"** via the `image_size_names_choose` filter. This is the recommended size for inline blog images.
+
+**Note:** After adding new image sizes, existing Media Library images need thumbnail regeneration (e.g. via the Regenerate Thumbnails plugin) to create the new size variants.
 
 ---
 
@@ -582,6 +642,8 @@ if ( is_single() ) { /* also enqueue */ }
 - **Image fallbacks:** Template parts gracefully hide image sections when no image is uploaded, or fall back to embeds (e.g. Google Maps iframe)
 - **Component-based:** Each home page section is a standalone template part that can be reused or reordered
 - **Mobile-first:** CSS uses min-width breakpoints throughout; desktop enhancements via `@media (min-width: 1024px)`
+- **Vimeo, not YouTube:** All video embeds use Vimeo. YouTube functionality was removed entirely. The pharmacist section opens a Vimeo modal; blog posts use the `[vimeo]` shortcode. Thumbnails are fetched via Vimeo oEmbed API and cached for 7 days
+- **E-E-A-T first:** The clinically reviewed block sits **above** the article body on single posts (not below), so readers see author/reviewer credentials before reading. Social proof (Google rating) appears after the article content
 
 ---
 
