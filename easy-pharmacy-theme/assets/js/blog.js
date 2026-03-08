@@ -95,38 +95,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // ========================================================================
-  // LITE YOUTUBE EMBED — click to play
-  //
-  // Replaces the HD thumbnail with an iframe when the user clicks play.
-  // Uses youtube-nocookie.com for privacy, enables JS API so the player
-  // can request HD quality on load.
-  // ========================================================================
-  var liteEmbeds = document.querySelectorAll('.ep-video-lite');
-  liteEmbeds.forEach(function (el) {
-    function activate() {
-      if (el.classList.contains('is-active')) return;
-      el.classList.add('is-active');
-
-      var videoId = el.getAttribute('data-video-id');
-      var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId
-        + '?autoplay=1&rel=0&modestbranding=1&hd=1&enablejsapi=1';
-      iframe.width = 1280;
-      iframe.height = 720;
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
-      iframe.title = el.getAttribute('aria-label') || 'YouTube video';
-      el.innerHTML = '';
-      el.appendChild(iframe);
-    }
-
-    el.addEventListener('click', activate);
-    el.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        activate();
-      }
-    });
-  });
 });

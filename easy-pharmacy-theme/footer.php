@@ -201,57 +201,15 @@ $tagline = ep_option( 'footer_tagline', 'Your trusted partner in health and well
   </footer>
 
 <!-- Video Modal -->
-<div class="video-modal" id="videoModal">
-  <div class="video-modal-backdrop"></div>
+<div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Video player">
+  <div class="video-modal-backdrop" onclick="closeVideoModal()"></div>
   <div class="video-modal-container">
-    <button class="video-modal-close" aria-label="Close video">&times;</button>
-    <div class="video-modal-content" id="videoModalContent"></div>
+    <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close video">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="video-modal-player" id="videoModalPlayer"></div>
   </div>
 </div>
-
-<script>
-(function() {
-  var modal = document.getElementById('videoModal');
-  var content = document.getElementById('videoModalContent');
-  var closeBtn = modal.querySelector('.video-modal-close');
-  var backdrop = modal.querySelector('.video-modal-backdrop');
-
-  function getEmbedUrl(url) {
-    var m;
-    // YouTube: various URL formats
-    m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-    if (m) return 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1&rel=0&modestbranding=1&hd=1';
-    // Vimeo
-    m = url.match(/vimeo\.com\/(\d+)/);
-    if (m) return 'https://player.vimeo.com/video/' + m[1] + '?autoplay=1';
-    return null;
-  }
-
-  window.openVideoModal = function(url) {
-    var embedUrl = getEmbedUrl(url);
-    if (embedUrl) {
-      content.innerHTML = '<iframe src="' + embedUrl + '" width="1920" height="1080" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
-    } else {
-      content.innerHTML = '<video src="' + url + '" controls autoplay></video>';
-    }
-    modal.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  function closeModal() {
-    modal.classList.remove('is-open');
-    document.body.style.overflow = '';
-    // Clear content to stop playback
-    setTimeout(function() { content.innerHTML = ''; }, 300);
-  }
-
-  closeBtn.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', closeModal);
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-  });
-})();
-</script>
 
 <?php wp_footer(); ?>
 </body>

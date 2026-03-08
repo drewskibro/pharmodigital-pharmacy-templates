@@ -2580,7 +2580,7 @@ html {
   position: relative;
   border-radius: 2.5rem;
   overflow: hidden;
-  box-shadow: var(--shadow-2xl);
+  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.18);
   border: 4px solid var(--white);
   cursor: pointer;
 }
@@ -2692,7 +2692,7 @@ html {
   font-size: 2.5rem;
   font-weight: 700;
   font-family: var(--font-heading);
-  color: var(--brand-purple);
+  color: #C47A65;
   line-height: 1.1;
   margin-bottom: 0.25rem;
 }
@@ -2791,7 +2791,7 @@ html {
   font-size: 1.25rem;
   font-weight: 700;
   font-family: var(--font-primary);
-  color: var(--brand-purple);
+  color: #C47A65;
   margin-bottom: 1.5rem;
 }
 
@@ -2842,7 +2842,7 @@ html {
 }
 
 .pharmacist-credential i {
-  color: var(--brand-purple);
+  color: #7A9E7E;
   font-size: 1rem;
 }
 
@@ -2857,77 +2857,9 @@ html {
   margin-top: 0;
 }
 
-/* ============================================
-   VIDEO MODAL
-   ============================================ */
-.video-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.video-modal.is-open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.video-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-}
-
-.video-modal-container {
-  position: relative;
-  width: 90vw;
-  max-width: 900px;
-  aspect-ratio: 16 / 9;
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
-}
-
-.video-modal.is-open .video-modal-container {
-  transform: scale(1);
-}
-
-.video-modal-close {
-  position: absolute;
-  top: -2.5rem;
-  right: 0;
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 2rem;
-  cursor: pointer;
-  line-height: 1;
-  padding: 0.25rem 0.5rem;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-.video-modal-close:hover {
-  opacity: 1;
-}
-
-.video-modal-content {
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-  overflow: hidden;
-  background: #000;
-}
-
-.video-modal-content iframe,
-.video-modal-content video {
-  width: 100%;
-  height: 100%;
-  border: 0;
+.pharmacist-cta .primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  box-shadow: 0 10px 25px -3px rgba(196, 122, 101, 0.35);
 }
 
 
@@ -5955,5 +5887,98 @@ html {
 
   .qb-card-service-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   VIDEO MODAL
+   Fullscreen overlay for Vimeo video playback
+   ============================================ */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-modal.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+}
+
+.video-modal-container {
+  position: relative;
+  width: 90vw;
+  max-width: 960px;
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.video-modal.is-active .video-modal-container {
+  transform: scale(1) translateY(0);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  z-index: 10;
+}
+
+.video-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.video-modal-player {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.video-modal-player iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .video-modal-container {
+    width: 95vw;
+    border-radius: 0.75rem;
+  }
+
+  .video-modal-close {
+    top: -2.5rem;
   }
 }
