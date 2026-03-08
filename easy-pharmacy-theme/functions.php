@@ -42,12 +42,23 @@ function easy_pharmacy_setup() {
         'footer-links'    => __( 'Footer Quick Links', 'easy-pharmacy' ),
     ) );
 
+    add_image_size( 'medium-large', 720, 9999, false );
     add_image_size( 'treatment-card', 600, 400, true );
     add_image_size( 'health-hub-featured', 800, 600, true );
     add_image_size( 'health-hub-card', 600, 400, true );
     add_image_size( 'pharmacist-photo', 600, 750, true );
 }
 add_action( 'after_setup_theme', 'easy_pharmacy_setup' );
+
+/**
+ * Add custom "Medium Large" image size to the editor dropdown.
+ */
+function easy_pharmacy_custom_image_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'medium-large' => __( 'Medium Large (720px)', 'easy-pharmacy' ),
+    ) );
+}
+add_filter( 'image_size_names_choose', 'easy_pharmacy_custom_image_sizes' );
 
 /**
  * Enqueue Global Styles & Scripts
