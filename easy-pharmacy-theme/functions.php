@@ -175,6 +175,15 @@ function easy_pharmacy_scripts() {
         EASY_PHARMACY_VERSION,
         true
     );
+
+    // Video Modal JS - Vimeo player modal, loaded on all pages in footer
+    wp_enqueue_script(
+        'easy-pharmacy-video-modal',
+        EASY_PHARMACY_URI . '/assets/js/video-modal.js',
+        array(),
+        EASY_PHARMACY_VERSION,
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'easy_pharmacy_scripts' );
 

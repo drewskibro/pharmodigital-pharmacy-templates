@@ -1485,7 +1485,7 @@ function ep_register_acf_field_groups() {
                 'label'        => 'Video URL',
                 'name'         => 'pharmacist_video_url',
                 'type'         => 'url',
-                'instructions' => 'YouTube or Vimeo URL. Leave blank to hide the play button overlay.',
+                'instructions' => 'Vimeo URL (e.g. https://vimeo.com/123456789). Leave blank to hide the play button overlay.',
             ),
             array(
                 'key'           => 'field_ep_pharmacist_video_label',

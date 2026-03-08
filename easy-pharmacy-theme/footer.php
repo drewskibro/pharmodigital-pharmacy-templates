@@ -200,6 +200,17 @@ $tagline = ep_option( 'footer_tagline', 'Your trusted partner in health and well
     </div>
   </footer>
 
+<!-- Video Modal -->
+<div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Video player">
+  <div class="video-modal-backdrop" onclick="closeVideoModal()"></div>
+  <div class="video-modal-container">
+    <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close video">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="video-modal-player" id="videoModalPlayer"></div>
+  </div>
+</div>
+
 <?php wp_footer(); ?>
 </body>
 </html>
