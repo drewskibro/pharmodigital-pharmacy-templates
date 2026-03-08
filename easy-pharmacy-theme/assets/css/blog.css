@@ -2295,6 +2295,16 @@
   margin: 0 0 0.75rem;
 }
 
+/* Override the global .gradient-text inside the calculator —
+   use solid deep purple to match hero section titles */
+.mj-calc-title .gradient-text {
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #6B4FA0;
+  background-clip: unset;
+  color: #6B4FA0;
+}
+
 .mj-calc-subtitle {
   font-family: var(--font-primary);
   font-size: 0.9375rem;
