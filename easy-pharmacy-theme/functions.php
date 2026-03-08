@@ -803,50 +803,28 @@ function easy_pharmacy_mounjaro_calculator_shortcode( $atts ) {
                 <p class="mj-calc-results-subtext">Based on the average 20.9% total body weight reduction in the SURMOUNT-1 trial (72 weeks, tirzepatide 15&nbsp;mg)</p>
             </div>
 
-            <div class="mj-calc-timeline-label-row">
-                <span>Your journey</span>
-                <span class="mj-calc-timeline-connector"></span>
-            </div>
             <div class="mj-calc-timeline">
                 <div class="mj-calc-timeline-item" data-week="12">
-                    <span class="mj-calc-timeline-week">Week 12</span>
+                    <span class="mj-calc-timeline-week">3 Months</span>
                     <div class="mj-calc-timeline-value" id="mj-calc-w12">—</div>
                     <div class="mj-calc-timeline-sublabel">lighter</div>
                 </div>
                 <div class="mj-calc-timeline-item" data-week="24">
-                    <span class="mj-calc-timeline-week">Week 24</span>
+                    <span class="mj-calc-timeline-week">6 Months</span>
                     <div class="mj-calc-timeline-value" id="mj-calc-w24">—</div>
                     <div class="mj-calc-timeline-sublabel">lighter</div>
                 </div>
-                <div class="mj-calc-timeline-item" data-week="52">
-                    <span class="mj-calc-timeline-week">Week 52</span>
-                    <div class="mj-calc-timeline-value" id="mj-calc-w52">—</div>
-                    <div class="mj-calc-timeline-sublabel">lighter</div>
-                </div>
                 <div class="mj-calc-timeline-item mj-calc-timeline-featured" data-week="72">
-                    <div class="mj-calc-timeline-peak">Peak Results</div>
-                    <span class="mj-calc-timeline-week">Week 72</span>
+                    <div class="mj-calc-timeline-peak"><i class="fas fa-crown"></i> Your Goal</div>
+                    <span class="mj-calc-timeline-week">18 Months</span>
                     <div class="mj-calc-timeline-value" id="mj-calc-w72">—</div>
                     <div class="mj-calc-timeline-sublabel">lighter</div>
                 </div>
             </div>
 
-            <div class="mj-calc-stats">
-                <div class="mj-calc-stat">
-                    <i class="fas fa-chart-line mj-calc-stat-icon"></i>
-                    <div class="mj-calc-stat-number">91%</div>
-                    <div class="mj-calc-stat-label">of patients lost 5%+ of their body weight</div>
-                </div>
-                <div class="mj-calc-stat">
-                    <i class="fas fa-fire mj-calc-stat-icon"></i>
-                    <div class="mj-calc-stat-number">57%</div>
-                    <div class="mj-calc-stat-label">of patients lost 20%+ of their body weight</div>
-                </div>
-                <div class="mj-calc-stat">
-                    <i class="fas fa-trophy mj-calc-stat-icon"></i>
-                    <div class="mj-calc-stat-number">1 in 3</div>
-                    <div class="mj-calc-stat-label">patients lost over a quarter of their body weight</div>
-                </div>
+            <div class="mj-calc-proof-bar">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>91% of patients</strong> on Mounjaro lost clinically significant weight &mdash; SURMOUNT-1 Trial</span>
             </div>
 
             <a href="<?php echo $cta_url; ?>" class="mj-calc-cta">
