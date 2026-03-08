@@ -150,10 +150,9 @@ document.addEventListener('DOMContentLoaded', function () {
       var weightKg = getWeightKg();
       if (weightKg < 40) return;
 
-      // Populate timeline
+      // Populate timeline (3 milestones: 12, 24, 72 weeks)
       document.getElementById('mj-calc-w12').textContent = formatWeight(weightKg * lossByWeek[12]);
       document.getElementById('mj-calc-w24').textContent = formatWeight(weightKg * lossByWeek[24]);
-      document.getElementById('mj-calc-w52').textContent = formatWeight(weightKg * lossByWeek[52]);
       document.getElementById('mj-calc-w72').textContent = formatWeight(weightKg * lossByWeek[72]);
 
       // Total headline with count-up animation
