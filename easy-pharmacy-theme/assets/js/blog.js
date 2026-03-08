@@ -124,6 +124,28 @@ document.addEventListener('DOMContentLoaded', function () {
     // SURMOUNT-1 loss percentages by week (tirzepatide 15 mg, approximate curve)
     var lossByWeek = { 12: 0.075, 24: 0.135, 52: 0.195, 72: 0.209 };
 
+    // Animated count-up for the headline number
+    function animateValue(el, targetText) {
+      // Extract the numeric part for animation
+      var match = targetText.match(/([\d.]+)/);
+      if (!match) { el.textContent = targetText; return; }
+      var targetNum = parseFloat(match[1]);
+      var suffix = targetText.replace(match[1], '');
+      var duration = 800;
+      var start = performance.now();
+
+      function tick(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        // Ease out cubic
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = (targetNum * eased).toFixed(1);
+        el.textContent = current + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = targetText;
+      }
+      requestAnimationFrame(tick);
+    }
+
     function calculate() {
       var weightKg = getWeightKg();
       if (weightKg < 40) return;
@@ -134,8 +156,15 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('mj-calc-w52').textContent = formatWeight(weightKg * lossByWeek[52]);
       document.getElementById('mj-calc-w72').textContent = formatWeight(weightKg * lossByWeek[72]);
 
-      // Total headline
-      document.getElementById('mj-calc-total-loss').textContent = formatWeight(weightKg * lossByWeek[72]);
+      // Total headline with count-up animation
+      var totalEl = document.getElementById('mj-calc-total-loss');
+      animateValue(totalEl, formatWeight(weightKg * lossByWeek[72]));
+
+      // Before → After weight row
+      var fromEl = document.getElementById('mj-calc-from');
+      var toEl = document.getElementById('mj-calc-to');
+      if (fromEl) fromEl.textContent = formatWeight(weightKg);
+      if (toEl) toEl.textContent = formatWeight(weightKg * (1 - lossByWeek[72]));
 
       // Show results
       mjResults.classList.add('visible');
