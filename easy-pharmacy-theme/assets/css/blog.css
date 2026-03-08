@@ -2018,17 +2018,17 @@
    ============================================ */
 /* ============================================
    CONSULTATION CLOSER
-   Bookends the clinically reviewed block at the
-   top — mirrors its warm card style for the CTA
+   Appended inside the_content() via filter —
+   sits at the end of the article body text,
+   bookending the clinically reviewed block.
    ============================================ */
-
-.article-closer-section {
-  padding: 0 0 3rem;
-}
 
 /* --- Card wrapper (mirrors .article-fact-check) --- */
 
 .article-closer-card {
+  margin-top: 3rem;
+  font-size: 1rem;
+  line-height: 1.5;
   background: #fff;
   border-radius: 1.25rem;
   border: 1px solid rgba(196, 122, 101, 0.12);
@@ -2245,9 +2245,9 @@
   justify-content: center;
   gap: 0.75rem;
   margin-top: 1.25rem;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .article-closer-compliance-pill {
