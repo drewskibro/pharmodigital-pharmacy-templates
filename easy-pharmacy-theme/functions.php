@@ -750,11 +750,11 @@ function easy_pharmacy_mounjaro_calculator_shortcode( $atts ) {
     <div class="mj-calc" id="mj-calc">
         <div class="mj-calc-header">
             <div class="mj-calc-badge">
-                <i class="fas fa-weight-scale"></i>
-                Weight Loss Calculator
+                <i class="fas fa-bolt"></i>
+                Takes 10 Seconds
             </div>
-            <h3 class="mj-calc-title">Discover What <span class="gradient-text">Mounjaro Could Do</span> for You</h3>
-            <p class="mj-calc-subtitle">Personalised projections based on SURMOUNT-1 clinical trial data</p>
+            <h3 class="mj-calc-title">How Much Could <span class="mj-calc-title-accent">You</span> Lose?</h3>
+            <p class="mj-calc-subtitle">Enter your weight below &mdash; results are instant and private</p>
         </div>
 
         <div class="mj-calc-form">
