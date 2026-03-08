@@ -750,16 +750,16 @@ function easy_pharmacy_mounjaro_calculator_shortcode( $atts ) {
     <div class="mj-calc" id="mj-calc">
         <div class="mj-calc-header">
             <div class="mj-calc-badge">
-                <span class="pulse-dot"></span>
+                <i class="fas fa-weight-scale"></i>
                 Weight Loss Calculator
             </div>
-            <h3 class="mj-calc-title">See Your <span class="gradient-text">Potential Results</span> with Mounjaro</h3>
-            <p class="mj-calc-subtitle">Based on SURMOUNT-1 clinical trial data for tirzepatide 15&nbsp;mg</p>
+            <h3 class="mj-calc-title">Discover What <span class="gradient-text">Mounjaro Could Do</span> for You</h3>
+            <p class="mj-calc-subtitle">Personalised projections based on SURMOUNT-1 clinical trial data</p>
         </div>
 
         <div class="mj-calc-form">
             <div class="mj-calc-input-group">
-                <label class="mj-calc-label" for="mj-calc-weight">Your Current Weight</label>
+                <label class="mj-calc-label" for="mj-calc-weight">Enter your current weight</label>
                 <div class="mj-calc-unit-toggle" role="radiogroup" aria-label="Weight unit">
                     <button type="button" class="mj-calc-unit active" data-unit="kg" aria-pressed="true">kg</button>
                     <button type="button" class="mj-calc-unit" data-unit="st" aria-pressed="false">stone</button>
@@ -791,56 +791,61 @@ function easy_pharmacy_mounjaro_calculator_shortcode( $atts ) {
 
         <div class="mj-calc-results" id="mj-calc-results" aria-live="polite">
             <div class="mj-calc-results-header">
+                <div class="mj-calc-results-eyebrow">Your Projected Transformation</div>
                 <div class="mj-calc-results-headline">
-                    You could lose up to
                     <span class="mj-calc-highlight" id="mj-calc-total-loss">—</span>
                 </div>
-                <p class="mj-calc-results-subtext">Based on the average 20.9% body weight reduction observed in SURMOUNT-1</p>
+                <div class="mj-calc-results-weight-row">
+                    <span class="mj-calc-from-weight"><i class="fas fa-arrow-down"></i> <span id="mj-calc-from">—</span></span>
+                    <span class="mj-calc-arrow">→</span>
+                    <span class="mj-calc-to-weight"><i class="fas fa-check-circle"></i> <span id="mj-calc-to">—</span></span>
+                </div>
+                <p class="mj-calc-results-subtext">Based on the average 20.9% total body weight reduction in the SURMOUNT-1 trial (72 weeks, tirzepatide 15&nbsp;mg)</p>
             </div>
 
+            <div class="mj-calc-timeline-label-row">
+                <span>Your journey</span>
+                <span class="mj-calc-timeline-connector"></span>
+            </div>
             <div class="mj-calc-timeline">
-                <div class="mj-calc-timeline-item">
-                    <div class="mj-calc-timeline-marker">
-                        <span class="mj-calc-timeline-week">Week 12</span>
-                    </div>
+                <div class="mj-calc-timeline-item" data-week="12">
+                    <span class="mj-calc-timeline-week">Week 12</span>
                     <div class="mj-calc-timeline-value" id="mj-calc-w12">—</div>
-                    <div class="mj-calc-timeline-label">lost</div>
+                    <div class="mj-calc-timeline-sublabel">lighter</div>
                 </div>
-                <div class="mj-calc-timeline-item">
-                    <div class="mj-calc-timeline-marker">
-                        <span class="mj-calc-timeline-week">Week 24</span>
-                    </div>
+                <div class="mj-calc-timeline-item" data-week="24">
+                    <span class="mj-calc-timeline-week">Week 24</span>
                     <div class="mj-calc-timeline-value" id="mj-calc-w24">—</div>
-                    <div class="mj-calc-timeline-label">lost</div>
+                    <div class="mj-calc-timeline-sublabel">lighter</div>
                 </div>
-                <div class="mj-calc-timeline-item mj-calc-timeline-featured">
-                    <div class="mj-calc-timeline-marker">
-                        <span class="mj-calc-timeline-week">Week 52</span>
-                    </div>
+                <div class="mj-calc-timeline-item" data-week="52">
+                    <span class="mj-calc-timeline-week">Week 52</span>
                     <div class="mj-calc-timeline-value" id="mj-calc-w52">—</div>
-                    <div class="mj-calc-timeline-label">lost</div>
+                    <div class="mj-calc-timeline-sublabel">lighter</div>
                 </div>
-                <div class="mj-calc-timeline-item">
-                    <div class="mj-calc-timeline-marker">
-                        <span class="mj-calc-timeline-week">Week 72</span>
-                    </div>
+                <div class="mj-calc-timeline-item mj-calc-timeline-featured" data-week="72">
+                    <div class="mj-calc-timeline-peak">Peak Results</div>
+                    <span class="mj-calc-timeline-week">Week 72</span>
                     <div class="mj-calc-timeline-value" id="mj-calc-w72">—</div>
-                    <div class="mj-calc-timeline-label">lost</div>
+                    <div class="mj-calc-timeline-sublabel">lighter</div>
                 </div>
             </div>
 
             <div class="mj-calc-stats">
                 <div class="mj-calc-stat">
+                    <i class="fas fa-chart-line mj-calc-stat-icon"></i>
                     <div class="mj-calc-stat-number">91%</div>
-                    <div class="mj-calc-stat-label">of patients lose 5%+ body weight</div>
+                    <div class="mj-calc-stat-label">of patients lost 5%+ of their body weight</div>
                 </div>
                 <div class="mj-calc-stat">
+                    <i class="fas fa-fire mj-calc-stat-icon"></i>
                     <div class="mj-calc-stat-number">57%</div>
-                    <div class="mj-calc-stat-label">of patients lose 20%+ body weight</div>
+                    <div class="mj-calc-stat-label">of patients lost 20%+ of their body weight</div>
                 </div>
                 <div class="mj-calc-stat">
+                    <i class="fas fa-trophy mj-calc-stat-icon"></i>
                     <div class="mj-calc-stat-number">1 in 3</div>
-                    <div class="mj-calc-stat-label">patients lose 25%+ body weight</div>
+                    <div class="mj-calc-stat-label">patients lost over a quarter of their body weight</div>
                 </div>
             </div>
 
