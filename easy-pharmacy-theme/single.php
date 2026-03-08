@@ -396,29 +396,66 @@ $last_modified = get_the_modified_date( 'M j, Y' );
   </section>
 
   <!-- ============================================
-       ARTICLE CTA SECTION
+       CONSULTATION CLOSER (bookends the clinically reviewed block)
        ============================================ -->
-  <section class="article-cta-section">
-    <div class="article-cta-dots"></div>
+  <section class="article-closer-section">
     <div class="section-container">
-      <div class="article-cta-content">
-        <h2 class="article-cta-title">Ready to Take the Next Step?</h2>
-        <p class="article-cta-description">Book your consultation with <?php echo esc_html( ep_pharmacy_name() ); ?>'s clinical team in <?php echo esc_html( ep_option( 'pharmacy_town', 'Ashford' ) ); ?></p>
-        <div class="article-cta-trust">
-          <span class="article-cta-trust-item"><i class="fas fa-check-circle"></i> Same-Day Appointments</span>
-          <span class="article-cta-trust-item"><i class="fas fa-check-circle"></i> No GP Referral Needed</span>
-          <span class="article-cta-trust-item"><i class="fas fa-check-circle"></i> Expert Clinical Team</span>
+
+      <!-- Part A: Consultation Card -->
+      <div class="article-closer-card">
+        <div class="article-closer-header">
+          <i class="fas fa-calendar-check"></i>
+          <span>Your Next Step</span>
         </div>
-        <div class="article-cta-actions">
-          <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button primary-cta article-cta-button">
-            Book Your Consultation
-            <i class="fas fa-arrow-right"></i>
-          </a>
-          <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="article-cta-phone">
-            Or call <?php echo esc_html( ep_phone() ); ?>
-          </a>
+
+        <div class="article-closer-body">
+          <!-- Left: Pharmacist -->
+          <div class="article-closer-pharmacist">
+            <?php if ( $reviewer_avatar ) : ?>
+              <img src="<?php echo esc_url( $reviewer_avatar ); ?>" alt="<?php echo esc_attr( $reviewer_name ); ?>" class="article-closer-avatar" />
+            <?php endif; ?>
+            <div class="article-closer-pharmacist-info">
+              <span class="article-closer-pharmacist-label">Your consultation with</span>
+              <span class="article-closer-pharmacist-name"><?php echo esc_html( $reviewer_name ); ?></span>
+              <span class="article-closer-pharmacist-role"><?php echo esc_html( $author_role ); ?> &middot; Independent Prescriber</span>
+              <?php if ( $reviewer_gphc ) : ?>
+                <span class="article-closer-pharmacist-gphc"><i class="fas fa-shield-halved"></i> GPhC: <?php echo esc_html( $reviewer_gphc ); ?></span>
+              <?php endif; ?>
+            </div>
+          </div>
+
+          <!-- Right: CTA -->
+          <div class="article-closer-action">
+            <h2 class="article-closer-title">Ready to take the next step?</h2>
+            <p class="article-closer-description">Book your consultation with <?php echo esc_html( ep_pharmacy_name() ); ?> in <?php echo esc_html( ep_option( 'pharmacy_town', 'Ashford' ) ); ?>. Same-day and next-day appointments usually available.</p>
+            <div class="article-closer-buttons">
+              <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button primary-cta article-closer-book">
+                Book with <?php echo esc_html( explode( ' ', $reviewer_name )[0] ); ?>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="article-closer-phone">
+                <i class="fas fa-phone"></i>
+                <?php echo esc_html( ep_phone() ); ?>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust row -->
+        <div class="article-closer-trust">
+          <span class="article-closer-trust-item"><i class="fas fa-check-circle"></i> Same-Day Appointments</span>
+          <span class="article-closer-trust-item"><i class="fas fa-check-circle"></i> No GP Referral Needed</span>
+          <span class="article-closer-trust-item"><i class="fas fa-check-circle"></i> Face-to-Face Consultations</span>
         </div>
       </div>
+
+      <!-- Part B: Compliance Footer -->
+      <div class="article-closer-compliance">
+        <span class="article-closer-compliance-pill"><i class="fas fa-shield-halved"></i> GPhC Registered Pharmacy</span>
+        <span class="article-closer-compliance-pill"><i class="fas fa-prescription"></i> Prescription-Only Medicine</span>
+        <span class="article-closer-compliance-pill"><i class="fas fa-user-doctor"></i> Clinical Criteria Apply</span>
+      </div>
+
     </div>
   </section>
 
