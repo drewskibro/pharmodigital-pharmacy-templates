@@ -2709,5 +2709,371 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // E-SERIES: TRAVEL HEALTH PAGE FIELDS
+    // =========================================================================
+
+    $th_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-travel-health.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // E1. Travel Health — Hero Section (Pattern B Dark)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_th_hero',
+        'title'    => 'Travel Health — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_th_hero_badge', 'label' => 'Badge Text', 'name' => 'th_hero_badge', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH SERVICES' ),
+            array( 'key' => 'field_dp_th_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'th_hero_title_line1', 'type' => 'text', 'default_value' => 'Denton\'s Leading' ),
+            array( 'key' => 'field_dp_th_hero_title_line2', 'label' => 'Title Line 2 (accent)', 'name' => 'th_hero_title_line2', 'type' => 'text', 'default_value' => 'Travel Clinic' ),
+            array( 'key' => 'field_dp_th_hero_description', 'label' => 'Description', 'name' => 'th_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Expert travel vaccinations and health advice for your next adventure. Book your appointment at our Denton travel clinic with Ahmed.' ),
+            array( 'key' => 'field_dp_th_hero_cta_text', 'label' => 'Primary CTA Text', 'name' => 'th_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Appointment' ),
+            array( 'key' => 'field_dp_th_hero_cta_url', 'label' => 'Primary CTA URL', 'name' => 'th_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page.' ),
+            array(
+                'key'           => 'field_dp_th_hero_bg_image',
+                'label'         => 'Background Image',
+                'name'          => 'th_hero_bg_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Full-width hero background. Recommended: 1920x900px.',
+            ),
+            array( 'key' => 'field_dp_th_trust_1', 'label' => 'Trust Badge 1', 'name' => 'th_trust_1', 'type' => 'text', 'default_value' => 'Yellow Fever Centre' ),
+            array( 'key' => 'field_dp_th_trust_2', 'label' => 'Trust Badge 2', 'name' => 'th_trust_2', 'type' => 'text', 'default_value' => 'All Travel Vaccinations' ),
+            array( 'key' => 'field_dp_th_trust_3', 'label' => 'Trust Badge 3', 'name' => 'th_trust_3', 'type' => 'text', 'default_value' => 'Expert Travel Advice' ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 500,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E2. Travel Health — Stats Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_th_stats',
+        'title'    => 'Travel Health — Stats Bar',
+        'fields'   => array(
+            array( 'key' => 'field_dp_th_stat_1_icon', 'label' => 'Stat 1 — Icon', 'name' => 'th_stat_1_icon', 'type' => 'text', 'default_value' => 'fas fa-shield-virus', 'instructions' => 'Font Awesome class.', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_dp_th_stat_1_number', 'label' => 'Stat 1 — Number', 'name' => 'th_stat_1_number', 'type' => 'text', 'default_value' => 'Official', 'wrapper' => array( 'width' => '35' ) ),
+            array( 'key' => 'field_dp_th_stat_1_label', 'label' => 'Stat 1 — Label', 'name' => 'th_stat_1_label', 'type' => 'text', 'default_value' => 'Yellow Fever Centre', 'wrapper' => array( 'width' => '35' ) ),
+            array( 'key' => 'field_dp_th_stat_2_icon', 'label' => 'Stat 2 — Icon', 'name' => 'th_stat_2_icon', 'type' => 'text', 'default_value' => 'fas fa-passport', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_dp_th_stat_2_number', 'label' => 'Stat 2 — Number', 'name' => 'th_stat_2_number', 'type' => 'text', 'default_value' => '1,000+', 'wrapper' => array( 'width' => '35' ) ),
+            array( 'key' => 'field_dp_th_stat_2_label', 'label' => 'Stat 2 — Label', 'name' => 'th_stat_2_label', 'type' => 'text', 'default_value' => 'Travellers Protected', 'wrapper' => array( 'width' => '35' ) ),
+            array( 'key' => 'field_dp_th_stat_3_icon', 'label' => 'Stat 3 — Icon', 'name' => 'th_stat_3_icon', 'type' => 'text', 'default_value' => 'fas fa-award', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_dp_th_stat_3_number', 'label' => 'Stat 3 — Number', 'name' => 'th_stat_3_number', 'type' => 'text', 'default_value' => '15+', 'wrapper' => array( 'width' => '35' ) ),
+            array( 'key' => 'field_dp_th_stat_3_label', 'label' => 'Stat 3 — Label', 'name' => 'th_stat_3_label', 'type' => 'text', 'default_value' => 'Years Experience', 'wrapper' => array( 'width' => '35' ) ),
+            array( 'key' => 'field_dp_th_stat_4_icon', 'label' => 'Stat 4 — Icon', 'name' => 'th_stat_4_icon', 'type' => 'text', 'default_value' => 'fas fa-shield-halved', 'wrapper' => array( 'width' => '30' ) ),
+            array( 'key' => 'field_dp_th_stat_4_number', 'label' => 'Stat 4 — Number', 'name' => 'th_stat_4_number', 'type' => 'text', 'default_value' => 'GPhC', 'wrapper' => array( 'width' => '35' ) ),
+            array( 'key' => 'field_dp_th_stat_4_label', 'label' => 'Stat 4 — Label', 'name' => 'th_stat_4_label', 'type' => 'text', 'default_value' => 'Registered', 'wrapper' => array( 'width' => '35' ) ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 501,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E3. Travel Health — Services Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_th_services',
+        'title'    => 'Travel Health — Services Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_th_services_badge', 'label' => 'Badge Text', 'name' => 'th_services_badge', 'type' => 'text', 'default_value' => 'COMPREHENSIVE TRAVEL HEALTH' ),
+            array( 'key' => 'field_dp_th_services_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'th_services_title_highlight', 'type' => 'text', 'default_value' => 'Everything you need' ),
+            array( 'key' => 'field_dp_th_services_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_services_title_rest', 'type' => 'text', 'default_value' => 'for safe travel' ),
+            array( 'key' => 'field_dp_th_services_description', 'label' => 'Description', 'name' => 'th_services_description', 'type' => 'text', 'default_value' => 'From expert consultations to all vaccinations and official certificates' ),
+            array(
+                'key'          => 'field_dp_th_services',
+                'label'        => 'Service Cards',
+                'name'         => 'th_services',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 8,
+                'button_label' => 'Add Service',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_th_svc_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_th_svc_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '70' ) ),
+                    array( 'key' => 'field_dp_th_svc_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'           => 'field_dp_th_svc_image',
+                        'label'         => 'Card Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'instructions'  => 'Recommended: 600x400px.',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 502,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E4. Travel Health — Vaccinations Grid
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_th_vaccinations',
+        'title'    => 'Travel Health — Vaccinations Grid',
+        'fields'   => array(
+            array( 'key' => 'field_dp_th_vaccines_badge', 'label' => 'Badge Text', 'name' => 'th_vaccines_badge', 'type' => 'text', 'default_value' => 'ALL VACCINATIONS' ),
+            array( 'key' => 'field_dp_th_vaccines_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'th_vaccines_title_highlight', 'type' => 'text', 'default_value' => 'Available' ),
+            array( 'key' => 'field_dp_th_vaccines_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_vaccines_title_rest', 'type' => 'text', 'default_value' => 'Vaccinations' ),
+            array(
+                'key'          => 'field_dp_th_vaccinations',
+                'label'        => 'Vaccinations',
+                'name'         => 'th_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 20,
+                'button_label' => 'Add Vaccination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_th_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class.', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_th_vax_name', 'label' => 'Vaccination Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                    array(
+                        'key'           => 'field_dp_th_vax_featured',
+                        'label'         => 'Featured?',
+                        'name'          => 'is_featured',
+                        'type'          => 'true_false',
+                        'default_value' => 0,
+                        'ui'            => 1,
+                        'instructions'  => 'Yellow gradient card styling.',
+                        'wrapper'       => array( 'width' => '15' ),
+                    ),
+                    array( 'key' => 'field_dp_th_vax_badge', 'label' => 'Badge Text', 'name' => 'badge', 'type' => 'text', 'instructions' => 'Optional, e.g. "Official Centre".', 'wrapper' => array( 'width' => '15' ) ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 503,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E5. Travel Health — Why Choose Us
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_th_why',
+        'title'    => 'Travel Health — Why Choose Us',
+        'fields'   => array(
+            array( 'key' => 'field_dp_th_why_badge', 'label' => 'Badge Text', 'name' => 'th_why_badge', 'type' => 'text', 'default_value' => 'WHY CHOOSE US' ),
+            array( 'key' => 'field_dp_th_why_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'th_why_title_highlight', 'type' => 'text', 'default_value' => 'Why choose our' ),
+            array( 'key' => 'field_dp_th_why_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_why_title_rest', 'type' => 'text', 'default_value' => 'Denton travel clinic?' ),
+            array(
+                'key'           => 'field_dp_th_why_image',
+                'label'         => 'Pharmacist Image',
+                'name'          => 'th_why_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Portrait photo. Recommended: 600x700px. Falls back to global pharmacist image.',
+            ),
+            array( 'key' => 'field_dp_th_why_image_alt', 'label' => 'Image Alt Text', 'name' => 'th_why_image_alt', 'type' => 'text', 'default_value' => 'Expert pharmacist at Denton Pharmacy' ),
+            array( 'key' => 'field_dp_th_why_badge_number', 'label' => 'Experience Badge — Number', 'name' => 'th_why_badge_number', 'type' => 'text', 'default_value' => '15+ Years' ),
+            array( 'key' => 'field_dp_th_why_badge_label', 'label' => 'Experience Badge — Label', 'name' => 'th_why_badge_label', 'type' => 'text', 'default_value' => 'Experience' ),
+            array(
+                'key'          => 'field_dp_th_why_cards',
+                'label'        => 'Feature Cards',
+                'name'         => 'th_why_cards',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Feature',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_th_why_card_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class.', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_th_why_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '70' ) ),
+                    array( 'key' => 'field_dp_th_why_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 504,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E6. Travel Health — Process Steps
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_th_process',
+        'title'    => 'Travel Health — Process Steps',
+        'fields'   => array(
+            array( 'key' => 'field_dp_th_process_badge', 'label' => 'Badge Text', 'name' => 'th_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
+            array( 'key' => 'field_dp_th_process_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'th_process_title_highlight', 'type' => 'text', 'default_value' => 'Your travel clinic' ),
+            array( 'key' => 'field_dp_th_process_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_process_title_rest', 'type' => 'text', 'default_value' => 'Denton journey' ),
+            array(
+                'key'          => 'field_dp_th_process_steps',
+                'label'        => 'Process Steps',
+                'name'         => 'th_process_steps',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Step',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_th_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '50' ) ),
+                    array( 'key' => 'field_dp_th_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3, 'wrapper' => array( 'width' => '50' ) ),
+                    array( 'key' => 'field_dp_th_step_meta_icon', 'label' => 'Meta Icon', 'name' => 'meta_icon', 'type' => 'text', 'instructions' => 'Font Awesome class.', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_th_step_meta_text', 'label' => 'Meta Text', 'name' => 'meta_text', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                    array(
+                        'key'           => 'field_dp_th_step_image',
+                        'label'         => 'Step Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'instructions'  => 'Recommended: 600x500px.',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 505,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E7. Travel Health — Popular Destinations
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_th_destinations',
+        'title'    => 'Travel Health — Popular Destinations',
+        'fields'   => array(
+            array( 'key' => 'field_dp_th_destinations_badge', 'label' => 'Badge Text', 'name' => 'th_destinations_badge', 'type' => 'text', 'default_value' => 'POPULAR DESTINATIONS' ),
+            array( 'key' => 'field_dp_th_destinations_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'th_destinations_title_highlight', 'type' => 'text', 'default_value' => 'Travelling to' ),
+            array( 'key' => 'field_dp_th_destinations_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_destinations_title_rest', 'type' => 'text', 'default_value' => 'these destinations?' ),
+            array(
+                'key'          => 'field_dp_th_destinations',
+                'label'        => 'Destinations',
+                'name'         => 'th_destinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 12,
+                'button_label' => 'Add Destination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_th_dest_name', 'label' => 'Destination Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array(
+                        'key'           => 'field_dp_th_dest_image',
+                        'label'         => 'Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'instructions'  => 'Recommended: 400x500px portrait.',
+                        'wrapper'       => array( 'width' => '40' ),
+                    ),
+                    array( 'key' => 'field_dp_th_dest_url', 'label' => 'Link URL', 'name' => 'url', 'type' => 'url', 'instructions' => 'Link to destination-specific travel page.', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 506,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E8. Travel Health — FAQ Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_th_faq',
+        'title'    => 'Travel Health — FAQ Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_th_faq_badge', 'label' => 'Badge Text', 'name' => 'th_faq_badge', 'type' => 'text', 'default_value' => 'FREQUENTLY ASKED QUESTIONS' ),
+            array( 'key' => 'field_dp_th_faq_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'th_faq_title_highlight', 'type' => 'text', 'default_value' => 'Travel health' ),
+            array( 'key' => 'field_dp_th_faq_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_faq_title_rest', 'type' => 'text', 'default_value' => 'questions answered' ),
+            array(
+                'key'          => 'field_dp_th_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'th_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 20,
+                'button_label' => 'Add FAQ',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_th_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_th_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 4 ),
+                ),
+            ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 507,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // E9. Travel Health — Final CTA Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_th_final_cta',
+        'title'    => 'Travel Health — Final CTA Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_th_cta_badge_1', 'label' => 'Badge 1', 'name' => 'th_cta_badge_1', 'type' => 'text', 'default_value' => 'Yellow Fever Centre' ),
+            array( 'key' => 'field_dp_th_cta_badge_2', 'label' => 'Badge 2', 'name' => 'th_cta_badge_2', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_dp_th_cta_badge_3', 'label' => 'Badge 3', 'name' => 'th_cta_badge_3', 'type' => 'text', 'default_value' => 'Same Day Service' ),
+            array( 'key' => 'field_dp_th_cta_title', 'label' => 'Title', 'name' => 'th_cta_title', 'type' => 'text', 'default_value' => 'Ready to protect your travels?' ),
+            array( 'key' => 'field_dp_th_cta_description', 'label' => 'Description', 'name' => 'th_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Don\'t let health worries spoil your adventure. Book your comprehensive travel health consultation with Denton Pharmacy today.' ),
+            array( 'key' => 'field_dp_th_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'th_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Travel Health Appointment' ),
+            array( 'key' => 'field_dp_th_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'th_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page.' ),
+            array( 'key' => 'field_dp_th_cta_check_1', 'label' => 'Check Item 1', 'name' => 'th_cta_check_1', 'type' => 'text', 'default_value' => 'Flexible appointments' ),
+            array( 'key' => 'field_dp_th_cta_check_2', 'label' => 'Check Item 2', 'name' => 'th_cta_check_2', 'type' => 'text', 'default_value' => 'Expert advice' ),
+            array( 'key' => 'field_dp_th_cta_check_3', 'label' => 'Check Item 3', 'name' => 'th_cta_check_3', 'type' => 'text', 'default_value' => 'Official certificates' ),
+        ),
+        'location'              => $th_location,
+        'menu_order'            => 508,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );
