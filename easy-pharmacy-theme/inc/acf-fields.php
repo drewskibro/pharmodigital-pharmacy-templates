@@ -47,7 +47,7 @@ function ep_register_acf_field_groups() {
                 'label'         => 'Pharmacy Logo',
                 'name'          => 'pharmacy_logo',
                 'type'          => 'image',
-                'return_format' => 'url',
+                'return_format' => 'id',
                 'preview_size'  => 'medium',
                 'library'       => 'all',
                 'instructions'  => 'Upload your pharmacy logo. Recommended: SVG or PNG with transparent background, at least 200px wide.',

@@ -262,9 +262,9 @@ function ep_fa_class( $icon_class ) {
  * Helper: Get the pharmacy logo URL
  */
 function ep_logo_url() {
-    $custom_logo = ep_option( 'pharmacy_logo' );
-    if ( $custom_logo ) {
-        return is_array( $custom_logo ) ? $custom_logo['url'] : $custom_logo;
+    $logo_id = ep_option( 'pharmacy_logo' );
+    if ( $logo_id ) {
+        return wp_get_attachment_image_url( $logo_id, 'full' );
     }
     $custom_logo_id = get_theme_mod( 'custom_logo' );
     if ( $custom_logo_id ) {
