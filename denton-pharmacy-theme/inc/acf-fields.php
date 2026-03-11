@@ -2140,5 +2140,234 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // C-SERIES: BLOG / HEALTH HUB FIELDS
+    // =========================================================================
+
+    // -------------------------------------------------------------------------
+    // C1. Blog Post Fields
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_blog_post',
+        'title'  => 'Blog — Post Fields',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_blog_reading_time',
+                'label'         => 'Reading Time (minutes)',
+                'name'          => 'reading_time',
+                'type'          => 'number',
+                'instructions'  => 'Leave blank to auto-calculate from word count.',
+                'default_value' => '',
+                'min'           => 1,
+                'max'           => 60,
+            ),
+            array(
+                'key'           => 'field_dp_blog_article_author',
+                'label'         => 'Article Author',
+                'name'          => 'article_author',
+                'type'          => 'text',
+                'instructions'  => 'Override the default WP author name for this post.',
+            ),
+            array(
+                'key'           => 'field_dp_blog_author_photo',
+                'label'         => 'Author Photo',
+                'name'          => 'author_photo',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'thumbnail',
+                'instructions'  => 'Override the author avatar for this post. Falls back to pharmacist image.',
+            ),
+            array(
+                'key'           => 'field_dp_blog_reviewer_photo',
+                'label'         => 'Reviewer Photo',
+                'name'          => 'reviewer_photo',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'thumbnail',
+                'instructions'  => 'Override the reviewer avatar for this post. Falls back to pharmacist image.',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'post',
+                ),
+            ),
+        ),
+        'menu_order'            => 300,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // C1b. Table of Contents (sidebar)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_post_toc',
+        'title'  => 'Table of Contents',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_post_show_toc',
+                'label'         => 'Show Table of Contents',
+                'name'          => 'show_table_of_contents',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+                'instructions'  => 'Auto-generated from H2/H3 headings. Disable to hide the TOC on this post.',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'post',
+                ),
+            ),
+        ),
+        'menu_order'            => 310,
+        'position'              => 'side',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // C2. Pillar / Cluster
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_pillar_cluster',
+        'title'  => 'Blog — Pillar / Cluster',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_blog_is_pillar',
+                'label'         => 'Is Pillar Post?',
+                'name'          => 'is_pillar_post',
+                'type'          => 'true_false',
+                'default_value' => 0,
+                'ui'            => 1,
+                'instructions'  => 'Mark this as a pillar post to link cluster articles below.',
+            ),
+            array(
+                'key'               => 'field_dp_blog_cluster_posts',
+                'label'             => 'Cluster Posts',
+                'name'              => 'cluster_posts',
+                'type'              => 'relationship',
+                'post_type'         => array( 'post' ),
+                'filters'           => array( 'search', 'taxonomy' ),
+                'return_format'     => 'id',
+                'min'               => 0,
+                'max'               => 20,
+                'instructions'      => 'Select posts that belong to this pillar content series.',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_dp_blog_is_pillar',
+                            'operator' => '==',
+                            'value'    => '1',
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'key'               => 'field_dp_blog_cluster_title',
+                'label'             => 'Cluster Section Title',
+                'name'              => 'cluster_section_title',
+                'type'              => 'text',
+                'default_value'     => 'In This Series',
+                'instructions'      => 'Heading above the cluster articles grid on pillar posts.',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field'    => 'field_dp_blog_is_pillar',
+                            'operator' => '==',
+                            'value'    => '1',
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'post',
+                ),
+            ),
+        ),
+        'menu_order'            => 320,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // C3. Post FAQs
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_post_faq',
+        'title'  => 'Blog — FAQs',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_post_faq_title',
+                'label'         => 'FAQ Section Title',
+                'name'          => 'post_faq_title',
+                'type'          => 'text',
+                'default_value' => 'Frequently Asked Questions',
+            ),
+            array(
+                'key'          => 'field_dp_post_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'post_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'min'          => 0,
+                'max'          => 20,
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_dp_post_faq_question',
+                        'label' => 'Question',
+                        'name'  => 'question',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_dp_post_faq_answer',
+                        'label' => 'Answer',
+                        'name'  => 'answer',
+                        'type'  => 'wysiwyg',
+                        'tabs'  => 'all',
+                        'toolbar' => 'full',
+                        'media_upload' => 0,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'post',
+                ),
+            ),
+        ),
+        'menu_order'            => 330,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );
