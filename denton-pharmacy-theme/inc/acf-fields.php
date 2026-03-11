@@ -4465,5 +4465,202 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // SERIES J: TEAM PAGE (J1–J5)
+    // =========================================================================
+    $team_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-team.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // J1. Team — Hero
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_team_hero',
+        'title'    => 'Team — Hero',
+        'fields'   => array(
+            array( 'key' => 'field_dp_team_hero_badge', 'label' => 'Badge Text', 'name' => 'team_hero_badge', 'type' => 'text', 'default_value' => 'MEET THE EXPERTS' ),
+            array( 'key' => 'field_dp_team_hero_title1', 'label' => 'Title Line 1', 'name' => 'team_hero_title_line1', 'type' => 'text', 'default_value' => 'Your Health,' ),
+            array( 'key' => 'field_dp_team_hero_highlight', 'label' => 'Title Highlight', 'name' => 'team_hero_title_highlight', 'type' => 'text', 'default_value' => 'Our Passion', 'instructions' => 'Displayed with gradient text effect' ),
+            array( 'key' => 'field_dp_team_hero_desc', 'label' => 'Description', 'name' => 'team_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'We are a dedicated team of experienced clinicians committed to the health of Denton. Combining over 15 years of expertise with a modern, personal approach to care.' ),
+        ),
+        'location'              => $team_location,
+        'menu_order'            => 1000,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // J2. Team — Stats Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_team_stats',
+        'title'    => 'Team — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'        => 'field_dp_team_stats',
+                'label'      => 'Stats',
+                'name'       => 'team_stats',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'min'        => 0,
+                'max'        => 6,
+                'button_label' => 'Add Stat',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_team_stat_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fa-calendar-check', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_team_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_team_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'              => $team_location,
+        'menu_order'            => 1001,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // J3. Team — Team Members
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_team_members',
+        'title'    => 'Team — Team Members',
+        'fields'   => array(
+            array(
+                'key'        => 'field_dp_team_members',
+                'label'      => 'Team Members',
+                'name'       => 'team_members',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 10,
+                'button_label' => 'Add Team Member',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_team_member_image', 'label' => 'Photo', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+                    array( 'key' => 'field_dp_team_member_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_team_member_role', 'label' => 'Role', 'name' => 'role', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_team_member_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'instructions' => 'Overlay badge on photo, e.g. Lead Pharmacist' ),
+                    array(
+                        'key'     => 'field_dp_team_member_badge_type',
+                        'label'   => 'Badge Type',
+                        'name'    => 'badge_type',
+                        'type'    => 'select',
+                        'choices' => array(
+                            'founder'  => 'Founder (gradient)',
+                            'director' => 'Director (white)',
+                            'senior'   => 'Senior (glassmorphic)',
+                        ),
+                        'default_value' => 'founder',
+                    ),
+                    array(
+                        'key'        => 'field_dp_team_member_creds',
+                        'label'      => 'Credentials',
+                        'name'       => 'credentials',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'min'        => 0,
+                        'max'        => 5,
+                        'button_label' => 'Add Credential',
+                        'sub_fields' => array(
+                            array( 'key' => 'field_dp_team_member_cred', 'label' => 'Credential', 'name' => 'credential', 'type' => 'text' ),
+                        ),
+                    ),
+                    array( 'key' => 'field_dp_team_member_bio', 'label' => 'Bio', 'name' => 'bio', 'type' => 'textarea', 'rows' => 3 ),
+                    array(
+                        'key'        => 'field_dp_team_member_specs',
+                        'label'      => 'Specialties',
+                        'name'       => 'specialties',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'min'        => 0,
+                        'max'        => 6,
+                        'button_label' => 'Add Specialty',
+                        'sub_fields' => array(
+                            array( 'key' => 'field_dp_team_member_spec', 'label' => 'Specialty', 'name' => 'specialty', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $team_location,
+        'menu_order'            => 1002,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // J4. Team — Values
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_team_values',
+        'title'    => 'Team — Values',
+        'fields'   => array(
+            array( 'key' => 'field_dp_team_values_badge', 'label' => 'Badge Text', 'name' => 'team_values_badge', 'type' => 'text', 'default_value' => 'OUR PHILOSOPHY' ),
+            array( 'key' => 'field_dp_team_values_title', 'label' => 'Title', 'name' => 'team_values_title', 'type' => 'text', 'default_value' => 'What Drives Us' ),
+            array( 'key' => 'field_dp_team_values_desc', 'label' => 'Description', 'name' => 'team_values_description', 'type' => 'text', 'default_value' => 'The principles that guide every consultation' ),
+            array(
+                'key'        => 'field_dp_team_values',
+                'label'      => 'Values',
+                'name'       => 'team_values',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'min'        => 0,
+                'max'        => 6,
+                'button_label' => 'Add Value',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_team_value_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fa-heart' ),
+                    array( 'key' => 'field_dp_team_value_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_team_value_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $team_location,
+        'menu_order'            => 1003,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // J5. Team — Final CTA
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_team_cta',
+        'title'    => 'Team — Final CTA',
+        'fields'   => array(
+            array( 'key' => 'field_dp_team_cta_badge1', 'label' => 'Badge 1', 'name' => 'team_cta_badge_1', 'type' => 'text', 'default_value' => '15+ Years Experience' ),
+            array( 'key' => 'field_dp_team_cta_badge2', 'label' => 'Badge 2', 'name' => 'team_cta_badge_2', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
+            array( 'key' => 'field_dp_team_cta_badge3', 'label' => 'Badge 3', 'name' => 'team_cta_badge_3', 'type' => 'text', 'default_value' => 'Patient-First Care' ),
+            array( 'key' => 'field_dp_team_cta_title', 'label' => 'Title', 'name' => 'team_cta_title', 'type' => 'text', 'default_value' => 'Experience the Denton Pharmacy Difference' ),
+            array( 'key' => 'field_dp_team_cta_desc', 'label' => 'Description', 'name' => 'team_cta_description', 'type' => 'text', 'default_value' => 'Book your consultation with our experienced Denton team today. Personal care, professional expertise.' ),
+            array( 'key' => 'field_dp_team_cta_url', 'label' => 'CTA URL', 'name' => 'team_cta_url', 'type' => 'url', 'default_value' => '/book-appointment/' ),
+            array( 'key' => 'field_dp_team_cta_btn', 'label' => 'CTA Button Text', 'name' => 'team_cta_button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+        ),
+        'location'              => $team_location,
+        'menu_order'            => 1004,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );
