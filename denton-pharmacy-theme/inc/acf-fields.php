@@ -3800,5 +3800,375 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // H. SWITCH PROVIDER PAGE FIELDS
+    // =========================================================================
+
+    $sp_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-switch-provider.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // H1. Switch Provider — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_sp_hero',
+        'title'    => 'Switch Provider — Hero Section',
+        'fields'   => array(
+            array(
+                'key'           => 'field_dp_switch_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'sp_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'SWITCH TO DENTON PHARMACY',
+            ),
+            array(
+                'key'           => 'field_dp_switch_hero_title_line1',
+                'label'         => 'Title Line 1 (gradient)',
+                'name'          => 'sp_hero_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Frustrated with',
+            ),
+            array(
+                'key'           => 'field_dp_switch_hero_title_line2',
+                'label'         => 'Title Line 2 (accent)',
+                'name'          => 'sp_hero_title_line2',
+                'type'          => 'text',
+                'default_value' => 'Your Current',
+            ),
+            array(
+                'key'           => 'field_dp_switch_hero_title_line3',
+                'label'         => 'Title Line 3 (gradient)',
+                'name'          => 'sp_hero_title_line3',
+                'type'          => 'text',
+                'default_value' => 'Weight Loss Provider?',
+            ),
+            array(
+                'key'           => 'field_dp_switch_hero_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'sp_hero_subtitle',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Switch to Denton Pharmacy for expert care, transparent pricing, and ongoing pharmacist support. No waiting lists.',
+            ),
+            array( 'key' => 'field_dp_switch_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'sp_hero_cta_text', 'type' => 'text', 'default_value' => 'Start Your Switch Today' ),
+            array( 'key' => 'field_dp_switch_hero_cta_url', 'label' => 'CTA Button URL', 'name' => 'sp_hero_cta_url', 'type' => 'text', 'default_value' => '#comparison' ),
+            array( 'key' => 'field_dp_switch_hero_trust_1', 'label' => 'Trust Pill 1', 'name' => 'sp_hero_trust_1', 'type' => 'text', 'default_value' => 'Zero gap in treatment' ),
+            array( 'key' => 'field_dp_switch_hero_trust_2', 'label' => 'Trust Pill 2', 'name' => 'sp_hero_trust_2', 'type' => 'text', 'default_value' => 'Same Day Appointments' ),
+            array(
+                'key'           => 'field_dp_switch_hero_image',
+                'label'         => 'Hero Image',
+                'name'          => 'sp_hero_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Upload a hero image. Default: stock photo of patient with pharmacist.',
+            ),
+            array( 'key' => 'field_dp_switch_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'sp_hero_image_alt', 'type' => 'text', 'default_value' => 'Happy patient consulting with pharmacist at Denton Pharmacy' ),
+            array( 'key' => 'field_dp_switch_hero_price_label', 'label' => 'Price Badge Label', 'name' => 'sp_hero_price_label', 'type' => 'text', 'default_value' => 'From' ),
+            array( 'key' => 'field_dp_switch_hero_price_amount', 'label' => 'Price Badge Amount', 'name' => 'sp_hero_price_amount', 'type' => 'text', 'default_value' => '£125/mo' ),
+            array( 'key' => 'field_dp_switch_hero_price_note', 'label' => 'Price Badge Note', 'name' => 'sp_hero_price_note', 'type' => 'text', 'default_value' => 'All-inclusive' ),
+            array(
+                'key'           => 'field_dp_switch_hero_testimonial_text',
+                'label'         => 'Testimonial Quote',
+                'name'          => 'sp_hero_testimonial_text',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => '"Ahmed genuinely cares about your progress. The face-to-face support makes all the difference."',
+            ),
+            array( 'key' => 'field_dp_switch_hero_testimonial_name', 'label' => 'Testimonial Author', 'name' => 'sp_hero_testimonial_name', 'type' => 'text', 'default_value' => 'Denton Patient' ),
+            array( 'key' => 'field_dp_switch_hero_testimonial_result', 'label' => 'Testimonial Result Badge', 'name' => 'sp_hero_testimonial_result', 'type' => 'text', 'default_value' => '3 Stone Lost' ),
+        ),
+        'location'              => $sp_location,
+        'menu_order'            => 800,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H2. Switch Provider — Stats Bar (individual fields × 4)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_sp_stats',
+        'title'    => 'Switch Provider — Stats Bar',
+        'fields'   => array(
+            // Stat 1
+            array( 'key' => 'field_dp_switch_stat_1_icon', 'label' => 'Stat 1 Icon', 'name' => 'sp_stat_1_icon', 'type' => 'text', 'default_value' => 'fa-weight-scale', 'instructions' => 'Font Awesome class, e.g. fa-weight-scale' ),
+            array( 'key' => 'field_dp_switch_stat_1_number', 'label' => 'Stat 1 Number', 'name' => 'sp_stat_1_number', 'type' => 'text', 'default_value' => '2.5st' ),
+            array( 'key' => 'field_dp_switch_stat_1_label', 'label' => 'Stat 1 Label', 'name' => 'sp_stat_1_label', 'type' => 'text', 'default_value' => 'Avg Loss' ),
+            // Stat 2
+            array( 'key' => 'field_dp_switch_stat_2_icon', 'label' => 'Stat 2 Icon', 'name' => 'sp_stat_2_icon', 'type' => 'text', 'default_value' => 'fa-users' ),
+            array( 'key' => 'field_dp_switch_stat_2_number', 'label' => 'Stat 2 Number', 'name' => 'sp_stat_2_number', 'type' => 'text', 'default_value' => 'Hundreds' ),
+            array( 'key' => 'field_dp_switch_stat_2_label', 'label' => 'Stat 2 Label', 'name' => 'sp_stat_2_label', 'type' => 'text', 'default_value' => 'Patients Switched' ),
+            // Stat 3
+            array( 'key' => 'field_dp_switch_stat_3_icon', 'label' => 'Stat 3 Icon', 'name' => 'sp_stat_3_icon', 'type' => 'text', 'default_value' => 'fa-star' ),
+            array( 'key' => 'field_dp_switch_stat_3_number', 'label' => 'Stat 3 Number', 'name' => 'sp_stat_3_number', 'type' => 'text', 'default_value' => '4.9/5' ),
+            array( 'key' => 'field_dp_switch_stat_3_label', 'label' => 'Stat 3 Label', 'name' => 'sp_stat_3_label', 'type' => 'text', 'default_value' => 'Google Rating' ),
+            // Stat 4
+            array( 'key' => 'field_dp_switch_stat_4_icon', 'label' => 'Stat 4 Icon', 'name' => 'sp_stat_4_icon', 'type' => 'text', 'default_value' => 'fa-location-dot' ),
+            array( 'key' => 'field_dp_switch_stat_4_number', 'label' => 'Stat 4 Number', 'name' => 'sp_stat_4_number', 'type' => 'text', 'default_value' => 'Denton' ),
+            array( 'key' => 'field_dp_switch_stat_4_label', 'label' => 'Stat 4 Label', 'name' => 'sp_stat_4_label', 'type' => 'text', 'default_value' => 'Based Care' ),
+        ),
+        'location'              => $sp_location,
+        'menu_order'            => 801,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H3. Switch Provider — Comparison Section (3-card grid)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_sp_comparison',
+        'title'    => 'Switch Provider — Comparison Section',
+        'fields'   => array(
+            // Header
+            array( 'key' => 'field_dp_switch_compare_badge', 'label' => 'Section Badge', 'name' => 'sp_compare_badge', 'type' => 'text', 'default_value' => 'THE DENTON PHARMACY DIFFERENCE' ),
+            array( 'key' => 'field_dp_switch_compare_title', 'label' => 'Section Title', 'name' => 'sp_compare_title', 'type' => 'text', 'default_value' => 'Compare Your Options' ),
+            array( 'key' => 'field_dp_switch_compare_description', 'label' => 'Section Description', 'name' => 'sp_compare_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'See the difference face-to-face care makes for your weight loss journey' ),
+            // Card 1: Problem
+            array( 'key' => 'field_dp_switch_card1_tab', 'label' => 'Card 1: National Providers', 'type' => 'tab' ),
+            array( 'key' => 'field_dp_switch_card1_icon', 'label' => 'Icon Class', 'name' => 'sp_card1_icon', 'type' => 'text', 'default_value' => 'fas fa-laptop' ),
+            array( 'key' => 'field_dp_switch_card1_badge', 'label' => 'Badge', 'name' => 'sp_card1_badge', 'type' => 'text', 'default_value' => 'ONLINE ONLY' ),
+            array( 'key' => 'field_dp_switch_card1_title', 'label' => 'Title', 'name' => 'sp_card1_title', 'type' => 'text', 'default_value' => 'National Providers' ),
+            array( 'key' => 'field_dp_switch_card1_subtitle', 'label' => 'Subtitle', 'name' => 'sp_card1_subtitle', 'type' => 'text', 'default_value' => 'Remote-only weight loss services' ),
+            array( 'key' => 'field_dp_switch_card1_price', 'label' => 'Price', 'name' => 'sp_card1_price', 'type' => 'text', 'default_value' => '£250+' ),
+            array( 'key' => 'field_dp_switch_card1_price_period', 'label' => 'Price Period', 'name' => 'sp_card1_price_period', 'type' => 'text', 'default_value' => '/month' ),
+            array( 'key' => 'field_dp_switch_card1_price_note', 'label' => 'Price Note', 'name' => 'sp_card1_price_note', 'type' => 'text', 'default_value' => 'Plus hidden consultation fees' ),
+            array( 'key' => 'field_dp_switch_card1_footer', 'label' => 'Footer Text', 'name' => 'sp_card1_footer', 'type' => 'text', 'default_value' => 'What you\'re leaving behind' ),
+            array(
+                'key'           => 'field_dp_switch_card1_features',
+                'label'         => 'Negative Features',
+                'name'          => 'sp_card1_features',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 8,
+                'layout'        => 'table',
+                'button_label'  => 'Add Feature',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_dp_switch_card1_f_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            // Card 2: Denton Pharmacy
+            array( 'key' => 'field_dp_switch_card2_tab', 'label' => 'Card 2: Denton Pharmacy', 'type' => 'tab' ),
+            array( 'key' => 'field_dp_switch_card2_recommended', 'label' => 'Recommended Badge', 'name' => 'sp_card2_recommended', 'type' => 'text', 'default_value' => 'RECOMMENDED' ),
+            array( 'key' => 'field_dp_switch_card2_icon', 'label' => 'Icon Class', 'name' => 'sp_card2_icon', 'type' => 'text', 'default_value' => 'fas fa-heart-pulse' ),
+            array( 'key' => 'field_dp_switch_card2_badge', 'label' => 'Badge', 'name' => 'sp_card2_badge', 'type' => 'text', 'default_value' => 'DENTON BASED' ),
+            array( 'key' => 'field_dp_switch_card2_title', 'label' => 'Title', 'name' => 'sp_card2_title', 'type' => 'text', 'default_value' => 'Denton Pharmacy' ),
+            array( 'key' => 'field_dp_switch_card2_subtitle', 'label' => 'Subtitle', 'name' => 'sp_card2_subtitle', 'type' => 'text', 'default_value' => 'Face-to-face weight loss care' ),
+            array( 'key' => 'field_dp_switch_card2_price', 'label' => 'Price', 'name' => 'sp_card2_price', 'type' => 'text', 'default_value' => 'From £125' ),
+            array( 'key' => 'field_dp_switch_card2_price_period', 'label' => 'Price Period', 'name' => 'sp_card2_price_period', 'type' => 'text', 'default_value' => '/month' ),
+            array( 'key' => 'field_dp_switch_card2_price_note', 'label' => 'Price Note', 'name' => 'sp_card2_price_note', 'type' => 'text', 'default_value' => 'All-inclusive with face-to-face support' ),
+            array( 'key' => 'field_dp_switch_card2_cta_text', 'label' => 'CTA Button Text', 'name' => 'sp_card2_cta_text', 'type' => 'text', 'default_value' => 'Make The Switch' ),
+            array(
+                'key'           => 'field_dp_switch_card2_features',
+                'label'         => 'Positive Features',
+                'name'          => 'sp_card2_features',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 8,
+                'layout'        => 'table',
+                'button_label'  => 'Add Feature',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_dp_switch_card2_f_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            // Card 3: Benefits
+            array( 'key' => 'field_dp_switch_card3_tab', 'label' => 'Card 3: Benefits', 'type' => 'tab' ),
+            array( 'key' => 'field_dp_switch_card3_icon', 'label' => 'Icon Class', 'name' => 'sp_card3_icon', 'type' => 'text', 'default_value' => 'fas fa-trophy' ),
+            array( 'key' => 'field_dp_switch_card3_badge', 'label' => 'Badge', 'name' => 'sp_card3_badge', 'type' => 'text', 'default_value' => 'YOUR BENEFITS' ),
+            array( 'key' => 'field_dp_switch_card3_title', 'label' => 'Title', 'name' => 'sp_card3_title', 'type' => 'text', 'default_value' => 'What You Gain' ),
+            array( 'key' => 'field_dp_switch_card3_subtitle', 'label' => 'Subtitle', 'name' => 'sp_card3_subtitle', 'type' => 'text', 'default_value' => 'The Denton Pharmacy advantage' ),
+            array( 'key' => 'field_dp_switch_card3_value_title', 'label' => 'Value Title', 'name' => 'sp_card3_value_title', 'type' => 'text', 'default_value' => 'Better Value' ),
+            array( 'key' => 'field_dp_switch_card3_value_subtitle', 'label' => 'Value Subtitle', 'name' => 'sp_card3_value_subtitle', 'type' => 'text', 'default_value' => 'Competitive pricing' ),
+            array( 'key' => 'field_dp_switch_card3_cta_text', 'label' => 'CTA Button Text', 'name' => 'sp_card3_cta_text', 'type' => 'text', 'default_value' => 'Meet the Team' ),
+            array(
+                'key'           => 'field_dp_switch_card3_features',
+                'label'         => 'Benefit Features',
+                'name'          => 'sp_card3_features',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 8,
+                'layout'        => 'table',
+                'button_label'  => 'Add Feature',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_dp_switch_card3_f_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $sp_location,
+        'menu_order'            => 802,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H4. Switch Provider — Evidence / Comparison Detail Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_sp_evidence',
+        'title'    => 'Switch Provider — Evidence Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_switch_evidence_badge', 'label' => 'Badge Text', 'name' => 'sp_evidence_badge', 'type' => 'text', 'default_value' => 'PROVEN RESULTS' ),
+            array( 'key' => 'field_dp_switch_evidence_title_line1', 'label' => 'Title Line 1 (gradient)', 'name' => 'sp_evidence_title_line1', 'type' => 'text', 'default_value' => 'Real data.' ),
+            array( 'key' => 'field_dp_switch_evidence_title_line2', 'label' => 'Title Line 2 (accent)', 'name' => 'sp_evidence_title_line2', 'type' => 'text', 'default_value' => 'Real results.' ),
+            array( 'key' => 'field_dp_switch_evidence_subtitle', 'label' => 'Subtitle', 'name' => 'sp_evidence_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Evidence-based care with measurable outcomes from hundreds of Denton patients' ),
+            array(
+                'key'           => 'field_dp_switch_evidence_cards',
+                'label'         => 'Evidence Cards',
+                'name'          => 'sp_evidence_cards',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 9,
+                'layout'        => 'block',
+                'button_label'  => 'Add Evidence Card',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_dp_switch_ev_number', 'label' => 'Stat Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_switch_ev_label', 'label' => 'Stat Label', 'name' => 'label', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_switch_ev_description', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $sp_location,
+        'menu_order'            => 803,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H5. Switch Provider — Benefits Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_sp_benefits',
+        'title'    => 'Switch Provider — Benefits Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_switch_benefits_badge', 'label' => 'Badge Text', 'name' => 'sp_benefits_badge', 'type' => 'text', 'default_value' => 'WHY SWITCH' ),
+            array( 'key' => 'field_dp_switch_benefits_title_line1', 'label' => 'Title Line 1 (gradient)', 'name' => 'sp_benefits_title_line1', 'type' => 'text', 'default_value' => 'The Benefits of' ),
+            array( 'key' => 'field_dp_switch_benefits_title_line2', 'label' => 'Title Line 2 (accent)', 'name' => 'sp_benefits_title_line2', 'type' => 'text', 'default_value' => ' Switching' ),
+            array( 'key' => 'field_dp_switch_benefits_description', 'label' => 'Description', 'name' => 'sp_benefits_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Discover why patients across Greater Manchester are choosing Denton Pharmacy for their weight loss care' ),
+            array(
+                'key'           => 'field_dp_switch_benefits',
+                'label'         => 'Benefit Cards',
+                'name'          => 'sp_benefits',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 9,
+                'layout'        => 'block',
+                'button_label'  => 'Add Benefit',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_dp_switch_benefit_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'instructions' => 'Font Awesome class, e.g. fas fa-user-doctor' ),
+                    array( 'key' => 'field_dp_switch_benefit_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_switch_benefit_description', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $sp_location,
+        'menu_order'            => 804,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H6. Switch Provider — Process Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_sp_process',
+        'title'    => 'Switch Provider — How To Switch',
+        'fields'   => array(
+            array( 'key' => 'field_dp_switch_process_badge', 'label' => 'Badge Text', 'name' => 'sp_process_badge', 'type' => 'text', 'default_value' => 'HOW TO SWITCH' ),
+            array( 'key' => 'field_dp_switch_process_title_line1', 'label' => 'Title Line 1 (gradient)', 'name' => 'sp_process_title_line1', 'type' => 'text', 'default_value' => 'Make The Switch' ),
+            array( 'key' => 'field_dp_switch_process_title_line2', 'label' => 'Title Line 2 (accent)', 'name' => 'sp_process_title_line2', 'type' => 'text', 'default_value' => ' Today' ),
+            array( 'key' => 'field_dp_switch_process_description', 'label' => 'Description', 'name' => 'sp_process_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Switch to Denton Pharmacy in under 5 minutes. Better support, better value, better results.' ),
+            array(
+                'key'           => 'field_dp_switch_process_steps',
+                'label'         => 'Process Steps',
+                'name'          => 'sp_process_steps',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 6,
+                'layout'        => 'block',
+                'button_label'  => 'Add Step',
+                'instructions'  => 'Each step shows as a numbered tab and a content card with optional image.',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_dp_switch_ps_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_switch_ps_description', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array( 'key' => 'field_dp_switch_ps_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'library' => 'all' ),
+                ),
+            ),
+            // What's Included box
+            array( 'key' => 'field_dp_switch_included_tab', 'label' => 'What\'s Included Box', 'type' => 'tab' ),
+            array( 'key' => 'field_dp_switch_included_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'sp_included_eyebrow', 'type' => 'text', 'default_value' => 'Your complete switching package' ),
+            array( 'key' => 'field_dp_switch_included_title', 'label' => 'Title', 'name' => 'sp_included_title', 'type' => 'text', 'default_value' => 'What\'s Included' ),
+            array(
+                'key'           => 'field_dp_switch_included_items',
+                'label'         => 'Included Items',
+                'name'          => 'sp_included_items',
+                'type'          => 'repeater',
+                'min'           => 0,
+                'max'           => 10,
+                'layout'        => 'table',
+                'button_label'  => 'Add Item',
+                'sub_fields'    => array(
+                    array( 'key' => 'field_dp_switch_ii_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_dp_switch_included_cta_text', 'label' => 'CTA Button Text', 'name' => 'sp_included_cta_text', 'type' => 'text', 'default_value' => 'Start Your Switch' ),
+            array( 'key' => 'field_dp_switch_included_cta_url', 'label' => 'CTA Button URL', 'name' => 'sp_included_cta_url', 'type' => 'text', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'              => $sp_location,
+        'menu_order'            => 805,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // H7. Switch Provider — Final CTA Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_sp_cta',
+        'title'    => 'Switch Provider — Final CTA',
+        'fields'   => array(
+            array( 'key' => 'field_dp_switch_cta_title_line1', 'label' => 'Title Line 1', 'name' => 'sp_cta_title_line1', 'type' => 'text', 'default_value' => 'Ready to Make' ),
+            array( 'key' => 'field_dp_switch_cta_title_line2', 'label' => 'Title Line 2', 'name' => 'sp_cta_title_line2', 'type' => 'text', 'default_value' => ' the Switch?' ),
+            array( 'key' => 'field_dp_switch_cta_description', 'label' => 'Description', 'name' => 'sp_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join hundreds of patients who\'ve chosen local, expert care over faceless online providers.' ),
+            array( 'key' => 'field_dp_switch_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'sp_cta_button_text', 'type' => 'text', 'default_value' => 'Start Your Switch Today' ),
+            array( 'key' => 'field_dp_switch_cta_check_1', 'label' => 'Check 1', 'name' => 'sp_cta_check_1', 'type' => 'text', 'default_value' => 'No waiting list' ),
+            array( 'key' => 'field_dp_switch_cta_check_2', 'label' => 'Check 2', 'name' => 'sp_cta_check_2', 'type' => 'text', 'default_value' => 'Same-day approval' ),
+            array( 'key' => 'field_dp_switch_cta_check_3', 'label' => 'Check 3', 'name' => 'sp_cta_check_3', 'type' => 'text', 'default_value' => 'Transparent pricing' ),
+        ),
+        'location'              => $sp_location,
+        'menu_order'            => 806,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );
