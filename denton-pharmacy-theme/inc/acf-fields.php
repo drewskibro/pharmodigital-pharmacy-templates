@@ -4662,5 +4662,760 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+    // =========================================================================
+    // SERIES K: VACCINATION PAGES (K1–K10)
+    // K1–K9 shared across Rabies, Hepatitis, Typhoid (vaccine_* fields)
+    // K10 for Yellow Fever only (yf_* fields)
+    // =========================================================================
+    $vaccine_location = array(
+        array(
+            array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-rabies.php' ),
+        ),
+        array(
+            array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-hepatitis.php' ),
+        ),
+        array(
+            array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-typhoid.php' ),
+        ),
+    );
+
+    $yf_location = array(
+        array(
+            array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-yellow-fever.php' ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // K1. Vaccination — Hero
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_vaccine_hero',
+        'title'    => 'Vaccination — Hero',
+        'fields'   => array(
+            array( 'key' => 'field_dp_vaccine_name', 'label' => 'Vaccine Name', 'name' => 'vaccine_name', 'type' => 'text', 'instructions' => 'e.g. Rabies, Hepatitis, Typhoid' ),
+            array( 'key' => 'field_dp_vaccine_parent_url', 'label' => 'Parent Page URL', 'name' => 'vaccine_parent_url', 'type' => 'url', 'default_value' => '/travel-health/' ),
+            array( 'key' => 'field_dp_vaccine_hero_image', 'label' => 'Hero Background Image', 'name' => 'vaccine_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_dp_vaccine_hero_label', 'label' => 'Hero Label', 'name' => 'vaccine_hero_label', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH PROTECTION' ),
+            array( 'key' => 'field_dp_vaccine_hero_title', 'label' => 'Hero Title', 'name' => 'vaccine_hero_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_hero_desc', 'label' => 'Hero Description', 'name' => 'vaccine_hero_description', 'type' => 'textarea', 'rows' => 3 ),
+            array( 'key' => 'field_dp_vaccine_cta_url', 'label' => 'CTA URL', 'name' => 'vaccine_cta_url', 'type' => 'url', 'default_value' => '/book-appointment/' ),
+            array( 'key' => 'field_dp_vaccine_cta_text', 'label' => 'CTA Button Text', 'name' => 'vaccine_cta_text', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_phone', 'label' => 'Phone (digits)', 'name' => 'vaccine_phone', 'type' => 'text', 'default_value' => '01613362548' ),
+            array( 'key' => 'field_dp_vaccine_phone_display', 'label' => 'Phone (display)', 'name' => 'vaccine_phone_display', 'type' => 'text', 'default_value' => 'Call 0161 336 2548' ),
+            array(
+                'key'          => 'field_dp_vaccine_hero_badges',
+                'label'        => 'Hero Badges',
+                'name'         => 'vaccine_hero_badges',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 5,
+                'button_label' => 'Add Badge',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_vaccine_hero_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $vaccine_location,
+        'menu_order'            => 1100,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K2. Vaccination — Protection Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_vaccine_protect',
+        'title'    => 'Vaccination — Protection',
+        'fields'   => array(
+            array( 'key' => 'field_dp_vaccine_protect_badge', 'label' => 'Badge Text', 'name' => 'vaccine_protect_badge', 'type' => 'text', 'default_value' => 'ESSENTIAL PROTECTION' ),
+            array( 'key' => 'field_dp_vaccine_protect_title', 'label' => 'Title', 'name' => 'vaccine_protect_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_protect_desc', 'label' => 'Description', 'name' => 'vaccine_protect_desc', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_protect_image', 'label' => 'Image', 'name' => 'vaccine_protect_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_dp_vaccine_protect_image_alt', 'label' => 'Image Alt', 'name' => 'vaccine_protect_image_alt', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_protect_nametag_name', 'label' => 'Nametag Name', 'name' => 'vaccine_protect_nametag_name', 'type' => 'text', 'default_value' => 'Expert Care' ),
+            array( 'key' => 'field_dp_vaccine_protect_nametag_role', 'label' => 'Nametag Role', 'name' => 'vaccine_protect_nametag_role', 'type' => 'text', 'default_value' => 'Travel Health Team' ),
+            array( 'key' => 'field_dp_vaccine_protect_highlight', 'label' => 'Highlight Text', 'name' => 'vaccine_protect_highlight', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_protect_subtitle', 'label' => 'Subtitle', 'name' => 'vaccine_protect_subtitle', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_protect_text', 'label' => 'Body Text', 'name' => 'vaccine_protect_text', 'type' => 'textarea', 'rows' => 4 ),
+            array(
+                'key'          => 'field_dp_vaccine_protect_features',
+                'label'        => 'Features',
+                'name'         => 'vaccine_protect_features',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Feature',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_vaccine_pf_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class' ),
+                    array( 'key' => 'field_dp_vaccine_pf_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_vaccine_pf_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $vaccine_location,
+        'menu_order'            => 1101,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K3. Vaccination — Stats Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_vaccine_stats',
+        'title'    => 'Vaccination — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'          => 'field_dp_vaccine_stats',
+                'label'        => 'Stats',
+                'name'         => 'vaccine_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_vaccine_stat_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_vaccine_stat_num', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_vaccine_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'              => $vaccine_location,
+        'menu_order'            => 1102,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K4. Vaccination — About Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_vaccine_about',
+        'title'    => 'Vaccination — About',
+        'fields'   => array(
+            array( 'key' => 'field_dp_vaccine_about_badge', 'label' => 'Badge Text', 'name' => 'vaccine_about_badge', 'type' => 'text', 'default_value' => 'KNOW THE RISKS' ),
+            array( 'key' => 'field_dp_vaccine_about_title', 'label' => 'Title', 'name' => 'vaccine_about_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_about_desc', 'label' => 'Description', 'name' => 'vaccine_about_desc', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_about_image', 'label' => 'Image', 'name' => 'vaccine_about_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_dp_vaccine_about_image_alt', 'label' => 'Image Alt', 'name' => 'vaccine_about_image_alt', 'type' => 'text' ),
+            array(
+                'key'          => 'field_dp_vaccine_about_cards',
+                'label'        => 'Info Cards',
+                'name'         => 'vaccine_about_cards',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Card',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_vaccine_ac_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_vaccine_ac_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_vaccine_ac_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+            array( 'key' => 'field_dp_vaccine_callout_badge', 'label' => 'Callout Badge', 'name' => 'vaccine_callout_badge', 'type' => 'text', 'default_value' => 'CRITICAL WARNING' ),
+            array( 'key' => 'field_dp_vaccine_callout_title', 'label' => 'Callout Title', 'name' => 'vaccine_callout_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_callout_text', 'label' => 'Callout Text', 'name' => 'vaccine_callout_text', 'type' => 'textarea', 'rows' => 3 ),
+        ),
+        'location'              => $vaccine_location,
+        'menu_order'            => 1103,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K5. Vaccination — Who Needs It
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_vaccine_needs',
+        'title'    => 'Vaccination — Who Needs It',
+        'fields'   => array(
+            array( 'key' => 'field_dp_vaccine_needs_badge', 'label' => 'Badge Text', 'name' => 'vaccine_needs_badge', 'type' => 'text', 'default_value' => 'WHO NEEDS VACCINATION' ),
+            array( 'key' => 'field_dp_vaccine_needs_title', 'label' => 'Title', 'name' => 'vaccine_needs_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_needs_desc', 'label' => 'Description', 'name' => 'vaccine_needs_desc', 'type' => 'text' ),
+            array(
+                'key'          => 'field_dp_vaccine_needs_cards',
+                'label'        => 'Needs Cards',
+                'name'         => 'vaccine_needs_cards',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Card',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_vaccine_nc_type', 'label' => 'Type', 'name' => 'type', 'type' => 'select', 'choices' => array( 'recommended' => 'Recommended (green)', 'consider' => 'Consider (amber)', 'required' => 'Required (red)' ), 'default_value' => 'recommended' ),
+                    array( 'key' => 'field_dp_vaccine_nc_badge', 'label' => 'Badge', 'name' => 'badge', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_vaccine_nc_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_vaccine_nc_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'          => 'field_dp_vaccine_nc_items',
+                        'label'        => 'Checklist Items',
+                        'name'         => 'items',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'min'          => 0,
+                        'max'          => 6,
+                        'button_label' => 'Add Item',
+                        'sub_fields'   => array(
+                            array( 'key' => 'field_dp_vaccine_nc_item_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $vaccine_location,
+        'menu_order'            => 1104,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K6. Vaccination — Risk Zones
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_vaccine_risk',
+        'title'    => 'Vaccination — Risk Zones',
+        'fields'   => array(
+            array( 'key' => 'field_dp_vaccine_risk_badge', 'label' => 'Badge Text', 'name' => 'vaccine_risk_badge', 'type' => 'text', 'default_value' => 'GLOBAL RISK ZONES' ),
+            array( 'key' => 'field_dp_vaccine_risk_title', 'label' => 'Title', 'name' => 'vaccine_risk_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_risk_desc', 'label' => 'Description', 'name' => 'vaccine_risk_desc', 'type' => 'textarea', 'rows' => 2 ),
+            array(
+                'key'          => 'field_dp_vaccine_risk_zones',
+                'label'        => 'Risk Zones',
+                'name'         => 'vaccine_risk_zones',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Zone',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_vaccine_rz_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+                    array( 'key' => 'field_dp_vaccine_rz_level', 'label' => 'Risk Level', 'name' => 'level', 'type' => 'select', 'choices' => array( 'high' => 'High (red)', 'moderate' => 'Moderate (amber)', 'asia' => 'Asia (amber)', 'africa' => 'Africa (blue)' ), 'default_value' => 'high' ),
+                    array( 'key' => 'field_dp_vaccine_rz_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_vaccine_rz_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_vaccine_rz_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'          => 'field_dp_vaccine_rz_countries',
+                        'label'        => 'Countries',
+                        'name'         => 'countries',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'min'          => 0,
+                        'max'          => 12,
+                        'button_label' => 'Add Country',
+                        'sub_fields'   => array(
+                            array( 'key' => 'field_dp_vaccine_rz_country', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_dp_vaccine_risk_footer', 'label' => 'Footer Text', 'name' => 'vaccine_risk_footer', 'type' => 'text' ),
+        ),
+        'location'              => $vaccine_location,
+        'menu_order'            => 1105,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K7. Vaccination — Details
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_vaccine_details',
+        'title'    => 'Vaccination — Details',
+        'fields'   => array(
+            array( 'key' => 'field_dp_vaccine_details_badge', 'label' => 'Badge Text', 'name' => 'vaccine_details_badge', 'type' => 'text', 'default_value' => 'VACCINATION DETAILS' ),
+            array( 'key' => 'field_dp_vaccine_details_title', 'label' => 'Title', 'name' => 'vaccine_details_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_details_desc', 'label' => 'Description', 'name' => 'vaccine_details_desc', 'type' => 'text' ),
+            array(
+                'key'          => 'field_dp_vaccine_details',
+                'label'        => 'Detail Cards',
+                'name'         => 'vaccine_details',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 8,
+                'button_label' => 'Add Detail',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_vaccine_det_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_vaccine_det_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_vaccine_det_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $vaccine_location,
+        'menu_order'            => 1106,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K8. Vaccination — FAQ
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_vaccine_faq',
+        'title'    => 'Vaccination — FAQ',
+        'fields'   => array(
+            array( 'key' => 'field_dp_vaccine_faq_badge', 'label' => 'Badge Text', 'name' => 'vaccine_faq_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_faq_title', 'label' => 'Title', 'name' => 'vaccine_faq_title', 'type' => 'text', 'default_value' => 'Common Questions' ),
+            array(
+                'key'          => 'field_dp_vaccine_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'vaccine_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 10,
+                'button_label' => 'Add FAQ',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_vaccine_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_vaccine_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $vaccine_location,
+        'menu_order'            => 1107,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K9. Vaccination — Final CTA
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_vaccine_cta',
+        'title'    => 'Vaccination — Final CTA',
+        'fields'   => array(
+            array(
+                'key'          => 'field_dp_vaccine_cta_badges',
+                'label'        => 'CTA Badges',
+                'name'         => 'vaccine_cta_badges',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 5,
+                'button_label' => 'Add Badge',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_vaccine_cta_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_dp_vaccine_cta_title', 'label' => 'Title', 'name' => 'vaccine_cta_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_vaccine_cta_desc', 'label' => 'Description', 'name' => 'vaccine_cta_desc', 'type' => 'textarea', 'rows' => 2 ),
+        ),
+        'location'              => $vaccine_location,
+        'menu_order'            => 1108,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // K10. Yellow Fever — All Sections (yf_* fields)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_yf_hero',
+        'title'    => 'Yellow Fever — Hero',
+        'fields'   => array(
+            array( 'key' => 'field_dp_yf_parent_url', 'label' => 'Parent Page URL', 'name' => 'yf_parent_url', 'type' => 'url', 'default_value' => '/travel-health/' ),
+            array( 'key' => 'field_dp_yf_hero_image', 'label' => 'Hero Background Image', 'name' => 'yf_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_dp_yf_hero_label', 'label' => 'Hero Label', 'name' => 'yf_hero_label', 'type' => 'text', 'default_value' => 'OFFICIAL YELLOW FEVER CENTRE' ),
+            array( 'key' => 'field_dp_yf_hero_title', 'label' => 'Hero Title', 'name' => 'yf_hero_title', 'type' => 'text', 'default_value' => 'Yellow Fever Vaccination Service in Denton' ),
+            array( 'key' => 'field_dp_yf_hero_desc', 'label' => 'Hero Description', 'name' => 'yf_hero_description', 'type' => 'textarea', 'rows' => 3 ),
+            array( 'key' => 'field_dp_yf_hero_cta_url', 'label' => 'CTA URL', 'name' => 'yf_hero_cta_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_yf_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'yf_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Yellow Fever Vaccination' ),
+            array(
+                'key'          => 'field_dp_yf_hero_badges',
+                'label'        => 'Hero Badges',
+                'name'         => 'yf_hero_badges',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 5,
+                'button_label' => 'Add Badge',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_hero_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 1200,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_yf_cert',
+        'title'    => 'Yellow Fever — Certification',
+        'fields'   => array(
+            array( 'key' => 'field_dp_yf_cert_badge', 'label' => 'Badge Text', 'name' => 'yf_cert_badge', 'type' => 'text', 'default_value' => 'OFFICIAL CENTRE' ),
+            array( 'key' => 'field_dp_yf_cert_title', 'label' => 'Title', 'name' => 'yf_cert_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_cert_desc', 'label' => 'Description', 'name' => 'yf_cert_desc', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_cert_image', 'label' => 'Image', 'name' => 'yf_cert_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_dp_yf_cert_nametag_name', 'label' => 'Nametag Name', 'name' => 'yf_cert_nametag_name', 'type' => 'text', 'default_value' => 'Ahmed Al-Liabi' ),
+            array( 'key' => 'field_dp_yf_cert_nametag_role', 'label' => 'Nametag Role', 'name' => 'yf_cert_nametag_role', 'type' => 'text', 'default_value' => 'Lead Pharmacist & Yellow Fever Specialist' ),
+            array( 'key' => 'field_dp_yf_cert_highlight', 'label' => 'Highlight Text', 'name' => 'yf_cert_highlight', 'type' => 'text', 'default_value' => 'NHS Designated Yellow Fever Centre' ),
+            array( 'key' => 'field_dp_yf_cert_subtitle', 'label' => 'Subtitle', 'name' => 'yf_cert_subtitle', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_cert_text', 'label' => 'Body Text', 'name' => 'yf_cert_text', 'type' => 'textarea', 'rows' => 4 ),
+            array(
+                'key'          => 'field_dp_yf_cert_features',
+                'label'        => 'Features',
+                'name'         => 'yf_cert_features',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Feature',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_cf_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_cf_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_cf_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+            array( 'key' => 'field_dp_yf_cert_cta_url', 'label' => 'CTA URL', 'name' => 'yf_cert_cta_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_yf_cert_callout_badge', 'label' => 'Callout Badge', 'name' => 'yf_cert_callout_badge', 'type' => 'text', 'default_value' => 'IMPORTANT' ),
+            array( 'key' => 'field_dp_yf_cert_callout_title', 'label' => 'Callout Title', 'name' => 'yf_cert_callout_title', 'type' => 'text', 'default_value' => '10-Day Validity Rule' ),
+            array( 'key' => 'field_dp_yf_cert_callout_text', 'label' => 'Callout Text', 'name' => 'yf_cert_callout_text', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_yf_cert_callout_note', 'label' => 'Callout Note', 'name' => 'yf_cert_callout_note', 'type' => 'text' ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 1201,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_yf_stats',
+        'title'    => 'Yellow Fever — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'          => 'field_dp_yf_stats',
+                'label'        => 'Stats',
+                'name'         => 'yf_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_stat_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_yf_stat_num', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_yf_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 1202,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_yf_about',
+        'title'    => 'Yellow Fever — About',
+        'fields'   => array(
+            array( 'key' => 'field_dp_yf_about_badge', 'label' => 'Badge Text', 'name' => 'yf_about_badge', 'type' => 'text', 'default_value' => 'ABOUT THE DISEASE' ),
+            array( 'key' => 'field_dp_yf_about_title', 'label' => 'Title', 'name' => 'yf_about_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_about_desc', 'label' => 'Description', 'name' => 'yf_about_desc', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_about_image', 'label' => 'Image', 'name' => 'yf_about_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array(
+                'key'          => 'field_dp_yf_about_cards',
+                'label'        => 'Info Cards',
+                'name'         => 'yf_about_cards',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Card',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_ac_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_ac_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_ac_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+            array( 'key' => 'field_dp_yf_about_callout_badge', 'label' => 'Callout Badge', 'name' => 'yf_about_callout_badge', 'type' => 'text', 'default_value' => 'SERIOUS RISK' ),
+            array( 'key' => 'field_dp_yf_about_callout_title', 'label' => 'Callout Title', 'name' => 'yf_about_callout_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_about_callout_text', 'label' => 'Callout Text', 'name' => 'yf_about_callout_text', 'type' => 'textarea', 'rows' => 3 ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 1203,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_yf_needs',
+        'title'    => 'Yellow Fever — Who Needs It',
+        'fields'   => array(
+            array( 'key' => 'field_dp_yf_needs_badge', 'label' => 'Badge Text', 'name' => 'yf_needs_badge', 'type' => 'text', 'default_value' => 'WHO NEEDS VACCINATION' ),
+            array( 'key' => 'field_dp_yf_needs_title', 'label' => 'Title', 'name' => 'yf_needs_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_needs_desc', 'label' => 'Description', 'name' => 'yf_needs_desc', 'type' => 'text' ),
+            array(
+                'key'          => 'field_dp_yf_needs_cards',
+                'label'        => 'Needs Cards',
+                'name'         => 'yf_needs_cards',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Card',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_nc_type', 'label' => 'Type', 'name' => 'type', 'type' => 'select', 'choices' => array( 'required' => 'Required (red)', 'recommended' => 'Recommended (amber)' ), 'default_value' => 'required' ),
+                    array( 'key' => 'field_dp_yf_nc_badge', 'label' => 'Badge', 'name' => 'badge', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_nc_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_nc_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'          => 'field_dp_yf_nc_items',
+                        'label'        => 'Checklist Items',
+                        'name'         => 'items',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'min'          => 0,
+                        'max'          => 6,
+                        'button_label' => 'Add Item',
+                        'sub_fields'   => array(
+                            array( 'key' => 'field_dp_yf_nc_item_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_dp_yf_needs_info', 'label' => 'Info Text', 'name' => 'yf_needs_info', 'type' => 'text' ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 1204,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_yf_risk',
+        'title'    => 'Yellow Fever — Risk Countries',
+        'fields'   => array(
+            array( 'key' => 'field_dp_yf_risk_badge', 'label' => 'Badge Text', 'name' => 'yf_risk_badge', 'type' => 'text', 'default_value' => 'RISK COUNTRIES' ),
+            array( 'key' => 'field_dp_yf_risk_title', 'label' => 'Title', 'name' => 'yf_risk_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_risk_desc', 'label' => 'Description', 'name' => 'yf_risk_desc', 'type' => 'textarea', 'rows' => 2 ),
+            array(
+                'key'          => 'field_dp_yf_risk_stats',
+                'label'        => 'Risk Stats',
+                'name'         => 'yf_risk_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_rs_num', 'label' => 'Number', 'name' => 'num', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_rs_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_rs_sub', 'label' => 'Subtitle', 'name' => 'sub', 'type' => 'text' ),
+                ),
+            ),
+            array(
+                'key'          => 'field_dp_yf_risk_zones',
+                'label'        => 'Risk Zones',
+                'name'         => 'yf_risk_zones',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Zone',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_rz_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+                    array( 'key' => 'field_dp_yf_rz_level', 'label' => 'Region', 'name' => 'level', 'type' => 'select', 'choices' => array( 'africa' => 'Africa (amber)', 'america' => 'Americas (blue)' ), 'default_value' => 'africa' ),
+                    array( 'key' => 'field_dp_yf_rz_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_rz_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_rz_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array( 'key' => 'field_dp_yf_rz_note', 'label' => 'Note', 'name' => 'note', 'type' => 'text' ),
+                    array(
+                        'key'          => 'field_dp_yf_rz_countries',
+                        'label'        => 'Countries',
+                        'name'         => 'countries',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'min'          => 0,
+                        'max'          => 12,
+                        'button_label' => 'Add Country',
+                        'sub_fields'   => array(
+                            array( 'key' => 'field_dp_yf_rz_country', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_dp_yf_risk_callout_title', 'label' => 'Callout Title', 'name' => 'yf_risk_callout_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_risk_callout_text', 'label' => 'Callout Text', 'name' => 'yf_risk_callout_text', 'type' => 'textarea', 'rows' => 2 ),
+            array(
+                'key'          => 'field_dp_yf_risk_callout_badges',
+                'label'        => 'Callout Badges',
+                'name'         => 'yf_risk_callout_badges',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Badge',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_rcb_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_dp_yf_risk_footer_text', 'label' => 'Footer Text', 'name' => 'yf_risk_footer_text', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_risk_cta_url', 'label' => 'CTA URL', 'name' => 'yf_risk_cta_url', 'type' => 'url' ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 1205,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_yf_details',
+        'title'    => 'Yellow Fever — Details',
+        'fields'   => array(
+            array( 'key' => 'field_dp_yf_details_badge', 'label' => 'Badge Text', 'name' => 'yf_details_badge', 'type' => 'text', 'default_value' => 'YOUR APPOINTMENT' ),
+            array( 'key' => 'field_dp_yf_details_title', 'label' => 'Title', 'name' => 'yf_details_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_details_desc', 'label' => 'Description', 'name' => 'yf_details_desc', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_details_hero_image', 'label' => 'Hero Image', 'name' => 'yf_details_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array(
+                'key'          => 'field_dp_yf_details',
+                'label'        => 'Detail Cards',
+                'name'         => 'yf_details',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 8,
+                'button_label' => 'Add Detail',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_det_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_det_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_det_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 1206,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_yf_faq',
+        'title'    => 'Yellow Fever — FAQ',
+        'fields'   => array(
+            array( 'key' => 'field_dp_yf_faq_badge', 'label' => 'Badge Text', 'name' => 'yf_faq_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_faq_title', 'label' => 'Title', 'name' => 'yf_faq_title', 'type' => 'text', 'default_value' => 'Common Questions' ),
+            array( 'key' => 'field_dp_yf_faq_desc', 'label' => 'Description', 'name' => 'yf_faq_desc', 'type' => 'text' ),
+            array(
+                'key'          => 'field_dp_yf_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'yf_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 10,
+                'button_label' => 'Add FAQ',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_yf_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 1207,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_yf_cta',
+        'title'    => 'Yellow Fever — Final CTA',
+        'fields'   => array(
+            array(
+                'key'          => 'field_dp_yf_cta_badges',
+                'label'        => 'CTA Badges',
+                'name'         => 'yf_cta_badges',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 5,
+                'button_label' => 'Add Badge',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_cta_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_dp_yf_cta_title', 'label' => 'Title', 'name' => 'yf_cta_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_yf_cta_desc', 'label' => 'Description', 'name' => 'yf_cta_desc', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_yf_cta_url', 'label' => 'CTA URL', 'name' => 'yf_cta_url', 'type' => 'url' ),
+            array(
+                'key'          => 'field_dp_yf_cta_checks',
+                'label'        => 'CTA Checkmarks',
+                'name'         => 'yf_cta_checks',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 5,
+                'button_label' => 'Add Check',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_yf_cta_check_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $yf_location,
+        'menu_order'            => 1208,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );
