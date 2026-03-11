@@ -3467,5 +3467,338 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // G-SERIES: HAIR LOSS PAGE FIELDS
+    // =========================================================================
+
+    $hl_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-hair-loss.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // G1. Hair Loss — Hero Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_hl_hero',
+        'title'    => 'Hair Loss — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_hairloss_hero_badge', 'label' => 'Badge Text', 'name' => 'hl_hero_badge', 'type' => 'text', 'default_value' => 'HAIR LOSS TREATMENT' ),
+            array( 'key' => 'field_dp_hairloss_hero_title_line1', 'label' => 'Title — First Line', 'name' => 'hl_hero_title_line1', 'type' => 'text', 'default_value' => 'Regrow Your Confidence with' ),
+            array( 'key' => 'field_dp_hairloss_hero_title_highlight', 'label' => 'Title — Highlighted', 'name' => 'hl_hero_title_highlight', 'type' => 'text', 'default_value' => 'Expert Hair Loss Treatment', 'instructions' => 'Displayed in gradient text.' ),
+            array( 'key' => 'field_dp_hairloss_hero_description', 'label' => 'Description', 'name' => 'hl_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Clinically proven treatments including Finasteride and Minoxidil. Face-to-face consultations with our GPhC-registered pharmacist in Denton.' ),
+            array( 'key' => 'field_dp_hairloss_feature_1', 'label' => 'Feature 1', 'name' => 'hl_feature_1', 'type' => 'text', 'default_value' => 'Prescription treatments (Finasteride)' ),
+            array( 'key' => 'field_dp_hairloss_feature_2', 'label' => 'Feature 2', 'name' => 'hl_feature_2', 'type' => 'text', 'default_value' => 'Over-the-counter solutions (Minoxidil)' ),
+            array( 'key' => 'field_dp_hairloss_feature_3', 'label' => 'Feature 3', 'name' => 'hl_feature_3', 'type' => 'text', 'default_value' => 'Personalised treatment plans' ),
+            array( 'key' => 'field_dp_hairloss_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'hl_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+            array( 'key' => 'field_dp_hairloss_hero_cta_url', 'label' => 'CTA Button URL', 'name' => 'hl_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use the default booking page.' ),
+            array(
+                'key'           => 'field_dp_hairloss_hero_image',
+                'label'         => 'Hero Image',
+                'name'          => 'hl_hero_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Main hero image. Recommended: portrait, at least 800×1000px.',
+            ),
+            array( 'key' => 'field_dp_hairloss_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'hl_hero_image_alt', 'type' => 'text', 'default_value' => 'Hair loss treatment at Denton Pharmacy' ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 700,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+        'hide_on_screen'        => array( 'the_content', 'excerpt', 'discussion', 'comments', 'featured_image' ),
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G2. Hair Loss — Stats Bar (individual fields)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_hl_stats',
+        'title'    => 'Hair Loss — Stats Bar',
+        'fields'   => array(
+            array( 'key' => 'field_dp_hairloss_stat_1_icon', 'label' => 'Stat 1 — Icon', 'name' => 'hl_stat_1_icon', 'type' => 'text', 'default_value' => 'fas fa-users', 'instructions' => 'Full Font Awesome class.' ),
+            array( 'key' => 'field_dp_hairloss_stat_1_number', 'label' => 'Stat 1 — Number', 'name' => 'hl_stat_1_number', 'type' => 'text', 'default_value' => '500+' ),
+            array( 'key' => 'field_dp_hairloss_stat_1_label', 'label' => 'Stat 1 — Label', 'name' => 'hl_stat_1_label', 'type' => 'text', 'default_value' => 'Patients Treated' ),
+            array( 'key' => 'field_dp_hairloss_stat_2_icon', 'label' => 'Stat 2 — Icon', 'name' => 'hl_stat_2_icon', 'type' => 'text', 'default_value' => 'fas fa-certificate' ),
+            array( 'key' => 'field_dp_hairloss_stat_2_number', 'label' => 'Stat 2 — Number', 'name' => 'hl_stat_2_number', 'type' => 'text', 'default_value' => 'GPhC' ),
+            array( 'key' => 'field_dp_hairloss_stat_2_label', 'label' => 'Stat 2 — Label', 'name' => 'hl_stat_2_label', 'type' => 'text', 'default_value' => 'Registered' ),
+            array( 'key' => 'field_dp_hairloss_stat_3_icon', 'label' => 'Stat 3 — Icon', 'name' => 'hl_stat_3_icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check' ),
+            array( 'key' => 'field_dp_hairloss_stat_3_number', 'label' => 'Stat 3 — Number', 'name' => 'hl_stat_3_number', 'type' => 'text', 'default_value' => '6-12 Months' ),
+            array( 'key' => 'field_dp_hairloss_stat_3_label', 'label' => 'Stat 3 — Label', 'name' => 'hl_stat_3_label', 'type' => 'text', 'default_value' => 'Typical Results' ),
+            array( 'key' => 'field_dp_hairloss_stat_4_icon', 'label' => 'Stat 4 — Icon', 'name' => 'hl_stat_4_icon', 'type' => 'text', 'default_value' => 'fas fa-star' ),
+            array( 'key' => 'field_dp_hairloss_stat_4_number', 'label' => 'Stat 4 — Number', 'name' => 'hl_stat_4_number', 'type' => 'text', 'default_value' => '4.7&#9733;' ),
+            array( 'key' => 'field_dp_hairloss_stat_4_label', 'label' => 'Stat 4 — Label', 'name' => 'hl_stat_4_label', 'type' => 'text', 'default_value' => 'Average Rating' ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 701,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G3. Hair Loss — Treatment Options (Results/Features)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_hl_treatments',
+        'title'    => 'Hair Loss — Treatment Options',
+        'fields'   => array(
+            array( 'key' => 'field_dp_hairloss_treatments_badge', 'label' => 'Badge Text', 'name' => 'hl_treatments_badge', 'type' => 'text', 'default_value' => 'PRESCRIPTION & OTC' ),
+            array( 'key' => 'field_dp_hairloss_treatments_title_line1', 'label' => 'Title — First Part', 'name' => 'hl_treatments_title_line1', 'type' => 'text', 'default_value' => 'Our' ),
+            array( 'key' => 'field_dp_hairloss_treatments_title_highlight', 'label' => 'Title — Highlighted', 'name' => 'hl_treatments_title_highlight', 'type' => 'text', 'default_value' => 'Hair Loss Treatments' ),
+            array( 'key' => 'field_dp_hairloss_treatments_description', 'label' => 'Description', 'name' => 'hl_treatments_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Clinically proven treatments prescribed and monitored by our GPhC-registered pharmacist at Denton Pharmacy.' ),
+            array(
+                'key'          => 'field_dp_hairloss_treatments',
+                'label'        => 'Treatment Cards',
+                'name'         => 'hl_treatments',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Treatment',
+                'instructions' => 'Leave empty to use defaults (Finasteride & Minoxidil).',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_hairloss_treat_is_featured', 'label' => 'Featured?', 'name' => 'is_featured', 'type' => 'true_false', 'default_value' => 0, 'ui' => 1 ),
+                    array( 'key' => 'field_dp_hairloss_treat_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text' ),
+                    array(
+                        'key'           => 'field_dp_hairloss_treat_badge_type',
+                        'label'         => 'Badge Type',
+                        'name'          => 'badge_type',
+                        'type'          => 'select',
+                        'choices'       => array( 'prescription' => 'Prescription', 'otc' => 'OTC' ),
+                        'default_value' => 'prescription',
+                    ),
+                    array(
+                        'key'           => 'field_dp_hairloss_treat_image',
+                        'label'         => 'Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'library'       => 'all',
+                    ),
+                    array( 'key' => 'field_dp_hairloss_treat_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_hairloss_treat_subtitle', 'label' => 'Subtitle', 'name' => 'subtitle', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_hairloss_treat_how', 'label' => 'How It Works', 'name' => 'how_it_works', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'          => 'field_dp_hairloss_treat_results',
+                        'label'        => 'Results',
+                        'name'         => 'results',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'button_label' => 'Add Result',
+                        'sub_fields'   => array(
+                            array( 'key' => 'field_dp_hairloss_treat_result_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                        ),
+                    ),
+                    array( 'key' => 'field_dp_hairloss_treat_duration', 'label' => 'Duration', 'name' => 'duration', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_hairloss_treat_price', 'label' => 'Price', 'name' => 'price', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_hairloss_treat_button', 'label' => 'Button Text', 'name' => 'button_text', 'type' => 'text', 'default_value' => 'Book Now' ),
+                ),
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 702,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G4. Hair Loss — Team / Expertise
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_hl_team',
+        'title'    => 'Hair Loss — Team / Expertise',
+        'fields'   => array(
+            array( 'key' => 'field_dp_hairloss_team_badge', 'label' => 'Badge Text', 'name' => 'hl_team_badge', 'type' => 'text', 'default_value' => 'YOUR SPECIALISTS' ),
+            array( 'key' => 'field_dp_hairloss_team_title', 'label' => 'Title', 'name' => 'hl_team_title', 'type' => 'text', 'default_value' => 'Meet Your Denton Hair Loss Experts' ),
+            array( 'key' => 'field_dp_hairloss_team_description', 'label' => 'Description', 'name' => 'hl_team_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Our experienced pharmacists provide personalised hair loss consultations with discretion and care. Get expert advice and ongoing support at your local Denton pharmacy.' ),
+            array(
+                'key'          => 'field_dp_hairloss_team_members',
+                'label'        => 'Team Members',
+                'name'         => 'hl_team_members',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Team Member',
+                'instructions' => 'Leave empty to use default team (Ahmed Al-Liabi & Jignasa Modhvadia).',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_hairloss_team_image',
+                        'label'         => 'Photo',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'library'       => 'all',
+                    ),
+                    array( 'key' => 'field_dp_hairloss_team_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_hairloss_team_role', 'label' => 'Role', 'name' => 'role', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_hairloss_team_bio', 'label' => 'Bio', 'name' => 'bio', 'type' => 'textarea', 'rows' => 3 ),
+                    array( 'key' => 'field_dp_hairloss_team_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'instructions' => 'e.g. "Since 2019" or "Hair Loss Specialist"' ),
+                    array(
+                        'key'           => 'field_dp_hairloss_team_badge_style',
+                        'label'         => 'Badge Style',
+                        'name'          => 'badge_style',
+                        'type'          => 'select',
+                        'choices'       => array( 'green' => 'Green', 'purple' => 'Purple', 'blue' => 'Blue' ),
+                        'default_value' => 'green',
+                    ),
+                    array(
+                        'key'          => 'field_dp_hairloss_team_tags',
+                        'label'        => 'Skill Tags',
+                        'name'         => 'tags',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'button_label' => 'Add Tag',
+                        'sub_fields'   => array(
+                            array( 'key' => 'field_dp_hairloss_team_tag', 'label' => 'Tag', 'name' => 'tag', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 703,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G5. Hair Loss — Process / Journey
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_hl_process',
+        'title'    => 'Hair Loss — Process / Journey',
+        'fields'   => array(
+            array( 'key' => 'field_dp_hairloss_process_badge', 'label' => 'Badge Text', 'name' => 'hl_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
+            array( 'key' => 'field_dp_hairloss_process_title_line1', 'label' => 'Title — First Part', 'name' => 'hl_process_title_line1', 'type' => 'text', 'default_value' => 'Your Hair Loss Treatment' ),
+            array( 'key' => 'field_dp_hairloss_process_title_highlight', 'label' => 'Title — Highlighted', 'name' => 'hl_process_title_highlight', 'type' => 'text', 'default_value' => 'Journey' ),
+            array(
+                'key'          => 'field_dp_hairloss_process_steps',
+                'label'        => 'Steps',
+                'name'         => 'hl_process_steps',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Step',
+                'instructions' => 'Leave empty to use 4 default steps.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_hairloss_step_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check', 'instructions' => 'Full Font Awesome class.' ),
+                    array( 'key' => 'field_dp_hairloss_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_hairloss_step_description', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array( 'key' => 'field_dp_hairloss_step_time', 'label' => 'Time Badge', 'name' => 'time_badge', 'type' => 'text', 'instructions' => 'e.g. "15-20 minutes". Leave blank to hide.' ),
+                ),
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 704,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G6. Hair Loss — FAQ Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_hl_faq',
+        'title'    => 'Hair Loss — FAQ Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_hairloss_faq_badge', 'label' => 'Badge Text', 'name' => 'hl_faq_badge', 'type' => 'text', 'default_value' => 'COMMON QUESTIONS' ),
+            array( 'key' => 'field_dp_hairloss_faq_title_line1', 'label' => 'Title — First Part', 'name' => 'hl_faq_title_line1', 'type' => 'text', 'default_value' => 'Hair Loss Treatment' ),
+            array( 'key' => 'field_dp_hairloss_faq_title_highlight', 'label' => 'Title — Highlighted', 'name' => 'hl_faq_title_highlight', 'type' => 'text', 'default_value' => 'FAQs' ),
+            array(
+                'key'          => 'field_dp_hairloss_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'hl_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'instructions' => 'Leave empty to use 6 default FAQs.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_hairloss_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_hairloss_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 705,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G7. Hair Loss — Testimonials Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_hl_testimonials',
+        'title'    => 'Hair Loss — Testimonials Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_hairloss_testimonials_badge', 'label' => 'Badge Text', 'name' => 'hl_testimonials_badge', 'type' => 'text', 'default_value' => 'PATIENT STORIES' ),
+            array( 'key' => 'field_dp_hairloss_testimonials_title', 'label' => 'Title', 'name' => 'hl_testimonials_title', 'type' => 'text', 'default_value' => 'Hear From Our Denton Patients' ),
+            array(
+                'key'          => 'field_dp_hairloss_testimonials',
+                'label'        => 'Testimonials',
+                'name'         => 'hl_testimonials',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Testimonial',
+                'instructions' => 'Leave empty to use 3 default testimonials.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_hairloss_testimonial_quote', 'label' => 'Quote', 'name' => 'quote', 'type' => 'textarea', 'rows' => 3 ),
+                    array( 'key' => 'field_dp_hairloss_testimonial_author', 'label' => 'Author Name', 'name' => 'author', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 706,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // G8. Hair Loss — Final CTA Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_hl_cta',
+        'title'    => 'Hair Loss — Final CTA Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_hairloss_cta_title', 'label' => 'Title', 'name' => 'hl_cta_title', 'type' => 'text', 'default_value' => 'Ready to Start Your Hair Regrowth Journey?' ),
+            array( 'key' => 'field_dp_hairloss_cta_description', 'label' => 'Description', 'name' => 'hl_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book a confidential consultation with our GPhC-registered pharmacist in Denton' ),
+            array( 'key' => 'field_dp_hairloss_cta_button_text', 'label' => 'Button Text', 'name' => 'hl_cta_button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+            array( 'key' => 'field_dp_hairloss_cta_url', 'label' => 'CTA URL', 'name' => 'hl_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page.' ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 707,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );
