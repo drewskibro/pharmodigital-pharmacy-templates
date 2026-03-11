@@ -3075,5 +3075,397 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // F-SERIES: EAR WAX REMOVAL PAGE FIELDS
+    // =========================================================================
+
+    $ew_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-ear-wax-removal.php',
+            ),
+        ),
+    );
+
+    // -------------------------------------------------------------------------
+    // F1. Ear Wax — Hero Section (Pattern A Light)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_ew_hero',
+        'title'    => 'Ear Wax — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_ew_hero_badge', 'label' => 'Badge Text', 'name' => 'ew_hero_badge', 'type' => 'text', 'default_value' => 'SAME-DAY MICROSUCTION AVAILABLE' ),
+            array( 'key' => 'field_dp_ew_hero_title_highlight', 'label' => 'Title — Highlighted Line', 'name' => 'ew_hero_title_highlight', 'type' => 'text', 'default_value' => 'Professional Ear Wax Removal', 'instructions' => 'Displayed in gradient text.' ),
+            array( 'key' => 'field_dp_ew_hero_title_rest', 'label' => 'Title — Second Line', 'name' => 'ew_hero_title_rest', 'type' => 'text', 'default_value' => 'in Denton' ),
+            array( 'key' => 'field_dp_ew_hero_subtitle', 'label' => 'Subtitle', 'name' => 'ew_hero_subtitle', 'type' => 'text', 'default_value' => 'Expert microsuction by Ahmed and our specialist team at Denton Pharmacy' ),
+            array( 'key' => 'field_dp_ew_hero_description', 'label' => 'Description', 'name' => 'ew_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Safe, effective ear wax removal using advanced microsuction technology. Same-day appointments available. Guaranteed results with complimentary follow-up within 7 days if needed.' ),
+            array( 'key' => 'field_dp_ew_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'ew_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Your Appointment' ),
+            array( 'key' => 'field_dp_ew_hero_cta_url', 'label' => 'CTA Button URL', 'name' => 'ew_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use the default booking page.' ),
+            array(
+                'key'           => 'field_dp_ew_hero_image',
+                'label'         => 'Hero Image',
+                'name'          => 'ew_hero_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Main hero image. Recommended: portrait orientation, at least 800×1000px.',
+            ),
+            array( 'key' => 'field_dp_ew_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'ew_hero_image_alt', 'type' => 'text', 'default_value' => 'Professional ear wax removal at Denton Pharmacy' ),
+            array( 'key' => 'field_dp_ew_price_label', 'label' => 'Price Badge — Label', 'name' => 'ew_price_label', 'type' => 'text', 'default_value' => 'Starting From' ),
+            array( 'key' => 'field_dp_ew_price_amount', 'label' => 'Price Badge — Amount', 'name' => 'ew_price_amount', 'type' => 'text', 'default_value' => '£40' ),
+            array( 'key' => 'field_dp_ew_price_sub', 'label' => 'Price Badge — Subtext', 'name' => 'ew_price_sub', 'type' => 'text', 'default_value' => 'per ear' ),
+            array( 'key' => 'field_dp_ew_trust_1', 'label' => 'Trust Item 1', 'name' => 'ew_trust_1', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
+            array( 'key' => 'field_dp_ew_trust_2', 'label' => 'Trust Item 2', 'name' => 'ew_trust_2', 'type' => 'text', 'default_value' => 'Same-day available' ),
+            array( 'key' => 'field_dp_ew_trust_3', 'label' => 'Trust Item 3', 'name' => 'ew_trust_3', 'type' => 'text', 'default_value' => 'From £40 per ear' ),
+        ),
+        'location'              => $ew_location,
+        'menu_order'            => 600,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+        'hide_on_screen'        => array( 'the_content', 'excerpt', 'discussion', 'comments', 'featured_image' ),
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F2. Ear Wax — Stats Bar (individual fields, not repeater)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_ew_stats',
+        'title'    => 'Ear Wax — Stats Bar',
+        'fields'   => array(
+            array( 'key' => 'field_dp_ew_stat_1_icon', 'label' => 'Stat 1 — Icon', 'name' => 'ew_stat_1_icon', 'type' => 'text', 'default_value' => 'fas fa-tag', 'instructions' => 'Full Font Awesome class.' ),
+            array( 'key' => 'field_dp_ew_stat_1_number', 'label' => 'Stat 1 — Number', 'name' => 'ew_stat_1_number', 'type' => 'text', 'default_value' => '£40' ),
+            array( 'key' => 'field_dp_ew_stat_1_label', 'label' => 'Stat 1 — Label', 'name' => 'ew_stat_1_label', 'type' => 'text', 'default_value' => 'Per Ear' ),
+            array( 'key' => 'field_dp_ew_stat_2_icon', 'label' => 'Stat 2 — Icon', 'name' => 'ew_stat_2_icon', 'type' => 'text', 'default_value' => 'fas fa-clock' ),
+            array( 'key' => 'field_dp_ew_stat_2_number', 'label' => 'Stat 2 — Number', 'name' => 'ew_stat_2_number', 'type' => 'text', 'default_value' => '30 mins' ),
+            array( 'key' => 'field_dp_ew_stat_2_label', 'label' => 'Stat 2 — Label', 'name' => 'ew_stat_2_label', 'type' => 'text', 'default_value' => 'Treatment Time' ),
+            array( 'key' => 'field_dp_ew_stat_3_icon', 'label' => 'Stat 3 — Icon', 'name' => 'ew_stat_3_icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle' ),
+            array( 'key' => 'field_dp_ew_stat_3_number', 'label' => 'Stat 3 — Number', 'name' => 'ew_stat_3_number', 'type' => 'text', 'default_value' => '95%+' ),
+            array( 'key' => 'field_dp_ew_stat_3_label', 'label' => 'Stat 3 — Label', 'name' => 'ew_stat_3_label', 'type' => 'text', 'default_value' => 'Success Rate' ),
+            array( 'key' => 'field_dp_ew_stat_4_icon', 'label' => 'Stat 4 — Icon', 'name' => 'ew_stat_4_icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check' ),
+            array( 'key' => 'field_dp_ew_stat_4_number', 'label' => 'Stat 4 — Number', 'name' => 'ew_stat_4_number', 'type' => 'text', 'default_value' => 'Same Day' ),
+            array( 'key' => 'field_dp_ew_stat_4_label', 'label' => 'Stat 4 — Label', 'name' => 'ew_stat_4_label', 'type' => 'text', 'default_value' => 'Appointments' ),
+        ),
+        'location'              => $ew_location,
+        'menu_order'            => 601,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F3. Ear Wax — Symptoms Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_ew_symptoms',
+        'title'    => 'Ear Wax — Symptoms Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_ew_symptoms_badge', 'label' => 'Badge Text', 'name' => 'ew_symptoms_badge', 'type' => 'text', 'default_value' => 'COMMON SYMPTOMS' ),
+            array( 'key' => 'field_dp_ew_symptoms_title', 'label' => 'Title', 'name' => 'ew_symptoms_title', 'type' => 'text', 'default_value' => 'Is Ear Wax Affecting Your Daily Life?' ),
+            array( 'key' => 'field_dp_ew_symptoms_description', 'label' => 'Description', 'name' => 'ew_symptoms_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Don\'t let blocked ears hold you back. Recognise these common symptoms?' ),
+            array(
+                'key'          => 'field_dp_ew_symptoms',
+                'label'        => 'Symptoms',
+                'name'         => 'ew_symptoms',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Symptom',
+                'instructions' => 'Leave empty to use 6 default symptom cards.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_ew_symptom_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-ear-listen', 'instructions' => 'Full Font Awesome class.' ),
+                    array( 'key' => 'field_dp_ew_symptom_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_ew_symptom_description', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'              => $ew_location,
+        'menu_order'            => 602,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F4. Ear Wax — Team Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_ew_team',
+        'title'    => 'Ear Wax — Team Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_ew_team_badge', 'label' => 'Badge Text', 'name' => 'ew_team_badge', 'type' => 'text', 'default_value' => 'OUR TEAM' ),
+            array( 'key' => 'field_dp_ew_team_title', 'label' => 'Title', 'name' => 'ew_team_title', 'type' => 'text', 'default_value' => 'Meet Your Denton Ear Care Specialists' ),
+            array( 'key' => 'field_dp_ew_team_description', 'label' => 'Description', 'name' => 'ew_team_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'As Denton\'s dedicated ear care practice, we\'ve helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and parking nearby.' ),
+            array(
+                'key'          => 'field_dp_ew_team_members',
+                'label'        => 'Team Members',
+                'name'         => 'ew_team_members',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Team Member',
+                'instructions' => 'Leave empty to use default team (Ahmed Al-Liabi & Jignasa Modhvadia).',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_ew_team_image',
+                        'label'         => 'Photo',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'library'       => 'all',
+                    ),
+                    array( 'key' => 'field_dp_ew_team_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_ew_team_role', 'label' => 'Role', 'name' => 'role', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_ew_team_bio', 'label' => 'Bio', 'name' => 'bio', 'type' => 'textarea', 'rows' => 3 ),
+                    array( 'key' => 'field_dp_ew_team_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'instructions' => 'e.g. "Since 2019" or "Level 3 Technician"' ),
+                    array(
+                        'key'           => 'field_dp_ew_team_badge_style',
+                        'label'         => 'Badge Style',
+                        'name'          => 'badge_style',
+                        'type'          => 'select',
+                        'choices'       => array( 'green' => 'Green', 'purple' => 'Purple', 'blue' => 'Blue' ),
+                        'default_value' => 'green',
+                    ),
+                    array(
+                        'key'          => 'field_dp_ew_team_tags',
+                        'label'        => 'Skill Tags',
+                        'name'         => 'tags',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'button_label' => 'Add Tag',
+                        'sub_fields'   => array(
+                            array( 'key' => 'field_dp_ew_team_tag', 'label' => 'Tag', 'name' => 'tag', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $ew_location,
+        'menu_order'            => 603,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F5. Ear Wax — Comparison Table
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_ew_comparison',
+        'title'    => 'Ear Wax — Comparison Table',
+        'fields'   => array(
+            array( 'key' => 'field_dp_ew_compare_badge', 'label' => 'Badge Text', 'name' => 'ew_compare_badge', 'type' => 'text', 'default_value' => 'TREATMENT COMPARISON' ),
+            array( 'key' => 'field_dp_ew_compare_title', 'label' => 'Title', 'name' => 'ew_compare_title', 'type' => 'text', 'default_value' => 'How Our Treatment Compares' ),
+            array( 'key' => 'field_dp_ew_compare_description', 'label' => 'Description', 'name' => 'ew_compare_description', 'type' => 'text', 'default_value' => 'See why microsuction is the gold standard for ear wax removal in Denton' ),
+            array( 'key' => 'field_dp_ew_compare_col_1_heading', 'label' => 'Column 1 Heading (Highlighted)', 'name' => 'ew_compare_col_1_heading', 'type' => 'text', 'default_value' => 'Denton Pharmacy' ),
+            array( 'key' => 'field_dp_ew_compare_col_2_heading', 'label' => 'Column 2 Heading', 'name' => 'ew_compare_col_2_heading', 'type' => 'text', 'default_value' => 'Traditional Syringing' ),
+            array( 'key' => 'field_dp_ew_compare_col_3_heading', 'label' => 'Column 3 Heading', 'name' => 'ew_compare_col_3_heading', 'type' => 'text', 'default_value' => 'At-Home Remedies' ),
+            array(
+                'key'          => 'field_dp_ew_comparison_rows',
+                'label'        => 'Comparison Rows',
+                'name'         => 'ew_comparison_rows',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Row',
+                'instructions' => 'Leave empty to use 8 default rows.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_ew_compare_feature', 'label' => 'Feature', 'name' => 'feature', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_ew_compare_microsuction', 'label' => 'Microsuction', 'name' => 'microsuction', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_ew_compare_syringing', 'label' => 'Syringing', 'name' => 'syringing', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_ew_compare_home_remedies', 'label' => 'Home Remedies', 'name' => 'home_remedies', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $ew_location,
+        'menu_order'            => 604,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F6. Ear Wax — Process Section (How It Works)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_ew_process',
+        'title'    => 'Ear Wax — Process (How It Works)',
+        'fields'   => array(
+            array( 'key' => 'field_dp_ew_process_badge', 'label' => 'Badge Text', 'name' => 'ew_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
+            array( 'key' => 'field_dp_ew_process_title', 'label' => 'Title', 'name' => 'ew_process_title', 'type' => 'text', 'default_value' => 'Our Professional Ear Wax Removal Process' ),
+            array( 'key' => 'field_dp_ew_process_description', 'label' => 'Description', 'name' => 'ew_process_description', 'type' => 'text', 'default_value' => 'Simple, effective treatment in three easy steps' ),
+            array(
+                'key'          => 'field_dp_ew_process_steps',
+                'label'        => 'Steps',
+                'name'         => 'ew_process_steps',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Step',
+                'instructions' => 'Leave empty to use 3 default steps (Assessment, Treatment, Aftercare).',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_ew_step_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-clipboard-check', 'instructions' => 'Full Font Awesome class.' ),
+                    array( 'key' => 'field_dp_ew_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_ew_step_description', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                    array( 'key' => 'field_dp_ew_step_time', 'label' => 'Time Label', 'name' => 'time', 'type' => 'text', 'instructions' => 'e.g. "10 minutes". Leave blank to hide.' ),
+                    array( 'key' => 'field_dp_ew_step_badge', 'label' => 'Badge Text', 'name' => 'badge', 'type' => 'text', 'instructions' => 'e.g. "Free 7-day follow-up". Leave blank to hide.' ),
+                    array(
+                        'key'           => 'field_dp_ew_step_image',
+                        'label'         => 'Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'library'       => 'all',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $ew_location,
+        'menu_order'            => 605,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F7. Ear Wax — Pricing Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_ew_pricing',
+        'title'    => 'Ear Wax — Pricing Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_ew_pricing_badge', 'label' => 'Badge Text', 'name' => 'ew_pricing_badge', 'type' => 'text', 'default_value' => 'TRANSPARENT PRICING' ),
+            array( 'key' => 'field_dp_ew_pricing_title', 'label' => 'Title', 'name' => 'ew_pricing_title', 'type' => 'text', 'default_value' => 'Simple, Transparent Pricing' ),
+            array( 'key' => 'field_dp_ew_pricing_description', 'label' => 'Description', 'name' => 'ew_pricing_description', 'type' => 'text', 'default_value' => 'No hidden fees. No surprises. Just clear, professional ear care.' ),
+            array(
+                'key'          => 'field_dp_ew_pricing',
+                'label'        => 'Pricing Cards',
+                'name'         => 'ew_pricing',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Pricing Card',
+                'instructions' => 'Leave empty to use defaults (Consultation £10, Microsuction £40/ear).',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_ew_price_is_featured', 'label' => 'Featured?', 'name' => 'is_featured', 'type' => 'true_false', 'default_value' => 0, 'ui' => 1, 'instructions' => 'Featured card gets a highlighted border and "Most Popular" badge.' ),
+                    array( 'key' => 'field_dp_ew_price_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'MOST POPULAR', 'instructions' => 'Only shown on featured cards.' ),
+                    array( 'key' => 'field_dp_ew_price_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-clipboard-list', 'instructions' => 'Full Font Awesome class.' ),
+                    array( 'key' => 'field_dp_ew_price_amount_val', 'label' => 'Price', 'name' => 'price', 'type' => 'text', 'instructions' => 'Just the number, e.g. "40". The £ sign is added automatically.' ),
+                    array( 'key' => 'field_dp_ew_price_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_ew_price_description', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array( 'key' => 'field_dp_ew_price_callout', 'label' => 'Callout Text', 'name' => 'callout', 'type' => 'text', 'instructions' => 'e.g. "Free follow-up within 7 days if needed". Leave blank to hide.' ),
+                    array( 'key' => 'field_dp_ew_price_button_text', 'label' => 'Button Text', 'name' => 'button_text', 'type' => 'text', 'default_value' => 'Book Now' ),
+                ),
+            ),
+        ),
+        'location'              => $ew_location,
+        'menu_order'            => 606,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F8. Ear Wax — Testimonials Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_ew_testimonials',
+        'title'    => 'Ear Wax — Testimonials Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_ew_testimonials_badge', 'label' => 'Badge Text', 'name' => 'ew_testimonials_badge', 'type' => 'text', 'default_value' => 'PATIENT TESTIMONIALS' ),
+            array( 'key' => 'field_dp_ew_testimonials_title', 'label' => 'Title', 'name' => 'ew_testimonials_title', 'type' => 'text', 'default_value' => 'Hear What Our Denton Patients Say' ),
+            array(
+                'key'          => 'field_dp_ew_testimonials',
+                'label'        => 'Testimonials',
+                'name'         => 'ew_testimonials',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Testimonial',
+                'instructions' => 'Leave empty to use 3 default testimonials.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_ew_testimonial_quote', 'label' => 'Quote', 'name' => 'quote', 'type' => 'textarea', 'rows' => 3 ),
+                    array( 'key' => 'field_dp_ew_testimonial_author', 'label' => 'Author Name', 'name' => 'author', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $ew_location,
+        'menu_order'            => 607,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F9. Ear Wax — FAQ Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_ew_faq',
+        'title'    => 'Ear Wax — FAQ Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_ew_faq_badge', 'label' => 'Badge Text', 'name' => 'ew_faq_badge', 'type' => 'text', 'default_value' => 'FREQUENTLY ASKED QUESTIONS' ),
+            array( 'key' => 'field_dp_ew_faq_title', 'label' => 'Title', 'name' => 'ew_faq_title', 'type' => 'text', 'default_value' => 'Frequently Asked Questions — Ear Wax Removal Denton' ),
+            array(
+                'key'          => 'field_dp_ew_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'ew_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'instructions' => 'Leave empty to use 6 default FAQs.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_ew_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_ew_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $ew_location,
+        'menu_order'            => 608,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // F10. Ear Wax — Final CTA Section
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_ew_cta',
+        'title'    => 'Ear Wax — Final CTA Section',
+        'fields'   => array(
+            array( 'key' => 'field_dp_ew_cta_badge_1', 'label' => 'Badge 1', 'name' => 'ew_cta_badge_1', 'type' => 'text', 'default_value' => 'From £40 per ear' ),
+            array( 'key' => 'field_dp_ew_cta_badge_2', 'label' => 'Badge 2', 'name' => 'ew_cta_badge_2', 'type' => 'text', 'default_value' => 'Same-day available' ),
+            array( 'key' => 'field_dp_ew_cta_badge_3', 'label' => 'Badge 3', 'name' => 'ew_cta_badge_3', 'type' => 'text', 'default_value' => 'Free 7-day follow-up' ),
+            array( 'key' => 'field_dp_ew_cta_title', 'label' => 'Title', 'name' => 'ew_cta_title', 'type' => 'text', 'default_value' => 'Ready to hear clearly again?' ),
+            array( 'key' => 'field_dp_ew_cta_description', 'label' => 'Description', 'name' => 'ew_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your ear wax removal appointment at our Denton clinic today. Expert microsuction treatment with guaranteed results.' ),
+            array( 'key' => 'field_dp_ew_cta_primary_url', 'label' => 'CTA URL', 'name' => 'ew_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page.' ),
+            array( 'key' => 'field_dp_ew_cta_button_text', 'label' => 'Button Text', 'name' => 'ew_cta_button_text', 'type' => 'text', 'default_value' => 'Book Appointment Online' ),
+        ),
+        'location'              => $ew_location,
+        'menu_order'            => 609,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );
