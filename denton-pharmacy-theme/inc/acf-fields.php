@@ -454,5 +454,256 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+    // =========================================================================
+    // A8. NAVIGATION MENU ITEMS
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_nav_items',
+        'title'    => 'Navigation Menu Items',
+        'fields'   => array(
+            // ── Home ──
+            array(
+                'key'           => 'field_dp_nav_home_show',
+                'label'         => 'Show Home',
+                'name'          => 'nav_home_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_dp_nav_home_label',
+                'label'         => 'Home Label',
+                'name'          => 'nav_home_label',
+                'type'          => 'text',
+                'default_value' => 'Home',
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_home_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            array(
+                'key'          => 'field_dp_nav_home_url',
+                'label'        => 'Home Page',
+                'name'         => 'nav_home_url',
+                'type'         => 'page_link',
+                'post_type'    => array( 'page' ),
+                'allow_null'   => 1,
+                'instructions' => 'Leave blank to link to the site homepage.',
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_home_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            // ── Weight Loss ──
+            array(
+                'key'           => 'field_dp_nav_wl_show',
+                'label'         => 'Show Weight Loss',
+                'name'          => 'nav_weight_loss_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_dp_nav_wl_label',
+                'label'         => 'Weight Loss Label',
+                'name'          => 'nav_weight_loss_label',
+                'type'          => 'text',
+                'default_value' => 'Weight Loss',
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_wl_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            array(
+                'key'        => 'field_dp_nav_wl_url',
+                'label'      => 'Weight Loss Page',
+                'name'       => 'nav_weight_loss_url',
+                'type'       => 'page_link',
+                'post_type'  => array( 'page' ),
+                'allow_null' => 1,
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_wl_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            // ── Travel Health ──
+            array(
+                'key'           => 'field_dp_nav_th_show',
+                'label'         => 'Show Travel Health',
+                'name'          => 'nav_travel_health_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_dp_nav_th_label',
+                'label'         => 'Travel Health Label',
+                'name'          => 'nav_travel_health_label',
+                'type'          => 'text',
+                'default_value' => 'Travel',
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_th_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            array(
+                'key'        => 'field_dp_nav_th_url',
+                'label'      => 'Travel Health Page',
+                'name'       => 'nav_travel_health_url',
+                'type'       => 'page_link',
+                'post_type'  => array( 'page' ),
+                'allow_null' => 1,
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_th_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            // ── Services ──
+            array(
+                'key'           => 'field_dp_nav_sv_show',
+                'label'         => 'Show Services',
+                'name'          => 'nav_services_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_dp_nav_sv_label',
+                'label'         => 'Services Label',
+                'name'          => 'nav_services_label',
+                'type'          => 'text',
+                'default_value' => 'Services',
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_sv_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            array(
+                'key'        => 'field_dp_nav_sv_url',
+                'label'      => 'Services Page',
+                'name'       => 'nav_services_url',
+                'type'       => 'page_link',
+                'post_type'  => array( 'page' ),
+                'allow_null' => 1,
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_sv_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            // ── Hub ──
+            array(
+                'key'           => 'field_dp_nav_hh_show',
+                'label'         => 'Show Hub',
+                'name'          => 'nav_hub_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_dp_nav_hh_label',
+                'label'         => 'Hub Label',
+                'name'          => 'nav_hub_label',
+                'type'          => 'text',
+                'default_value' => 'Hub',
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_hh_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            array(
+                'key'        => 'field_dp_nav_hh_url',
+                'label'      => 'Hub Page',
+                'name'       => 'nav_hub_url',
+                'type'       => 'page_link',
+                'post_type'  => array( 'page' ),
+                'allow_null' => 1,
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_hh_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'options_page',
+                    'operator' => '==',
+                    'value'    => 'navigation',
+                ),
+            ),
+        ),
+        'menu_order'            => 60,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // A9. NAVIGATION DROPDOWN SUB-LINKS
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_nav_dropdowns',
+        'title'    => 'Navigation Dropdown Sub-links',
+        'fields'   => array(
+            // ── Weight Loss Dropdown ──
+            array(
+                'key'          => 'field_dp_nav_dd_wl_links',
+                'label'        => 'Weight Loss Dropdown Links',
+                'name'         => 'nav_dd_wl_links',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Link',
+                'instructions' => 'Leave empty to use the default links (GLP-1 Treatments, Personal Support, Free Consultation).',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_nav_dd_wl_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_nav_dd_wl_desc',  'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_nav_dd_wl_icon',  'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'e.g. fas fa-syringe', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_nav_dd_wl_url',   'label' => 'Page', 'name' => 'url', 'type' => 'page_link', 'post_type' => array( 'page' ), 'allow_null' => 1, 'wrapper' => array( 'width' => '25' ) ),
+                ),
+            ),
+            // ── Travel Services Dropdown ──
+            array(
+                'key'          => 'field_dp_nav_dd_th_services',
+                'label'        => 'Travel Services Dropdown Links',
+                'name'         => 'nav_dd_th_services',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Link',
+                'instructions' => 'Leave empty to use the defaults (All Vaccinations, Yellow Fever Centre, Travel Advice).',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_nav_dd_th_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_nav_dd_th_desc',  'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_nav_dd_th_icon',  'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'e.g. fas fa-shield-virus', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_nav_dd_th_url',   'label' => 'Page', 'name' => 'url', 'type' => 'page_link', 'post_type' => array( 'page' ), 'allow_null' => 1, 'wrapper' => array( 'width' => '25' ) ),
+                ),
+            ),
+            // ── Travel Destinations ──
+            array(
+                'key'          => 'field_dp_nav_dd_th_dests',
+                'label'        => 'Travel Destinations',
+                'name'         => 'nav_dd_th_destinations',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 8,
+                'button_label' => 'Add Destination',
+                'instructions' => 'Leave empty to use defaults (Thailand, India, Vietnam, Kenya, Brazil, Cape Verde).',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_nav_dd_th_dest_name', 'label' => 'Country', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_nav_dd_th_dest_flag', 'label' => 'Flag URL', 'name' => 'flag_url', 'type' => 'url', 'instructions' => 'e.g. https://flagcdn.com/w40/th.png', 'wrapper' => array( 'width' => '40' ) ),
+                    array( 'key' => 'field_dp_nav_dd_th_dest_url',  'label' => 'Page', 'name' => 'url', 'type' => 'page_link', 'post_type' => array( 'page' ), 'allow_null' => 1, 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+            // ── Services Dropdown ──
+            array(
+                'key'          => 'field_dp_nav_dd_sv_links',
+                'label'        => 'Services Dropdown Links',
+                'name'         => 'nav_dd_services_links',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Link',
+                'instructions' => 'Leave empty to use defaults (NHS Prescriptions, Ear Wax Removal, Pharmacy First, Blood Testing).',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_nav_dd_sv_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_nav_dd_sv_desc',  'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_nav_dd_sv_icon',  'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'e.g. fas fa-stethoscope', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_nav_dd_sv_url',   'label' => 'Page', 'name' => 'url', 'type' => 'page_link', 'post_type' => array( 'page' ), 'allow_null' => 1, 'wrapper' => array( 'width' => '25' ) ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'options_page',
+                    'operator' => '==',
+                    'value'    => 'navigation',
+                ),
+            ),
+        ),
+        'menu_order'            => 70,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );
