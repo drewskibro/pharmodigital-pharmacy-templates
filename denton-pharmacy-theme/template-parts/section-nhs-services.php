@@ -24,102 +24,40 @@ $bottom_desc  = dp_field( 'nhs_bottom_description', 'Our friendly team is here t
 $phone        = dp_phone();
 $phone_link   = dp_phone_link();
 
-// --- Default card data ---
+// --- Card data from 6 individual ACF groups ---
 $default_cards = array(
-    array(
-        'colour' => 'blue',
-        'icon'   => 'prescription',
-        'badge'  => 'Free for Eligible',
-        'title'  => 'NHS Prescriptions',
-        'desc'   => 'Fast, reliable prescription dispensing with expert advice from our pharmacists.',
-        'items'  => array( 'Same-day collection available', 'Expert medication advice', 'Free for eligible patients' ),
-        'btn'    => 'Learn More',
-        'url'    => home_url( '/book-appointment/' ),
-    ),
-    array(
-        'colour' => 'green',
-        'icon'   => 'delivery',
-        'badge'  => 'Free Service',
-        'title'  => 'Collection & Delivery',
-        'desc'   => 'We collect prescriptions from your GP and deliver to your door at no extra cost.',
-        'items'  => array( 'Free home delivery', 'GP prescription collection', 'Local Denton coverage' ),
-        'btn'    => 'Learn More',
-        'url'    => home_url( '/book-appointment/' ),
-    ),
-    array(
-        'colour' => 'purple',
-        'icon'   => 'repeat',
-        'badge'  => 'Automated',
-        'title'  => 'Repeat Prescriptions',
-        'desc'   => 'Never miss a dose with our automated repeat prescription management service.',
-        'items'  => array( 'Automatic ordering', 'SMS reminders', 'Easy online management' ),
-        'btn'    => 'Learn More',
-        'url'    => home_url( '/book-appointment/' ),
-    ),
-    array(
-        'colour' => 'orange',
-        'icon'   => 'pharmacyfirst',
-        'badge'  => 'NHS Service',
-        'title'  => 'Pharmacy First',
-        'desc'   => 'Get treatment for common conditions directly from our pharmacy, no GP needed.',
-        'items'  => array( 'No GP appointment needed', '7 common conditions treated', 'Free NHS consultation' ),
-        'btn'    => 'Learn More',
-        'url'    => home_url( '/book-appointment/' ),
-    ),
-    array(
-        'colour' => 'pink',
-        'icon'   => 'newmedicine',
-        'badge'  => 'Free Support',
-        'title'  => 'New Medicine Service',
-        'desc'   => 'Starting a new medication? We provide free follow-up support and guidance.',
-        'items'  => array( 'Expert medication guidance', 'Scheduled follow-ups', 'Side effect management' ),
-        'btn'    => 'Learn More',
-        'url'    => home_url( '/book-appointment/' ),
-    ),
-    array(
-        'colour' => 'cyan',
-        'icon'   => 'flu',
-        'badge'  => 'Seasonal',
-        'title'  => 'NHS Flu Vaccinations',
-        'desc'   => 'Protect yourself this winter with a free NHS flu jab at your local pharmacy.',
-        'items'  => array( 'Free for eligible patients', 'Walk-in appointments', '10 minute service' ),
-        'btn'    => 'Learn More',
-        'url'    => home_url( '/book-appointment/' ),
-    ),
+    1 => array( 'colour' => 'blue',   'icon' => 'prescription',  'badge' => 'Free for Eligible', 'title' => 'NHS Prescriptions',      'desc' => 'Free prescription dispensing for eligible patients. Quick, reliable service with expert advice from our pharmacists.', 'items' => array( 'Free for eligible patients', 'Same-day collection', 'Expert pharmacist advice' ),   'btn' => 'Learn More',        'url' => home_url( '/nhs-services/' ) ),
+    2 => array( 'colour' => 'green',  'icon' => 'delivery',      'badge' => 'Free Service',      'title' => 'Collection & Delivery',  'desc' => 'Free prescription collection from your GP and home delivery service. We make getting your medication convenient.',      'items' => array( 'Free home delivery', 'GP prescription collection', 'Local area coverage' ),          'btn' => 'Request Delivery',  'url' => home_url( '/nhs-services/' ) ),
+    3 => array( 'colour' => 'purple', 'icon' => 'repeat',        'badge' => 'Automated',         'title' => 'Repeat Prescriptions',   'desc' => 'Automatic repeat prescription service with reminders. Never run out of your regular medication again.',                'items' => array( 'Automatic ordering', 'SMS/email reminders', 'Easy to manage' ),                    'btn' => 'Sign Up Now',       'url' => home_url( '/nhs-services/' ) ),
+    4 => array( 'colour' => 'orange', 'icon' => 'pharmacyfirst', 'badge' => 'NHS Service',       'title' => 'Pharmacy First',         'desc' => 'Get treatment for common conditions without seeing a GP. Free NHS consultations for minor ailments.',                   'items' => array( 'No GP appointment needed', '7 common conditions', 'Free consultation' ),              'btn' => 'Book Consultation', 'url' => home_url( '/book-appointment/' ) ),
+    5 => array( 'colour' => 'pink',   'icon' => 'newmedicine',   'badge' => 'Free Support',      'title' => 'New Medicine Service',   'desc' => 'Extra support when starting new medication. Free follow-up consultations to ensure your treatment works.',              'items' => array( 'Medication guidance', 'Follow-up consultations', 'Side effect management' ),          'btn' => 'Get Support',       'url' => home_url( '/nhs-services/' ) ),
+    6 => array( 'colour' => 'cyan',   'icon' => 'flu',           'badge' => 'Seasonal',          'title' => 'NHS Flu Vaccinations',   'desc' => 'Free flu jabs for eligible patients. Protect yourself and your loved ones this winter season.',                          'items' => array( 'Free for eligible patients', 'Walk-in available', 'Quick 10-minute service' ),          'btn' => 'Book Flu Jab',      'url' => home_url( '/book-appointment/' ) ),
 );
 
-// Try ACF repeater first, fall back to defaults
 $cards = array();
-if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
-    $colour_cycle = array( 'blue', 'green', 'purple', 'orange', 'pink', 'cyan' );
-    $card_index   = 0;
-    while ( have_rows( 'nhs_cards' ) ) {
-        the_row();
-        $items_raw = get_sub_field( 'card_items' );
-        $items     = array();
-        if ( is_array( $items_raw ) ) {
-            foreach ( $items_raw as $item_row ) {
-                if ( ! empty( $item_row['item_text'] ) ) {
-                    $items[] = $item_row['item_text'];
-                }
-            }
-        }
-        $cards[] = array(
-            'colour' => get_sub_field( 'card_colour' ) ?: $colour_cycle[ $card_index % 6 ],
-            'icon'   => get_sub_field( 'card_icon' ) ?: 'prescription',
-            'badge'  => get_sub_field( 'card_badge' ) ?: '',
-            'title'  => get_sub_field( 'card_title' ) ?: '',
-            'desc'   => get_sub_field( 'card_description' ) ?: '',
-            'items'  => $items,
-            'btn'    => get_sub_field( 'card_button_text' ) ?: 'Learn More',
-            'url'    => get_sub_field( 'card_url' ) ?: home_url( '/book-appointment/' ),
-        );
-        $card_index++;
-    }
-}
+for ( $n = 1; $n <= 6; $n++ ) {
+    $group = dp_field( "nhs_card_{$n}" );
+    $def   = $default_cards[ $n ];
 
-if ( empty( $cards ) ) {
-    $cards = $default_cards;
+    if ( is_array( $group ) && ! empty( $group['title'] ) ) {
+        $items = array();
+        if ( ! empty( $group['item_1'] ) ) { $items[] = $group['item_1']; }
+        if ( ! empty( $group['item_2'] ) ) { $items[] = $group['item_2']; }
+        if ( ! empty( $group['item_3'] ) ) { $items[] = $group['item_3']; }
+
+        $cards[] = array(
+            'colour' => $group['colour'] ?: $def['colour'],
+            'icon'   => $group['icon']   ?: $def['icon'],
+            'badge'  => $group['badge']  ?: $def['badge'],
+            'title'  => $group['title'],
+            'desc'   => $group['desc']   ?: $def['desc'],
+            'items'  => ! empty( $items ) ? $items : $def['items'],
+            'btn'    => $group['btn']    ?: $def['btn'],
+            'url'    => $group['url']    ?: $def['url'],
+        );
+    } else {
+        $cards[] = $def;
+    }
 }
 ?>
 
