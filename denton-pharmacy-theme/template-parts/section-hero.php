@@ -36,6 +36,16 @@ $cta_primary_url    = dp_booking_url();
 $cta_secondary_text = dp_field( 'hero_cta_secondary_text', 'Popular Treatments' );
 $cta_secondary_url  = '#treatments';
 
+// --- Trust indicators ---
+$trust_indicators = dp_field( 'hero_trust_indicators' );
+if ( empty( $trust_indicators ) || ! is_array( $trust_indicators ) ) {
+    $trust_indicators = array(
+        array( 'icon' => 'fas fa-shield-halved', 'text' => 'GPhC Registered' ),
+        array( 'icon' => 'fas fa-check-circle',  'text' => 'UK Licensed' ),
+        array( 'icon' => 'fas fa-heart',          'text' => 'NHS & Private' ),
+    );
+}
+
 // --- Testimonial ---
 $testimonial_quote  = dp_field( 'hero_testimonial_quote', 'Incredible service from start to finish. Lost 6 stone with their support — couldn\'t recommend more!' );
 $testimonial_author = dp_field( 'hero_testimonial_author', 'Sarah M.' );
@@ -48,11 +58,16 @@ $hero_image_alt = $hero_image_id
     ? get_post_meta( $hero_image_id, '_wp_attachment_image_alt', true )
     : 'Pharmacy services at ' . esc_attr( dp_pharmacy_name() );
 
-// --- Google rating (global options) ---
+// --- Google rating (global options + page overrides) ---
 $google_rating       = dp_option( 'google_rating', '4.7' );
-$google_review_count = dp_option( 'google_review_count', '89+' );
 $google_review_url   = dp_option( 'google_review_url', '#' );
 $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
+
+// --- Rating card (page-level fields with defaults) ---
+$rating_label       = dp_field( 'hero_rating_label', 'Google Rating' );
+$rating_stars       = (int) dp_field( 'hero_rating_stars', 5 );
+$rating_count_label = dp_field( 'hero_rating_count_label', 'Based on 300+ reviews' );
+$rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
 ?>
 
 <section class="hero-section">
@@ -111,24 +126,17 @@ $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
 
                 <!-- Trust indicators -->
                 <ul class="trust-indicators">
-                    <li class="trust-item">
-                        <i class="fas fa-shield-halved"></i>
-                        <span>GPhC Registered</span>
-                    </li>
-                    <li class="trust-item trust-divider">
-                        <span class="dot-separator"></span>
-                    </li>
-                    <li class="trust-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>UK Licensed</span>
-                    </li>
-                    <li class="trust-item trust-divider">
-                        <span class="dot-separator"></span>
-                    </li>
-                    <li class="trust-item">
-                        <i class="fas fa-heart"></i>
-                        <span>NHS &amp; Private</span>
-                    </li>
+                    <?php foreach ( $trust_indicators as $i => $indicator ) : ?>
+                        <?php if ( $i > 0 ) : ?>
+                            <li class="trust-item trust-divider">
+                                <span class="dot-separator"></span>
+                            </li>
+                        <?php endif; ?>
+                        <li class="trust-item">
+                            <i class="<?php echo esc_attr( $indicator['icon'] ); ?>"></i>
+                            <span><?php echo esc_html( $indicator['text'] ); ?></span>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
 
                 <!-- Testimonial card -->
@@ -175,7 +183,7 @@ $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
                     <div class="hero-overlay"></div>
                     <div class="hero-image-caption">
                         <p class="caption-label"><?php echo esc_html( dp_pharmacy_name() ); ?></p>
-                        <p class="caption-title">Your Health,<br />Reimagined.</p>
+                        <p class="caption-title"><?php echo wp_kses( dp_field( 'hero_caption_title', 'Your Health,<br />Reimagined.' ), array( 'br' => array() ) ); ?></p>
                     </div>
                 </div>
 
@@ -186,20 +194,18 @@ $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
                             <div class="google-icon-wrapper">
                                 <i class="fab fa-google"></i>
                             </div>
-                            <span>Google Rating</span>
+                            <span><?php echo esc_html( $rating_label ); ?></span>
                         </div>
                     </div>
                     <div class="rating-score">
                         <span class="score-number"><?php echo esc_html( $google_rating ); ?></span>
                         <div class="rating-score-detail">
                             <div class="star-row">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <?php for ( $s = 0; $s < $rating_stars; $s++ ) : ?>
+                                    <i class="fas fa-star"></i>
+                                <?php endfor; ?>
                             </div>
-                            <span class="rating-count">Based on <?php echo esc_html( $google_review_count ); ?> reviews</span>
+                            <span class="rating-count"><?php echo esc_html( $rating_count_label ); ?></span>
                         </div>
                     </div>
                     <div class="rating-footer">
@@ -207,7 +213,7 @@ $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
                             <i class="fas fa-map-marker-alt"></i>
                             <span><?php echo esc_html( $pharmacy_location ); ?></span>
                         </div>
-                        <a href="<?php echo esc_url( $google_review_url ); ?>" class="rating-link">View Reviews</a>
+                        <a href="<?php echo esc_url( $google_review_url ); ?>" class="rating-link"><?php echo esc_html( $rating_link_text ); ?></a>
                     </div>
                 </div>
 
