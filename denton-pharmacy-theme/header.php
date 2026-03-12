@@ -21,6 +21,8 @@ $booking_url   = dp_booking_url();
 $google_rating = dp_option( 'google_rating', '4.9' );
 $google_count  = dp_option( 'google_review_count', '300+' );
 $booking_text  = dp_option( 'booking_cta_text', 'Book Consultation' );
+$trust_item_1  = dp_option( 'trust_bar_item_1', 'GPhC Registered' );
+$trust_item_2  = dp_option( 'trust_bar_item_2', 'NHS Partner' );
 
 // ---------------------------------------------------------------------------
 // Helper: resolve a nav page-link option field, falling back to a slug.
@@ -117,12 +119,12 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
         <div class="denton-trust-items">
           <div class="denton-trust-item">
             <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-            <span>GPhC Registered</span>
+            <span><?php echo esc_html( $trust_item_1 ); ?></span>
           </div>
           <div class="denton-trust-divider"></div>
           <div class="denton-trust-item">
             <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-            <span>NHS Partner</span>
+            <span><?php echo esc_html( $trust_item_2 ); ?></span>
           </div>
           <div class="denton-trust-divider"></div>
           <div class="denton-trust-item denton-trust-item--rating">
