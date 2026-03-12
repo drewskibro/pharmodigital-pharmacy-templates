@@ -24,39 +24,26 @@ $bottom_desc  = dp_field( 'nhs_bottom_description', 'Our friendly team is here t
 $phone        = dp_phone();
 $phone_link   = dp_phone_link();
 
-// --- Card data from 6 individual ACF groups ---
-$default_cards = array(
-    1 => array( 'colour' => 'blue',   'icon' => 'prescription',  'badge' => 'Free for Eligible', 'title' => 'NHS Prescriptions',      'desc' => 'Free prescription dispensing for eligible patients. Quick, reliable service with expert advice from our pharmacists.', 'items' => array( 'Free for eligible patients', 'Same-day collection', 'Expert pharmacist advice' ),   'btn' => 'Learn More',        'url' => home_url( '/nhs-services/' ) ),
-    2 => array( 'colour' => 'green',  'icon' => 'delivery',      'badge' => 'Free Service',      'title' => 'Collection & Delivery',  'desc' => 'Free prescription collection from your GP and home delivery service. We make getting your medication convenient.',      'items' => array( 'Free home delivery', 'GP prescription collection', 'Local area coverage' ),          'btn' => 'Request Delivery',  'url' => home_url( '/nhs-services/' ) ),
-    3 => array( 'colour' => 'purple', 'icon' => 'repeat',        'badge' => 'Automated',         'title' => 'Repeat Prescriptions',   'desc' => 'Automatic repeat prescription service with reminders. Never run out of your regular medication again.',                'items' => array( 'Automatic ordering', 'SMS/email reminders', 'Easy to manage' ),                    'btn' => 'Sign Up Now',       'url' => home_url( '/nhs-services/' ) ),
-    4 => array( 'colour' => 'orange', 'icon' => 'pharmacyfirst', 'badge' => 'NHS Service',       'title' => 'Pharmacy First',         'desc' => 'Get treatment for common conditions without seeing a GP. Free NHS consultations for minor ailments.',                   'items' => array( 'No GP appointment needed', '7 common conditions', 'Free consultation' ),              'btn' => 'Book Consultation', 'url' => home_url( '/book-appointment/' ) ),
-    5 => array( 'colour' => 'pink',   'icon' => 'newmedicine',   'badge' => 'Free Support',      'title' => 'New Medicine Service',   'desc' => 'Extra support when starting new medication. Free follow-up consultations to ensure your treatment works.',              'items' => array( 'Medication guidance', 'Follow-up consultations', 'Side effect management' ),          'btn' => 'Get Support',       'url' => home_url( '/nhs-services/' ) ),
-    6 => array( 'colour' => 'cyan',   'icon' => 'flu',           'badge' => 'Seasonal',          'title' => 'NHS Flu Vaccinations',   'desc' => 'Free flu jabs for eligible patients. Protect yourself and your loved ones this winter season.',                          'items' => array( 'Free for eligible patients', 'Walk-in available', 'Quick 10-minute service' ),          'btn' => 'Book Flu Jab',      'url' => home_url( '/book-appointment/' ) ),
-);
-
+// --- Card data from ACF repeater (pre-populated via WP-CLI or acf/load_value) ---
 $cards = array();
-for ( $n = 1; $n <= 6; $n++ ) {
-    $group = dp_field( "nhs_card_{$n}" );
-    $def   = $default_cards[ $n ];
-
-    if ( is_array( $group ) && ! empty( $group['title'] ) ) {
-        $items = array();
-        if ( ! empty( $group['item_1'] ) ) { $items[] = $group['item_1']; }
-        if ( ! empty( $group['item_2'] ) ) { $items[] = $group['item_2']; }
-        if ( ! empty( $group['item_3'] ) ) { $items[] = $group['item_3']; }
-
+if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
+    while ( have_rows( 'nhs_cards' ) ) {
+        the_row();
+        $items = array_filter( array(
+            get_sub_field( 'card_item_1' ),
+            get_sub_field( 'card_item_2' ),
+            get_sub_field( 'card_item_3' ),
+        ) );
         $cards[] = array(
-            'colour' => $group['colour'] ?: $def['colour'],
-            'icon'   => $group['icon']   ?: $def['icon'],
-            'badge'  => $group['badge']  ?: $def['badge'],
-            'title'  => $group['title'],
-            'desc'   => $group['desc']   ?: $def['desc'],
-            'items'  => ! empty( $items ) ? $items : $def['items'],
-            'btn'    => $group['btn']    ?: $def['btn'],
-            'url'    => $group['url']    ?: $def['url'],
+            'colour' => get_sub_field( 'card_colour' ) ?: 'blue',
+            'icon'   => get_sub_field( 'card_icon' )   ?: 'prescription',
+            'badge'  => get_sub_field( 'card_badge' )   ?: '',
+            'title'  => get_sub_field( 'card_title' )   ?: '',
+            'desc'   => get_sub_field( 'card_desc' )    ?: '',
+            'items'  => $items,
+            'btn'    => get_sub_field( 'card_btn' )     ?: 'Learn More',
+            'url'    => get_sub_field( 'card_url' )     ?: home_url( '/book-appointment/' ),
         );
-    } else {
-        $cards[] = $def;
     }
 }
 ?>
