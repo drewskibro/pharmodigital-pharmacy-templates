@@ -1099,6 +1099,13 @@ function dp_register_acf_field_groups() {
                     'value'    => 'page-templates/page-home.php',
                 ),
             ),
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-nhs-services.php',
+                ),
+            ),
         ),
         'menu_order'            => 120,
         'position'              => 'normal',
@@ -1430,6 +1437,13 @@ function dp_register_acf_field_groups() {
                     'param'    => 'page_template',
                     'operator' => '==',
                     'value'    => 'page-templates/page-home.php',
+                ),
+            ),
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-nhs-services.php',
                 ),
             ),
         ),
@@ -1924,6 +1938,13 @@ function dp_register_acf_field_groups() {
                     'param'    => 'page_template',
                     'operator' => '==',
                     'value'    => 'page-templates/page-home.php',
+                ),
+            ),
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-nhs-services.php',
                 ),
             ),
         ),
@@ -6003,5 +6024,176 @@ function dp_register_acf_field_groups() {
         'location'   => $cv_location,
         'menu_order' => 1640,
     ) ) );
+
+    // =========================================================================
+    // M. NHS SERVICES PAGE FIELDS
+    // =========================================================================
+
+    // -------------------------------------------------------------------------
+    // M1. NHS Services — Hero & Stats
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_nhs_hero',
+        'title'    => 'NHS Services — Hero & Stats',
+        'fields'   => array(
+            // Hero
+            array(
+                'key'           => 'field_dp_nhs_hero_badge',
+                'label'         => 'Hero Badge',
+                'name'          => 'nhs_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'NHS PHARMACY SERVICES',
+            ),
+            array(
+                'key'           => 'field_dp_nhs_hero_title',
+                'label'         => 'Hero Title',
+                'name'          => 'nhs_hero_title',
+                'type'          => 'text',
+                'default_value' => 'Your Local NHS',
+            ),
+            array(
+                'key'           => 'field_dp_nhs_hero_highlight',
+                'label'         => 'Hero Title Highlight',
+                'name'          => 'nhs_hero_highlight',
+                'type'          => 'text',
+                'default_value' => 'Community Pharmacy',
+            ),
+            array(
+                'key'           => 'field_dp_nhs_hero_description',
+                'label'         => 'Hero Description',
+                'name'          => 'nhs_hero_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Free NHS services for eligible patients right here in Denton. Prescriptions, Pharmacy First consultations, flu jabs, and more — all from your trusted local pharmacy.',
+            ),
+            array(
+                'key'           => 'field_dp_nhs_hero_cta_text',
+                'label'         => 'Hero CTA Text',
+                'name'          => 'nhs_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Book Appointment',
+            ),
+            array(
+                'key'          => 'field_dp_nhs_hero_cta_url',
+                'label'        => 'Hero CTA URL',
+                'name'         => 'nhs_hero_cta_url',
+                'type'         => 'url',
+                'instructions' => 'Leave blank to use booking page URL.',
+            ),
+            // Stats
+            array(
+                'key'           => 'field_dp_nhs_stat_1_icon',
+                'label'         => 'Stat 1 Icon',
+                'name'          => 'nhs_stat_1_icon',
+                'type'          => 'text',
+                'default_value' => 'fas fa-file-prescription',
+                'instructions'  => 'Font Awesome class. The "fas" prefix is added automatically if omitted.',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_1_number',
+                'label'         => 'Stat 1 Number',
+                'name'          => 'nhs_stat_1_number',
+                'type'          => 'text',
+                'default_value' => '5,000+',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_1_label',
+                'label'         => 'Stat 1 Label',
+                'name'          => 'nhs_stat_1_label',
+                'type'          => 'text',
+                'default_value' => 'Prescriptions Monthly',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_2_icon',
+                'label'         => 'Stat 2 Icon',
+                'name'          => 'nhs_stat_2_icon',
+                'type'          => 'text',
+                'default_value' => 'fas fa-user-doctor',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_2_number',
+                'label'         => 'Stat 2 Number',
+                'name'          => 'nhs_stat_2_number',
+                'type'          => 'text',
+                'default_value' => 'GPhC',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_2_label',
+                'label'         => 'Stat 2 Label',
+                'name'          => 'nhs_stat_2_label',
+                'type'          => 'text',
+                'default_value' => 'Registered Pharmacists',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_3_icon',
+                'label'         => 'Stat 3 Icon',
+                'name'          => 'nhs_stat_3_icon',
+                'type'          => 'text',
+                'default_value' => 'fas fa-clock',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_3_number',
+                'label'         => 'Stat 3 Number',
+                'name'          => 'nhs_stat_3_number',
+                'type'          => 'text',
+                'default_value' => '6 Days',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_3_label',
+                'label'         => 'Stat 3 Label',
+                'name'          => 'nhs_stat_3_label',
+                'type'          => 'text',
+                'default_value' => 'Open Per Week',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_4_icon',
+                'label'         => 'Stat 4 Icon',
+                'name'          => 'nhs_stat_4_icon',
+                'type'          => 'text',
+                'default_value' => 'fas fa-heart',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_4_number',
+                'label'         => 'Stat 4 Number',
+                'name'          => 'nhs_stat_4_number',
+                'type'          => 'text',
+                'default_value' => 'Free',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_nhs_stat_4_label',
+                'label'         => 'Stat 4 Label',
+                'name'          => 'nhs_stat_4_label',
+                'type'          => 'text',
+                'default_value' => 'NHS Services',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-nhs-services.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1700,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );
