@@ -29,7 +29,7 @@ $booking_url = dp_booking_url();
       <div class="sticky-cta-buttons">
         <a href="<?php echo esc_url( $booking_url ); ?>" class="sticky-cta-button sticky-cta-primary">
           <i class="fas fa-calendar-check"></i>
-          <span>Book Now</span>
+          <span><?php echo esc_html( dp_field( 'sticky_cta_button_text', 'Book Now' ) ); ?></span>
         </a>
         <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="sticky-cta-button sticky-cta-secondary">
           <i class="fas fa-phone"></i>
