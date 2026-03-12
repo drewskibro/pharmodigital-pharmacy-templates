@@ -115,10 +115,6 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-travel-health-js', DENTON_PHARMACY_URI . '/assets/js/travel-health.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
-    if ( is_page_template( 'page-templates/page-travel-thailand.php' ) ) {
-        wp_enqueue_style( 'denton-travel-thailand', DENTON_PHARMACY_URI . '/assets/css/travel-thailand.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
-    }
-
     if ( is_page_template( 'page-templates/page-health-hub.php' ) || is_home() || is_category() || is_tag() || is_archive() ) {
         wp_enqueue_style( 'denton-blog', DENTON_PHARMACY_URI . '/assets/css/blog.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
         wp_enqueue_script( 'denton-blog-js', DENTON_PHARMACY_URI . '/assets/js/blog.js', array(), DENTON_PHARMACY_VERSION, true );

@@ -5417,5 +5417,591 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // L. TRAVEL DESTINATION PAGE FIELDS
+    // =========================================================================
+
+    // Thailand, Brazil, Vietnam share the same td_* field names (page-level, so each stores its own values).
+    $td_location = array(
+        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-thailand.php' ) ),
+        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-brazil.php' ) ),
+        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-vietnam.php' ) ),
+    );
+
+    $ke_location = array(
+        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-kenya.php' ) ),
+    );
+
+    $in_location = array(
+        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-india.php' ) ),
+    );
+
+    $cv_location = array(
+        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-cape-verde.php' ) ),
+    );
+
+    // Helper: standard field group options.
+    $fg_opts = array(
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    );
+
+    // -------------------------------------------------------------------------
+    // L1. Thailand / Brazil / Vietnam — Hero
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_td_hero',
+        'title'      => 'Travel Destination — Hero Section',
+        'fields'     => array(
+            array( 'key' => 'field_dp_td_hero_badge', 'label' => 'Badge Text', 'name' => 'td_hero_badge', 'type' => 'text', 'default_value' => 'THAILAND TRAVEL HEALTH' ),
+            array( 'key' => 'field_dp_td_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'td_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
+            array( 'key' => 'field_dp_td_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'td_hero_title_highlight', 'type' => 'text', 'default_value' => 'Thailand' ),
+            array( 'key' => 'field_dp_td_hero_description', 'label' => 'Description', 'name' => 'td_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Thailand adventure. Get protected before you travel with Denton's trusted travel health specialists." ),
+            array( 'key' => 'field_dp_td_hero_cta_text', 'label' => 'CTA Text', 'name' => 'td_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Thailand Consultation' ),
+            array( 'key' => 'field_dp_td_hero_cta_url', 'label' => 'CTA URL', 'name' => 'td_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'   => $td_location,
+        'menu_order' => 1300,
+    ) ) );
+
+    // -------------------------------------------------------------------------
+    // L1. Thailand / Brazil / Vietnam — Quick Info Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_td_stats',
+        'title'      => 'Travel Destination — Quick Info Bar',
+        'fields'     => array(
+            array(
+                'key'          => 'field_dp_td_stats',
+                'label'        => 'Stats',
+                'name'         => 'td_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_td_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_td_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_td_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                ),
+            ),
+        ),
+        'location'   => $td_location,
+        'menu_order' => 1305,
+    ) ) );
+
+    // -------------------------------------------------------------------------
+    // L1. Thailand / Brazil / Vietnam — Recommended Vaccinations
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_td_vaccines',
+        'title'      => 'Travel Destination — Recommended Vaccinations',
+        'fields'     => array(
+            array( 'key' => 'field_dp_td_vaccines_title', 'label' => 'Title', 'name' => 'td_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in Thailand' ),
+            array( 'key' => 'field_dp_td_vaccines_desc', 'label' => 'Description', 'name' => 'td_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to Thailand' ),
+            array(
+                'key'          => 'field_dp_td_vaccinations',
+                'label'        => 'Vaccinations',
+                'name'         => 'td_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 10,
+                'button_label' => 'Add Vaccination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_td_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_td_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_td_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'blue' => 'Blue (Essential/Recommended)', 'gray' => 'Grey (Consider/Rural)' ), 'default_value' => 'blue', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_td_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Recommended', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_td_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_td_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'   => $td_location,
+        'menu_order' => 1310,
+    ) ) );
+
+    // -------------------------------------------------------------------------
+    // L1. Thailand / Brazil / Vietnam — Malaria Information
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_td_malaria',
+        'title'      => 'Travel Destination — Malaria Information',
+        'fields'     => array(
+            array( 'key' => 'field_dp_td_malaria_image', 'label' => 'Image', 'name' => 'td_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_dp_td_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'td_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_dp_td_malaria_badge', 'label' => 'Section Badge', 'name' => 'td_malaria_badge', 'type' => 'text', 'default_value' => 'MOSQUITO-BORNE DISEASES' ),
+            array( 'key' => 'field_dp_td_malaria_title', 'label' => 'Title', 'name' => 'td_malaria_title', 'type' => 'text', 'default_value' => 'Malaria & Dengue Risks in Thailand' ),
+            array( 'key' => 'field_dp_td_malaria_intro', 'label' => 'Intro Text', 'name' => 'td_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'While malaria risk is low in most tourist areas, Dengue fever is common nationwide. Our pharmacists will check your specific itinerary and advise on prevention.' ),
+            array(
+                'key'          => 'field_dp_td_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'td_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Risk Item',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_td_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-check-circle', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_td_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'low-risk', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_td_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_td_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'   => $td_location,
+        'menu_order' => 1320,
+    ) ) );
+
+    // -------------------------------------------------------------------------
+    // L1. Thailand / Brazil / Vietnam — Health Advice
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_td_health',
+        'title'      => 'Travel Destination — Health Advice',
+        'fields'     => array(
+            array( 'key' => 'field_dp_td_health_badge', 'label' => 'Badge Text', 'name' => 'td_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
+            array( 'key' => 'field_dp_td_health_title', 'label' => 'Title', 'name' => 'td_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in Thailand' ),
+            array( 'key' => 'field_dp_td_health_subtitle', 'label' => 'Subtitle', 'name' => 'td_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe tropical adventure' ),
+            array(
+                'key'          => 'field_dp_td_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'td_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Tip',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_td_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_td_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_td_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_td_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'   => $td_location,
+        'menu_order' => 1330,
+    ) ) );
+
+    // -------------------------------------------------------------------------
+    // L1. Thailand / Brazil / Vietnam — Final CTA
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_td_cta',
+        'title'      => 'Travel Destination — Final CTA',
+        'fields'     => array(
+            array( 'key' => 'field_dp_td_cta_title', 'label' => 'Title', 'name' => 'td_cta_title', 'type' => 'text', 'default_value' => 'Ready for your Thailand adventure?' ),
+            array( 'key' => 'field_dp_td_cta_description', 'label' => 'Description', 'name' => 'td_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your Thailand travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_dp_td_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'td_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Thailand Consultation' ),
+            array( 'key' => 'field_dp_td_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'td_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_dp_td_cta_check_1', 'label' => 'Check 1', 'name' => 'td_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
+            array( 'key' => 'field_dp_td_cta_check_2', 'label' => 'Check 2', 'name' => 'td_cta_check_2', 'type' => 'text', 'default_value' => 'Expert Thailand Advice' ),
+            array( 'key' => 'field_dp_td_cta_check_3', 'label' => 'Check 3', 'name' => 'td_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines Available' ),
+        ),
+        'location'   => $td_location,
+        'menu_order' => 1340,
+    ) ) );
+
+    // -------------------------------------------------------------------------
+    // L2. Kenya — Hero
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_ke_hero',
+        'title'      => 'Kenya — Hero Section',
+        'fields'     => array(
+            array( 'key' => 'field_dp_ke_hero_badge', 'label' => 'Badge Text', 'name' => 'ke_hero_badge', 'type' => 'text', 'default_value' => 'KENYA TRAVEL HEALTH' ),
+            array( 'key' => 'field_dp_ke_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'ke_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
+            array( 'key' => 'field_dp_ke_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'ke_hero_title_highlight', 'type' => 'text', 'default_value' => 'Kenya' ),
+            array( 'key' => 'field_dp_ke_hero_description', 'label' => 'Description', 'name' => 'ke_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Kenya safari or holiday. Yellow Fever, Malaria, and more. Get protected with Denton's specialists." ),
+            array( 'key' => 'field_dp_ke_hero_cta_text', 'label' => 'CTA Text', 'name' => 'ke_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Kenya Consultation' ),
+            array( 'key' => 'field_dp_ke_hero_cta_url', 'label' => 'CTA URL', 'name' => 'ke_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'   => $ke_location,
+        'menu_order' => 1400,
+    ) ) );
+
+    // L2. Kenya — Quick Info Bar
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_ke_stats',
+        'title'      => 'Kenya — Quick Info Bar',
+        'fields'     => array(
+            array(
+                'key'          => 'field_dp_ke_stats',
+                'label'        => 'Stats',
+                'name'         => 'ke_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Stat',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_ke_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_ke_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_ke_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                ),
+            ),
+        ),
+        'location'   => $ke_location,
+        'menu_order' => 1405,
+    ) ) );
+
+    // L2. Kenya — Recommended Vaccinations
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_ke_vaccines',
+        'title'      => 'Kenya — Recommended Vaccinations',
+        'fields'     => array(
+            array( 'key' => 'field_dp_ke_vaccines_title', 'label' => 'Title', 'name' => 'ke_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in Kenya' ),
+            array( 'key' => 'field_dp_ke_vaccines_desc', 'label' => 'Description', 'name' => 'ke_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to Kenya' ),
+            array(
+                'key'          => 'field_dp_ke_vaccinations',
+                'label'        => 'Vaccinations',
+                'name'         => 'ke_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 10,
+                'button_label' => 'Add Vaccination',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_ke_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_ke_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_ke_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'blue' => 'Blue (Essential/Recommended)', 'gray' => 'Grey (Consider/Rural)' ), 'default_value' => 'blue', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_ke_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Recommended', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_ke_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_ke_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'   => $ke_location,
+        'menu_order' => 1410,
+    ) ) );
+
+    // L2. Kenya — Malaria Information
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_ke_malaria',
+        'title'      => 'Kenya — Malaria Information',
+        'fields'     => array(
+            array( 'key' => 'field_dp_ke_malaria_image', 'label' => 'Image', 'name' => 'ke_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_dp_ke_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'ke_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_dp_ke_malaria_badge', 'label' => 'Section Badge', 'name' => 'ke_malaria_badge', 'type' => 'text', 'default_value' => 'HIGH RISK AREA' ),
+            array( 'key' => 'field_dp_ke_malaria_title', 'label' => 'Title', 'name' => 'ke_malaria_title', 'type' => 'text', 'default_value' => 'Malaria Risk in Kenya' ),
+            array( 'key' => 'field_dp_ke_malaria_intro', 'label' => 'Intro Text', 'name' => 'ke_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk is high throughout most of Kenya, including safari parks. Antimalarials are usually recommended.' ),
+            array(
+                'key'          => 'field_dp_ke_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'ke_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Risk Item',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_ke_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_ke_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'low-risk', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_ke_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_ke_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'   => $ke_location,
+        'menu_order' => 1420,
+    ) ) );
+
+    // L2. Kenya — Health Advice
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_ke_health',
+        'title'      => 'Kenya — Health Advice',
+        'fields'     => array(
+            array( 'key' => 'field_dp_ke_health_badge', 'label' => 'Badge Text', 'name' => 'ke_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
+            array( 'key' => 'field_dp_ke_health_title', 'label' => 'Title', 'name' => 'ke_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in Kenya' ),
+            array( 'key' => 'field_dp_ke_health_subtitle', 'label' => 'Subtitle', 'name' => 'ke_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe safari' ),
+            array(
+                'key'          => 'field_dp_ke_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'ke_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 4,
+                'button_label' => 'Add Tip',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_ke_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_ke_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_ke_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_ke_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'   => $ke_location,
+        'menu_order' => 1430,
+    ) ) );
+
+    // L2. Kenya — Final CTA
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_ke_cta',
+        'title'      => 'Kenya — Final CTA',
+        'fields'     => array(
+            array( 'key' => 'field_dp_ke_cta_title', 'label' => 'Title', 'name' => 'ke_cta_title', 'type' => 'text', 'default_value' => 'Ready for your Kenya safari?' ),
+            array( 'key' => 'field_dp_ke_cta_description', 'label' => 'Description', 'name' => 'ke_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_dp_ke_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'ke_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Kenya Consultation' ),
+            array( 'key' => 'field_dp_ke_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'ke_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_dp_ke_cta_check_1', 'label' => 'Check 1', 'name' => 'ke_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
+            array( 'key' => 'field_dp_ke_cta_check_2', 'label' => 'Check 2', 'name' => 'ke_cta_check_2', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_dp_ke_cta_check_3', 'label' => 'Check 3', 'name' => 'ke_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines' ),
+        ),
+        'location'   => $ke_location,
+        'menu_order' => 1440,
+    ) ) );
+
+    // -------------------------------------------------------------------------
+    // L3. India — Hero
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_in_hero',
+        'title'      => 'India — Hero Section',
+        'fields'     => array(
+            array( 'key' => 'field_dp_in_hero_badge', 'label' => 'Badge Text', 'name' => 'in_hero_badge', 'type' => 'text', 'default_value' => 'INDIA TRAVEL HEALTH' ),
+            array( 'key' => 'field_dp_in_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'in_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
+            array( 'key' => 'field_dp_in_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'in_hero_title_highlight', 'type' => 'text', 'default_value' => 'India' ),
+            array( 'key' => 'field_dp_in_hero_description', 'label' => 'Description', 'name' => 'in_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your India journey. Get protected before you travel with Denton's trusted travel health specialists." ),
+            array( 'key' => 'field_dp_in_hero_cta_text', 'label' => 'CTA Text', 'name' => 'in_hero_cta_text', 'type' => 'text', 'default_value' => 'Book India Consultation' ),
+            array( 'key' => 'field_dp_in_hero_cta_url', 'label' => 'CTA URL', 'name' => 'in_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'   => $in_location,
+        'menu_order' => 1500,
+    ) ) );
+
+    // L3. India — Quick Info Bar
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_in_stats',
+        'title'      => 'India — Quick Info Bar',
+        'fields'     => array(
+            array(
+                'key' => 'field_dp_in_stats', 'label' => 'Stats', 'name' => 'in_stats', 'type' => 'repeater', 'layout' => 'table', 'min' => 0, 'max' => 4, 'button_label' => 'Add Stat',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_in_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_in_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_in_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                ),
+            ),
+        ),
+        'location'   => $in_location,
+        'menu_order' => 1505,
+    ) ) );
+
+    // L3. India — Recommended Vaccinations
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_in_vaccines',
+        'title'      => 'India — Recommended Vaccinations',
+        'fields'     => array(
+            array( 'key' => 'field_dp_in_vaccines_title', 'label' => 'Title', 'name' => 'in_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in India' ),
+            array( 'key' => 'field_dp_in_vaccines_desc', 'label' => 'Description', 'name' => 'in_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to India' ),
+            array(
+                'key' => 'field_dp_in_vaccinations', 'label' => 'Vaccinations', 'name' => 'in_vaccinations', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 10, 'button_label' => 'Add Vaccination',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_in_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_in_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_in_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'blue' => 'Blue (Essential/Recommended)', 'gray' => 'Grey (Consider/Rural)' ), 'default_value' => 'blue', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_in_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Recommended', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_in_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_in_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'   => $in_location,
+        'menu_order' => 1510,
+    ) ) );
+
+    // L3. India — Malaria Information
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_in_malaria',
+        'title'      => 'India — Malaria Information',
+        'fields'     => array(
+            array( 'key' => 'field_dp_in_malaria_image', 'label' => 'Image', 'name' => 'in_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_dp_in_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'in_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_dp_in_malaria_badge', 'label' => 'Section Badge', 'name' => 'in_malaria_badge', 'type' => 'text', 'default_value' => 'MOSQUITO-BORNE DISEASES' ),
+            array( 'key' => 'field_dp_in_malaria_title', 'label' => 'Title', 'name' => 'in_malaria_title', 'type' => 'text', 'default_value' => 'Malaria & Dengue Risks in India' ),
+            array( 'key' => 'field_dp_in_malaria_intro', 'label' => 'Intro Text', 'name' => 'in_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk varies across India. Dengue fever is also a significant risk nationwide. Our pharmacists will check your specific itinerary and advise on prevention.' ),
+            array(
+                'key' => 'field_dp_in_malaria_risks', 'label' => 'Risk Items', 'name' => 'in_malaria_risks', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 4, 'button_label' => 'Add Risk Item',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_in_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_in_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'low-risk', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_in_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_in_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'   => $in_location,
+        'menu_order' => 1520,
+    ) ) );
+
+    // L3. India — Health Advice
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_in_health',
+        'title'      => 'India — Health Advice',
+        'fields'     => array(
+            array( 'key' => 'field_dp_in_health_badge', 'label' => 'Badge Text', 'name' => 'in_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
+            array( 'key' => 'field_dp_in_health_title', 'label' => 'Title', 'name' => 'in_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in India' ),
+            array( 'key' => 'field_dp_in_health_subtitle', 'label' => 'Subtitle', 'name' => 'in_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe journey' ),
+            array(
+                'key' => 'field_dp_in_health_tips', 'label' => 'Health Tips', 'name' => 'in_health_tips', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 4, 'button_label' => 'Add Tip',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_in_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_in_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_in_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_in_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'   => $in_location,
+        'menu_order' => 1530,
+    ) ) );
+
+    // L3. India — Final CTA
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_in_cta',
+        'title'      => 'India — Final CTA',
+        'fields'     => array(
+            array( 'key' => 'field_dp_in_cta_title', 'label' => 'Title', 'name' => 'in_cta_title', 'type' => 'text', 'default_value' => 'Ready for your India adventure?' ),
+            array( 'key' => 'field_dp_in_cta_description', 'label' => 'Description', 'name' => 'in_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your India travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_dp_in_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'in_cta_primary_text', 'type' => 'text', 'default_value' => 'Book India Consultation' ),
+            array( 'key' => 'field_dp_in_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'in_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_dp_in_cta_check_1', 'label' => 'Check 1', 'name' => 'in_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
+            array( 'key' => 'field_dp_in_cta_check_2', 'label' => 'Check 2', 'name' => 'in_cta_check_2', 'type' => 'text', 'default_value' => 'Expert India Advice' ),
+            array( 'key' => 'field_dp_in_cta_check_3', 'label' => 'Check 3', 'name' => 'in_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines Available' ),
+        ),
+        'location'   => $in_location,
+        'menu_order' => 1540,
+    ) ) );
+
+    // -------------------------------------------------------------------------
+    // L4. Cape Verde — Hero
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_cv_hero',
+        'title'      => 'Cape Verde — Hero Section',
+        'fields'     => array(
+            array( 'key' => 'field_dp_cv_hero_badge', 'label' => 'Badge Text', 'name' => 'cv_hero_badge', 'type' => 'text', 'default_value' => 'CAPE VERDE TRAVEL HEALTH' ),
+            array( 'key' => 'field_dp_cv_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'cv_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
+            array( 'key' => 'field_dp_cv_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'cv_hero_title_highlight', 'type' => 'text', 'default_value' => 'Cape Verde' ),
+            array( 'key' => 'field_dp_cv_hero_description', 'label' => 'Description', 'name' => 'cv_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Cape Verde holiday. Get protected before you travel with Denton's trusted travel health specialists." ),
+            array( 'key' => 'field_dp_cv_hero_cta_text', 'label' => 'CTA Text', 'name' => 'cv_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+            array( 'key' => 'field_dp_cv_hero_cta_url', 'label' => 'CTA URL', 'name' => 'cv_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+        ),
+        'location'   => $cv_location,
+        'menu_order' => 1600,
+    ) ) );
+
+    // L4. Cape Verde — Quick Info Bar
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_cv_stats',
+        'title'      => 'Cape Verde — Quick Info Bar',
+        'fields'     => array(
+            array(
+                'key' => 'field_dp_cv_stats', 'label' => 'Stats', 'name' => 'cv_stats', 'type' => 'repeater', 'layout' => 'table', 'min' => 0, 'max' => 4, 'button_label' => 'Add Stat',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_cv_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_cv_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_cv_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                ),
+            ),
+        ),
+        'location'   => $cv_location,
+        'menu_order' => 1605,
+    ) ) );
+
+    // L4. Cape Verde — Recommended Vaccinations
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_cv_vaccines',
+        'title'      => 'Cape Verde — Recommended Vaccinations',
+        'fields'     => array(
+            array( 'key' => 'field_dp_cv_vaccines_title', 'label' => 'Title', 'name' => 'cv_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in Cape Verde' ),
+            array( 'key' => 'field_dp_cv_vaccines_desc', 'label' => 'Description', 'name' => 'cv_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to Cape Verde' ),
+            array(
+                'key' => 'field_dp_cv_vaccinations', 'label' => 'Vaccinations', 'name' => 'cv_vaccinations', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 10, 'button_label' => 'Add Vaccination',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_cv_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_cv_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_cv_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'blue' => 'Blue (Essential/Recommended)', 'gray' => 'Grey (Consider/Rural)' ), 'default_value' => 'blue', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_cv_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Recommended', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_cv_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_cv_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                ),
+            ),
+        ),
+        'location'   => $cv_location,
+        'menu_order' => 1610,
+    ) ) );
+
+    // L4. Cape Verde — Malaria Information
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_cv_malaria',
+        'title'      => 'Cape Verde — Malaria Information',
+        'fields'     => array(
+            array( 'key' => 'field_dp_cv_malaria_image', 'label' => 'Image', 'name' => 'cv_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_dp_cv_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'cv_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_dp_cv_malaria_badge', 'label' => 'Section Badge', 'name' => 'cv_malaria_badge', 'type' => 'text', 'default_value' => 'MOSQUITO RISKS' ),
+            array( 'key' => 'field_dp_cv_malaria_title', 'label' => 'Title', 'name' => 'cv_malaria_title', 'type' => 'text', 'default_value' => 'Malaria & Dengue in Cape Verde' ),
+            array( 'key' => 'field_dp_cv_malaria_intro', 'label' => 'Intro Text', 'name' => 'cv_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk is generally low but present on Santiago island. Dengue fever and Zika virus are also risks. Bite avoidance is essential.' ),
+            array(
+                'key' => 'field_dp_cv_malaria_risks', 'label' => 'Risk Items', 'name' => 'cv_malaria_risks', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 4, 'button_label' => 'Add Risk Item',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_cv_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_cv_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'low-risk', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_cv_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_cv_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                ),
+            ),
+        ),
+        'location'   => $cv_location,
+        'menu_order' => 1620,
+    ) ) );
+
+    // L4. Cape Verde — Health Advice
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_cv_health',
+        'title'      => 'Cape Verde — Health Advice',
+        'fields'     => array(
+            array( 'key' => 'field_dp_cv_health_badge', 'label' => 'Badge Text', 'name' => 'cv_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
+            array( 'key' => 'field_dp_cv_health_title', 'label' => 'Title', 'name' => 'cv_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in Cape Verde' ),
+            array( 'key' => 'field_dp_cv_health_subtitle', 'label' => 'Subtitle', 'name' => 'cv_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe trip' ),
+            array(
+                'key' => 'field_dp_cv_health_tips', 'label' => 'Health Tips', 'name' => 'cv_health_tips', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 4, 'button_label' => 'Add Tip',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_cv_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_cv_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_cv_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_cv_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+        ),
+        'location'   => $cv_location,
+        'menu_order' => 1630,
+    ) ) );
+
+    // L4. Cape Verde — Final CTA
+    acf_add_local_field_group( array_merge( $fg_opts, array(
+        'key'        => 'group_dp_cv_cta',
+        'title'      => 'Cape Verde — Final CTA',
+        'fields'     => array(
+            array( 'key' => 'field_dp_cv_cta_title', 'label' => 'Title', 'name' => 'cv_cta_title', 'type' => 'text', 'default_value' => 'Ready for Cape Verde?' ),
+            array( 'key' => 'field_dp_cv_cta_description', 'label' => 'Description', 'name' => 'cv_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_dp_cv_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'cv_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+            array( 'key' => 'field_dp_cv_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'cv_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
+            array( 'key' => 'field_dp_cv_cta_check_1', 'label' => 'Check 1', 'name' => 'cv_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
+            array( 'key' => 'field_dp_cv_cta_check_2', 'label' => 'Check 2', 'name' => 'cv_cta_check_2', 'type' => 'text', 'default_value' => 'Expert Advice' ),
+            array( 'key' => 'field_dp_cv_cta_check_3', 'label' => 'Check 3', 'name' => 'cv_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines' ),
+        ),
+        'location'   => $cv_location,
+        'menu_order' => 1640,
+    ) ) );
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );

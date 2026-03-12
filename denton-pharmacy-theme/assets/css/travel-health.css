@@ -1,10 +1,10 @@
 /* ============================================
    TRAVEL HEALTH PAGE STYLES — DENTON PHARMACY
    All classes use travel- prefix except shared components
-   Colour system: blue/green brand + purple accent
+   Colour system: blue/green brand
    ============================================ */
 
-/* Scoped purple accent variables — same pattern as weight-loss.css */
+/* Scoped accent variables for gradient elements */
 .travel-stats-section,
 .travel-cta-section,
 .travel-process-card-number,
@@ -14,8 +14,8 @@
 .travel-why-badge,
 .travel-service-icon-small,
 .travel-vaccine-icon i {
-  --brand-purple: #a39ee3;
-  --brand-purple-deep: #8b85d6;
+  --brand-accent-light: #3f73ae;
+  --brand-accent-deep: #2a507a;
 }
 
 
@@ -250,7 +250,7 @@
    ============================================ */
 .travel-stats-section {
   position: relative;
-  background: linear-gradient(135deg, #a39ee3, #8b85d6);
+  background: linear-gradient(135deg, #3f73ae, #2a507a);
   padding: 2rem 0;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -459,7 +459,7 @@
 .travel-service-icon-small {
   width: 3rem;
   height: 3rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-purple-deep));
+  background: linear-gradient(135deg, var(--brand-accent-light), var(--brand-accent-deep));
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
@@ -738,7 +738,7 @@
   position: absolute;
   bottom: 2rem;
   right: 2rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-purple-deep));
+  background: linear-gradient(135deg, var(--brand-accent-light), var(--brand-accent-deep));
   padding: 1.5rem;
   border-radius: 50%;
   width: 8rem;
@@ -748,7 +748,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(163, 158, 227, 0.4);
+  box-shadow: 0 10px 30px rgba(63, 115, 174, 0.4);
   animation: float 6s ease-in-out infinite;
   border: 4px solid var(--white);
 }
@@ -907,12 +907,12 @@
   flex-shrink: 0;
   width: 3.5rem;
   height: 3.5rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-purple-deep));
+  background: linear-gradient(135deg, var(--brand-accent-light), var(--brand-accent-deep));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 25px rgba(163, 158, 227, 0.3);
+  box-shadow: 0 8px 25px rgba(63, 115, 174, 0.3);
   position: relative;
   z-index: 2;
   margin-top: 1.75rem;
@@ -935,7 +935,7 @@
   transform: translateX(-50%);
   width: 2px;
   height: calc(100% + 2rem);
-  background: linear-gradient(180deg, #a39ee3, rgba(163, 158, 227, 0.15));
+  background: linear-gradient(180deg, #3f73ae, rgba(63, 115, 174, 0.15));
   z-index: 1;
 }
 
@@ -1405,7 +1405,7 @@
    ============================================ */
 .travel-cta-section {
   position: relative;
-  background: linear-gradient(135deg, #a39ee3 0%, #8b85d6 100%);
+  background: linear-gradient(135deg, #3f73ae 0%, #2a507a 100%);
   padding: 6rem 0;
   overflow: hidden;
 }
@@ -1526,7 +1526,7 @@
 
 .travel-cta-button-white {
   background: var(--white);
-  color: #8b85d6;
+  color: #2a507a;
 }
 
 .travel-cta-button-white:hover {
