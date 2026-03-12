@@ -60,6 +60,7 @@
   inset: 0;
   background: linear-gradient(to right, rgba(42, 80, 122, 0.95), rgba(63, 115, 174, 0.85), rgba(63, 115, 174, 0.4));
   z-index: 1;
+  pointer-events: none;
 }
 
 .rabies-hero-dots {
@@ -68,6 +69,7 @@
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
   background-size: 30px 30px;
   z-index: 2;
+  pointer-events: none;
 }
 
 .rabies-hero-content {
@@ -1073,6 +1075,7 @@
   inset: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
+  pointer-events: none;
 }
 
 .rabies-cta-content {

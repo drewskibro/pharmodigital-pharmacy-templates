@@ -30,6 +30,7 @@
   background-image: radial-gradient(circle, rgba(63, 115, 174, 0.02) 2px, transparent 2px);
   background-size: 40px 40px;
   z-index: 0;
+  pointer-events: none;
 }
 
 .hairloss-hero-glow-1 {
@@ -43,6 +44,7 @@
   filter: blur(100px);
   z-index: 1;
   animation: float 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .hairloss-hero-glow-2 {
@@ -56,6 +58,7 @@
   filter: blur(80px);
   z-index: 1;
   animation: float 10s ease-in-out infinite reverse;
+  pointer-events: none;
 }
 
 .hairloss-hero-dots {
@@ -267,6 +270,7 @@
   inset: 0;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   animation: shimmer 3s infinite;
+  pointer-events: none;
 }
 
 @keyframes shimmer {

@@ -30,6 +30,7 @@
   background: radial-gradient(circle at 30% 50%, rgba(63, 115, 174, 0.15) 0%, transparent 50%),
               radial-gradient(circle at 70% 50%, rgba(163, 158, 227, 0.1) 0%, transparent 50%);
   z-index: 1;
+  pointer-events: none;
 }
 
 .switch-hero-dots {
@@ -39,6 +40,7 @@
   background-size: 40px 40px;
   z-index: 2;
   opacity: 0.6;
+  pointer-events: none;
 }
 
 .switch-hero-glow-1 {
@@ -51,6 +53,7 @@
   filter: blur(120px);
   z-index: 1;
   animation: float 20s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .switch-hero-glow-2 {
@@ -63,6 +66,7 @@
   filter: blur(100px);
   z-index: 1;
   animation: float 25s ease-in-out infinite reverse;
+  pointer-events: none;
 }
 
 @keyframes float {
@@ -1814,6 +1818,7 @@
   background: radial-gradient(circle, rgba(63, 115, 174, 0.2) 0%, transparent 70%);
   filter: blur(120px);
   animation: float 20s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .switch-cta-glow-2 {
@@ -1825,6 +1830,7 @@
   background: radial-gradient(circle, rgba(163, 158, 227, 0.18) 0%, transparent 70%);
   filter: blur(100px);
   animation: float 25s ease-in-out infinite reverse;
+  pointer-events: none;
 }
 
 .switch-cta-dots {
@@ -1833,6 +1839,7 @@
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   opacity: 0.6;
+  pointer-events: none;
 }
 
 .switch-cta-content {

@@ -28,6 +28,7 @@
   filter: blur(60px);
   z-index: 0;
   animation: float 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .team-hero-bg-blob-2 {
@@ -41,6 +42,7 @@
   filter: blur(60px);
   z-index: 0;
   animation: float 10s ease-in-out infinite reverse;
+  pointer-events: none;
 }
 
 .team-hero-dots {
@@ -49,6 +51,7 @@
   background-image: radial-gradient(circle, rgba(63, 115, 174, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
   z-index: 1;
+  pointer-events: none;
 }
 
 .team-hero-content {
@@ -256,6 +259,7 @@
   background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .team-member-card:hover .team-member-overlay {
@@ -490,6 +494,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   filter: blur(100px);
+  pointer-events: none;
 }
 
 .team-cta-blob-2 {
@@ -501,6 +506,7 @@
   background: rgba(255, 255, 255, 0.08);
   border-radius: 50%;
   filter: blur(80px);
+  pointer-events: none;
 }
 
 .team-cta-content {

@@ -23,8 +23,8 @@ $booking_url = dp_booking_url();
   <div class="sticky-cta-bar" id="stickyCTA">
     <div class="sticky-cta-content">
       <div class="sticky-cta-text">
-        <span class="sticky-cta-title">Ready to Transform Your Health?</span>
-        <span class="sticky-cta-subtitle">Book your consultation today</span>
+        <span class="sticky-cta-title"><?php echo esc_html( dp_field( 'sticky_cta_title', 'Ready to Transform Your Health?' ) ); ?></span>
+        <span class="sticky-cta-subtitle"><?php echo esc_html( dp_field( 'sticky_cta_subtitle', 'Book your consultation today' ) ); ?></span>
       </div>
       <div class="sticky-cta-buttons">
         <a href="<?php echo esc_url( $booking_url ); ?>" class="sticky-cta-button sticky-cta-primary">

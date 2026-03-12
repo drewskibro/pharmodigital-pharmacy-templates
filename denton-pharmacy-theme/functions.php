@@ -472,7 +472,7 @@ function denton_pharmacy_post_schema() {
 
     // Reviewer (superintendent pharmacist)
     $reviewer_name = dp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
-    $reviewer_gphc = dp_option( 'superintendent_gphc_number', '' );
+    $reviewer_gphc = dp_option( 'superintendent_gphc_number', '2208502' );
     $reviewer_url  = dp_option( 'gphc_verify_url', '' );
 
     // Publisher

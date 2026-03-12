@@ -58,8 +58,8 @@ if ( empty( $features ) ) {
 // --- GPhC card data (global options) ---
 $company_registration = dp_option( 'company_registration', '14519140' );
 $gphc_registration    = dp_option( 'gphc_registration', '1033447' );
-$superintendent_name  = dp_option( 'superintendent_name', 'Ahmed Al-Liabi' );
-$superintendent_gphc  = dp_option( 'superintendent_gphc', '2208502' );
+$superintendent_name  = dp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
+$superintendent_gphc  = dp_option( 'superintendent_gphc_number', '2208502' );
 ?>
 
 <section class="safe-section">
