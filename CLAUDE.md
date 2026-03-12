@@ -8,6 +8,20 @@ For client-specific details (colours, pages, sections, field keys), see:
 
 ---
 
+## Private Developer Memory (Claude Code)
+
+Each developer using Claude Code has a **private memory directory** that persists across conversations but is NOT committed to the repo. Use it to store sensitive or personal data like SSH credentials, server passwords, and deployment details.
+
+**How to set it up:** Ask Claude Code to "remember" something (e.g. "remember the SSH credentials for Kinsta") and it will save it to `~/.claude/projects/<project-path>/memory/MEMORY.md` automatically.
+
+**What to store there (never in the repo):**
+- SSH/SCP connection details (host, port, user, password)
+- Server credentials and API keys
+- Personal deployment workflows
+- WP-CLI commands with paths specific to each environment
+
+---
+
 ## What These Projects Are
 
 Custom WordPress themes for **independent UK pharmacies**, built for PharmoDigital. Each theme is content-driven via **Advanced Custom Fields (ACF)** — almost no content lives in the WordPress editor. Every section of every page is powered by ACF fields with sensible defaults, so each theme works out of the box and can be customised per client.
