@@ -1085,7 +1085,7 @@ function dp_register_acf_field_groups() {
                 'label'        => 'NHS Service Cards',
                 'name'         => 'nhs_cards',
                 'type'         => 'repeater',
-                'layout'       => 'block',
+                'layout'       => 'row',
                 'button_label' => 'Add Card',
                 'sub_fields'   => array(
                     array(
