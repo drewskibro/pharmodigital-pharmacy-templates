@@ -170,6 +170,16 @@ function easy_pharmacy_scripts() {
         wp_enqueue_style( 'easy-pharmacy-reviewer-profile', EASY_PHARMACY_URI . '/assets/css/reviewer-profile.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
     }
 
+    if ( is_page_template( 'page-templates/page-smoking-cessation.php' ) ) {
+        wp_enqueue_style( 'easy-pharmacy-smoking-cessation', EASY_PHARMACY_URI . '/assets/css/smoking-cessation.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_script( 'easy-pharmacy-smoking-cessation-js', EASY_PHARMACY_URI . '/assets/js/smoking-cessation.js', array(), EASY_PHARMACY_VERSION, true );
+    }
+
+    if ( is_page_template( 'page-templates/page-altitude-sickness.php' ) ) {
+        wp_enqueue_style( 'easy-pharmacy-altitude-sickness', EASY_PHARMACY_URI . '/assets/css/altitude-sickness.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_script( 'easy-pharmacy-altitude-sickness-js', EASY_PHARMACY_URI . '/assets/js/altitude-sickness.js', array(), EASY_PHARMACY_VERSION, true );
+    }
+
     // Travel destination pages
     $travel_destinations = array( 'brazil', 'kenya', 'vietnam', 'india', 'thailand', 'cape-verde' );
     foreach ( $travel_destinations as $destination ) {

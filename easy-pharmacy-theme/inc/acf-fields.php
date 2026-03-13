@@ -7876,5 +7876,1317 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // =========================================================================
+    // T. SMOKING CESSATION PAGE FIELDS (sc_ prefix)
+    // =========================================================================
+
+    $sc_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-smoking-cessation.php',
+            ),
+        ),
+    );
+
+    // T1: Hero Section
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_sc_hero',
+        'title'                 => 'Smoking Cessation — Hero Section',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_sc_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'sc_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'SMOKING CESSATION SERVICE',
+            ),
+            array(
+                'key'           => 'field_ep_sc_hero_title_highlight',
+                'label'         => 'Title Highlight (Gradient)',
+                'name'          => 'sc_hero_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Stop Smoking',
+            ),
+            array(
+                'key'           => 'field_ep_sc_hero_title_line2',
+                'label'         => 'Title Line 2',
+                'name'          => 'sc_hero_title_line2',
+                'type'          => 'text',
+                'default_value' => 'in Ashford, Chertsey & Walton-on-Thames',
+            ),
+            array(
+                'key'           => 'field_ep_sc_hero_description',
+                'label'         => 'Description',
+                'name'          => 'sc_hero_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Get expert support to quit smoking for good. Face-to-face consultations, personalised quit plans, and ongoing support for as long as you need it—no GP referral required.',
+            ),
+            array(
+                'key'           => 'field_ep_sc_hero_cta_text',
+                'label'         => 'CTA Button Text',
+                'name'          => 'sc_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Book Your Consultation',
+            ),
+            array(
+                'key'           => 'field_ep_sc_hero_cta_url',
+                'label'         => 'CTA Button URL',
+                'name'          => 'sc_hero_cta_url',
+                'type'          => 'url',
+                'instructions'  => 'Leave blank to default to booking page.',
+            ),
+            array(
+                'key'           => 'field_ep_sc_hero_image',
+                'label'         => 'Hero Image',
+                'name'          => 'sc_hero_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+            ),
+            array(
+                'key'           => 'field_ep_sc_hero_image_alt',
+                'label'         => 'Hero Image Alt Text',
+                'name'          => 'sc_hero_image_alt',
+                'type'          => 'text',
+                'default_value' => 'Smoking cessation consultation at Easy Pharmacy',
+            ),
+            array(
+                'key'           => 'field_ep_sc_hero_supporting_text',
+                'label'         => 'Supporting Text',
+                'name'          => 'sc_hero_supporting_text',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Same-day appointments available at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames. Start your quit journey today.',
+            ),
+            array(
+                'key'           => 'field_ep_sc_trust_1',
+                'label'         => 'Trust Item 1',
+                'name'          => 'sc_trust_1',
+                'type'          => 'text',
+                'default_value' => 'No GP Referral Needed',
+            ),
+            array(
+                'key'           => 'field_ep_sc_trust_2',
+                'label'         => 'Trust Item 2',
+                'name'          => 'sc_trust_2',
+                'type'          => 'text',
+                'default_value' => 'Same-Day Appointments',
+            ),
+            array(
+                'key'           => 'field_ep_sc_trust_3',
+                'label'         => 'Trust Item 3',
+                'name'          => 'sc_trust_3',
+                'type'          => 'text',
+                'default_value' => 'Ongoing Support',
+            ),
+        ),
+        'location'              => $sc_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+        'hide_on_screen'        => array( 'the_content', 'featured_image', 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'slug', 'tags', 'send-trackbacks' ),
+    ) );
+
+    // T2: Why Quit Now Section
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_sc_whyquit',
+        'title'                 => 'Smoking Cessation — Why Quit Now',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_sc_whyquit_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'sc_whyquit_badge',
+                'type'          => 'text',
+                'default_value' => 'WHY QUIT NOW',
+            ),
+            array(
+                'key'           => 'field_ep_sc_whyquit_title',
+                'label'         => 'Title',
+                'name'          => 'sc_whyquit_title',
+                'type'          => 'text',
+                'default_value' => 'Why Most People Wish They\'d Quit Sooner',
+            ),
+            array(
+                'key'           => 'field_ep_sc_whyquit_quote',
+                'label'         => 'Opening Quote',
+                'name'          => 'sc_whyquit_quote',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => '"I knew I should stop. I\'d been saying it for years. But I kept putting it off—next month, after this stressful period, when things calm down."',
+            ),
+        ),
+        'location'              => $sc_location,
+        'menu_order'            => 1,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // T3: How It Works (Process Steps)
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_sc_process',
+        'title'                 => 'Smoking Cessation — How It Works',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_sc_process_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'sc_process_badge',
+                'type'          => 'text',
+                'default_value' => 'HOW IT WORKS',
+            ),
+            array(
+                'key'           => 'field_ep_sc_process_title',
+                'label'         => 'Title',
+                'name'          => 'sc_process_title',
+                'type'          => 'text',
+                'default_value' => 'How Easy Pharmacy\'s Smoking Cessation Service Works',
+            ),
+            array(
+                'key'          => 'field_ep_sc_process_steps',
+                'label'        => 'Process Steps',
+                'name'         => 'sc_process_steps',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Step',
+                'max'          => 5,
+                'instructions' => 'Leave empty to use default 3-step process.',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_sc_step_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-clipboard-check',
+                        'instructions'  => 'Font Awesome icon class.',
+                    ),
+                    array(
+                        'key'           => 'field_ep_sc_step_title',
+                        'label'         => 'Title',
+                        'name'          => 'title',
+                        'type'          => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_sc_step_description',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'textarea',
+                        'rows'  => 4,
+                    ),
+                    array(
+                        'key'           => 'field_ep_sc_step_time_badge',
+                        'label'         => 'Time Badge',
+                        'name'          => 'time_badge',
+                        'type'          => 'text',
+                        'instructions'  => 'E.g. "20-30 minutes", "Same day".',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $sc_location,
+        'menu_order'            => 2,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // T4: What's Included
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_sc_included',
+        'title'                 => 'Smoking Cessation — What\'s Included',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_sc_included_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'sc_included_badge',
+                'type'          => 'text',
+                'default_value' => 'YOUR PROGRAM',
+            ),
+            array(
+                'key'           => 'field_ep_sc_included_title',
+                'label'         => 'Title',
+                'name'          => 'sc_included_title',
+                'type'          => 'text',
+                'default_value' => 'What You Get with Easy Pharmacy\'s Smoking Cessation Service',
+            ),
+            array(
+                'key'           => 'field_ep_sc_included_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'sc_included_subtitle',
+                'type'          => 'text',
+                'default_value' => 'Included in your program:',
+            ),
+            array(
+                'key'          => 'field_ep_sc_included_items',
+                'label'        => 'Included Items',
+                'name'         => 'sc_included_items',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Item',
+                'max'          => 12,
+                'instructions' => 'Leave empty to use default checklist.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_sc_included_item_text',
+                        'label' => 'Text',
+                        'name'  => 'text',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+            array(
+                'key'           => 'field_ep_sc_included_closing',
+                'label'         => 'Closing Text',
+                'name'          => 'sc_included_closing',
+                'type'          => 'text',
+                'default_value' => 'No GP referral needed. No months-long waiting lists. Just book, attend, and start.',
+            ),
+        ),
+        'location'              => $sc_location,
+        'menu_order'            => 3,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // T5: Why Easy Pharmacy
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_sc_why',
+        'title'                 => 'Smoking Cessation — Why Easy Pharmacy',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_sc_why_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'sc_why_badge',
+                'type'          => 'text',
+                'default_value' => 'WHY EASY PHARMACY',
+            ),
+            array(
+                'key'           => 'field_ep_sc_why_title',
+                'label'         => 'Title',
+                'name'          => 'sc_why_title',
+                'type'          => 'text',
+                'default_value' => 'Why Patients in Ashford, Chertsey & Walton Choose Easy Pharmacy',
+            ),
+            array(
+                'key'          => 'field_ep_sc_why_items',
+                'label'        => 'Benefit Cards',
+                'name'         => 'sc_why_items',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Card',
+                'max'          => 4,
+                'instructions' => 'Leave empty to use default 3 cards.',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_sc_why_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-user-md',
+                    ),
+                    array(
+                        'key'   => 'field_ep_sc_why_item_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_sc_why_item_desc',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'textarea',
+                        'rows'  => 3,
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $sc_location,
+        'menu_order'            => 4,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // T6: Champix vs NRT Comparison
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_sc_compare',
+        'title'                 => 'Smoking Cessation — Champix vs NRT',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_sc_compare_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'sc_compare_badge',
+                'type'          => 'text',
+                'default_value' => 'TREATMENT OPTIONS',
+            ),
+            array(
+                'key'           => 'field_ep_sc_compare_title',
+                'label'         => 'Title',
+                'name'          => 'sc_compare_title',
+                'type'          => 'text',
+                'default_value' => 'Champix or Nicotine Replacement Therapy—Which Is Right for You?',
+            ),
+            array(
+                'key'           => 'field_ep_sc_compare_intro1',
+                'label'         => 'Intro Paragraph 1',
+                'name'          => 'sc_compare_intro1',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Most people ask during their first consultation: "Should I use Champix or nicotine replacement therapy?"',
+            ),
+            array(
+                'key'           => 'field_ep_sc_compare_intro2',
+                'label'         => 'Intro Paragraph 2',
+                'name'          => 'sc_compare_intro2',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'The honest answer: it depends on your smoking habits, medical history, and what\'s worked (or not worked) before.',
+            ),
+            array(
+                'key'           => 'field_ep_sc_champix_title',
+                'label'         => 'Champix Card Title',
+                'name'          => 'sc_champix_title',
+                'type'          => 'text',
+                'default_value' => 'Champix (Varenicline)',
+            ),
+            array(
+                'key'          => 'field_ep_sc_champix_points',
+                'label'        => 'Champix Bullet Points',
+                'name'         => 'sc_champix_points',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Point',
+                'max'          => 8,
+                'instructions' => 'Leave empty to use defaults.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_sc_champix_point',
+                        'label' => 'Point',
+                        'name'  => 'point',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+            array(
+                'key'           => 'field_ep_sc_nrt_title',
+                'label'         => 'NRT Card Title',
+                'name'          => 'sc_nrt_title',
+                'type'          => 'text',
+                'default_value' => 'Nicotine Replacement Therapy (NRT)',
+            ),
+            array(
+                'key'          => 'field_ep_sc_nrt_points',
+                'label'        => 'NRT Bullet Points',
+                'name'         => 'sc_nrt_points',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Point',
+                'max'          => 8,
+                'instructions' => 'Leave empty to use defaults.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_sc_nrt_point',
+                        'label' => 'Point',
+                        'name'  => 'point',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+            array(
+                'key'           => 'field_ep_sc_compare_closing1',
+                'label'         => 'Closing Paragraph 1',
+                'name'          => 'sc_compare_closing1',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'During your consultation, we\'ll discuss which option suits your situation. Some patients use Champix. Others prefer NRT. Some try one and switch to the other if side effects are problematic.',
+            ),
+            array(
+                'key'           => 'field_ep_sc_compare_closing2',
+                'label'         => 'Closing Emphasis',
+                'name'          => 'sc_compare_closing2',
+                'type'          => 'text',
+                'default_value' => 'There\'s no "wrong" choice—just the one that works for you.',
+            ),
+        ),
+        'location'              => $sc_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // T7: Pricing
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_sc_pricing',
+        'title'                 => 'Smoking Cessation — Pricing',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_sc_pricing_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'sc_pricing_badge',
+                'type'          => 'text',
+                'default_value' => 'PRICING',
+            ),
+            array(
+                'key'           => 'field_ep_sc_pricing_title',
+                'label'         => 'Title',
+                'name'          => 'sc_pricing_title',
+                'type'          => 'text',
+                'default_value' => 'How Much Does Smoking Cessation Cost?',
+            ),
+            array(
+                'key'          => 'field_ep_sc_pricing_items',
+                'label'        => 'Pricing Items',
+                'name'         => 'sc_pricing_items',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Pricing Item',
+                'max'          => 6,
+                'instructions' => 'Leave empty to use default pricing cards.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_sc_pricing_item_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_sc_pricing_item_price',
+                        'label' => 'Price',
+                        'name'  => 'price',
+                        'type'  => 'text',
+                        'instructions' => 'E.g. "£49", "Price TBC", "Included".',
+                    ),
+                    array(
+                        'key'   => 'field_ep_sc_pricing_item_desc',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'textarea',
+                        'rows'  => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $sc_location,
+        'menu_order'            => 6,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // T8: FAQ
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_sc_faq',
+        'title'                 => 'Smoking Cessation — FAQ',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_sc_faq_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'sc_faq_badge',
+                'type'          => 'text',
+                'default_value' => 'FREQUENTLY ASKED QUESTIONS',
+            ),
+            array(
+                'key'           => 'field_ep_sc_faq_title',
+                'label'         => 'Title',
+                'name'          => 'sc_faq_title',
+                'type'          => 'text',
+                'default_value' => 'Frequently Asked Questions',
+            ),
+            array(
+                'key'          => 'field_ep_sc_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'sc_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'max'          => 15,
+                'instructions' => 'Leave empty to use default 5 FAQs.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_sc_faq_question',
+                        'label' => 'Question',
+                        'name'  => 'question',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_sc_faq_answer',
+                        'label' => 'Answer',
+                        'name'  => 'answer',
+                        'type'  => 'textarea',
+                        'rows'  => 4,
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $sc_location,
+        'menu_order'            => 7,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // T9: Final CTA
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_sc_cta',
+        'title'                 => 'Smoking Cessation — Final CTA',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_sc_cta_badge_1',
+                'label'         => 'Badge 1',
+                'name'          => 'sc_cta_badge_1',
+                'type'          => 'text',
+                'default_value' => 'No GP Referral',
+            ),
+            array(
+                'key'           => 'field_ep_sc_cta_badge_2',
+                'label'         => 'Badge 2',
+                'name'          => 'sc_cta_badge_2',
+                'type'          => 'text',
+                'default_value' => 'Same-Day Available',
+            ),
+            array(
+                'key'           => 'field_ep_sc_cta_badge_3',
+                'label'         => 'Badge 3',
+                'name'          => 'sc_cta_badge_3',
+                'type'          => 'text',
+                'default_value' => 'Ongoing Support',
+            ),
+            array(
+                'key'           => 'field_ep_sc_cta_title',
+                'label'         => 'CTA Title',
+                'name'          => 'sc_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready to Quit Smoking?',
+            ),
+            array(
+                'key'           => 'field_ep_sc_cta_description',
+                'label'         => 'CTA Description',
+                'name'          => 'sc_cta_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Book your smoking cessation consultation at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames.',
+            ),
+            array(
+                'key'           => 'field_ep_sc_cta_supporting',
+                'label'         => 'Supporting Text',
+                'name'          => 'sc_cta_supporting',
+                'type'          => 'text',
+                'default_value' => 'Or email hello@easypharmacy.co.uk to book your appointment. Same-day consultations available.',
+            ),
+        ),
+        'location'              => $sc_location,
+        'menu_order'            => 8,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // U. ALTITUDE SICKNESS PAGE FIELDS (alt_ prefix)
+    // =========================================================================
+
+    $alt_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-altitude-sickness.php',
+            ),
+        ),
+    );
+
+    // U1: Hero Section
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_hero',
+        'title'                 => 'Altitude Sickness — Hero Section',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'alt_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'ALTITUDE SICKNESS PREVENTION',
+            ),
+            array(
+                'key'           => 'field_ep_alt_hero_title_highlight',
+                'label'         => 'Title Highlight (Gradient)',
+                'name'          => 'alt_hero_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Altitude Sickness Prevention',
+            ),
+            array(
+                'key'           => 'field_ep_alt_hero_title_line2',
+                'label'         => 'Title Line 2',
+                'name'          => 'alt_hero_title_line2',
+                'type'          => 'text',
+                'default_value' => 'in Ashford, Chertsey & Walton-on-Thames',
+            ),
+            array(
+                'key'           => 'field_ep_alt_hero_description',
+                'label'         => 'Description',
+                'name'          => 'alt_hero_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Travelling to high altitudes? Get expert advice and prescription altitude sickness tablets before you go. Face-to-face consultation with prescription pharmacist—no GP referral needed.',
+            ),
+            array(
+                'key'           => 'field_ep_alt_hero_cta_text',
+                'label'         => 'CTA Button Text',
+                'name'          => 'alt_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Book Your Travel Consultation',
+            ),
+            array(
+                'key'           => 'field_ep_alt_hero_cta_url',
+                'label'         => 'CTA Button URL',
+                'name'          => 'alt_hero_cta_url',
+                'type'          => 'url',
+                'instructions'  => 'Leave blank to default to booking page.',
+            ),
+            array(
+                'key'           => 'field_ep_alt_hero_image',
+                'label'         => 'Hero Image',
+                'name'          => 'alt_hero_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+            ),
+            array(
+                'key'           => 'field_ep_alt_hero_image_alt',
+                'label'         => 'Hero Image Alt Text',
+                'name'          => 'alt_hero_image_alt',
+                'type'          => 'text',
+                'default_value' => 'High altitude mountain trekking - altitude sickness prevention',
+            ),
+            array(
+                'key'           => 'field_ep_alt_hero_supporting_text',
+                'label'         => 'Supporting Text',
+                'name'          => 'alt_hero_supporting_text',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Same-day appointments available at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames. Prepare safely for Kilimanjaro, Everest Base Camp, Machu Picchu, and other high-altitude destinations.',
+            ),
+            array(
+                'key'           => 'field_ep_alt_trust_1',
+                'label'         => 'Trust Item 1',
+                'name'          => 'alt_trust_1',
+                'type'          => 'text',
+                'default_value' => 'No GP Referral Needed',
+            ),
+            array(
+                'key'           => 'field_ep_alt_trust_2',
+                'label'         => 'Trust Item 2',
+                'name'          => 'alt_trust_2',
+                'type'          => 'text',
+                'default_value' => 'Same-Day Prescription',
+            ),
+            array(
+                'key'           => 'field_ep_alt_trust_3',
+                'label'         => 'Trust Item 3',
+                'name'          => 'alt_trust_3',
+                'type'          => 'text',
+                'default_value' => 'Travel Health Experts',
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+        'hide_on_screen'        => array( 'the_content', 'featured_image', 'excerpt', 'discussion', 'comments', 'revisions', 'author', 'format', 'slug', 'tags', 'send-trackbacks' ),
+    ) );
+
+    // U2: Emotional Hook (Why Travellers Wish They'd Planned Ahead)
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_emotional',
+        'title'                 => 'Altitude Sickness — Emotional Hook',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_emotional_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'alt_emotional_badge',
+                'type'          => 'text',
+                'default_value' => 'BE PREPARED',
+            ),
+            array(
+                'key'           => 'field_ep_alt_emotional_title',
+                'label'         => 'Title',
+                'name'          => 'alt_emotional_title',
+                'type'          => 'text',
+                'default_value' => '"I Didn\'t Think Altitude Sickness Would Affect Me"',
+            ),
+            array(
+                'key'           => 'field_ep_alt_emotional_quote',
+                'label'         => 'Opening Quote',
+                'name'          => 'alt_emotional_quote',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => '"I\'m fit. I\'ve hiked before. I\'ll be fine."',
+            ),
+            array(
+                'key'           => 'field_ep_alt_emotional_closing',
+                'label'         => 'Closing Text',
+                'name'          => 'alt_emotional_closing',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'You don\'t get a second chance at enjoying your once-in-a-lifetime trek. Starting prevention tablets 1-2 days before you ascend can be the difference between struggling at base camp and reaching the summit.',
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 1,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // U3: Education + Prevention (Merged)
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_education',
+        'title'                 => 'Altitude Sickness — Education & Prevention',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_education_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'alt_education_badge',
+                'type'          => 'text',
+                'default_value' => 'UNDERSTANDING ALTITUDE SICKNESS',
+            ),
+            array(
+                'key'           => 'field_ep_alt_education_title',
+                'label'         => 'Title',
+                'name'          => 'alt_education_title',
+                'type'          => 'text',
+                'default_value' => 'What Causes Altitude Sickness—And How to Prevent It',
+            ),
+            array(
+                'key'           => 'field_ep_alt_education_cause_para',
+                'label'         => 'Cause Paragraph',
+                'name'          => 'alt_education_cause_para',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Above 2,500-3,000 metres (8,000-10,000 feet), the air pressure drops. Your body can\'t take in as much oxygen with each breath. For most people, this triggers acute mountain sickness (AMS) within 6-24 hours of reaching high altitude.',
+            ),
+            array(
+                'key'          => 'field_ep_alt_symptoms',
+                'label'        => 'Symptoms',
+                'name'         => 'alt_symptoms',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Symptom',
+                'max'          => 8,
+                'instructions' => 'Leave empty to use default symptoms.',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_alt_symptom_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-head-side-virus',
+                    ),
+                    array(
+                        'key'   => 'field_ep_alt_symptom_text',
+                        'label' => 'Symptom',
+                        'name'  => 'text',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 2,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // U4: How It Works (Process Steps)
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_process',
+        'title'                 => 'Altitude Sickness — How It Works',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_process_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'alt_process_badge',
+                'type'          => 'text',
+                'default_value' => 'HOW IT WORKS',
+            ),
+            array(
+                'key'           => 'field_ep_alt_process_title',
+                'label'         => 'Title',
+                'name'          => 'alt_process_title',
+                'type'          => 'text',
+                'default_value' => 'How Easy Pharmacy\'s Altitude Sickness Service Works',
+            ),
+            array(
+                'key'          => 'field_ep_alt_process_steps',
+                'label'        => 'Process Steps',
+                'name'         => 'alt_process_steps',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Step',
+                'max'          => 5,
+                'instructions' => 'Leave empty to use default 3-step process.',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_alt_step_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-map-marked-alt',
+                    ),
+                    array(
+                        'key'   => 'field_ep_alt_step_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_alt_step_description',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'textarea',
+                        'rows'  => 4,
+                    ),
+                    array(
+                        'key'   => 'field_ep_alt_step_time_badge',
+                        'label' => 'Time Badge',
+                        'name'  => 'time_badge',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 3,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // U5: What's Included
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_included',
+        'title'                 => 'Altitude Sickness — What\'s Included',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_included_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'alt_included_badge',
+                'type'          => 'text',
+                'default_value' => 'YOUR CONSULTATION',
+            ),
+            array(
+                'key'           => 'field_ep_alt_included_title',
+                'label'         => 'Title',
+                'name'          => 'alt_included_title',
+                'type'          => 'text',
+                'default_value' => 'What You Get with Easy Pharmacy\'s Altitude Sickness Consultation',
+            ),
+            array(
+                'key'           => 'field_ep_alt_included_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'alt_included_subtitle',
+                'type'          => 'text',
+                'default_value' => 'Included in your consultation:',
+            ),
+            array(
+                'key'          => 'field_ep_alt_included_items',
+                'label'        => 'Included Items',
+                'name'         => 'alt_included_items',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Item',
+                'max'          => 12,
+                'instructions' => 'Leave empty to use default checklist.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_alt_included_item_text',
+                        'label' => 'Text',
+                        'name'  => 'text',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+            array(
+                'key'           => 'field_ep_alt_included_closing',
+                'label'         => 'Closing Text',
+                'name'          => 'alt_included_closing',
+                'type'          => 'text',
+                'default_value' => 'No GP referral needed. No weeks-long waiting. Book today, travel prepared.',
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 4,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // U6: Acetazolamide (Medication Section)
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_medication',
+        'title'                 => 'Altitude Sickness — Acetazolamide',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_medication_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'alt_medication_badge',
+                'type'          => 'text',
+                'default_value' => 'YOUR MEDICATION',
+            ),
+            array(
+                'key'           => 'field_ep_alt_medication_title',
+                'label'         => 'Title',
+                'name'          => 'alt_medication_title',
+                'type'          => 'text',
+                'default_value' => 'How Acetazolamide Prevents Altitude Sickness',
+            ),
+            array(
+                'key'           => 'field_ep_alt_medication_intro',
+                'label'         => 'Intro Text',
+                'name'          => 'alt_medication_intro',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Acetazolamide (also known as Diamox) is the only medication with strong clinical evidence for preventing and treating altitude sickness.',
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // U7: Who Needs It (Destinations + Contraindications)
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_who',
+        'title'                 => 'Altitude Sickness — Who Needs It',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_who_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'alt_who_badge',
+                'type'          => 'text',
+                'default_value' => 'IS IT RIGHT FOR YOU?',
+            ),
+            array(
+                'key'           => 'field_ep_alt_who_title',
+                'label'         => 'Title',
+                'name'          => 'alt_who_title',
+                'type'          => 'text',
+                'default_value' => 'Is Acetazolamide Right for Your Trip?',
+            ),
+            array(
+                'key'          => 'field_ep_alt_destinations',
+                'label'        => 'Destinations',
+                'name'         => 'alt_destinations',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Destination',
+                'max'          => 12,
+                'instructions' => 'Leave empty to use default destinations.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_alt_dest_name',
+                        'label' => 'Destination',
+                        'name'  => 'name',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_alt_dest_altitude',
+                        'label' => 'Altitude',
+                        'name'  => 'altitude',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 6,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // U8: Why Easy Pharmacy
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_why',
+        'title'                 => 'Altitude Sickness — Why Easy Pharmacy',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_why_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'alt_why_badge',
+                'type'          => 'text',
+                'default_value' => 'WHY EASY PHARMACY',
+            ),
+            array(
+                'key'           => 'field_ep_alt_why_title',
+                'label'         => 'Title',
+                'name'          => 'alt_why_title',
+                'type'          => 'text',
+                'default_value' => 'Why Travellers in Ashford, Chertsey & Walton Choose Easy Pharmacy',
+            ),
+            array(
+                'key'          => 'field_ep_alt_why_items',
+                'label'        => 'Benefit Cards',
+                'name'         => 'alt_why_items',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Card',
+                'max'          => 4,
+                'instructions' => 'Leave empty to use default 3 cards.',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_alt_why_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-user-md',
+                    ),
+                    array(
+                        'key'   => 'field_ep_alt_why_item_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_alt_why_item_desc',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'textarea',
+                        'rows'  => 3,
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 7,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // U9: Pricing
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_pricing',
+        'title'                 => 'Altitude Sickness — Pricing',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_pricing_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'alt_pricing_badge',
+                'type'          => 'text',
+                'default_value' => 'PRICING',
+            ),
+            array(
+                'key'           => 'field_ep_alt_pricing_title',
+                'label'         => 'Title',
+                'name'          => 'alt_pricing_title',
+                'type'          => 'text',
+                'default_value' => 'How Much Does Altitude Sickness Consultation Cost?',
+            ),
+            array(
+                'key'          => 'field_ep_alt_pricing_items',
+                'label'        => 'Pricing Items',
+                'name'         => 'alt_pricing_items',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Pricing Item',
+                'max'          => 6,
+                'instructions' => 'Leave empty to use default pricing cards.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_alt_pricing_item_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'          => 'field_ep_alt_pricing_item_price',
+                        'label'        => 'Price',
+                        'name'         => 'price',
+                        'type'         => 'text',
+                        'instructions' => 'E.g. "£49", "Price TBC".',
+                    ),
+                    array(
+                        'key'   => 'field_ep_alt_pricing_item_desc',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'textarea',
+                        'rows'  => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 8,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // U10: FAQ
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_faq',
+        'title'                 => 'Altitude Sickness — FAQ',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_faq_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'alt_faq_badge',
+                'type'          => 'text',
+                'default_value' => 'FREQUENTLY ASKED QUESTIONS',
+            ),
+            array(
+                'key'           => 'field_ep_alt_faq_title',
+                'label'         => 'Title',
+                'name'          => 'alt_faq_title',
+                'type'          => 'text',
+                'default_value' => 'Frequently Asked Questions',
+            ),
+            array(
+                'key'          => 'field_ep_alt_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'alt_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'max'          => 15,
+                'instructions' => 'Leave empty to use default 7 FAQs.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_alt_faq_question',
+                        'label' => 'Question',
+                        'name'  => 'question',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_alt_faq_answer',
+                        'label' => 'Answer',
+                        'name'  => 'answer',
+                        'type'  => 'textarea',
+                        'rows'  => 4,
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 9,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // U11: Final CTA
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_alt_cta',
+        'title'                 => 'Altitude Sickness — Final CTA',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_alt_cta_badge_1',
+                'label'         => 'Badge 1',
+                'name'          => 'alt_cta_badge_1',
+                'type'          => 'text',
+                'default_value' => 'No GP Referral',
+            ),
+            array(
+                'key'           => 'field_ep_alt_cta_badge_2',
+                'label'         => 'Badge 2',
+                'name'          => 'alt_cta_badge_2',
+                'type'          => 'text',
+                'default_value' => 'Same-Day Prescription',
+            ),
+            array(
+                'key'           => 'field_ep_alt_cta_badge_3',
+                'label'         => 'Badge 3',
+                'name'          => 'alt_cta_badge_3',
+                'type'          => 'text',
+                'default_value' => 'Travel Health Experts',
+            ),
+            array(
+                'key'           => 'field_ep_alt_cta_title',
+                'label'         => 'CTA Title',
+                'name'          => 'alt_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready to Prepare for Your High-Altitude Adventure?',
+            ),
+            array(
+                'key'           => 'field_ep_alt_cta_description',
+                'label'         => 'CTA Description',
+                'name'          => 'alt_cta_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Book your altitude sickness consultation at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames.',
+            ),
+            array(
+                'key'           => 'field_ep_alt_cta_supporting',
+                'label'         => 'Supporting Text',
+                'name'          => 'alt_cta_supporting',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Or email hello@easypharmacy.co.uk to book your travel health consultation. Same-day appointments available. Get your Acetazolamide prescription and medication before you fly.',
+            ),
+            array(
+                'key'           => 'field_ep_alt_cta_extra',
+                'label'         => 'Extra Text',
+                'name'          => 'alt_cta_extra',
+                'type'          => 'text',
+                'default_value' => 'Ask about our comprehensive travel health services including malaria tablets and travel vaccinations.',
+            ),
+        ),
+        'location'              => $alt_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );

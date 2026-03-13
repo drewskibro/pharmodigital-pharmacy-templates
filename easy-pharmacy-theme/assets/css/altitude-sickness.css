@@ -1,0 +1,1541 @@
+/* ============================================
+   ALTITUDE SICKNESS PAGE STYLES
+   Uses alt- prefix
+   Warm cream + terracotta design system
+   ============================================ */
+
+/* ----------------------------------------
+   HERO SECTION
+   ---------------------------------------- */
+.alt-hero-section {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 20px 0 80px;
+  overflow: hidden;
+  background: #FDF6F3;
+}
+
+.alt-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.alt-hero-glow-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: rgba(196, 122, 101, 0.08);
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  animation: altFloat 8s ease-in-out infinite;
+}
+
+.alt-hero-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: rgba(212, 144, 124, 0.08);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  animation: altFloat 10s ease-in-out infinite reverse;
+}
+
+@keyframes altFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.alt-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .alt-hero-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+  }
+}
+
+.alt-hero-content {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .alt-hero-content {
+    text-align: left;
+  }
+}
+
+.alt-hero-section .section-badge {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  box-shadow: 0 8px 30px rgba(196, 122, 101, 0.10);
+}
+
+.alt-hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2D1B4E;
+  margin-top: 0;
+  margin-bottom: 1.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.alt-hero-section .gradient-text {
+  background: linear-gradient(135deg, #6B4FA0 0%, #8B6BBF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .alt-hero-title {
+    font-size: 3.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .alt-hero-title {
+    font-size: 4rem;
+    line-height: 1.05;
+  }
+}
+
+.alt-hero-description {
+  font-size: 1.0625rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .alt-hero-description {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .alt-hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.alt-hero-section .primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  box-shadow: 0 10px 25px -3px rgba(196, 122, 101, 0.35);
+}
+
+.alt-hero-section .primary-cta:hover {
+  box-shadow: 0 14px 30px -3px rgba(196, 122, 101, 0.45);
+}
+
+.alt-hero-section .secondary-cta {
+  color: #6B4FA0;
+  border: 2px solid rgba(196, 122, 101, 0.25);
+  background: transparent;
+}
+
+.alt-hero-section .secondary-cta:hover {
+  border-color: rgba(196, 122, 101, 0.45);
+  background: rgba(196, 122, 101, 0.04);
+}
+
+.alt-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .alt-hero-actions {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1023px) {
+  .alt-hero-actions {
+    justify-content: center;
+  }
+}
+
+.alt-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .alt-hero-trust {
+    justify-content: flex-start;
+  }
+}
+
+.alt-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  box-shadow: 0 4px 12px rgba(196, 122, 101, 0.06);
+}
+
+.alt-hero-trust-item i {
+  color: #7A9E7E;
+  font-size: 0.875rem;
+}
+
+.alt-hero-trust-item span {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #2D1B4E;
+}
+
+.alt-hero-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.alt-hero-image-card {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.18);
+}
+
+.alt-hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.alt-hero-supporting-text {
+  font-size: 0.9375rem;
+  color: #64748b;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 400px;
+  font-style: italic;
+}
+
+/* ----------------------------------------
+   EMOTIONAL HOOK SECTION (WHY TRAVELLERS WISH THEY'D PLANNED AHEAD)
+   ---------------------------------------- */
+.alt-emotional-section {
+  padding: 6rem 0;
+  background: #FEF6F4;
+}
+
+.alt-emotional-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.alt-emotional-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .alt-emotional-title {
+    font-size: 2.75rem;
+  }
+}
+
+.alt-emotional-body {
+  text-align: left;
+}
+
+.alt-emotional-body p {
+  font-size: 1.0625rem;
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.alt-emotional-quote {
+  background: rgba(255, 255, 255, 0.8);
+  border-left: 4px solid #C47A65;
+  padding: 1.5rem 2rem;
+  border-radius: 0 1rem 1rem 0;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0 0 2rem 0;
+  box-shadow: 0 4px 12px rgba(196, 122, 101, 0.06);
+}
+
+.alt-emotional-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 1rem;
+  border: 1px solid rgba(196, 122, 101, 0.10);
+}
+
+.alt-emotional-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.alt-emotional-check-item i {
+  color: #7A9E7E;
+  font-size: 1.125rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.alt-emotional-check-item span {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.alt-emotional-closing {
+  font-size: 1.125rem !important;
+  font-weight: 600;
+  color: #2D1B4E !important;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ----------------------------------------
+   EDUCATION + PREVENTION MERGED SECTION
+   ---------------------------------------- */
+.alt-education-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.alt-education-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.alt-education-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .alt-education-title {
+    font-size: 2.75rem;
+  }
+}
+
+.alt-education-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .alt-education-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.alt-education-subtitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #2D1B4E;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(196, 122, 101, 0.15);
+}
+
+.alt-education-cause p,
+.alt-education-prevention p {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Symptoms list */
+.alt-education-symptoms {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.alt-symptom-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #FDF6F3;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(196, 122, 101, 0.08);
+}
+
+.alt-symptom-item i {
+  color: #C47A65;
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.alt-symptom-item span {
+  font-size: 0.9375rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Warning callout */
+.alt-education-warning {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(196, 122, 101, 0.06);
+  border-radius: 1rem;
+  border: 1px solid rgba(196, 122, 101, 0.15);
+}
+
+.alt-education-warning-icon {
+  flex-shrink: 0;
+}
+
+.alt-education-warning-icon i {
+  color: #C47A65;
+  font-size: 1.25rem;
+}
+
+.alt-education-warning p {
+  font-size: 0.9375rem;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Ascent guidelines */
+.alt-ascent-guidelines {
+  background: #FDF6F3;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(196, 122, 101, 0.10);
+}
+
+.alt-guidelines-label {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #C47A65;
+  margin: 0 0 1rem 0;
+}
+
+.alt-guideline-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(196, 122, 101, 0.08);
+}
+
+.alt-guideline-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.alt-guideline-altitude {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #2D1B4E;
+}
+
+.alt-guideline-text {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Prevention tips */
+.alt-prevention-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.alt-prevention-tip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: #374151;
+}
+
+.alt-prevention-tip i {
+  color: #7A9E7E;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Emergency callout */
+.alt-emergency-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, rgba(107, 79, 160, 0.06), rgba(139, 107, 191, 0.06));
+  border-radius: 1rem;
+  border: 1px solid rgba(107, 79, 160, 0.15);
+}
+
+.alt-emergency-callout > i {
+  color: #6B4FA0;
+  font-size: 1.125rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.alt-emergency-callout p {
+  font-size: 0.9375rem;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ----------------------------------------
+   HOW IT WORKS (3-STEP PROCESS)
+   ---------------------------------------- */
+.alt-process-section {
+  padding: 6rem 0;
+  background: #FEF6F4;
+}
+
+.alt-process-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.alt-process-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .alt-process-title {
+    font-size: 2.75rem;
+  }
+}
+
+.alt-process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .alt-process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.alt-process-card {
+  position: relative;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  box-shadow: 0 4px 16px rgba(196, 122, 101, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alt-process-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(196, 122, 101, 0.12);
+}
+
+.alt-process-step-number {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(196, 122, 101, 0.3);
+}
+
+.alt-process-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(107, 79, 160, 0.1), rgba(139, 107, 191, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.alt-process-icon i {
+  font-size: 1.75rem;
+  color: #6B4FA0;
+}
+
+.alt-process-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.alt-process-card-desc {
+  font-size: 0.9375rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.alt-process-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(196, 122, 101, 0.08);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(196, 122, 101, 0.15);
+}
+
+.alt-process-time-badge i {
+  color: #C47A65;
+  font-size: 0.8125rem;
+}
+
+.alt-process-time-badge span {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #B8694F;
+}
+
+/* ----------------------------------------
+   WHAT'S INCLUDED SECTION
+   ---------------------------------------- */
+.alt-included-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.alt-included-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.alt-included-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .alt-included-title {
+    font-size: 2.75rem;
+  }
+}
+
+.alt-included-subtitle {
+  font-size: 1.125rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.alt-included-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.alt-included-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #FDF6F3;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(196, 122, 101, 0.10);
+  box-shadow: 0 2px 8px rgba(196, 122, 101, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.alt-included-item:hover {
+  transform: translateX(4px);
+}
+
+.alt-included-item i {
+  color: #7A9E7E;
+  font-size: 1.25rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.alt-included-item span {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.alt-included-item strong {
+  color: #111827;
+}
+
+.alt-included-closing {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2D1B4E;
+}
+
+/* ----------------------------------------
+   ACETAZOLAMIDE - HOW IT WORKS (MEDICATION SECTION)
+   ---------------------------------------- */
+.alt-medication-section {
+  padding: 6rem 0;
+  background: #FEF6F4;
+}
+
+.alt-medication-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.alt-medication-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .alt-medication-title {
+    font-size: 2.75rem;
+  }
+}
+
+.alt-medication-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .alt-medication-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+.alt-medication-intro {
+  font-size: 1.125rem;
+  color: #374151;
+  font-weight: 500;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.alt-medication-subtitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #2D1B4E;
+  margin: 2rem 0 1rem 0;
+}
+
+.alt-medication-content p {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.alt-medication-mechanism {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.alt-medication-mechanism li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.alt-medication-mechanism li i {
+  color: #6B4FA0;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.alt-medication-note {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: rgba(196, 122, 101, 0.06);
+  border-radius: 1rem;
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  margin-bottom: 2rem;
+}
+
+.alt-medication-note > i {
+  color: #C47A65;
+  font-size: 1.125rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.alt-medication-note p {
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+/* Dosing box */
+.alt-dosing-box {
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 2px solid rgba(107, 79, 160, 0.15);
+  box-shadow: 0 8px 24px rgba(107, 79, 160, 0.08);
+}
+
+.alt-dosing-box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+  color: white;
+}
+
+.alt-dosing-box-header i {
+  font-size: 1.25rem;
+}
+
+.alt-dosing-box-header h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+  color: white;
+}
+
+.alt-dosing-box-content {
+  padding: 1.5rem 2rem;
+}
+
+.alt-dosing-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(107, 79, 160, 0.08);
+}
+
+.alt-dosing-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.alt-dosing-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6B4FA0;
+}
+
+.alt-dosing-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.alt-dosing-detail {
+  font-size: 0.8125rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* ----------------------------------------
+   WHO NEEDS IT SECTION
+   ---------------------------------------- */
+.alt-who-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.alt-who-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.alt-who-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .alt-who-title {
+    font-size: 2.75rem;
+  }
+}
+
+.alt-who-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .alt-who-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+.alt-who-subtitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2D1B4E;
+  margin: 0 0 1.5rem 0;
+}
+
+.alt-who-subtitle-spaced {
+  margin-top: 2.5rem;
+}
+
+/* Destination list */
+.alt-destination-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .alt-destination-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.alt-destination-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: #FDF6F3;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(196, 122, 101, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.alt-destination-item:hover {
+  transform: translateX(4px);
+}
+
+.alt-destination-item > i {
+  color: #C47A65;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.alt-destination-item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.alt-destination-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.alt-destination-altitude {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.alt-destination-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(107, 79, 160, 0.04);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(107, 79, 160, 0.10);
+  margin-bottom: 1.5rem;
+}
+
+.alt-destination-callout > i {
+  color: #6B4FA0;
+  font-size: 1rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.alt-destination-callout p {
+  font-size: 0.9375rem;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Useful-if list */
+.alt-useful-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.alt-useful-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.alt-useful-list li i {
+  color: #7A9E7E;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+/* Contraindications card */
+.alt-contraindications-card {
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(196, 122, 101, 0.15);
+  box-shadow: 0 4px 16px rgba(196, 122, 101, 0.06);
+}
+
+.alt-contraindications-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 2rem;
+  background: rgba(196, 122, 101, 0.06);
+  border-bottom: 1px solid rgba(196, 122, 101, 0.10);
+}
+
+.alt-contraindications-header i {
+  color: #C47A65;
+  font-size: 1.25rem;
+}
+
+.alt-contraindications-header h3 {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #B8694F;
+  margin: 0;
+}
+
+.alt-contraindications-list {
+  list-style: none;
+  padding: 1.5rem 2rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.alt-contraindications-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.alt-contraindications-list li i {
+  color: #C47A65;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.alt-contraindications-note {
+  padding: 0 2rem 1.5rem;
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ----------------------------------------
+   WHY EASY PHARMACY (3-COLUMN)
+   ---------------------------------------- */
+.alt-why-section {
+  padding: 6rem 0;
+  background: #FEF6F4;
+}
+
+.alt-why-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.alt-why-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .alt-why-title {
+    font-size: 2.75rem;
+  }
+}
+
+.alt-why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .alt-why-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.alt-why-card {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  background: white;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  box-shadow: 0 4px 16px rgba(196, 122, 101, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alt-why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(196, 122, 101, 0.12);
+}
+
+.alt-why-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(107, 79, 160, 0.1), rgba(139, 107, 191, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.alt-why-icon i {
+  font-size: 2rem;
+  color: #6B4FA0;
+}
+
+.alt-why-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.alt-why-card-desc {
+  font-size: 0.9375rem;
+  color: #4a5568;
+  line-height: 1.7;
+}
+
+/* ----------------------------------------
+   PRICING SECTION
+   ---------------------------------------- */
+.alt-pricing-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.alt-pricing-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.alt-pricing-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .alt-pricing-title {
+    font-size: 2.75rem;
+  }
+}
+
+.alt-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .alt-pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.alt-pricing-card {
+  background: #FDF6F3;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.alt-pricing-card:hover {
+  transform: translateY(-4px);
+}
+
+.alt-pricing-card-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 0.75rem 0;
+}
+
+.alt-pricing-card-price {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #C47A65;
+  margin-bottom: 1rem;
+}
+
+.alt-pricing-tbc {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.alt-pricing-card-example {
+  border-color: rgba(107, 79, 160, 0.15);
+  background: rgba(107, 79, 160, 0.03);
+}
+
+.alt-pricing-card-example .alt-pricing-card-price {
+  color: #6B4FA0;
+}
+
+.alt-pricing-card-desc {
+  font-size: 0.9375rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* ----------------------------------------
+   FAQ SECTION
+   ---------------------------------------- */
+.alt-faq-section {
+  padding: 6rem 0;
+  background: #FEF6F4;
+}
+
+.alt-faq-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.alt-faq-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .alt-faq-title {
+    font-size: 2.75rem;
+  }
+}
+
+.alt-faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.alt-faq-item {
+  border: 1px solid rgba(196, 122, 101, 0.15);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.alt-faq-item.active {
+  border-color: #C47A65;
+  box-shadow: 0 8px 20px rgba(196, 122, 101, 0.10);
+}
+
+.alt-faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.alt-faq-number {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--brand-purple);
+  opacity: 0.5;
+}
+
+.alt-faq-text {
+  flex: 1;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+@media (min-width: 768px) {
+  .alt-faq-text {
+    font-size: 1.125rem;
+  }
+}
+
+.alt-faq-icon {
+  color: #C47A65;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.alt-faq-item.active .alt-faq-icon {
+  transform: rotate(45deg);
+}
+
+.alt-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.alt-faq-item.active .alt-faq-answer {
+  max-height: 600px;
+  padding: 0 1.5rem 1.5rem 4rem;
+}
+
+.alt-faq-answer p {
+  color: #4a5568;
+  line-height: 1.7;
+  font-size: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+  .alt-faq-answer p {
+    font-size: 1rem;
+  }
+}
+
+/* ----------------------------------------
+   FINAL CTA SECTION
+   ---------------------------------------- */
+.alt-cta-section {
+  position: relative;
+  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
+  padding: 6rem 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.alt-cta-glow-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.alt-cta-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.alt-cta-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.alt-cta-content {
+  position: relative;
+  z-index: 10;
+}
+
+.alt-cta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.alt-cta-badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.alt-cta-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .alt-cta-title {
+    font-size: 3rem;
+  }
+}
+
+.alt-cta-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.alt-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.alt-cta-button-white {
+  background: white !important;
+  color: var(--brand-dark) !important;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.alt-cta-button-white:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  transform: scale(1.05);
+}
+
+.alt-cta-supporting {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  line-height: 1.6;
+}
+
+.alt-cta-extra {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+  font-style: italic;
+}
