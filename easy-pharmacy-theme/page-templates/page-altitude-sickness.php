@@ -141,39 +141,43 @@ get_header();
 
       <h2 class="alt-emotional-title"><?php echo esc_html( ep_field( 'alt_emotional_title', '"I Didn\'t Think Altitude Sickness Would Affect Me"' ) ); ?></h2>
 
-      <div class="alt-emotional-body">
-        <blockquote class="alt-emotional-quote">
+      <!-- Modern quote card -->
+      <div class="alt-emotional-card">
+        <i class="fas fa-quote-left alt-emotional-card-icon"></i>
+        <p class="alt-emotional-card-quote">
           <?php echo esc_html( ep_field( 'alt_emotional_quote', '"I\'m fit. I\'ve hiked before. I\'ll be fine."' ) ); ?>
-        </blockquote>
+        </p>
 
-        <p><?php echo esc_html( ep_field( 'alt_emotional_para1', 'That\'s what most people think before they book a trek to Kilimanjaro or Machu Picchu. Then they arrive at 3,000 metres, and within 24 hours: pounding headache, nausea, dizziness, and exhaustion that won\'t shift.' ) ); ?></p>
+        <div class="alt-emotional-body">
+          <p><?php echo esc_html( ep_field( 'alt_emotional_para1', 'That\'s what most people think before they book a trek to Kilimanjaro or Machu Picchu. Then they arrive at 3,000 metres, and within 24 hours: pounding headache, nausea, dizziness, and exhaustion that won\'t shift.' ) ); ?></p>
 
-        <p><?php echo esc_html( ep_field( 'alt_emotional_para2', 'Altitude sickness doesn\'t care how fit you are. It affects anyone who ascends too quickly without giving their body time to adjust.' ) ); ?></p>
+          <p><?php echo esc_html( ep_field( 'alt_emotional_para2', 'Altitude sickness doesn\'t care how fit you are. It affects anyone who ascends too quickly without giving their body time to adjust.' ) ); ?></p>
 
-        <p><?php echo esc_html( ep_field( 'alt_emotional_para3', 'The difference between people who enjoy their trip and people who struggle through it often comes down to one thing: preparation.' ) ); ?></p>
+          <p><?php echo esc_html( ep_field( 'alt_emotional_para3', 'The difference between people who enjoy their trip and people who struggle through it often comes down to one thing: preparation.' ) ); ?></p>
 
-        <p><?php echo esc_html( ep_field( 'alt_emotional_para4', 'At Easy Pharmacy in Ashford, Chertsey, and Walton-on-Thames, we see travellers booking altitude sickness consultations weeks before their departure. They leave with:' ) ); ?></p>
+          <p><?php echo esc_html( ep_field( 'alt_emotional_para4', 'At Easy Pharmacy in Ashford, Chertsey, and Walton-on-Thames, we see travellers booking altitude sickness consultations weeks before their departure. They leave with:' ) ); ?></p>
 
-        <div class="alt-emotional-checklist">
-          <div class="alt-emotional-check-item">
-            <i class="fas fa-check-circle"></i>
-            <span>A prescription for Acetazolamide (altitude sickness prevention tablets)</span>
+          <div class="alt-emotional-checklist">
+            <div class="alt-emotional-check-item">
+              <i class="fas fa-check-circle"></i>
+              <span>A prescription for Acetazolamide (altitude sickness prevention tablets)</span>
+            </div>
+            <div class="alt-emotional-check-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Clear dosing instructions tailored to their itinerary</span>
+            </div>
+            <div class="alt-emotional-check-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Advice on gradual ascent and when to descend if symptoms worsen</span>
+            </div>
+            <div class="alt-emotional-check-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Peace of mind that they've done everything they can to prepare</span>
+            </div>
           </div>
-          <div class="alt-emotional-check-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Clear dosing instructions tailored to their itinerary</span>
-          </div>
-          <div class="alt-emotional-check-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Advice on gradual ascent and when to descend if symptoms worsen</span>
-          </div>
-          <div class="alt-emotional-check-item">
-            <i class="fas fa-check-circle"></i>
-            <span>Peace of mind that they've done everything they can to prepare</span>
-          </div>
+
+          <p class="alt-emotional-closing"><?php echo esc_html( ep_field( 'alt_emotional_closing', 'You don\'t get a second chance at enjoying your once-in-a-lifetime trek. Starting prevention tablets 1-2 days before you ascend can be the difference between struggling at base camp and reaching the summit.' ) ); ?></p>
         </div>
-
-        <p class="alt-emotional-closing"><?php echo esc_html( ep_field( 'alt_emotional_closing', 'You don\'t get a second chance at enjoying your once-in-a-lifetime trek. Starting prevention tablets 1-2 days before you ascend can be the difference between struggling at base camp and reaching the summit.' ) ); ?></p>
       </div>
     </div>
   </div>
@@ -484,7 +488,12 @@ get_header();
       <h2 class="alt-who-title"><?php echo esc_html( ep_field( 'alt_who_title', 'Is Acetazolamide Right for Your Trip?' ) ); ?></h2>
     </div>
 
-    <div class="alt-who-grid">
+    <?php
+    $who_image_id  = ep_field( 'alt_who_image' );
+    $who_image_url = $who_image_id ? wp_get_attachment_image_url( $who_image_id, 'large' ) : '';
+    $who_has_image = ! empty( $who_image_url );
+    ?>
+    <div class="alt-who-grid<?php echo $who_has_image ? ' alt-who-grid--has-image' : ''; ?>">
       <!-- Left: Destinations -->
       <div class="alt-who-destinations">
         <h3 class="alt-who-subtitle">Consider Altitude Sickness Prevention If You're Travelling To:</h3>
@@ -524,6 +533,15 @@ get_header();
           <li><i class="fas fa-check"></i> You want extra protection alongside gradual ascent</li>
         </ul>
       </div>
+
+      <!-- Middle: Image (only if uploaded) -->
+      <?php if ( $who_has_image ) : ?>
+        <div class="alt-who-image-col">
+          <div class="alt-who-image-card">
+            <img src="<?php echo esc_url( $who_image_url ); ?>" alt="<?php echo esc_attr( ep_field( 'alt_who_image_alt', 'High-altitude travel destinations' ) ); ?>" class="alt-who-image" />
+          </div>
+        </div>
+      <?php endif; ?>
 
       <!-- Right: Contraindications -->
       <div class="alt-who-contraindications">
@@ -742,17 +760,19 @@ get_header();
 <section class="alt-cta-section">
   <div class="alt-cta-glow-1"></div>
   <div class="alt-cta-glow-2"></div>
-  <div class="alt-cta-dots"></div>
   <div class="section-container">
     <div class="alt-cta-content">
       <div class="alt-cta-badges">
         <div class="alt-cta-badge">
+          <i class="fas fa-check-circle"></i>
           <span><?php echo esc_html( ep_field( 'alt_cta_badge_1', 'No GP Referral' ) ); ?></span>
         </div>
         <div class="alt-cta-badge">
+          <i class="fas fa-check-circle"></i>
           <span><?php echo esc_html( ep_field( 'alt_cta_badge_2', 'Same-Day Prescription' ) ); ?></span>
         </div>
         <div class="alt-cta-badge">
+          <i class="fas fa-check-circle"></i>
           <span><?php echo esc_html( ep_field( 'alt_cta_badge_3', 'Travel Health Experts' ) ); ?></span>
         </div>
       </div>
@@ -761,16 +781,17 @@ get_header();
         <?php echo esc_html( ep_field( 'alt_cta_description', 'Book your altitude sickness consultation at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames.' ) ); ?>
       </p>
       <div class="alt-cta-actions">
-        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button primary-cta alt-cta-button-white">
+        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button primary-cta alt-cta-button-terracotta">
           Call <?php echo esc_html( ep_phone() ); ?>
           <i class="fas fa-phone"></i>
         </a>
       </div>
+      <?php $cta_email = ep_option( 'pharmacy_email', 'hello@easypharmacy.co.uk' ); ?>
       <p class="alt-cta-supporting">
-        <?php echo esc_html( ep_field( 'alt_cta_supporting', 'Or email hello@easypharmacy.co.uk to book your travel health consultation. Same-day appointments available. Get your Acetazolamide prescription and medication before you fly.' ) ); ?>
+        <?php echo esc_html( ep_field( 'alt_cta_supporting', 'Or email ' . $cta_email . ' to book. Same-day appointments available.' ) ); ?>
       </p>
       <p class="alt-cta-extra">
-        <?php echo esc_html( ep_field( 'alt_cta_extra', 'Ask about our comprehensive travel health services including malaria tablets and travel vaccinations.' ) ); ?>
+        <?php echo esc_html( ep_field( 'alt_cta_extra', 'Ask about malaria tablets and travel vaccinations.' ) ); ?>
       </p>
     </div>
   </div>

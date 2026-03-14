@@ -253,7 +253,7 @@
 }
 
 .alt-emotional-content {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
@@ -273,6 +273,54 @@
   }
 }
 
+/* Modern quote card */
+.alt-emotional-card {
+  position: relative;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 32px rgba(196, 122, 101, 0.10);
+  border: 1px solid rgba(196, 122, 101, 0.08);
+}
+
+@media (min-width: 768px) {
+  .alt-emotional-card {
+    padding: 3rem 3.5rem;
+  }
+}
+
+.alt-emotional-card-icon {
+  position: absolute;
+  top: 1.75rem;
+  left: 2rem;
+  font-size: 1.75rem;
+  color: #6B4FA0;
+  opacity: 0.25;
+}
+
+@media (min-width: 768px) {
+  .alt-emotional-card-icon {
+    left: 3.5rem;
+    font-size: 2rem;
+  }
+}
+
+.alt-emotional-card-quote {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #2D1B4E;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 1.5rem 0 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .alt-emotional-card-quote {
+    font-size: 1.375rem;
+  }
+}
+
 .alt-emotional-body {
   text-align: left;
 }
@@ -284,28 +332,11 @@
   margin-bottom: 1.5rem;
 }
 
-.alt-emotional-quote {
-  background: rgba(255, 255, 255, 0.8);
-  border-left: 4px solid #C47A65;
-  padding: 1.5rem 2rem;
-  border-radius: 0 1rem 1rem 0;
-  font-style: italic;
-  font-size: 1.25rem;
-  color: #374151;
-  line-height: 1.7;
-  margin: 0 0 2rem 0;
-  box-shadow: 0 4px 12px rgba(196, 122, 101, 0.06);
-}
-
 .alt-emotional-checklist {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   margin: 2rem 0;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 1rem;
-  border: 1px solid rgba(196, 122, 101, 0.10);
 }
 
 .alt-emotional-check-item {
@@ -329,10 +360,12 @@
 
 .alt-emotional-closing {
   font-size: 1.125rem !important;
-  font-weight: 600;
+  font-weight: 700;
   color: #2D1B4E !important;
   text-align: center;
   margin-top: 2rem;
+  margin-bottom: 0;
+  line-height: 1.7;
 }
 
 /* ----------------------------------------
@@ -944,6 +977,7 @@
   }
 }
 
+/* Default: 2-column (no image) */
 .alt-who-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -956,6 +990,48 @@
     gap: 4rem;
     align-items: start;
   }
+}
+
+/* 3-column layout when image is present */
+@media (min-width: 768px) {
+  .alt-who-grid--has-image {
+    grid-template-columns: 1fr;
+  }
+  .alt-who-grid--has-image .alt-who-destinations {
+    grid-column: 1 / -1;
+  }
+  .alt-who-grid--has-image .alt-who-image-col,
+  .alt-who-grid--has-image .alt-who-contraindications {
+    grid-column: auto;
+  }
+  .alt-who-grid--has-image {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .alt-who-grid--has-image {
+    grid-template-columns: 1.2fr 0.9fr 0.9fr;
+    gap: 3rem;
+  }
+  .alt-who-grid--has-image .alt-who-destinations {
+    grid-column: auto;
+  }
+}
+
+/* Who section image card */
+.alt-who-image-card {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(196, 122, 101, 0.15);
+  border: 1px solid rgba(196, 122, 101, 0.10);
+}
+
+.alt-who-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .alt-who-subtitle {
@@ -1421,7 +1497,7 @@
    ---------------------------------------- */
 .alt-cta-section {
   position: relative;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
+  background: linear-gradient(180deg, #FDF6F3 0%, #FFFFFF 100%);
   padding: 6rem 0;
   overflow: hidden;
   text-align: center;
@@ -1433,9 +1509,10 @@
   right: -5%;
   width: 600px;
   height: 600px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(196, 122, 101, 0.06);
   border-radius: 50%;
   filter: blur(100px);
+  pointer-events: none;
 }
 
 .alt-cta-glow-2 {
@@ -1444,16 +1521,9 @@
   left: -5%;
   width: 500px;
   height: 500px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(107, 79, 160, 0.05);
   border-radius: 50%;
   filter: blur(80px);
-}
-
-.alt-cta-dots {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
   pointer-events: none;
 }
 
@@ -1466,26 +1536,35 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-bottom: 2.5rem;
 }
 
 .alt-cta-badge {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
   padding: 0.5rem 1.25rem;
   border-radius: 9999px;
-  color: white;
+  color: #2D1B4E;
   font-weight: 700;
   font-size: 0.875rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(107, 79, 160, 0.15);
+  box-shadow: 0 2px 8px rgba(107, 79, 160, 0.06);
+}
+
+.alt-cta-badge i {
+  color: #7A9E7E;
+  font-size: 0.8125rem;
 }
 
 .alt-cta-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: white;
+  color: #2D1B4E;
   margin-bottom: 1.5rem;
+  margin-top: 0;
 }
 
 @media (min-width: 768px) {
@@ -1495,11 +1574,17 @@
 }
 
 .alt-cta-description {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.0625rem;
+  color: #4a5568;
   max-width: 700px;
   margin: 0 auto 3rem;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .alt-cta-description {
+    font-size: 1.125rem;
+  }
 }
 
 .alt-cta-actions {
@@ -1507,35 +1592,35 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-.alt-cta-button-white {
-  background: white !important;
-  color: var(--brand-dark) !important;
+.alt-cta-button-terracotta {
+  background: linear-gradient(135deg, #C47A65, #B8694F) !important;
+  color: white !important;
   padding: 1.25rem 2.5rem;
   font-size: 1.125rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+  font-weight: 700;
+  box-shadow: 0 10px 25px -3px rgba(196, 122, 101, 0.35) !important;
 }
 
-.alt-cta-button-white:hover {
-  background: rgba(255, 255, 255, 0.9) !important;
-  transform: scale(1.05);
+.alt-cta-button-terracotta:hover {
+  box-shadow: 0 14px 30px -3px rgba(196, 122, 101, 0.45) !important;
+  transform: translateY(-2px);
 }
 
 .alt-cta-supporting {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #4a5568;
   max-width: 600px;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0.75rem;
   line-height: 1.6;
 }
 
 .alt-cta-extra {
-  font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.875rem;
+  color: #64748b;
   max-width: 500px;
   margin: 0 auto;
   line-height: 1.5;
-  font-style: italic;
 }
