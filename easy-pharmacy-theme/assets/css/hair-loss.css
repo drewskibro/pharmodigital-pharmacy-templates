@@ -1,6 +1,7 @@
 /* ============================================
    HAIR LOSS PAGE STYLES
    Uses hairloss- prefix
+   Warm palette: #FDF6F3 cream, #C47A65 terracotta, #7A9E7E sage, #2D1B4E dark purple text
    ============================================ */
 
 /* ============================================
@@ -13,15 +14,13 @@
   align-items: center;
   padding: 60px 0 60px;
   overflow: hidden;
-  background: linear-gradient(to bottom, var(--brand-light), var(--white), var(--brand-light));
+  background: #FDF6F3;
 }
 
 .hairloss-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(163, 158, 227, 0.02) 2px, transparent 2px);
-  background-size: 40px 40px;
-  z-index: 0;
+  display: none;
 }
 
 .hairloss-hero-glow-1 {
@@ -30,7 +29,7 @@
   right: -5%;
   width: 600px;
   height: 600px;
-  background: rgba(163, 158, 227, 0.06);
+  background: rgba(196, 122, 101, 0.08);
   border-radius: 50%;
   filter: blur(100px);
   z-index: 1;
@@ -43,7 +42,7 @@
   left: -5%;
   width: 500px;
   height: 500px;
-  background: rgba(139, 133, 214, 0.06);
+  background: rgba(212, 144, 124, 0.08);
   border-radius: 50%;
   filter: blur(80px);
   z-index: 1;
@@ -79,7 +78,7 @@
 .hairloss-hero-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1.5rem;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -97,9 +96,16 @@
   }
 }
 
+.hairloss-hero-title .gradient-text {
+  background: linear-gradient(to right, #6B4FA0, #8B6BBF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .hairloss-hero-description {
   font-size: 1.125rem;
-  color: var(--text-gray);
+  color: #4a5568;
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 600px;
@@ -132,12 +138,12 @@
   align-items: center;
   gap: 0.75rem;
   font-size: 1rem;
-  color: var(--text-gray);
+  color: #4a5568;
   font-weight: 500;
 }
 
 .hairloss-hero-features i {
-  color: var(--brand-purple);
+  color: #7A9E7E;
   font-size: 1.25rem;
 }
 
@@ -160,6 +166,28 @@
   }
 }
 
+.hairloss-hero-actions .primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: #fff;
+  box-shadow: 0 10px 25px -3px rgba(196, 122, 101, 0.35);
+}
+
+.hairloss-hero-actions .primary-cta:hover {
+  box-shadow: 0 14px 30px -3px rgba(196, 122, 101, 0.45);
+  transform: translateY(-2px);
+}
+
+.hairloss-hero-actions .secondary-cta {
+  color: #6B4FA0;
+  border: 2px solid rgba(196, 122, 101, 0.25);
+  background: transparent;
+}
+
+.hairloss-hero-actions .secondary-cta:hover {
+  border-color: rgba(196, 122, 101, 0.45);
+  background: rgba(196, 122, 101, 0.05);
+}
+
 /* Right Visual */
 .hairloss-hero-visual {
   position: relative;
@@ -174,8 +202,8 @@
   height: 600px;
   border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(163, 158, 227, 0.15);
+  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.18);
+  border: 1px solid rgba(196, 122, 101, 0.12);
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
 }
@@ -190,6 +218,7 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  pointer-events: none;
 }
 
     .hairloss-hero-caption {
@@ -206,7 +235,7 @@
       border: 1px solid rgba(255, 255, 255, 0.6);
       border-radius: 9999px;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 20px 40px rgba(196, 122, 101, 0.15);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -229,18 +258,26 @@
     .hairloss-hero-caption p {
       font-size: 0.8125rem;
       font-weight: 700;
-      color: #111827;
+      color: #2D1B4E;
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
+/* Hero badge override — warm glassmorphic */
+.hairloss-hero-section .section-badge {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  box-shadow: 0 8px 30px rgba(196, 122, 101, 0.10);
+}
+
 /* ============================================
-   STATS BAR
+   STATS BAR — warm terracotta palette
    ============================================ */
 .hairloss-stats-section {
   position: relative;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
+  background: linear-gradient(135deg, #C47A65, #D4907C, #B8694F);
   padding: 2rem 0;
   overflow: hidden;
 }
@@ -282,7 +319,7 @@
 .hairloss-stat-icon {
   width: 4rem;
   height: 4rem;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
   border-radius: 1rem;
   display: flex;
@@ -328,13 +365,13 @@
 .hairloss-about-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
 .hairloss-about-desc {
   font-size: 1.125rem;
-  color: var(--text-gray);
+  color: #4a5568;
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.7;
@@ -354,10 +391,10 @@
 
 .hairloss-about-card {
   background: rgba(255, 255, 255, 0.95);
-  border: 1px solid #f3f4f6;
+  border: 1px solid rgba(196, 122, 101, 0.10);
   border-radius: 1.5rem;
   padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(196, 122, 101, 0.08);
   transition: all 0.4s ease;
 }
 
@@ -369,14 +406,14 @@
 
 .hairloss-about-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  border-color: rgba(163, 158, 227, 0.3);
+  box-shadow: 0 20px 40px rgba(196, 122, 101, 0.15);
+  border-color: rgba(196, 122, 101, 0.25);
 }
 
 .hairloss-about-icon {
   width: 4rem;
   height: 4rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, #C47A65, #B8694F);
   border-radius: 1rem;
   display: flex;
   align-items: center;
@@ -389,13 +426,13 @@
 .hairloss-about-card-title {
   font-size: 1.375rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 0.75rem;
 }
 
 .hairloss-about-card-desc {
   font-size: 1rem;
-  color: var(--text-gray);
+  color: #4a5568;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -417,7 +454,7 @@
    ============================================ */
 .hairloss-treatments-section {
   padding: 4rem 0;
-  background: rgba(163, 158, 227, 0.05);
+  background: #FDF6F3;
 }
 
 .hairloss-treatments-header {
@@ -428,7 +465,7 @@
 .hairloss-treatments-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -447,11 +484,11 @@
 .hairloss-treatment-card {
   position: relative;
   background: linear-gradient(to bottom, #ffffff, #fafafa);
-  border: 1px solid rgba(163, 158, 227, 0.2);
+  border: 1px solid rgba(196, 122, 101, 0.15);
   border-radius: 2rem;
   padding: 2.5rem;
-  box-shadow: 
-    0 20px 40px -5px rgba(163, 158, 227, 0.1),
+  box-shadow:
+    0 20px 40px -5px rgba(196, 122, 101, 0.10),
     0 0 0 1px rgba(255, 255, 255, 0.5) inset;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   overflow: hidden;
@@ -470,17 +507,17 @@
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, var(--brand-purple), var(--brand-accent));
+  background: linear-gradient(90deg, #C47A65, #D4907C);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .hairloss-treatment-card:hover {
   transform: translateY(-8px);
-  box-shadow: 
-    0 30px 60px -10px rgba(163, 158, 227, 0.25),
-    0 0 0 1px rgba(163, 158, 227, 0.3);
-  border-color: rgba(163, 158, 227, 0.4);
+  box-shadow:
+    0 30px 60px -10px rgba(196, 122, 101, 0.20),
+    0 0 0 1px rgba(196, 122, 101, 0.25);
+  border-color: rgba(196, 122, 101, 0.30);
 }
 
 .hairloss-treatment-card:hover::before {
@@ -493,7 +530,7 @@
   right: -50px;
   width: 300px;
   height: 300px;
-  background: rgba(163, 158, 227, 0.05);
+  background: rgba(196, 122, 101, 0.05);
   border-radius: 50%;
   filter: blur(60px);
   pointer-events: none;
@@ -516,9 +553,9 @@
 }
 
 .hairloss-treatment-badge.otc {
-  background: rgba(163, 158, 227, 0.1);
-  border: 1px solid rgba(163, 158, 227, 0.2);
-  color: var(--brand-dark);
+  background: rgba(196, 122, 101, 0.08);
+  border: 1px solid rgba(196, 122, 101, 0.18);
+  color: #B8694F;
 }
 
     .hairloss-treatment-image-container {
@@ -527,7 +564,7 @@
       border-radius: 1.5rem;
       overflow: hidden;
       margin-bottom: 1.5rem;
-      box-shadow: 0 10px 25px rgba(163, 158, 227, 0.15);
+      box-shadow: 0 10px 25px rgba(196, 122, 101, 0.15);
       border: 4px solid var(--white);
       transition: all 0.3s ease;
     }
@@ -541,8 +578,8 @@
 
     .hairloss-treatment-card:hover .hairloss-treatment-image-container {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(163, 158, 227, 0.25);
-      border-color: rgba(163, 158, 227, 0.2);
+      box-shadow: 0 15px 30px rgba(196, 122, 101, 0.25);
+      border-color: rgba(196, 122, 101, 0.15);
     }
 
     .hairloss-treatment-card:hover .hairloss-treatment-img {
@@ -553,7 +590,7 @@
   font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 0.5rem;
 }
 
@@ -566,20 +603,20 @@
 .hairloss-treatment-divider {
   width: 100%;
   height: 1px;
-  background: rgba(163, 158, 227, 0.2);
+  background: rgba(196, 122, 101, 0.15);
   margin: 1.5rem 0;
 }
 
 .hairloss-treatment-heading {
   font-size: 1rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 0.5rem;
 }
 
 .hairloss-treatment-text {
   font-size: 1rem;
-  color: var(--text-gray);
+  color: #4a5568;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -598,12 +635,12 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
-  color: var(--text-gray);
+  color: #4a5568;
   font-weight: 500;
 }
 
 .hairloss-treatment-list i {
-  color: var(--brand-purple);
+  color: #7A9E7E;
   font-size: 1.25rem;
 }
 
@@ -628,12 +665,31 @@
 .hairloss-treatment-details .value {
   font-size: 1rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
 }
 
 .hairloss-treatment-btn {
   margin-top: 2rem;
   width: 100%;
+}
+
+.hairloss-treatment-btn.primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  box-shadow: 0 10px 25px -3px rgba(196, 122, 101, 0.35);
+}
+
+.hairloss-treatment-btn.primary-cta:hover {
+  box-shadow: 0 14px 30px -3px rgba(196, 122, 101, 0.45);
+}
+
+.hairloss-treatment-btn.secondary-cta {
+  color: #6B4FA0;
+  border: 2px solid rgba(196, 122, 101, 0.25);
+}
+
+.hairloss-treatment-btn.secondary-cta:hover {
+  border-color: rgba(196, 122, 101, 0.45);
+  background: rgba(196, 122, 101, 0.05);
 }
 
 /* ============================================
@@ -664,7 +720,7 @@
   height: 600px;
   border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.18);
   border: 6px solid var(--white);
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
@@ -683,14 +739,14 @@
 .hairloss-combo-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1.5rem;
   line-height: 1.1;
 }
 
 .hairloss-combo-desc {
   font-size: 1.125rem;
-  color: var(--text-gray);
+  color: #4a5568;
   line-height: 1.7;
   margin-bottom: 2rem;
 }
@@ -713,7 +769,7 @@
 .hairloss-combo-benefits .icon {
   width: 3rem;
   height: 3rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, #C47A65, #B8694F);
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
@@ -726,19 +782,19 @@
 .hairloss-combo-benefits .text strong {
   display: block;
   font-size: 1.125rem;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 0.25rem;
 }
 
 .hairloss-combo-benefits .text p {
   font-size: 1rem;
-  color: var(--text-gray);
+  color: #4a5568;
   margin: 0;
 }
 
 .hairloss-combo-comparison {
-  background: rgba(163, 158, 227, 0.05);
-  border: 1px solid rgba(163, 158, 227, 0.15);
+  background: rgba(196, 122, 101, 0.05);
+  border: 1px solid rgba(196, 122, 101, 0.15);
   border-radius: 1rem;
   padding: 1.5rem;
   margin-bottom: 2rem;
@@ -758,16 +814,16 @@
 }
 
 .hairloss-combo-comparison .combined {
-  color: var(--brand-dark);
+  color: #B8694F;
   font-weight: 700;
 }
 
 /* ============================================
-   ELIGIBILITY SECTION
+   ELIGIBILITY SECTION — warm cream bg, NOT purple gradient
    ============================================ */
 .hairloss-eligibility-section {
   padding: 4rem 0 5rem;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
+  background: #FDF6F3;
 }
 
 .hairloss-eligibility-header {
@@ -778,7 +834,7 @@
 .hairloss-eligibility-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: var(--white);
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -796,10 +852,10 @@
 
 .hairloss-eligibility-card {
   background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(196, 122, 101, 0.12);
   border-radius: 1.5rem;
   padding: 2rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(196, 122, 101, 0.08);
   transition: all 0.4s ease;
   text-align: center;
 }
@@ -812,13 +868,13 @@
 
 .hairloss-eligibility-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 25px 50px rgba(196, 122, 101, 0.15);
 }
 
 .hairloss-eligibility-card .icon {
   width: 5rem;
   height: 5rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, #C47A65, #B8694F);
   border-radius: 1.5rem;
   display: flex;
   align-items: center;
@@ -844,21 +900,21 @@
 }
 
 .hairloss-eligibility-card .badge.assessment {
-  background: rgba(163, 158, 227, 0.1);
-  border: 1px solid rgba(163, 158, 227, 0.2);
-  color: var(--brand-dark);
+  background: rgba(196, 122, 101, 0.08);
+  border: 1px solid rgba(196, 122, 101, 0.18);
+  color: #B8694F;
 }
 
 .hairloss-eligibility-card .badge.not-suitable {
-  background: rgba(163, 158, 227, 0.15);
-  border: 1px solid rgba(163, 158, 227, 0.25);
-  color: var(--brand-dark);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
 }
 
 .hairloss-eligibility-card h3 {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1.5rem;
 }
 
@@ -876,18 +932,18 @@
   align-items: center;
   gap: 0.75rem;
   font-size: 1rem;
-  color: var(--text-gray);
+  color: #4a5568;
   font-weight: 500;
 }
 
 .hairloss-eligibility-card .check-list i {
-  color: var(--brand-purple);
+  color: #7A9E7E;
   font-size: 1.25rem;
 }
 
 .hairloss-eligibility-note {
   text-align: center;
-  color: rgba(255, 255, 255, 0.95);
+  color: #4a5568;
   font-size: 1.125rem;
   font-weight: 500;
   margin-top: 3rem;
@@ -912,7 +968,7 @@
 .hairloss-process-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -937,17 +993,17 @@
 .hairloss-process-card {
   position: relative;
   background: var(--white);
-  border: 1px solid #f3f4f6;
+  border: 1px solid rgba(196, 122, 101, 0.10);
   border-radius: 1.5rem;
   padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(196, 122, 101, 0.06);
   transition: all 0.4s ease;
 }
 
 .hairloss-process-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  border-color: rgba(163, 158, 227, 0.3);
+  box-shadow: 0 20px 40px rgba(196, 122, 101, 0.12);
+  border-color: rgba(196, 122, 101, 0.25);
 }
 
 .hairloss-process-card .number {
@@ -956,10 +1012,10 @@
   left: 1.5rem;
   width: 3rem;
   height: 3rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, #C47A65, #B8694F);
   border-radius: 50%;
   border: 3px solid var(--white);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(196, 122, 101, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -972,12 +1028,12 @@
 .hairloss-process-card .icon {
   width: 4rem;
   height: 4rem;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.15), rgba(109, 104, 181, 0.1));
+  background: rgba(196, 122, 101, 0.08);
   border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--brand-purple);
+  color: #C47A65;
   font-size: 1.5rem;
   margin: 1.5rem 0;
 }
@@ -985,21 +1041,21 @@
 .hairloss-process-card h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 0.75rem;
 }
 
 .hairloss-process-card p {
   font-size: 1rem;
-  color: var(--text-gray);
+  color: #4a5568;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
 .hairloss-process-card .time-badge {
   display: inline-block;
-  background: rgba(163, 158, 227, 0.1);
-  color: var(--brand-dark);
+  background: rgba(196, 122, 101, 0.08);
+  color: #B8694F;
   font-size: 0.875rem;
   font-weight: 600;
   padding: 0.375rem 0.75rem;
@@ -1011,7 +1067,7 @@
   top: 50%;
   right: -1.5rem;
   transform: translateY(-50%);
-  color: var(--brand-purple);
+  color: #C47A65;
   font-size: 1.5rem;
   z-index: 1;
 }
@@ -1021,12 +1077,17 @@
   margin-top: 3rem;
 }
 
+.hairloss-process-cta .primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  box-shadow: 0 10px 25px -3px rgba(196, 122, 101, 0.35);
+}
+
 /* ============================================
    FAQ SECTION
    ============================================ */
 .hairloss-faq-section {
   padding: 4rem 0;
-  background: linear-gradient(to bottom, var(--white) 0%, rgba(163, 158, 227, 0.05) 50%, var(--white) 100%);
+  background: linear-gradient(to bottom, var(--white) 0%, #FDF6F3 50%, var(--white) 100%);
 }
 
 .hairloss-faq-header {
@@ -1037,7 +1098,7 @@
 .hairloss-faq-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #2D1B4E;
   margin-bottom: 1rem;
 }
 
@@ -1051,20 +1112,20 @@
 
 .hairloss-faq-item {
   background: var(--white);
-  border: 1px solid #f3f4f6;
+  border: 1px solid rgba(196, 122, 101, 0.10);
   border-radius: 1rem;
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
 .hairloss-faq-item:hover {
-  border-color: rgba(163, 158, 227, 0.3);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-color: rgba(196, 122, 101, 0.25);
+  box-shadow: 0 4px 15px rgba(196, 122, 101, 0.08);
 }
 
 .hairloss-faq-item.active {
-  border-color: var(--brand-purple);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-color: #C47A65;
+  box-shadow: 0 10px 30px rgba(196, 122, 101, 0.12);
 }
 
 .hairloss-faq-btn {
@@ -1082,7 +1143,7 @@
 .hairloss-faq-btn .num {
   width: 2.5rem;
   height: 2.5rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, #C47A65, #B8694F);
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
@@ -1099,18 +1160,18 @@
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #111827;
+  color: #2D1B4E;
 }
 
 .hairloss-faq-btn .icon {
   width: 2.75rem;
   height: 2.75rem;
-  background: rgba(163, 158, 227, 0.1);
+  background: rgba(196, 122, 101, 0.08);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--brand-purple);
+  color: #C47A65;
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -1132,7 +1193,7 @@
 
 .hairloss-faq-content p {
   font-size: 1rem;
-  color: var(--text-gray);
+  color: #4a5568;
   line-height: 1.7;
 }
 
@@ -1141,14 +1202,14 @@
     padding: 1.25rem;
     gap: 1rem;
   }
-  
+
   .hairloss-faq-item.active .hairloss-faq-content {
     padding: 0 1.25rem 1.5rem 1.25rem;
   }
 }
 
 /* ============================================
-   FINAL CTA SECTION
+   FINAL CTA SECTION — purple accent (30% rule)
    ============================================ */
 .hairloss-cta-section {
   background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
