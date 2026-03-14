@@ -168,12 +168,62 @@ The "Your Clinical Team" section in the bio area only renders when the `rp_team_
 
 ### Social Proof Section (Shared Pattern)
 
-The social proof / Google rating band is a reusable pattern that appears on both the **Switch Provider** page and the **Reviewer Profile** page. It uses the shared `.rating-badge` component from `globals.css` with `position: static` override for inline use. Each page has its own ACF fields and contextual defaults:
+The social proof / Google rating band is a reusable pattern that appears on multiple pages. It uses the shared `.rating-badge` component from `globals.css` with `position: static` override for inline use. Each page has its own ACF fields and contextual defaults:
 
 | Page | CSS class prefix | Eyebrow default | Headline focus |
 |------|-----------------|-----------------|----------------|
 | Switch Provider | `.switch-social-proof-*` | "TRUSTED BY ASHFORD" | Switching providers |
 | Reviewer Profile | `.rp-social-proof-*` | "TRUSTED BY ASHFORD" | Pharmacist experience |
+| Book Appointment | `.book-social-proof-*` | "TRUSTED BY ASHFORD" | General healthcare trust |
+| Single Blog Post | shared `.rating-badge` | "TRUSTED BY ASHFORD" | Pharmacy credibility |
+
+**When building a new page**, use this section instead of a purple stats bar. The pattern is:
+- Soft purple background (`#f8f6fb`)
+- Left: `.rating-badge` (set `position: static`) with Google icon, score, stars, review count, location, "View Reviews" link
+- Right: uppercase eyebrow, large headline (`#374151`, 2.5rem), subtext (`#4a5568`)
+- Rating score and location auto-pull from Pharmacy Settings options (`google_rating`, `pharmacy_location_label`) when page-level fields are blank
+- Mobile: stack vertically, centre-align
+
+```css
+/* Required overrides for inline use */
+.page-social-proof-wrapper .rating-badge {
+  position: static;
+  flex-shrink: 0;
+  min-width: 260px;
+}
+```
+
+### Final CTA Section (Shared Pattern)
+
+Every page should end with a **Final CTA section** that follows the established on-brand design. This replaces the older flat purple gradient + phone/hours layout.
+
+**Design specification:**
+
+| Element | Style |
+|---------|-------|
+| Background | `linear-gradient(135deg, #6B4FA0, #8B6BBF)` — deep purple gradient |
+| Decorative glows | Two blurred white circles (`rgba(255,255,255,0.1)` and `0.08`), `pointer-events: none` |
+| Dot pattern | `radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)`, 30px grid, `pointer-events: none` |
+| Trust badges row | Glassmorphic pills (`rgba(255,255,255,0.15)`, `backdrop-filter: blur(10px)`, white border 20%) — 3 contextual badges (e.g. GPhC Registered, Same-Day Appointments, Free Parking) |
+| Title | White, 3rem, font-weight 900 |
+| Description | White at 95% opacity, 1.25rem, line-height 1.6 |
+| Primary CTA | White background, `var(--brand-dark)` text — typically phone number |
+| Secondary CTA | Transparent with white 30% border, white text — typically "Book Online" or booking link |
+| Trust checks row | White text with check icons — 3 items (e.g. "No referral needed", "Expert guidance", hours) |
+
+**Pages using this pattern:**
+- Weight Loss (`wl-final-cta-*`)
+- Switch Provider (`switch-cta-*`)
+- Book Appointment (`book-cta-*`)
+- Reviewer Profile (`rp-cta-*`)
+
+**Quick checklist for new Final CTA sections:**
+1. Background is deep purple gradient (`#6B4FA0 → #8B6BBF`), NOT `var(--brand-purple)` horizontal gradient
+2. Has decorative glows + dot pattern (all with `pointer-events: none`)
+3. Trust badges row above the title (glassmorphic pills, not solid)
+4. Two CTA buttons: primary (white solid) + secondary (outlined)
+5. Trust checks row below CTAs (white text + check icons)
+6. All content wrapped in `position: relative; z-index: 10` to sit above decorative elements
 
 ### ACF Field Groups (in `acf-fields.php`)
 
