@@ -143,26 +143,54 @@ get_header();
 </section>
 
 <!-- ============================================
-     STATS BAR
+     SOCIAL PROOF SECTION - GOOGLE RATING
      ============================================ -->
-<section class="book-stats-section">
-  <div class="book-stats-shimmer"></div>
+<section class="book-social-proof-section">
   <div class="section-container">
-    <div class="book-stats-grid">
-      <?php if (have_rows('book_stats')) : while (have_rows('book_stats')) : the_row(); ?>
-        <div class="book-stat-item">
-          <div class="book-stat-icon"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div>
-          <div class="book-stat-content">
-            <span class="book-stat-number"><?php echo esc_html(get_sub_field('number')); ?></span>
-            <span class="book-stat-label"><?php echo esc_html(get_sub_field('label')); ?></span>
+    <div class="book-social-proof-wrapper">
+
+      <!-- Left: Google Rating Badge (uses globals.css .rating-badge styles) -->
+      <div class="rating-badge">
+        <div class="rating-header">
+          <div class="rating-label">
+            <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+            <span>Google Rating</span>
+          </div>
+          <div class="rating-excellent"><span class="rating-check">&#10003;</span> EXCELLENT</div>
+        </div>
+        <div class="rating-score-row">
+          <?php
+          $book_rating = ep_field( 'book_social_rating' );
+          if ( ! $book_rating ) $book_rating = ep_option( 'google_rating', '4.8' );
+          ?>
+          <span class="rating-number"><?php echo esc_html( $book_rating ); ?></span>
+          <div class="rating-stars-block">
+            <div class="rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <?php
+            $book_review_count = ep_field( 'book_social_review_count' );
+            if ( ! $book_review_count ) $book_review_count = ep_option( 'google_review_count', '100+' );
+            ?>
+            <span class="rating-count">Based on <?php echo esc_html( $book_review_count ); ?> reviews</span>
           </div>
         </div>
-      <?php endwhile; else : ?>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-clock"></i></div><div class="book-stat-content"><span class="book-stat-number">30+</span><span class="book-stat-label">Years Experience</span></div></div>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-users"></i></div><div class="book-stat-content"><span class="book-stat-number">10,000+</span><span class="book-stat-label">Patients Helped</span></div></div>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-certificate"></i></div><div class="book-stat-content"><span class="book-stat-number">GPhC</span><span class="book-stat-label">Registered</span></div></div>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-star"></i></div><div class="book-stat-content"><span class="book-stat-number">4.7</span><span class="book-stat-label">Average Rating</span></div></div>
-      <?php endif; ?>
+        <div class="rating-footer">
+          <?php
+          $book_location = ep_field( 'book_social_location' );
+          if ( ! $book_location ) $book_location = ep_option( 'pharmacy_location_label', 'Ashford, UK' );
+          ?>
+          <span class="rating-location"><i class="fas fa-map-marker-alt"></i> <?php echo esc_html( $book_location ); ?></span>
+          <a href="#reviews" class="rating-link">View Reviews</a>
+        </div>
+      </div>
+
+      <!-- Right: Text Content -->
+      <div class="book-social-proof-content">
+        <p class="book-social-proof-eyebrow"><?php echo esc_html( ep_field( 'book_social_eyebrow', 'TRUSTED BY ASHFORD' ) ); ?></p>
+        <h2 class="book-social-proof-headline"><?php echo esc_html( ep_field( 'book_social_headline', 'Hundreds of Ashford patients trust us with their healthcare' ) ); ?></h2>
+        <p class="book-social-proof-subtext"><?php echo esc_html( ep_field( 'book_social_subtext', 'Your local pharmacy with expert weight loss, travel health, and microsuction services' ) ); ?></p>
+      </div>
     </div>
   </div>
 </section>
@@ -455,23 +483,35 @@ get_header();
      FINAL CTA SECTION
      ============================================ -->
 <section class="book-cta-section">
-  <div class="book-cta-bg-dots"></div>
-  <div class="book-cta-bg-blobs"></div>
+  <div class="book-cta-glow-1"></div>
+  <div class="book-cta-glow-2"></div>
+  <div class="book-cta-dots"></div>
 
   <div class="section-container">
     <div class="book-cta-content">
-      <h2 class="book-cta-title"><?php echo esc_html(ep_field('book_cta_title', 'Need Help Booking?')); ?></h2>
-      <p class="book-cta-description"><?php echo esc_html(ep_field('book_cta_description', 'Our friendly Ashford team is here to answer your questions')); ?></p>
+      <div class="book-cta-badges">
+        <div class="book-cta-badge"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></div>
+        <div class="book-cta-badge"><i class="fas fa-bolt"></i><span>Same-Day Appointments</span></div>
+        <div class="book-cta-badge"><i class="fas fa-square-parking"></i><span>Free Parking</span></div>
+      </div>
 
-      <div class="book-cta-buttons">
-        <a href="tel:<?php echo esc_attr(ep_phone_link()); ?>" class="cta-button book-cta-phone">
+      <h2 class="book-cta-title"><?php echo esc_html(ep_field('book_cta_title', 'Need Help Booking?')); ?></h2>
+      <p class="book-cta-description"><?php echo esc_html(ep_field('book_cta_description', 'Our friendly Ashford team is here to answer your questions and help you find the right appointment')); ?></p>
+
+      <div class="book-cta-actions">
+        <a href="tel:<?php echo esc_attr(ep_phone_link()); ?>" class="cta-button primary-cta book-cta-phone">
           <i class="fas fa-phone"></i>
           <?php echo esc_html(ep_phone()); ?>
         </a>
-        <div class="book-cta-hours">
-          <i class="fas fa-clock"></i>
-          <span><?php echo esc_html(ep_field('book_cta_hours', 'Mon-Fri: 9am-6pm')); ?></span>
-        </div>
+        <button onclick="scrollToBooking()" class="cta-button secondary-cta book-cta-book">
+          Book Online <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <div class="book-cta-checks">
+        <div class="book-cta-check"><i class="fas fa-check"></i><span>No referral needed</span></div>
+        <div class="book-cta-check"><i class="fas fa-check"></i><span>Expert guidance</span></div>
+        <div class="book-cta-check"><i class="fas fa-check"></i><span><?php echo esc_html(ep_field('book_cta_hours', 'Mon–Fri: 9am–6pm')); ?></span></div>
       </div>
     </div>
   </div>

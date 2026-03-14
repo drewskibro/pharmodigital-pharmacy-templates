@@ -100,6 +100,240 @@ pharmodigital-pharmacy-templates/
 
 ---
 
+## Home Page Section Order
+
+The home page (`page-templates/page-home.php`) loads 13 sections sequentially:
+
+1. **Hero** — Headline, CTA buttons, trust badges, testimonial card, Google rating
+2. **Stats** — 5-metric stats bar (patients, rating, years, registration, delivery)
+3. **Treatments** — 5-card grid of popular services
+4. **Pharmacist** — Meet the pharmacist with photo, credentials, Vimeo video modal
+5. **How It Works** — 3-step process (Book, Consult, Receive)
+6. **Quick Book** — Floating CTA card with booking prompt
+7. **Switching** — Provider switching benefits with feature boxes
+8. **RevSlider** — Travel banner (Revolution Slider or static fallback)
+9. **Safe & Secure** — GPhC trust features
+10. **Health Hub** — Latest blog articles teaser
+11. **Location** — Map + floating info card with address, hours, contact
+12. **Testimonials** — Patient review cards with CTA
+13. **Sticky CTA** — Fixed bottom bar with Book Now
+
+---
+
+## Switch Provider Page Section Order
+
+The Switch Provider page (`page-templates/page-switch-provider.php`) loads 7 sections:
+
+1. **Hero** — Badge, 3-line headline, subtitle, CTAs, trust pills, image card with price badge & testimonial
+2. **Stats Bar** — 4-metric stats (avg loss, patients switched, rating, location)
+3. **Comparison** — 3-card grid (National Providers vs Easy Pharmacy vs Benefits)
+4. **Social Proof** — Large stats badge with headline and subtext
+5. **Weight Loss Banner** — Full-width banner with backdrop image, badge, title, and purple CTA (inline, not shared `section-revslider.php`)
+6. **Evidence** — 6-card stat grid with proven results
+7. **Process** — 4 alternating steps (Book, We Handle Everything, Zero Gap, Face-to-Face)
+8. **Final CTA** — Gradient section with CTAs and trust checks
+
+---
+
+## Weight Loss Page Section Order
+
+The Weight Loss page (`page-templates/page-weight-loss.php`) loads 12 sections:
+
+1. **Hero** — Badge, 3-line title (gradient/accent/gradient), description, CTAs, testimonial card, 3-image grid
+2. **Social Proof** — Circle stat badge (rating + stars), eyebrow, headline, subtext
+3. **Pharmacist** — Reuses shared `section-pharmacist.php` template part
+4. **Results** — Badge, title, 3-card grid (satisfaction, featured weight loss %, patients helped), disclaimer
+5. **CTA Bar** — Purple gradient bar with title, subtitle, CTA button
+6. **Features** — Badge, title, image with floating badges, 3 feature cards (repeater), CTAs, credentials
+7. **RevSlider Banner** — Full-width banner with backdrop image, badge, title, CTA (inline, not shared `section-revslider.php`)
+8. **Journey Steps** — Badge, title, 4 alternating steps with images and floating badges (repeater)
+9. **Calculator** — BMI/weight loss estimator with form, results display, and timeline
+10. **FAQ** — Accordion with numbered questions (repeater), expand/collapse via JS
+11. **Testimonials** — 3 cards with weight-lost circles, quotes, stars, author (repeater)
+12. **Final CTA** — Gradient section with trust badges, title, CTAs, trust checks
+
+---
+
+## Reviewer Profile Page (Prescriber / E-E-A-T)
+
+The Reviewer Profile page (`page-templates/page-reviewer-profile.php`) is a standalone pharmacist profile page designed to boost E-E-A-T (Experience, Expertise, Authority, Trust) signals. It has its own CSS file (`assets/css/reviewer-profile.css`) and follows the warm cream + terracotta design language. It loads 7 sections:
+
+1. **Hero** — Centred layout: circular profile photo with terracotta ring + GPhC verification badge (links to pharmacyregulation.org), name, title, credential pills (Independent Prescriber, location, LinkedIn)
+2. **Bio + Team** — Two-column layout. Left: highlight card with "15+" ring stat, divider, 3 credential stats (locations, prescriber status, patients treated). Right: "About Dilip" badge, bio text, terracotta accent bar, and "Your Clinical Team" section with 2-column grid of team member profile cards (lead pharmacist card is slightly larger with purple border; colleague cards show circular photo, name, role)
+3. **Social Proof** — Soft purple band (`#f8f6fb`) adapted from the Switch Provider page. Left: shared `.rating-badge` component (Google icon, 4.8 score, 5 stars, "Excellent" green pill, location, "View Reviews"). Right: "TRUSTED BY ASHFORD" eyebrow, headline about the pharmacist's experience, subtext. Rating score and location auto-pull from Pharmacy Settings when left blank
+4. **Specialisms** — "Areas of Expertise" badge + "Clinical Specialisms" title, 5-card grid with Font Awesome icons (weight loss, travel health, ear wax, prescribing, consultations)
+5. **Qualifications** — "Education & Training" badge + "Qualifications & Credentials" title, numbered card grid (BPharm, PG Cert, Master's, Diploma, Independent Prescriber Status). Cards without an institution get a featured style with award icon
+6. **Lead Magnet** — Newsletter signup card with icon, heading, subheading, name + email inputs, submit button, disclaimer text
+7. **Final CTA** — Purple gradient section with title, description, Book an Appointment + phone CTAs, trust checks (GPhC Registered, Same-Day Appointments, No Referral Needed)
+
+### ACF Field Prefix
+
+All Reviewer Profile fields use the `rp_` prefix: `rp_name`, `rp_bio`, `rp_highlight_number`, etc.
+
+### Key Image Fallback
+
+The profile image falls back to the global `pharmacist_image` option (Pharmacy Settings), so it works if only the global photo is uploaded:
+```php
+$profile_image_id = ep_field( 'rp_profile_image' );
+if ( ! $profile_image_id ) {
+    $profile_image_id = ep_option( 'pharmacist_image' );
+}
+```
+
+### Team Members
+
+The "Your Clinical Team" section in the bio area only renders when the `rp_team_members` repeater has entries. Each team member has name, role, and photo (Media Library picker). The lead pharmacist's card is auto-generated from the hero data — not part of the repeater. Max 4 team members.
+
+### Social Proof Section (Shared Pattern)
+
+The social proof / Google rating band is a reusable pattern that appears on multiple pages. It uses the shared `.rating-badge` component from `globals.css` with `position: static` override for inline use. Each page has its own ACF fields and contextual defaults:
+
+| Page | CSS class prefix | Eyebrow default | Headline focus |
+|------|-----------------|-----------------|----------------|
+| Switch Provider | `.switch-social-proof-*` | "TRUSTED BY ASHFORD" | Switching providers |
+| Reviewer Profile | `.rp-social-proof-*` | "TRUSTED BY ASHFORD" | Pharmacist experience |
+| Book Appointment | `.book-social-proof-*` | "TRUSTED BY ASHFORD" | General healthcare trust |
+| Single Blog Post | shared `.rating-badge` | "TRUSTED BY ASHFORD" | Pharmacy credibility |
+
+**When building a new page**, use this section instead of a purple stats bar. The pattern is:
+- Soft purple background (`#f8f6fb`)
+- Left: `.rating-badge` (set `position: static`) with Google icon, score, stars, review count, location, "View Reviews" link
+- Right: uppercase eyebrow, large headline (`#374151`, 2.5rem), subtext (`#4a5568`)
+- Rating score and location auto-pull from Pharmacy Settings options (`google_rating`, `pharmacy_location_label`) when page-level fields are blank
+- Mobile: stack vertically, centre-align
+
+```css
+/* Required overrides for inline use */
+.page-social-proof-wrapper .rating-badge {
+  position: static;
+  flex-shrink: 0;
+  min-width: 260px;
+}
+```
+
+### Final CTA Section (Shared Pattern)
+
+Every page should end with a **Final CTA section** that follows the established on-brand design. This replaces the older flat purple gradient + phone/hours layout.
+
+**Design specification:**
+
+| Element | Style |
+|---------|-------|
+| Background | `linear-gradient(135deg, #6B4FA0, #8B6BBF)` — deep purple gradient |
+| Decorative glows | Two blurred white circles (`rgba(255,255,255,0.1)` and `0.08`), `pointer-events: none` |
+| Dot pattern | `radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)`, 30px grid, `pointer-events: none` |
+| Trust badges row | Glassmorphic pills (`rgba(255,255,255,0.15)`, `backdrop-filter: blur(10px)`, white border 20%) — 3 contextual badges (e.g. GPhC Registered, Same-Day Appointments, Free Parking) |
+| Title | White, 3rem, font-weight 900 |
+| Description | White at 95% opacity, 1.25rem, line-height 1.6 |
+| Primary CTA | White background, `var(--brand-dark)` text — typically phone number |
+| Secondary CTA | Transparent with white 30% border, white text — typically "Book Online" or booking link |
+| Trust checks row | White text with check icons — 3 items (e.g. "No referral needed", "Expert guidance", hours) |
+
+**Pages using this pattern:**
+- Weight Loss (`wl-final-cta-*`)
+- Switch Provider (`switch-cta-*`)
+- Book Appointment (`book-cta-*`)
+- Reviewer Profile (`rp-cta-*`)
+
+**Quick checklist for new Final CTA sections:**
+1. Background is deep purple gradient (`#6B4FA0 → #8B6BBF`), NOT `var(--brand-purple)` horizontal gradient
+2. Has decorative glows + dot pattern (all with `pointer-events: none`)
+3. Trust badges row above the title (glassmorphic pills, not solid)
+4. Two CTA buttons: primary (white solid) + secondary (outlined)
+5. Trust checks row below CTAs (white text + check icons)
+6. All content wrapped in `position: relative; z-index: 10` to sit above decorative elements
+
+### ACF Field Groups (in `acf-fields.php`)
+
+| Group | Code | What it controls |
+|-------|------|-----------------|
+| S1 | `group_ep_rp_hero` | Hero: profile image, name, title, GPhC number, LinkedIn URL |
+| S2 | `group_ep_rp_bio` | Bio: bio text, highlight card (number, label, stats repeater) |
+| S2c | `group_ep_rp_team` | Team: team label, team members repeater (name, role, photo) |
+| S2d | `group_ep_rp_social_proof` | Social proof: rating score, count, location, eyebrow, headline, subtext |
+| S3 | `group_ep_rp_specialisms` | Specialisms repeater (title, detail) |
+| S4 | `group_ep_rp_qualifications` | Qualifications repeater (name, institution) |
+| S5 | `group_ep_rp_leadmagnet` | Lead magnet: heading, subheading, button text, disclaimer |
+| S6 | `group_ep_rp_cta` | Final CTA: title, description, button text, button URL |
+
+---
+
+## Health Hub Page (Blog Listing)
+
+The Health Hub page (`page-templates/page-health-hub.php`) is the main blog listing. It uses server-side filtering and pagination:
+
+1. **Hero** — Badge, title (ACF field), description, category filter pills (server-side via `?category=` query param)
+2. **Featured Article** — Page 1 only, no category filter: large featured card (sticky posts) with image, category, reading time, title, excerpt, author, CTA
+3. **Articles Grid** — 9 posts per page in a 3-column responsive grid, filtered by category if selected. Excludes featured post on page 1
+4. **Pagination** — Numbered pills that preserve category filter in query strings
+5. **CTA** — Purple gradient section with "Ready to Transform Your Health?" and booking CTA
+
+**Filter logic:** Server-side via `$_GET['category']` sanitised and passed to `WP_Query`. JS smoothly scrolls to grid when returning from pagination (detects `?paged=` in URL).
+
+`archive.php` and `index.php` reuse the same hero + grid + pagination layout (without the featured article section) and share `.healthhub-*` CSS classes.
+
+---
+
+## Single Blog Post Layout
+
+The single post template (`single.php`) displays articles in a premium editorial layout with warm cream/terracotta palette. It loads these sections:
+
+1. **Article Hero** — Breadcrumb (Home > Health Hub > Category), category badge, reading time, `<h1>` title, excerpt, author avatar + name + role, publication date
+2. **Featured Image** — Conditional (only if post has a featured image). Rounded card with warm terracotta shadow
+3. **Pillar Backlink** — Conditional (only on cluster posts): link back to parent pillar post with "Part of our guide" label
+4. **Clinically Reviewed Block** — E-E-A-T trust block positioned **above** the article body for maximum trust signalling: author avatar + name + role, reviewer avatar + name + GPhC number + verification link, "Last updated" date
+5. **Article Body** — Main content via `the_content()` with premium typography (h2 with terracotta left border, enlarged first paragraph, warm-styled blockquotes, styled tables/lists). Tags + post navigation sit below the content
+6. **FAQ Section** — Conditional (only if `post_faqs` repeater is populated): numbered accordion with expand/collapse, generates FAQPage schema
+7. **Cluster Hub** — Conditional (only on pillar posts): "In This Series" grid of all cluster posts
+8. **Social Proof** — Google rating badge + trust headline. Uses shared `.rating-badge` component with pharmacy rating auto-pulled from options
+9. **CTA** — Purple gradient section with booking CTA, trust checks, and phone number
+10. **Related Posts** — 3-card grid of related articles from the same category
+
+### Table of Contents (Auto-Generated)
+
+Single blog posts automatically get an SEO-optimised table of contents injected at the top of `the_content()`. This is built entirely in the theme — no plugin required.
+
+**How it works:**
+- A `the_content` filter (`easy_pharmacy_add_toc()` in `functions.php`, priority 8) parses all `<h2>` and `<h3>` headings
+- Injects `id` attributes onto each heading for anchor linking
+- Prepends a `<nav class="article-toc">` card with numbered links
+- H3 headings are indented as sub-items
+- Requires at least 2 headings to render (skips short posts)
+- Collapsible via toggle button (JS in `blog.js`)
+- Smooth scroll with fixed-nav offset on link click
+
+**Per-post toggle:** The `show_table_of_contents` ACF field (C1b in `acf-fields.php`, sidebar position) defaults to "Show". Set to "Hide" to disable on individual posts.
+
+**SEO benefits:** Google can extract TOC anchors as jump-link sitelinks in search results, increasing SERP visibility.
+
+### Author & Reviewer Info Fallback Chain
+
+| Field | Fallback chain |
+|-------|---------------|
+| Author name | WordPress post author |
+| Author role | `default_author_role` option → `'Lead Pharmacist'` |
+| Author photo | `author_photo` post field → `pharmacist_image` option → Gravatar |
+| Reviewer name | `superintendent_pharmacist` option → `'Dilip Modhvadia'` |
+| Reviewer GPhC | `superintendent_gphc_number` option → `'2050606'` |
+| Reviewer photo | `reviewer_photo` post field → `pharmacist_image` option |
+
+### Structured Data (JSON-LD)
+
+`functions.php` outputs two schemas on single posts via `wp_head`:
+
+1. **MedicalWebPage** — headline, description, dates, author (name + jobTitle), reviewedBy (superintendent + GPhC), publisher (pharmacy + logo)
+2. **FAQPage** — Generated from the `post_faqs` repeater if populated. Enables Google FAQ rich snippets
+
+### Permalink & Category Setup
+
+On theme activation (`after_switch_theme`), `functions.php`:
+- Creates 5 default blog categories: Weight Loss, Travel Health, Ear Wax Removal, Hair Loss, NHS Services
+- Sets permalink structure to `/health-hub/%postname%/`
+
+A separate `init` hook (`easy_pharmacy_ensure_permalinks()`) checks once per hour (via transient) that rewrite rules haven't been flushed by plugin updates or Kinsta deployments, and re-registers them if needed. This prevents blog post 404s after deploys.
+
+---
+
 ## ACF Architecture (The Core Pattern)
 
 This is the most important section. Every pharmacy theme uses the same ACF architecture.
