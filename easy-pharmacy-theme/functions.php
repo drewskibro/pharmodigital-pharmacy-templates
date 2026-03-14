@@ -166,6 +166,11 @@ function easy_pharmacy_scripts() {
         wp_enqueue_script( 'easy-pharmacy-typhoid-js', EASY_PHARMACY_URI . '/assets/js/typhoid.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
+    if ( is_page_template( 'page-templates/page-malaria.php' ) ) {
+        wp_enqueue_style( 'easy-pharmacy-malaria', EASY_PHARMACY_URI . '/assets/css/malaria.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_script( 'easy-pharmacy-malaria-js', EASY_PHARMACY_URI . '/assets/js/malaria.js', array(), EASY_PHARMACY_VERSION, true );
+    }
+
     if ( is_page_template( 'page-templates/page-reviewer-profile.php' ) ) {
         wp_enqueue_style( 'easy-pharmacy-reviewer-profile', EASY_PHARMACY_URI . '/assets/css/reviewer-profile.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
     }
