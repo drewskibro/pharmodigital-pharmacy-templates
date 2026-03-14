@@ -38,18 +38,23 @@ get_header();
         </ul>
 
         <div class="hairloss-hero-actions">
-          <a href="<?php echo esc_url(ep_field('hl_hero_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">
-            <?php echo esc_html(ep_field('hl_hero_cta_text', 'Book Consultation')); ?> <i class="fas fa-arrow-right"></i>
+          <a href="<?php echo esc_url( ep_field( 'hl_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( ep_field( 'hl_hero_cta_text', 'Book Consultation' ) ); ?> <i class="fas fa-arrow-right"></i>
           </a>
-          <a href="tel:<?php echo esc_attr(ep_field('hl_phone_number', '01784255222')); ?>" class="cta-button secondary-cta">
-            <i class="fas fa-phone"></i> <?php echo esc_html(ep_field('hl_phone_display', '01784 255222')); ?>
+          <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta">
+            <i class="fas fa-phone"></i> <?php echo esc_html( ep_phone() ); ?>
           </a>
         </div>
       </div>
 
+      <?php
+      $hl_hero_image_id  = ep_field( 'hl_hero_image' );
+      $hl_hero_image_url = $hl_hero_image_id ? wp_get_attachment_image_url( $hl_hero_image_id, 'large' ) : '';
+      if ( $hl_hero_image_url ) :
+      ?>
       <div class="hairloss-hero-visual">
         <div class="hairloss-hero-image-card">
-          <img src="<?php echo esc_url(ep_field('hl_hero_image', 'https://images.unsplash.com/photo-1618331835717-801e976710b2?w=800&h=1000&fit=crop')); ?>" alt="<?php echo esc_attr(ep_field('hl_hero_image_alt', 'Before and after hair restoration comparison')); ?>" class="hairloss-hero-image" />
+          <img src="<?php echo esc_url( $hl_hero_image_url ); ?>" alt="<?php echo esc_attr( ep_field( 'hl_hero_image_alt', 'Before and after hair restoration comparison' ) ); ?>" class="hairloss-hero-image" />
           <div class="hairloss-hero-overlay"></div>
           <div class="hairloss-hero-caption">
             <div class="star-row">
@@ -59,6 +64,7 @@ get_header();
           </div>
         </div>
       </div>
+      <?php endif; ?>
 
     </div>
   </div>
@@ -117,9 +123,12 @@ get_header();
           <div class="hairloss-about-icon"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div>
           <h3 class="hairloss-about-card-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
           <p class="hairloss-about-card-desc"><?php echo esc_html(get_sub_field('description')); ?></p>
-          <?php if ($image = get_sub_field('image')) : ?>
+          <?php
+          $about_card_image_id  = get_sub_field( 'image' );
+          $about_card_image_url = $about_card_image_id ? wp_get_attachment_image_url( $about_card_image_id, 'treatment-card' ) : '';
+          if ( $about_card_image_url ) : ?>
             <div class="hairloss-about-image-wrapper">
-              <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr(get_sub_field('title')); ?>" />
+              <img src="<?php echo esc_url( $about_card_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
             </div>
           <?php endif; ?>
         </div>
@@ -128,25 +137,16 @@ get_header();
           <div class="hairloss-about-icon"><i class="fas fa-dna"></i></div>
           <h3 class="hairloss-about-card-title">DHT Hormone</h3>
           <p class="hairloss-about-card-desc">Testosterone converts to DHT, which shrinks hair follicles and shortens the growth cycle.</p>
-          <div class="hairloss-about-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&h=400&fit=crop" alt="Diagram of hair follicle shrinkage" />
-          </div>
         </div>
         <div class="hairloss-about-card">
           <div class="hairloss-about-icon"><i class="fas fa-chart-line"></i></div>
           <h3 class="hairloss-about-card-title">Progressive Condition</h3>
           <p class="hairloss-about-card-desc">Hair loss typically starts at the temples and crown, gradually spreading over years.</p>
-          <div class="hairloss-about-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1633613286991-611fe299c4be?w=600&h=400&fit=crop" alt="Norwood scale diagram" />
-          </div>
         </div>
         <div class="hairloss-about-card">
           <div class="hairloss-about-icon"><i class="fas fa-pills"></i></div>
           <h3 class="hairloss-about-card-title">Proven Treatments</h3>
           <p class="hairloss-about-card-desc">Finasteride blocks DHT production. Minoxidil stimulates blood flow to follicles.</p>
-          <div class="hairloss-about-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=600&h=400&fit=crop" alt="Treatment bottles" />
-          </div>
         </div>
       <?php endif; ?>
     </div>
@@ -169,9 +169,14 @@ get_header();
         <div class="hairloss-treatment-card">
           <?php if (get_sub_field('is_featured')) : ?><div class="hairloss-treatment-glow"></div><?php endif; ?>
           <div class="hairloss-treatment-badge <?php echo esc_attr(get_sub_field('badge_type')); ?>"><?php echo esc_html(get_sub_field('badge_text')); ?></div>
+          <?php
+          $treatment_image_id  = get_sub_field( 'image' );
+          $treatment_image_url = $treatment_image_id ? wp_get_attachment_image_url( $treatment_image_id, 'treatment-card' ) : '';
+          if ( $treatment_image_url ) : ?>
           <div class="hairloss-treatment-image-container">
-            <img src="<?php echo esc_url(get_sub_field('image')); ?>" alt="<?php echo esc_attr(get_sub_field('title')); ?>" class="hairloss-treatment-img" />
+            <img src="<?php echo esc_url( $treatment_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" class="hairloss-treatment-img" />
           </div>
+          <?php endif; ?>
           <h3 class="hairloss-treatment-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
           <p class="hairloss-treatment-subtitle"><?php echo esc_html(get_sub_field('subtitle')); ?></p>
           <div class="hairloss-treatment-divider"></div>
@@ -187,15 +192,12 @@ get_header();
             <div class="detail"><span class="label">Duration</span><span class="value"><?php echo esc_html(get_sub_field('duration')); ?></span></div>
             <div class="detail"><span class="label">Price</span><span class="value"><?php echo esc_html(get_sub_field('price')); ?></span></div>
           </div>
-          <a href="<?php echo esc_url(ep_field('hl_hero_cta_url', '/book-appointment/')); ?>" class="cta-button <?php echo get_sub_field('is_featured') ? 'primary-cta' : 'secondary-cta'; ?> hairloss-treatment-btn"><?php echo esc_html(get_sub_field('button_text')); ?></a>
+          <a href="<?php echo esc_url( ep_field( 'hl_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button <?php echo get_sub_field('is_featured') ? 'primary-cta' : 'secondary-cta'; ?> hairloss-treatment-btn"><?php echo esc_html(get_sub_field('button_text')); ?></a>
         </div>
       <?php endwhile; else : ?>
         <div class="hairloss-treatment-card">
           <div class="hairloss-treatment-glow"></div>
           <div class="hairloss-treatment-badge prescription">PRESCRIPTION REQUIRED</div>
-          <div class="hairloss-treatment-image-container">
-            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop" alt="Finasteride tablets" class="hairloss-treatment-img" />
-          </div>
           <h3 class="hairloss-treatment-title">Finasteride 1mg Tablets</h3>
           <p class="hairloss-treatment-subtitle">Most effective treatment for male pattern baldness</p>
           <div class="hairloss-treatment-divider"></div>
@@ -211,13 +213,10 @@ get_header();
             <div class="detail"><span class="label">Duration</span><span class="value">Ongoing (daily tablet)</span></div>
             <div class="detail"><span class="label">Price</span><span class="value">&pound;25/month</span></div>
           </div>
-          <a href="<?php echo esc_url(ep_field('hl_hero_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta hairloss-treatment-btn">Book Consultation</a>
+          <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button primary-cta hairloss-treatment-btn">Book Consultation</a>
         </div>
         <div class="hairloss-treatment-card">
           <div class="hairloss-treatment-badge otc">AVAILABLE OTC</div>
-          <div class="hairloss-treatment-image-container">
-            <img src="https://images.unsplash.com/photo-1624454002302-36b824d7bd0a?w=400&h=400&fit=crop" alt="Minoxidil topical solution" class="hairloss-treatment-img" />
-          </div>
           <h3 class="hairloss-treatment-title">Minoxidil Solution</h3>
           <p class="hairloss-treatment-subtitle">Topical treatment to stimulate hair growth</p>
           <div class="hairloss-treatment-divider"></div>
@@ -233,7 +232,7 @@ get_header();
             <div class="detail"><span class="label">Duration</span><span class="value">Ongoing (twice daily)</span></div>
             <div class="detail"><span class="label">Price</span><span class="value">&pound;15-30/month</span></div>
           </div>
-          <a href="<?php echo esc_url(ep_field('hl_hero_cta_url', '/book-appointment/')); ?>" class="cta-button secondary-cta hairloss-treatment-btn">Visit In-Store</a>
+          <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button secondary-cta hairloss-treatment-btn">Visit In-Store</a>
         </div>
       <?php endif; ?>
     </div>
@@ -244,11 +243,17 @@ get_header();
 <section class="hairloss-combo-section">
   <div class="section-container">
     <div class="hairloss-combo-grid">
+      <?php
+      $combo_image_id  = ep_field( 'hl_combo_image' );
+      $combo_image_url = $combo_image_id ? wp_get_attachment_image_url( $combo_image_id, 'large' ) : '';
+      if ( $combo_image_url ) :
+      ?>
       <div class="hairloss-combo-image-wrapper">
         <div class="hairloss-combo-image-card">
-          <img src="<?php echo esc_url(ep_field('hl_combo_image', 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&h=1000&fit=crop')); ?>" alt="Combined hair loss therapy products" class="hairloss-combo-image" />
+          <img src="<?php echo esc_url( $combo_image_url ); ?>" alt="Combined hair loss therapy products" class="hairloss-combo-image" />
         </div>
       </div>
+      <?php endif; ?>
       <div class="hairloss-combo-content">
         <div class="section-badge">
           <span class="pulse-dot"><span></span><span></span></span>
@@ -276,7 +281,7 @@ get_header();
           <p class="single"><?php echo esc_html(ep_field('hl_combo_single', 'Single Treatment: 40-65% success rate')); ?></p>
           <p class="combined"><?php echo esc_html(ep_field('hl_combo_combined', 'Combined Therapy: 80-85% success rate')); ?></p>
         </div>
-        <a href="<?php echo esc_url(ep_field('hl_hero_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">Discuss Combined Treatment</a>
+        <a href="<?php echo esc_url( ep_field( 'hl_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">Discuss Combined Treatment</a>
       </div>
     </div>
   </div>
@@ -386,7 +391,7 @@ get_header();
       <?php endif; ?>
     </div>
     <div class="hairloss-process-cta">
-      <a href="<?php echo esc_url(ep_field('hl_hero_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">Start Your Journey</a>
+      <a href="<?php echo esc_url( ep_field( 'hl_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">Start Your Journey</a>
     </div>
   </div>
 </section>
@@ -432,8 +437,8 @@ get_header();
       <h2 class="hairloss-cta-title"><?php echo esc_html(ep_field('hl_cta_title', 'Ready to Start Your Hair Regrowth Journey?')); ?></h2>
       <p class="hairloss-cta-desc"><?php echo esc_html(ep_field('hl_cta_description', 'Book a free consultation with our GPhC-registered pharmacist in Ashford')); ?></p>
       <div class="hairloss-cta-actions">
-        <a href="tel:<?php echo esc_attr(ep_field('hl_phone_number', '01784255222')); ?>" class="cta-button hairloss-cta-btn">
-          <i class="fas fa-phone"></i> <?php echo esc_html(ep_field('hl_phone_display', 'Call 01784 255222')); ?>
+        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button hairloss-cta-btn">
+          <i class="fas fa-phone"></i> Call <?php echo esc_html( ep_phone() ); ?>
         </a>
         <div class="hairloss-cta-badge">
           <?php echo esc_html(ep_field('hl_cta_hours', 'Open Mon-Fri 9am-6pm, Sat 9am-1pm')); ?>
