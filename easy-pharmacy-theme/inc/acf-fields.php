@@ -9217,41 +9217,33 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
-    // V2: Stats Section
+    // V2: Social Proof Section (replaces stats bar)
     acf_add_local_field_group( array(
-        'key'                   => 'group_ep_hl_stats',
-        'title'                 => 'Hair Loss — Stats Bar',
+        'key'                   => 'group_ep_hl_social_proof',
+        'title'                 => 'Hair Loss — Social Proof',
         'fields'                => array(
             array(
-                'key'          => 'field_ep_hl_stats',
-                'label'        => 'Stats',
-                'name'         => 'hl_stats',
-                'type'         => 'repeater',
-                'layout'       => 'table',
-                'button_label' => 'Add Stat',
-                'max'          => 6,
-                'instructions' => 'Leave empty to use default stats.',
-                'sub_fields'   => array(
-                    array(
-                        'key'           => 'field_ep_hl_stat_icon',
-                        'label'         => 'Icon Class',
-                        'name'          => 'icon',
-                        'type'          => 'text',
-                        'default_value' => 'fas fa-users',
-                    ),
-                    array(
-                        'key'   => 'field_ep_hl_stat_number',
-                        'label' => 'Number',
-                        'name'  => 'number',
-                        'type'  => 'text',
-                    ),
-                    array(
-                        'key'   => 'field_ep_hl_stat_label',
-                        'label' => 'Label',
-                        'name'  => 'label',
-                        'type'  => 'text',
-                    ),
-                ),
+                'key'           => 'field_ep_hl_social_eyebrow',
+                'label'         => 'Eyebrow Text',
+                'name'          => 'hl_social_eyebrow',
+                'type'          => 'text',
+                'default_value' => 'TRUSTED BY ASHFORD',
+            ),
+            array(
+                'key'           => 'field_ep_hl_social_headline',
+                'label'         => 'Headline',
+                'name'          => 'hl_social_headline',
+                'type'          => 'text',
+                'default_value' => 'Expert hair loss treatment from your local GPhC-registered pharmacist',
+            ),
+            array(
+                'key'           => 'field_ep_hl_social_subtext',
+                'label'         => 'Subtext',
+                'name'          => 'hl_social_subtext',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Over 500 patients treated with clinically proven hair loss solutions. GPhC-registered, with typical results in 6-12 months.',
+                'instructions'  => 'Rating score and location auto-pull from Pharmacy Settings.',
             ),
         ),
         'location'              => $hl_location,

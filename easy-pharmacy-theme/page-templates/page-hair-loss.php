@@ -70,37 +70,53 @@ get_header();
   </div>
 </section>
 
-<!-- Stats Section -->
-<section class="hairloss-stats-section">
-  <div class="hairloss-stats-shimmer"></div>
+<!-- Social Proof Section — Google rating badge + trust headline -->
+<section class="hl-social-proof-section">
   <div class="section-container">
-    <div class="hairloss-stats-grid">
-      <?php if (have_rows('hl_stats')) : while (have_rows('hl_stats')) : the_row(); ?>
-        <div class="hairloss-stat-item">
-          <div class="hairloss-stat-icon"><i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i></div>
-          <div class="hairloss-stat-content">
-            <span class="hairloss-stat-number"><?php echo esc_html(get_sub_field('number')); ?></span>
-            <span class="hairloss-stat-label"><?php echo esc_html(get_sub_field('label')); ?></span>
+    <div class="hl-social-proof-wrapper">
+
+      <!-- Left: Google Rating Badge (shared .rating-badge from globals.css) -->
+      <div class="rating-badge">
+        <div class="rating-header">
+          <div class="rating-label">
+            <div class="google-icon-wrapper">
+              <i class="fab fa-google"></i>
+            </div>
+            <span>Google Rating</span>
+          </div>
+          <div class="badge-success">
+            <i class="fas fa-check-circle"></i>
+            <span>Excellent</span>
           </div>
         </div>
-      <?php endwhile; else : ?>
-        <div class="hairloss-stat-item">
-          <div class="hairloss-stat-icon"><i class="fas fa-users"></i></div>
-          <div class="hairloss-stat-content"><span class="hairloss-stat-number">500+</span><span class="hairloss-stat-label">Patients Treated</span></div>
+        <div class="rating-score">
+          <span class="score-number"><?php echo esc_html( ep_option( 'google_rating', '4.7' ) ); ?></span>
+          <div class="rating-score-detail">
+            <div class="star-row">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="rating-count">Based on 300+ reviews</span>
+          </div>
         </div>
-        <div class="hairloss-stat-item">
-          <div class="hairloss-stat-icon"><i class="fas fa-certificate"></i></div>
-          <div class="hairloss-stat-content"><span class="hairloss-stat-number">GPhC</span><span class="hairloss-stat-label">Registered</span></div>
+        <div class="rating-footer">
+          <div class="rating-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><?php echo esc_html( ep_option( 'pharmacy_location', 'Ashford, UK' ) ); ?></span>
+          </div>
+          <a href="#reviews" class="rating-link">View Reviews</a>
         </div>
-        <div class="hairloss-stat-item">
-          <div class="hairloss-stat-icon"><i class="fas fa-calendar-check"></i></div>
-          <div class="hairloss-stat-content"><span class="hairloss-stat-number">6-12 Months</span><span class="hairloss-stat-label">Typical Results</span></div>
-        </div>
-        <div class="hairloss-stat-item">
-          <div class="hairloss-stat-icon"><i class="fas fa-star"></i></div>
-          <div class="hairloss-stat-content"><span class="hairloss-stat-number">4.7&#9733;</span><span class="hairloss-stat-label">Average Rating</span></div>
-        </div>
-      <?php endif; ?>
+      </div>
+
+      <!-- Right: Trust headline + subtext -->
+      <div class="hl-social-proof-content">
+        <p class="hl-social-proof-eyebrow"><?php echo esc_html( ep_field( 'hl_social_eyebrow', 'TRUSTED BY ASHFORD' ) ); ?></p>
+        <h2 class="hl-social-proof-headline"><?php echo esc_html( ep_field( 'hl_social_headline', 'Expert hair loss treatment from your local GPhC-registered pharmacist' ) ); ?></h2>
+        <p class="hl-social-proof-subtext"><?php echo esc_html( ep_field( 'hl_social_subtext', 'Over 500 patients treated with clinically proven hair loss solutions. GPhC-registered, with typical results in 6-12 months.' ) ); ?></p>
+      </div>
     </div>
   </div>
 </section>
