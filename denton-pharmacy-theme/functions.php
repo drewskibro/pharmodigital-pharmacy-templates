@@ -1,8 +1,8 @@
 <?php
 /**
- * Easy Pharmacy Theme Functions
+ * Denton Pharmacy Theme Functions
  *
- * @package Easy_Pharmacy
+ * @package Denton_Pharmacy
  * @version 1.0.0
  */
 
@@ -10,14 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'EASY_PHARMACY_VERSION', filemtime( __FILE__ ) );
-define( 'EASY_PHARMACY_DIR', get_template_directory() );
-define( 'EASY_PHARMACY_URI', get_template_directory_uri() );
+define( 'DENTON_PHARMACY_VERSION', filemtime( __FILE__ ) );
+define( 'DENTON_PHARMACY_DIR', get_template_directory() );
+define( 'DENTON_PHARMACY_URI', get_template_directory_uri() );
 
 /**
  * Theme Setup
  */
-function easy_pharmacy_setup() {
+function denton_pharmacy_setup() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'html5', array(
@@ -37,9 +37,9 @@ function easy_pharmacy_setup() {
     ) );
 
     register_nav_menus( array(
-        'primary'         => __( 'Primary Menu', 'easy-pharmacy' ),
-        'footer-services' => __( 'Footer Services', 'easy-pharmacy' ),
-        'footer-links'    => __( 'Footer Quick Links', 'easy-pharmacy' ),
+        'primary'         => __( 'Primary Menu', 'denton-pharmacy' ),
+        'footer-services' => __( 'Footer Services', 'denton-pharmacy' ),
+        'footer-links'    => __( 'Footer Quick Links', 'denton-pharmacy' ),
     ) );
 
     add_image_size( 'medium-large', 720, 9999, false );
@@ -48,25 +48,25 @@ function easy_pharmacy_setup() {
     add_image_size( 'health-hub-card', 600, 400, true );
     add_image_size( 'pharmacist-photo', 600, 750, true );
 }
-add_action( 'after_setup_theme', 'easy_pharmacy_setup' );
+add_action( 'after_setup_theme', 'denton_pharmacy_setup' );
 
 /**
  * Add custom "Medium Large" image size to the editor dropdown.
  */
-function easy_pharmacy_custom_image_sizes( $sizes ) {
+function denton_pharmacy_custom_image_sizes( $sizes ) {
     return array_merge( $sizes, array(
-        'medium-large' => __( 'Medium Large (720px)', 'easy-pharmacy' ),
+        'medium-large' => __( 'Medium Large (720px)', 'denton-pharmacy' ),
     ) );
 }
-add_filter( 'image_size_names_choose', 'easy_pharmacy_custom_image_sizes' );
+add_filter( 'image_size_names_choose', 'denton_pharmacy_custom_image_sizes' );
 
 /**
  * Enqueue Global Styles & Scripts
  */
-function easy_pharmacy_scripts() {
+function denton_pharmacy_scripts() {
     // Google Fonts
     wp_enqueue_style(
-        'easy-pharmacy-google-fonts',
+        'denton-google-fonts',
         'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;700;800;900&family=Syne:wght@400;600;700;800&display=swap',
         array(),
         null
@@ -82,147 +82,141 @@ function easy_pharmacy_scripts() {
 
     // Global CSS
     wp_enqueue_style(
-        'easy-pharmacy-globals',
-        EASY_PHARMACY_URI . '/assets/css/globals.css',
+        'denton-globals',
+        DENTON_PHARMACY_URI . '/assets/css/globals.css',
         array( 'font-awesome' ),
-        EASY_PHARMACY_VERSION
+        DENTON_PHARMACY_VERSION
+    );
+
+    // Navigation CSS — three-tier Denton nav
+    wp_enqueue_style(
+        'denton-nav',
+        DENTON_PHARMACY_URI . '/assets/css/denton-nav.css',
+        array( 'denton-globals' ),
+        DENTON_PHARMACY_VERSION
     );
 
     // Theme stylesheet (style.css - mostly metadata)
     wp_enqueue_style(
-        'easy-pharmacy-style',
+        'denton-style',
         get_stylesheet_uri(),
-        array( 'easy-pharmacy-globals' ),
-        EASY_PHARMACY_VERSION
+        array( 'denton-globals' ),
+        DENTON_PHARMACY_VERSION
     );
 
     // Page-specific CSS
     if ( is_page_template( 'page-templates/page-weight-loss.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-weight-loss', EASY_PHARMACY_URI . '/assets/css/weight-loss.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-weight-loss-js', EASY_PHARMACY_URI . '/assets/js/weight-loss.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-weight-loss', DENTON_PHARMACY_URI . '/assets/css/weight-loss.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-weight-loss-js', DENTON_PHARMACY_URI . '/assets/js/weight-loss.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-travel-health.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-travel-health', EASY_PHARMACY_URI . '/assets/css/travel-health.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-travel-health-js', EASY_PHARMACY_URI . '/assets/js/travel-health.js', array(), EASY_PHARMACY_VERSION, true );
-    }
-
-    if ( is_page_template( 'page-templates/page-travel-thailand.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-travel-thailand', EASY_PHARMACY_URI . '/assets/css/travel-thailand.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_style( 'denton-travel-health', DENTON_PHARMACY_URI . '/assets/css/travel-health.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-travel-health-js', DENTON_PHARMACY_URI . '/assets/js/travel-health.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-health-hub.php' ) || is_home() || is_category() || is_tag() || is_archive() ) {
-        wp_enqueue_style( 'easy-pharmacy-blog', EASY_PHARMACY_URI . '/assets/css/blog.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-blog-js', EASY_PHARMACY_URI . '/assets/js/blog.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-blog', DENTON_PHARMACY_URI . '/assets/css/blog.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-blog-js', DENTON_PHARMACY_URI . '/assets/js/blog.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_single() ) {
-        wp_enqueue_style( 'easy-pharmacy-blog', EASY_PHARMACY_URI . '/assets/css/blog.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-blog-js', EASY_PHARMACY_URI . '/assets/js/blog.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-blog', DENTON_PHARMACY_URI . '/assets/css/blog.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-blog-js', DENTON_PHARMACY_URI . '/assets/js/blog.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-book-appointment.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-book-appointment', EASY_PHARMACY_URI . '/assets/css/book-appointment.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-book-appointment-js', EASY_PHARMACY_URI . '/assets/js/book-appointment.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-book-appointment', DENTON_PHARMACY_URI . '/assets/css/book-appointment.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-book-appointment-js', DENTON_PHARMACY_URI . '/assets/js/book-appointment.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-team.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-team', EASY_PHARMACY_URI . '/assets/css/team.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_style( 'denton-team', DENTON_PHARMACY_URI . '/assets/css/team.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
     }
 
     if ( is_page_template( 'page-templates/page-ear-wax-removal.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-ear-wax', EASY_PHARMACY_URI . '/assets/css/ear-wax-removal.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-ear-wax-js', EASY_PHARMACY_URI . '/assets/js/ear-wax-removal.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-ear-wax', DENTON_PHARMACY_URI . '/assets/css/ear-wax-removal.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-ear-wax-js', DENTON_PHARMACY_URI . '/assets/js/ear-wax-removal.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-hair-loss.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-hair-loss', EASY_PHARMACY_URI . '/assets/css/hair-loss.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-hair-loss-js', EASY_PHARMACY_URI . '/assets/js/hair-loss.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-hair-loss', DENTON_PHARMACY_URI . '/assets/css/hair-loss.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-hair-loss-js', DENTON_PHARMACY_URI . '/assets/js/hair-loss.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-switch-provider.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-switch-provider', EASY_PHARMACY_URI . '/assets/css/switch-provider.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-switch-provider-js', EASY_PHARMACY_URI . '/assets/js/switch-provider.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-switch-provider', DENTON_PHARMACY_URI . '/assets/css/switch-provider.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-switch-provider-js', DENTON_PHARMACY_URI . '/assets/js/switch-provider.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     // Vaccination pages
     if ( is_page_template( 'page-templates/page-rabies.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-rabies', EASY_PHARMACY_URI . '/assets/css/rabies.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-rabies-js', EASY_PHARMACY_URI . '/assets/js/rabies.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-rabies', DENTON_PHARMACY_URI . '/assets/css/rabies.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-rabies-js', DENTON_PHARMACY_URI . '/assets/js/rabies.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-hepatitis.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-hepatitis', EASY_PHARMACY_URI . '/assets/css/hepatitis.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-hepatitis-js', EASY_PHARMACY_URI . '/assets/js/hepatitis.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-hepatitis', DENTON_PHARMACY_URI . '/assets/css/hepatitis.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-hepatitis-js', DENTON_PHARMACY_URI . '/assets/js/hepatitis.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-yellow-fever.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-yellow-fever', EASY_PHARMACY_URI . '/assets/css/yellow-fever.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-yellow-fever-js', EASY_PHARMACY_URI . '/assets/js/yellow-fever.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-yellow-fever', DENTON_PHARMACY_URI . '/assets/css/yellow-fever.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-yellow-fever-js', DENTON_PHARMACY_URI . '/assets/js/yellow-fever.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-typhoid.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-typhoid', EASY_PHARMACY_URI . '/assets/css/typhoid.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-typhoid-js', EASY_PHARMACY_URI . '/assets/js/typhoid.js', array(), EASY_PHARMACY_VERSION, true );
-    }
-
-    if ( is_page_template( 'page-templates/page-reviewer-profile.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-reviewer-profile', EASY_PHARMACY_URI . '/assets/css/reviewer-profile.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-    }
-
-    if ( is_page_template( 'page-templates/page-smoking-cessation.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-smoking-cessation', EASY_PHARMACY_URI . '/assets/css/smoking-cessation.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-smoking-cessation-js', EASY_PHARMACY_URI . '/assets/js/smoking-cessation.js', array(), EASY_PHARMACY_VERSION, true );
-    }
-
-    if ( is_page_template( 'page-templates/page-altitude-sickness.php' ) ) {
-        wp_enqueue_style( 'easy-pharmacy-altitude-sickness', EASY_PHARMACY_URI . '/assets/css/altitude-sickness.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
-        wp_enqueue_script( 'easy-pharmacy-altitude-sickness-js', EASY_PHARMACY_URI . '/assets/js/altitude-sickness.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-typhoid', DENTON_PHARMACY_URI . '/assets/css/typhoid.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-typhoid-js', DENTON_PHARMACY_URI . '/assets/js/typhoid.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     // Travel destination pages
     $travel_destinations = array( 'brazil', 'kenya', 'vietnam', 'india', 'thailand', 'cape-verde' );
     foreach ( $travel_destinations as $destination ) {
         if ( is_page_template( 'page-templates/page-travel-' . $destination . '.php' ) ) {
-            wp_enqueue_style( 'easy-pharmacy-travel-' . $destination, EASY_PHARMACY_URI . '/assets/css/travel-' . $destination . '.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+            wp_enqueue_style( 'denton-travel-' . $destination, DENTON_PHARMACY_URI . '/assets/css/travel-' . $destination . '.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
         }
     }
 
-    // Mega Menu JS - loaded on all pages in footer
+    // Navigation JS — three-tier Denton nav, loaded on all pages in footer
     wp_enqueue_script(
-        'easy-pharmacy-mega-menu',
-        EASY_PHARMACY_URI . '/assets/js/mega-menu.js',
+        'denton-nav-js',
+        DENTON_PHARMACY_URI . '/assets/js/denton-nav.js',
         array(),
-        EASY_PHARMACY_VERSION,
+        DENTON_PHARMACY_VERSION,
         true
     );
 
     // Video Modal JS - Vimeo player modal, loaded on all pages in footer
     wp_enqueue_script(
-        'easy-pharmacy-video-modal',
-        EASY_PHARMACY_URI . '/assets/js/video-modal.js',
+        'denton-video-modal',
+        DENTON_PHARMACY_URI . '/assets/js/video-modal.js',
         array(),
-        EASY_PHARMACY_VERSION,
+        DENTON_PHARMACY_VERSION,
         true
     );
 }
-add_action( 'wp_enqueue_scripts', 'easy_pharmacy_scripts' );
+add_action( 'wp_enqueue_scripts', 'denton_pharmacy_scripts' );
 
 /**
  * ACF Includes
  */
-if ( file_exists( EASY_PHARMACY_DIR . '/inc/acf-options.php' ) ) {
-    require_once EASY_PHARMACY_DIR . '/inc/acf-options.php';
+if ( file_exists( DENTON_PHARMACY_DIR . '/inc/acf-options.php' ) ) {
+    require_once DENTON_PHARMACY_DIR . '/inc/acf-options.php';
 }
 
-if ( file_exists( EASY_PHARMACY_DIR . '/inc/acf-fields.php' ) ) {
-    require_once EASY_PHARMACY_DIR . '/inc/acf-fields.php';
+if ( file_exists( DENTON_PHARMACY_DIR . '/inc/acf-fields.php' ) ) {
+    require_once DENTON_PHARMACY_DIR . '/inc/acf-fields.php';
 }
 
 /**
  * Helper: Get option field with fallback
+ *
+ * CRITICAL: Uses strict === null || === '' checks.
+ * Never change to empty(), !$value, or ?: ternary — ACF true_false
+ * fields return integer 0 for "No" which would be treated as falsy.
  */
-function ep_option( $field_name, $default = '' ) {
+function dp_option( $field_name, $default = '' ) {
     if ( function_exists( 'get_field' ) ) {
         $value = get_field( $field_name, 'option' );
         if ( $value === null || $value === '' ) {
@@ -235,8 +229,12 @@ function ep_option( $field_name, $default = '' ) {
 
 /**
  * Helper: Get page field with fallback
+ *
+ * CRITICAL: Uses strict === null || === '' checks.
+ * Never change to empty(), !$value, or ?: ternary — ACF true_false
+ * fields return integer 0 for "No" which would be treated as falsy.
  */
-function ep_field( $field_name, $default = '' ) {
+function dp_field( $field_name, $default = '' ) {
     if ( function_exists( 'get_field' ) ) {
         $value = get_field( $field_name );
         if ( $value === null || $value === '' ) {
@@ -252,7 +250,7 @@ function ep_field( $field_name, $default = '' ) {
  * Users often enter just "fa-file-medical" but FA6 requires "fas fa-file-medical".
  * This auto-prefixes "fas " (solid) when no style prefix is present.
  */
-function ep_fa_class( $icon_class ) {
+function dp_fa_class( $icon_class ) {
     $icon_class = trim( $icon_class );
     if ( empty( $icon_class ) ) {
         return '';
@@ -271,45 +269,49 @@ function ep_fa_class( $icon_class ) {
 /**
  * Helper: Get the pharmacy logo URL
  */
-function ep_logo_url() {
-    $logo_id = ep_option( 'pharmacy_logo' );
-    if ( $logo_id ) {
-        return wp_get_attachment_image_url( $logo_id, 'full' );
+function dp_logo_url() {
+    $custom_logo = dp_option( 'pharmacy_logo' );
+    if ( $custom_logo ) {
+        // ACF image field with return_format 'id' returns an attachment ID
+        if ( is_numeric( $custom_logo ) ) {
+            return wp_get_attachment_image_url( $custom_logo, 'full' );
+        }
+        return is_array( $custom_logo ) ? $custom_logo['url'] : $custom_logo;
     }
     $custom_logo_id = get_theme_mod( 'custom_logo' );
     if ( $custom_logo_id ) {
         return wp_get_attachment_image_url( $custom_logo_id, 'full' );
     }
-    return EASY_PHARMACY_URI . '/assets/images/logo.svg';
+    return get_template_directory_uri() . '/assets/images/logo.svg';
 }
 
 /**
  * Helper: Get pharmacy name
  */
-function ep_pharmacy_name() {
-    return ep_option( 'pharmacy_name', 'Easy Pharmacy' );
+function dp_pharmacy_name() {
+    return dp_option( 'pharmacy_name', 'Denton Pharmacy' );
 }
 
 /**
  * Helper: Get pharmacy phone
  */
-function ep_phone() {
-    return ep_option( 'pharmacy_phone', '01784 255 222' );
+function dp_phone() {
+    return dp_option( 'pharmacy_phone', '0161 336 2548' );
 }
 
 /**
  * Helper: Get phone link (digits only)
  */
-function ep_phone_link() {
-    $phone = ep_phone();
+function dp_phone_link() {
+    $phone = dp_phone();
     return preg_replace( '/[^0-9+]/', '', $phone );
 }
 
 /**
  * Helper: Get booking URL
  */
-function ep_booking_url() {
-    $page = ep_option( 'booking_page' );
+function dp_booking_url() {
+    $page = dp_option( 'booking_page' );
     if ( $page ) {
         return get_permalink( $page );
     }
@@ -319,9 +321,9 @@ function ep_booking_url() {
 /**
  * Register widget areas
  */
-function easy_pharmacy_widgets_init() {
+function denton_pharmacy_widgets_init() {
     register_sidebar( array(
-        'name'          => __( 'Blog Sidebar', 'easy-pharmacy' ),
+        'name'          => __( 'Blog Sidebar', 'denton-pharmacy' ),
         'id'            => 'blog-sidebar',
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget'  => '</div>',
@@ -329,44 +331,44 @@ function easy_pharmacy_widgets_init() {
         'after_title'   => '</h3>',
     ) );
 }
-add_action( 'widgets_init', 'easy_pharmacy_widgets_init' );
+add_action( 'widgets_init', 'denton_pharmacy_widgets_init' );
 
 /**
  * Custom excerpt length
  */
-function easy_pharmacy_excerpt_length( $length ) {
+function denton_pharmacy_excerpt_length( $length ) {
     return 25;
 }
-add_filter( 'excerpt_length', 'easy_pharmacy_excerpt_length' );
+add_filter( 'excerpt_length', 'denton_pharmacy_excerpt_length' );
 
 /**
  * Custom excerpt more
  */
-function easy_pharmacy_excerpt_more( $more ) {
+function denton_pharmacy_excerpt_more( $more ) {
     return '...';
 }
-add_filter( 'excerpt_more', 'easy_pharmacy_excerpt_more' );
+add_filter( 'excerpt_more', 'denton_pharmacy_excerpt_more' );
 
 /**
  * Add page slug as body class
  */
-function easy_pharmacy_body_classes( $classes ) {
+function denton_pharmacy_body_classes( $classes ) {
     if ( is_page() ) {
         global $post;
         $classes[] = 'page-' . $post->post_name;
     }
     return $classes;
 }
-add_filter( 'body_class', 'easy_pharmacy_body_classes' );
+add_filter( 'body_class', 'denton_pharmacy_body_classes' );
 
 /**
- * Force Classic Editor for pages using Easy Pharmacy templates.
+ * Force Classic Editor for pages using Denton Pharmacy templates.
  *
  * ACF field groups work best with the Classic Editor for template-driven pages.
  * This disables the Block Editor (Gutenberg) for any page using one of our
  * custom page templates, giving a clean ACF-only editing experience.
  */
-function easy_pharmacy_disable_gutenberg_for_templates( $use_block_editor, $post ) {
+function denton_pharmacy_disable_gutenberg_for_templates( $use_block_editor, $post ) {
     if ( empty( $post->ID ) ) {
         return $use_block_editor;
     }
@@ -380,7 +382,7 @@ function easy_pharmacy_disable_gutenberg_for_templates( $use_block_editor, $post
 
     return $use_block_editor;
 }
-add_filter( 'use_block_editor_for_post', 'easy_pharmacy_disable_gutenberg_for_templates', 10, 2 );
+add_filter( 'use_block_editor_for_post', 'denton_pharmacy_disable_gutenberg_for_templates', 10, 2 );
 
 /**
  * Theme Activation: Create default Health Hub categories and set permalink structure.
@@ -389,7 +391,7 @@ add_filter( 'use_block_editor_for_post', 'easy_pharmacy_disable_gutenberg_for_te
  * content categories so they appear immediately in the post editor, and sets
  * the permalink structure to /health-hub/post-slug/ for clean blog URLs.
  */
-function easy_pharmacy_activation() {
+function denton_pharmacy_activation() {
     // Pre-create standard pharmacy blog categories
     $default_categories = array(
         'Weight Loss'      => 'weight-loss',
@@ -409,7 +411,7 @@ function easy_pharmacy_activation() {
     update_option( 'permalink_structure', '/health-hub/%postname%/' );
     flush_rewrite_rules();
 }
-add_action( 'after_switch_theme', 'easy_pharmacy_activation' );
+add_action( 'after_switch_theme', 'denton_pharmacy_activation' );
 
 /**
  * Ensure permalink structure stays set to /health-hub/%postname%/.
@@ -419,7 +421,7 @@ add_action( 'after_switch_theme', 'easy_pharmacy_activation' );
  * on init and flushes when the structure drifts or when rules are empty.
  * A transient prevents flushing on every page load.
  */
-function easy_pharmacy_ensure_permalinks() {
+function denton_pharmacy_ensure_permalinks() {
     $desired = '/health-hub/%postname%/';
 
     // If the permalink option itself was changed, fix it immediately.
@@ -431,15 +433,15 @@ function easy_pharmacy_ensure_permalinks() {
 
     // If rewrite rules are empty (cleared by plugin/update/deploy), regenerate.
     // Use a transient so we only check once per hour, not every request.
-    if ( false === get_transient( 'ep_rewrite_rules_ok' ) ) {
+    if ( false === get_transient( 'dp_rewrite_rules_ok' ) ) {
         $rules = get_option( 'rewrite_rules' );
         if ( empty( $rules ) ) {
             flush_rewrite_rules();
         }
-        set_transient( 'ep_rewrite_rules_ok', 1, HOUR_IN_SECONDS );
+        set_transient( 'dp_rewrite_rules_ok', 1, HOUR_IN_SECONDS );
     }
 }
-add_action( 'init', 'easy_pharmacy_ensure_permalinks' );
+add_action( 'init', 'denton_pharmacy_ensure_permalinks' );
 
 /**
  * Output structured data (JSON-LD) for single blog posts.
@@ -447,7 +449,7 @@ add_action( 'init', 'easy_pharmacy_ensure_permalinks' );
  * Generates MedicalWebPage schema with author, reviewer, publisher,
  * and FAQPage schema when FAQ fields are populated.
  */
-function easy_pharmacy_post_schema() {
+function denton_pharmacy_post_schema() {
     if ( ! is_single() || get_post_type() !== 'post' ) {
         return;
     }
@@ -466,16 +468,16 @@ function easy_pharmacy_post_schema() {
 
     // Author
     $author_name = get_the_author();
-    $author_role = ep_option( 'default_author_role', 'Lead Pharmacist' );
+    $author_role = dp_option( 'default_author_role', 'Lead Pharmacist' );
 
     // Reviewer (superintendent pharmacist)
-    $reviewer_name = ep_option( 'superintendent_pharmacist', 'Dilip Modhvadia' );
-    $reviewer_gphc = ep_option( 'superintendent_gphc_number', '' );
-    $reviewer_url  = ep_option( 'gphc_verify_url', '' );
+    $reviewer_name = dp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
+    $reviewer_gphc = dp_option( 'superintendent_gphc_number', '2208502' );
+    $reviewer_url  = dp_option( 'gphc_verify_url', '' );
 
     // Publisher
-    $pharmacy_name = ep_pharmacy_name();
-    $logo_url      = ep_logo_url();
+    $pharmacy_name = dp_pharmacy_name();
+    $logo_url      = dp_logo_url();
 
     // Build MedicalWebPage schema
     $schema = array(
@@ -559,7 +561,7 @@ function easy_pharmacy_post_schema() {
         }
     }
 }
-add_action( 'wp_head', 'easy_pharmacy_post_schema' );
+add_action( 'wp_head', 'denton_pharmacy_post_schema' );
 
 /**
  * Auto-generate a Table of Contents for single blog posts.
@@ -570,7 +572,7 @@ add_action( 'wp_head', 'easy_pharmacy_post_schema' );
  *
  * Can be disabled per-post via the "show_table_of_contents" ACF field.
  */
-function easy_pharmacy_add_toc( $content ) {
+function denton_pharmacy_add_toc( $content ) {
     if ( ! is_single() || get_post_type() !== 'post' ) {
         return $content;
     }
@@ -661,7 +663,7 @@ function easy_pharmacy_add_toc( $content ) {
 
     return $toc . $content;
 }
-add_filter( 'the_content', 'easy_pharmacy_add_toc', 8 );
+add_filter( 'the_content', 'denton_pharmacy_add_toc', 8 );
 
 /**
  * Consultation Closer — appended to the end of single blog post content.
@@ -673,20 +675,20 @@ add_filter( 'the_content', 'easy_pharmacy_add_toc', 8 );
  * Runs at priority 12 so it appears after the TOC (priority 8) and after
  * shortcode processing (priority 11 default).
  */
-function easy_pharmacy_add_consultation_closer( $content ) {
+function denton_pharmacy_add_consultation_closer( $content ) {
     if ( ! is_single() || get_post_type() !== 'post' ) {
         return $content;
     }
 
     // Reviewer / pharmacist data (same fallback chain as single.php)
-    $reviewer_name = ep_option( 'superintendent_pharmacist', 'Dilip Modhvadia' );
-    $reviewer_gphc = ep_option( 'superintendent_gphc_number', '2050606' );
-    $author_role   = ep_option( 'default_author_role', 'Lead Pharmacist' );
-    $pharmacy_name = ep_pharmacy_name();
-    $pharmacy_town = ep_option( 'pharmacy_town', 'Ashford' );
-    $booking_url   = ep_booking_url();
-    $phone         = ep_phone();
-    $phone_link    = ep_phone_link();
+    $reviewer_name = dp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
+    $reviewer_gphc = dp_option( 'superintendent_gphc_number', '2208502' );
+    $author_role   = dp_option( 'default_author_role', 'Lead Pharmacist' );
+    $pharmacy_name = dp_pharmacy_name();
+    $pharmacy_town = dp_option( 'pharmacy_town', 'Denton' );
+    $booking_url   = dp_booking_url();
+    $phone         = dp_phone();
+    $phone_link    = dp_phone_link();
     $first_name    = explode( ' ', $reviewer_name )[0];
 
     // Reviewer avatar: post field → pharmacist option → empty
@@ -698,7 +700,7 @@ function easy_pharmacy_add_consultation_closer( $content ) {
         }
     }
     if ( empty( $reviewer_avatar ) ) {
-        $pharmacist_image = ep_option( 'pharmacist_image' );
+        $pharmacist_image = dp_option( 'pharmacist_image' );
         if ( $pharmacist_image ) {
             $reviewer_avatar = is_numeric( $pharmacist_image )
                 ? wp_get_attachment_image_url( $pharmacist_image, 'thumbnail' )
@@ -761,7 +763,7 @@ function easy_pharmacy_add_consultation_closer( $content ) {
 
     return $content . "\n" . $closer;
 }
-add_filter( 'the_content', 'easy_pharmacy_add_consultation_closer', 12 );
+add_filter( 'the_content', 'denton_pharmacy_add_consultation_closer', 12 );
 
 /**
  * Vimeo Video Shortcode — [vimeo url="..." title="..."]
@@ -775,7 +777,7 @@ add_filter( 'the_content', 'easy_pharmacy_add_consultation_closer', 12 );
  *   url   — (required) Vimeo video URL
  *   title — (optional) Caption below the video card
  */
-function easy_pharmacy_vimeo_shortcode( $atts ) {
+function denton_pharmacy_vimeo_shortcode( $atts ) {
     $atts = shortcode_atts( array(
         'url'   => '',
         'title' => '',
@@ -799,7 +801,7 @@ function easy_pharmacy_vimeo_shortcode( $atts ) {
     }
 
     // Fetch thumbnail via Vimeo oEmbed, cached for 7 days
-    $transient_key = 'ep_vimeo_thumb_' . $video_id;
+    $transient_key = 'dp_vimeo_thumb_' . $video_id;
     $thumbnail_url = get_transient( $transient_key );
 
     if ( false === $thumbnail_url ) {
@@ -846,7 +848,7 @@ function easy_pharmacy_vimeo_shortcode( $atts ) {
     <?php
     return ob_get_clean();
 }
-add_shortcode( 'vimeo', 'easy_pharmacy_vimeo_shortcode' );
+add_shortcode( 'vimeo', 'denton_pharmacy_vimeo_shortcode' );
 
 /**
  * Mounjaro Weight Loss Calculator Shortcode — [mounjaro_calculator]
@@ -858,13 +860,13 @@ add_shortcode( 'vimeo', 'easy_pharmacy_vimeo_shortcode' );
  *   cta_url  — (optional) CTA button URL. Defaults to booking page.
  *   cta_text — (optional) CTA button text. Defaults to "Check Your Eligibility".
  */
-function easy_pharmacy_mounjaro_calculator_shortcode( $atts ) {
+function denton_pharmacy_mounjaro_calculator_shortcode( $atts ) {
     $atts = shortcode_atts( array(
         'cta_url'  => '',
         'cta_text' => 'Check Your Eligibility',
     ), $atts, 'mounjaro_calculator' );
 
-    $cta_url = $atts['cta_url'] ? esc_url( $atts['cta_url'] ) : esc_url( ep_booking_url() );
+    $cta_url = $atts['cta_url'] ? esc_url( $atts['cta_url'] ) : esc_url( dp_booking_url() );
 
     ob_start();
     ?>
@@ -914,12 +916,12 @@ function easy_pharmacy_mounjaro_calculator_shortcode( $atts ) {
             <div class="mj-calc-results-header">
                 <div class="mj-calc-results-eyebrow">Your Projected Transformation</div>
                 <div class="mj-calc-results-headline">
-                    <span class="mj-calc-highlight" id="mj-calc-total-loss">—</span>
+                    <span class="mj-calc-highlight" id="mj-calc-total-loss">&mdash;</span>
                 </div>
                 <div class="mj-calc-results-weight-row">
-                    <span class="mj-calc-from-weight"><i class="fas fa-arrow-down"></i> <span id="mj-calc-from">—</span></span>
-                    <span class="mj-calc-arrow">→</span>
-                    <span class="mj-calc-to-weight"><i class="fas fa-check-circle"></i> <span id="mj-calc-to">—</span></span>
+                    <span class="mj-calc-from-weight"><i class="fas fa-arrow-down"></i> <span id="mj-calc-from">&mdash;</span></span>
+                    <span class="mj-calc-arrow">&rarr;</span>
+                    <span class="mj-calc-to-weight"><i class="fas fa-check-circle"></i> <span id="mj-calc-to">&mdash;</span></span>
                 </div>
                 <p class="mj-calc-results-subtext">Based on the average 20.9% total body weight reduction in the SURMOUNT-1 trial (72 weeks, tirzepatide 15&nbsp;mg)</p>
             </div>
@@ -927,18 +929,18 @@ function easy_pharmacy_mounjaro_calculator_shortcode( $atts ) {
             <div class="mj-calc-timeline">
                 <div class="mj-calc-timeline-item" data-week="12">
                     <span class="mj-calc-timeline-week">3 Months</span>
-                    <div class="mj-calc-timeline-value" id="mj-calc-w12">—</div>
+                    <div class="mj-calc-timeline-value" id="mj-calc-w12">&mdash;</div>
                     <div class="mj-calc-timeline-sublabel">lighter</div>
                 </div>
                 <div class="mj-calc-timeline-item" data-week="24">
                     <span class="mj-calc-timeline-week">6 Months</span>
-                    <div class="mj-calc-timeline-value" id="mj-calc-w24">—</div>
+                    <div class="mj-calc-timeline-value" id="mj-calc-w24">&mdash;</div>
                     <div class="mj-calc-timeline-sublabel">lighter</div>
                 </div>
                 <div class="mj-calc-timeline-item mj-calc-timeline-featured" data-week="72">
                     <div class="mj-calc-timeline-peak"><i class="fas fa-crown"></i> Your Goal</div>
                     <span class="mj-calc-timeline-week">18 Months</span>
-                    <div class="mj-calc-timeline-value" id="mj-calc-w72">—</div>
+                    <div class="mj-calc-timeline-value" id="mj-calc-w72">&mdash;</div>
                     <div class="mj-calc-timeline-sublabel">lighter</div>
                 </div>
             </div>
@@ -962,5 +964,4 @@ function easy_pharmacy_mounjaro_calculator_shortcode( $atts ) {
     <?php
     return ob_get_clean();
 }
-add_shortcode( 'mounjaro_calculator', 'easy_pharmacy_mounjaro_calculator_shortcode' );
-
+add_shortcode( 'mounjaro_calculator', 'denton_pharmacy_mounjaro_calculator_shortcode' );
