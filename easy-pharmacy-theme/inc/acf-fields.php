@@ -9935,5 +9935,287 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // =============================================
+    // T — MALARIA PREVENTION PAGE
+    // =============================================
+    $mal_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-malaria.php',
+            ),
+        ),
+    );
+
+    // ── T1. Hero ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_hero',
+        'title'    => 'Malaria — Hero',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_parent_url', 'label' => 'Travel Health URL', 'name' => 'mal_parent_url', 'type' => 'url', 'default_value' => '/travel-health/' ),
+            array( 'key' => 'field_ep_mal_hero_image', 'label' => 'Hero Background Image', 'name' => 'mal_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_mal_hero_label', 'label' => 'Hero Label', 'name' => 'mal_hero_label', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH PROTECTION' ),
+            array( 'key' => 'field_ep_mal_hero_title', 'label' => 'Hero Title', 'name' => 'mal_hero_title', 'type' => 'text', 'default_value' => 'Malaria Tablets in Ashford, Chertsey & Walton-on-Thames' ),
+            array( 'key' => 'field_ep_mal_hero_desc', 'label' => 'Hero Description', 'name' => 'mal_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Travelling to a malaria zone? Get expert advice and prescription antimalarial tablets before you go. Face-to-face consultation with travel health pharmacist — no GP referral needed.' ),
+            array( 'key' => 'field_ep_mal_cta_url', 'label' => 'CTA URL', 'name' => 'mal_cta_url', 'type' => 'url', 'default_value' => '' ),
+            array( 'key' => 'field_ep_mal_cta_text', 'label' => 'CTA Text', 'name' => 'mal_cta_text', 'type' => 'text', 'default_value' => 'Book Your Travel Consultation' ),
+            array( 'key' => 'field_ep_mal_phone_display', 'label' => 'Phone Display', 'name' => 'mal_phone_display', 'type' => 'text', 'default_value' => 'Call 01784 255 222' ),
+            array(
+                'key'        => 'field_ep_mal_hero_badges',
+                'label'      => 'Hero Badges',
+                'name'       => 'mal_hero_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_hero_badge_text', 'label' => 'Badge Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_mal_hero_supporting', 'label' => 'Supporting Text', 'name' => 'mal_hero_supporting', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Same-day appointments available at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames. Malarone, doxycycline, and expert malaria prevention advice.' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T2. Why Prevention Matters ──────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_why',
+        'title'    => 'Malaria — Why Prevention Matters',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_why_badge', 'label' => 'Badge Text', 'name' => 'mal_why_badge', 'type' => 'text', 'default_value' => 'WHY IT MATTERS' ),
+            array( 'key' => 'field_ep_mal_why_title', 'label' => 'Title', 'name' => 'mal_why_title', 'type' => 'text', 'default_value' => '"I Didn\'t Think I Needed Malaria Tablets for a Two-Week Holiday"' ),
+            array( 'key' => 'field_ep_mal_why_intro', 'label' => 'Intro Text', 'name' => 'mal_why_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Most people booking trips to Thailand, Tanzania, or India don\'t realise malaria is a risk until they research travel requirements a few weeks before departure.' ),
+            array( 'key' => 'field_ep_mal_why_text', 'label' => 'Body Text', 'name' => 'mal_why_text', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'By then, some are scrambling to get GP appointments (weeks-long waiting lists), or trying online pharmacies (impersonal forms, postal delays), or worse — planning to "get them at the airport" (limited stock, inflated prices).' ),
+            array( 'key' => 'field_ep_mal_why_solution', 'label' => 'Solution Text', 'name' => 'mal_why_solution', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'At Easy Pharmacy in Ashford, Chertsey, and Walton-on-Thames, travellers book malaria consultations weeks before departure and leave the same day with:' ),
+            array(
+                'key'        => 'field_ep_mal_why_items',
+                'label'      => 'Checklist Items',
+                'name'       => 'mal_why_items',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_why_item_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_mal_why_callout_badge', 'label' => 'Callout Badge', 'name' => 'mal_why_callout_badge', 'type' => 'text', 'default_value' => 'KEY STATISTIC' ),
+            array( 'key' => 'field_ep_mal_why_callout_stat', 'label' => 'Callout Stat', 'name' => 'mal_why_callout_stat', 'type' => 'text', 'default_value' => '610,000' ),
+            array( 'key' => 'field_ep_mal_why_callout_text', 'label' => 'Callout Text', 'name' => 'mal_why_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'deaths annually from malaria, mostly in sub-Saharan Africa. Prevention is straightforward if you prepare properly.' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T3. How It Works (3-Step Process) ───────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_process',
+        'title'    => 'Malaria — How It Works',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_process_badge', 'label' => 'Badge Text', 'name' => 'mal_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
+            array( 'key' => 'field_ep_mal_process_title', 'label' => 'Title', 'name' => 'mal_process_title', 'type' => 'text', 'default_value' => 'How Easy Pharmacy\'s Malaria Prevention Service Works' ),
+            array(
+                'key'        => 'field_ep_mal_process_steps',
+                'label'      => 'Steps',
+                'name'       => 'mal_process_steps',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_step_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 4 ),
+                    array( 'key' => 'field_ep_mal_step_time', 'label' => 'Time Badge', 'name' => 'time_badge', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T4. Antimalarial Options ────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_options',
+        'title'    => 'Malaria — Antimalarial Options',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_options_badge', 'label' => 'Badge Text', 'name' => 'mal_options_badge', 'type' => 'text', 'default_value' => 'ANTIMALARIAL OPTIONS' ),
+            array( 'key' => 'field_ep_mal_options_title', 'label' => 'Title', 'name' => 'mal_options_title', 'type' => 'text', 'default_value' => 'Malarone, Doxycycline, or Atovaquone/Proguanil — Which Is Right for Your Trip?' ),
+            array( 'key' => 'field_ep_mal_options_intro', 'label' => 'Intro Text', 'name' => 'mal_options_intro', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'There isn\'t one "best" antimalarial. The right choice depends on your destination, trip duration, medical history, and other medications you take.' ),
+            array(
+                'key'        => 'field_ep_mal_options_cards',
+                'label'      => 'Medication Cards',
+                'name'       => 'mal_options_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_option_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_option_best_for', 'label' => 'Best For', 'name' => 'best_for', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_option_featured', 'label' => 'Featured?', 'name' => 'featured', 'type' => 'true_false', 'default_value' => 0 ),
+                    array(
+                        'key'        => 'field_ep_mal_option_details',
+                        'label'      => 'Details',
+                        'name'       => 'details',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_mal_detail_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                            array( 'key' => 'field_ep_mal_detail_positive', 'label' => 'Positive?', 'name' => 'positive', 'type' => 'true_false', 'default_value' => 1 ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_ep_mal_options_footer', 'label' => 'Footer Text', 'name' => 'mal_options_footer', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'During your consultation, we\'ll recommend the most suitable option based on your specific situation. Some destinations have chloroquine-resistant malaria strains, which affects which tablets work.' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 15,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T5. High-Risk Destinations ──────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_destinations',
+        'title'    => 'Malaria — High-Risk Destinations',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_dest_badge', 'label' => 'Badge Text', 'name' => 'mal_dest_badge', 'type' => 'text', 'default_value' => 'DESTINATION RISK' ),
+            array( 'key' => 'field_ep_mal_dest_title', 'label' => 'Title', 'name' => 'mal_dest_title', 'type' => 'text', 'default_value' => 'Do You Need Malaria Tablets for Your Destination?' ),
+            array( 'key' => 'field_ep_mal_dest_desc', 'label' => 'Description', 'name' => 'mal_dest_desc', 'type' => 'text', 'default_value' => 'High-risk malaria destinations where antimalarials are essential:' ),
+            array(
+                'key'        => 'field_ep_mal_dest_zones',
+                'label'      => 'Destination Zones',
+                'name'       => 'mal_dest_zones',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_zone_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_zone_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_zone_level', 'label' => 'Risk Level', 'name' => 'level', 'type' => 'select', 'choices' => array( 'high' => 'High', 'moderate' => 'Moderate', 'low' => 'Low' ) ),
+                    array(
+                        'key'        => 'field_ep_mal_zone_countries',
+                        'label'      => 'Countries',
+                        'name'       => 'countries',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_mal_country_name', 'label' => 'Country', 'name' => 'name', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_ep_mal_dest_callout_title', 'label' => 'Callout Title', 'name' => 'mal_dest_callout_title', 'type' => 'text', 'default_value' => 'Important' ),
+            array( 'key' => 'field_ep_mal_dest_callout_text', 'label' => 'Callout Text', 'name' => 'mal_dest_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Malaria risk varies within countries. Cities and high-altitude areas often have no malaria risk, while rural/jungle regions do. During your consultation, we\'ll assess your specific itinerary.' ),
+            array( 'key' => 'field_ep_mal_dest_norisk_title', 'label' => 'No Risk Title', 'name' => 'mal_dest_norisk_title', 'type' => 'text', 'default_value' => 'No malaria risk (antimalarials NOT needed):' ),
+            array( 'key' => 'field_ep_mal_dest_norisk_text', 'label' => 'No Risk Text', 'name' => 'mal_dest_norisk_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Most of Caribbean, Mexico (tourist areas), Maldives, Bali (but other Indonesian islands DO have malaria), Dubai/UAE, most of China' ),
+            array( 'key' => 'field_ep_mal_dest_footer', 'label' => 'Footer Text', 'name' => 'mal_dest_footer', 'type' => 'text', 'default_value' => 'If you\'re unsure whether your destination requires antimalarials, book a consultation. We\'ll check current travel health guidance and advise accordingly.' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T6. Why Easy Pharmacy ───────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_whyus',
+        'title'    => 'Malaria — Why Easy Pharmacy',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_whyus_badge', 'label' => 'Badge Text', 'name' => 'mal_whyus_badge', 'type' => 'text', 'default_value' => 'WHY EASY PHARMACY' ),
+            array( 'key' => 'field_ep_mal_whyus_title', 'label' => 'Title', 'name' => 'mal_whyus_title', 'type' => 'text', 'default_value' => 'Why Travellers in Ashford, Chertsey & Walton Choose Easy Pharmacy' ),
+            array(
+                'key'        => 'field_ep_mal_whyus_cards',
+                'label'      => 'Feature Cards',
+                'name'       => 'mal_whyus_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_whyus_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_whyus_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_whyus_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 4 ),
+                ),
+            ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 25,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T7. FAQ ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_faq',
+        'title'    => 'Malaria — FAQ',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_faq_badge', 'label' => 'Badge Text', 'name' => 'mal_faq_badge', 'type' => 'text', 'default_value' => 'MALARIA FAQs' ),
+            array( 'key' => 'field_ep_mal_faq_title', 'label' => 'Title', 'name' => 'mal_faq_title', 'type' => 'text', 'default_value' => 'Frequently Asked Questions' ),
+            array(
+                'key'        => 'field_ep_mal_faqs',
+                'label'      => 'FAQs',
+                'name'       => 'mal_faqs',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 4 ),
+                ),
+            ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T8. Final CTA ───────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_cta',
+        'title'    => 'Malaria — Final CTA',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_mal_cta_badges',
+                'label'      => 'CTA Badges',
+                'name'       => 'mal_cta_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_cta_badge_text', 'label' => 'Badge Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_mal_cta_title', 'label' => 'Title', 'name' => 'mal_cta_title', 'type' => 'text', 'default_value' => 'Ready to Protect Yourself from Malaria?' ),
+            array( 'key' => 'field_ep_mal_cta_desc', 'label' => 'Description', 'name' => 'mal_cta_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your malaria prevention consultation at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames.' ),
+            array( 'key' => 'field_ep_mal_cta_supporting', 'label' => 'Supporting Text', 'name' => 'mal_cta_supporting', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Or email hello@easypharmacy.co.uk to book your travel health consultation. Ask about our travel health services including altitude sickness prevention and travel vaccinations.' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );
