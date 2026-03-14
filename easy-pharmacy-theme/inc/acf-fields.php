@@ -9956,7 +9956,9 @@ function ep_register_acf_field_groups() {
             array( 'key' => 'field_ep_mal_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'mal_parent_url', 'type' => 'text', 'default_value' => '/travel-health/', 'instructions' => 'Relative path to the parent page shown in the breadcrumb (e.g. /travel-health/). This is NOT the current page URL.' ),
             array( 'key' => 'field_ep_mal_hero_image', 'label' => 'Hero Background Image', 'name' => 'mal_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
             array( 'key' => 'field_ep_mal_hero_label', 'label' => 'Hero Label', 'name' => 'mal_hero_label', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH PROTECTION' ),
-            array( 'key' => 'field_ep_mal_hero_title', 'label' => 'Hero Title', 'name' => 'mal_hero_title', 'type' => 'text', 'default_value' => 'Malaria Tablets in Ashford, Chertsey & Walton-on-Thames' ),
+            array( 'key' => 'field_ep_mal_hero_title_1', 'label' => 'Hero Title — Line 1 (gradient)', 'name' => 'mal_hero_title_line_1', 'type' => 'text', 'default_value' => 'Malaria Tablets' ),
+            array( 'key' => 'field_ep_mal_hero_title_2', 'label' => 'Hero Title — Line 2 (accent)', 'name' => 'mal_hero_title_line_2', 'type' => 'text', 'default_value' => 'in Ashford, Chertsey' ),
+            array( 'key' => 'field_ep_mal_hero_title_3', 'label' => 'Hero Title — Line 3 (gradient)', 'name' => 'mal_hero_title_line_3', 'type' => 'text', 'default_value' => '& Walton-on-Thames' ),
             array( 'key' => 'field_ep_mal_hero_desc', 'label' => 'Hero Description', 'name' => 'mal_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Travelling to a malaria zone? Get expert advice and prescription antimalarial tablets before you go. Face-to-face consultation with travel health pharmacist — no GP referral needed.' ),
             array( 'key' => 'field_ep_mal_cta_url', 'label' => 'CTA URL', 'name' => 'mal_cta_url', 'type' => 'url', 'default_value' => '' ),
             array( 'key' => 'field_ep_mal_cta_text', 'label' => 'CTA Text', 'name' => 'mal_cta_text', 'type' => 'text', 'default_value' => 'Book Your Travel Consultation' ),
@@ -10015,24 +10017,46 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // ── T2b. Social Proof Band ──────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_social_proof',
+        'title'    => 'Malaria — Social Proof',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_social_rating_score', 'label' => 'Rating Score', 'name' => 'mal_social_rating_score', 'type' => 'text', 'default_value' => '', 'instructions' => 'Leave blank to auto-pull from Pharmacy Settings.' ),
+            array( 'key' => 'field_ep_mal_social_rating_count', 'label' => 'Rating Count Text', 'name' => 'mal_social_rating_count', 'type' => 'text', 'default_value' => 'Based on 300+ reviews' ),
+            array( 'key' => 'field_ep_mal_social_rating_location', 'label' => 'Rating Location', 'name' => 'mal_social_rating_location', 'type' => 'text', 'default_value' => '', 'instructions' => 'Leave blank to auto-pull from Pharmacy Settings.' ),
+            array( 'key' => 'field_ep_mal_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'mal_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY ASHFORD' ),
+            array( 'key' => 'field_ep_mal_social_headline', 'label' => 'Headline', 'name' => 'mal_social_headline', 'type' => 'text', 'default_value' => 'Expert travel health advice from a pharmacy you can trust' ),
+            array( 'key' => 'field_ep_mal_social_subtext', 'label' => 'Subtext', 'name' => 'mal_social_subtext', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Hundreds of travellers across Ashford, Chertsey, and Walton-on-Thames trust Easy Pharmacy for malaria prevention and travel health consultations' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 7,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // ── T3. How It Works (3-Step Process) ───────────────────────────────
     acf_add_local_field_group( array(
         'key'      => 'group_ep_mal_process',
         'title'    => 'Malaria — How It Works',
         'fields'   => array(
             array( 'key' => 'field_ep_mal_process_badge', 'label' => 'Badge Text', 'name' => 'mal_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
-            array( 'key' => 'field_ep_mal_process_title', 'label' => 'Title', 'name' => 'mal_process_title', 'type' => 'text', 'default_value' => 'How Easy Pharmacy\'s Malaria Prevention Service Works' ),
+            array( 'key' => 'field_ep_mal_process_title_highlight', 'label' => 'Title — Highlight (gradient)', 'name' => 'mal_process_title_highlight', 'type' => 'text', 'default_value' => 'Your Path To' ),
+            array( 'key' => 'field_ep_mal_process_title_line2', 'label' => 'Title — Line 2 (accent)', 'name' => 'mal_process_title_line2', 'type' => 'text', 'default_value' => ' Malaria Protection' ),
+            array( 'key' => 'field_ep_mal_process_desc', 'label' => 'Description', 'name' => 'mal_process_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'A simple, face-to-face process with expert guidance at every step.' ),
             array(
                 'key'        => 'field_ep_mal_process_steps',
-                'label'      => 'Steps',
+                'label'      => 'Journey Steps',
                 'name'       => 'mal_process_steps',
                 'type'       => 'repeater',
                 'layout'     => 'block',
                 'sub_fields' => array(
-                    array( 'key' => 'field_ep_mal_step_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
                     array( 'key' => 'field_ep_mal_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
                     array( 'key' => 'field_ep_mal_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 4 ),
-                    array( 'key' => 'field_ep_mal_step_time', 'label' => 'Time Badge', 'name' => 'time_badge', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_step_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
                 ),
             ),
         ),

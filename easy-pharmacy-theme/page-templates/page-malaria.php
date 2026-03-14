@@ -18,49 +18,66 @@ get_header();
   </div>
 </div>
 
-<!-- S1: Hero Section -->
-<?php
-$hero_image_id  = ep_field( 'mal_hero_image' );
-$hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'full' ) : '';
-?>
-<section class="malaria-hero-section"<?php if ( $hero_image_url ) : ?> style="background-image: url('<?php echo esc_url( $hero_image_url ); ?>');"<?php endif; ?>>
-  <div class="malaria-hero-overlay"></div>
+<!-- S1: Hero Section (warm cream style — matches weight loss / switch provider) -->
+<section class="malaria-hero-section">
+  <div class="malaria-hero-bg"></div>
   <div class="malaria-hero-dots"></div>
+  <div class="malaria-hero-glow-1"></div>
+  <div class="malaria-hero-glow-2"></div>
 
   <div class="section-container">
-    <div class="malaria-hero-content">
-      <div class="malaria-hero-line"></div>
-      <span class="malaria-hero-label"><?php echo esc_html(ep_field('mal_hero_label', 'TRAVEL HEALTH PROTECTION')); ?></span>
+    <div class="malaria-hero-grid">
 
-      <h1 class="malaria-hero-title"><?php echo esc_html(ep_field('mal_hero_title', 'Malaria Tablets in Ashford, Chertsey & Walton-on-Thames')); ?></h1>
+      <!-- Left: Content -->
+      <div class="malaria-hero-content">
+        <div class="section-badge">
+          <span class="pulse-dot"><span></span><span></span></span>
+          <span class="section-badge-text"><?php echo esc_html(ep_field('mal_hero_label', 'TRAVEL HEALTH PROTECTION')); ?></span>
+        </div>
 
-      <p class="malaria-hero-description">
-        <?php echo esc_html(ep_field('mal_hero_description', 'Travelling to a malaria zone? Get expert advice and prescription antimalarial tablets before you go. Face-to-face consultation with travel health pharmacist — no GP referral needed.')); ?>
-      </p>
+        <h1 class="malaria-hero-title">
+          <span class="gradient-text"><?php echo esc_html(ep_field('mal_hero_title_line_1', 'Malaria Tablets')); ?></span>
+          <span class="malaria-hero-accent-text"><?php echo esc_html(ep_field('mal_hero_title_line_2', 'in Ashford, Chertsey')); ?></span>
+          <span class="gradient-text"><?php echo esc_html(ep_field('mal_hero_title_line_3', '& Walton-on-Thames')); ?></span>
+        </h1>
 
-      <div class="malaria-hero-actions">
-        <a href="<?php echo esc_url(ep_field('mal_cta_url', ep_booking_url())); ?>" class="cta-button malaria-btn-primary">
-          <?php echo esc_html(ep_field('mal_cta_text', 'Book Your Travel Consultation')); ?>
-        </a>
-        <a href="tel:<?php echo esc_attr(ep_phone_link()); ?>" class="cta-button malaria-btn-secondary">
-          <i class="fas fa-phone"></i>
-          <?php echo esc_html(ep_field('mal_phone_display', 'Call 01784 255 222')); ?>
-        </a>
+        <p class="malaria-hero-description">
+          <?php echo esc_html(ep_field('mal_hero_description', 'Travelling to a malaria zone? Get expert advice and prescription antimalarial tablets before you go. Face-to-face consultation with travel health pharmacist — no GP referral needed.')); ?>
+        </p>
+
+        <div class="malaria-hero-actions">
+          <a href="<?php echo esc_url(ep_field('mal_cta_url', '') ?: ep_booking_url()); ?>" class="cta-button primary-cta">
+            <?php echo esc_html(ep_field('mal_cta_text', 'Book Your Travel Consultation')); ?>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:<?php echo esc_attr(ep_phone_link()); ?>" class="cta-button secondary-cta">
+            <i class="fas fa-phone"></i>
+            <?php echo esc_html('Call ' . ep_phone()); ?>
+          </a>
+        </div>
+
+        <div class="malaria-hero-badges">
+          <?php if (have_rows('mal_hero_badges')) : while (have_rows('mal_hero_badges')) : the_row(); ?>
+            <div class="malaria-hero-badge"><?php echo esc_html(get_sub_field('text')); ?></div>
+          <?php endwhile; else : ?>
+            <div class="malaria-hero-badge">Same-Day Appointments</div>
+            <div class="malaria-hero-badge">No GP Referral Needed</div>
+            <div class="malaria-hero-badge">Malarone & Doxycycline Available</div>
+          <?php endif; ?>
+        </div>
       </div>
 
-      <div class="malaria-hero-badges">
-        <?php if (have_rows('mal_hero_badges')) : while (have_rows('mal_hero_badges')) : the_row(); ?>
-          <div class="malaria-hero-badge"><?php echo esc_html(get_sub_field('text')); ?></div>
-        <?php endwhile; else : ?>
-          <div class="malaria-hero-badge">Same-Day Appointments</div>
-          <div class="malaria-hero-badge">No GP Referral Needed</div>
-          <div class="malaria-hero-badge">Malarone & Doxycycline Available</div>
+      <!-- Right: Image -->
+      <div class="malaria-hero-visual">
+        <?php
+        $hero_image_id  = ep_field('mal_hero_image');
+        $hero_image_url = $hero_image_id ? wp_get_attachment_image_url($hero_image_id, 'large') : '';
+        if ($hero_image_url) : ?>
+          <div class="malaria-hero-image-card">
+            <img src="<?php echo esc_url($hero_image_url); ?>" alt="Malaria prevention consultation at Easy Pharmacy" />
+          </div>
         <?php endif; ?>
       </div>
-
-      <p class="malaria-hero-supporting">
-        <?php echo esc_html(ep_field('mal_hero_supporting', 'Same-day appointments available at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames. Malarone, doxycycline, and expert malaria prevention advice.')); ?>
-      </p>
     </div>
   </div>
 </section>
@@ -113,59 +130,123 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
   </div>
 </section>
 
-<!-- S3: How It Works (3-Step Process) -->
-<section class="malaria-process-section">
+<!-- S2b: Social Proof Band (shared pattern from switch provider) -->
+<section class="malaria-social-proof-section">
   <div class="section-container">
-    <div class="malaria-process-header">
+    <div class="malaria-social-proof-wrapper">
+
+      <!-- Left: Google Rating Badge (uses globals.css .rating-badge styles) -->
+      <div class="rating-badge">
+        <div class="rating-header">
+          <div class="rating-label">
+            <div class="google-icon-wrapper">
+              <i class="fab fa-google"></i>
+            </div>
+            <span>Google Rating</span>
+          </div>
+          <div class="badge-success">
+            <i class="fas fa-check-circle"></i>
+            <span>Excellent</span>
+          </div>
+        </div>
+        <div class="rating-score">
+          <span class="score-number"><?php echo esc_html(ep_field('mal_social_rating_score', ep_option('google_rating', '4.7'))); ?></span>
+          <div class="rating-score-detail">
+            <div class="star-row">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="rating-count"><?php echo esc_html(ep_field('mal_social_rating_count', 'Based on 300+ reviews')); ?></span>
+          </div>
+        </div>
+        <div class="rating-footer">
+          <div class="rating-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><?php echo esc_html(ep_field('mal_social_rating_location', ep_option('pharmacy_location_label', 'Ashford, UK'))); ?></span>
+          </div>
+          <a href="#reviews" class="rating-link">View Reviews</a>
+        </div>
+      </div>
+
+      <!-- Right: Text Content -->
+      <div class="malaria-social-proof-content">
+        <p class="malaria-social-proof-eyebrow"><?php echo esc_html(ep_field('mal_social_eyebrow', 'TRUSTED BY ASHFORD')); ?></p>
+        <h2 class="malaria-social-proof-headline"><?php echo esc_html(ep_field('mal_social_headline', 'Expert travel health advice from a pharmacy you can trust')); ?></h2>
+        <p class="malaria-social-proof-subtext"><?php echo esc_html(ep_field('mal_social_subtext', 'Hundreds of travellers across Ashford, Chertsey, and Walton-on-Thames trust Easy Pharmacy for malaria prevention and travel health consultations')); ?></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S3: How It Works (Journey Steps — matches weight loss page pattern) -->
+<section class="malaria-journey-section">
+  <div class="section-container">
+    <div class="malaria-journey-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
         <span class="section-badge-text"><?php echo esc_html(ep_field('mal_process_badge', 'HOW IT WORKS')); ?></span>
       </div>
-      <h2 class="malaria-process-title"><?php echo esc_html(ep_field('mal_process_title', 'How Easy Pharmacy\'s Malaria Prevention Service Works')); ?></h2>
+      <h2 class="malaria-journey-title">
+        <span class="gradient-text"><?php echo esc_html(ep_field('mal_process_title_highlight', 'Your Path To')); ?></span>
+        <span class="malaria-journey-accent-text"><?php echo esc_html(ep_field('mal_process_title_line2', ' Malaria Protection')); ?></span>
+      </h2>
+      <p class="malaria-journey-description">
+        <?php echo esc_html(ep_field('mal_process_description', 'A simple, face-to-face process with expert guidance at every step.')); ?>
+      </p>
     </div>
 
-    <div class="malaria-process-steps">
-      <?php if (have_rows('mal_process_steps')) : $step_num = 0; while (have_rows('mal_process_steps')) : the_row(); $step_num++; ?>
-        <div class="malaria-step">
-          <div class="malaria-step-number"><?php echo esc_html($step_num); ?></div>
-          <div class="malaria-step-icon">
-            <i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i>
-          </div>
-          <div class="malaria-step-content">
-            <div class="malaria-step-time"><?php echo esc_html(get_sub_field('time_badge')); ?></div>
-            <h3><?php echo esc_html(get_sub_field('title')); ?></h3>
-            <p><?php echo esc_html(get_sub_field('description')); ?></p>
-          </div>
+    <?php
+    $default_journey_steps = array(
+        array('title' => 'Travel Health Consultation', 'description' => 'Book an appointment with Dilip or one of the pharmacy team at Easy Pharmacy. We\'ll review your travel itinerary, destination malaria risk, medical history, and current medications to determine which antimalarial is most suitable. Not all malaria tablets are right for everyone — some have contraindications or side effects that make alternatives better.', 'image' => ''),
+        array('title' => 'Prescription & Supply', 'description' => 'If antimalarials are appropriate for your trip, Dilip (registered independent prescriber) will issue a prescription and supply the medication on the same day. You\'ll receive clear dosing instructions: when to start, when to take daily, and how long to continue after returning home.', 'image' => ''),
+        array('title' => 'Travel Protected', 'description' => 'Leave your consultation with everything you need: antimalarial tablets, written dosing schedule, mosquito bite prevention advice (DEET repellent, mosquito nets, clothing), and guidance on what to do if you develop symptoms during or after your trip.', 'image' => ''),
+    );
+
+    $has_journey_steps = have_rows('mal_process_steps');
+    $journey_steps     = array();
+
+    if ($has_journey_steps) {
+        while (have_rows('mal_process_steps')) {
+            the_row();
+            $img_id  = get_sub_field('image');
+            $img_url = $img_id ? wp_get_attachment_image_url($img_id, 'medium_large') : '';
+            $journey_steps[] = array(
+                'title'       => get_sub_field('title'),
+                'description' => get_sub_field('description'),
+                'image'       => $img_url,
+            );
+        }
+    } else {
+        $journey_steps = $default_journey_steps;
+    }
+    ?>
+
+    <!-- Numbered Tabs Navigation -->
+    <div class="malaria-journey-tabs">
+      <?php foreach ($journey_steps as $i => $step) : ?>
+        <div class="malaria-journey-tab<?php echo $i === 0 ? ' malaria-journey-tab-active' : ''; ?>">
+          <span class="malaria-journey-tab-counter"><?php echo esc_html($i + 1); ?></span>
+          <strong class="malaria-journey-tab-title"><?php echo esc_html($step['title']); ?></strong>
         </div>
-      <?php endwhile; else : ?>
-        <div class="malaria-step">
-          <div class="malaria-step-number">1</div>
-          <div class="malaria-step-icon"><i class="fas fa-map-marked-alt"></i></div>
-          <div class="malaria-step-content">
-            <div class="malaria-step-time">15-20 minutes</div>
-            <h3>Face-to-Face Travel Health Consultation</h3>
-            <p>Book an appointment with Dilip or one of the pharmacy team at Easy Pharmacy. We'll review your travel itinerary, destination malaria risk, medical history, and current medications to determine which antimalarial is most suitable. Not all malaria tablets are right for everyone — some have contraindications or side effects that make alternatives better.</p>
-          </div>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- Step Content Cards Grid -->
+    <div class="malaria-journey-cards">
+      <?php foreach ($journey_steps as $i => $step) : ?>
+        <div class="malaria-journey-card">
+          <?php if (!empty($step['image'])) : ?>
+            <figure class="malaria-journey-card-image">
+              <img src="<?php echo esc_url($step['image']); ?>" alt="<?php echo esc_attr($step['title']); ?>" />
+            </figure>
+          <?php endif; ?>
+          <h4 class="malaria-journey-card-title"><?php echo esc_html($step['title']); ?></h4>
+          <p class="malaria-journey-card-description"><?php echo esc_html($step['description']); ?></p>
         </div>
-        <div class="malaria-step">
-          <div class="malaria-step-number">2</div>
-          <div class="malaria-step-icon"><i class="fas fa-pills"></i></div>
-          <div class="malaria-step-content">
-            <div class="malaria-step-time">Same day</div>
-            <h3>Prescription & Supply</h3>
-            <p>If antimalarials are appropriate for your trip, Dilip (registered independent prescriber) will issue a prescription and supply the medication on the same day. You'll receive clear dosing instructions: when to start (usually 1-2 days before travel for Malarone, 2 days before for doxycycline), when to take daily, and how long to continue after returning home.</p>
-          </div>
-        </div>
-        <div class="malaria-step">
-          <div class="malaria-step-number">3</div>
-          <div class="malaria-step-icon"><i class="fas fa-shield-alt"></i></div>
-          <div class="malaria-step-content">
-            <div class="malaria-step-time">2-4 weeks before travel (recommended)</div>
-            <h3>Travel Protected</h3>
-            <p>Leave your consultation with everything you need: antimalarial tablets, written dosing schedule, mosquito bite prevention advice (DEET repellent, mosquito nets, clothing), and guidance on what to do if you develop symptoms during or after your trip. Most travellers in Ashford, Chertsey, and Walton-on-Thames book 2-4 weeks before departure.</p>
-          </div>
-        </div>
-      <?php endif; ?>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -320,7 +401,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <?php echo esc_html(ep_field('mal_dest_footer', 'If you\'re unsure whether your destination requires antimalarials, book a consultation. We\'ll check current travel health guidance and advise accordingly.')); ?>
       </div>
       <div class="actions">
-        <a href="<?php echo esc_url(ep_field('mal_cta_url', ep_booking_url())); ?>" class="cta-button primary-cta">Book Consultation</a>
+        <a href="<?php echo esc_url(ep_field('mal_cta_url', '') ?: ep_booking_url()); ?>" class="cta-button primary-cta">Book Consultation</a>
       </div>
     </div>
   </div>
@@ -418,44 +499,41 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
   </div>
 </section>
 
-<!-- S8: Final CTA Section -->
-<section class="malaria-cta-section">
-  <div class="malaria-cta-glow-1"></div>
-  <div class="malaria-cta-glow-2"></div>
-  <div class="malaria-cta-bg"></div>
+<!-- S8: Final CTA Section (shared pattern — matches weight loss page exactly) -->
+<section class="malaria-final-cta-section">
+  <div class="malaria-final-cta-glow-1"></div>
+  <div class="malaria-final-cta-glow-2"></div>
+  <div class="malaria-final-cta-dots"></div>
+
   <div class="section-container">
-    <div class="malaria-cta-content">
-      <div class="malaria-cta-badges">
+    <div class="malaria-final-cta-content">
+      <div class="malaria-final-cta-badges">
         <?php if (have_rows('mal_cta_badges')) : while (have_rows('mal_cta_badges')) : the_row(); ?>
-          <span class="badge"><?php echo esc_html(get_sub_field('text')); ?></span>
+          <div class="malaria-final-cta-badge"><i class="fas fa-check-circle"></i><span><?php echo esc_html(get_sub_field('text')); ?></span></div>
         <?php endwhile; else : ?>
-          <span class="badge">GPhC Registered</span>
-          <span class="badge">Same-Day Appointments</span>
-          <span class="badge">No GP Referral Needed</span>
+          <div class="malaria-final-cta-badge"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></div>
+          <div class="malaria-final-cta-badge"><i class="fas fa-user-doctor"></i><span>Independent Prescriber</span></div>
+          <div class="malaria-final-cta-badge"><i class="fas fa-calendar-check"></i><span>Same-Day Appointments</span></div>
         <?php endif; ?>
       </div>
 
-      <h2 class="malaria-cta-title"><?php echo esc_html(ep_field('mal_cta_title', 'Ready to Protect Yourself from Malaria?')); ?></h2>
-      <p class="malaria-cta-desc"><?php echo esc_html(ep_field('mal_cta_desc', 'Book your malaria prevention consultation at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames.')); ?></p>
+      <h2 class="malaria-final-cta-title"><?php echo esc_html(ep_field('mal_cta_title', 'Ready to Protect Yourself from Malaria?')); ?></h2>
+      <p class="malaria-final-cta-description"><?php echo esc_html(ep_field('mal_cta_desc', 'Book your malaria prevention consultation at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames.')); ?></p>
 
-      <div class="malaria-cta-actions">
-        <a href="tel:<?php echo esc_attr(ep_phone_link()); ?>" class="cta-button primary-cta white-btn">
-          <i class="fas fa-phone"></i>
-          Call 01784 255 222
+      <div class="malaria-final-cta-actions">
+        <a href="<?php echo esc_url(ep_field('mal_cta_url', '') ?: ep_booking_url()); ?>" class="cta-button primary-cta malaria-final-cta-button-white">
+          Book Your Consultation <i class="fas fa-arrow-right"></i>
         </a>
-        <a href="<?php echo esc_url(ep_field('mal_cta_url', ep_booking_url())); ?>" class="cta-button secondary-cta outline-btn">
-          <i class="fas fa-calendar-check"></i>
-          Book Online
+        <a href="tel:<?php echo esc_attr(ep_phone_link()); ?>" class="cta-button secondary-cta malaria-final-cta-button-outlined">
+          <i class="fas fa-phone"></i> <?php echo esc_html('Call ' . ep_phone()); ?>
         </a>
       </div>
 
-      <div class="malaria-cta-checks">
-        <span><i class="fas fa-check"></i> No referral needed</span>
-        <span><i class="fas fa-check"></i> Same-day prescription & supply</span>
-        <span><i class="fas fa-check"></i> Travel vaccinations also available</span>
+      <div class="malaria-final-cta-checks">
+        <div class="malaria-final-cta-check"><i class="fas fa-check"></i><span>No referral needed</span></div>
+        <div class="malaria-final-cta-check"><i class="fas fa-check"></i><span>Same-day prescription & supply</span></div>
+        <div class="malaria-final-cta-check"><i class="fas fa-check"></i><span>Travel vaccinations also available</span></div>
       </div>
-
-      <p class="malaria-cta-supporting"><?php echo esc_html(ep_field('mal_cta_supporting', 'Or email hello@easypharmacy.co.uk to book your travel health consultation. Ask about our travel health services including altitude sickness prevention and travel vaccinations.')); ?></p>
     </div>
   </div>
 </section>
