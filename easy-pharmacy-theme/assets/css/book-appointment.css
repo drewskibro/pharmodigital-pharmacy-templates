@@ -684,96 +684,95 @@
 }
 
 /* ============================================
-   STATS BAR — deep purple accent (30% contrast)
+   SOCIAL PROOF SECTION - GOOGLE RATING
    ============================================ */
-.book-stats-section {
-  position: relative;
-  background: linear-gradient(135deg, #2D1B4E, #3D2A5C, #2D1B4E);
-  padding: 2.5rem 0;
-  overflow: hidden;
+.book-social-proof-section {
+  background: #f8f6fb;
+  padding: 60px 0;
 }
 
-.book-stats-shimmer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-  animation: shimmer 3s infinite;
-}
-
-.book-stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  position: relative;
-  z-index: 10;
-}
-
-@media (min-width: 768px) {
-  .book-stats-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-  }
-}
-
-.book-stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .book-stat-item {
-    flex-direction: row;
-    text-align: left;
-    gap: 1.25rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .book-stat-item {
-    justify-content: flex-start;
-  }
-}
-
-.book-stat-icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
-  backdrop-filter: blur(8px);
+.book-social-proof-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 1.25rem;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 767px) {
+  .book-social-proof-wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
+
+/* Override homepage rating badge positioning for inline use */
+.book-social-proof-wrapper .rating-badge {
+  position: static;
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  min-width: 260px;
 }
 
-.book-stat-item:hover .book-stat-icon {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
+.book-social-proof-content {
+  flex: 1;
 }
 
-.book-stat-content {
-  display: flex;
-  flex-direction: column;
+@media (max-width: 767px) {
+  .book-social-proof-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book-social-proof-wrapper .rating-badge {
+    min-width: auto;
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
-.book-stat-number {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1;
+.book-social-proof-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--brand-purple);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
 }
 
-.book-stat-label {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+.book-social-proof-headline {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #374151;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .book-social-proof-headline {
+    font-size: 1.75rem;
+  }
+}
+
+.book-social-proof-subtext {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #4a5568;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .book-social-proof-subtext {
+    font-size: 1rem;
+  }
+
+  .book-social-proof-section {
+    padding: 40px 0;
+  }
 }
 
 /* ============================================
@@ -1377,25 +1376,17 @@
 }
 
 /* ============================================
-   FINAL CTA SECTION
+   FINAL CTA SECTION — Terracotta on-brand
    ============================================ */
 .book-cta-section {
   position: relative;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
+  background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
   padding: 6rem 0;
   overflow: hidden;
   text-align: center;
 }
 
-.book-cta-bg-dots {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
-  pointer-events: none;
-}
-
-.book-cta-bg-blobs {
+.book-cta-glow-1 {
   position: absolute;
   top: -10%;
   right: -5%;
@@ -1407,6 +1398,26 @@
   pointer-events: none;
 }
 
+.book-cta-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.book-cta-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
 .book-cta-content {
   position: relative;
   z-index: 10;
@@ -1414,8 +1425,34 @@
   margin: 0 auto;
 }
 
+.book-cta-badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.book-cta-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.book-cta-badge i {
+  font-size: 1rem;
+}
+
 .book-cta-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 900;
   color: var(--white);
   margin-bottom: 1.5rem;
@@ -1423,43 +1460,67 @@
 
 .book-cta-description {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 3rem;
+  line-height: 1.6;
 }
 
-.book-cta-buttons {
+.book-cta-actions {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 3rem;
   flex-wrap: wrap;
+}
+
+@media (max-width: 639px) {
+  .book-cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .book-cta-phone {
   background: var(--white);
   color: var(--brand-dark);
-  padding: 1.25rem 2rem;
-  font-size: 1.125rem;
+  border: none;
+  padding: 1.125rem 2rem;
+  font-size: 1.0625rem;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .book-cta-phone:hover {
+  background: rgba(255, 255, 255, 0.95);
   transform: scale(1.05);
 }
 
-.book-cta-hours {
+.book-cta-book {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.book-cta-book:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.book-cta-checks {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.book-cta-check {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 1.25rem 2rem;
-  border-radius: 9999px;
+  gap: 0.5rem;
   color: var(--white);
   font-weight: 600;
 }
 
-.book-cta-hours i {
-  font-size: 1.125rem;
+.book-cta-check i {
+  color: var(--white);
 }
