@@ -273,80 +273,99 @@
 }
 
 /* ============================================
-   STATS BAR — warm terracotta palette
+   SOCIAL PROOF SECTION — Google rating band
+   Follows Switch Provider pattern (shared .rating-badge)
    ============================================ */
-.hairloss-stats-section {
-  position: relative;
-  background: linear-gradient(135deg, #C47A65, #D4907C, #B8694F);
-  padding: 2rem 0;
-  overflow: hidden;
+.hl-social-proof-section {
+  background: #f8f6fb;
+  padding: 60px 0;
 }
 
-.hairloss-stats-shimmer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  animation: shimmer 3s infinite;
+.hl-social-proof-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.hairloss-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  position: relative;
-  z-index: 10;
-}
-
-@media (min-width: 768px) {
-  .hairloss-stats-grid {
-    grid-template-columns: repeat(4, 1fr);
+@media (max-width: 767px) {
+  .hl-social-proof-wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
   }
 }
 
-.hairloss-stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  text-align: center;
+/* Override default rating badge positioning for inline use */
+.hl-social-proof-wrapper .rating-badge {
+  position: static;
+  flex-shrink: 0;
+  min-width: 260px;
 }
 
-.hairloss-stat-icon {
-  width: 4rem;
-  height: 4rem;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.hl-social-proof-content {
+  flex: 1;
 }
 
-.hairloss-stat-content {
-  display: flex;
-  flex-direction: column;
+@media (max-width: 767px) {
+  .hl-social-proof-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hl-social-proof-wrapper .rating-badge {
+    min-width: auto;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hl-social-proof-section {
+    padding: 40px 0;
+  }
 }
 
-.hairloss-stat-number {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1;
-}
-
-.hairloss-stat-label {
+.hl-social-proof-eyebrow {
   font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--brand-purple);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.hl-social-proof-headline {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #374151;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 767px) {
+  .hl-social-proof-headline {
+    font-size: 1.75rem;
+  }
+}
+
+.hl-social-proof-subtext {
+  font-size: 1.125rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  color: #4a5568;
+  line-height: 1.65;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 767px) {
+  .hl-social-proof-subtext {
+    font-size: 1rem;
+  }
 }
 
 /* ============================================
