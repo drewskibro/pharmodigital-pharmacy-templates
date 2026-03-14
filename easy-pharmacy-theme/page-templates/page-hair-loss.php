@@ -446,19 +446,30 @@ get_header();
   </div>
 </section>
 
-<!-- CTA Section -->
+<!-- ============================================
+     FINAL CTA SECTION
+     Matches Reviewer Profile premium CTA pattern:
+     terracotta primary + white phone secondary + trust checks
+     ============================================ -->
 <section class="hairloss-cta-section">
   <div class="section-container">
-    <div class="hairloss-cta-content">
-      <h2 class="hairloss-cta-title"><?php echo esc_html(ep_field('hl_cta_title', 'Ready to Start Your Hair Regrowth Journey?')); ?></h2>
-      <p class="hairloss-cta-desc"><?php echo esc_html(ep_field('hl_cta_description', 'Book a free consultation with our GPhC-registered pharmacist in Ashford')); ?></p>
+    <div class="hairloss-cta-inner">
+      <h2 class="hairloss-cta-title"><?php echo esc_html( ep_field( 'hl_cta_title', 'Ready to Start Your Hair Regrowth Journey?' ) ); ?></h2>
+      <p class="hairloss-cta-description"><?php echo esc_html( ep_field( 'hl_cta_description', 'Speak directly with our clinical team — no waiting lists, no referrals needed.' ) ); ?></p>
       <div class="hairloss-cta-actions">
-        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button hairloss-cta-btn">
-          <i class="fas fa-phone"></i> Call <?php echo esc_html( ep_phone() ); ?>
+        <a href="<?php echo esc_url( ep_field( 'hl_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+          <?php echo esc_html( ep_field( 'hl_cta_button_text', 'Book an Appointment' ) ); ?>
+          <i class="fas fa-arrow-right"></i>
         </a>
-        <div class="hairloss-cta-badge">
-          <?php echo esc_html(ep_field('hl_cta_hours', 'Open Mon-Fri 9am-6pm, Sat 9am-1pm')); ?>
-        </div>
+        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta">
+          <i class="fas fa-phone"></i>
+          <?php echo esc_html( ep_phone() ); ?>
+        </a>
+      </div>
+      <div class="hairloss-cta-trust">
+        <span class="hairloss-cta-trust-item"><i class="fas fa-shield-halved"></i> GPhC Registered</span>
+        <span class="hairloss-cta-trust-item"><i class="fas fa-clock"></i> Same-Day Appointments</span>
+        <span class="hairloss-cta-trust-item"><i class="fas fa-user-doctor"></i> No Referral Needed</span>
       </div>
     </div>
   </div>

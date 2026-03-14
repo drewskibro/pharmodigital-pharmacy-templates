@@ -1230,76 +1230,100 @@
 /* ============================================
    FINAL CTA SECTION — purple accent (30% rule)
    ============================================ */
+/* ============================================
+   FINAL CTA — Premium pattern (matches Reviewer Profile)
+   Purple gradient + terracotta primary CTA + trust checks
+   ============================================ */
 .hairloss-cta-section {
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
-  padding: 4rem 0;
+  background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+  padding: 5rem 0;
   text-align: center;
 }
 
-.hairloss-cta-content {
-  max-width: 800px;
+.hairloss-cta-inner {
+  max-width: 700px;
   margin: 0 auto;
 }
 
 .hairloss-cta-title {
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--white);
-  margin-bottom: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem;
+  line-height: 1.3;
 }
 
-@media (min-width: 768px) {
-  .hairloss-cta-title {
-    font-size: 3rem;
-  }
-}
-
-.hairloss-cta-desc {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 2.5rem;
+.hairloss-cta-description {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 2rem;
+  line-height: 1.6;
 }
 
 .hairloss-cta-actions {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: center;
+  margin-bottom: 2rem;
+}
+
+.hairloss-cta-section .primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hairloss-cta-section .primary-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+}
+
+.hairloss-cta-section .secondary-cta {
+  color: #2D1B4E;
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.hairloss-cta-section .secondary-cta:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.hairloss-cta-trust {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 1.25rem;
+}
+
+.hairloss-cta-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hairloss-cta-trust-item i {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
 }
 
 @media (min-width: 640px) {
   .hairloss-cta-actions {
     flex-direction: row;
+    justify-content: center;
   }
-}
 
-.hairloss-cta-btn {
-  background: var(--white);
-  color: var(--brand-dark);
-  padding: 1rem 2rem;
-  border-radius: 9999px;
-  font-weight: 700;
-  font-size: 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.hairloss-cta-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.hairloss-cta-badge {
-  display: inline-flex;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 9999px;
-  backdrop-filter: blur(12px);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--white);
+  .hairloss-cta-title {
+    font-size: 2.6rem;
+  }
 }
