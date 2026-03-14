@@ -9953,7 +9953,7 @@ function ep_register_acf_field_groups() {
         'key'      => 'group_ep_mal_hero',
         'title'    => 'Malaria — Hero',
         'fields'   => array(
-            array( 'key' => 'field_ep_mal_parent_url', 'label' => 'Travel Health URL', 'name' => 'mal_parent_url', 'type' => 'url', 'default_value' => '/travel-health/' ),
+            array( 'key' => 'field_ep_mal_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'mal_parent_url', 'type' => 'text', 'default_value' => '/travel-health/', 'instructions' => 'Relative path to the parent page shown in the breadcrumb (e.g. /travel-health/). This is NOT the current page URL.' ),
             array( 'key' => 'field_ep_mal_hero_image', 'label' => 'Hero Background Image', 'name' => 'mal_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
             array( 'key' => 'field_ep_mal_hero_label', 'label' => 'Hero Label', 'name' => 'mal_hero_label', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH PROTECTION' ),
             array( 'key' => 'field_ep_mal_hero_title', 'label' => 'Hero Title', 'name' => 'mal_hero_title', 'type' => 'text', 'default_value' => 'Malaria Tablets in Ashford, Chertsey & Walton-on-Thames' ),
