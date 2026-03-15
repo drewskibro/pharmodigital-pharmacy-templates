@@ -6924,10 +6924,338 @@ function ep_register_acf_field_groups() {
         'key'      => 'group_ep_hep_hero',
         'title'    => 'Hepatitis — Hero',
         'fields'   => array(
-            array( 'key' => 'field_ep_hep_hero_image', 'label' => 'Hero Background Image', 'name' => 'vaccine_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Background image for the hero section. Recommended size: 1600x900px.' ),
+            array( 'key' => 'field_ep_hep_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'hep_parent_url', 'type' => 'text', 'default_value' => '/travel-health/', 'instructions' => 'Relative path to the parent page shown in the breadcrumb.' ),
+            array( 'key' => 'field_ep_hep_hero_image', 'label' => 'Hero Background Image', 'name' => 'hep_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Background image for the hero section. Recommended size: 1600x900px.' ),
+            array( 'key' => 'field_ep_hep_hero_label', 'label' => 'Hero Label', 'name' => 'hep_hero_label', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH PROTECTION' ),
+            array( 'key' => 'field_ep_hep_hero_title', 'label' => 'Hero Title', 'name' => 'hep_hero_title', 'type' => 'text', 'default_value' => 'Hepatitis A & B Vaccination Service' ),
+            array( 'key' => 'field_ep_hep_hero_desc', 'label' => 'Hero Description', 'name' => 'hep_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Comprehensive protection against Hepatitis A and B. Available as separate vaccines or a combined course for complete peace of mind.' ),
+            array( 'key' => 'field_ep_hep_hero_cta_url', 'label' => 'CTA URL', 'name' => 'hep_hero_cta_url', 'type' => 'url', 'default_value' => '' ),
+            array( 'key' => 'field_ep_hep_hero_cta_text', 'label' => 'CTA Text', 'name' => 'hep_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Hepatitis Vaccination' ),
+            array(
+                'key'        => 'field_ep_hep_hero_badges',
+                'label'      => 'Hero Badges',
+                'name'       => 'hep_hero_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_hero_badge_text', 'label' => 'Badge Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
         ),
         'location'              => $hep_location,
         'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R2. Protection / Pharmacist ───────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_cert',
+        'title'    => 'Hepatitis — Protection Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_cert_badge', 'label' => 'Badge Text', 'name' => 'hep_cert_badge', 'type' => 'text', 'default_value' => 'ESSENTIAL PROTECTION' ),
+            array( 'key' => 'field_ep_hep_cert_title', 'label' => 'Title', 'name' => 'hep_cert_title', 'type' => 'text', 'default_value' => 'Understanding Your Options' ),
+            array( 'key' => 'field_ep_hep_cert_desc', 'label' => 'Description', 'name' => 'hep_cert_desc', 'type' => 'text', 'default_value' => 'Flexible vaccination schedules to suit your travel plans' ),
+            array( 'key' => 'field_ep_hep_cert_image', 'label' => 'Section Image', 'name' => 'hep_cert_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_hep_cert_nametag_name', 'label' => 'Name Tag — Name', 'name' => 'hep_cert_nametag_name', 'type' => 'text', 'default_value' => 'Expert Care' ),
+            array( 'key' => 'field_ep_hep_cert_nametag_role', 'label' => 'Name Tag — Role', 'name' => 'hep_cert_nametag_role', 'type' => 'text', 'default_value' => 'Travel Health Team' ),
+            array( 'key' => 'field_ep_hep_cert_highlight', 'label' => 'Highlight Badge', 'name' => 'hep_cert_highlight', 'type' => 'text', 'default_value' => 'Combined Protection Available' ),
+            array( 'key' => 'field_ep_hep_cert_subtitle', 'label' => 'Subtitle', 'name' => 'hep_cert_subtitle', 'type' => 'text', 'default_value' => 'Separate or Combined Vaccinations' ),
+            array( 'key' => 'field_ep_hep_cert_text', 'label' => 'Body Text', 'name' => 'hep_cert_text', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Hepatitis A and B are viral infections that affect the liver. Depending on your destination and risk factors, you may need protection against one or both. We offer individual vaccines as well as a combined option (Twinrix) for convenience.' ),
+            array(
+                'key'        => 'field_ep_hep_cert_features',
+                'label'      => 'Features',
+                'name'       => 'hep_cert_features',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_cert_feat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_cert_feat_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_cert_feat_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_cert_cta_url', 'label' => 'CTA URL', 'name' => 'hep_cert_cta_url', 'type' => 'url', 'default_value' => '' ),
+            array( 'key' => 'field_ep_hep_cert_callout_badge', 'label' => 'Callout Badge', 'name' => 'hep_cert_callout_badge', 'type' => 'text', 'default_value' => 'IMPORTANT' ),
+            array( 'key' => 'field_ep_hep_cert_callout_title', 'label' => 'Callout Title', 'name' => 'hep_cert_callout_title', 'type' => 'text', 'default_value' => 'Planning Ahead' ),
+            array( 'key' => 'field_ep_hep_cert_callout_text', 'label' => 'Callout Text', 'name' => 'hep_cert_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Ideally, start your Hepatitis B course at least 6 months before travel to complete the full schedule. Accelerated courses are available for last-minute travellers (doses at Day 0, 7, and 21 days).' ),
+            array( 'key' => 'field_ep_hep_cert_callout_note', 'label' => 'Callout Note', 'name' => 'hep_cert_callout_note', 'type' => 'text', 'default_value' => 'Hepatitis A protection begins 2 weeks after the first dose.' ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R3. Stats Bar ─────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_stats',
+        'title'    => 'Hepatitis — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_hep_stats',
+                'label'      => 'Stats',
+                'name'       => 'hep_stats',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R4. About Hepatitis ───────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_about',
+        'title'    => 'Hepatitis — About Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_about_badge', 'label' => 'Badge Text', 'name' => 'hep_about_badge', 'type' => 'text', 'default_value' => 'KNOW THE DIFFERENCE' ),
+            array( 'key' => 'field_ep_hep_about_title', 'label' => 'Title', 'name' => 'hep_about_title', 'type' => 'text', 'default_value' => 'Hepatitis A vs Hepatitis B' ),
+            array( 'key' => 'field_ep_hep_about_desc', 'label' => 'Description', 'name' => 'hep_about_desc', 'type' => 'text', 'default_value' => 'Understanding the risks and transmission methods' ),
+            array( 'key' => 'field_ep_hep_about_image', 'label' => 'Section Image', 'name' => 'hep_about_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array(
+                'key'        => 'field_ep_hep_about_cards',
+                'label'      => 'Info Cards',
+                'name'       => 'hep_about_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_about_card_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_about_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_about_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_about_callout_badge', 'label' => 'Callout Badge', 'name' => 'hep_about_callout_badge', 'type' => 'text', 'default_value' => 'CRITICAL INSIGHT' ),
+            array( 'key' => 'field_ep_hep_about_callout_title', 'label' => 'Callout Title', 'name' => 'hep_about_callout_title', 'type' => 'text', 'default_value' => 'Hepatitis B is Highly Infectious' ),
+            array( 'key' => 'field_ep_hep_about_callout_text', 'label' => 'Callout Text', 'name' => 'hep_about_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Hepatitis B is 50-100 times more infectious than HIV. It can survive outside the body for at least 7 days. Vaccination provides the most reliable defence against this silent but serious virus.' ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 15,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R5. Who Needs Vaccination ─────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_needs',
+        'title'    => 'Hepatitis — Who Needs Vaccination',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_needs_badge', 'label' => 'Badge Text', 'name' => 'hep_needs_badge', 'type' => 'text', 'default_value' => 'WHO NEEDS VACCINATION' ),
+            array( 'key' => 'field_ep_hep_needs_title', 'label' => 'Title', 'name' => 'hep_needs_title', 'type' => 'text', 'default_value' => 'Should you get vaccinated?' ),
+            array( 'key' => 'field_ep_hep_needs_desc', 'label' => 'Description', 'name' => 'hep_needs_desc', 'type' => 'text', 'default_value' => 'Recommended for many travellers and at-risk groups' ),
+            array(
+                'key'        => 'field_ep_hep_needs_cards',
+                'label'      => 'Cards',
+                'name'       => 'hep_needs_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_needs_type', 'label' => 'Type', 'name' => 'type', 'type' => 'select', 'choices' => array( 'recommended' => 'Recommended (green)', 'consider' => 'Consider (amber)' ) ),
+                    array( 'key' => 'field_ep_hep_needs_badge_text', 'label' => 'Badge Text', 'name' => 'badge', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_needs_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_needs_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'        => 'field_ep_hep_needs_items',
+                        'label'      => 'Checklist Items',
+                        'name'       => 'items',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_hep_needs_item_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_needs_info', 'label' => 'Info Text', 'name' => 'hep_needs_info', 'type' => 'text', 'default_value' => 'Not sure if you need the vaccine? Book a consultation and we\'ll check your destination requirements.' ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R6. Risk Zones ────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_risk',
+        'title'    => 'Hepatitis — Risk Zones',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_risk_badge', 'label' => 'Badge Text', 'name' => 'hep_risk_badge', 'type' => 'text', 'default_value' => 'GLOBAL RISK ZONES' ),
+            array( 'key' => 'field_ep_hep_risk_title', 'label' => 'Title', 'name' => 'hep_risk_title', 'type' => 'text', 'default_value' => 'Where are Hepatitis A & B found?' ),
+            array( 'key' => 'field_ep_hep_risk_desc', 'label' => 'Description', 'name' => 'hep_risk_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Risk varies by region, but vaccination is often recommended for travel outside Western Europe, North America, and Australia.' ),
+            array(
+                'key'        => 'field_ep_hep_risk_stats',
+                'label'      => 'Stats Boxes',
+                'name'       => 'hep_risk_stats',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_risk_stat_num', 'label' => 'Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_risk_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_risk_stat_sub', 'label' => 'Sub Text', 'name' => 'sub', 'type' => 'text' ),
+                ),
+            ),
+            array(
+                'key'        => 'field_ep_hep_risk_zones',
+                'label'      => 'Risk Zones',
+                'name'       => 'hep_risk_zones',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_zone_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+                    array( 'key' => 'field_ep_hep_zone_type', 'label' => 'Type', 'name' => 'type', 'type' => 'select', 'choices' => array( 'high' => 'High Risk', 'moderate' => 'Moderate Risk' ) ),
+                    array( 'key' => 'field_ep_hep_zone_emoji', 'label' => 'Emoji', 'name' => 'emoji', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_zone_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_zone_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'        => 'field_ep_hep_zone_countries',
+                        'label'      => 'Countries',
+                        'name'       => 'countries',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_hep_country_name', 'label' => 'Country', 'name' => 'name', 'type' => 'text' ),
+                        ),
+                    ),
+                    array( 'key' => 'field_ep_hep_zone_note', 'label' => 'Note', 'name' => 'note', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_risk_callout_title', 'label' => 'Callout Title', 'name' => 'hep_risk_callout_title', 'type' => 'text', 'default_value' => 'Not Sure About Your Destination?' ),
+            array( 'key' => 'field_ep_hep_risk_callout_text', 'label' => 'Callout Text', 'name' => 'hep_risk_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Hepatitis risk varies by country and region. Our pharmacist will check the latest travel health data and advise whether you need Hepatitis A, B, or the combined Twinrix vaccine for your specific trip.' ),
+            array(
+                'key'        => 'field_ep_hep_risk_callout_badges',
+                'label'      => 'Callout Badges',
+                'name'       => 'hep_risk_callout_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_risk_cb_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_risk_footer_text', 'label' => 'Footer Text', 'name' => 'hep_risk_footer_text', 'type' => 'text', 'default_value' => 'Unsure about your destination? We\'ll check the latest risk data for you.' ),
+            array( 'key' => 'field_ep_hep_risk_cta_url', 'label' => 'CTA URL', 'name' => 'hep_risk_cta_url', 'type' => 'url', 'default_value' => '' ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 25,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R7. Appointment Details ───────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_details',
+        'title'    => 'Hepatitis — Appointment Details',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_details_badge', 'label' => 'Badge Text', 'name' => 'hep_details_badge', 'type' => 'text', 'default_value' => 'VACCINATION DETAILS' ),
+            array( 'key' => 'field_ep_hep_details_title', 'label' => 'Title', 'name' => 'hep_details_title', 'type' => 'text', 'default_value' => 'What to Expect at Your Appointment' ),
+            array( 'key' => 'field_ep_hep_details_desc', 'label' => 'Description', 'name' => 'hep_details_desc', 'type' => 'text', 'default_value' => 'Simple, straightforward vaccination process at our Ashford clinic' ),
+            array( 'key' => 'field_ep_hep_details_image', 'label' => 'Hero Image', 'name' => 'hep_details_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array(
+                'key'        => 'field_ep_hep_details',
+                'label'      => 'Detail Cards',
+                'name'       => 'hep_details',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_detail_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_detail_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_detail_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R8. FAQ ───────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_faq',
+        'title'    => 'Hepatitis — FAQ',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_faq_badge', 'label' => 'Badge Text', 'name' => 'hep_faq_badge', 'type' => 'text', 'default_value' => 'HEPATITIS FAQs' ),
+            array( 'key' => 'field_ep_hep_faq_title', 'label' => 'Title', 'name' => 'hep_faq_title', 'type' => 'text', 'default_value' => 'Common Questions' ),
+            array( 'key' => 'field_ep_hep_faq_desc', 'label' => 'Description', 'name' => 'hep_faq_desc', 'type' => 'text', 'default_value' => 'Everything you need to know about Hepatitis vaccination' ),
+            array(
+                'key'        => 'field_ep_hep_faqs',
+                'label'      => 'FAQs',
+                'name'       => 'hep_faqs',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 4 ),
+                ),
+            ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R9. Final CTA ─────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_cta',
+        'title'    => 'Hepatitis — Final CTA',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_hep_cta_badges',
+                'label'      => 'CTA Badges',
+                'name'       => 'hep_cta_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_cta_badge_text', 'label' => 'Badge Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_cta_title', 'label' => 'Title', 'name' => 'hep_cta_title', 'type' => 'text', 'default_value' => 'Protect your health while travelling' ),
+            array( 'key' => 'field_ep_hep_cta_desc', 'label' => 'Description', 'name' => 'hep_cta_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your Hepatitis vaccination with our expert team today. Quick, convenient, and professional service.' ),
+            array( 'key' => 'field_ep_hep_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'hep_cta_primary_url', 'type' => 'url', 'default_value' => '' ),
+            array( 'key' => 'field_ep_hep_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'hep_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Vaccination' ),
+            array(
+                'key'        => 'field_ep_hep_cta_checks',
+                'label'      => 'Trust Checks',
+                'name'       => 'hep_cta_checks',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_cta_check_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 40,
         'position'              => 'normal',
         'style'                 => 'default',
         'label_placement'       => 'top',
