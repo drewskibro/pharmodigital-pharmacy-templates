@@ -135,7 +135,11 @@ get_header();
 <!-- ============================================
      WEIGHT LOSS CALCULATOR
      ============================================ -->
-<?php echo do_shortcode( '[mounjaro_calculator]' ); ?>
+<section class="wl-calculator-section">
+  <div class="section-container">
+    <?php echo do_shortcode( '[mounjaro_calculator]' ); ?>
+  </div>
+</section>
 
 <!-- ============================================
      PHARMACIST SECTION
