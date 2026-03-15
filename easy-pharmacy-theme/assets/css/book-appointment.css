@@ -1540,6 +1540,7 @@
 /* ---- Restore default spacing inside Amelia widget ---- */
 .book-amelia-container .amelia-app-booking,
 .book-amelia-container [id^="amelia-step-booking"],
+.book-amelia-container [id^="amelia-catalog-booking"],
 .book-amelia-container [id^="amelia-booking"],
 .book-amelia-container .amelia-v2-booking {
   font-family: var(--font-primary);
@@ -1567,10 +1568,43 @@
 
 /* ---- Restore img display for Amelia icons/images ---- */
 .book-amelia-container .amelia-app-booking img,
-.book-amelia-container [id^="amelia-step-booking"] img {
-  display: inline-block;
+.book-amelia-container [id^="amelia-step-booking"] img,
+.book-amelia-container [id^="amelia-catalog-booking"] img {
+  display: block;
   max-width: 100%;
   height: auto;
+}
+
+/* ---- Amelia catalog service card images — fill the card ---- */
+.book-amelia-container .am-service-card img,
+.book-amelia-container .am-cat__service-img img,
+.book-amelia-container [class*="catalog"] img,
+.book-amelia-container [class*="service-card"] img,
+.book-amelia-container [class*="am-cat"] img {
+  width: 100% !important;
+  height: 180px !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+/* ---- Amelia catalog card styling ---- */
+.book-amelia-container .am-service-card,
+.book-amelia-container [class*="am-cat__service"],
+.book-amelia-container [class*="catalog-service"] {
+  border-radius: 12px !important;
+  border: 1px solid rgba(196, 122, 101, 0.15) !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
+}
+
+.book-amelia-container .am-service-card:hover,
+.book-amelia-container [class*="am-cat__service"]:hover,
+.book-amelia-container [class*="catalog-service"]:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 30px rgba(196, 122, 101, 0.15) !important;
+  border-color: rgba(196, 122, 101, 0.3) !important;
 }
 
 /* ---- Restore list styles inside Amelia ---- */
