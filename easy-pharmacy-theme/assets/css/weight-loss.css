@@ -1644,3 +1644,41 @@
     align-items: center;
   }
 }
+
+/* ============================================
+   WEIGHT LOSS CALCULATOR (shortcode override)
+   Constrains the blog-embedded calculator for
+   the full-width weight loss page layout
+   ============================================ */
+
+.wl-calculator-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+.wl-calculator-section .mj-calc {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wl-calculator-section .mj-calc-form {
+  text-align: center;
+}
+
+.wl-calculator-section .mj-calc-input-group {
+  display: inline-block;
+  text-align: left;
+}
+
+.wl-calculator-section .mj-calc-results {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wl-calculator-section .mj-calc-disclaimer {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
