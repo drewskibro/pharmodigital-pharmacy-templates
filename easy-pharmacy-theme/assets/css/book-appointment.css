@@ -1921,9 +1921,28 @@
 
 /* ---- Service card circular images ---- */
 .book-amelia-container .amelia-v2-booking img {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   display: block !important;
+  flex-shrink: 0 !important;
+}
+
+/* ---- Image wrapper — must match img size and clip overflow ---- */
+.book-amelia-container .amelia-v2-booking [class*="image"],
+.book-amelia-container .am-fs__service-card__image,
+.book-amelia-container .am-fs-sb__service__image,
+.book-amelia-container .am-fs__service__image {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  flex-shrink: 0 !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
 }
 
 /* ---- Mobile: fix sidebar, container, and white space ---- */
@@ -1961,6 +1980,17 @@
     width: 48px !important;
     height: 48px !important;
     min-width: 48px !important;
+    min-height: 48px !important;
+  }
+
+  .book-amelia-container .amelia-v2-booking [class*="image"],
+  .book-amelia-container .am-fs__service-card__image,
+  .book-amelia-container .am-fs-sb__service__image,
+  .book-amelia-container .am-fs__service__image {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
   }
 }
 
@@ -1974,12 +2004,33 @@
     width: 56px !important;
     height: 56px !important;
   }
+
+  .book-amelia-container .amelia-v2-booking [class*="image"],
+  .book-amelia-container .am-fs__service-card__image,
+  .book-amelia-container .am-fs-sb__service__image,
+  .book-amelia-container .am-fs__service__image {
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+  }
 }
 
 /* ---- Desktop ---- */
 @media (min-width: 1024px) {
   .book-amelia-container .amelia-v2-booking img {
-    width: 64px !important;
-    height: 64px !important;
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .book-amelia-container .amelia-v2-booking [class*="image"],
+  .book-amelia-container .am-fs__service-card__image,
+  .book-amelia-container .am-fs-sb__service__image,
+  .book-amelia-container .am-fs__service__image {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
   }
 }
+
