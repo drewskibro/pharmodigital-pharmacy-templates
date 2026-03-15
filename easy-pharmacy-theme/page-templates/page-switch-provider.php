@@ -606,10 +606,7 @@ $sp_banner_image_url     = $sp_banner_image_id ? wp_get_attachment_image_url( $s
   <div class="switch-cta-dots"></div>
   <div class="section-container">
     <div class="switch-cta-content">
-      <h2 class="switch-cta-title">
-        <span class="gradient-text"><?php echo esc_html( ep_field( 'sp_cta_title_line1', 'Ready to Make' ) ); ?></span>
-        <span class="gradient-text"><?php echo esc_html( ep_field( 'sp_cta_title_line2', ' the Switch?' ) ); ?></span>
-      </h2>
+      <h2 class="switch-cta-title"><?php echo esc_html( ep_field( 'sp_cta_title_line1', 'Ready to Make' ) ); ?><?php echo esc_html( ep_field( 'sp_cta_title_line2', ' the Switch?' ) ); ?></h2>
       <p class="switch-cta-description">
         <?php echo esc_html( ep_field( 'sp_cta_description', 'Join hundreds of Ashford patients who\'ve chosen local, expert care over faceless online providers.' ) ); ?>
       </p>
