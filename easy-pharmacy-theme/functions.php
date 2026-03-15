@@ -100,6 +100,8 @@ function easy_pharmacy_scripts() {
     if ( is_page_template( 'page-templates/page-weight-loss.php' ) ) {
         wp_enqueue_style( 'easy-pharmacy-weight-loss', EASY_PHARMACY_URI . '/assets/css/weight-loss.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
         wp_enqueue_script( 'easy-pharmacy-weight-loss-js', EASY_PHARMACY_URI . '/assets/js/weight-loss.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'easy-pharmacy-blog', EASY_PHARMACY_URI . '/assets/css/blog.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_script( 'easy-pharmacy-blog-js', EASY_PHARMACY_URI . '/assets/js/blog.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-travel-health.php' ) ) {

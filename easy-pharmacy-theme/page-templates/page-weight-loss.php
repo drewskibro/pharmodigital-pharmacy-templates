@@ -133,6 +133,11 @@ get_header();
 </section>
 
 <!-- ============================================
+     WEIGHT LOSS CALCULATOR
+     ============================================ -->
+<?php echo do_shortcode( '[mounjaro_calculator]' ); ?>
+
+<!-- ============================================
      PHARMACIST SECTION
      ============================================ -->
 <?php get_template_part( 'template-parts/section', 'pharmacist' ); ?>
