@@ -1567,8 +1567,8 @@
 }
 
 /* ---- Restore img display for Amelia icons/images ---- */
+/* Note: height:auto removed — it conflicts with explicit sizing on V2 step booking images */
 .book-amelia-container .amelia-app-booking img,
-.book-amelia-container [id^="amelia-step-booking"] img,
 .book-amelia-container [id^="amelia-catalog-booking"] img {
   display: block;
   max-width: 100%;
@@ -1920,19 +1920,34 @@
 }
 
 /* ---- Service card circular images ---- */
+/* Amelia wraps each employee/service photo in a container div.
+   Both the wrapper AND the img must be identically sized with
+   overflow:hidden on the wrapper so object-fit:cover fills the circle. */
 .book-amelia-container .amelia-v2-booking img {
   width: 60px !important;
   height: 60px !important;
   min-width: 60px !important;
   min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   display: block !important;
   flex-shrink: 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* ---- Image wrapper — must match img size and clip overflow ---- */
+/* ---- Image wrapper — aggressively match img size ---- */
+/* Target every possible wrapper Amelia might use around the <img> */
+.book-amelia-container .amelia-v2-booking img + *,
+.book-amelia-container .amelia-v2-booking * > img:only-child,
 .book-amelia-container .amelia-v2-booking [class*="image"],
+.book-amelia-container .amelia-v2-booking [class*="Image"],
+.book-amelia-container .amelia-v2-booking [class*="photo"],
+.book-amelia-container .amelia-v2-booking [class*="avatar"],
+.book-amelia-container .amelia-v2-booking [class*="thumb"],
 .book-amelia-container .am-fs__service-card__image,
 .book-amelia-container .am-fs-sb__service__image,
 .book-amelia-container .am-fs__service__image {
@@ -1940,9 +1955,30 @@
   height: 60px !important;
   min-width: 60px !important;
   min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
   flex-shrink: 0 !important;
   border-radius: 50% !important;
   overflow: hidden !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Also target the direct parent of any img inside Amelia V2 */
+.book-amelia-container .amelia-v2-booking div:has(> img) {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  flex-shrink: 0 !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
 }
 
 /* ---- Mobile: fix sidebar, container, and white space ---- */
@@ -1976,21 +2012,19 @@
   }
 
   /* Smaller circular images on mobile */
-  .book-amelia-container .amelia-v2-booking img {
-    width: 48px !important;
-    height: 48px !important;
-    min-width: 48px !important;
-    min-height: 48px !important;
-  }
-
+  .book-amelia-container .amelia-v2-booking img,
+  .book-amelia-container .amelia-v2-booking div:has(> img),
   .book-amelia-container .amelia-v2-booking [class*="image"],
-  .book-amelia-container .am-fs__service-card__image,
-  .book-amelia-container .am-fs-sb__service__image,
-  .book-amelia-container .am-fs__service__image {
+  .book-amelia-container .amelia-v2-booking [class*="Image"],
+  .book-amelia-container .amelia-v2-booking [class*="photo"],
+  .book-amelia-container .amelia-v2-booking [class*="avatar"],
+  .book-amelia-container .amelia-v2-booking [class*="thumb"] {
     width: 48px !important;
     height: 48px !important;
     min-width: 48px !important;
     min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
   }
 }
 
@@ -2000,37 +2034,37 @@
     padding: 0.75rem;
   }
 
-  .book-amelia-container .amelia-v2-booking img {
-    width: 56px !important;
-    height: 56px !important;
-  }
-
+  .book-amelia-container .amelia-v2-booking img,
+  .book-amelia-container .amelia-v2-booking div:has(> img),
   .book-amelia-container .amelia-v2-booking [class*="image"],
-  .book-amelia-container .am-fs__service-card__image,
-  .book-amelia-container .am-fs-sb__service__image,
-  .book-amelia-container .am-fs__service__image {
+  .book-amelia-container .amelia-v2-booking [class*="Image"],
+  .book-amelia-container .amelia-v2-booking [class*="photo"],
+  .book-amelia-container .amelia-v2-booking [class*="avatar"],
+  .book-amelia-container .amelia-v2-booking [class*="thumb"] {
     width: 56px !important;
     height: 56px !important;
     min-width: 56px !important;
     min-height: 56px !important;
+    max-width: 56px !important;
+    max-height: 56px !important;
   }
 }
 
 /* ---- Desktop ---- */
 @media (min-width: 1024px) {
-  .book-amelia-container .amelia-v2-booking img {
-    width: 60px !important;
-    height: 60px !important;
-  }
-
+  .book-amelia-container .amelia-v2-booking img,
+  .book-amelia-container .amelia-v2-booking div:has(> img),
   .book-amelia-container .amelia-v2-booking [class*="image"],
-  .book-amelia-container .am-fs__service-card__image,
-  .book-amelia-container .am-fs-sb__service__image,
-  .book-amelia-container .am-fs__service__image {
+  .book-amelia-container .amelia-v2-booking [class*="Image"],
+  .book-amelia-container .amelia-v2-booking [class*="photo"],
+  .book-amelia-container .amelia-v2-booking [class*="avatar"],
+  .book-amelia-container .amelia-v2-booking [class*="thumb"] {
     width: 60px !important;
     height: 60px !important;
     min-width: 60px !important;
     min-height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
   }
 }
 
