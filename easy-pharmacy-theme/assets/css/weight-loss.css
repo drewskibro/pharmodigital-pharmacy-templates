@@ -1500,23 +1500,28 @@
 }
 
 .wl-final-cta-button-white {
-  background: var(--white);
-  color: var(--brand-dark);
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .wl-final-cta-button-white:hover {
-  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
 }
 
 .wl-final-cta-button-outlined {
-  background: transparent;
-  color: var(--white);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #2D1B4E;
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
 }
 
 .wl-final-cta-button-outlined:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--white);
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .wl-final-cta-checks {
@@ -1638,4 +1643,42 @@
   .wl-social-content {
     align-items: center;
   }
+}
+
+/* ============================================
+   WEIGHT LOSS CALCULATOR (shortcode override)
+   Constrains the blog-embedded calculator for
+   the full-width weight loss page layout
+   ============================================ */
+
+.wl-calculator-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+.wl-calculator-section .mj-calc {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wl-calculator-section .mj-calc-form {
+  text-align: center;
+}
+
+.wl-calculator-section .mj-calc-input-group {
+  display: inline-block;
+  text-align: left;
+}
+
+.wl-calculator-section .mj-calc-results {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wl-calculator-section .mj-calc-disclaimer {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
 }

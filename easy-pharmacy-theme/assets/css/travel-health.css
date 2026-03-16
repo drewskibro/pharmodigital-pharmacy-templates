@@ -1864,23 +1864,28 @@
 }
 
 .travel-cta-button-white {
-  background: var(--white);
-  color: #6B4FA0;
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .travel-cta-button-white:hover {
-  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
 }
 
 .travel-cta-button-outlined {
-  background: transparent;
-  color: var(--white);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #2D1B4E;
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
 }
 
 .travel-cta-button-outlined:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .travel-cta-checks {

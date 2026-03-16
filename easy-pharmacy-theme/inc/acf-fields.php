@@ -6924,10 +6924,338 @@ function ep_register_acf_field_groups() {
         'key'      => 'group_ep_hep_hero',
         'title'    => 'Hepatitis — Hero',
         'fields'   => array(
-            array( 'key' => 'field_ep_hep_hero_image', 'label' => 'Hero Background Image', 'name' => 'vaccine_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Background image for the hero section. Recommended size: 1600x900px.' ),
+            array( 'key' => 'field_ep_hep_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'hep_parent_url', 'type' => 'text', 'default_value' => '/travel-health/', 'instructions' => 'Relative path to the parent page shown in the breadcrumb.' ),
+            array( 'key' => 'field_ep_hep_hero_image', 'label' => 'Hero Background Image', 'name' => 'hep_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Background image for the hero section. Recommended size: 1600x900px.' ),
+            array( 'key' => 'field_ep_hep_hero_label', 'label' => 'Hero Label', 'name' => 'hep_hero_label', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH PROTECTION' ),
+            array( 'key' => 'field_ep_hep_hero_title', 'label' => 'Hero Title', 'name' => 'hep_hero_title', 'type' => 'text', 'default_value' => 'Hepatitis A & B Vaccination Service' ),
+            array( 'key' => 'field_ep_hep_hero_desc', 'label' => 'Hero Description', 'name' => 'hep_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Comprehensive protection against Hepatitis A and B. Available as separate vaccines or a combined course for complete peace of mind.' ),
+            array( 'key' => 'field_ep_hep_hero_cta_url', 'label' => 'CTA URL', 'name' => 'hep_hero_cta_url', 'type' => 'url', 'default_value' => '' ),
+            array( 'key' => 'field_ep_hep_hero_cta_text', 'label' => 'CTA Text', 'name' => 'hep_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Hepatitis Vaccination' ),
+            array(
+                'key'        => 'field_ep_hep_hero_badges',
+                'label'      => 'Hero Badges',
+                'name'       => 'hep_hero_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_hero_badge_text', 'label' => 'Badge Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
         ),
         'location'              => $hep_location,
         'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R2. Protection / Pharmacist ───────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_cert',
+        'title'    => 'Hepatitis — Protection Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_cert_badge', 'label' => 'Badge Text', 'name' => 'hep_cert_badge', 'type' => 'text', 'default_value' => 'ESSENTIAL PROTECTION' ),
+            array( 'key' => 'field_ep_hep_cert_title', 'label' => 'Title', 'name' => 'hep_cert_title', 'type' => 'text', 'default_value' => 'Understanding Your Options' ),
+            array( 'key' => 'field_ep_hep_cert_desc', 'label' => 'Description', 'name' => 'hep_cert_desc', 'type' => 'text', 'default_value' => 'Flexible vaccination schedules to suit your travel plans' ),
+            array( 'key' => 'field_ep_hep_cert_image', 'label' => 'Section Image', 'name' => 'hep_cert_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_hep_cert_nametag_name', 'label' => 'Name Tag — Name', 'name' => 'hep_cert_nametag_name', 'type' => 'text', 'default_value' => 'Expert Care' ),
+            array( 'key' => 'field_ep_hep_cert_nametag_role', 'label' => 'Name Tag — Role', 'name' => 'hep_cert_nametag_role', 'type' => 'text', 'default_value' => 'Travel Health Team' ),
+            array( 'key' => 'field_ep_hep_cert_highlight', 'label' => 'Highlight Badge', 'name' => 'hep_cert_highlight', 'type' => 'text', 'default_value' => 'Combined Protection Available' ),
+            array( 'key' => 'field_ep_hep_cert_subtitle', 'label' => 'Subtitle', 'name' => 'hep_cert_subtitle', 'type' => 'text', 'default_value' => 'Separate or Combined Vaccinations' ),
+            array( 'key' => 'field_ep_hep_cert_text', 'label' => 'Body Text', 'name' => 'hep_cert_text', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Hepatitis A and B are viral infections that affect the liver. Depending on your destination and risk factors, you may need protection against one or both. We offer individual vaccines as well as a combined option (Twinrix) for convenience.' ),
+            array(
+                'key'        => 'field_ep_hep_cert_features',
+                'label'      => 'Features',
+                'name'       => 'hep_cert_features',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_cert_feat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_cert_feat_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_cert_feat_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_cert_cta_url', 'label' => 'CTA URL', 'name' => 'hep_cert_cta_url', 'type' => 'url', 'default_value' => '' ),
+            array( 'key' => 'field_ep_hep_cert_callout_badge', 'label' => 'Callout Badge', 'name' => 'hep_cert_callout_badge', 'type' => 'text', 'default_value' => 'IMPORTANT' ),
+            array( 'key' => 'field_ep_hep_cert_callout_title', 'label' => 'Callout Title', 'name' => 'hep_cert_callout_title', 'type' => 'text', 'default_value' => 'Planning Ahead' ),
+            array( 'key' => 'field_ep_hep_cert_callout_text', 'label' => 'Callout Text', 'name' => 'hep_cert_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Ideally, start your Hepatitis B course at least 6 months before travel to complete the full schedule. Accelerated courses are available for last-minute travellers (doses at Day 0, 7, and 21 days).' ),
+            array( 'key' => 'field_ep_hep_cert_callout_note', 'label' => 'Callout Note', 'name' => 'hep_cert_callout_note', 'type' => 'text', 'default_value' => 'Hepatitis A protection begins 2 weeks after the first dose.' ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R3. Stats Bar ─────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_stats',
+        'title'    => 'Hepatitis — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_hep_stats',
+                'label'      => 'Stats',
+                'name'       => 'hep_stats',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R4. About Hepatitis ───────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_about',
+        'title'    => 'Hepatitis — About Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_about_badge', 'label' => 'Badge Text', 'name' => 'hep_about_badge', 'type' => 'text', 'default_value' => 'KNOW THE DIFFERENCE' ),
+            array( 'key' => 'field_ep_hep_about_title', 'label' => 'Title', 'name' => 'hep_about_title', 'type' => 'text', 'default_value' => 'Hepatitis A vs Hepatitis B' ),
+            array( 'key' => 'field_ep_hep_about_desc', 'label' => 'Description', 'name' => 'hep_about_desc', 'type' => 'text', 'default_value' => 'Understanding the risks and transmission methods' ),
+            array( 'key' => 'field_ep_hep_about_image', 'label' => 'Section Image', 'name' => 'hep_about_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array(
+                'key'        => 'field_ep_hep_about_cards',
+                'label'      => 'Info Cards',
+                'name'       => 'hep_about_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_about_card_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_about_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_about_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_about_callout_badge', 'label' => 'Callout Badge', 'name' => 'hep_about_callout_badge', 'type' => 'text', 'default_value' => 'CRITICAL INSIGHT' ),
+            array( 'key' => 'field_ep_hep_about_callout_title', 'label' => 'Callout Title', 'name' => 'hep_about_callout_title', 'type' => 'text', 'default_value' => 'Hepatitis B is Highly Infectious' ),
+            array( 'key' => 'field_ep_hep_about_callout_text', 'label' => 'Callout Text', 'name' => 'hep_about_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Hepatitis B is 50-100 times more infectious than HIV. It can survive outside the body for at least 7 days. Vaccination provides the most reliable defence against this silent but serious virus.' ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 15,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R5. Who Needs Vaccination ─────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_needs',
+        'title'    => 'Hepatitis — Who Needs Vaccination',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_needs_badge', 'label' => 'Badge Text', 'name' => 'hep_needs_badge', 'type' => 'text', 'default_value' => 'WHO NEEDS VACCINATION' ),
+            array( 'key' => 'field_ep_hep_needs_title', 'label' => 'Title', 'name' => 'hep_needs_title', 'type' => 'text', 'default_value' => 'Should you get vaccinated?' ),
+            array( 'key' => 'field_ep_hep_needs_desc', 'label' => 'Description', 'name' => 'hep_needs_desc', 'type' => 'text', 'default_value' => 'Recommended for many travellers and at-risk groups' ),
+            array(
+                'key'        => 'field_ep_hep_needs_cards',
+                'label'      => 'Cards',
+                'name'       => 'hep_needs_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_needs_type', 'label' => 'Type', 'name' => 'type', 'type' => 'select', 'choices' => array( 'recommended' => 'Recommended (green)', 'consider' => 'Consider (amber)' ) ),
+                    array( 'key' => 'field_ep_hep_needs_badge_text', 'label' => 'Badge Text', 'name' => 'badge', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_needs_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_needs_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'        => 'field_ep_hep_needs_items',
+                        'label'      => 'Checklist Items',
+                        'name'       => 'items',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_hep_needs_item_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_needs_info', 'label' => 'Info Text', 'name' => 'hep_needs_info', 'type' => 'text', 'default_value' => 'Not sure if you need the vaccine? Book a consultation and we\'ll check your destination requirements.' ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R6. Risk Zones ────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_risk',
+        'title'    => 'Hepatitis — Risk Zones',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_risk_badge', 'label' => 'Badge Text', 'name' => 'hep_risk_badge', 'type' => 'text', 'default_value' => 'GLOBAL RISK ZONES' ),
+            array( 'key' => 'field_ep_hep_risk_title', 'label' => 'Title', 'name' => 'hep_risk_title', 'type' => 'text', 'default_value' => 'Where are Hepatitis A & B found?' ),
+            array( 'key' => 'field_ep_hep_risk_desc', 'label' => 'Description', 'name' => 'hep_risk_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Risk varies by region, but vaccination is often recommended for travel outside Western Europe, North America, and Australia.' ),
+            array(
+                'key'        => 'field_ep_hep_risk_stats',
+                'label'      => 'Stats Boxes',
+                'name'       => 'hep_risk_stats',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_risk_stat_num', 'label' => 'Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_risk_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_risk_stat_sub', 'label' => 'Sub Text', 'name' => 'sub', 'type' => 'text' ),
+                ),
+            ),
+            array(
+                'key'        => 'field_ep_hep_risk_zones',
+                'label'      => 'Risk Zones',
+                'name'       => 'hep_risk_zones',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_zone_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+                    array( 'key' => 'field_ep_hep_zone_type', 'label' => 'Type', 'name' => 'type', 'type' => 'select', 'choices' => array( 'high' => 'High Risk', 'moderate' => 'Moderate Risk' ) ),
+                    array( 'key' => 'field_ep_hep_zone_emoji', 'label' => 'Emoji', 'name' => 'emoji', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_zone_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_zone_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array(
+                        'key'        => 'field_ep_hep_zone_countries',
+                        'label'      => 'Countries',
+                        'name'       => 'countries',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_hep_country_name', 'label' => 'Country', 'name' => 'name', 'type' => 'text' ),
+                        ),
+                    ),
+                    array( 'key' => 'field_ep_hep_zone_note', 'label' => 'Note', 'name' => 'note', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_risk_callout_title', 'label' => 'Callout Title', 'name' => 'hep_risk_callout_title', 'type' => 'text', 'default_value' => 'Not Sure About Your Destination?' ),
+            array( 'key' => 'field_ep_hep_risk_callout_text', 'label' => 'Callout Text', 'name' => 'hep_risk_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Hepatitis risk varies by country and region. Our pharmacist will check the latest travel health data and advise whether you need Hepatitis A, B, or the combined Twinrix vaccine for your specific trip.' ),
+            array(
+                'key'        => 'field_ep_hep_risk_callout_badges',
+                'label'      => 'Callout Badges',
+                'name'       => 'hep_risk_callout_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_risk_cb_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_risk_footer_text', 'label' => 'Footer Text', 'name' => 'hep_risk_footer_text', 'type' => 'text', 'default_value' => 'Unsure about your destination? We\'ll check the latest risk data for you.' ),
+            array( 'key' => 'field_ep_hep_risk_cta_url', 'label' => 'CTA URL', 'name' => 'hep_risk_cta_url', 'type' => 'url', 'default_value' => '' ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 25,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R7. Appointment Details ───────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_details',
+        'title'    => 'Hepatitis — Appointment Details',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_details_badge', 'label' => 'Badge Text', 'name' => 'hep_details_badge', 'type' => 'text', 'default_value' => 'VACCINATION DETAILS' ),
+            array( 'key' => 'field_ep_hep_details_title', 'label' => 'Title', 'name' => 'hep_details_title', 'type' => 'text', 'default_value' => 'What to Expect at Your Appointment' ),
+            array( 'key' => 'field_ep_hep_details_desc', 'label' => 'Description', 'name' => 'hep_details_desc', 'type' => 'text', 'default_value' => 'Simple, straightforward vaccination process at our Ashford clinic' ),
+            array( 'key' => 'field_ep_hep_details_image', 'label' => 'Hero Image', 'name' => 'hep_details_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array(
+                'key'        => 'field_ep_hep_details',
+                'label'      => 'Detail Cards',
+                'name'       => 'hep_details',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_detail_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_detail_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_detail_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R8. FAQ ───────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_faq',
+        'title'    => 'Hepatitis — FAQ',
+        'fields'   => array(
+            array( 'key' => 'field_ep_hep_faq_badge', 'label' => 'Badge Text', 'name' => 'hep_faq_badge', 'type' => 'text', 'default_value' => 'HEPATITIS FAQs' ),
+            array( 'key' => 'field_ep_hep_faq_title', 'label' => 'Title', 'name' => 'hep_faq_title', 'type' => 'text', 'default_value' => 'Common Questions' ),
+            array( 'key' => 'field_ep_hep_faq_desc', 'label' => 'Description', 'name' => 'hep_faq_desc', 'type' => 'text', 'default_value' => 'Everything you need to know about Hepatitis vaccination' ),
+            array(
+                'key'        => 'field_ep_hep_faqs',
+                'label'      => 'FAQs',
+                'name'       => 'hep_faqs',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_hep_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 4 ),
+                ),
+            ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── R9. Final CTA ─────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_hep_cta',
+        'title'    => 'Hepatitis — Final CTA',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_hep_cta_badges',
+                'label'      => 'CTA Badges',
+                'name'       => 'hep_cta_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_cta_badge_text', 'label' => 'Badge Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_hep_cta_title', 'label' => 'Title', 'name' => 'hep_cta_title', 'type' => 'text', 'default_value' => 'Protect your health while travelling' ),
+            array( 'key' => 'field_ep_hep_cta_desc', 'label' => 'Description', 'name' => 'hep_cta_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your Hepatitis vaccination with our expert team today. Quick, convenient, and professional service.' ),
+            array( 'key' => 'field_ep_hep_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'hep_cta_primary_url', 'type' => 'url', 'default_value' => '' ),
+            array( 'key' => 'field_ep_hep_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'hep_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Vaccination' ),
+            array(
+                'key'        => 'field_ep_hep_cta_checks',
+                'label'      => 'Trust Checks',
+                'name'       => 'hep_cta_checks',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_hep_cta_check_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $hep_location,
+        'menu_order'            => 40,
         'position'              => 'normal',
         'style'                 => 'default',
         'label_placement'       => 'top',
@@ -8913,6 +9241,22 @@ function ep_register_acf_field_groups() {
                 'default_value' => 'Is Acetazolamide Right for Your Trip?',
             ),
             array(
+                'key'           => 'field_ep_alt_who_image',
+                'label'         => 'Destinations Image',
+                'name'          => 'alt_who_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Upload destination image (suggested: world map showing high-altitude destinations, or mountain scene). Recommended: 600×800px portrait orientation. Leave empty for two-column layout.',
+            ),
+            array(
+                'key'           => 'field_ep_alt_who_image_alt',
+                'label'         => 'Destinations Image Alt Text',
+                'name'          => 'alt_who_image_alt',
+                'type'          => 'text',
+                'default_value' => 'High-altitude travel destinations',
+            ),
+            array(
                 'key'          => 'field_ep_alt_destinations',
                 'label'        => 'Destinations',
                 'name'         => 'alt_destinations',
@@ -9169,18 +9513,1055 @@ function ep_register_acf_field_groups() {
                 'name'          => 'alt_cta_supporting',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => 'Or email hello@easypharmacy.co.uk to book your travel health consultation. Same-day appointments available. Get your Acetazolamide prescription and medication before you fly.',
+                'default_value' => 'Or email hello@easypharmacy.co.uk to book. Same-day appointments available.',
             ),
             array(
                 'key'           => 'field_ep_alt_cta_extra',
                 'label'         => 'Extra Text',
                 'name'          => 'alt_cta_extra',
                 'type'          => 'text',
-                'default_value' => 'Ask about our comprehensive travel health services including malaria tablets and travel vaccinations.',
+                'default_value' => 'Ask about malaria tablets and travel vaccinations.',
             ),
         ),
         'location'              => $alt_location,
         'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // V. HAIR LOSS PAGE FIELDS (hl_ prefix)
+    // =========================================================================
+
+    $hl_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-hair-loss.php',
+            ),
+        ),
+    );
+
+    // V1: Hero Section
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_hl_hero',
+        'title'                 => 'Hair Loss — Hero',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_hl_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'hl_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'HAIR LOSS TREATMENT',
+            ),
+            array(
+                'key'           => 'field_ep_hl_hero_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'hl_hero_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Regrow Your Confidence with',
+            ),
+            array(
+                'key'           => 'field_ep_hl_hero_title_highlight',
+                'label'         => 'Title Highlight (Gradient Text)',
+                'name'          => 'hl_hero_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Expert Hair Loss Treatment',
+            ),
+            array(
+                'key'           => 'field_ep_hl_hero_description',
+                'label'         => 'Description',
+                'name'          => 'hl_hero_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Clinically proven treatments including Finasteride and Minoxidil. Face-to-face consultations with our GPhC-registered pharmacist in Ashford.',
+            ),
+            array(
+                'key'           => 'field_ep_hl_feature_1',
+                'label'         => 'Feature 1',
+                'name'          => 'hl_feature_1',
+                'type'          => 'text',
+                'default_value' => 'Prescription treatments (Finasteride)',
+            ),
+            array(
+                'key'           => 'field_ep_hl_feature_2',
+                'label'         => 'Feature 2',
+                'name'          => 'hl_feature_2',
+                'type'          => 'text',
+                'default_value' => 'Over-the-counter solutions (Minoxidil)',
+            ),
+            array(
+                'key'           => 'field_ep_hl_feature_3',
+                'label'         => 'Feature 3',
+                'name'          => 'hl_feature_3',
+                'type'          => 'text',
+                'default_value' => 'Personalised treatment plans',
+            ),
+            array(
+                'key'           => 'field_ep_hl_hero_cta_text',
+                'label'         => 'CTA Button Text',
+                'name'          => 'hl_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Book Consultation',
+            ),
+            array(
+                'key'           => 'field_ep_hl_hero_cta_url',
+                'label'         => 'CTA Button URL',
+                'name'          => 'hl_hero_cta_url',
+                'type'          => 'text',
+                'default_value' => '',
+                'instructions'  => 'Leave empty to use the global booking page URL.',
+            ),
+            array(
+                'key'           => 'field_ep_hl_hero_image',
+                'label'         => 'Hero Image',
+                'name'          => 'hl_hero_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Recommended: 800×1000px portrait orientation.',
+            ),
+            array(
+                'key'           => 'field_ep_hl_hero_image_alt',
+                'label'         => 'Hero Image Alt Text',
+                'name'          => 'hl_hero_image_alt',
+                'type'          => 'text',
+                'default_value' => 'Before and after hair restoration comparison',
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // V2: Social Proof Section (replaces stats bar)
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_hl_social_proof',
+        'title'                 => 'Hair Loss — Social Proof',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_hl_social_eyebrow',
+                'label'         => 'Eyebrow Text',
+                'name'          => 'hl_social_eyebrow',
+                'type'          => 'text',
+                'default_value' => 'TRUSTED BY ASHFORD',
+            ),
+            array(
+                'key'           => 'field_ep_hl_social_headline',
+                'label'         => 'Headline',
+                'name'          => 'hl_social_headline',
+                'type'          => 'text',
+                'default_value' => 'Expert hair loss treatment from your local GPhC-registered pharmacist',
+            ),
+            array(
+                'key'           => 'field_ep_hl_social_subtext',
+                'label'         => 'Subtext',
+                'name'          => 'hl_social_subtext',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Over 500 patients treated with clinically proven hair loss solutions. GPhC-registered, with typical results in 6-12 months.',
+                'instructions'  => 'Rating score and location auto-pull from Pharmacy Settings.',
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 1,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // V3: Understanding Hair Loss (About Section)
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_hl_about',
+        'title'                 => 'Hair Loss — Understanding Hair Loss',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_hl_about_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'hl_about_badge',
+                'type'          => 'text',
+                'default_value' => 'CAUSES & SOLUTIONS',
+            ),
+            array(
+                'key'           => 'field_ep_hl_about_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'hl_about_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Understanding',
+            ),
+            array(
+                'key'           => 'field_ep_hl_about_title_highlight',
+                'label'         => 'Title Highlight (Gradient Text)',
+                'name'          => 'hl_about_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Male Pattern Baldness',
+            ),
+            array(
+                'key'           => 'field_ep_hl_about_description',
+                'label'         => 'Description',
+                'name'          => 'hl_about_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Hair loss affects up to 50% of men by age 50. The most common cause is androgenetic alopecia (male pattern baldness), caused by genetic sensitivity to DHT hormone.',
+            ),
+            array(
+                'key'          => 'field_ep_hl_about_cards',
+                'label'        => 'Info Cards',
+                'name'         => 'hl_about_cards',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Card',
+                'max'          => 4,
+                'instructions' => 'Leave empty to use default cards.',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_hl_about_card_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-dna',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_about_card_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_about_card_desc',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'textarea',
+                        'rows'  => 2,
+                    ),
+                    array(
+                        'key'           => 'field_ep_hl_about_card_image',
+                        'label'         => 'Card Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'instructions'  => 'Recommended: 600×400px.',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 2,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // V4: Treatment Options
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_hl_treatments',
+        'title'                 => 'Hair Loss — Treatment Options',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_hl_treatments_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'hl_treatments_badge',
+                'type'          => 'text',
+                'default_value' => 'PRESCRIPTION & OTC',
+            ),
+            array(
+                'key'           => 'field_ep_hl_treatments_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'hl_treatments_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Our',
+            ),
+            array(
+                'key'           => 'field_ep_hl_treatments_title_highlight',
+                'label'         => 'Title Highlight (Gradient Text)',
+                'name'          => 'hl_treatments_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Hair Loss Treatments',
+            ),
+            array(
+                'key'          => 'field_ep_hl_treatments',
+                'label'        => 'Treatment Cards',
+                'name'         => 'hl_treatments',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Treatment',
+                'max'          => 4,
+                'instructions' => 'Leave empty to use default treatment cards (Finasteride + Minoxidil).',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_hl_treatment_featured',
+                        'label'         => 'Featured?',
+                        'name'          => 'is_featured',
+                        'type'          => 'true_false',
+                        'default_value' => 0,
+                        'ui'            => 1,
+                    ),
+                    array(
+                        'key'           => 'field_ep_hl_treatment_badge_type',
+                        'label'         => 'Badge Type',
+                        'name'          => 'badge_type',
+                        'type'          => 'select',
+                        'choices'       => array(
+                            'prescription' => 'Prescription',
+                            'otc'          => 'OTC',
+                        ),
+                        'default_value' => 'prescription',
+                    ),
+                    array(
+                        'key'           => 'field_ep_hl_treatment_badge_text',
+                        'label'         => 'Badge Text',
+                        'name'          => 'badge_text',
+                        'type'          => 'text',
+                        'default_value' => 'PRESCRIPTION REQUIRED',
+                    ),
+                    array(
+                        'key'           => 'field_ep_hl_treatment_image',
+                        'label'         => 'Treatment Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                        'instructions'  => 'Recommended: 400×400px.',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_treatment_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_treatment_subtitle',
+                        'label' => 'Subtitle',
+                        'name'  => 'subtitle',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_treatment_how',
+                        'label' => 'How It Works',
+                        'name'  => 'how_it_works',
+                        'type'  => 'textarea',
+                        'rows'  => 2,
+                    ),
+                    array(
+                        'key'          => 'field_ep_hl_treatment_results',
+                        'label'        => 'Results',
+                        'name'         => 'results',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'button_label' => 'Add Result',
+                        'max'          => 5,
+                        'sub_fields'   => array(
+                            array(
+                                'key'   => 'field_ep_hl_treatment_result_text',
+                                'label' => 'Text',
+                                'name'  => 'text',
+                                'type'  => 'text',
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_treatment_duration',
+                        'label' => 'Duration',
+                        'name'  => 'duration',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_treatment_price',
+                        'label' => 'Price',
+                        'name'  => 'price',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'           => 'field_ep_hl_treatment_btn_text',
+                        'label'         => 'Button Text',
+                        'name'          => 'button_text',
+                        'type'          => 'text',
+                        'default_value' => 'Book Consultation',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 3,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // V5: Combination Therapy
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_hl_combo',
+        'title'                 => 'Hair Loss — Combination Therapy',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_hl_combo_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'hl_combo_badge',
+                'type'          => 'text',
+                'default_value' => 'BEST RESULTS',
+            ),
+            array(
+                'key'           => 'field_ep_hl_combo_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'hl_combo_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Combining',
+            ),
+            array(
+                'key'           => 'field_ep_hl_combo_title_highlight',
+                'label'         => 'Title Highlight (Gradient Text)',
+                'name'          => 'hl_combo_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Finasteride + Minoxidil',
+            ),
+            array(
+                'key'           => 'field_ep_hl_combo_description',
+                'label'         => 'Description',
+                'name'          => 'hl_combo_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Studies show that using both treatments together provides the best results for hair regrowth and prevention.',
+            ),
+            array(
+                'key'           => 'field_ep_hl_combo_image',
+                'label'         => 'Section Image',
+                'name'          => 'hl_combo_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Recommended: 800×1000px portrait orientation.',
+            ),
+            array(
+                'key'          => 'field_ep_hl_combo_benefits',
+                'label'        => 'Benefits',
+                'name'         => 'hl_combo_benefits',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Benefit',
+                'max'          => 6,
+                'instructions' => 'Leave empty to use default benefits.',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_hl_combo_benefit_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-shield-halved',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_combo_benefit_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_combo_benefit_desc',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+            array(
+                'key'           => 'field_ep_hl_combo_single',
+                'label'         => 'Single Treatment Text',
+                'name'          => 'hl_combo_single',
+                'type'          => 'text',
+                'default_value' => 'Single Treatment: 40-65% success rate',
+            ),
+            array(
+                'key'           => 'field_ep_hl_combo_combined',
+                'label'         => 'Combined Treatment Text',
+                'name'          => 'hl_combo_combined',
+                'type'          => 'text',
+                'default_value' => 'Combined Therapy: 80-85% success rate',
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 4,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // V6: Eligibility
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_hl_eligibility',
+        'title'                 => 'Hair Loss — Eligibility',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_hl_eligibility_title',
+                'label'         => 'Title',
+                'name'          => 'hl_eligibility_title',
+                'type'          => 'text',
+                'default_value' => 'Am I Suitable for Treatment?',
+            ),
+            array(
+                'key'          => 'field_ep_hl_eligibility_cards',
+                'label'        => 'Eligibility Cards',
+                'name'         => 'hl_eligibility_cards',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Card',
+                'max'          => 4,
+                'instructions' => 'Leave empty to use default cards (Suitable, Assessment, Not Recommended).',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_hl_elig_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-check-circle',
+                    ),
+                    array(
+                        'key'           => 'field_ep_hl_elig_badge_type',
+                        'label'         => 'Badge Type',
+                        'name'          => 'badge_type',
+                        'type'          => 'select',
+                        'choices'       => array(
+                            'suitable'      => 'Suitable',
+                            'assessment'    => 'Assessment Needed',
+                            'not-suitable'  => 'Not Recommended',
+                        ),
+                        'default_value' => 'suitable',
+                    ),
+                    array(
+                        'key'           => 'field_ep_hl_elig_badge_text',
+                        'label'         => 'Badge Text',
+                        'name'          => 'badge_text',
+                        'type'          => 'text',
+                        'default_value' => 'SUITABLE',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_elig_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'          => 'field_ep_hl_elig_items',
+                        'label'        => 'Checklist Items',
+                        'name'         => 'items',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'button_label' => 'Add Item',
+                        'max'          => 8,
+                        'sub_fields'   => array(
+                            array(
+                                'key'   => 'field_ep_hl_elig_item_text',
+                                'label' => 'Text',
+                                'name'  => 'text',
+                                'type'  => 'text',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'key'           => 'field_ep_hl_eligibility_note',
+                'label'         => 'Bottom Note',
+                'name'          => 'hl_eligibility_note',
+                'type'          => 'text',
+                'default_value' => 'Our pharmacist will assess your suitability during consultation and recommend the best treatment plan',
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // V7: Process Steps
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_hl_process',
+        'title'                 => 'Hair Loss — Process Steps',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_hl_process_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'hl_process_badge',
+                'type'          => 'text',
+                'default_value' => 'HOW IT WORKS',
+            ),
+            array(
+                'key'           => 'field_ep_hl_process_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'hl_process_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Your Hair Loss Treatment',
+            ),
+            array(
+                'key'           => 'field_ep_hl_process_title_highlight',
+                'label'         => 'Title Highlight (Gradient Text)',
+                'name'          => 'hl_process_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Journey',
+            ),
+            array(
+                'key'          => 'field_ep_hl_process_steps',
+                'label'        => 'Steps',
+                'name'         => 'hl_process_steps',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Step',
+                'max'          => 6,
+                'instructions' => 'Leave empty to use default 4 steps.',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_ep_hl_step_icon',
+                        'label'         => 'Icon Class',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'default_value' => 'fas fa-calendar-check',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_step_title',
+                        'label' => 'Title',
+                        'name'  => 'title',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_step_desc',
+                        'label' => 'Description',
+                        'name'  => 'description',
+                        'type'  => 'textarea',
+                        'rows'  => 2,
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_step_time',
+                        'label' => 'Time Badge',
+                        'name'  => 'time_badge',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 6,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // V8: FAQ
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_hl_faq',
+        'title'                 => 'Hair Loss — FAQ',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_hl_faq_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'hl_faq_badge',
+                'type'          => 'text',
+                'default_value' => 'COMMON QUESTIONS',
+            ),
+            array(
+                'key'           => 'field_ep_hl_faq_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'hl_faq_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Hair Loss Treatment',
+            ),
+            array(
+                'key'           => 'field_ep_hl_faq_title_highlight',
+                'label'         => 'Title Highlight (Gradient Text)',
+                'name'          => 'hl_faq_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'FAQs',
+            ),
+            array(
+                'key'          => 'field_ep_hl_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'hl_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'max'          => 20,
+                'instructions' => 'Leave empty to use default FAQs.',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_ep_hl_faq_question',
+                        'label' => 'Question',
+                        'name'  => 'question',
+                        'type'  => 'text',
+                    ),
+                    array(
+                        'key'   => 'field_ep_hl_faq_answer',
+                        'label' => 'Answer',
+                        'name'  => 'answer',
+                        'type'  => 'textarea',
+                        'rows'  => 3,
+                    ),
+                ),
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 7,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // V9: Final CTA
+    acf_add_local_field_group( array(
+        'key'                   => 'group_ep_hl_cta',
+        'title'                 => 'Hair Loss — Final CTA',
+        'fields'                => array(
+            array(
+                'key'           => 'field_ep_hl_cta_title',
+                'label'         => 'CTA Title',
+                'name'          => 'hl_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready to Start Your Hair Regrowth Journey?',
+            ),
+            array(
+                'key'           => 'field_ep_hl_cta_description',
+                'label'         => 'CTA Description',
+                'name'          => 'hl_cta_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Book a free consultation with our GPhC-registered pharmacist in Ashford',
+            ),
+            array(
+                'key'           => 'field_ep_hl_cta_hours',
+                'label'         => 'Opening Hours',
+                'name'          => 'hl_cta_hours',
+                'type'          => 'text',
+                'default_value' => 'Open Mon-Fri 9am-6pm, Sat 9am-1pm',
+            ),
+        ),
+        'location'              => $hl_location,
+        'menu_order'            => 8,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =============================================
+    // T — MALARIA PREVENTION PAGE
+    // =============================================
+    $mal_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-malaria.php',
+            ),
+        ),
+    );
+
+    // ── T1. Hero ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_hero',
+        'title'    => 'Malaria — Hero',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_parent_url', 'label' => 'Breadcrumb Parent URL', 'name' => 'mal_parent_url', 'type' => 'text', 'default_value' => '/travel-health/', 'instructions' => 'Relative path to the parent page shown in the breadcrumb (e.g. /travel-health/). This is NOT the current page URL.' ),
+            array( 'key' => 'field_ep_mal_hero_image', 'label' => 'Hero Background Image', 'name' => 'mal_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_mal_hero_label', 'label' => 'Hero Label', 'name' => 'mal_hero_label', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH PROTECTION' ),
+            array( 'key' => 'field_ep_mal_hero_title_1', 'label' => 'Hero Title — Line 1 (gradient)', 'name' => 'mal_hero_title_line_1', 'type' => 'text', 'default_value' => 'Malaria Tablets' ),
+            array( 'key' => 'field_ep_mal_hero_title_2', 'label' => 'Hero Title — Line 2 (accent)', 'name' => 'mal_hero_title_line_2', 'type' => 'text', 'default_value' => 'in Ashford, Chertsey' ),
+            array( 'key' => 'field_ep_mal_hero_title_3', 'label' => 'Hero Title — Line 3 (gradient)', 'name' => 'mal_hero_title_line_3', 'type' => 'text', 'default_value' => '& Walton-on-Thames' ),
+            array( 'key' => 'field_ep_mal_hero_desc', 'label' => 'Hero Description', 'name' => 'mal_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Travelling to a malaria zone? Get expert advice and prescription antimalarial tablets before you go. Face-to-face consultation with travel health pharmacist — no GP referral needed.' ),
+            array( 'key' => 'field_ep_mal_cta_url', 'label' => 'CTA URL', 'name' => 'mal_cta_url', 'type' => 'url', 'default_value' => '' ),
+            array( 'key' => 'field_ep_mal_cta_text', 'label' => 'CTA Text', 'name' => 'mal_cta_text', 'type' => 'text', 'default_value' => 'Book Your Travel Consultation' ),
+            array( 'key' => 'field_ep_mal_phone_display', 'label' => 'Phone Display', 'name' => 'mal_phone_display', 'type' => 'text', 'default_value' => 'Call 01784 255 222' ),
+            array(
+                'key'        => 'field_ep_mal_hero_badges',
+                'label'      => 'Hero Badges',
+                'name'       => 'mal_hero_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_hero_badge_text', 'label' => 'Badge Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_mal_hero_supporting', 'label' => 'Supporting Text', 'name' => 'mal_hero_supporting', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Same-day appointments available at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames. Malarone, doxycycline, and expert malaria prevention advice.' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T2. Why Prevention Matters ──────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_why',
+        'title'    => 'Malaria — Why Prevention Matters',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_why_badge', 'label' => 'Badge Text', 'name' => 'mal_why_badge', 'type' => 'text', 'default_value' => 'WHY IT MATTERS' ),
+            array( 'key' => 'field_ep_mal_why_title', 'label' => 'Title', 'name' => 'mal_why_title', 'type' => 'text', 'default_value' => '"I Didn\'t Think I Needed Malaria Tablets for a Two-Week Holiday"' ),
+            array( 'key' => 'field_ep_mal_why_intro', 'label' => 'Intro Text', 'name' => 'mal_why_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Most people booking trips to Thailand, Tanzania, or India don\'t realise malaria is a risk until they research travel requirements a few weeks before departure.' ),
+            array( 'key' => 'field_ep_mal_why_text', 'label' => 'Body Text', 'name' => 'mal_why_text', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'By then, some are scrambling to get GP appointments (weeks-long waiting lists), or trying online pharmacies (impersonal forms, postal delays), or worse — planning to "get them at the airport" (limited stock, inflated prices).' ),
+            array( 'key' => 'field_ep_mal_why_solution', 'label' => 'Solution Text', 'name' => 'mal_why_solution', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'At Easy Pharmacy in Ashford, Chertsey, and Walton-on-Thames, travellers book malaria consultations weeks before departure and leave the same day with:' ),
+            array(
+                'key'        => 'field_ep_mal_why_items',
+                'label'      => 'Checklist Items',
+                'name'       => 'mal_why_items',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_why_item_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_mal_why_callout_badge', 'label' => 'Callout Badge', 'name' => 'mal_why_callout_badge', 'type' => 'text', 'default_value' => 'KEY STATISTIC' ),
+            array( 'key' => 'field_ep_mal_why_callout_stat', 'label' => 'Callout Stat', 'name' => 'mal_why_callout_stat', 'type' => 'text', 'default_value' => '610,000' ),
+            array( 'key' => 'field_ep_mal_why_callout_text', 'label' => 'Callout Text', 'name' => 'mal_why_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'deaths annually from malaria, mostly in sub-Saharan Africa. Prevention is straightforward if you prepare properly.' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T2b. Social Proof Band ──────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_social_proof',
+        'title'    => 'Malaria — Social Proof',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_social_rating_score', 'label' => 'Rating Score', 'name' => 'mal_social_rating_score', 'type' => 'text', 'default_value' => '', 'instructions' => 'Leave blank to auto-pull from Pharmacy Settings.' ),
+            array( 'key' => 'field_ep_mal_social_rating_count', 'label' => 'Rating Count Text', 'name' => 'mal_social_rating_count', 'type' => 'text', 'default_value' => 'Based on 300+ reviews' ),
+            array( 'key' => 'field_ep_mal_social_rating_location', 'label' => 'Rating Location', 'name' => 'mal_social_rating_location', 'type' => 'text', 'default_value' => '', 'instructions' => 'Leave blank to auto-pull from Pharmacy Settings.' ),
+            array( 'key' => 'field_ep_mal_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'mal_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY ASHFORD' ),
+            array( 'key' => 'field_ep_mal_social_headline', 'label' => 'Headline', 'name' => 'mal_social_headline', 'type' => 'text', 'default_value' => 'Expert travel health advice from a pharmacy you can trust' ),
+            array( 'key' => 'field_ep_mal_social_subtext', 'label' => 'Subtext', 'name' => 'mal_social_subtext', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Hundreds of travellers across Ashford, Chertsey, and Walton-on-Thames trust Easy Pharmacy for malaria prevention and travel health consultations' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 7,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T3. How It Works (3-Step Process) ───────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_process',
+        'title'    => 'Malaria — How It Works',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_process_badge', 'label' => 'Badge Text', 'name' => 'mal_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
+            array( 'key' => 'field_ep_mal_process_title_highlight', 'label' => 'Title — Highlight (gradient)', 'name' => 'mal_process_title_highlight', 'type' => 'text', 'default_value' => 'Your Path To' ),
+            array( 'key' => 'field_ep_mal_process_title_line2', 'label' => 'Title — Line 2 (accent)', 'name' => 'mal_process_title_line2', 'type' => 'text', 'default_value' => ' Malaria Protection' ),
+            array( 'key' => 'field_ep_mal_process_desc', 'label' => 'Description', 'name' => 'mal_process_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'A simple, face-to-face process with expert guidance at every step.' ),
+            array(
+                'key'        => 'field_ep_mal_process_steps',
+                'label'      => 'Journey Steps',
+                'name'       => 'mal_process_steps',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 4 ),
+                    array( 'key' => 'field_ep_mal_step_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+                ),
+            ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T4. Antimalarial Options ────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_options',
+        'title'    => 'Malaria — Antimalarial Options',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_options_badge', 'label' => 'Badge Text', 'name' => 'mal_options_badge', 'type' => 'text', 'default_value' => 'ANTIMALARIAL OPTIONS' ),
+            array( 'key' => 'field_ep_mal_options_title', 'label' => 'Title', 'name' => 'mal_options_title', 'type' => 'text', 'default_value' => 'Malarone, Doxycycline, or Atovaquone/Proguanil — Which Is Right for Your Trip?' ),
+            array( 'key' => 'field_ep_mal_options_intro', 'label' => 'Intro Text', 'name' => 'mal_options_intro', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'There isn\'t one "best" antimalarial. The right choice depends on your destination, trip duration, medical history, and other medications you take.' ),
+            array(
+                'key'        => 'field_ep_mal_options_cards',
+                'label'      => 'Medication Cards',
+                'name'       => 'mal_options_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_option_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_option_best_for', 'label' => 'Best For', 'name' => 'best_for', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_option_featured', 'label' => 'Featured?', 'name' => 'featured', 'type' => 'true_false', 'default_value' => 0 ),
+                    array(
+                        'key'        => 'field_ep_mal_option_details',
+                        'label'      => 'Details',
+                        'name'       => 'details',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_mal_detail_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+                            array( 'key' => 'field_ep_mal_detail_positive', 'label' => 'Positive?', 'name' => 'positive', 'type' => 'true_false', 'default_value' => 1 ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_ep_mal_options_footer', 'label' => 'Footer Text', 'name' => 'mal_options_footer', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'During your consultation, we\'ll recommend the most suitable option based on your specific situation. Some destinations have chloroquine-resistant malaria strains, which affects which tablets work.' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 15,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T5. High-Risk Destinations ──────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_destinations',
+        'title'    => 'Malaria — High-Risk Destinations',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_dest_badge', 'label' => 'Badge Text', 'name' => 'mal_dest_badge', 'type' => 'text', 'default_value' => 'DESTINATION RISK' ),
+            array( 'key' => 'field_ep_mal_dest_title', 'label' => 'Title', 'name' => 'mal_dest_title', 'type' => 'text', 'default_value' => 'Do You Need Malaria Tablets for Your Destination?' ),
+            array( 'key' => 'field_ep_mal_dest_desc', 'label' => 'Description', 'name' => 'mal_dest_desc', 'type' => 'text', 'default_value' => 'High-risk malaria destinations where antimalarials are essential:' ),
+            array(
+                'key'        => 'field_ep_mal_dest_zones',
+                'label'      => 'Destination Zones',
+                'name'       => 'mal_dest_zones',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_zone_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_zone_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_zone_level', 'label' => 'Risk Level', 'name' => 'level', 'type' => 'select', 'choices' => array( 'high' => 'High', 'moderate' => 'Moderate', 'low' => 'Low' ) ),
+                    array(
+                        'key'        => 'field_ep_mal_zone_countries',
+                        'label'      => 'Countries',
+                        'name'       => 'countries',
+                        'type'       => 'repeater',
+                        'layout'     => 'table',
+                        'sub_fields' => array(
+                            array( 'key' => 'field_ep_mal_country_name', 'label' => 'Country', 'name' => 'name', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+            array( 'key' => 'field_ep_mal_dest_callout_title', 'label' => 'Callout Title', 'name' => 'mal_dest_callout_title', 'type' => 'text', 'default_value' => 'Important' ),
+            array( 'key' => 'field_ep_mal_dest_callout_text', 'label' => 'Callout Text', 'name' => 'mal_dest_callout_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Malaria risk varies within countries. Cities and high-altitude areas often have no malaria risk, while rural/jungle regions do. During your consultation, we\'ll assess your specific itinerary.' ),
+            array( 'key' => 'field_ep_mal_dest_norisk_title', 'label' => 'No Risk Title', 'name' => 'mal_dest_norisk_title', 'type' => 'text', 'default_value' => 'No malaria risk (antimalarials NOT needed):' ),
+            array( 'key' => 'field_ep_mal_dest_norisk_text', 'label' => 'No Risk Text', 'name' => 'mal_dest_norisk_text', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Most of Caribbean, Mexico (tourist areas), Maldives, Bali (but other Indonesian islands DO have malaria), Dubai/UAE, most of China' ),
+            array( 'key' => 'field_ep_mal_dest_footer', 'label' => 'Footer Text', 'name' => 'mal_dest_footer', 'type' => 'text', 'default_value' => 'If you\'re unsure whether your destination requires antimalarials, book a consultation. We\'ll check current travel health guidance and advise accordingly.' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T6. Why Easy Pharmacy ───────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_whyus',
+        'title'    => 'Malaria — Why Easy Pharmacy',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_whyus_badge', 'label' => 'Badge Text', 'name' => 'mal_whyus_badge', 'type' => 'text', 'default_value' => 'WHY EASY PHARMACY' ),
+            array( 'key' => 'field_ep_mal_whyus_title', 'label' => 'Title', 'name' => 'mal_whyus_title', 'type' => 'text', 'default_value' => 'Why Travellers in Ashford, Chertsey & Walton Choose Easy Pharmacy' ),
+            array(
+                'key'        => 'field_ep_mal_whyus_cards',
+                'label'      => 'Feature Cards',
+                'name'       => 'mal_whyus_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_whyus_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_whyus_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_whyus_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 4 ),
+                ),
+            ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 25,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T7. FAQ ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_faq',
+        'title'    => 'Malaria — FAQ',
+        'fields'   => array(
+            array( 'key' => 'field_ep_mal_faq_badge', 'label' => 'Badge Text', 'name' => 'mal_faq_badge', 'type' => 'text', 'default_value' => 'MALARIA FAQs' ),
+            array( 'key' => 'field_ep_mal_faq_title', 'label' => 'Title', 'name' => 'mal_faq_title', 'type' => 'text', 'default_value' => 'Frequently Asked Questions' ),
+            array(
+                'key'        => 'field_ep_mal_faqs',
+                'label'      => 'FAQs',
+                'name'       => 'mal_faqs',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_mal_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 4 ),
+                ),
+            ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── T8. Final CTA ───────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_mal_cta',
+        'title'    => 'Malaria — Final CTA',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_mal_cta_badges',
+                'label'      => 'CTA Badges',
+                'name'       => 'mal_cta_badges',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_mal_cta_badge_text', 'label' => 'Badge Text', 'name' => 'text', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_mal_cta_title', 'label' => 'Title', 'name' => 'mal_cta_title', 'type' => 'text', 'default_value' => 'Ready to Protect Yourself from Malaria?' ),
+            array( 'key' => 'field_ep_mal_cta_desc', 'label' => 'Description', 'name' => 'mal_cta_desc', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your malaria prevention consultation at Easy Pharmacy serving Ashford, Chertsey, and Walton-on-Thames.' ),
+            array( 'key' => 'field_ep_mal_cta_supporting', 'label' => 'Supporting Text', 'name' => 'mal_cta_supporting', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Or email hello@easypharmacy.co.uk to book your travel health consultation. Ask about our travel health services including altitude sickness prevention and travel vaccinations.' ),
+        ),
+        'location'              => $mal_location,
+        'menu_order'            => 35,
         'position'              => 'normal',
         'style'                 => 'default',
         'label_placement'       => 'top',

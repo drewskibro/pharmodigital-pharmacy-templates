@@ -684,96 +684,95 @@
 }
 
 /* ============================================
-   STATS BAR — deep purple accent (30% contrast)
+   SOCIAL PROOF SECTION - GOOGLE RATING
    ============================================ */
-.book-stats-section {
-  position: relative;
-  background: linear-gradient(135deg, #2D1B4E, #3D2A5C, #2D1B4E);
-  padding: 2.5rem 0;
-  overflow: hidden;
+.book-social-proof-section {
+  background: #f8f6fb;
+  padding: 60px 0;
 }
 
-.book-stats-shimmer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-  animation: shimmer 3s infinite;
-}
-
-.book-stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  position: relative;
-  z-index: 10;
-}
-
-@media (min-width: 768px) {
-  .book-stats-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-  }
-}
-
-.book-stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .book-stat-item {
-    flex-direction: row;
-    text-align: left;
-    gap: 1.25rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .book-stat-item {
-    justify-content: flex-start;
-  }
-}
-
-.book-stat-icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
-  backdrop-filter: blur(8px);
+.book-social-proof-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 1.25rem;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 767px) {
+  .book-social-proof-wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
+
+/* Override homepage rating badge positioning for inline use */
+.book-social-proof-wrapper .rating-badge {
+  position: static;
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  min-width: 260px;
 }
 
-.book-stat-item:hover .book-stat-icon {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
+.book-social-proof-content {
+  flex: 1;
 }
 
-.book-stat-content {
-  display: flex;
-  flex-direction: column;
+@media (max-width: 767px) {
+  .book-social-proof-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book-social-proof-wrapper .rating-badge {
+    min-width: auto;
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
-.book-stat-number {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1;
+.book-social-proof-eyebrow {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--brand-purple);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
 }
 
-.book-stat-label {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+.book-social-proof-headline {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #374151;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .book-social-proof-headline {
+    font-size: 1.75rem;
+  }
+}
+
+.book-social-proof-subtext {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #4a5568;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .book-social-proof-subtext {
+    font-size: 1rem;
+  }
+
+  .book-social-proof-section {
+    padding: 40px 0;
+  }
 }
 
 /* ============================================
@@ -1048,7 +1047,7 @@
    AMELIA SECTION
    ============================================ */
 .book-amelia-section {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background: rgba(196, 122, 101, 0.05);
   position: relative;
   overflow: hidden;
@@ -1063,6 +1062,7 @@
   background: rgba(196, 122, 101, 0.1);
   border-radius: 50%;
   filter: blur(80px);
+  pointer-events: none;
 }
 
 .book-amelia-blob-2 {
@@ -1074,6 +1074,7 @@
   background: rgba(196, 122, 101, 0.08);
   border-radius: 50%;
   filter: blur(80px);
+  pointer-events: none;
 }
 
 .book-amelia-header {
@@ -1102,17 +1103,13 @@
 }
 
 .book-amelia-container {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
   background: var(--white);
-  border-radius: 2rem;
-  box-shadow: 0 25px 60px rgba(196, 122, 101, 0.15);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px rgba(196, 122, 101, 0.12);
   border: 1px solid rgba(196, 122, 101, 0.1);
-  padding: 3rem;
-  min-height: 700px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 1.5rem;
   position: relative;
   z-index: 10;
 }
@@ -1377,25 +1374,17 @@
 }
 
 /* ============================================
-   FINAL CTA SECTION
+   FINAL CTA SECTION — Terracotta on-brand
    ============================================ */
 .book-cta-section {
   position: relative;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
+  background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
   padding: 6rem 0;
   overflow: hidden;
   text-align: center;
 }
 
-.book-cta-bg-dots {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
-  pointer-events: none;
-}
-
-.book-cta-bg-blobs {
+.book-cta-glow-1 {
   position: absolute;
   top: -10%;
   right: -5%;
@@ -1407,6 +1396,26 @@
   pointer-events: none;
 }
 
+.book-cta-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.book-cta-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
 .book-cta-content {
   position: relative;
   z-index: 10;
@@ -1414,8 +1423,34 @@
   margin: 0 auto;
 }
 
+.book-cta-badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.book-cta-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.book-cta-badge i {
+  font-size: 1rem;
+}
+
 .book-cta-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 900;
   color: var(--white);
   margin-bottom: 1.5rem;
@@ -1423,43 +1458,613 @@
 
 .book-cta-description {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 3rem;
+  line-height: 1.6;
 }
 
-.book-cta-buttons {
+.book-cta-actions {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 3rem;
   flex-wrap: wrap;
+}
+
+@media (max-width: 639px) {
+  .book-cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .book-cta-phone {
   background: var(--white);
   color: var(--brand-dark);
-  padding: 1.25rem 2rem;
-  font-size: 1.125rem;
+  border: none;
+  padding: 1.125rem 2rem;
+  font-size: 1.0625rem;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .book-cta-phone:hover {
+  background: rgba(255, 255, 255, 0.95);
   transform: scale(1.05);
 }
 
-.book-cta-hours {
+.book-cta-book {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.book-cta-book:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.book-cta-checks {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.book-cta-check {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 1.25rem 2rem;
-  border-radius: 9999px;
+  gap: 0.5rem;
   color: var(--white);
   font-weight: 600;
 }
 
-.book-cta-hours i {
-  font-size: 1.125rem;
+.book-cta-check i {
+  color: var(--white);
 }
+
+/* ============================================
+   AMELIA BOOKING PLUGIN — THEME OVERRIDE FIXES
+   The theme's global reset (* { margin: 0; padding: 0 })
+   and display overrides break Amelia's internal calendar
+   layout. These scoped rules restore proper rendering.
+   ============================================ */
+
+/* ---- Reset box model for all Amelia elements ---- */
+.book-amelia-container *,
+.book-amelia-container *::before,
+.book-amelia-container *::after {
+  box-sizing: border-box;
+}
+
+/* ---- Restore default spacing inside Amelia widget ---- */
+.book-amelia-container .amelia-app-booking,
+.book-amelia-container [id^="amelia-step-booking"],
+.book-amelia-container [id^="amelia-catalog-booking"],
+.book-amelia-container [id^="amelia-booking"],
+.book-amelia-container .amelia-v2-booking {
+  font-family: var(--font-primary);
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* ---- Headings inside Amelia should use its own styles ---- */
+.book-amelia-container .amelia-app-booking h1,
+.book-amelia-container .amelia-app-booking h2,
+.book-amelia-container .amelia-app-booking h3,
+.book-amelia-container .amelia-app-booking h4,
+.book-amelia-container .amelia-app-booking h5,
+.book-amelia-container .amelia-app-booking h6,
+.book-amelia-container [id^="amelia-step-booking"] h1,
+.book-amelia-container [id^="amelia-step-booking"] h2,
+.book-amelia-container [id^="amelia-step-booking"] h3,
+.book-amelia-container [id^="amelia-step-booking"] h4,
+.book-amelia-container [id^="amelia-step-booking"] h5,
+.book-amelia-container [id^="amelia-step-booking"] h6 {
+  font-family: inherit;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ---- Restore img display for Amelia icons/images ---- */
+/* Note: height:auto removed — it conflicts with explicit sizing on V2 step booking images */
+.book-amelia-container .amelia-app-booking img,
+.book-amelia-container [id^="amelia-catalog-booking"] img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---- Amelia catalog service card images — fill the card ---- */
+/* Only target catalog booking forms, not step booking forms */
+.book-amelia-container [id^="amelia-catalog-booking"] img {
+  width: 100% !important;
+  height: 180px !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+/* ---- Restore list styles inside Amelia ---- */
+.book-amelia-container .amelia-app-booking ul,
+.book-amelia-container [id^="amelia-step-booking"] ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- Link styling reset inside Amelia ---- */
+.book-amelia-container .amelia-app-booking a,
+.book-amelia-container [id^="amelia-step-booking"] a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================
+   AMELIA CALENDAR GRID FIX
+   The calendar renders as a table/grid that needs
+   proper cell sizing. Theme resets strip the spacing.
+   ============================================ */
+
+/* Target Amelia's calendar table elements */
+.book-amelia-container table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.book-amelia-container table th,
+.book-amelia-container table td {
+  padding: 8px 4px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.book-amelia-container table th {
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 13px;
+  padding-bottom: 12px;
+}
+
+/* ---- Element UI date picker overrides (Amelia uses Element UI) ---- */
+.book-amelia-container .el-date-table,
+.book-amelia-container .el-calendar-table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+.book-amelia-container .el-date-table td,
+.book-amelia-container .el-calendar-table td {
+  padding: 4px !important;
+  text-align: center !important;
+  width: 14.285% !important;
+  height: auto !important;
+}
+
+.book-amelia-container .el-date-table th,
+.book-amelia-container .el-calendar-table th {
+  padding: 8px 4px !important;
+  text-align: center !important;
+  min-width: 0 !important;
+}
+
+.book-amelia-container .el-date-table td .el-date-table-cell,
+.book-amelia-container .el-date-table td div {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ---- Amelia V2 calendar day cells ---- */
+.book-amelia-container .am-calendar-picker__body table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+.book-amelia-container .am-calendar-picker__body td,
+.book-amelia-container .am-calendar-picker__body th {
+  padding: 4px !important;
+  text-align: center !important;
+}
+
+/* ---- Amelia date picker wrapper (Vue-based) ---- */
+.book-amelia-container .am-date-picker,
+.book-amelia-container .am-calendar-picker {
+  width: 100%;
+}
+
+.book-amelia-container .am-date-picker table,
+.book-amelia-container .am-calendar-picker table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+/* ---- Day header row (Mo Tu We Th Fr Sa Su) ---- */
+.book-amelia-container .am-calendar-picker__header,
+.book-amelia-container .am-date-picker__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+/* ---- Individual day cells in Amelia's calendar ---- */
+.book-amelia-container .am-calendar-picker__day,
+.book-amelia-container .am-date-picker__day {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  margin: 2px auto !important;
+  border-radius: 50% !important;
+  cursor: pointer;
+  font-size: 14px !important;
+}
+
+/* ---- Amelia V2 step booking specific calendar fixes ---- */
+.book-amelia-container .amelia-v2-booking .am-fs__calendar,
+.book-amelia-container [id^="amelia-step-booking"] .am-fs__calendar {
+  width: 100%;
+}
+
+.book-amelia-container .am-fs__calendar .am-adp__calendar,
+.book-amelia-container .am-fs__calendar .am-adp {
+  width: 100%;
+}
+
+/* Calendar weekday header row */
+.book-amelia-container .am-adp__week-days,
+.book-amelia-container .am-adp__weekdays {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  text-align: center !important;
+  gap: 0 !important;
+  margin-bottom: 4px !important;
+}
+
+.book-amelia-container .am-adp__week-days span,
+.book-amelia-container .am-adp__weekdays span,
+.book-amelia-container .am-adp__week-days div,
+.book-amelia-container .am-adp__weekdays div {
+  text-align: center !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #6b7280 !important;
+  padding: 4px 0 !important;
+}
+
+/* Calendar date grid rows */
+.book-amelia-container .am-adp__days,
+.book-amelia-container .am-adp__body {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 0 !important;
+}
+
+.book-amelia-container .am-adp__days .am-adp__day,
+.book-amelia-container .am-adp__body .am-adp__day,
+.book-amelia-container .am-adp__day-cell,
+.book-amelia-container .am-adp__days > div,
+.book-amelia-container .am-adp__body > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  aspect-ratio: 1 !important;
+  padding: 2px !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  cursor: pointer;
+}
+
+.book-amelia-container .am-adp__day-cell button,
+.book-amelia-container .am-adp__day button,
+.book-amelia-container .am-adp__days button,
+.book-amelia-container .am-adp__body button {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+
+/* Selected / active day */
+.book-amelia-container .am-adp__day--selected button,
+.book-amelia-container .am-adp__day.selected button,
+.book-amelia-container .am-adp__day.am-adp__day--selected button {
+  background: var(--brand-purple, #a39ee3) !important;
+  color: #fff !important;
+}
+
+/* Today indicator */
+.book-amelia-container .am-adp__day--today button,
+.book-amelia-container .am-adp__day.today button {
+  border: 2px solid var(--brand-purple, #a39ee3) !important;
+}
+
+/* Disabled/unavailable days */
+.book-amelia-container .am-adp__day--disabled,
+.book-amelia-container .am-adp__day.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ---- Amelia input fields inside booking form ---- */
+.book-amelia-container input[type="text"],
+.book-amelia-container input[type="email"],
+.book-amelia-container input[type="tel"],
+.book-amelia-container input[type="number"],
+.book-amelia-container select,
+.book-amelia-container textarea {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---- Amelia buttons should not inherit theme CTA styles ---- */
+.book-amelia-container .amelia-app-booking button:not(.cta-button),
+.book-amelia-container [id^="amelia-step-booking"] button:not(.cta-button) {
+  font-family: var(--font-primary);
+}
+
+/* ---- Ensure Amelia container is centered when empty (placeholder) ---- */
+.book-amelia-container:empty,
+.book-amelia-container:has(.book-amelia-placeholder) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   AMELIA CALENDAR — RESPONSIVE
+   ============================================ */
+@media (max-width: 639px) {
+  .book-amelia-container {
+    padding: 0.75rem;
+    border-radius: 1rem;
+  }
+
+  .book-amelia-container .am-adp__day-cell button,
+  .book-amelia-container .am-adp__day button,
+  .book-amelia-container .am-adp__days button,
+  .book-amelia-container .am-adp__body button {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 13px !important;
+  }
+
+  .book-amelia-container .am-adp__week-days span,
+  .book-amelia-container .am-adp__weekdays span,
+  .book-amelia-container .am-adp__week-days div,
+  .book-amelia-container .am-adp__weekdays div {
+    font-size: 11px !important;
+  }
+
+  .book-amelia-container table th {
+    font-size: 11px;
+    padding: 4px 2px;
+  }
+
+  .book-amelia-container table td {
+    padding: 4px 2px;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .book-amelia-container {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .book-amelia-container {
+    padding: 1.5rem;
+  }
+}
+
+/* ============================================
+   AMELIA STEP BOOKING (layout=2) — SERVICE SELECTION
+   Uses confirmed Amelia V2 selectors:
+   .amelia-v2-booking #amelia-container
+   .am-fs__wrapper, .am-fs__main, .am-fs-sb__step
+   ============================================ */
+
+/* ---- Amelia wrapper — fill container width ---- */
+.book-amelia-container .amelia-v2-booking {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.book-amelia-container .amelia-v2-booking #amelia-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* ---- Main content area — fill available space ---- */
+.book-amelia-container .amelia-v2-booking .am-fs__main {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ---- Hide "Learn More" links via text content match ---- */
+.book-amelia-container .amelia-v2-booking a[href*="learn"],
+.book-amelia-container .amelia-v2-booking a[href*="more"] {
+  display: none !important;
+}
+
+/* Broader fallback: hide any element whose text says "Learn More" */
+.book-amelia-container .amelia-v2-booking [class*="learn"],
+.book-amelia-container .amelia-v2-booking [class*="Learn"] {
+  display: none !important;
+}
+
+/* ---- Ensure all inputs/selects respect container width ---- */
+.book-amelia-container .amelia-v2-booking input,
+.book-amelia-container .amelia-v2-booking select,
+.book-amelia-container .amelia-v2-booking .el-input,
+.book-amelia-container .amelia-v2-booking .el-select {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ---- Service card circular images ---- */
+/* Amelia wraps each employee/service photo in a container div.
+   Both the wrapper AND the img must be identically sized with
+   overflow:hidden on the wrapper so object-fit:cover fills the circle. */
+.book-amelia-container .amelia-v2-booking img {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ---- Image wrapper — aggressively match img size ---- */
+/* Target every possible wrapper Amelia might use around the <img> */
+.book-amelia-container .amelia-v2-booking img + *,
+.book-amelia-container .amelia-v2-booking * > img:only-child,
+.book-amelia-container .amelia-v2-booking [class*="image"],
+.book-amelia-container .amelia-v2-booking [class*="Image"],
+.book-amelia-container .amelia-v2-booking [class*="photo"],
+.book-amelia-container .amelia-v2-booking [class*="avatar"],
+.book-amelia-container .amelia-v2-booking [class*="thumb"],
+.book-amelia-container .am-fs__service-card__image,
+.book-amelia-container .am-fs-sb__service__image,
+.book-amelia-container .am-fs__service__image {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  flex-shrink: 0 !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Also target the direct parent of any img inside Amelia V2 */
+.book-amelia-container .amelia-v2-booking div:has(> img) {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  flex-shrink: 0 !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ---- Mobile: fix sidebar, container, and white space ---- */
+@media (max-width: 639px) {
+  /* Remove white space above form */
+  .book-amelia-container {
+    padding: 0 !important;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  /* Form wrapper fills mobile screen */
+  .book-amelia-container .amelia-v2-booking,
+  .book-amelia-container .amelia-v2-booking #amelia-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Sidebar steps — collapse to compact horizontal row */
+  .book-amelia-container .amelia-v2-booking .am-fs-sb__step {
+    font-size: 12px !important;
+    padding: 8px 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Main content area — no overflow */
+  .book-amelia-container .amelia-v2-booking .am-fs__main {
+    overflow-x: hidden !important;
+    padding: 12px !important;
+  }
+
+  /* Smaller circular images on mobile */
+  .book-amelia-container .amelia-v2-booking img,
+  .book-amelia-container .amelia-v2-booking div:has(> img),
+  .book-amelia-container .amelia-v2-booking [class*="image"],
+  .book-amelia-container .amelia-v2-booking [class*="Image"],
+  .book-amelia-container .amelia-v2-booking [class*="photo"],
+  .book-amelia-container .amelia-v2-booking [class*="avatar"],
+  .book-amelia-container .amelia-v2-booking [class*="thumb"] {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+  }
+}
+
+/* ---- Tablet ---- */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .book-amelia-container {
+    padding: 0.75rem;
+  }
+
+  .book-amelia-container .amelia-v2-booking img,
+  .book-amelia-container .amelia-v2-booking div:has(> img),
+  .book-amelia-container .amelia-v2-booking [class*="image"],
+  .book-amelia-container .amelia-v2-booking [class*="Image"],
+  .book-amelia-container .amelia-v2-booking [class*="photo"],
+  .book-amelia-container .amelia-v2-booking [class*="avatar"],
+  .book-amelia-container .amelia-v2-booking [class*="thumb"] {
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    max-width: 56px !important;
+    max-height: 56px !important;
+  }
+}
+
+/* ---- Desktop ---- */
+@media (min-width: 1024px) {
+  .book-amelia-container .amelia-v2-booking img,
+  .book-amelia-container .amelia-v2-booking div:has(> img),
+  .book-amelia-container .amelia-v2-booking [class*="image"],
+  .book-amelia-container .amelia-v2-booking [class*="Image"],
+  .book-amelia-container .amelia-v2-booking [class*="photo"],
+  .book-amelia-container .amelia-v2-booking [class*="avatar"],
+  .book-amelia-container .amelia-v2-booking [class*="thumb"] {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
+  }
+}
+
