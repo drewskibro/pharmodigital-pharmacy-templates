@@ -1085,7 +1085,7 @@ function dp_register_acf_field_groups() {
                 'label'        => 'NHS Service Cards',
                 'name'         => 'nhs_cards',
                 'type'         => 'repeater',
-                'layout'       => 'row',
+                'layout'       => 'block',
                 'button_label' => 'Add Card',
                 'sub_fields'   => array(
                     array(
@@ -3080,7 +3080,8 @@ function dp_register_acf_field_groups() {
                 'sub_fields'   => array(
                     array( 'key' => 'field_dp_th_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '50' ) ),
                     array( 'key' => 'field_dp_th_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3, 'wrapper' => array( 'width' => '50' ) ),
-                    array( 'key' => 'field_dp_th_step_meta_icon', 'label' => 'Meta Icon', 'name' => 'meta_icon', 'type' => 'text', 'instructions' => 'Font Awesome class.', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_th_step_icon', 'label' => 'Step Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Large icon. Font Awesome class, e.g. fas fa-calendar-check', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_th_step_meta_icon', 'label' => 'Meta Icon', 'name' => 'meta_icon', 'type' => 'text', 'instructions' => 'Small icon in meta pill. Font Awesome class.', 'wrapper' => array( 'width' => '30' ) ),
                     array( 'key' => 'field_dp_th_step_meta_text', 'label' => 'Meta Text', 'name' => 'meta_text', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
                     array(
                         'key'           => 'field_dp_th_step_image',
@@ -6307,5 +6308,2500 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // =========================================================================
+    // L1: TRAVEL THAILAND — Hero
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_thai_hero',
+        'title'  => 'L1 — Thailand: Hero',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_thai_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'td_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'THAILAND TRAVEL HEALTH',
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_hero_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'td_hero_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Travel Vaccinations for',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_hero_highlight',
+                'label'         => 'Title Highlight',
+                'name'          => 'td_hero_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Thailand',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_hero_desc',
+                'label'         => 'Description',
+                'name'          => 'td_hero_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Expert advice and vaccinations for your Thailand adventure. Get protected before you travel with Denton\'s trusted travel health specialists.',
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_hero_cta_text',
+                'label'         => 'CTA Text',
+                'name'          => 'td_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Book Thailand Consultation',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_hero_cta_url',
+                'label'         => 'CTA URL',
+                'name'          => 'td_hero_cta_url',
+                'type'          => 'url',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-thailand.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1800,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L1: TRAVEL THAILAND — Stats Bar
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_thai_stats',
+        'title'  => 'L1 — Thailand: Stats Bar',
+        'fields' => array(
+            array(
+                'key'          => 'field_dp_travel_thai_stats',
+                'label'        => 'Stats',
+                'name'         => 'td_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Stat',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_travel_thai_stat_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'instructions'  => 'Font Awesome class, e.g. fas fa-syringe',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_dp_travel_thai_stat_number',
+                        'label'         => 'Number',
+                        'name'          => 'number',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_dp_travel_thai_stat_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '40' ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-thailand.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1810,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L1: TRAVEL THAILAND — Vaccinations
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_thai_vaccines',
+        'title'  => 'L1 — Thailand: Vaccinations',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_thai_vaccines_title',
+                'label'         => 'Section Title',
+                'name'          => 'td_vaccines_title',
+                'type'          => 'text',
+                'default_value' => 'Protect yourself in Thailand',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_vaccines_desc',
+                'label'         => 'Section Description',
+                'name'          => 'td_vaccines_description',
+                'type'          => 'text',
+                'default_value' => 'These vaccinations are recommended for most travellers to Thailand',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_thai_vaccinations',
+                'label'        => 'Vaccination Cards',
+                'name'         => 'td_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Vaccination',
+                'max'          => 8,
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_travel_thai_vax_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_thai_vax_name',
+                        'label'   => 'Vaccine Name',
+                        'name'    => 'name',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_thai_vax_badge_color',
+                        'label'        => 'Badge Colour',
+                        'name'         => 'badge_color',
+                        'type'         => 'select',
+                        'choices'      => array( 'purple' => 'Purple', 'gray' => 'Gray' ),
+                        'default_value' => 'purple',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_thai_vax_badge_text',
+                        'label'   => 'Badge Text',
+                        'name'    => 'badge_text',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_thai_vax_short',
+                        'label'   => 'Short Description',
+                        'name'    => 'short_desc',
+                        'type'    => 'text',
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_thai_vax_desc',
+                        'label'   => 'Full Description',
+                        'name'    => 'description',
+                        'type'    => 'textarea',
+                        'rows'    => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-thailand.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1820,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L1: TRAVEL THAILAND — Malaria Section
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_thai_malaria',
+        'title'  => 'L1 — Thailand: Malaria & Dengue',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_thai_malaria_image',
+                'label'         => 'Section Image',
+                'name'          => 'td_malaria_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_malaria_badge_text',
+                'label'         => 'Image Badge Text',
+                'name'          => 'td_malaria_badge_text',
+                'type'          => 'text',
+                'default_value' => 'Expert Advice',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_malaria_badge',
+                'label'         => 'Section Badge',
+                'name'          => 'td_malaria_badge',
+                'type'          => 'text',
+                'default_value' => 'MOSQUITO-BORNE DISEASES',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_malaria_title',
+                'label'         => 'Title',
+                'name'          => 'td_malaria_title',
+                'type'          => 'text',
+                'default_value' => 'Malaria & Dengue Risks in Thailand',
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_malaria_intro',
+                'label'         => 'Introduction',
+                'name'          => 'td_malaria_intro',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'While malaria risk is low in most tourist areas, Dengue fever is common nationwide. Our pharmacists will check your specific itinerary and advise on prevention.',
+            ),
+            array(
+                'key'          => 'field_dp_travel_thai_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'td_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Risk Item',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_travel_thai_risk_level',
+                        'label'        => 'Risk Level',
+                        'name'         => 'risk_level',
+                        'type'         => 'select',
+                        'choices'      => array( 'low-risk' => 'Low Risk', 'high-risk' => 'High Risk' ),
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_thai_risk_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_thai_risk_title',
+                        'label'   => 'Title',
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '50' ),
+                    ),
+                    array(
+                        'key'  => 'field_dp_travel_thai_risk_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-thailand.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1830,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L1: TRAVEL THAILAND — Health Tips
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_thai_health',
+        'title'  => 'L1 — Thailand: Health Tips',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_thai_health_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'td_health_badge',
+                'type'          => 'text',
+                'default_value' => 'HEALTH ADVICE',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_health_title',
+                'label'         => 'Title',
+                'name'          => 'td_health_title',
+                'type'          => 'text',
+                'default_value' => 'Stay healthy in Thailand',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_health_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'td_health_subtitle',
+                'type'          => 'text',
+                'default_value' => 'Essential tips for a safe tropical adventure',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_thai_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'td_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Tip',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_travel_thai_tip_image',
+                        'label'         => 'Background Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_thai_tip_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '33' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_thai_tip_title',
+                        'label'   => 'Title',
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '33' ),
+                    ),
+                    array(
+                        'key'  => 'field_dp_travel_thai_tip_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-thailand.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1840,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L1: TRAVEL THAILAND — Final CTA
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_thai_cta',
+        'title'  => 'L1 — Thailand: Final CTA',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_thai_cta_title',
+                'label'         => 'Title',
+                'name'          => 'td_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready for your Thailand adventure?',
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_cta_desc',
+                'label'         => 'Description',
+                'name'          => 'td_cta_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Book your Thailand travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.',
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_cta_primary_text',
+                'label'         => 'Primary CTA Text',
+                'name'          => 'td_cta_primary_text',
+                'type'          => 'text',
+                'default_value' => 'Book Thailand Consultation',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'   => 'field_dp_travel_thai_cta_primary_url',
+                'label' => 'Primary CTA URL',
+                'name'  => 'td_cta_primary_url',
+                'type'  => 'url',
+                'wrapper' => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_cta_check_1',
+                'label'         => 'Check 1',
+                'name'          => 'td_cta_check_1',
+                'type'          => 'text',
+                'default_value' => 'Travel Ready',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_cta_check_2',
+                'label'         => 'Check 2',
+                'name'          => 'td_cta_check_2',
+                'type'          => 'text',
+                'default_value' => 'Expert Thailand Advice',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_thai_cta_check_3',
+                'label'         => 'Check 3',
+                'name'          => 'td_cta_check_3',
+                'type'          => 'text',
+                'default_value' => 'All Vaccines Available',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-thailand.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1850,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L2: TRAVEL VIETNAM — Hero
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_viet_hero',
+        'title'  => 'L2 — Vietnam: Hero',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_viet_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'td_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'VIETNAM TRAVEL HEALTH',
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_hero_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'td_hero_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Travel Vaccinations for',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_hero_highlight',
+                'label'         => 'Title Highlight',
+                'name'          => 'td_hero_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Vietnam',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_hero_desc',
+                'label'         => 'Description',
+                'name'          => 'td_hero_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Expert advice and vaccinations for your Vietnam adventure. Get protected before you travel with Denton\'s trusted travel health specialists.',
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_hero_cta_text',
+                'label'         => 'CTA Text',
+                'name'          => 'td_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Book Consultation',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_hero_cta_url',
+                'label'         => 'CTA URL',
+                'name'          => 'td_hero_cta_url',
+                'type'          => 'url',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-vietnam.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1900,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L2: TRAVEL VIETNAM — Stats Bar
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_viet_stats',
+        'title'  => 'L2 — Vietnam: Stats Bar',
+        'fields' => array(
+            array(
+                'key'          => 'field_dp_travel_viet_stats',
+                'label'        => 'Stats',
+                'name'         => 'td_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Stat',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_travel_viet_stat_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'instructions'  => 'Font Awesome class, e.g. fas fa-syringe',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_dp_travel_viet_stat_number',
+                        'label'         => 'Number',
+                        'name'          => 'number',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_dp_travel_viet_stat_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '40' ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-vietnam.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1910,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L2: TRAVEL VIETNAM — Vaccinations
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_viet_vaccines',
+        'title'  => 'L2 — Vietnam: Vaccinations',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_viet_vaccines_title',
+                'label'         => 'Section Title',
+                'name'          => 'td_vaccines_title',
+                'type'          => 'text',
+                'default_value' => 'Protect yourself in Vietnam',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_vaccines_desc',
+                'label'         => 'Section Description',
+                'name'          => 'td_vaccines_description',
+                'type'          => 'text',
+                'default_value' => 'These vaccinations are recommended for most travellers to Vietnam',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_viet_vaccinations',
+                'label'        => 'Vaccination Cards',
+                'name'         => 'td_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Vaccination',
+                'max'          => 8,
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_travel_viet_vax_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_viet_vax_name',
+                        'label'   => 'Vaccine Name',
+                        'name'    => 'name',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_viet_vax_badge_color',
+                        'label'        => 'Badge Colour',
+                        'name'         => 'badge_color',
+                        'type'         => 'select',
+                        'choices'      => array( 'purple' => 'Purple', 'gray' => 'Gray' ),
+                        'default_value' => 'purple',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_viet_vax_badge_text',
+                        'label'   => 'Badge Text',
+                        'name'    => 'badge_text',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_viet_vax_short',
+                        'label'   => 'Short Description',
+                        'name'    => 'short_desc',
+                        'type'    => 'text',
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_viet_vax_desc',
+                        'label'   => 'Full Description',
+                        'name'    => 'description',
+                        'type'    => 'textarea',
+                        'rows'    => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-vietnam.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1920,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L2: TRAVEL VIETNAM — Malaria Section
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_viet_malaria',
+        'title'  => 'L2 — Vietnam: Malaria & Dengue',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_viet_malaria_image',
+                'label'         => 'Section Image',
+                'name'          => 'td_malaria_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_malaria_badge_text',
+                'label'         => 'Image Badge Text',
+                'name'          => 'td_malaria_badge_text',
+                'type'          => 'text',
+                'default_value' => 'Expert Advice',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_malaria_badge',
+                'label'         => 'Section Badge',
+                'name'          => 'td_malaria_badge',
+                'type'          => 'text',
+                'default_value' => 'MOSQUITO RISKS',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_malaria_title',
+                'label'         => 'Title',
+                'name'          => 'td_malaria_title',
+                'type'          => 'text',
+                'default_value' => 'Malaria & Dengue in Vietnam',
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_malaria_intro',
+                'label'         => 'Introduction',
+                'name'          => 'td_malaria_intro',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Malaria risk is low in major cities and coastal resorts but present in rural areas. Dengue fever is a risk nationwide.',
+            ),
+            array(
+                'key'          => 'field_dp_travel_viet_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'td_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Risk Item',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_travel_viet_risk_level',
+                        'label'        => 'Risk Level',
+                        'name'         => 'risk_level',
+                        'type'         => 'select',
+                        'choices'      => array( 'low-risk' => 'Low Risk', 'high-risk' => 'High Risk' ),
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_viet_risk_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_viet_risk_title',
+                        'label'   => 'Title',
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '50' ),
+                    ),
+                    array(
+                        'key'  => 'field_dp_travel_viet_risk_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-vietnam.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1930,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L2: TRAVEL VIETNAM — Health Tips
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_viet_health',
+        'title'  => 'L2 — Vietnam: Health Tips',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_viet_health_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'td_health_badge',
+                'type'          => 'text',
+                'default_value' => 'HEALTH ADVICE',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_health_title',
+                'label'         => 'Title',
+                'name'          => 'td_health_title',
+                'type'          => 'text',
+                'default_value' => 'Stay healthy in Vietnam',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_health_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'td_health_subtitle',
+                'type'          => 'text',
+                'default_value' => 'Essential tips for a safe trip',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_viet_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'td_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Tip',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_travel_viet_tip_image',
+                        'label'         => 'Background Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_viet_tip_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '33' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_viet_tip_title',
+                        'label'   => 'Title',
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '33' ),
+                    ),
+                    array(
+                        'key'  => 'field_dp_travel_viet_tip_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-vietnam.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1940,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L2: TRAVEL VIETNAM — Final CTA
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_viet_cta',
+        'title'  => 'L2 — Vietnam: Final CTA',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_viet_cta_title',
+                'label'         => 'Title',
+                'name'          => 'td_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready for Vietnam?',
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_cta_desc',
+                'label'         => 'Description',
+                'name'          => 'td_cta_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.',
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_cta_primary_text',
+                'label'         => 'Primary CTA Text',
+                'name'          => 'td_cta_primary_text',
+                'type'          => 'text',
+                'default_value' => 'Book Consultation',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'   => 'field_dp_travel_viet_cta_primary_url',
+                'label' => 'Primary CTA URL',
+                'name'  => 'td_cta_primary_url',
+                'type'  => 'url',
+                'wrapper' => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_cta_check_1',
+                'label'         => 'Check 1',
+                'name'          => 'td_cta_check_1',
+                'type'          => 'text',
+                'default_value' => 'Travel Ready',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_cta_check_2',
+                'label'         => 'Check 2',
+                'name'          => 'td_cta_check_2',
+                'type'          => 'text',
+                'default_value' => 'Expert Advice',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_viet_cta_check_3',
+                'label'         => 'Check 3',
+                'name'          => 'td_cta_check_3',
+                'type'          => 'text',
+                'default_value' => 'All Vaccines',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-vietnam.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 1950,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+    // =========================================================================
+    // L3: TRAVEL KENYA — Hero
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_ken_hero',
+        'title'  => 'L3 — Kenya: Hero',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_ken_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'ke_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'KENYA TRAVEL HEALTH',
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_hero_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'ke_hero_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Travel Vaccinations for',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_hero_highlight',
+                'label'         => 'Title Highlight',
+                'name'          => 'ke_hero_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Kenya',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_hero_desc',
+                'label'         => 'Description',
+                'name'          => 'ke_hero_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Expert advice and vaccinations for your Kenya safari or holiday. Yellow Fever, Malaria, and more. Get protected with Denton\'s specialists.',
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_hero_cta_text',
+                'label'         => 'CTA Text',
+                'name'          => 'ke_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Book Consultation',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_hero_cta_url',
+                'label'         => 'CTA URL',
+                'name'          => 'ke_hero_cta_url',
+                'type'          => 'url',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-kenya.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2000,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L3: TRAVEL KENYA — Stats Bar
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_ken_stats',
+        'title'  => 'L3 — Kenya: Stats Bar',
+        'fields' => array(
+            array(
+                'key'          => 'field_dp_travel_ken_stats',
+                'label'        => 'Stats',
+                'name'         => 'ke_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Stat',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_travel_ken_stat_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'instructions'  => 'Font Awesome class, e.g. fas fa-syringe',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_dp_travel_ken_stat_number',
+                        'label'         => 'Number',
+                        'name'          => 'number',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_dp_travel_ken_stat_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '40' ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-kenya.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2010,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L3: TRAVEL KENYA — Vaccinations
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_ken_vaccines',
+        'title'  => 'L3 — Kenya: Vaccinations',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_ken_vaccines_title',
+                'label'         => 'Section Title',
+                'name'          => 'ke_vaccines_title',
+                'type'          => 'text',
+                'default_value' => 'Protect yourself in Kenya',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_vaccines_desc',
+                'label'         => 'Section Description',
+                'name'          => 'ke_vaccines_description',
+                'type'          => 'text',
+                'default_value' => 'These vaccinations are recommended for most travellers to Kenya',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_ken_vaccinations',
+                'label'        => 'Vaccination Cards',
+                'name'         => 'ke_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Vaccination',
+                'max'          => 8,
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_travel_ken_vax_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_ken_vax_name',
+                        'label'   => 'Vaccine Name',
+                        'name'    => 'name',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_ken_vax_badge_color',
+                        'label'        => 'Badge Colour',
+                        'name'         => 'badge_color',
+                        'type'         => 'select',
+                        'choices'      => array( 'purple' => 'Purple', 'gray' => 'Gray' ),
+                        'default_value' => 'purple',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_ken_vax_badge_text',
+                        'label'   => 'Badge Text',
+                        'name'    => 'badge_text',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_ken_vax_short',
+                        'label'   => 'Short Description',
+                        'name'    => 'short_desc',
+                        'type'    => 'text',
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_ken_vax_desc',
+                        'label'   => 'Full Description',
+                        'name'    => 'description',
+                        'type'    => 'textarea',
+                        'rows'    => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-kenya.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2020,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L3: TRAVEL KENYA — Malaria Section
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_ken_malaria',
+        'title'  => 'L3 — Kenya: Malaria',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_ken_malaria_image',
+                'label'         => 'Section Image',
+                'name'          => 'ke_malaria_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_malaria_badge_text',
+                'label'         => 'Image Badge Text',
+                'name'          => 'ke_malaria_badge_text',
+                'type'          => 'text',
+                'default_value' => 'Expert Advice',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_malaria_badge',
+                'label'         => 'Section Badge',
+                'name'          => 'ke_malaria_badge',
+                'type'          => 'text',
+                'default_value' => 'HIGH RISK AREA',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_malaria_title',
+                'label'         => 'Title',
+                'name'          => 'ke_malaria_title',
+                'type'          => 'text',
+                'default_value' => 'Malaria Risk in Kenya',
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_malaria_intro',
+                'label'         => 'Introduction',
+                'name'          => 'ke_malaria_intro',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Malaria risk is high throughout most of Kenya, including safari parks. Antimalarials are usually recommended.',
+            ),
+            array(
+                'key'          => 'field_dp_travel_ken_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'ke_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Risk Item',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_travel_ken_risk_level',
+                        'label'        => 'Risk Level',
+                        'name'         => 'risk_level',
+                        'type'         => 'select',
+                        'choices'      => array( 'low-risk' => 'Low Risk', 'high-risk' => 'High Risk' ),
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_ken_risk_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_ken_risk_title',
+                        'label'   => 'Title',
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '50' ),
+                    ),
+                    array(
+                        'key'  => 'field_dp_travel_ken_risk_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-kenya.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2030,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L3: TRAVEL KENYA — Health Tips
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_ken_health',
+        'title'  => 'L3 — Kenya: Health Tips',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_ken_health_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'ke_health_badge',
+                'type'          => 'text',
+                'default_value' => 'HEALTH ADVICE',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_health_title',
+                'label'         => 'Title',
+                'name'          => 'ke_health_title',
+                'type'          => 'text',
+                'default_value' => 'Stay healthy in Kenya',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_health_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'ke_health_subtitle',
+                'type'          => 'text',
+                'default_value' => 'Essential tips for a safe safari',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_ken_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'ke_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Tip',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_travel_ken_tip_image',
+                        'label'         => 'Background Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_ken_tip_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '33' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_ken_tip_title',
+                        'label'   => 'Title',
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '33' ),
+                    ),
+                    array(
+                        'key'  => 'field_dp_travel_ken_tip_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-kenya.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2040,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L3: TRAVEL KENYA — Final CTA
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_ken_cta',
+        'title'  => 'L3 — Kenya: Final CTA',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_ken_cta_title',
+                'label'         => 'Title',
+                'name'          => 'ke_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready for your Kenya safari?',
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_cta_desc',
+                'label'         => 'Description',
+                'name'          => 'ke_cta_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.',
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_cta_primary_text',
+                'label'         => 'Primary CTA Text',
+                'name'          => 'ke_cta_primary_text',
+                'type'          => 'text',
+                'default_value' => 'Book Consultation',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'   => 'field_dp_travel_ken_cta_primary_url',
+                'label' => 'Primary CTA URL',
+                'name'  => 'ke_cta_primary_url',
+                'type'  => 'url',
+                'wrapper' => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_cta_check_1',
+                'label'         => 'Check 1',
+                'name'          => 'ke_cta_check_1',
+                'type'          => 'text',
+                'default_value' => 'Travel Ready',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_cta_check_2',
+                'label'         => 'Check 2',
+                'name'          => 'ke_cta_check_2',
+                'type'          => 'text',
+                'default_value' => 'Expert Advice',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_ken_cta_check_3',
+                'label'         => 'Check 3',
+                'name'          => 'ke_cta_check_3',
+                'type'          => 'text',
+                'default_value' => 'All Vaccines',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-kenya.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2050,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L4: TRAVEL BRAZIL — Hero
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_braz_hero',
+        'title'  => 'L4 — Brazil: Hero',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_braz_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'td_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'BRAZIL TRAVEL HEALTH',
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_hero_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'td_hero_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Travel Vaccinations for',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_hero_highlight',
+                'label'         => 'Title Highlight',
+                'name'          => 'td_hero_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Brazil',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_hero_desc',
+                'label'         => 'Description',
+                'name'          => 'td_hero_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Expert advice and vaccinations for your Brazil trip. Yellow Fever, Dengue, and more. Get protected with Denton\'s specialists.',
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_hero_cta_text',
+                'label'         => 'CTA Text',
+                'name'          => 'td_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Book Consultation',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_hero_cta_url',
+                'label'         => 'CTA URL',
+                'name'          => 'td_hero_cta_url',
+                'type'          => 'url',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-brazil.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2100,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L4: TRAVEL BRAZIL — Stats Bar
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_braz_stats',
+        'title'  => 'L4 — Brazil: Stats Bar',
+        'fields' => array(
+            array(
+                'key'          => 'field_dp_travel_braz_stats',
+                'label'        => 'Stats',
+                'name'         => 'td_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Stat',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_travel_braz_stat_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'instructions'  => 'Font Awesome class, e.g. fas fa-syringe',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_dp_travel_braz_stat_number',
+                        'label'         => 'Number',
+                        'name'          => 'number',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_dp_travel_braz_stat_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '40' ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-brazil.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2110,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L4: TRAVEL BRAZIL — Vaccinations
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_braz_vaccines',
+        'title'  => 'L4 — Brazil: Vaccinations',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_braz_vaccines_title',
+                'label'         => 'Section Title',
+                'name'          => 'td_vaccines_title',
+                'type'          => 'text',
+                'default_value' => 'Protect yourself in Brazil',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_vaccines_desc',
+                'label'         => 'Section Description',
+                'name'          => 'td_vaccines_description',
+                'type'          => 'text',
+                'default_value' => 'These vaccinations are recommended for most travellers to Brazil',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_braz_vaccinations',
+                'label'        => 'Vaccination Cards',
+                'name'         => 'td_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Vaccination',
+                'max'          => 8,
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_travel_braz_vax_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_braz_vax_name',
+                        'label'   => 'Vaccine Name',
+                        'name'    => 'name',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_braz_vax_badge_color',
+                        'label'        => 'Badge Colour',
+                        'name'         => 'badge_color',
+                        'type'         => 'select',
+                        'choices'      => array( 'purple' => 'Purple', 'gray' => 'Gray' ),
+                        'default_value' => 'purple',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_braz_vax_badge_text',
+                        'label'   => 'Badge Text',
+                        'name'    => 'badge_text',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_braz_vax_short',
+                        'label'   => 'Short Description',
+                        'name'    => 'short_desc',
+                        'type'    => 'text',
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_braz_vax_desc',
+                        'label'   => 'Full Description',
+                        'name'    => 'description',
+                        'type'    => 'textarea',
+                        'rows'    => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-brazil.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2120,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L4: TRAVEL BRAZIL — Malaria Section
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_braz_malaria',
+        'title'  => 'L4 — Brazil: Malaria & Dengue',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_braz_malaria_image',
+                'label'         => 'Section Image',
+                'name'          => 'td_malaria_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_malaria_badge_text',
+                'label'         => 'Image Badge Text',
+                'name'          => 'td_malaria_badge_text',
+                'type'          => 'text',
+                'default_value' => 'Expert Advice',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_malaria_badge',
+                'label'         => 'Section Badge',
+                'name'          => 'td_malaria_badge',
+                'type'          => 'text',
+                'default_value' => 'MOSQUITO RISKS',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_malaria_title',
+                'label'         => 'Title',
+                'name'          => 'td_malaria_title',
+                'type'          => 'text',
+                'default_value' => 'Malaria & Dengue in Brazil',
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_malaria_intro',
+                'label'         => 'Introduction',
+                'name'          => 'td_malaria_intro',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Malaria risk is high in the Amazon basin. Dengue fever is a risk nationwide. Zika and Chikungunya are also present.',
+            ),
+            array(
+                'key'          => 'field_dp_travel_braz_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'td_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Risk Item',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_travel_braz_risk_level',
+                        'label'        => 'Risk Level',
+                        'name'         => 'risk_level',
+                        'type'         => 'select',
+                        'choices'      => array( 'low-risk' => 'Low Risk', 'high-risk' => 'High Risk' ),
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_braz_risk_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_braz_risk_title',
+                        'label'   => 'Title',
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '50' ),
+                    ),
+                    array(
+                        'key'  => 'field_dp_travel_braz_risk_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-brazil.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2130,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L4: TRAVEL BRAZIL — Health Tips
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_braz_health',
+        'title'  => 'L4 — Brazil: Health Tips',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_braz_health_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'td_health_badge',
+                'type'          => 'text',
+                'default_value' => 'HEALTH ADVICE',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_health_title',
+                'label'         => 'Title',
+                'name'          => 'td_health_title',
+                'type'          => 'text',
+                'default_value' => 'Stay healthy in Brazil',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_health_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'td_health_subtitle',
+                'type'          => 'text',
+                'default_value' => 'Essential tips for a safe trip',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_braz_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'td_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Tip',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_travel_braz_tip_image',
+                        'label'         => 'Background Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_braz_tip_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '33' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_braz_tip_title',
+                        'label'   => 'Title',
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '33' ),
+                    ),
+                    array(
+                        'key'  => 'field_dp_travel_braz_tip_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-brazil.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2140,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L4: TRAVEL BRAZIL — Final CTA
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_braz_cta',
+        'title'  => 'L4 — Brazil: Final CTA',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_braz_cta_title',
+                'label'         => 'Title',
+                'name'          => 'td_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready for Brazil?',
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_cta_desc',
+                'label'         => 'Description',
+                'name'          => 'td_cta_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.',
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_cta_primary_text',
+                'label'         => 'Primary CTA Text',
+                'name'          => 'td_cta_primary_text',
+                'type'          => 'text',
+                'default_value' => 'Book Consultation',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'   => 'field_dp_travel_braz_cta_primary_url',
+                'label' => 'Primary CTA URL',
+                'name'  => 'td_cta_primary_url',
+                'type'  => 'url',
+                'wrapper' => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_cta_check_1',
+                'label'         => 'Check 1',
+                'name'          => 'td_cta_check_1',
+                'type'          => 'text',
+                'default_value' => 'Travel Ready',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_cta_check_2',
+                'label'         => 'Check 2',
+                'name'          => 'td_cta_check_2',
+                'type'          => 'text',
+                'default_value' => 'Expert Advice',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_braz_cta_check_3',
+                'label'         => 'Check 3',
+                'name'          => 'td_cta_check_3',
+                'type'          => 'text',
+                'default_value' => 'All Vaccines',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-brazil.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2150,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L5: TRAVEL CAPE VERDE — Hero
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_cv_hero',
+        'title'  => 'L5 — Cape Verde: Hero',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_cv_hero_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'cv_hero_badge',
+                'type'          => 'text',
+                'default_value' => 'CAPE VERDE TRAVEL HEALTH',
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_hero_title_line1',
+                'label'         => 'Title Line 1',
+                'name'          => 'cv_hero_title_line1',
+                'type'          => 'text',
+                'default_value' => 'Travel Vaccinations for',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_hero_highlight',
+                'label'         => 'Title Highlight',
+                'name'          => 'cv_hero_title_highlight',
+                'type'          => 'text',
+                'default_value' => 'Cape Verde',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_hero_desc',
+                'label'         => 'Description',
+                'name'          => 'cv_hero_description',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Expert advice and vaccinations for your Cape Verde holiday. Get protected before you travel with Denton\'s trusted travel health specialists.',
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_hero_cta_text',
+                'label'         => 'CTA Text',
+                'name'          => 'cv_hero_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Book Consultation',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_hero_cta_url',
+                'label'         => 'CTA URL',
+                'name'          => 'cv_hero_cta_url',
+                'type'          => 'url',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-cape-verde.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2200,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L5: TRAVEL CAPE VERDE — Stats Bar
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_cv_stats',
+        'title'  => 'L5 — Cape Verde: Stats Bar',
+        'fields' => array(
+            array(
+                'key'          => 'field_dp_travel_cv_stats',
+                'label'        => 'Stats',
+                'name'         => 'cv_stats',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => 'Add Stat',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_travel_cv_stat_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'icon',
+                        'type'          => 'text',
+                        'instructions'  => 'Font Awesome class, e.g. fas fa-syringe',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_dp_travel_cv_stat_number',
+                        'label'         => 'Number',
+                        'name'          => 'number',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '30' ),
+                    ),
+                    array(
+                        'key'           => 'field_dp_travel_cv_stat_label',
+                        'label'         => 'Label',
+                        'name'          => 'label',
+                        'type'          => 'text',
+                        'wrapper'       => array( 'width' => '40' ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-cape-verde.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2210,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L5: TRAVEL CAPE VERDE — Vaccinations
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_cv_vaccines',
+        'title'  => 'L5 — Cape Verde: Vaccinations',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_cv_vaccines_title',
+                'label'         => 'Section Title',
+                'name'          => 'cv_vaccines_title',
+                'type'          => 'text',
+                'default_value' => 'Protect yourself in Cape Verde',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_vaccines_desc',
+                'label'         => 'Section Description',
+                'name'          => 'cv_vaccines_description',
+                'type'          => 'text',
+                'default_value' => 'These vaccinations are recommended for most travellers to Cape Verde',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_cv_vaccinations',
+                'label'        => 'Vaccination Cards',
+                'name'         => 'cv_vaccinations',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Vaccination',
+                'max'          => 8,
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_travel_cv_vax_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_cv_vax_name',
+                        'label'   => 'Vaccine Name',
+                        'name'    => 'name',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_cv_vax_badge_color',
+                        'label'        => 'Badge Colour',
+                        'name'         => 'badge_color',
+                        'type'         => 'select',
+                        'choices'      => array( 'purple' => 'Purple', 'gray' => 'Gray' ),
+                        'default_value' => 'purple',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_cv_vax_badge_text',
+                        'label'   => 'Badge Text',
+                        'name'    => 'badge_text',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_cv_vax_short',
+                        'label'   => 'Short Description',
+                        'name'    => 'short_desc',
+                        'type'    => 'text',
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_cv_vax_desc',
+                        'label'   => 'Full Description',
+                        'name'    => 'description',
+                        'type'    => 'textarea',
+                        'rows'    => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-cape-verde.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2220,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L5: TRAVEL CAPE VERDE — Malaria Section
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_cv_malaria',
+        'title'  => 'L5 — Cape Verde: Malaria & Dengue',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_cv_malaria_image',
+                'label'         => 'Section Image',
+                'name'          => 'cv_malaria_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_malaria_badge_text',
+                'label'         => 'Image Badge Text',
+                'name'          => 'cv_malaria_badge_text',
+                'type'          => 'text',
+                'default_value' => 'Expert Advice',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_malaria_badge',
+                'label'         => 'Section Badge',
+                'name'          => 'cv_malaria_badge',
+                'type'          => 'text',
+                'default_value' => 'MOSQUITO RISKS',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_malaria_title',
+                'label'         => 'Title',
+                'name'          => 'cv_malaria_title',
+                'type'          => 'text',
+                'default_value' => 'Malaria & Dengue in Cape Verde',
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_malaria_intro',
+                'label'         => 'Introduction',
+                'name'          => 'cv_malaria_intro',
+                'type'          => 'textarea',
+                'rows'          => 3,
+                'default_value' => 'Malaria risk is generally low but present on Santiago island. Dengue fever and Zika virus are also risks. Bite avoidance is essential.',
+            ),
+            array(
+                'key'          => 'field_dp_travel_cv_malaria_risks',
+                'label'        => 'Risk Items',
+                'name'         => 'cv_malaria_risks',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Risk Item',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_travel_cv_risk_level',
+                        'label'        => 'Risk Level',
+                        'name'         => 'risk_level',
+                        'type'         => 'select',
+                        'choices'      => array( 'low-risk' => 'Low Risk', 'high-risk' => 'High Risk' ),
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_cv_risk_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '25' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_cv_risk_title',
+                        'label'   => 'Title',
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '50' ),
+                    ),
+                    array(
+                        'key'  => 'field_dp_travel_cv_risk_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-cape-verde.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2230,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L5: TRAVEL CAPE VERDE — Health Tips
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_cv_health',
+        'title'  => 'L5 — Cape Verde: Health Tips',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_cv_health_badge',
+                'label'         => 'Badge Text',
+                'name'          => 'cv_health_badge',
+                'type'          => 'text',
+                'default_value' => 'HEALTH ADVICE',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_health_title',
+                'label'         => 'Title',
+                'name'          => 'cv_health_title',
+                'type'          => 'text',
+                'default_value' => 'Stay healthy in Cape Verde',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_health_subtitle',
+                'label'         => 'Subtitle',
+                'name'          => 'cv_health_subtitle',
+                'type'          => 'text',
+                'default_value' => 'Essential tips for a safe trip',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_cv_health_tips',
+                'label'        => 'Health Tips',
+                'name'         => 'cv_health_tips',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Tip',
+                'max'          => 4,
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_travel_cv_tip_image',
+                        'label'         => 'Background Image',
+                        'name'          => 'image',
+                        'type'          => 'image',
+                        'return_format' => 'id',
+                        'preview_size'  => 'medium',
+                    ),
+                    array(
+                        'key'          => 'field_dp_travel_cv_tip_icon',
+                        'label'        => 'Icon',
+                        'name'         => 'icon',
+                        'type'         => 'text',
+                        'instructions' => 'Font Awesome class',
+                        'wrapper'      => array( 'width' => '33' ),
+                    ),
+                    array(
+                        'key'     => 'field_dp_travel_cv_tip_title',
+                        'label'   => 'Title',
+                        'name'    => 'title',
+                        'type'    => 'text',
+                        'wrapper' => array( 'width' => '33' ),
+                    ),
+                    array(
+                        'key'  => 'field_dp_travel_cv_tip_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-cape-verde.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2240,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // L5: TRAVEL CAPE VERDE — Final CTA
+    // =========================================================================
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_travel_cv_cta',
+        'title'  => 'L5 — Cape Verde: Final CTA',
+        'fields' => array(
+            array(
+                'key'           => 'field_dp_travel_cv_cta_title',
+                'label'         => 'Title',
+                'name'          => 'cv_cta_title',
+                'type'          => 'text',
+                'default_value' => 'Ready for Cape Verde?',
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_cta_desc',
+                'label'         => 'Description',
+                'name'          => 'cv_cta_description',
+                'type'          => 'textarea',
+                'rows'          => 2,
+                'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.',
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_cta_primary_text',
+                'label'         => 'Primary CTA Text',
+                'name'          => 'cv_cta_primary_text',
+                'type'          => 'text',
+                'default_value' => 'Book Consultation',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
+                'key'   => 'field_dp_travel_cv_cta_primary_url',
+                'label' => 'Primary CTA URL',
+                'name'  => 'cv_cta_primary_url',
+                'type'  => 'url',
+                'wrapper' => array( 'width' => '50' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_cta_check_1',
+                'label'         => 'Check 1',
+                'name'          => 'cv_cta_check_1',
+                'type'          => 'text',
+                'default_value' => 'Travel Ready',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_cta_check_2',
+                'label'         => 'Check 2',
+                'name'          => 'cv_cta_check_2',
+                'type'          => 'text',
+                'default_value' => 'Expert Advice',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_cta_check_3',
+                'label'         => 'Check 3',
+                'name'          => 'cv_cta_check_3',
+                'type'          => 'text',
+                'default_value' => 'All Vaccines',
+                'wrapper'       => array( 'width' => '33' ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-travel-cape-verde.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2250,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );

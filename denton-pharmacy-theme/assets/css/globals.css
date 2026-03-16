@@ -9,6 +9,14 @@
   --brand-dark: #2a507a;      /* Darker Blue for contrast */
   --brand-light: #f5f7f8;     /* Very light grey/white for content areas */
 
+  /* Purple palette (used across service & travel pages) */
+  --brand-purple: #a39ee3;
+  --brand-purple-deep: #8b85d6;
+  --brand-accent: var(--brand-secondary);
+
+  /* Nav height tokens — single source of truth for body offset & full-bleed heroes */
+  --nav-height: 112px;
+
   --text-dark: #1a202c;
   --text-gray: #4a5568;
   --text-slate: #64748b;
@@ -22,6 +30,13 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  :root { --nav-height: 188px; }
+}
+@media (min-width: 1280px) {
+  :root { --nav-height: 200px; }
 }
 
 
@@ -43,43 +58,17 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 112px; /* mobile: three-tier nav compact */
-}
-
-/* 1024–1279px: trust bar (38px) + compact top bar (100px) + bottom nav (50px) */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  body {
-    padding-top: 188px;
-  }
-}
-
-/* 1280px+: trust bar (38px) + top bar (112px) + bottom nav (50px) */
-@media (min-width: 1280px) {
-  body {
-    padding-top: 200px;
-  }
+  padding-top: var(--nav-height);
 }
 
 /* WordPress admin bar: extra body padding to account for admin bar height */
 body.admin-bar {
-  padding-top: calc(112px + 46px); /* mobile admin bar is 46px */
+  padding-top: calc(var(--nav-height) + 46px); /* mobile admin bar is 46px */
 }
 
 @media screen and (min-width: 783px) {
   body.admin-bar {
-    padding-top: calc(112px + 32px); /* desktop admin bar is 32px */
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1279px) {
-  body.admin-bar {
-    padding-top: calc(188px + 32px);
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  body.admin-bar {
-    padding-top: calc(200px + 32px);
+    padding-top: calc(var(--nav-height) + 32px); /* desktop admin bar is 32px */
   }
 }
 

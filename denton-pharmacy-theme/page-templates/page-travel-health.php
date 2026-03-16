@@ -27,7 +27,7 @@ get_header();
 
       <!-- Left: Content -->
       <div class="travel-hero-content">
-        <div class="section-badge travel-hero-badge">
+        <div class="section-badge">
           <span class="pulse-dot"><span></span><span></span></span>
           <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_hero_badge', 'TRAVEL HEALTH SERVICES' ) ); ?></span>
         </div>
@@ -117,7 +117,7 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_services_badge', 'COMPREHENSIVE TRAVEL HEALTH' ) ); ?></span>
       </div>
       <h2 class="travel-services-title">
-        <span class="gradient-text"><?php echo esc_html( dp_field( 'th_services_title_highlight', 'Everything you need' ) ); ?></span> <?php echo esc_html( dp_field( 'th_services_title_rest', 'for safe travel' ) ); ?>
+        <?php echo esc_html( dp_field( 'th_services_title_highlight', 'Everything you need' ) ); ?> <?php echo esc_html( dp_field( 'th_services_title_rest', 'for safe travel' ) ); ?>
       </h2>
       <p class="travel-services-description"><?php echo esc_html( dp_field( 'th_services_description', 'From expert consultations to all vaccinations and official certificates' ) ); ?></p>
     </div>
@@ -182,7 +182,7 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_vaccines_badge', 'ALL VACCINATIONS' ) ); ?></span>
       </div>
       <h3 class="travel-vaccines-title">
-        <span class="gradient-text"><?php echo esc_html( dp_field( 'th_vaccines_title_highlight', 'Available' ) ); ?></span> <?php echo esc_html( dp_field( 'th_vaccines_title_rest', 'Vaccinations' ) ); ?>
+        <?php echo esc_html( dp_field( 'th_vaccines_title_highlight', 'Available' ) ); ?> <?php echo esc_html( dp_field( 'th_vaccines_title_rest', 'Vaccinations' ) ); ?>
       </h3>
     </div>
 
@@ -266,7 +266,7 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_why_badge', 'WHY CHOOSE US' ) ); ?></span>
       </div>
       <h2 class="travel-why-title">
-        <span class="gradient-text"><?php echo esc_html( dp_field( 'th_why_title_highlight', 'Why choose our' ) ); ?></span> <?php echo esc_html( dp_field( 'th_why_title_rest', 'Denton travel clinic?' ) ); ?>
+        <?php echo esc_html( dp_field( 'th_why_title_highlight', 'Why choose our' ) ); ?> <?php echo esc_html( dp_field( 'th_why_title_rest', 'Denton travel clinic?' ) ); ?>
       </h2>
     </div>
 
@@ -341,63 +341,66 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_process_badge', 'HOW IT WORKS' ) ); ?></span>
       </div>
       <h2 class="travel-process-title">
-        <span class="gradient-text"><?php echo esc_html( dp_field( 'th_process_title_highlight', 'Your travel clinic' ) ); ?></span> <?php echo esc_html( dp_field( 'th_process_title_rest', 'Denton journey' ) ); ?>
+        <?php echo esc_html( dp_field( 'th_process_title_highlight', 'Your travel clinic' ) ); ?> <?php echo esc_html( dp_field( 'th_process_title_rest', 'Denton journey' ) ); ?>
       </h2>
     </div>
 
-    <div class="travel-process-timeline">
-      <?php if ( have_rows( 'th_process_steps' ) ) : $step_index = 0; while ( have_rows( 'th_process_steps' ) ) : the_row(); $step_index++;
-        $step_image_id  = get_sub_field( 'image' );
-        $step_image_url = $step_image_id ? wp_get_attachment_image_url( $step_image_id, 'large' ) : '';
-      ?>
-        <div class="travel-process-card">
-          <div class="travel-process-card-number">
-            <span><?php echo esc_html( $step_index ); ?></span>
+    <?php if ( have_rows( 'th_process_steps' ) ) : $step_index = 0; while ( have_rows( 'th_process_steps' ) ) : the_row(); $step_index++;
+      $step_image_id  = get_sub_field( 'image' );
+      $step_image_url = $step_image_id ? wp_get_attachment_image_url( $step_image_id, 'large' ) : '';
+      $direction = ( $step_index % 2 === 1 ) ? 'left' : 'right';
+    ?>
+      <div class="travel-process-step travel-process-step-<?php echo $direction; ?>">
+        <div class="travel-process-step-content">
+          <div class="travel-process-step-number"><?php echo esc_html( $step_index ); ?></div>
+          <div class="travel-process-step-icon">
+            <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ?: get_sub_field( 'meta_icon' ) ) ); ?>"></i>
           </div>
-          <div class="travel-process-card-body">
-            <div class="travel-process-card-text">
-              <h3 class="travel-process-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-              <p class="travel-process-step-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
-              <div class="travel-process-step-meta">
-                <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'meta_icon' ) ) ); ?>"></i>
-                <span><?php echo esc_html( get_sub_field( 'meta_text' ) ); ?></span>
-              </div>
-            </div>
-            <?php if ( $step_image_url ) : ?>
-              <div class="travel-process-card-image">
-                <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
+          <h3 class="travel-process-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+          <p class="travel-process-step-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+          <div class="travel-process-step-meta">
+            <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'meta_icon' ) ) ); ?>"></i>
+            <span><?php echo esc_html( get_sub_field( 'meta_text' ) ); ?></span>
+          </div>
+        </div>
+        <?php if ( $step_image_url ) : ?>
+          <div class="travel-process-step-image">
+            <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
+            <?php if ( $step_index === 2 ) : ?>
+              <div class="travel-process-step-floating-badge">
+                <i class="fas fa-user-doctor"></i>
+                <span>Expert Advice</span>
               </div>
             <?php endif; ?>
           </div>
-        </div>
-      <?php endwhile; else : ?>
-        <?php
-        $steps = array(
-          array( 'title' => 'Book Consultation', 'desc' => 'Book your appointment online or call us. We recommend booking 6-8 weeks before travel, but we can often accommodate last-minute trips.', 'meta_icon' => 'fas fa-clock', 'meta_text' => 'Book online 24/7' ),
-          array( 'title' => 'Travel Assessment', 'desc' => 'Meet with Ahmed to discuss your itinerary, health history, and any specific concerns. We\'ll create a personalised vaccination plan.', 'meta_icon' => 'fas fa-clipboard-check', 'meta_text' => 'Tailored to your trip' ),
-          array( 'title' => 'Vaccination & Advice', 'desc' => 'We\'ll administer the necessary vaccinations and provide comprehensive health advice for your destination, including malaria prevention if needed.', 'meta_icon' => 'fas fa-check-circle', 'meta_text' => 'Safe & professional' ),
-          array( 'title' => 'Travel with Confidence', 'desc' => 'Leave with your vaccination record card, any necessary medication (like antimalarials), and the peace of mind that you\'re protected.', 'meta_icon' => 'fas fa-passport', 'meta_text' => 'Official certificates' ),
-        );
-        foreach ( $steps as $i => $step ) :
-        ?>
-          <div class="travel-process-card">
-            <div class="travel-process-card-number">
-              <span><?php echo esc_html( $i + 1 ); ?></span>
+        <?php endif; ?>
+      </div>
+    <?php endwhile; else : ?>
+      <?php
+      $steps = array(
+        array( 'title' => 'Book Consultation', 'desc' => 'Book your appointment online or call us. We recommend booking 6-8 weeks before travel, but we can often accommodate last-minute trips.', 'icon' => 'fas fa-calendar-check', 'meta_icon' => 'fas fa-clock', 'meta_text' => 'Book online 24/7' ),
+        array( 'title' => 'Consultation & Vaccination', 'desc' => 'Meet with our pharmacist to discuss your itinerary and health history. We\'ll administer necessary vaccinations and provide health advice.', 'icon' => 'fas fa-user-doctor', 'meta_icon' => 'fas fa-check-circle', 'meta_text' => 'Safe & professional' ),
+        array( 'title' => 'Travel with Confidence', 'desc' => 'Leave with your vaccination record card, any necessary medication (like antimalarials), and the peace of mind that you\'re protected.', 'icon' => 'fas fa-plane-departure', 'meta_icon' => 'fas fa-passport', 'meta_text' => 'Official certificates' ),
+      );
+      foreach ( $steps as $i => $step ) :
+        $direction = ( ($i + 1) % 2 === 1 ) ? 'left' : 'right';
+      ?>
+        <div class="travel-process-step travel-process-step-<?php echo $direction; ?>">
+          <div class="travel-process-step-content">
+            <div class="travel-process-step-number"><?php echo esc_html( $i + 1 ); ?></div>
+            <div class="travel-process-step-icon">
+              <i class="<?php echo esc_attr( $step['icon'] ); ?>"></i>
             </div>
-            <div class="travel-process-card-body">
-              <div class="travel-process-card-text">
-                <h3 class="travel-process-step-title"><?php echo esc_html( $step['title'] ); ?></h3>
-                <p class="travel-process-step-description"><?php echo esc_html( $step['desc'] ); ?></p>
-                <div class="travel-process-step-meta">
-                  <i class="<?php echo esc_attr( $step['meta_icon'] ); ?>"></i>
-                  <span><?php echo esc_html( $step['meta_text'] ); ?></span>
-                </div>
-              </div>
+            <h3 class="travel-process-step-title"><?php echo esc_html( $step['title'] ); ?></h3>
+            <p class="travel-process-step-description"><?php echo esc_html( $step['desc'] ); ?></p>
+            <div class="travel-process-step-meta">
+              <i class="<?php echo esc_attr( $step['meta_icon'] ); ?>"></i>
+              <span><?php echo esc_html( $step['meta_text'] ); ?></span>
             </div>
           </div>
-        <?php endforeach; ?>
-      <?php endif; ?>
-    </div>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
   </div>
 </section>
 
@@ -412,7 +415,7 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_destinations_badge', 'POPULAR DESTINATIONS' ) ); ?></span>
       </div>
       <h2 class="travel-destinations-title">
-        <span class="gradient-text"><?php echo esc_html( dp_field( 'th_destinations_title_highlight', 'Travelling to' ) ); ?></span> <?php echo esc_html( dp_field( 'th_destinations_title_rest', 'these destinations?' ) ); ?>
+        <?php echo esc_html( dp_field( 'th_destinations_title_highlight', 'Travelling to' ) ); ?> <?php echo esc_html( dp_field( 'th_destinations_title_rest', 'these destinations?' ) ); ?>
       </h2>
     </div>
 
@@ -473,7 +476,7 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_faq_badge', 'FREQUENTLY ASKED QUESTIONS' ) ); ?></span>
       </div>
       <h2 class="travel-faq-title">
-        <span class="gradient-text"><?php echo esc_html( dp_field( 'th_faq_title_highlight', 'Travel health' ) ); ?></span> <?php echo esc_html( dp_field( 'th_faq_title_rest', 'questions answered' ) ); ?>
+        <?php echo esc_html( dp_field( 'th_faq_title_highlight', 'Travel health' ) ); ?> <?php echo esc_html( dp_field( 'th_faq_title_rest', 'questions answered' ) ); ?>
       </h2>
     </div>
 

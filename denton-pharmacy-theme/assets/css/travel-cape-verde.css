@@ -8,20 +8,36 @@
    ============================================ */
 .capeverde-hero-section {
   position: relative;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 20px 0 80px;
+  padding: 40px 0 80px;
+  margin-top: -112px;
+  padding-top: calc(112px + 40px);
   overflow: hidden;
   background-image: url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1600&h=900&fit=crop');
   background-size: cover;
   background-position: center;
 }
 
+@media (min-width: 1024px) {
+  .capeverde-hero-section {
+    margin-top: -120px;
+    padding-top: calc(120px + 40px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .capeverde-hero-section {
+    margin-top: -128px;
+    padding-top: calc(128px + 40px);
+  }
+}
+
 .capeverde-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom right, rgba(63, 115, 174, 0.9) 0%, rgba(42, 80, 122, 0.85) 100%);
+  background: linear-gradient(to bottom right, rgba(163, 158, 227, 0.9) 0%, rgba(109, 104, 181, 0.85) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -77,12 +93,6 @@
   }
 }
 
-@media (min-width: 768px) {
-  .capeverde-hero-description {
-    font-size: 1.25rem;
-  }
-}
-
 .capeverde-hero-actions {
   display: flex;
   flex-direction: column;
@@ -129,7 +139,7 @@
    ============================================ */
 .capeverde-stats-section {
   position: relative;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background: linear-gradient(to right, var(--brand-primary), var(--brand-secondary), var(--brand-dark));
   padding: 3.5rem 0;
   overflow: hidden;
   border-bottom: 1px solid rgba(63, 115, 174, 0.15);
@@ -178,25 +188,25 @@
 .capeverde-stat-icon {
   width: 4rem;
   height: 4rem;
-  background: rgba(63, 115, 174, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(63, 115, 174, 0.35);
-  box-shadow: 0 0 20px rgba(63, 115, 174, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 .capeverde-stat-item:hover .capeverde-stat-icon {
-  background: rgba(63, 115, 174, 0.3);
-  border-color: rgba(63, 115, 174, 0.5);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
 .capeverde-stat-icon i {
   font-size: 1.5rem;
-  color: var(--brand-primary);
+  color: var(--white);
 }
 
 .capeverde-stat-content {
@@ -240,16 +250,9 @@
 .capeverde-vaccines-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #0f172a;
+  color: #111827;
   margin-bottom: 1rem;
   line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-@media (min-width: 768px) {
-  .capeverde-vaccines-title {
-    font-size: 3rem;
-  }
 }
 
 .capeverde-vaccines-divider {
@@ -264,12 +267,6 @@
   font-size: 1.125rem;
   color: var(--text-gray);
   line-height: 1.7;
-}
-
-@media (min-width: 768px) {
-  .capeverde-vaccines-description {
-    font-size: 1.25rem;
-  }
 }
 
 .capeverde-vaccines-grid {
@@ -344,9 +341,9 @@
 }
 
 .capeverde-badge-purple {
-  background: rgba(63, 115, 174, 0.15);
-  color: var(--brand-dark);
-  border: 1px solid rgba(63, 115, 174, 0.3);
+  background: rgba(163, 158, 227, 0.15);
+  color: #2a507a;
+  border: 1px solid rgba(163, 158, 227, 0.3);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.375rem 0.75rem;
@@ -774,24 +771,12 @@
   letter-spacing: -0.02em;
 }
 
-@media (min-width: 768px) {
-  .capeverde-cta-title {
-    font-size: 3.5rem;
-  }
-}
-
 .capeverde-cta-description {
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   max-width: 800px;
   margin: 0 auto 2.5rem;
-}
-
-@media (min-width: 768px) {
-  .capeverde-cta-description {
-    font-size: 1.25rem;
-  }
 }
 
 .capeverde-cta-actions {

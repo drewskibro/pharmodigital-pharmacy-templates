@@ -11,17 +11,20 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 20px 0 80px;
+  padding: 40px 0 80px;
   overflow: hidden;
   background-image: url('https://images.unsplash.com/photo-1528127269322-539801943592?w=1600&h=900&fit=crop');
   background-size: cover;
   background-position: center;
+  /* Pull hero up under fixed nav to eliminate white gap */
+  margin-top: calc(-1 * var(--nav-height));
+  padding-top: calc(var(--nav-height) + 40px);
 }
 
 .vietnam-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom right, rgba(63, 115, 174, 0.9) 0%, rgba(42, 80, 122, 0.85) 100%);
+  background: linear-gradient(to bottom right, rgba(163, 158, 227, 0.9) 0%, rgba(109, 104, 181, 0.85) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -77,11 +80,6 @@
   }
 }
 
-@media (min-width: 768px) {
-  .vietnam-hero-description {
-    font-size: 1.25rem;
-  }
-}
 
 .vietnam-hero-actions {
   display: flex;
@@ -129,16 +127,16 @@
    ============================================ */
 .vietnam-stats-section {
   position: relative;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
   padding: 3.5rem 0;
   overflow: hidden;
-  border-bottom: 1px solid rgba(63, 115, 174, 0.15);
+  box-shadow: 0 10px 30px -10px rgba(109, 104, 181, 0.3);
 }
 
 .vietnam-stats-shimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(63, 115, 174, 0.06), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
   animation: shimmer 4s infinite;
   pointer-events: none;
 }
@@ -178,25 +176,29 @@
 .vietnam-stat-icon {
   width: 4rem;
   height: 4rem;
-  background: rgba(63, 115, 174, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(63, 115, 174, 0.35);
-  box-shadow: 0 0 20px rgba(63, 115, 174, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 .vietnam-stat-item:hover .vietnam-stat-icon {
-  background: rgba(63, 115, 174, 0.3);
-  border-color: rgba(63, 115, 174, 0.5);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .vietnam-stat-icon i {
   font-size: 1.5rem;
-  color: var(--brand-primary);
+  color: var(--white);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .vietnam-stat-content {
@@ -211,7 +213,7 @@
   font-weight: 900;
   color: var(--white);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -243,13 +245,6 @@
   color: #0f172a;
   margin-bottom: 1rem;
   line-height: 1.15;
-  letter-spacing: -0.02em;
-}
-
-@media (min-width: 768px) {
-  .vietnam-vaccines-title {
-    font-size: 3rem;
-  }
 }
 
 .vietnam-vaccines-divider {
@@ -264,12 +259,6 @@
   font-size: 1.125rem;
   color: var(--text-gray);
   line-height: 1.7;
-}
-
-@media (min-width: 768px) {
-  .vietnam-vaccines-description {
-    font-size: 1.25rem;
-  }
 }
 
 .vietnam-vaccines-grid {
@@ -289,16 +278,16 @@
   align-items: flex-start;
   gap: 1.5rem;
   background: var(--white);
-  border: 2px solid rgba(63, 115, 174, 0.15);
+  border: 2px solid rgba(109, 104, 181, 0.15);
   border-radius: 1.5rem;
   padding: 2rem;
   transition: all 0.4s ease;
-  box-shadow: 0 4px 20px rgba(63, 115, 174, 0.08);
+  box-shadow: 0 4px 20px rgba(109, 104, 181, 0.08);
 }
 
 .vietnam-vaccine-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.2);
+  box-shadow: 0 20px 50px rgba(109, 104, 181, 0.2);
   border-color: var(--brand-primary);
 }
 
@@ -311,7 +300,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 8px 20px rgba(63, 115, 174, 0.3);
+  box-shadow: 0 8px 20px rgba(109, 104, 181, 0.3);
   transition: transform 0.4s ease;
 }
 
@@ -343,10 +332,10 @@
   line-height: 1.2;
 }
 
-.vietnam-badge-blue {
-  background: rgba(63, 115, 174, 0.15);
+.vietnam-badge-purple {
+  background: rgba(163, 158, 227, 0.15);
   color: var(--brand-dark);
-  border: 1px solid rgba(63, 115, 174, 0.3);
+  border: 1px solid rgba(163, 158, 227, 0.3);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.375rem 0.75rem;
@@ -468,7 +457,7 @@
   align-items: center;
   justify-content: center;
   color: var(--white);
-  box-shadow: 0 4px 10px rgba(63, 115, 174, 0.4);
+  box-shadow: 0 4px 10px rgba(109, 104, 181, 0.4);
   flex-shrink: 0;
 }
 
@@ -520,15 +509,15 @@
   background: var(--white);
   padding: 2rem;
   border-radius: 1.5rem;
-  border: 1px solid rgba(63, 115, 174, 0.15);
-  box-shadow: 0 4px 20px rgba(63, 115, 174, 0.05);
+  border: 1px solid rgba(109, 104, 181, 0.15);
+  box-shadow: 0 4px 20px rgba(109, 104, 181, 0.05);
   transition: all 0.3s ease;
 }
 
 .vietnam-malaria-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 15px 40px rgba(63, 115, 174, 0.15);
-  border-color: rgba(63, 115, 174, 0.3);
+  box-shadow: 0 15px 40px rgba(109, 104, 181, 0.15);
+  border-color: rgba(109, 104, 181, 0.3);
 }
 
 .vietnam-malaria-item-icon {
@@ -622,7 +611,7 @@
 
 .vietnam-health-card-visual:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.25);
+  box-shadow: 0 20px 50px rgba(109, 104, 181, 0.25);
 }
 
 .vietnam-health-bg {
@@ -774,24 +763,12 @@
   letter-spacing: -0.02em;
 }
 
-@media (min-width: 768px) {
-  .vietnam-cta-title {
-    font-size: 3.5rem;
-  }
-}
-
 .vietnam-cta-description {
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   max-width: 800px;
   margin: 0 auto 2.5rem;
-}
-
-@media (min-width: 768px) {
-  .vietnam-cta-description {
-    font-size: 1.25rem;
-  }
 }
 
 .vietnam-cta-actions {

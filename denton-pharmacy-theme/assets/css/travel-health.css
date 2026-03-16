@@ -28,11 +28,14 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 140px 0 80px;
+  padding: 40px 0 80px;
   overflow: hidden;
   background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=900&fit=crop');
   background-size: cover;
   background-position: center;
+  /* Pull hero up under fixed nav to eliminate white gap */
+  margin-top: calc(-1 * var(--nav-height));
+  padding-top: calc(var(--nav-height) + 40px);
 }
 
 .travel-hero-overlay {
@@ -80,20 +83,7 @@
 }
 
 /* Hero badge — glassmorphic white on dark */
-.travel-hero-badge {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.travel-hero-badge .section-badge-text {
-  color: var(--white);
-}
-
-.travel-hero-badge .pulse-dot span {
-  background: var(--brand-secondary);
-}
+/* Hero badge — use global .section-badge styles (no overrides) */
 
 .travel-hero-title {
   font-size: 2.5rem;
@@ -164,29 +154,7 @@
   }
 }
 
-/* Hero CTA overrides — white primary on dark */
-.travel-hero-cta-primary {
-  background: var(--white);
-  color: var(--brand-primary);
-  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.2);
-}
-
-.travel-hero-cta-primary:hover {
-  background: rgba(255, 255, 255, 0.95);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px -3px rgba(0, 0, 0, 0.3);
-}
-
-.travel-hero-cta-secondary {
-  color: var(--white);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  background: transparent;
-}
-
-.travel-hero-cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
-}
+/* Hero CTA — use global .primary-cta / .secondary-cta styles (no overrides) */
 
 /* Trust Badges — glassmorphic pills */
 .travel-hero-trust {
@@ -500,7 +468,7 @@
    ============================================ */
 .travel-vaccines-section {
   padding: 6rem 0;
-  background: linear-gradient(to bottom, #ffffff 0%, #f0f4f8 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f4f3ff 100%);
   position: relative;
   overflow: hidden;
 }
@@ -511,7 +479,7 @@
   left: 0;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(63, 115, 174, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(163, 158, 227, 0.08) 0%, transparent 70%);
   transform: translate(-30%, -30%);
   pointer-events: none;
   z-index: 0;
@@ -523,7 +491,7 @@
   right: 0;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(42, 80, 122, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(109, 104, 181, 0.06) 0%, transparent 70%);
   transform: translate(30%, 30%);
   pointer-events: none;
   z-index: 0;
@@ -872,7 +840,7 @@
 
 .travel-process-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 80px;
 }
 
 .travel-process-title {
@@ -891,123 +859,90 @@
   }
 }
 
-/* Timeline container */
-.travel-process-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+/* Alternating step layout */
+.travel-process-step {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 5rem;
 }
 
-/* Each process card */
-.travel-process-card {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
+@media (min-width: 1024px) {
+  .travel-process-step {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-/* Step number circle */
-.travel-process-card-number {
-  flex-shrink: 0;
-  width: 3.5rem;
-  height: 3.5rem;
-  background: linear-gradient(135deg, var(--brand-accent-light), var(--brand-accent-deep));
+.travel-process-step:last-child {
+  margin-bottom: 0;
+}
+
+.travel-process-step-content {
+  position: relative;
+}
+
+.travel-process-step-number {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--brand-purple, var(--brand-primary)), var(--brand-dark));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 25px rgba(63, 115, 174, 0.3);
-  position: relative;
-  z-index: 2;
-  margin-top: 1.75rem;
-}
-
-.travel-process-card-number span {
   font-family: var(--font-heading);
-  font-size: 1.375rem;
+  font-size: 24px;
   font-weight: 900;
   color: var(--white);
-  line-height: 1;
+  box-shadow: 0 8px 25px rgba(109, 104, 181, 0.3);
+  z-index: 2;
 }
 
-/* Connecting line between steps */
-.travel-process-card:not(:last-child) .travel-process-card-number::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: calc(100% + 2rem);
-  background: linear-gradient(180deg, #3f73ae, rgba(63, 115, 174, 0.15));
-  z-index: 1;
-}
-
-/* Card body */
-.travel-process-card-body {
-  flex: 1;
-  background: var(--white);
-  border: 1px solid rgba(63, 115, 174, 0.1);
-  border-radius: 1.25rem;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.travel-process-card-body:hover {
-  box-shadow: 0 12px 40px rgba(63, 115, 174, 0.1);
-  border-color: rgba(63, 115, 174, 0.2);
-  transform: translateY(-4px);
-}
-
-@media (min-width: 768px) {
-  .travel-process-card-body {
-    display: flex;
-    align-items: stretch;
-    max-height: 220px;
-  }
-}
-
-/* Text portion */
-.travel-process-card-text {
-  padding: 2rem;
+.travel-process-step-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(163, 158, 227, 0.15), rgba(109, 104, 181, 0.1));
+  border-radius: 20px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
-@media (min-width: 768px) {
-  .travel-process-card-text {
-    flex: 1.2;
-    padding: 2.5rem;
-  }
+.travel-process-step-icon i {
+  font-size: 32px;
+  color: var(--brand-purple, var(--brand-primary));
 }
 
 .travel-process-step-title {
-  font-size: 1.5rem;
+  font-size: 1.875rem;
   font-weight: 800;
   font-family: var(--font-heading);
   color: #111827;
   margin-top: 0;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 @media (min-width: 768px) {
   .travel-process-step-title {
-    font-size: 1.75rem;
+    font-size: 2.25rem;
   }
 }
 
 .travel-process-step-description {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   color: var(--text-gray);
   line-height: 1.7;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
   .travel-process-step-description {
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
   }
 }
 
@@ -1016,38 +951,32 @@
   align-items: center;
   gap: 0.75rem;
   background: var(--brand-light);
-  padding: 0.75rem 1rem;
-  border-radius: 0.625rem;
-  border: 1px solid rgba(63, 115, 174, 0.1);
+  padding: 0.875rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(163, 158, 227, 0.2);
   width: fit-content;
 }
 
 .travel-process-step-meta i {
-  color: var(--brand-primary);
-  font-size: 0.9375rem;
+  color: var(--brand-purple, var(--brand-primary));
+  font-size: 1rem;
 }
 
 .travel-process-step-meta span {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: #374151;
 }
 
-/* Image portion */
-.travel-process-card-image {
-  aspect-ratio: 16 / 10;
+.travel-process-step-image {
+  position: relative;
+  border-radius: 2rem;
   overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 4px solid var(--white);
 }
 
-@media (min-width: 768px) {
-  .travel-process-card-image {
-    flex: 0.8;
-    aspect-ratio: auto;
-    min-height: 100%;
-  }
-}
-
-.travel-process-card-image img {
+.travel-process-step-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1055,32 +984,44 @@
   transition: transform 0.7s ease;
 }
 
-.travel-process-card-body:hover .travel-process-card-image img {
+.travel-process-step:hover .travel-process-step-image img {
   transform: scale(1.05);
 }
 
-/* Mobile: stack vertically */
-@media (max-width: 767px) {
-  .travel-process-card {
-    flex-direction: column;
-    gap: 0;
+/* Floating badge on step image */
+.travel-process-step-floating-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: linear-gradient(135deg, var(--brand-purple, var(--brand-primary)), var(--brand-dark));
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(109, 104, 181, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.travel-process-step-floating-badge i {
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.travel-process-step-floating-badge span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* Alternating layout — swap content/image order */
+@media (min-width: 1024px) {
+  .travel-process-step-right .travel-process-step-content {
+    order: 2;
   }
 
-  .travel-process-card-number {
-    width: 2.75rem;
-    height: 2.75rem;
-    margin-top: 0;
-    margin-bottom: -1.375rem;
-    margin-left: 1.5rem;
-    z-index: 3;
-  }
-
-  .travel-process-card-number span {
-    font-size: 1.125rem;
-  }
-
-  .travel-process-card:not(:last-child) .travel-process-card-number::after {
-    display: none;
+  .travel-process-step-right .travel-process-step-image {
+    order: 1;
   }
 }
 
@@ -1408,7 +1349,7 @@
    ============================================ */
 .travel-cta-section {
   position: relative;
-  background: linear-gradient(135deg, #3f73ae 0%, #2a507a 100%);
+  background: #3f73ae;
   padding: 6rem 0;
   overflow: hidden;
 }
