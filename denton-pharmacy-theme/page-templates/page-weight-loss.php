@@ -30,9 +30,11 @@ get_header();
         </div>
 
         <h1 class="wl-hero-title">
-          <span class="gradient-text"><?php echo esc_html( dp_field( 'wl_hero_title_line_1', 'Lose Weight.' ) ); ?></span>
-          <span class="hero-accent-text"><?php echo esc_html( dp_field( 'wl_hero_title_line_2', 'Feel Amazing.' ) ); ?></span>
-          <span class="gradient-text"><?php echo esc_html( dp_field( 'wl_hero_title_line_3', 'Start Today.' ) ); ?></span>
+          <span class="gradient-text"><?php echo esc_html( dp_field( 'wl_hero_title_line_1', 'Medical Weight Loss' ) ); ?></span>
+          <?php echo esc_html( dp_field( 'wl_hero_title_line_2', 'in Denton' ) ); ?>
+          <?php $line3 = dp_field( 'wl_hero_title_line_3', '' ); if ( $line3 ) : ?>
+          <br><span class="gradient-text"><?php echo esc_html( $line3 ); ?></span>
+          <?php endif; ?>
         </h1>
 
         <p class="wl-hero-description">
@@ -56,25 +58,21 @@ get_header();
             <i class="fas fa-quote-left"></i>
           </div>
           <p class="wl-hero-testimonial-quote">
-            <?php echo esc_html( dp_field( 'wl_hero_testimonial_quote', '"Ahmed really takes the time to understand your goals. I\'ve lost 3 stone in 6 months and feel like a different person."' ) ); ?>
+            <?php echo esc_html( dp_field( 'wl_hero_testimonial_quote', '"I travel 40 miles every month to see Ahmed for my weight loss consultations—he\'s that good. Would never go anywhere else."' ) ); ?>
           </p>
           <div class="wl-hero-testimonial-footer">
             <div class="wl-hero-testimonial-author">
               <p class="wl-hero-testimonial-name"><?php echo esc_html( dp_field( 'wl_hero_testimonial_name', 'Denton Patient' ) ); ?></p>
-              <div class="star-row">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
+              <p class="wl-hero-testimonial-location"><?php echo esc_html( dp_field( 'wl_hero_testimonial_location', 'Denton' ) ); ?></p>
             </div>
-            <div class="result-badge">
-              <i class="fas fa-weight-scale"></i>
-              <span><?php echo esc_html( dp_field( 'wl_hero_result_badge', 'Real Results' ) ); ?></span>
+            <div class="star-row">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
           </div>
-          <div class="hero-testimonial-accent"></div>
         </div>
       </div>
 
@@ -105,37 +103,57 @@ get_header();
 </section>
 
 <!-- ============================================
-     SOCIAL PROOF / STATS BAR
+     STATS BAR
      ============================================ -->
-<section class="wl-social-proof-bar">
+<section class="wl-stats-section">
+  <div class="wl-stats-shimmer"></div>
+  <div class="wl-stats-dots"></div>
   <div class="section-container">
-    <div class="wl-social-proof-bar-content">
-      <!-- Left: Premium Stats Badge -->
-      <div class="wl-social-proof-bar-stats">
-        <div class="wl-social-proof-bar-number"><?php echo esc_html( dp_field( 'wl_social_number', '4.7' ) ); ?></div>
-        <div class="wl-social-proof-bar-label"><?php echo esc_html( dp_field( 'wl_social_label', 'Google Rating' ) ); ?></div>
-        <div class="wl-social-proof-bar-stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
+    <div class="wl-stats-grid">
+
+      <div class="wl-stat-item">
+        <div class="wl-stat-icon">
           <i class="fas fa-star"></i>
         </div>
+        <div class="wl-stat-content">
+          <p class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_1_number', '4.7★' ) ); ?></p>
+          <p class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_1_label', 'Google Rating' ) ); ?></p>
+        </div>
       </div>
-      <!-- Right: Content -->
-      <div class="wl-social-proof-bar-text">
-        <span class="wl-social-proof-bar-eyebrow"><?php echo esc_html( dp_field( 'wl_social_eyebrow', 'TRUSTED BY DENTON' ) ); ?></span>
-        <h2 class="wl-social-proof-bar-headline"><?php echo esc_html( dp_field( 'wl_social_headline', 'Join hundreds of Denton patients who\'ve already made the switch' ) ); ?></h2>
-        <p class="wl-social-proof-bar-subtext"><?php echo esc_html( dp_field( 'wl_social_subtext', 'Real people, real results. Our patients lose an average of 10-15% body weight in 12 months with Mounjaro and Wegovy treatment.' ) ); ?></p>
+
+      <div class="wl-stat-item">
+        <div class="wl-stat-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="wl-stat-content">
+          <p class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_2_number', '300+' ) ); ?></p>
+          <p class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_2_label', 'Patients Helped' ) ); ?></p>
+        </div>
       </div>
+
+      <div class="wl-stat-item desktop-only">
+        <div class="wl-stat-icon">
+          <i class="fas fa-shield-halved"></i>
+        </div>
+        <div class="wl-stat-content">
+          <p class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_3_number', 'GPhC' ) ); ?></p>
+          <p class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_3_label', 'Registered' ) ); ?></p>
+        </div>
+      </div>
+
+      <div class="wl-stat-item">
+        <div class="wl-stat-icon">
+          <i class="fas fa-award"></i>
+        </div>
+        <div class="wl-stat-content">
+          <p class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_4_number', '30+' ) ); ?></p>
+          <p class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_4_label', 'Years Experience' ) ); ?></p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
-
-<!-- ============================================
-     PHARMACIST SECTION
-     ============================================ -->
-<?php get_template_part( 'template-parts/section', 'pharmacist' ); ?>
 
 <!-- ============================================
      RESULTS SHOWCASE
@@ -145,9 +163,9 @@ get_header();
     <div class="wl-results-header">
       <div class="section-badge">
         <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_results_badge', 'MEDICAL WEIGHT LOSS' ) ); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_results_badge', 'REAL RESULTS' ) ); ?></span>
       </div>
-      <h2 class="wl-results-title">Real <span class="gradient-text"><?php echo esc_html( dp_field( 'wl_results_title_highlight', 'Mounjaro & Wegovy' ) ); ?></span> <?php echo esc_html( dp_field( 'wl_results_title', 'results in Denton' ) ); ?></h2>
+      <h2 class="wl-results-title"><?php echo esc_html( dp_field( 'wl_results_title', 'Real Mounjaro & Wegovy results in Denton' ) ); ?></h2>
       <p class="wl-results-description"><?php echo esc_html( dp_field( 'wl_results_description', 'Denton patients using Mounjaro or Wegovy lose an average of 10-15% of their body weight in 12 months with our personalised programmes.' ) ); ?></p>
     </div>
 
@@ -174,14 +192,14 @@ get_header();
         <p class="wl-results-featured-sublabel"><?php echo esc_html( dp_field( 'wl_results_featured_sublabel', 'In 12 months' ) ); ?></p>
       </div>
 
-      <!-- Card 3: Patients Helped -->
+      <!-- Card 3: Denton Residents -->
       <div class="wl-results-card">
-        <div class="wl-results-card-icon-wrapper">
-          <i class="fas fa-heart"></i>
+        <div class="wl-results-icon">
+          <i class="fas fa-user-group"></i>
         </div>
-        <p class="wl-results-number gradient-text"><?php echo esc_html( dp_field( 'wl_results_card3_number', '500+' ) ); ?></p>
-        <p class="wl-results-label"><?php echo esc_html( dp_field( 'wl_results_card3_label', 'Patients Helped' ) ); ?></p>
-        <p class="wl-results-sublabel"><?php echo esc_html( dp_field( 'wl_results_card3_sublabel', 'Denton & surrounding areas' ) ); ?></p>
+        <p class="wl-results-number gradient-text"><?php echo esc_html( dp_field( 'wl_results_card3_number', '300+' ) ); ?></p>
+        <p class="wl-results-label"><?php echo esc_html( dp_field( 'wl_results_card3_label', 'Denton residents' ) ); ?></p>
+        <p class="wl-results-sublabel"><?php echo esc_html( dp_field( 'wl_results_card3_sublabel', 'Successfully helped' ) ); ?></p>
       </div>
     </div>
 
@@ -189,25 +207,6 @@ get_header();
       <i class="fas fa-info-circle"></i>
       <?php echo esc_html( dp_field( 'wl_results_disclaimer', 'Results vary by individual. Weight loss depends on adherence to treatment, lifestyle changes, and individual metabolism.' ) ); ?>
     </p>
-  </div>
-</section>
-
-<!-- ============================================
-     CTA BAR
-     ============================================ -->
-<section class="wl-cta-bar">
-  <div class="wl-cta-bar-shimmer"></div>
-  <div class="section-container">
-    <div class="wl-cta-bar-content">
-      <div class="wl-cta-bar-text">
-        <h3 class="wl-cta-bar-title"><?php echo esc_html( dp_field( 'wl_cta_bar_title', 'Ready to transform your health?' ) ); ?></h3>
-        <p class="wl-cta-bar-subtitle"><?php echo esc_html( dp_field( 'wl_cta_bar_subtitle', 'Book your consultation with Ahmed today' ) ); ?></p>
-      </div>
-      <a href="<?php echo esc_url( dp_field( 'wl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta wl-cta-bar-button">
-        <?php echo esc_html( dp_field( 'wl_hero_cta_text', 'Book Consultation' ) ); ?>
-        <i class="fas fa-arrow-right"></i>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -221,7 +220,7 @@ get_header();
         <span class="pulse-dot"><span></span><span></span></span>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_features_badge', 'Why Choose Us' ) ); ?></span>
       </div>
-      <h2 class="wl-features-title">The <span class="gradient-text"><?php echo esc_html( dp_pharmacy_name() ); ?></span> Difference</h2>
+      <h2 class="wl-features-title"><?php echo esc_html( dp_field( 'wl_features_title', 'The Denton Pharmacy Difference' ) ); ?></h2>
       <div class="wl-features-divider"></div>
       <p class="wl-features-description"><?php echo esc_html( dp_field( 'wl_features_description', 'Real face-to-face support. Expert guidance. Proven results.' ) ); ?></p>
     </div>
@@ -246,8 +245,8 @@ get_header();
           <p class="wl-features-badge-text"><?php echo esc_html( dp_field( 'wl_features_rating_text', '4.7/5' ) ); ?></p>
         </div>
         <div class="wl-features-badge wl-features-badge-patients">
-          <i class="fab fa-google"></i>
-          <p class="wl-features-badge-text"><?php echo esc_html( dp_field( 'wl_features_reviews_text', '300+ Google Reviews' ) ); ?></p>
+          <i class="fas fa-users"></i>
+          <p class="wl-features-badge-text"><?php echo esc_html( dp_field( 'wl_features_reviews_text', '300+ Patients Helped' ) ); ?></p>
         </div>
       </div>
 
@@ -299,9 +298,57 @@ get_header();
         <div class="wl-features-credentials">
           <div class="wl-features-credential"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></div>
           <div class="wl-features-credential"><i class="fas fa-user-doctor"></i><span>Independent Prescriber</span></div>
-          <div class="wl-features-credential"><i class="fas fa-award"></i><span>15+ Years</span></div>
+          <div class="wl-features-credential"><i class="fas fa-award"></i><span>30+ Years</span></div>
+        </div>
+
+        <div class="wl-features-social-proof-premium">
+          <div class="wl-social-avatars">
+            <?php
+            $avatar_ids = array(
+              dp_field( 'wl_social_avatar_1' ),
+              dp_field( 'wl_social_avatar_2' ),
+              dp_field( 'wl_social_avatar_3' ),
+            );
+            foreach ( $avatar_ids as $avatar_id ) :
+              $avatar_url = $avatar_id ? wp_get_attachment_image_url( $avatar_id, 'thumbnail' ) : '';
+              if ( $avatar_url ) :
+            ?>
+              <img src="<?php echo esc_url( $avatar_url ); ?>" alt="Happy patient" class="wl-social-img" />
+            <?php endif; endforeach; ?>
+            <div class="wl-social-count">
+              <span><?php echo esc_html( dp_field( 'wl_social_count', '300+' ) ); ?></span>
+            </div>
+          </div>
+          <div class="wl-social-content">
+            <div class="wl-social-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <span class="wl-social-rating"><?php echo esc_html( dp_field( 'wl_social_rating', '4.9/5' ) ); ?></span>
+            </div>
+            <p class="wl-social-text">
+              Join <strong><?php echo esc_html( dp_field( 'wl_social_join_text', '300+ Denton locals' ) ); ?></strong> on their journey
+            </p>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CTA BAR
+     ============================================ -->
+<section class="wl-cta-bar">
+  <div class="wl-cta-bar-shimmer"></div>
+  <div class="section-container">
+    <div class="wl-cta-bar-content">
+      <div class="wl-cta-bar-text">
+        <h3 class="wl-cta-bar-title"><?php echo esc_html( dp_field( 'wl_cta_bar_title', 'Ready to transform your health?' ) ); ?></h3>
+        <p class="wl-cta-bar-subtitle"><?php echo esc_html( dp_field( 'wl_cta_bar_subtitle', 'Book your consultation with Ahmed today' ) ); ?></p>
+      </div>
+      <a href="<?php echo esc_url( dp_field( 'wl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta wl-cta-bar-button">
+        <?php echo esc_html( dp_field( 'wl_hero_cta_text', 'Book Consultation' ) ); ?>
+        <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
   </div>
 </section>
@@ -316,67 +363,130 @@ get_header();
         <span class="pulse-dot"><span></span><span></span></span>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_journey_badge', 'HOW WE SUPPORT YOU' ) ); ?></span>
       </div>
-      <h2 class="wl-journey-title">
-        <span class="gradient-text"><?php echo esc_html( dp_field( 'wl_journey_title_highlight', 'Your Path To' ) ); ?></span>
-        <span class="wl-journey-accent-text"><?php echo esc_html( dp_field( 'wl_journey_title_line2', ' Lasting Weight Loss' ) ); ?></span>
-      </h2>
+      <h2 class="wl-journey-title"><?php echo esc_html( dp_field( 'wl_journey_title', 'Your path to lasting weight loss' ) ); ?></h2>
       <p class="wl-journey-description">
         <?php echo esc_html( dp_field( 'wl_journey_description', 'A structured, evidence-based approach with regular face-to-face support every step of the way.' ) ); ?>
       </p>
     </div>
 
     <?php
-    // Default steps data
-    $default_journey_steps = array(
-        array( 'title' => 'Initial Consultation', 'description' => 'Meet with Ahmed at our Denton pharmacy for a comprehensive health assessment. We\'ll discuss your goals, medical history, and create a personalised plan.', 'image' => '' ),
-        array( 'title' => 'Begin Treatment', 'description' => 'If suitable, we\'ll prescribe Mounjaro, Wegovy, or other GLP-1 treatments. You\'ll receive clear instructions and guidance on what to expect.', 'image' => '' ),
-        array( 'title' => 'Monthly Check-Ins', 'description' => 'Pop into the pharmacy for face-to-face appointments. We\'ll monitor your progress, adjust medication if needed, and provide ongoing encouragement.', 'image' => '' ),
-        array( 'title' => 'Reach Your Goals', 'description' => 'With consistent support and proven medical treatments, most patients reach their target weight within 12 months. We\'ll help you maintain results long-term.', 'image' => '' ),
+    $default_steps = array(
+        array(
+            'title'       => 'Initial consultation',
+            'description' => 'Meet with our expert team at our Denton pharmacy for a comprehensive health assessment. We\'ll discuss your goals, medical history, and create a personalised plan that works for you.',
+            'icon'        => 'fas fa-calendar-check',
+            'meta'        => '30-45 minutes | Private consultation',
+            'meta_icon'   => 'fas fa-clock',
+            'badge'       => '',
+            'badge_icon'  => '',
+        ),
+        array(
+            'title'       => 'Begin Mounjaro or Wegovy treatment',
+            'description' => 'If suitable, we\'ll prescribe Mounjaro, Wegovy, or other GLP-1 treatments. You\'ll receive clear instructions and guidance on what to expect from your Denton weight loss programme.',
+            'icon'        => 'fas fa-pills',
+            'meta'        => 'Same-day prescription available',
+            'meta_icon'   => 'fas fa-bolt',
+            'badge'       => 'Same Day',
+            'badge_icon'  => 'fas fa-bolt',
+        ),
+        array(
+            'title'       => 'Monthly check-ins',
+            'description' => 'Pop into the pharmacy for face-to-face appointments. We\'ll monitor your progress, adjust medication if needed, and provide ongoing encouragement. You\'re never doing this alone.',
+            'icon'        => 'fas fa-user-doctor',
+            'meta'        => 'Monthly appointments',
+            'meta_icon'   => 'fas fa-calendar',
+            'badge'       => '',
+            'badge_icon'  => 'fas fa-heart',
+            'badge_class' => 'wl-journey-step-floating-badge-heart',
+        ),
+        array(
+            'title'       => 'Reach your goals',
+            'description' => 'With consistent support and proven medical treatments, most patients reach their target weight within 12 months. We\'ll help you maintain results long-term.',
+            'icon'        => 'fas fa-trophy',
+            'meta'        => 'Ongoing maintenance support',
+            'meta_icon'   => 'fas fa-infinity',
+            'badge'       => '',
+            'badge_icon'  => 'fas fa-trophy',
+            'badge_class' => 'wl-journey-step-floating-badge-trophy',
+        ),
     );
 
-    $has_journey_steps = have_rows( 'wl_journey_steps' );
-    $journey_steps     = array();
+    $has_steps = have_rows( 'wl_journey_steps' );
+    $steps     = array();
 
-    if ( $has_journey_steps ) {
+    if ( $has_steps ) {
+        $s = 0;
         while ( have_rows( 'wl_journey_steps' ) ) {
             the_row();
             $img_id  = get_sub_field( 'image' );
             $img_url = $img_id ? wp_get_attachment_image_url( $img_id, 'medium_large' ) : '';
-            $journey_steps[] = array(
-                'title'       => get_sub_field( 'title' ),
-                'description' => get_sub_field( 'description' ),
+            $steps[] = array(
+                'title'       => get_sub_field( 'title' ) ?: $default_steps[ $s ]['title'],
+                'description' => get_sub_field( 'description' ) ?: $default_steps[ $s ]['description'],
+                'icon'        => get_sub_field( 'icon' ) ?: $default_steps[ $s ]['icon'],
+                'meta'        => get_sub_field( 'meta' ) ?: $default_steps[ $s ]['meta'],
+                'meta_icon'   => $default_steps[ $s ]['meta_icon'],
                 'image'       => $img_url,
+                'badge'       => isset( $default_steps[ $s ]['badge'] ) ? $default_steps[ $s ]['badge'] : '',
+                'badge_icon'  => isset( $default_steps[ $s ]['badge_icon'] ) ? $default_steps[ $s ]['badge_icon'] : '',
+                'badge_class' => isset( $default_steps[ $s ]['badge_class'] ) ? $default_steps[ $s ]['badge_class'] : '',
             );
+            $s++;
         }
     } else {
-        $journey_steps = $default_journey_steps;
+        $steps = $default_steps;
     }
     ?>
 
-    <!-- Numbered Tabs Navigation -->
-    <div class="wl-journey-tabs">
-      <?php foreach ( $journey_steps as $i => $step ) : ?>
-        <div class="wl-journey-tab<?php echo $i === 0 ? ' wl-journey-tab-active' : ''; ?>">
-          <span class="wl-journey-tab-counter"><?php echo esc_html( $i + 1 ); ?></span>
-          <strong class="wl-journey-tab-title"><?php echo esc_html( $step['title'] ); ?></strong>
-        </div>
-      <?php endforeach; ?>
-    </div>
+    <?php foreach ( $steps as $i => $step ) :
+      $direction = ( $i % 2 === 0 ) ? 'left' : 'right';
+      $step_image = isset( $step['image'] ) ? $step['image'] : '';
+    ?>
+      <div class="wl-journey-step wl-journey-step-<?php echo $direction; ?>">
+        <?php if ( $direction === 'right' && $step_image ) : ?>
+          <div class="wl-journey-step-image">
+            <img src="<?php echo esc_url( $step_image ); ?>" alt="<?php echo esc_attr( $step['title'] ); ?>" />
+            <?php if ( ! empty( $step['badge'] ) ) : ?>
+              <div class="wl-journey-step-floating-badge">
+                <i class="<?php echo esc_attr( $step['badge_icon'] ); ?>"></i>
+                <span><?php echo esc_html( $step['badge'] ); ?></span>
+              </div>
+            <?php elseif ( ! empty( $step['badge_icon'] ) && ! empty( $step['badge_class'] ) ) : ?>
+              <div class="wl-journey-step-floating-badge <?php echo esc_attr( $step['badge_class'] ); ?>">
+                <i class="<?php echo esc_attr( $step['badge_icon'] ); ?>"></i>
+              </div>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
 
-    <!-- Step Content Cards Grid -->
-    <div class="wl-journey-cards">
-      <?php foreach ( $journey_steps as $i => $step ) : ?>
-        <div class="wl-journey-card">
-          <?php if ( $step['image'] ) : ?>
-            <figure class="wl-journey-card-image">
-              <img src="<?php echo esc_url( $step['image'] ); ?>" alt="<?php echo esc_attr( $step['title'] ); ?>" />
-            </figure>
-          <?php endif; ?>
-          <h4 class="wl-journey-card-title"><?php echo esc_html( $step['title'] ); ?></h4>
-          <p class="wl-journey-card-description"><?php echo esc_html( $step['description'] ); ?></p>
+        <div class="wl-journey-step-content">
+          <div class="wl-journey-step-number"><?php echo esc_html( $i + 1 ); ?></div>
+          <h3 class="wl-journey-step-title"><?php echo esc_html( $step['title'] ); ?></h3>
+          <p class="wl-journey-step-description"><?php echo esc_html( $step['description'] ); ?></p>
+          <div class="wl-journey-step-meta">
+            <i class="<?php echo esc_attr( $step['meta_icon'] ); ?>"></i>
+            <span><?php echo esc_html( $step['meta'] ); ?></span>
+          </div>
         </div>
-      <?php endforeach; ?>
-    </div>
+
+        <?php if ( $direction === 'left' && $step_image ) : ?>
+          <div class="wl-journey-step-image">
+            <img src="<?php echo esc_url( $step_image ); ?>" alt="<?php echo esc_attr( $step['title'] ); ?>" />
+            <?php if ( ! empty( $step['badge'] ) ) : ?>
+              <div class="wl-journey-step-floating-badge">
+                <i class="<?php echo esc_attr( $step['badge_icon'] ); ?>"></i>
+                <span><?php echo esc_html( $step['badge'] ); ?></span>
+              </div>
+            <?php elseif ( ! empty( $step['badge_icon'] ) && ! empty( $step['badge_class'] ) ) : ?>
+              <div class="wl-journey-step-floating-badge <?php echo esc_attr( $step['badge_class'] ); ?>">
+                <i class="<?php echo esc_attr( $step['badge_icon'] ); ?>"></i>
+              </div>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
+      </div>
+    <?php endforeach; ?>
+
   </div>
 </section>
 
@@ -483,6 +593,11 @@ get_header();
     </div>
   </div>
 </section>
+
+<!-- ============================================
+     PHARMACIST SECTION
+     ============================================ -->
+<?php get_template_part( 'template-parts/section', 'pharmacist' ); ?>
 
 <!-- ============================================
      FAQ SECTION
