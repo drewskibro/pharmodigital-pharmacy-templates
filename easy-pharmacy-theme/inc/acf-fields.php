@@ -5510,27 +5510,15 @@ function ep_register_acf_field_groups() {
     ) );
 
     // -------------------------------------------------------------------------
-    // K2. India — Quick Info Bar
+    // K2. India — Social Proof (Google Rating + Trust Headline)
     // -------------------------------------------------------------------------
     acf_add_local_field_group( array(
-        'key'      => 'group_ep_in_stats',
-        'title'    => 'India — Quick Info Bar',
+        'key'      => 'group_ep_in_social_proof',
+        'title'    => 'India — Social Proof',
         'fields'   => array(
-            array(
-                'key'          => 'field_ep_in_stats',
-                'label'        => 'Stats',
-                'name'         => 'in_stats',
-                'type'         => 'repeater',
-                'layout'       => 'table',
-                'min'          => 0,
-                'max'          => 4,
-                'button_label' => 'Add Stat',
-                'sub_fields'   => array(
-                    array( 'key' => 'field_ep_in_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_ep_in_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_ep_in_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
-                ),
-            ),
+            array( 'key' => 'field_ep_in_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'in_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY ASHFORD', 'instructions' => 'Small uppercase label above the headline.' ),
+            array( 'key' => 'field_ep_in_social_headline', 'label' => 'Headline', 'name' => 'in_social_headline', 'type' => 'text', 'default_value' => 'Expert travel health advice from your local GPhC-registered pharmacist' ),
+            array( 'key' => 'field_ep_in_social_subtext', 'label' => 'Subtext', 'name' => 'in_social_subtext', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Hundreds of travellers protected with personalised vaccination plans. GPhC-registered, with same-day appointments available.' ),
         ),
         'location'              => $in_location,
         'menu_order'            => 5,
