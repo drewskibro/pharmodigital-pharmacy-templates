@@ -31,7 +31,7 @@ get_header();
 
         <div class="thailand-hero-actions">
           <a href="<?php echo esc_url( ep_field( 'td_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta thailand-hero-btn-primary">
-            <?php echo esc_html( ep_field( 'td_hero_cta_text', 'Book Thailand Consultation' ) ); ?>
+            <?php echo esc_html( ep_field( 'td_hero_cta_text', 'Book an Appointment' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
           <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta thailand-hero-btn-secondary">
@@ -47,35 +47,53 @@ get_header();
   </div>
 </section>
 
-<!-- Quick Info Bar -->
-<section class="thailand-stats-section">
-  <div class="thailand-stats-shimmer"></div>
+<!-- Social Proof Section — Google rating badge + travel health trust headline -->
+<section class="thailand-social-proof-section">
   <div class="section-container">
-    <div class="thailand-stats-grid">
-      <?php if ( have_rows( 'td_stats' ) ) : while ( have_rows( 'td_stats' ) ) : the_row(); ?>
-        <div class="thailand-stat-item">
-          <div class="thailand-stat-icon">
-            <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+    <div class="thailand-social-proof-wrapper">
+
+      <!-- Left: Google Rating Badge (shared .rating-badge from globals.css) -->
+      <div class="rating-badge">
+        <div class="rating-header">
+          <div class="rating-label">
+            <div class="google-icon-wrapper">
+              <i class="fab fa-google"></i>
+            </div>
+            <span>Google Rating</span>
           </div>
-          <div class="thailand-stat-content">
-            <p class="thailand-stat-number"><?php echo esc_html( get_sub_field( 'number' ) ); ?></p>
-            <p class="thailand-stat-label"><?php echo esc_html( get_sub_field( 'label' ) ); ?></p>
+          <div class="badge-success">
+            <i class="fas fa-check-circle"></i>
+            <span>Excellent</span>
           </div>
         </div>
-      <?php endwhile; else : ?>
-        <div class="thailand-stat-item">
-          <div class="thailand-stat-icon"><i class="fas fa-syringe"></i></div>
-          <div class="thailand-stat-content"><p class="thailand-stat-number">5-7</p><p class="thailand-stat-label">Vaccines Recommended</p></div>
+        <div class="rating-score">
+          <span class="score-number"><?php echo esc_html( ep_option( 'google_rating', '4.7' ) ); ?></span>
+          <div class="rating-score-detail">
+            <div class="star-row">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="rating-count">Based on 300+ reviews</span>
+          </div>
         </div>
-        <div class="thailand-stat-item">
-          <div class="thailand-stat-icon"><i class="fas fa-calendar-alt"></i></div>
-          <div class="thailand-stat-content"><p class="thailand-stat-number">6-8</p><p class="thailand-stat-label">Weeks Before Travel</p></div>
+        <div class="rating-footer">
+          <div class="rating-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><?php echo esc_html( ep_option( 'pharmacy_location', 'Ashford, UK' ) ); ?></span>
+          </div>
+          <a href="#reviews" class="rating-link">View Reviews</a>
         </div>
-        <div class="thailand-stat-item">
-          <div class="thailand-stat-icon"><i class="fas fa-shield-halved"></i></div>
-          <div class="thailand-stat-content"><p class="thailand-stat-number">Full</p><p class="thailand-stat-label">Protection Available</p></div>
-        </div>
-      <?php endif; ?>
+      </div>
+
+      <!-- Right: Trust headline + subtext -->
+      <div class="thailand-social-proof-content">
+        <p class="thailand-social-proof-eyebrow"><?php echo esc_html( ep_field( 'td_social_eyebrow', 'TRUSTED BY ASHFORD' ) ); ?></p>
+        <h2 class="thailand-social-proof-headline"><?php echo esc_html( ep_field( 'td_social_headline', 'Expert travel health advice from your local GPhC-registered pharmacist' ) ); ?></h2>
+        <p class="thailand-social-proof-subtext"><?php echo esc_html( ep_field( 'td_social_subtext', 'Hundreds of travellers protected with personalised vaccination plans. GPhC-registered, with same-day appointments available.' ) ); ?></p>
+      </div>
     </div>
   </div>
 </section>
@@ -263,40 +281,26 @@ get_header();
   </div>
 </section>
 
-<!-- Final CTA -->
+<!-- Final CTA — matches hair loss / reviewer profile design system -->
 <section class="thailand-cta-section">
-  <div class="thailand-cta-glow-1"></div>
-  <div class="thailand-cta-glow-2"></div>
-  <div class="thailand-cta-dots"></div>
   <div class="section-container">
-    <div class="thailand-cta-content">
-      <h2 class="thailand-cta-title"><?php echo esc_html( ep_field( 'td_cta_title', 'Ready for your Thailand adventure?' ) ); ?></h2>
-      <p class="thailand-cta-description">
-        <?php echo esc_html( ep_field( 'td_cta_description', 'Book your Thailand travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
-      </p>
+    <div class="thailand-cta-inner">
+      <h2 class="thailand-cta-title"><?php echo esc_html( ep_field( 'td_cta_title', 'Ready for Your Thailand Adventure?' ) ); ?></h2>
+      <p class="thailand-cta-description"><?php echo esc_html( ep_field( 'td_cta_description', 'Book your travel health consultation with our GPhC-registered pharmacist in Ashford. Expert advice and all recommended vaccinations in one visit.' ) ); ?></p>
       <div class="thailand-cta-actions">
-        <a href="<?php echo esc_url( ep_field( 'td_cta_primary_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta thailand-cta-button-white">
-          <?php echo esc_html( ep_field( 'td_cta_primary_text', 'Book Thailand Consultation' ) ); ?>
+        <a href="<?php echo esc_url( ep_field( 'td_cta_primary_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+          <?php echo esc_html( ep_field( 'td_cta_primary_text', 'Book an Appointment' ) ); ?>
           <i class="fas fa-arrow-right"></i>
         </a>
-        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta thailand-cta-button-outlined">
+        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta">
           <i class="fas fa-phone"></i>
-          Call <?php echo esc_html( ep_phone() ); ?>
+          <?php echo esc_html( ep_phone() ); ?>
         </a>
       </div>
-      <div class="thailand-cta-checks">
-        <div class="thailand-cta-check">
-          <i class="fas fa-plane-departure"></i>
-          <span><?php echo esc_html( ep_field( 'td_cta_check_1', 'Travel Ready' ) ); ?></span>
-        </div>
-        <div class="thailand-cta-check">
-          <i class="fas fa-user-doctor"></i>
-          <span><?php echo esc_html( ep_field( 'td_cta_check_2', 'Expert Thailand Advice' ) ); ?></span>
-        </div>
-        <div class="thailand-cta-check">
-          <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html( ep_field( 'td_cta_check_3', 'All Vaccines Available' ) ); ?></span>
-        </div>
+      <div class="thailand-cta-trust">
+        <span class="thailand-cta-trust-item"><i class="fas fa-shield-halved"></i> <?php echo esc_html( ep_field( 'td_cta_check_1', 'GPhC Registered' ) ); ?></span>
+        <span class="thailand-cta-trust-item"><i class="fas fa-clock"></i> <?php echo esc_html( ep_field( 'td_cta_check_2', 'Same-Day Appointments' ) ); ?></span>
+        <span class="thailand-cta-trust-item"><i class="fas fa-user-doctor"></i> <?php echo esc_html( ep_field( 'td_cta_check_3', 'No Referral Needed' ) ); ?></span>
       </div>
     </div>
   </div>
