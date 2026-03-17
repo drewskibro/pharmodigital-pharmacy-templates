@@ -187,6 +187,11 @@ function easy_pharmacy_scripts() {
         wp_enqueue_script( 'easy-pharmacy-altitude-sickness-js', EASY_PHARMACY_URI . '/assets/js/altitude-sickness.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
+    if ( is_page_template( 'page-templates/page-b12-injections.php' ) ) {
+        wp_enqueue_style( 'easy-pharmacy-b12-injections', EASY_PHARMACY_URI . '/assets/css/b12-injections.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_script( 'easy-pharmacy-b12-injections-js', EASY_PHARMACY_URI . '/assets/js/b12-injections.js', array(), EASY_PHARMACY_VERSION, true );
+    }
+
     // Travel destination pages
     $travel_destinations = array( 'brazil', 'kenya', 'vietnam', 'india', 'thailand', 'cape-verde' );
     foreach ( $travel_destinations as $destination ) {
