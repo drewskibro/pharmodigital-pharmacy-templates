@@ -70,7 +70,7 @@ $sv_links    = dp_option( 'nav_dd_services_links' );
 $default_wl_links = array(
     array( 'label' => 'GLP-1 Treatments',  'description' => 'Prescription medications like Wegovy & Mounjaro', 'icon' => 'fas fa-check-circle', 'url' => '' ),
     array( 'label' => 'Personal Support',   'description' => 'Weekly check-ins with our expert pharmacist',     'icon' => 'fas fa-user',         'url' => '' ),
-    array( 'label' => 'Free Consultation',  'description' => 'Book your no-obligation assessment today',        'icon' => 'fas fa-calendar',     'url' => '' ),
+    array( 'label' => 'Free Consultation',  'description' => 'Book your no-obligation assessment today',        'icon' => 'fas fa-calendar',     'url' => $booking_url ),
 );
 $default_th_services = array(
     array( 'label' => 'All Vaccinations',    'description' => 'Hepatitis, Typhoid, Rabies, Japanese Encephalitis', 'icon' => 'fas fa-shield-virus',    'url' => '' ),
