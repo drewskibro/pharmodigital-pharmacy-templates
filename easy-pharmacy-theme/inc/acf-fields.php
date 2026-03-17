@@ -577,10 +577,10 @@ function ep_register_acf_field_groups() {
                 ) ) ),
             ),
 
-            // --- Hair Loss ---
+            // --- Private Services (formerly Hair Loss) ---
             array(
                 'key'          => 'field_ep_nav_hair_loss_tab',
-                'label'        => 'Hair Loss',
+                'label'        => 'Private Services',
                 'type'         => 'tab',
             ),
             array(
@@ -596,7 +596,7 @@ function ep_register_acf_field_groups() {
                 'label'         => 'Menu Label',
                 'name'          => 'nav_hair_loss_label',
                 'type'          => 'text',
-                'default_value' => 'Hair Loss',
+                'default_value' => 'Private Services',
                 'conditional_logic' => array( array( array(
                     'field'    => 'field_ep_nav_hair_loss_show',
                     'operator' => '==',
@@ -610,7 +610,21 @@ function ep_register_acf_field_groups() {
                 'type'          => 'page_link',
                 'post_type'     => array( 'page' ),
                 'allow_null'    => 1,
-                'instructions'  => 'Select the Hair Loss page. Leave blank to use /hair-loss/ slug.',
+                'instructions'  => 'Select the landing page for Private Services. Leave blank to use /hair-loss/ slug.',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_hair_loss_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+            array(
+                'key'           => 'field_ep_nav_b12_url',
+                'label'         => 'B12 Injections Page Link',
+                'name'          => 'nav_b12_url',
+                'type'          => 'page_link',
+                'post_type'     => array( 'page' ),
+                'allow_null'    => 1,
+                'instructions'  => 'Select the B12 Injections page. Leave blank to use /vitamin-b12-injections/ slug.',
                 'conditional_logic' => array( array( array(
                     'field'    => 'field_ep_nav_hair_loss_show',
                     'operator' => '==',
@@ -1033,10 +1047,10 @@ function ep_register_acf_field_groups() {
                 ),
             ),
 
-            // --- Hair Loss Dropdown ---
+            // --- Private Services Dropdown (Hair Loss + B12) ---
             array(
                 'key'          => 'field_ep_nav_dd_hl_tab',
-                'label'        => 'Hair Loss Dropdown',
+                'label'        => 'Private Services Dropdown',
                 'type'         => 'tab',
             ),
             // Treatments column
