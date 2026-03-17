@@ -96,6 +96,11 @@ function easy_pharmacy_scripts() {
         EASY_PHARMACY_VERSION
     );
 
+    // Home page scroll reveal animations
+    if ( is_page_template( 'page-templates/page-home.php' ) ) {
+        wp_enqueue_script( 'easy-pharmacy-home-animations', EASY_PHARMACY_URI . '/assets/js/home-animations.js', array(), EASY_PHARMACY_VERSION, true );
+    }
+
     // Page-specific CSS
     if ( is_page_template( 'page-templates/page-weight-loss.php' ) ) {
         wp_enqueue_style( 'easy-pharmacy-weight-loss', EASY_PHARMACY_URI . '/assets/css/weight-loss.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
