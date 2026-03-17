@@ -1,6 +1,8 @@
 /* ============================================
    THAILAND TRAVEL PAGE STYLES
    All classes use thailand- prefix except shared components
+   Updated to match design system: terracotta accents,
+   social proof section, unified final CTA
    ============================================ */
 
 /* ============================================
@@ -31,6 +33,7 @@
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
   z-index: 2;
+  pointer-events: none;
 }
 
 .thailand-hero-grid {
@@ -100,14 +103,16 @@
   }
 }
 
+/* Terracotta primary CTA in hero */
 .thailand-hero-btn-primary {
-  background: var(--white);
-  color: var(--brand-dark);
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(196, 122, 101, 0.3);
 }
 
 .thailand-hero-btn-primary:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 35px rgba(196, 122, 101, 0.4);
 }
 
 .thailand-hero-btn-secondary {
@@ -123,101 +128,99 @@
 
 
 /* ============================================
-   QUICK INFO BAR
+   SOCIAL PROOF SECTION (replaces stats bar)
+   Matches hair loss / switch provider pattern
    ============================================ */
-.thailand-stats-section {
-  position: relative;
-  background: linear-gradient(135deg, #1a1530 0%, #2d2252 50%, #1a1530 100%);
-  padding: 3.5rem 0;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(163, 158, 227, 0.15);
+.thailand-social-proof-section {
+  background: #f8f6fb;
+  padding: 60px 0;
 }
 
-.thailand-stats-shimmer {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(163, 158, 227, 0.06), transparent);
-  animation: shimmer 4s infinite;
+.thailand-social-proof-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.thailand-stats-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  position: relative;
-  z-index: 10;
-}
-
-@media (min-width: 768px) {
-  .thailand-stats-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4rem;
+@media (max-width: 767px) {
+  .thailand-social-proof-wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
   }
 }
 
-.thailand-stat-item {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-.thailand-stat-item:hover {
-  transform: translateY(-2px);
-}
-
-.thailand-stat-icon {
-  width: 4rem;
-  height: 4rem;
-  background: rgba(163, 158, 227, 0.2);
-  border-radius: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Override default rating badge positioning for inline use */
+.thailand-social-proof-wrapper .rating-badge {
+  position: static;
   flex-shrink: 0;
-  border: 1px solid rgba(163, 158, 227, 0.35);
-  box-shadow: 0 0 20px rgba(163, 158, 227, 0.15);
-  transition: all 0.3s ease;
+  min-width: 260px;
 }
 
-.thailand-stat-item:hover .thailand-stat-icon {
-  background: rgba(163, 158, 227, 0.3);
-  border-color: rgba(163, 158, 227, 0.5);
+.thailand-social-proof-content {
+  flex: 1;
 }
 
-.thailand-stat-icon i {
-  font-size: 1.5rem;
-  color: var(--brand-purple);
+@media (max-width: 767px) {
+  .thailand-social-proof-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .thailand-social-proof-wrapper .rating-badge {
+    min-width: auto;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .thailand-social-proof-section {
+    padding: 40px 0;
+  }
 }
 
-.thailand-stat-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.thailand-stat-number {
-  font-family: var(--font-heading);
-  font-size: 2.25rem;
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.thailand-stat-label {
+.thailand-social-proof-eyebrow {
   font-size: 0.875rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
+  font-weight: 800;
+  color: var(--brand-purple);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.thailand-social-proof-headline {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #374151;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 767px) {
+  .thailand-social-proof-headline {
+    font-size: 1.75rem;
+  }
+}
+
+.thailand-social-proof-subtext {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #4a5568;
+  line-height: 1.65;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 767px) {
+  .thailand-social-proof-subtext {
+    font-size: 1rem;
+  }
 }
 
 
@@ -249,10 +252,11 @@
   }
 }
 
+/* Terracotta divider accent */
 .thailand-vaccines-divider {
   width: 60px;
   height: 3px;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(to right, #C47A65, #B8694F);
   border-radius: 9999px;
   margin: 0 auto 1.5rem;
 }
@@ -293,10 +297,11 @@
   box-shadow: 0 4px 20px rgba(163, 158, 227, 0.08);
 }
 
+/* Terracotta hover border on vaccine cards */
 .thailand-vaccine-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(163, 158, 227, 0.2);
-  border-color: var(--brand-purple);
+  box-shadow: 0 20px 50px rgba(196, 122, 101, 0.15);
+  border-color: #C47A65;
 }
 
 .thailand-vaccine-icon {
@@ -340,10 +345,11 @@
   line-height: 1.2;
 }
 
+/* Terracotta-tinted badge for recommended vaccines */
 .thailand-badge-purple {
-  background: rgba(163, 158, 227, 0.15);
-  color: var(--brand-dark);
-  border: 1px solid rgba(163, 158, 227, 0.3);
+  background: rgba(196, 122, 101, 0.12);
+  color: #B8694F;
+  border: 1px solid rgba(196, 122, 101, 0.25);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.375rem 0.75rem;
@@ -364,10 +370,11 @@
   letter-spacing: 0.05em;
 }
 
+/* Terracotta short description text */
 .thailand-vaccine-short {
   font-size: 0.9375rem;
   font-weight: 700;
-  color: var(--brand-purple);
+  color: #B8694F;
   margin-bottom: 0.75rem;
 }
 
@@ -379,7 +386,7 @@
 
 
 /* ============================================
-   MALARIA INFORMATION (VISUAL UPGRADE)
+   MALARIA INFORMATION
    ============================================ */
 .thailand-malaria-section {
   padding: 6rem 0;
@@ -410,7 +417,7 @@
   position: relative;
   border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 60px rgba(196, 122, 101, 0.15);
   border: 4px solid var(--white);
   aspect-ratio: 4/5;
 }
@@ -430,57 +437,59 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  pointer-events: none;
 }
 
-    .thailand-malaria-badge {
-      position: absolute;
-      bottom: 2rem;
-      left: 2rem;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 0.5rem 1.25rem 0.5rem 0.5rem;
-      border-radius: 9999px;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      transition: transform 0.3s ease;
-      z-index: 20;
-    }
+.thailand-malaria-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.5rem 1.25rem 0.5rem 0.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s ease;
+  z-index: 20;
+}
 
-    .thailand-malaria-badge:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-    }
+.thailand-malaria-badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
 
-    .thailand-malaria-badge-icon {
-      width: 2.25rem;
-      height: 2.25rem;
-      background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      box-shadow: 0 4px 10px rgba(163, 158, 227, 0.4);
-      flex-shrink: 0;
-    }
+/* Terracotta badge icon */
+.thailand-malaria-badge-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(196, 122, 101, 0.4);
+  flex-shrink: 0;
+}
 
-    .thailand-malaria-badge-icon i {
-      font-size: 1rem;
-      color: var(--white);
-    }
+.thailand-malaria-badge-icon i {
+  font-size: 1rem;
+  color: var(--white);
+}
 
-    .thailand-malaria-badge-text {
-      font-weight: 800;
-      color: var(--brand-dark);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding-right: 0.25rem;
-    }
+.thailand-malaria-badge-text {
+  font-weight: 800;
+  color: var(--brand-dark);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-right: 0.25rem;
+}
 
 /* Content Column */
 .thailand-malaria-content {
@@ -509,67 +518,79 @@
   margin-bottom: 2.5rem;
 }
 
-    .thailand-malaria-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 1.5rem;
-      border: 1px solid rgba(163, 158, 227, 0.15);
-      box-shadow: 0 4px 20px rgba(163, 158, 227, 0.05);
-      transition: all 0.3s ease;
-    }
+.thailand-malaria-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(163, 158, 227, 0.15);
+  box-shadow: 0 4px 20px rgba(163, 158, 227, 0.05);
+  transition: all 0.3s ease;
+}
 
-    .thailand-malaria-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 40px rgba(163, 158, 227, 0.15);
-      border-color: rgba(163, 158, 227, 0.3);
-    }
+.thailand-malaria-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(163, 158, 227, 0.15);
+  border-color: rgba(163, 158, 227, 0.3);
+}
 
-    .thailand-malaria-item-icon {
-      width: 3.5rem;
-      height: 3.5rem;
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    }
+.thailand-malaria-item-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
 
-    .thailand-malaria-item-icon.low-risk {
-      background: linear-gradient(135deg, #dcfce7, #bbf7d0);
-      color: #15803d;
-    }
+.thailand-malaria-item-icon.low-risk {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #15803d;
+}
 
-    .thailand-malaria-item-icon.high-risk {
-      background: linear-gradient(135deg, #fee2e2, #fecaca);
-      color: #b91c1c;
-    }
+.thailand-malaria-item-icon.high-risk {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #b91c1c;
+}
 
-    .thailand-malaria-item-icon i {
-      font-size: 1.5rem;
-    }
+.thailand-malaria-item-icon i {
+  font-size: 1.5rem;
+}
 
-    .thailand-malaria-item-text h4 {
-      font-family: var(--font-heading);
-      font-size: 1.375rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.01em;
-    }
+.thailand-malaria-item-text h4 {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
 
-    .thailand-malaria-item-text p {
-      font-size: 1rem;
-      color: var(--text-gray);
-      line-height: 1.6;
-    }
+.thailand-malaria-item-text p {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* Terracotta CTA button in malaria section */
+.thailand-malaria-actions .primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(196, 122, 101, 0.3);
+}
+
+.thailand-malaria-actions .primary-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(196, 122, 101, 0.4);
+}
 
 
 /* ============================================
-   HEALTH ADVICE (VISUAL UPGRADE)
+   HEALTH ADVICE
    ============================================ */
 .thailand-health-section {
   padding: 6rem 0;
@@ -613,12 +634,12 @@
   height: 400px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
-  background-color: #1a202c; /* Fallback color */
+  background-color: #1a202c;
 }
 
 .thailand-health-card-visual:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(163, 158, 227, 0.25);
+  box-shadow: 0 20px 50px rgba(196, 122, 101, 0.2);
 }
 
 .thailand-health-bg {
@@ -643,6 +664,7 @@
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
 .thailand-health-content {
@@ -669,19 +691,20 @@
   border-color: rgba(255, 255, 255, 0.5);
 }
 
+/* Terracotta icon wrapper on health cards */
 .thailand-health-icon-wrapper {
   position: absolute;
   top: -1.75rem;
   right: 1.5rem;
   width: 3.5rem;
   height: 3.5rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, #C47A65, #B8694F);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 4px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(196, 122, 101, 0.4);
   transition: transform 0.4s ease;
 }
 
@@ -713,104 +736,36 @@
 
 /* ============================================
    FINAL CTA SECTION
+   Matches hair loss / reviewer profile design system:
+   135deg deep purple gradient, terracotta primary,
+   white secondary, trust items
    ============================================ */
 .thailand-cta-section {
-  position: relative;
-  background: linear-gradient(to right, var(--brand-purple), var(--brand-accent), var(--brand-dark));
-  padding: 6rem 0;
-  overflow: hidden;
-}
-
-.thailand-cta-glow-1 {
-  position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 600px;
-  height: 600px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  filter: blur(100px);
-}
-
-.thailand-cta-glow-2 {
-  position: absolute;
-  bottom: -10%;
-  left: -5%;
-  width: 500px;
-  height: 500px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  filter: blur(80px);
-}
-
-.thailand-cta-circle {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 300px;
-  height: 300px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-}
-
-.thailand-cta-square {
-  position: absolute;
-  bottom: 15%;
-  right: 10%;
-  width: 200px;
-  height: 200px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  transform: rotate(15deg);
-  animation: rotate 10s linear infinite;
-}
-
-@keyframes rotate {
-  from { transform: rotate(15deg); }
-  to { transform: rotate(375deg); }
-}
-
-.thailand-cta-dots {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
-}
-
-.thailand-cta-content {
-  position: relative;
-  z-index: 10;
+  background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+  padding: 5rem 0;
   text-align: center;
 }
 
-.thailand-cta-title {
-  font-size: 2.5rem;
-  font-weight: 900;
-  font-family: var(--font-heading);
-  color: var(--white);
-  margin-bottom: 1.5rem;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+.thailand-cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  .thailand-cta-title {
-    font-size: 3.5rem;
-  }
+.thailand-cta-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem;
+  line-height: 1.3;
 }
 
 .thailand-cta-description {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.7;
-  max-width: 800px;
-  margin: 0 auto 2.5rem;
-}
-
-@media (min-width: 768px) {
-  .thailand-cta-description {
-    font-size: 1.25rem;
-  }
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 2rem;
+  line-height: 1.6;
 }
 
 .thailand-cta-actions {
@@ -818,57 +773,65 @@
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Terracotta primary CTA */
+.thailand-cta-section .primary-cta {
+  background: linear-gradient(135deg, #C47A65, #B8694F);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.thailand-cta-section .primary-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* White secondary CTA */
+.thailand-cta-section .secondary-cta {
+  color: #2D1B4E;
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.thailand-cta-section .secondary-cta:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.thailand-cta-trust {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 2.5rem;
+  gap: 1.25rem;
+}
+
+.thailand-cta-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.thailand-cta-trust-item i {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
 }
 
 @media (min-width: 640px) {
   .thailand-cta-actions {
     flex-direction: row;
+    justify-content: center;
   }
-}
 
-.thailand-cta-button-white {
-  background: var(--white);
-  color: var(--brand-dark);
-}
-
-.thailand-cta-button-white:hover {
-  background: rgba(255, 255, 255, 0.95);
-}
-
-.thailand-cta-button-outlined {
-  background: transparent;
-  color: var(--white);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.thailand-cta-button-outlined:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.thailand-cta-checks {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.thailand-cta-check {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.thailand-cta-check i {
-  font-size: 1.125rem;
-  color: var(--white);
-}
-
-.thailand-cta-check span {
-  font-size: 1rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  .thailand-cta-title {
+    font-size: 2.6rem;
+  }
 }
