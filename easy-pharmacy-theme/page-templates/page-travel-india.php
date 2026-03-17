@@ -31,7 +31,7 @@ get_header();
 
         <div class="india-hero-actions">
           <a href="<?php echo esc_url( ep_field( 'in_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta india-hero-btn-primary">
-            <?php echo esc_html( ep_field( 'in_hero_cta_text', 'Book India Consultation' ) ); ?>
+            <?php echo esc_html( ep_field( 'in_hero_cta_text', 'Book an Appointment' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
           <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta india-hero-btn-secondary">
@@ -47,35 +47,53 @@ get_header();
   </div>
 </section>
 
-<!-- Quick Info Bar -->
-<section class="india-stats-section">
-  <div class="india-stats-shimmer"></div>
+<!-- Social Proof Section — Google rating badge + travel health trust headline -->
+<section class="india-social-proof-section">
   <div class="section-container">
-    <div class="india-stats-grid">
-      <?php if ( have_rows( 'in_stats' ) ) : while ( have_rows( 'in_stats' ) ) : the_row(); ?>
-        <div class="india-stat-item">
-          <div class="india-stat-icon">
-            <i class="<?php echo esc_attr( ep_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+    <div class="india-social-proof-wrapper">
+
+      <!-- Left: Google Rating Badge (shared .rating-badge from globals.css) -->
+      <div class="rating-badge">
+        <div class="rating-header">
+          <div class="rating-label">
+            <div class="google-icon-wrapper">
+              <i class="fab fa-google"></i>
+            </div>
+            <span>Google Rating</span>
           </div>
-          <div class="india-stat-content">
-            <p class="india-stat-number"><?php echo esc_html( get_sub_field( 'number' ) ); ?></p>
-            <p class="india-stat-label"><?php echo esc_html( get_sub_field( 'label' ) ); ?></p>
+          <div class="badge-success">
+            <i class="fas fa-check-circle"></i>
+            <span>Excellent</span>
           </div>
         </div>
-      <?php endwhile; else : ?>
-        <div class="india-stat-item">
-          <div class="india-stat-icon"><i class="fas fa-syringe"></i></div>
-          <div class="india-stat-content"><p class="india-stat-number">6-8</p><p class="india-stat-label">Vaccines Recommended</p></div>
+        <div class="rating-score">
+          <span class="score-number"><?php echo esc_html( ep_option( 'google_rating', '4.7' ) ); ?></span>
+          <div class="rating-score-detail">
+            <div class="star-row">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="rating-count">Based on 300+ reviews</span>
+          </div>
         </div>
-        <div class="india-stat-item">
-          <div class="india-stat-icon"><i class="fas fa-calendar-alt"></i></div>
-          <div class="india-stat-content"><p class="india-stat-number">6-8</p><p class="india-stat-label">Weeks Before Travel</p></div>
+        <div class="rating-footer">
+          <div class="rating-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><?php echo esc_html( ep_option( 'pharmacy_location', 'Ashford, UK' ) ); ?></span>
+          </div>
+          <a href="#reviews" class="rating-link">View Reviews</a>
         </div>
-        <div class="india-stat-item">
-          <div class="india-stat-icon"><i class="fas fa-shield-halved"></i></div>
-          <div class="india-stat-content"><p class="india-stat-number">Full</p><p class="india-stat-label">Protection Available</p></div>
-        </div>
-      <?php endif; ?>
+      </div>
+
+      <!-- Right: Trust headline + subtext -->
+      <div class="india-social-proof-content">
+        <p class="india-social-proof-eyebrow"><?php echo esc_html( ep_field( 'in_social_eyebrow', 'TRUSTED BY ASHFORD' ) ); ?></p>
+        <h2 class="india-social-proof-headline"><?php echo esc_html( ep_field( 'in_social_headline', 'Expert travel health advice from your local GPhC-registered pharmacist' ) ); ?></h2>
+        <p class="india-social-proof-subtext"><?php echo esc_html( ep_field( 'in_social_subtext', 'Hundreds of travellers protected with personalised vaccination plans. GPhC-registered, with same-day appointments available.' ) ); ?></p>
+      </div>
     </div>
   </div>
 </section>
@@ -263,40 +281,26 @@ get_header();
   </div>
 </section>
 
-<!-- Final CTA -->
+<!-- Final CTA — matches hair loss / reviewer profile design system -->
 <section class="india-cta-section">
-  <div class="india-cta-glow-1"></div>
-  <div class="india-cta-glow-2"></div>
-  <div class="india-cta-dots"></div>
   <div class="section-container">
-    <div class="india-cta-content">
-      <h2 class="india-cta-title"><?php echo esc_html( ep_field( 'in_cta_title', 'Ready for your India adventure?' ) ); ?></h2>
-      <p class="india-cta-description">
-        <?php echo esc_html( ep_field( 'in_cta_description', 'Book your India travel health consultation at our Ashford clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
-      </p>
+    <div class="india-cta-inner">
+      <h2 class="india-cta-title"><?php echo esc_html( ep_field( 'in_cta_title', 'Ready for Your India Adventure?' ) ); ?></h2>
+      <p class="india-cta-description"><?php echo esc_html( ep_field( 'in_cta_description', 'Book your travel health consultation with our GPhC-registered pharmacist in Ashford. Expert advice and all recommended vaccinations in one visit.' ) ); ?></p>
       <div class="india-cta-actions">
-        <a href="<?php echo esc_url( ep_field( 'in_cta_primary_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta india-cta-button-white">
-          <?php echo esc_html( ep_field( 'in_cta_primary_text', 'Book India Consultation' ) ); ?>
+        <a href="<?php echo esc_url( ep_field( 'in_cta_primary_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+          <?php echo esc_html( ep_field( 'in_cta_primary_text', 'Book an Appointment' ) ); ?>
           <i class="fas fa-arrow-right"></i>
         </a>
-        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta india-cta-button-outlined">
+        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta">
           <i class="fas fa-phone"></i>
-          Call <?php echo esc_html( ep_phone() ); ?>
+          <?php echo esc_html( ep_phone() ); ?>
         </a>
       </div>
-      <div class="india-cta-checks">
-        <div class="india-cta-check">
-          <i class="fas fa-plane-departure"></i>
-          <span><?php echo esc_html( ep_field( 'in_cta_check_1', 'Travel Ready' ) ); ?></span>
-        </div>
-        <div class="india-cta-check">
-          <i class="fas fa-user-doctor"></i>
-          <span><?php echo esc_html( ep_field( 'in_cta_check_2', 'Expert India Advice' ) ); ?></span>
-        </div>
-        <div class="india-cta-check">
-          <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html( ep_field( 'in_cta_check_3', 'All Vaccines Available' ) ); ?></span>
-        </div>
+      <div class="india-cta-trust">
+        <span class="india-cta-trust-item"><i class="fas fa-shield-halved"></i> <?php echo esc_html( ep_field( 'in_cta_check_1', 'GPhC Registered' ) ); ?></span>
+        <span class="india-cta-trust-item"><i class="fas fa-clock"></i> <?php echo esc_html( ep_field( 'in_cta_check_2', 'Same-Day Appointments' ) ); ?></span>
+        <span class="india-cta-trust-item"><i class="fas fa-user-doctor"></i> <?php echo esc_html( ep_field( 'in_cta_check_3', 'No Referral Needed' ) ); ?></span>
       </div>
     </div>
   </div>
