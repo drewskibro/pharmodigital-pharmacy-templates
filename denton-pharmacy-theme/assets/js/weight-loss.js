@@ -9,46 +9,56 @@
   var submitBtn = document.getElementById('wl-calculator-submit');
   if (!submitBtn) return;
 
-  var unitBtns = document.querySelectorAll('.wl-calculator-unit-btn');
-  var metricFields = document.querySelector('.wl-calculator-metric');
-  var imperialFields = document.querySelector('.wl-calculator-imperial');
-  var currentUnit = 'metric';
+  var weightUnit = 'kg';
+  var heightUnit = 'cm';
 
-  // Unit toggle
-  unitBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      currentUnit = btn.getAttribute('data-unit');
-      unitBtns.forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
+  // Setup per-input toggle buttons
+  var inputWrappers = document.querySelectorAll('.wl-calculator-input-wrapper');
 
-      if (currentUnit === 'metric') {
-        metricFields.classList.add('active');
-        imperialFields.classList.remove('active');
-      } else {
-        metricFields.classList.remove('active');
-        imperialFields.classList.add('active');
-      }
+  // Weight toggles (first wrapper)
+  if (inputWrappers[0]) {
+    inputWrappers[0].querySelectorAll('.wl-calculator-toggle-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        weightUnit = btn.getAttribute('data-unit');
+        var parent = btn.parentElement;
+        parent.querySelectorAll('.wl-calculator-toggle-btn').forEach(function (b) {
+          b.classList.remove('wl-calculator-toggle-active');
+        });
+        btn.classList.add('wl-calculator-toggle-active');
+      });
     });
-  });
+  }
+
+  // Height toggles (second wrapper)
+  if (inputWrappers[1]) {
+    inputWrappers[1].querySelectorAll('.wl-calculator-toggle-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        heightUnit = btn.getAttribute('data-unit');
+        var parent = btn.parentElement;
+        parent.querySelectorAll('.wl-calculator-toggle-btn').forEach(function (b) {
+          b.classList.remove('wl-calculator-toggle-active');
+        });
+        btn.classList.add('wl-calculator-toggle-active');
+      });
+    });
+  }
 
   // Get weight in kg
   function getWeightKg() {
-    if (currentUnit === 'metric') {
-      return parseFloat(document.getElementById('wl-weight-kg').value) || 0;
+    var val = parseFloat(document.getElementById('wl-weight-input').value) || 0;
+    if (weightUnit === 'st') {
+      return val * 6.35029; // stone to kg
     }
-    var stone = parseFloat(document.getElementById('wl-weight-stone').value) || 0;
-    var lbs = parseFloat(document.getElementById('wl-weight-lbs').value) || 0;
-    return (stone * 14 + lbs) * 0.453592;
+    return val;
   }
 
   // Get height in cm
   function getHeightCm() {
-    if (currentUnit === 'metric') {
-      return parseFloat(document.getElementById('wl-height-cm').value) || 0;
+    var val = parseFloat(document.getElementById('wl-height-input').value) || 0;
+    if (heightUnit === 'ft') {
+      return val * 30.48; // feet to cm
     }
-    var feet = parseFloat(document.getElementById('wl-height-feet').value) || 0;
-    var inches = parseFloat(document.getElementById('wl-height-inches').value) || 0;
-    return (feet * 12 + inches) * 2.54;
+    return val;
   }
 
   // BMI category
@@ -61,20 +71,18 @@
 
   // Format weight for display
   function formatWeight(kg) {
-    if (currentUnit === 'metric') {
-      return kg.toFixed(1) + ' kg';
+    if (weightUnit === 'st') {
+      var st = (kg / 6.35029).toFixed(1);
+      return st + ' st';
     }
-    var totalLbs = Math.round(kg / 0.453592);
-    var st = Math.floor(totalLbs / 14);
-    var remainLbs = totalLbs % 14;
-    return st + 'st ' + remainLbs + 'lbs';
+    return kg.toFixed(1) + ' kg';
   }
 
   function calculate() {
     var weightKg = getWeightKg();
     var heightCm = getHeightCm();
 
-    if (weightKg < 40 || heightCm < 100) return;
+    if (weightKg < 30 || heightCm < 80) return;
 
     var heightM = heightCm / 100;
     var bmi = weightKg / (heightM * heightM);
@@ -85,14 +93,14 @@
     bmiNumberEl.textContent = bmi.toFixed(1);
     bmiCategoryEl.textContent = bmiCategory(bmi);
 
-    // Projected weight loss (10-15% range over 12 months)
-    var lossLow = weightKg * 0.10;
-    var lossHigh = weightKg * 0.15;
+    // Projected target weight (10-15% loss over 12 months)
+    var targetHigh = weightKg - (weightKg * 0.10);
+    var targetLow = weightKg - (weightKg * 0.15);
     var projectionEl = document.getElementById('wl-projection-range');
-    projectionEl.textContent = formatWeight(lossLow) + ' – ' + formatWeight(lossHigh);
-
-    var detailEl = document.getElementById('wl-projection-detail');
-    detailEl.textContent = 'You could go from ' + formatWeight(weightKg) + ' to ' + formatWeight(weightKg - lossLow) + ' – ' + formatWeight(weightKg - lossHigh);
+    var unit = weightUnit === 'st' ? ' st' : ' kg';
+    var valHigh = weightUnit === 'st' ? (targetHigh / 6.35029).toFixed(1) : targetHigh.toFixed(1);
+    var valLow = weightUnit === 'st' ? (targetLow / 6.35029).toFixed(1) : targetLow.toFixed(1);
+    projectionEl.textContent = valHigh + ' – ' + valLow + unit;
 
     // Show results and scroll
     var results = document.getElementById('calculatorResults');

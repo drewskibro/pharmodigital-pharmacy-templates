@@ -504,91 +504,119 @@ get_header();
       <p class="wl-calculator-description"><?php echo esc_html( dp_field( 'wl_calculator_description', 'Enter your details below for an instant estimate based on clinical data' ) ); ?></p>
     </div>
 
-    <div class="wl-calculator-wrapper">
-      <div class="wl-calculator-form">
-        <!-- Unit Toggle -->
-        <div class="wl-calculator-unit-toggle">
-          <button type="button" class="wl-calculator-unit-btn active" data-unit="metric">kg / cm</button>
-          <button type="button" class="wl-calculator-unit-btn" data-unit="imperial">stone / feet</button>
+    <div class="wl-calculator-grid">
+      <?php
+      $calc_image_id = dp_field( 'wl_calculator_image' );
+      $calc_image_url = $calc_image_id ? wp_get_attachment_image_url( $calc_image_id, 'large' ) : 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=800&fit=crop';
+      ?>
+      <?php if ( $calc_image_url ) : ?>
+      <div class="wl-calculator-image-wrapper">
+        <div class="wl-calculator-image-card">
+          <img src="<?php echo esc_url( $calc_image_url ); ?>" alt="Weight loss consultation" loading="lazy" />
         </div>
-
-        <!-- Metric Fields -->
-        <div class="wl-calculator-fields wl-calculator-metric active">
-          <div class="wl-calculator-field">
-            <label for="wl-weight-kg">Weight</label>
-            <div class="wl-calculator-input-wrapper">
-              <input type="number" id="wl-weight-kg" placeholder="e.g. 95" min="40" max="300" inputmode="decimal" />
-              <span class="wl-calculator-input-suffix">kg</span>
-            </div>
+        <div class="wl-calculator-badge">
+          <div class="wl-calculator-badge-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
           </div>
-          <div class="wl-calculator-field">
-            <label for="wl-height-cm">Height</label>
-            <div class="wl-calculator-input-wrapper">
-              <input type="number" id="wl-height-cm" placeholder="e.g. 175" min="100" max="250" inputmode="decimal" />
-              <span class="wl-calculator-input-suffix">cm</span>
-            </div>
-          </div>
+          <div class="wl-calculator-badge-number"><?php echo esc_html( dp_field( 'wl_calculator_badge_number', '15-20%' ) ); ?></div>
+          <div class="wl-calculator-badge-text"><?php echo esc_html( dp_field( 'wl_calculator_badge_label', 'Avg. Body Weight Loss' ) ); ?></div>
         </div>
+      </div>
+      <?php endif; ?>
 
-        <!-- Imperial Fields -->
-        <div class="wl-calculator-fields wl-calculator-imperial">
-          <div class="wl-calculator-field">
-            <label>Weight</label>
-            <div class="wl-calculator-input-row">
-              <div class="wl-calculator-input-wrapper">
-                <input type="number" id="wl-weight-stone" placeholder="14" min="6" max="50" inputmode="numeric" />
-                <span class="wl-calculator-input-suffix">st</span>
-              </div>
-              <div class="wl-calculator-input-wrapper">
-                <input type="number" id="wl-weight-lbs" placeholder="0" min="0" max="13" inputmode="numeric" />
-                <span class="wl-calculator-input-suffix">lbs</span>
-              </div>
-            </div>
-          </div>
-          <div class="wl-calculator-field">
-            <label>Height</label>
-            <div class="wl-calculator-input-row">
-              <div class="wl-calculator-input-wrapper">
-                <input type="number" id="wl-height-feet" placeholder="5" min="3" max="7" inputmode="numeric" />
-                <span class="wl-calculator-input-suffix">ft</span>
-              </div>
-              <div class="wl-calculator-input-wrapper">
-                <input type="number" id="wl-height-inches" placeholder="10" min="0" max="11" inputmode="numeric" />
-                <span class="wl-calculator-input-suffix">in</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button type="button" class="wl-calculator-submit" id="wl-calculator-submit">
+      <div class="wl-calculator-form-wrapper">
+        <div class="wl-calculator-form-header">
           <i class="fas fa-calculator"></i>
-          Calculate My Results
+          <h3 class="wl-calculator-form-title"><?php echo esc_html( dp_field( 'wl_calculator_form_title', 'Weight Loss Estimator' ) ); ?></h3>
+        </div>
+
+      <div class="wl-calculator-form">
+        <div class="wl-calculator-input-group">
+          <label class="wl-calculator-label"><?php echo esc_html( dp_field( 'wl_calculator_weight_label', 'Current Weight' ) ); ?></label>
+          <div class="wl-calculator-input-wrapper">
+            <input type="number" id="wl-weight-input" class="wl-calculator-input" placeholder="Enter weight" min="1" max="500" inputmode="decimal" />
+            <div class="wl-calculator-toggle">
+              <button type="button" class="wl-calculator-toggle-btn wl-calculator-toggle-active" data-unit="kg">kg</button>
+              <button type="button" class="wl-calculator-toggle-btn" data-unit="st">st</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wl-calculator-input-group">
+          <label class="wl-calculator-label"><?php echo esc_html( dp_field( 'wl_calculator_height_label', 'Height' ) ); ?></label>
+          <div class="wl-calculator-input-wrapper">
+            <input type="number" id="wl-height-input" class="wl-calculator-input" placeholder="Enter height" min="1" max="300" inputmode="decimal" />
+            <div class="wl-calculator-toggle">
+              <button type="button" class="wl-calculator-toggle-btn wl-calculator-toggle-active" data-unit="cm">cm</button>
+              <button type="button" class="wl-calculator-toggle-btn" data-unit="ft">ft/in</button>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="cta-button primary-cta wl-calculator-submit" id="wl-calculator-submit">
+          <?php echo esc_html( dp_field( 'wl_calculator_submit_text', 'Calculate Potential Results' ) ); ?>
+          <i class="fas fa-arrow-right"></i>
         </button>
       </div>
 
       <!-- Results -->
       <div class="wl-calculator-results" id="calculatorResults">
-        <div class="wl-calculator-bmi">
-          <div class="wl-calculator-bmi-circle">
-            <span class="wl-calculator-bmi-number" id="wl-bmi-number">--</span>
-            <span class="wl-calculator-bmi-label">BMI</span>
-          </div>
-          <p class="wl-calculator-bmi-category" id="wl-bmi-category">Enter your details</p>
+        <div class="wl-calculator-results-header">
+          <i class="fas fa-chart-line"></i>
+          <h4 class="wl-calculator-results-title"><?php echo esc_html( dp_field( 'wl_calculator_results_title', 'Your Estimated Results' ) ); ?></h4>
         </div>
 
-        <div class="wl-calculator-projection">
-          <h3 class="wl-calculator-projection-title">Projected Weight Loss</h3>
+        <div class="wl-calculator-bmi-card">
+          <div class="wl-calculator-bmi-circle">
+            <span class="wl-calculator-bmi-number" id="wl-bmi-number">--</span>
+          </div>
+          <div class="wl-calculator-bmi-text">
+            <p class="wl-calculator-bmi-label"><?php echo esc_html( dp_field( 'wl_calculator_bmi_label', 'Current BMI' ) ); ?></p>
+            <p class="wl-calculator-bmi-category" id="wl-bmi-category"><?php echo esc_html( dp_field( 'wl_calculator_bmi_placeholder', 'Enter your details' ) ); ?></p>
+          </div>
+        </div>
+
+        <div class="wl-calculator-projection-card">
+          <h3 class="wl-calculator-projection-title"><?php echo esc_html( dp_field( 'wl_calculator_projection_title', 'Projected 12-Month Result' ) ); ?></h3>
           <p class="wl-calculator-projection-range" id="wl-projection-range">--</p>
-          <p class="wl-calculator-projection-detail" id="wl-projection-detail">Based on 10-15% body weight reduction over 12 months</p>
-          <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="cta-button primary-cta wl-calculator-cta">
-            Book Your Consultation <i class="fas fa-arrow-right"></i>
-          </a>
+          <p class="wl-calculator-projection-subtitle" id="wl-projection-detail"><?php echo esc_html( dp_field( 'wl_calculator_projection_detail', 'Based on 10-15% weight loss' ) ); ?></p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="wl-calculator-timeline">
+          <div class="wl-calculator-timeline-item">
+            <div class="wl-calculator-timeline-bar">
+              <div class="wl-calculator-timeline-fill" style="width: 25%;"></div>
+            </div>
+            <p class="wl-calculator-timeline-label"><?php echo esc_html( dp_field( 'wl_calculator_timeline_1', 'Month 3' ) ); ?></p>
+          </div>
+          <div class="wl-calculator-timeline-item">
+            <div class="wl-calculator-timeline-bar">
+              <div class="wl-calculator-timeline-fill" style="width: 50%;"></div>
+            </div>
+            <p class="wl-calculator-timeline-label"><?php echo esc_html( dp_field( 'wl_calculator_timeline_2', 'Month 6' ) ); ?></p>
+          </div>
+          <div class="wl-calculator-timeline-item">
+            <div class="wl-calculator-timeline-bar">
+              <div class="wl-calculator-timeline-fill wl-calculator-timeline-fill-full" style="width: 100%;"></div>
+            </div>
+            <p class="wl-calculator-timeline-label"><?php echo esc_html( dp_field( 'wl_calculator_timeline_3', 'Month 12' ) ); ?></p>
+          </div>
         </div>
 
         <p class="wl-calculator-disclaimer">
           <i class="fas fa-info-circle"></i>
-          Results are estimates based on clinical trial averages. Individual results vary. Always consult a healthcare professional.
+          <?php echo esc_html( dp_field( 'wl_calculator_disclaimer', 'Results are estimates based on clinical trial data. Individual results may vary.' ) ); ?>
         </p>
+
+        <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="cta-button primary-cta wl-calculator-cta">
+          <?php echo esc_html( dp_field( 'wl_calculator_cta_text', 'Book Your Consultation' ) ); ?> <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
       </div>
     </div>
   </div>
