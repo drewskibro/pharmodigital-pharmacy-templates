@@ -96,6 +96,11 @@ function easy_pharmacy_scripts() {
         EASY_PHARMACY_VERSION
     );
 
+    // Home page scroll reveal animations
+    if ( is_page_template( 'page-templates/page-home.php' ) ) {
+        wp_enqueue_script( 'easy-pharmacy-home-animations', EASY_PHARMACY_URI . '/assets/js/home-animations.js', array(), EASY_PHARMACY_VERSION, true );
+    }
+
     // Page-specific CSS
     if ( is_page_template( 'page-templates/page-weight-loss.php' ) ) {
         wp_enqueue_style( 'easy-pharmacy-weight-loss', EASY_PHARMACY_URI . '/assets/css/weight-loss.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
@@ -185,6 +190,11 @@ function easy_pharmacy_scripts() {
     if ( is_page_template( 'page-templates/page-altitude-sickness.php' ) ) {
         wp_enqueue_style( 'easy-pharmacy-altitude-sickness', EASY_PHARMACY_URI . '/assets/css/altitude-sickness.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
         wp_enqueue_script( 'easy-pharmacy-altitude-sickness-js', EASY_PHARMACY_URI . '/assets/js/altitude-sickness.js', array(), EASY_PHARMACY_VERSION, true );
+    }
+
+    if ( is_page_template( 'page-templates/page-b12-injections.php' ) ) {
+        wp_enqueue_style( 'easy-pharmacy-b12-injections', EASY_PHARMACY_URI . '/assets/css/b12-injections.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_script( 'easy-pharmacy-b12-injections-js', EASY_PHARMACY_URI . '/assets/js/b12-injections.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
     // Travel destination pages

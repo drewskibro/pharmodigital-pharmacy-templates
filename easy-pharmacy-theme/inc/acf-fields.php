@@ -577,10 +577,10 @@ function ep_register_acf_field_groups() {
                 ) ) ),
             ),
 
-            // --- Hair Loss ---
+            // --- Private Services (formerly Hair Loss) ---
             array(
                 'key'          => 'field_ep_nav_hair_loss_tab',
-                'label'        => 'Hair Loss',
+                'label'        => 'Private Services',
                 'type'         => 'tab',
             ),
             array(
@@ -596,7 +596,7 @@ function ep_register_acf_field_groups() {
                 'label'         => 'Menu Label',
                 'name'          => 'nav_hair_loss_label',
                 'type'          => 'text',
-                'default_value' => 'Hair Loss',
+                'default_value' => 'Private Services',
                 'conditional_logic' => array( array( array(
                     'field'    => 'field_ep_nav_hair_loss_show',
                     'operator' => '==',
@@ -610,7 +610,21 @@ function ep_register_acf_field_groups() {
                 'type'          => 'page_link',
                 'post_type'     => array( 'page' ),
                 'allow_null'    => 1,
-                'instructions'  => 'Select the Hair Loss page. Leave blank to use /hair-loss/ slug.',
+                'instructions'  => 'Select the landing page for Private Services. Leave blank to use /hair-loss/ slug.',
+                'conditional_logic' => array( array( array(
+                    'field'    => 'field_ep_nav_hair_loss_show',
+                    'operator' => '==',
+                    'value'    => '1',
+                ) ) ),
+            ),
+            array(
+                'key'           => 'field_ep_nav_b12_url',
+                'label'         => 'B12 Injections Page Link',
+                'name'          => 'nav_b12_url',
+                'type'          => 'page_link',
+                'post_type'     => array( 'page' ),
+                'allow_null'    => 1,
+                'instructions'  => 'Select the B12 Injections page. Leave blank to use /vitamin-b12-injections/ slug.',
                 'conditional_logic' => array( array( array(
                     'field'    => 'field_ep_nav_hair_loss_show',
                     'operator' => '==',
@@ -1033,10 +1047,10 @@ function ep_register_acf_field_groups() {
                 ),
             ),
 
-            // --- Hair Loss Dropdown ---
+            // --- Private Services Dropdown (Hair Loss + B12) ---
             array(
                 'key'          => 'field_ep_nav_dd_hl_tab',
-                'label'        => 'Hair Loss Dropdown',
+                'label'        => 'Private Services Dropdown',
                 'type'         => 'tab',
             ),
             // Treatments column
@@ -5103,27 +5117,15 @@ function ep_register_acf_field_groups() {
     ) );
 
     // -------------------------------------------------------------------------
-    // I2. Thailand — Quick Info Bar
+    // I2. Thailand — Social Proof (Google Rating + Trust Headline)
     // -------------------------------------------------------------------------
     acf_add_local_field_group( array(
-        'key'      => 'group_ep_td_stats',
-        'title'    => 'Thailand — Quick Info Bar',
+        'key'      => 'group_ep_td_social_proof',
+        'title'    => 'Thailand — Social Proof',
         'fields'   => array(
-            array(
-                'key'          => 'field_ep_td_stats',
-                'label'        => 'Stats',
-                'name'         => 'td_stats',
-                'type'         => 'repeater',
-                'layout'       => 'table',
-                'min'          => 0,
-                'max'          => 4,
-                'button_label' => 'Add Stat',
-                'sub_fields'   => array(
-                    array( 'key' => 'field_ep_td_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_ep_td_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_ep_td_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
-                ),
-            ),
+            array( 'key' => 'field_ep_td_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'td_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY ASHFORD', 'instructions' => 'Small uppercase label above the headline.' ),
+            array( 'key' => 'field_ep_td_social_headline', 'label' => 'Headline', 'name' => 'td_social_headline', 'type' => 'text', 'default_value' => 'Expert travel health advice from your local GPhC-registered pharmacist' ),
+            array( 'key' => 'field_ep_td_social_subtext', 'label' => 'Subtext', 'name' => 'td_social_subtext', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Hundreds of travellers protected with personalised vaccination plans. GPhC-registered, with same-day appointments available.' ),
         ),
         'location'              => $td_location,
         'menu_order'            => 5,
@@ -5508,27 +5510,15 @@ function ep_register_acf_field_groups() {
     ) );
 
     // -------------------------------------------------------------------------
-    // K2. India — Quick Info Bar
+    // K2. India — Social Proof (Google Rating + Trust Headline)
     // -------------------------------------------------------------------------
     acf_add_local_field_group( array(
-        'key'      => 'group_ep_in_stats',
-        'title'    => 'India — Quick Info Bar',
+        'key'      => 'group_ep_in_social_proof',
+        'title'    => 'India — Social Proof',
         'fields'   => array(
-            array(
-                'key'          => 'field_ep_in_stats',
-                'label'        => 'Stats',
-                'name'         => 'in_stats',
-                'type'         => 'repeater',
-                'layout'       => 'table',
-                'min'          => 0,
-                'max'          => 4,
-                'button_label' => 'Add Stat',
-                'sub_fields'   => array(
-                    array( 'key' => 'field_ep_in_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe. The "fas" prefix is added automatically if omitted.', 'default_value' => 'fas fa-syringe', 'placeholder' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_ep_in_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_ep_in_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
-                ),
-            ),
+            array( 'key' => 'field_ep_in_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'in_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY ASHFORD', 'instructions' => 'Small uppercase label above the headline.' ),
+            array( 'key' => 'field_ep_in_social_headline', 'label' => 'Headline', 'name' => 'in_social_headline', 'type' => 'text', 'default_value' => 'Expert travel health advice from your local GPhC-registered pharmacist' ),
+            array( 'key' => 'field_ep_in_social_subtext', 'label' => 'Subtext', 'name' => 'in_social_subtext', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Hundreds of travellers protected with personalised vaccination plans. GPhC-registered, with same-day appointments available.' ),
         ),
         'location'              => $in_location,
         'menu_order'            => 5,
@@ -10562,6 +10552,323 @@ function ep_register_acf_field_groups() {
         ),
         'location'              => $mal_location,
         'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // U. VITAMIN B12 INJECTIONS PAGE
+    // =========================================================================
+    $b12_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-b12-injections.php',
+            ),
+        ),
+    );
+
+    // ── U1. Hero ──────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_hero',
+        'title'    => 'B12 — Hero Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_b12_hero_badge', 'label' => 'Badge Text', 'name' => 'b12_hero_badge', 'type' => 'text', 'default_value' => 'VITAMIN B12 INJECTIONS' ),
+            array( 'key' => 'field_ep_b12_hero_title_line1', 'label' => 'Title Line 1 (gradient)', 'name' => 'b12_hero_title_line1', 'type' => 'text', 'default_value' => 'Vitamin B12' ),
+            array( 'key' => 'field_ep_b12_hero_title_line2', 'label' => 'Title Line 2 (accent)', 'name' => 'b12_hero_title_line2', 'type' => 'text', 'default_value' => 'Injections in' ),
+            array( 'key' => 'field_ep_b12_hero_title_line3', 'label' => 'Title Line 3 (gradient)', 'name' => 'b12_hero_title_line3', 'type' => 'text', 'default_value' => 'Ashford, Chertsey & Walton' ),
+            array( 'key' => 'field_ep_b12_hero_description', 'label' => 'Description', 'name' => 'b12_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Beat fatigue, brain fog, and low energy with hydroxocobalamin B12 injections at Easy Pharmacy. No GP referral needed — walk-ins welcome.' ),
+            array( 'key' => 'field_ep_b12_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'b12_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Your B12 Injection' ),
+            array( 'key' => 'field_ep_b12_hero_image', 'label' => 'Hero Image', 'name' => 'b12_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_ep_b12_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'b12_hero_image_alt', 'type' => 'text', 'default_value' => 'Vitamin B12 injection at Easy Pharmacy Ashford' ),
+            array( 'key' => 'field_ep_b12_trust_1', 'label' => 'Trust Badge 1', 'name' => 'b12_trust_1', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
+            array( 'key' => 'field_ep_b12_trust_2', 'label' => 'Trust Badge 2', 'name' => 'b12_trust_2', 'type' => 'text', 'default_value' => 'Walk-ins Welcome' ),
+            array( 'key' => 'field_ep_b12_trust_3', 'label' => 'Trust Badge 3', 'name' => 'b12_trust_3', 'type' => 'text', 'default_value' => 'Expert Pharmacists' ),
+            array( 'key' => 'field_ep_b12_trust_4', 'label' => 'Trust Badge 4', 'name' => 'b12_trust_4', 'type' => 'text', 'default_value' => 'No Referral Needed' ),
+            array( 'key' => 'field_ep_b12_hero_testimonial_text', 'label' => 'Testimonial Text', 'name' => 'b12_hero_testimonial_text', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_ep_b12_hero_testimonial_name', 'label' => 'Testimonial Name', 'name' => 'b12_hero_testimonial_name', 'type' => 'text', 'default_value' => 'Ashford Patient' ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── U2. Stats ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_stats',
+        'title'    => 'B12 — Stats Bar',
+        'fields'   => array(
+            array(
+                'key'        => 'field_ep_b12_stats',
+                'label'      => 'Stats',
+                'name'       => 'b12_stats',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_b12_stat_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Font Awesome class' ),
+                    array( 'key' => 'field_ep_b12_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 5,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── U3. Why B12 Matters ───────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_why',
+        'title'    => 'B12 — Why B12 Matters',
+        'fields'   => array(
+            array( 'key' => 'field_ep_b12_why_badge', 'label' => 'Badge', 'name' => 'b12_why_badge', 'type' => 'text', 'default_value' => 'WHY B12 MATTERS' ),
+            array( 'key' => 'field_ep_b12_why_title_highlight', 'label' => 'Title (gradient)', 'name' => 'b12_why_title_highlight', 'type' => 'text', 'default_value' => 'Why Vitamin B12 matters' ),
+            array( 'key' => 'field_ep_b12_why_title_rest', 'label' => 'Title (rest)', 'name' => 'b12_why_title_rest', 'type' => 'text', 'default_value' => 'more than you think' ),
+            array( 'key' => 'field_ep_b12_why_description', 'label' => 'Description', 'name' => 'b12_why_description', 'type' => 'textarea', 'rows' => 3 ),
+            array(
+                'key'        => 'field_ep_b12_why_cards',
+                'label'      => 'Cards',
+                'name'       => 'b12_why_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_b12_why_card_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_why_card_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_why_card_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 10,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── U4. Symptoms ──────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_symptoms',
+        'title'    => 'B12 — Symptoms Section',
+        'fields'   => array(
+            array( 'key' => 'field_ep_b12_symptoms_badge', 'label' => 'Badge', 'name' => 'b12_symptoms_badge', 'type' => 'text', 'default_value' => 'RECOGNISE THE SIGNS' ),
+            array( 'key' => 'field_ep_b12_symptoms_title_highlight', 'label' => 'Title (gradient)', 'name' => 'b12_symptoms_title_highlight', 'type' => 'text', 'default_value' => 'Could you be' ),
+            array( 'key' => 'field_ep_b12_symptoms_title_rest', 'label' => 'Title (rest)', 'name' => 'b12_symptoms_title_rest', 'type' => 'text', 'default_value' => 'B12 deficient?' ),
+            array( 'key' => 'field_ep_b12_symptoms_description', 'label' => 'Description', 'name' => 'b12_symptoms_description', 'type' => 'textarea', 'rows' => 3 ),
+            array(
+                'key'        => 'field_ep_b12_symptoms',
+                'label'      => 'Symptoms',
+                'name'       => 'b12_symptoms',
+                'type'       => 'repeater',
+                'layout'     => 'table',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_b12_symptom_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_symptom_name', 'label' => 'Symptom', 'name' => 'name', 'type' => 'text' ),
+                ),
+            ),
+            array( 'key' => 'field_ep_b12_risk_groups_text', 'label' => 'Risk Groups Text', 'name' => 'b12_risk_groups_text', 'type' => 'textarea', 'rows' => 3 ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 15,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── U5. Comparison ────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_comparison',
+        'title'    => 'B12 — Injection vs Oral',
+        'fields'   => array(
+            array( 'key' => 'field_ep_b12_comparison_badge', 'label' => 'Badge', 'name' => 'b12_comparison_badge', 'type' => 'text', 'default_value' => 'INJECTION VS TABLETS' ),
+            array( 'key' => 'field_ep_b12_comparison_title_highlight', 'label' => 'Title (gradient)', 'name' => 'b12_comparison_title_highlight', 'type' => 'text', 'default_value' => 'Why injections' ),
+            array( 'key' => 'field_ep_b12_comparison_title_rest', 'label' => 'Title (rest)', 'name' => 'b12_comparison_title_rest', 'type' => 'text', 'default_value' => 'are more effective' ),
+            array( 'key' => 'field_ep_b12_injection_title', 'label' => 'Injection Column Title', 'name' => 'b12_injection_title', 'type' => 'text', 'default_value' => 'Intramuscular Injection' ),
+            array( 'key' => 'field_ep_b12_oral_title', 'label' => 'Oral Column Title', 'name' => 'b12_oral_title', 'type' => 'text', 'default_value' => 'Oral Tablets / Sprays' ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 20,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── U6. Process ───────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_process',
+        'title'    => 'B12 — How It Works',
+        'fields'   => array(
+            array( 'key' => 'field_ep_b12_process_badge', 'label' => 'Badge', 'name' => 'b12_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
+            array( 'key' => 'field_ep_b12_process_title_highlight', 'label' => 'Title (gradient)', 'name' => 'b12_process_title_highlight', 'type' => 'text', 'default_value' => 'Your B12 injection' ),
+            array( 'key' => 'field_ep_b12_process_title_rest', 'label' => 'Title (rest)', 'name' => 'b12_process_title_rest', 'type' => 'text', 'default_value' => 'in 3 simple steps' ),
+            array(
+                'key'        => 'field_ep_b12_process_steps',
+                'label'      => 'Steps',
+                'name'       => 'b12_process_steps',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_b12_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                    array( 'key' => 'field_ep_b12_step_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+                    array( 'key' => 'field_ep_b12_step_meta_icon', 'label' => 'Meta Icon', 'name' => 'meta_icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_step_meta_text', 'label' => 'Meta Text', 'name' => 'meta_text', 'type' => 'text' ),
+                ),
+            ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 25,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── U7. Benefits ──────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_benefits',
+        'title'    => 'B12 — Benefits',
+        'fields'   => array(
+            array( 'key' => 'field_ep_b12_benefits_badge', 'label' => 'Badge', 'name' => 'b12_benefits_badge', 'type' => 'text', 'default_value' => 'B12 BENEFITS' ),
+            array( 'key' => 'field_ep_b12_benefits_title_highlight', 'label' => 'Title (gradient)', 'name' => 'b12_benefits_title_highlight', 'type' => 'text', 'default_value' => 'How B12 injections' ),
+            array( 'key' => 'field_ep_b12_benefits_title_rest', 'label' => 'Title (rest)', 'name' => 'b12_benefits_title_rest', 'type' => 'text', 'default_value' => 'can transform your health' ),
+            array(
+                'key'        => 'field_ep_b12_benefits',
+                'label'      => 'Benefits',
+                'name'       => 'b12_benefits',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_b12_benefit_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_benefit_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_benefit_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 30,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── U8. Pricing ───────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_pricing',
+        'title'    => 'B12 — Pricing',
+        'fields'   => array(
+            array( 'key' => 'field_ep_b12_pricing_badge', 'label' => 'Badge', 'name' => 'b12_pricing_badge', 'type' => 'text', 'default_value' => 'TRANSPARENT PRICING' ),
+            array( 'key' => 'field_ep_b12_pricing_title_highlight', 'label' => 'Title (gradient)', 'name' => 'b12_pricing_title_highlight', 'type' => 'text', 'default_value' => 'B12 injection' ),
+            array( 'key' => 'field_ep_b12_pricing_title_rest', 'label' => 'Title (rest)', 'name' => 'b12_pricing_title_rest', 'type' => 'text', 'default_value' => 'pricing' ),
+            array(
+                'key'        => 'field_ep_b12_pricing_cards',
+                'label'      => 'Pricing Cards',
+                'name'       => 'b12_pricing_cards',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_b12_pricing_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_pricing_price', 'label' => 'Price', 'name' => 'price', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_pricing_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array( 'key' => 'field_ep_b12_pricing_featured', 'label' => 'Featured?', 'name' => 'is_featured', 'type' => 'true_false', 'default_value' => 0 ),
+                ),
+            ),
+            array( 'key' => 'field_ep_b12_pricing_disclaimer', 'label' => 'Disclaimer', 'name' => 'b12_pricing_disclaimer', 'type' => 'textarea', 'rows' => 2 ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 35,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── U9. Location ──────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_location',
+        'title'    => 'B12 — Location',
+        'fields'   => array(
+            array( 'key' => 'field_ep_b12_location_badge', 'label' => 'Badge', 'name' => 'b12_location_badge', 'type' => 'text', 'default_value' => 'VISIT US' ),
+            array( 'key' => 'field_ep_b12_location_title_highlight', 'label' => 'Title (gradient)', 'name' => 'b12_location_title_highlight', 'type' => 'text', 'default_value' => 'Your local' ),
+            array( 'key' => 'field_ep_b12_location_title_rest', 'label' => 'Title (rest)', 'name' => 'b12_location_title_rest', 'type' => 'text', 'default_value' => 'B12 injection clinic' ),
+            array( 'key' => 'field_ep_b12_location_serving', 'label' => 'Serving Text', 'name' => 'b12_location_serving', 'type' => 'text', 'default_value' => 'Serving Ashford, Chertsey, and Walton-on-Thames' ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 40,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── U10. FAQ ──────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_faq',
+        'title'    => 'B12 — FAQ',
+        'fields'   => array(
+            array( 'key' => 'field_ep_b12_faq_badge', 'label' => 'Badge', 'name' => 'b12_faq_badge', 'type' => 'text', 'default_value' => 'FREQUENTLY ASKED QUESTIONS' ),
+            array( 'key' => 'field_ep_b12_faq_title_highlight', 'label' => 'Title (gradient)', 'name' => 'b12_faq_title_highlight', 'type' => 'text', 'default_value' => 'B12 injection' ),
+            array( 'key' => 'field_ep_b12_faq_title_rest', 'label' => 'Title (rest)', 'name' => 'b12_faq_title_rest', 'type' => 'text', 'default_value' => 'questions answered' ),
+            array(
+                'key'        => 'field_ep_b12_faqs',
+                'label'      => 'FAQs',
+                'name'       => 'b12_faqs',
+                'type'       => 'repeater',
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_ep_b12_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_ep_b12_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 4 ),
+                ),
+            ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 45,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── U11. Final CTA ────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_b12_cta',
+        'title'    => 'B12 — Final CTA',
+        'fields'   => array(
+            array( 'key' => 'field_ep_b12_cta_badge_1', 'label' => 'Badge 1', 'name' => 'b12_cta_badge_1', 'type' => 'text', 'default_value' => 'Hydroxocobalamin Injection' ),
+            array( 'key' => 'field_ep_b12_cta_badge_2', 'label' => 'Badge 2', 'name' => 'b12_cta_badge_2', 'type' => 'text', 'default_value' => 'Expert Pharmacists' ),
+            array( 'key' => 'field_ep_b12_cta_badge_3', 'label' => 'Badge 3', 'name' => 'b12_cta_badge_3', 'type' => 'text', 'default_value' => 'Walk-ins Welcome' ),
+            array( 'key' => 'field_ep_b12_cta_title', 'label' => 'Title', 'name' => 'b12_cta_title', 'type' => 'text', 'default_value' => 'Feel the Difference a B12 Injection Makes' ),
+            array( 'key' => 'field_ep_b12_cta_description', 'label' => 'Description', 'name' => 'b12_cta_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_ep_b12_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'b12_cta_primary_text', 'type' => 'text', 'default_value' => 'Book B12 Injection Now' ),
+            array( 'key' => 'field_ep_b12_cta_check_1', 'label' => 'Check 1', 'name' => 'b12_cta_check_1', 'type' => 'text', 'default_value' => 'Hydroxocobalamin injection' ),
+            array( 'key' => 'field_ep_b12_cta_check_2', 'label' => 'Check 2', 'name' => 'b12_cta_check_2', 'type' => 'text', 'default_value' => 'Results in 24–72 hours' ),
+            array( 'key' => 'field_ep_b12_cta_check_3', 'label' => 'Check 3', 'name' => 'b12_cta_check_3', 'type' => 'text', 'default_value' => 'Walk-ins welcome' ),
+        ),
+        'location'              => $b12_location,
+        'menu_order'            => 50,
         'position'              => 'normal',
         'style'                 => 'default',
         'label_placement'       => 'top',

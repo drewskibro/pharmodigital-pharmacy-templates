@@ -46,8 +46,10 @@ $nav_ew_label = ep_option( 'nav_ear_wax_label', 'Ear Wax Removal' );
 $nav_ew_url   = ep_nav_url( 'nav_ear_wax_url', '/ear-wax-removal/' );
 
 $nav_hl_show  = ep_option( 'nav_hair_loss_show', '1' );
-$nav_hl_label = ep_option( 'nav_hair_loss_label', 'Hair Loss' );
+$nav_hl_label = ep_option( 'nav_hair_loss_label', 'Private Services' );
 $nav_hl_url   = ep_nav_url( 'nav_hair_loss_url', '/hair-loss/' );
+
+$nav_b12_url  = ep_nav_url( 'nav_b12_url', '/vitamin-b12-injections/' );
 
 $nav_hh_show  = ep_option( 'nav_health_hub_show', '1' );
 $nav_hh_label = ep_option( 'nav_health_hub_label', 'Health Hub' );
@@ -287,17 +289,17 @@ if ( ! is_array( $hl_support )    || empty( $hl_support ) )    { $hl_support    
         </li>
         <?php endif; ?>
 
-        <?php // ── Hair Loss ─────────────────────────────────────────── ?>
+        <?php // ── Private Services (Hair Loss + B12 Injections) ────── ?>
         <?php if ( $nav_hl_show ) : ?>
         <li class="mega-menu-item mega-menu-has-dropdown">
           <a href="<?php echo esc_url( $nav_hl_url ); ?>" class="mega-menu-link">
             <span><?php echo esc_html( $nav_hl_label ); ?></span>
             <i class="fas fa-chevron-down mega-menu-arrow"></i>
           </a>
-          <div class="mega-menu-dropdown">
+          <div class="mega-menu-dropdown mega-menu-dropdown-wide">
             <div class="mega-menu-dropdown-inner">
               <div class="mega-menu-section">
-                <h3 class="mega-menu-section-title">Treatments</h3>
+                <h3 class="mega-menu-section-title">Hair Loss — Treatments</h3>
                 <ul class="mega-menu-section-links">
                   <?php foreach ( $hl_treatments as $link ) :
                     $href = ! empty( $link['url'] ) ? $link['url'] : $nav_hl_url;
@@ -307,13 +309,21 @@ if ( ! is_array( $hl_support )    || empty( $hl_support ) )    { $hl_support    
                 </ul>
               </div>
               <div class="mega-menu-section">
-                <h3 class="mega-menu-section-title">Support</h3>
+                <h3 class="mega-menu-section-title">Hair Loss — Support</h3>
                 <ul class="mega-menu-section-links">
                   <?php foreach ( $hl_support as $link ) :
                     $href = ! empty( $link['url'] ) ? $link['url'] : $nav_hl_url;
                   ?>
                   <li><a href="<?php echo esc_url( $href ); ?>"><i class="<?php echo esc_attr( $link['icon'] ); ?>"></i> <?php echo esc_html( $link['label'] ); ?></a></li>
                   <?php endforeach; ?>
+                </ul>
+              </div>
+              <div class="mega-menu-section">
+                <h3 class="mega-menu-section-title">B12 Injections</h3>
+                <ul class="mega-menu-section-links">
+                  <li><a href="<?php echo esc_url( $nav_b12_url ); ?>"><i class="fas fa-syringe"></i> Vitamin B12 Injections</a></li>
+                  <li><a href="<?php echo esc_url( $nav_b12_url ); ?>#faq"><i class="fas fa-question-circle"></i> B12 FAQs</a></li>
+                  <li><a href="tel:<?php echo esc_attr( $phone_link ); ?>"><i class="fas fa-calendar-check"></i> Book B12 Appointment</a></li>
                 </ul>
               </div>
             </div>
