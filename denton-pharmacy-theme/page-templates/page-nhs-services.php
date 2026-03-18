@@ -3,7 +3,7 @@
  * Template Name: NHS Services
  *
  * 5 sections: Hero, Stats, NHS Services Grid, How It Works, Location.
- * Uses shared globals.css classes and reusable template parts — no page-specific CSS.
+ * Page-specific CSS: nhs-services.css (hero badge, image card, visual column).
  *
  * @package Denton_Pharmacy
  */
@@ -11,25 +11,60 @@
 get_header();
 
 // --- Hero fields ---
-$hero_badge       = dp_field( 'nhs_hero_badge', 'NHS PHARMACY SERVICES' );
-$hero_title       = dp_field( 'nhs_hero_title', 'Your Local NHS' );
-$hero_highlight   = dp_field( 'nhs_hero_highlight', 'Community Pharmacy' );
+
+// Badge fields
+$badge_icon     = dp_field( 'nhs_hero_badge_icon', 'fas fa-notes-medical' );
+$badge_title    = dp_field( 'nhs_hero_badge_title', 'NHS Community Pharmacy' );
+$badge_subtitle = dp_field( 'nhs_hero_badge_subtitle', 'Free Services for Eligible Patients' );
+
+// Title fields (3 lines)
+$hero_title_line1 = dp_field( 'nhs_hero_title', 'Your NHS' );
+$hero_title_line2 = dp_field( 'nhs_hero_title_accent', 'Pharmacy' );
+$hero_title_line3 = dp_field( 'nhs_hero_title_line3', 'in Denton' );
+
 $hero_description = dp_field( 'nhs_hero_description', 'Free NHS services for eligible patients right here in Denton. Prescriptions, Pharmacy First consultations, flu jabs, and more — all from your trusted local pharmacy.' );
-$hero_cta_text    = dp_field( 'nhs_hero_cta_text', 'Book Appointment' );
+$hero_cta_text    = dp_field( 'nhs_hero_cta_text', 'View NHS Services' );
 $hero_cta_url     = dp_field( 'nhs_hero_cta_url', dp_booking_url() );
 $phone            = dp_phone();
 $phone_link       = dp_phone_link();
 
+// Hero image
+$hero_image_id = dp_field( 'nhs_hero_image' );
+if ( ! $hero_image_id ) {
+    $hero_image_id = dp_option( 'pharmacist_image' );
+}
+$hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'large' ) : '';
+
+// Image caption
+$hero_caption_label = dp_field( 'nhs_hero_caption_label', 'NHS Services' );
+$hero_caption_title = dp_field( 'nhs_hero_caption_title', 'Free for Eligible Patients' );
+
+// Trust indicators
+$trust_1_icon = dp_field( 'nhs_hero_trust_1_icon', 'fas fa-check-circle' );
+$trust_1_text = dp_field( 'nhs_hero_trust_1_text', 'NHS Approved' );
+$trust_2_icon = dp_field( 'nhs_hero_trust_2_icon', 'fas fa-shield-halved' );
+$trust_2_text = dp_field( 'nhs_hero_trust_2_text', 'GPhC Registered' );
+$trust_3_icon = dp_field( 'nhs_hero_trust_3_icon', 'fas fa-star' );
+$trust_3_text = dp_field( 'nhs_hero_trust_3_text', '4.7★ Rated' );
+
+// Rating badge
+$rating_score    = dp_field( 'nhs_hero_rating_score' );
+if ( ! $rating_score ) { $rating_score = dp_option( 'google_rating', '4.7' ); }
+$rating_count    = dp_field( 'nhs_hero_rating_count', '89' );
+$rating_location = dp_field( 'nhs_hero_rating_location' );
+if ( ! $rating_location ) { $rating_location = dp_option( 'pharmacy_location_label', 'Denton, UK' ); }
+
 // --- Stats fields ---
 $default_stats = array(
-    array( 'icon' => 'fas fa-file-prescription', 'number' => '5,000+', 'label' => 'Prescriptions Monthly' ),
-    array( 'icon' => 'fas fa-user-doctor',       'number' => 'GPhC',   'label' => 'Registered Pharmacists' ),
-    array( 'icon' => 'fas fa-clock',             'number' => '6 Days', 'label' => 'Open Per Week' ),
-    array( 'icon' => 'fas fa-heart',             'number' => 'Free',   'label' => 'NHS Services' ),
+    array( 'icon' => 'fas fa-prescription', 'number' => '10,000+',  'label' => 'NHS Prescriptions' ),
+    array( 'icon' => 'fas fa-user-nurse',   'number' => 'Free',     'label' => 'Pharmacy First' ),
+    array( 'icon' => 'fas fa-syringe',      'number' => '1,500+',   'label' => 'Flu Vaccinations' ),
+    array( 'icon' => 'fas fa-truck-fast',   'number' => 'Free',     'label' => 'Home Delivery' ),
+    array( 'icon' => 'fas fa-clock',        'number' => 'Same Day', 'label' => 'Collection' ),
 );
 
 $stats = array();
-for ( $i = 1; $i <= 4; $i++ ) {
+for ( $i = 1; $i <= 5; $i++ ) {
     $stats[] = array(
         'icon'   => dp_fa_class( dp_field( 'nhs_stat_' . $i . '_icon', $default_stats[ $i - 1 ]['icon'] ) ),
         'number' => dp_field( 'nhs_stat_' . $i . '_number', $default_stats[ $i - 1 ]['number'] ),
@@ -46,15 +81,25 @@ for ( $i = 1; $i <= 4; $i++ ) {
   <div class="section-container">
     <div class="hero-grid">
 
+      <!-- LEFT: Content Column -->
       <div class="hero-content">
-        <div class="section-badge">
-          <span class="pulse-dot"><span></span><span></span></span>
-          <span class="section-badge-text"><?php echo esc_html( $hero_badge ); ?></span>
+
+        <!-- NHS Local Badge -->
+        <div class="nhs-hero-local-badge">
+          <div class="nhs-hero-local-badge-icon">
+            <i class="<?php echo esc_attr( dp_fa_class( $badge_icon ) ); ?>"></i>
+          </div>
+          <div class="nhs-hero-local-badge-content">
+            <span class="nhs-hero-local-badge-title"><?php echo esc_html( $badge_title ); ?></span>
+            <span class="nhs-hero-local-badge-subtitle"><?php echo esc_html( $badge_subtitle ); ?></span>
+          </div>
         </div>
 
+        <!-- Headline (3 lines) -->
         <h1 class="hero-title">
-          <?php echo esc_html( $hero_title ); ?> <br />
-          <span class="gradient-text"><?php echo esc_html( $hero_highlight ); ?></span>
+          <span class="gradient-text"><?php echo esc_html( $hero_title_line1 ); ?></span>
+          <span class="nhs-hero-accent-text"><?php echo esc_html( $hero_title_line2 ); ?></span>
+          <span class="gradient-text"><?php echo esc_html( $hero_title_line3 ); ?></span>
         </h1>
 
         <p class="hero-description"><?php echo esc_html( $hero_description ); ?></p>
@@ -62,22 +107,60 @@ for ( $i = 1; $i <= 4; $i++ ) {
         <div class="hero-actions">
           <a href="<?php echo esc_url( $hero_cta_url ); ?>" class="cta-button primary-cta">
             <?php echo esc_html( $hero_cta_text ); ?>
-            <i class="fas fa-arrow-right"></i>
           </a>
           <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="cta-button secondary-cta">
-            <i class="fas fa-phone"></i>
+            <i class="fas fa-phone icon-small"></i>
             <?php echo esc_html( 'Call ' . $phone ); ?>
           </a>
         </div>
 
         <ul class="trust-indicators">
-          <li class="trust-item"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></li>
+          <li class="trust-item"><i class="<?php echo esc_attr( dp_fa_class( $trust_1_icon ) ); ?>"></i><span><?php echo esc_html( $trust_1_text ); ?></span></li>
           <li class="trust-item trust-divider"><span class="dot-separator"></span></li>
-          <li class="trust-item"><i class="fas fa-check-circle"></i><span>Free NHS Services</span></li>
+          <li class="trust-item"><i class="<?php echo esc_attr( dp_fa_class( $trust_2_icon ) ); ?>"></i><span><?php echo esc_html( $trust_2_text ); ?></span></li>
           <li class="trust-item trust-divider"><span class="dot-separator"></span></li>
-          <li class="trust-item"><i class="fas fa-heart"></i><span>Serving Denton 15+ Years</span></li>
+          <li class="trust-item"><i class="<?php echo esc_attr( dp_fa_class( $trust_3_icon ) ); ?>"></i><span><?php echo esc_html( $trust_3_text ); ?></span></li>
         </ul>
       </div>
+
+      <!-- RIGHT: Visual Column -->
+      <?php if ( $hero_image_url ) : ?>
+      <div class="nhs-hero-visual">
+        <div class="nhs-hero-visual-glow"></div>
+        <div class="nhs-hero-image-card">
+          <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( $hero_caption_label ); ?>">
+          <div class="nhs-hero-overlay"></div>
+          <div class="nhs-hero-image-caption">
+            <span class="nhs-hero-caption-label"><?php echo esc_html( $hero_caption_label ); ?></span>
+            <h3 class="nhs-hero-caption-title"><?php echo esc_html( $hero_caption_title ); ?></h3>
+          </div>
+        </div>
+
+        <!-- Rating Badge -->
+        <div class="rating-badge">
+          <div class="rating-header">
+            <div class="rating-label">
+              <div class="google-icon-wrapper"><i class="fab fa-google"></i></div>
+              <span>Google</span>
+            </div>
+            <div class="badge-success"><i class="fas fa-check"></i><span>Verified</span></div>
+          </div>
+          <div class="rating-score">
+            <span class="score-number"><?php echo esc_html( $rating_score ); ?></span>
+            <div class="rating-score-detail">
+              <div class="star-row">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">Based on <?php echo esc_html( $rating_count ); ?> reviews+</span>
+            </div>
+          </div>
+          <div class="rating-footer">
+            <div class="rating-location"><i class="fas fa-map-marker-alt"></i><span><?php echo esc_html( $rating_location ); ?></span></div>
+            <a href="#" class="rating-link">View Reviews</a>
+          </div>
+        </div>
+      </div>
+      <?php endif; ?>
 
     </div>
   </div>

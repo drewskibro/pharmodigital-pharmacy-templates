@@ -125,6 +125,10 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-blog-js', DENTON_PHARMACY_URI . '/assets/js/blog.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
+    if ( is_page_template( 'page-templates/page-nhs-services.php' ) ) {
+        wp_enqueue_style( 'denton-nhs-services', DENTON_PHARMACY_URI . '/assets/css/nhs-services.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+    }
+
     if ( is_page_template( 'page-templates/page-book-appointment.php' ) ) {
         wp_enqueue_style( 'denton-book-appointment', DENTON_PHARMACY_URI . '/assets/css/book-appointment.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
         wp_enqueue_script( 'denton-book-appointment-js', DENTON_PHARMACY_URI . '/assets/js/book-appointment.js', array(), DENTON_PHARMACY_VERSION, true );

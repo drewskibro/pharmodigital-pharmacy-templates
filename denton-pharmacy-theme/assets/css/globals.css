@@ -1411,6 +1411,7 @@ html {
 .nhs-card-cyan .nhs-card-list li svg { color: #0891b2; }
 
 .nhs-card-btn {
+  display: inline-block;
   width: 100%;
   padding: 0.875rem;
   border-radius: 1rem;
@@ -1419,6 +1420,8 @@ html {
   background: var(--white);
   border: 2px solid;
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 

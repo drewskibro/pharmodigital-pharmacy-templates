@@ -140,8 +140,13 @@ $total_steps = count( $steps );
         <!-- CTA -->
         <div class="how-it-works-cta">
             <a href="<?php echo esc_url( $cta_url ); ?>" class="cta-button primary-cta">
+                <?php if ( strpos( $cta_url, 'tel:' ) === 0 ) : ?>
+                    <i class="fas fa-phone"></i>
+                <?php endif; ?>
                 <?php echo esc_html( $cta_text ); ?>
-                <i class="fas fa-arrow-right"></i>
+                <?php if ( strpos( $cta_url, 'tel:' ) !== 0 ) : ?>
+                    <i class="fas fa-arrow-right"></i>
+                <?php endif; ?>
             </a>
         </div>
 

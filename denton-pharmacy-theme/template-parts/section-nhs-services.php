@@ -15,12 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // --- Section header ---
 $badge_text  = dp_field( 'nhs_badge_text', 'NHS Services' );
-$title       = dp_field( 'nhs_title', 'Your NHS Community Pharmacy' );
-$description = dp_field( 'nhs_description', 'Free NHS services for eligible patients. From prescriptions to consultations, we provide trusted NHS care right here in Denton.' );
+$title       = dp_field( 'nhs_title', 'Free NHS Healthcare Services' );
+$description = dp_field( 'nhs_description', 'Comprehensive NHS services for eligible patients. From prescriptions to vaccinations, we\'re here to support your health and wellbeing.' );
 
 // --- Bottom CTA ---
-$bottom_title = dp_field( 'nhs_bottom_title', 'Need help with NHS services?' );
-$bottom_desc  = dp_field( 'nhs_bottom_description', 'Our friendly team is here to help you access the NHS services you\'re entitled to. Call us or pop in for advice.' );
+$bottom_title    = dp_field( 'nhs_bottom_title', 'Need help with NHS services?' );
+$bottom_desc     = dp_field( 'nhs_bottom_description', 'Our friendly team is here to answer your questions about NHS prescriptions, eligibility, and services.' );
+$bottom_cta_text = dp_field( 'nhs_bottom_cta_text', 'Visit Us in Denton' );
 $phone        = dp_phone();
 $phone_link   = dp_phone_link();
 
@@ -59,12 +60,8 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
         <!-- Section header -->
         <div class="nhs-header">
             <div class="nhs-badge">
-                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                    <polyline points="10 9 9 9 8 9"></polyline>
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
                 <span><?php echo esc_html( $badge_text ); ?></span>
             </div>
@@ -85,62 +82,49 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                             switch ( $card['icon'] ) {
                                 case 'prescription':
                                     ?>
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                        <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                     </svg>
                                     <?php
                                     break;
                                 case 'delivery':
                                     ?>
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                                        <rect x="1" y="3" width="15" height="13"></rect>
-                                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                                     </svg>
                                     <?php
                                     break;
                                 case 'repeat':
                                     ?>
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                                        <polyline points="17 1 21 5 17 9"></polyline>
-                                        <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
-                                        <polyline points="7 23 3 19 7 15"></polyline>
-                                        <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                        <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                                     </svg>
                                     <?php
                                     break;
                                 case 'pharmacyfirst':
                                     ?>
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                                     </svg>
                                     <?php
                                     break;
                                 case 'newmedicine':
                                     ?>
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                                        <path d="M18 20V10"></path>
-                                        <path d="M12 20V4"></path>
-                                        <path d="M6 20v-6"></path>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
                                     </svg>
                                     <?php
                                     break;
                                 case 'flu':
                                     ?>
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                        <polyline points="9 12 11 14 15 10"></polyline>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                                     </svg>
                                     <?php
                                     break;
                                 default:
                                     ?>
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
                                         <line x1="12" y1="5" x2="12" y2="19"></line>
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
                                     </svg>
@@ -178,10 +162,6 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                         <!-- Button -->
                         <a href="<?php echo esc_url( $card['url'] ); ?>" class="nhs-card-btn">
                             <?php echo esc_html( $card['btn'] ); ?>
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
                         </a>
 
                     </div>
@@ -198,12 +178,17 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
             </div>
             <div class="nhs-bottom-cta-actions">
                 <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="nhs-btn-primary">
-                    <i class="fas fa-phone"></i>
-                    <?php echo esc_html( $phone ); ?>
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    <?php echo esc_html( 'Call ' . $phone ); ?>
                 </a>
                 <a href="#location" class="nhs-btn-secondary">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Visit Us in Denton
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+                        <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <?php echo esc_html( $bottom_cta_text ); ?>
                 </a>
             </div>
         </div>
