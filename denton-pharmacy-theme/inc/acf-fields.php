@@ -4348,7 +4348,7 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_book_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'book_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Now' ),
             array( 'key' => 'field_dp_book_hero_image', 'label' => 'Hero Image', 'name' => 'book_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Image for the rotated card. Falls back to pharmacist photo from options.' ),
             array( 'key' => 'field_dp_book_hero_quote', 'label' => 'Testimonial Quote', 'name' => 'book_hero_quote', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Booking was so easy and Ahmed was fantastic. I was seen on time and the advice was excellent.' ),
-            array( 'key' => 'field_dp_book_hero_quote_name', 'label' => 'Testimonial Name', 'name' => 'book_hero_quote_name', 'type' => 'text', 'default_value' => 'Paul F.' ),
+            array( 'key' => 'field_dp_book_hero_quote_name', 'label' => 'Testimonial Name', 'name' => 'book_hero_quote_name', 'type' => 'text', 'default_value' => 'Sarah J.' ),
             array( 'key' => 'field_dp_book_hero_quote_badge', 'label' => 'Testimonial Badge', 'name' => 'book_hero_quote_badge', 'type' => 'text', 'default_value' => 'Verified Patient' ),
             array(
                 'key'        => 'field_dp_book_hero_trust',
@@ -4443,8 +4443,8 @@ function dp_register_acf_field_groups() {
         'key'      => 'group_dp_book_services',
         'title'    => 'Book Appointment — Priority Services',
         'fields'   => array(
-            array( 'key' => 'field_dp_book_services_badge', 'label' => 'Badge Text', 'name' => 'book_services_badge', 'type' => 'text', 'default_value' => 'PRIORITY SERVICES' ),
-            array( 'key' => 'field_dp_book_services_title', 'label' => 'Title', 'name' => 'book_services_title', 'type' => 'text', 'default_value' => 'Most Popular Services' ),
+            array( 'key' => 'field_dp_book_services_badge', 'label' => 'Badge Text', 'name' => 'book_services_badge', 'type' => 'text', 'default_value' => 'MOST POPULAR' ),
+            array( 'key' => 'field_dp_book_services_title', 'label' => 'Title', 'name' => 'book_services_title', 'type' => 'text', 'default_value' => 'Featured Services' ),
             array(
                 'key'        => 'field_dp_book_priority_services',
                 'label'      => 'Services',
@@ -4454,13 +4454,13 @@ function dp_register_acf_field_groups() {
                 'min'        => 0,
                 'max'        => 6,
                 'sub_fields' => array(
+                    array( 'key' => 'field_dp_book_ps_badge', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'instructions' => 'e.g. Most Popular. Leave blank to hide badge.' ),
                     array( 'key' => 'field_dp_book_ps_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-weight-scale' ),
+                    array( 'key' => 'field_dp_book_ps_icon_color', 'label' => 'Icon Color', 'name' => 'icon_color', 'type' => 'select', 'choices' => array( '' => 'Default (Blue)', 'teal' => 'Teal', 'purple' => 'Purple' ), 'default_value' => '' ),
                     array( 'key' => 'field_dp_book_ps_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
                     array( 'key' => 'field_dp_book_ps_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
                     array( 'key' => 'field_dp_book_ps_price', 'label' => 'Price', 'name' => 'price', 'type' => 'text', 'instructions' => 'e.g. £125' ),
                     array( 'key' => 'field_dp_book_ps_price_label', 'label' => 'Price Label', 'name' => 'price_label', 'type' => 'text', 'instructions' => 'e.g. / month starting price' ),
-                    array( 'key' => 'field_dp_book_ps_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
-                    array( 'key' => 'field_dp_book_ps_popular', 'label' => 'Show POPULAR Badge', 'name' => 'popular', 'type' => 'true_false', 'default_value' => 0 ),
                     array( 'key' => 'field_dp_book_ps_refund', 'label' => 'Refund Badge Text', 'name' => 'refund_text', 'type' => 'text', 'instructions' => 'Leave blank to hide. e.g. Refundable with 2+ vaccines' ),
                     array( 'key' => 'field_dp_book_ps_btn', 'label' => 'Button Text', 'name' => 'button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
                 ),

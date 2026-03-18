@@ -1,3 +1,4 @@
 .claude/settings.local.json
 docs/estado-del-proyecto.md
 denton-pharmacy-theme/prompts/*
+.mcp.json

@@ -55,7 +55,7 @@ get_header();
           <?php endwhile; else : ?>
             <div class="book-hero-trust-pill"><i class="fas fa-check-circle"></i><span>Face-to-face Care</span></div>
             <div class="book-hero-trust-pill"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></div>
-            <div class="book-hero-trust-pill"><i class="fas fa-bolt"></i><span>Instant Confirmation</span></div>
+            <div class="book-hero-trust-pill"><i class="fas fa-calendar-check"></i><span>Instant Confirmation</span></div>
           <?php endif; ?>
         </div>
       </div>
@@ -87,7 +87,7 @@ get_header();
             </p>
             <div class="book-hero-quote-footer">
               <div class="book-hero-author">
-                <span class="book-hero-name"><?php echo esc_html(dp_field('book_hero_quote_name', 'Paul F.')); ?></span>
+                <span class="book-hero-name"><?php echo esc_html(dp_field('book_hero_quote_name', 'Sarah J.')); ?></span>
                 <div class="star-row">
                   <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
@@ -168,10 +168,10 @@ get_header();
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-clock"></i></div><div class="book-stat-content"><span class="book-stat-number">15+</span><span class="book-stat-label">Years Experience</span></div></div>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-users"></i></div><div class="book-stat-content"><span class="book-stat-number">5,000+</span><span class="book-stat-label">Patients Helped</span></div></div>
+        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-clock"></i></div><div class="book-stat-content"><span class="book-stat-number">30+</span><span class="book-stat-label">Years Experience</span></div></div>
+        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-users"></i></div><div class="book-stat-content"><span class="book-stat-number">10,000+</span><span class="book-stat-label">Patients Helped</span></div></div>
+        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-star"></i></div><div class="book-stat-content"><span class="book-stat-number">4.9</span><span class="book-stat-label">Google Rating</span></div></div>
         <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-certificate"></i></div><div class="book-stat-content"><span class="book-stat-number">GPhC</span><span class="book-stat-label">Registered</span></div></div>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-star"></i></div><div class="book-stat-content"><span class="book-stat-number">4.9</span><span class="book-stat-label">Average Rating</span></div></div>
       <?php endif; ?>
     </div>
   </div>
@@ -184,84 +184,70 @@ get_header();
   <div class="section-container">
     <div class="book-services-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text"><?php echo esc_html(dp_field('book_services_badge', 'PRIORITY SERVICES')); ?></span>
+        <span class="section-badge-text"><?php echo esc_html(dp_field('book_services_badge', 'MOST POPULAR')); ?></span>
       </div>
-      <h2 class="book-services-title"><?php echo esc_html(dp_field('book_services_title', 'Most Popular Services')); ?></h2>
-      <div class="book-services-divider"></div>
+      <h2 class="book-services-title"><?php echo esc_html(dp_field('book_services_title', 'Featured Services')); ?></h2>
     </div>
 
     <div class="book-services-grid">
       <?php if (have_rows('book_priority_services')) : while (have_rows('book_priority_services')) : the_row();
-        $service_image_id = get_sub_field('image');
-        $service_image_url = $service_image_id ? wp_get_attachment_image_url($service_image_id, 'medium_large') : '';
-        $is_popular = get_sub_field('popular');
-        $refund_text = get_sub_field('refund_text');
+        $badge_text   = get_sub_field('badge_text');
+        $icon_color   = get_sub_field('icon_color');
+        $icon_class   = $icon_color ? ' ' . $icon_color : '';
+        $refund_text  = get_sub_field('refund_text');
       ?>
-        <div class="book-service-card-featured">
-          <?php if ($service_image_url) : ?>
-            <div class="book-service-image-wrapper">
-              <img src="<?php echo esc_url($service_image_url); ?>" alt="<?php echo esc_attr(get_sub_field('title')); ?>" class="book-service-image" />
-              <?php if ($is_popular) : ?>
-                <div class="book-service-badge-popular">POPULAR</div>
-              <?php endif; ?>
-            </div>
+        <div class="book-service-card<?php echo $badge_text ? ' featured' : ''; ?>">
+          <?php if ($badge_text) : ?>
+            <div class="book-service-badge"><?php echo esc_html($badge_text); ?></div>
           <?php endif; ?>
-          <div class="book-service-content">
-            <?php if ( ! $service_image_url && $is_popular ) : ?>
-              <div class="book-service-badge-inline">POPULAR</div>
-            <?php endif; ?>
-            <div class="book-service-icon-floating">
-              <i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i>
-            </div>
-            <h3 class="book-service-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
-            <p class="book-service-desc"><?php echo esc_html(get_sub_field('description')); ?></p>
-            <div class="book-service-price-row">
-              <span class="book-service-price"><?php echo esc_html(get_sub_field('price')); ?></span>
-              <span class="book-service-price-label"><?php echo esc_html(get_sub_field('price_label')); ?></span>
-            </div>
-            <?php if ($refund_text) : ?>
-              <div class="book-service-refund-badge"><?php echo esc_html($refund_text); ?></div>
-            <?php endif; ?>
-            <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">
-              <?php echo esc_html(get_sub_field('button_text') ?: 'Book Consultation'); ?>
-              <i class="fas fa-arrow-right"></i>
-            </button>
+          <div class="book-service-icon-wrap<?php echo esc_attr($icon_class); ?>">
+            <i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i>
           </div>
+          <h3 class="book-service-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
+          <p class="book-service-desc"><?php echo esc_html(get_sub_field('description')); ?></p>
+          <div class="book-service-price-row">
+            <span class="book-service-price"><?php echo esc_html(get_sub_field('price')); ?></span>
+            <span class="book-service-price-label"><?php echo esc_html(get_sub_field('price_label')); ?></span>
+          </div>
+          <?php if ($refund_text) : ?>
+            <div class="book-service-refund-badge"><?php echo esc_html($refund_text); ?></div>
+          <?php endif; ?>
+          <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">
+            <?php echo esc_html(get_sub_field('button_text') ?: 'Book Consultation'); ?>
+            <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
       <?php endwhile; else : ?>
         <!-- Weight Loss -->
-        <div class="book-service-card-featured">
-          <div class="book-service-content">
-            <div class="book-service-badge-inline">POPULAR</div>
-            <div class="book-service-icon-floating"><i class="fas fa-weight-scale"></i></div>
-            <h3 class="book-service-title">Weight Loss Programme</h3>
-            <p class="book-service-desc">Personalised weight management with GLP-1 treatments and ongoing pharmacist support.</p>
-            <div class="book-service-price-row"><span class="book-service-price">&pound;125</span><span class="book-service-price-label">/ month starting price</span></div>
-            <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
+        <div class="book-service-card featured">
+          <div class="book-service-badge">Most Popular</div>
+          <div class="book-service-icon-wrap">
+            <i class="fas fa-weight-scale"></i>
           </div>
+          <h3 class="book-service-title">Medical Weight Loss</h3>
+          <p class="book-service-desc">Clinically proven GLP-1 treatments with weekly pharmacist support. Wegovy, Mounjaro, and more.</p>
+          <div class="book-service-price-row"><span class="book-service-price">From &pound;179</span><span class="book-service-price-label">/ month</span></div>
+          <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
         </div>
         <!-- Travel Health -->
-        <div class="book-service-card-featured">
-          <div class="book-service-content">
-            <div class="book-service-icon-floating"><i class="fas fa-plane-departure"></i></div>
-            <h3 class="book-service-title">Travel Health Clinic</h3>
-            <p class="book-service-desc">Expert destination advice, vaccinations, and malaria prevention for safe travel.</p>
-            <div class="book-service-price-row"><span class="book-service-price">&pound;10</span><span class="book-service-price-label">consultation fee</span></div>
-            <div class="book-service-refund-badge">Refundable with 2+ vaccines</div>
-            <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
+        <div class="book-service-card">
+          <div class="book-service-icon-wrap teal">
+            <i class="fas fa-plane-departure"></i>
           </div>
+          <h3 class="book-service-title">Travel Vaccinations</h3>
+          <p class="book-service-desc">Official Yellow Fever Centre. Hepatitis, Typhoid, Rabies, and destination-specific advice.</p>
+          <div class="book-service-price-row"><span class="book-service-price">From &pound;35</span><span class="book-service-price-label">/ vaccine</span></div>
+          <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
         </div>
         <!-- Ear Wax Removal -->
-        <div class="book-service-card-featured">
-          <div class="book-service-content">
-            <div class="book-service-badge-inline">POPULAR</div>
-            <div class="book-service-icon-floating"><i class="fas fa-ear-listen"></i></div>
-            <h3 class="book-service-title">Ear Wax Removal</h3>
-            <p class="book-service-desc">Professional microsuction ear cleaning by experienced healthcare professionals.</p>
-            <div class="book-service-price-row"><span class="book-service-price">&pound;40</span><span class="book-service-price-label">/ per ear</span></div>
-            <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
+        <div class="book-service-card">
+          <div class="book-service-icon-wrap purple">
+            <i class="fas fa-ear-listen"></i>
           </div>
+          <h3 class="book-service-title">Ear Wax Removal</h3>
+          <p class="book-service-desc">Professional microsuction ear cleaning by experienced healthcare professionals.</p>
+          <div class="book-service-price-row"><span class="book-service-price">&pound;20</span><span class="book-service-price-label">/ per ear</span></div>
+          <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
         </div>
       <?php endif; ?>
     </div>
@@ -380,23 +366,26 @@ get_header();
       <?php endwhile; else : ?>
         <div class="book-testimonial-card">
           <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="book-testimonial-quote">"Ahmed and the team are fantastic. I called in a panic before my holiday and they fitted me in the same day for my travel vaccinations. Couldn't recommend them more highly."</p>
+          <p class="book-testimonial-quote">"Very efficient service. I phoned the evening before in a panic thinking we were too late for our holiday vaccinations. We got an appointment for the following day... Excellent advice given. Would highly recommend."</p>
           <div class="book-testimonial-author">
-            <div class="book-testimonial-info"><span class="book-testimonial-name">Paul F.</span><span class="book-testimonial-service">Travel Health Patient</span></div>
+            <div class="book-testimonial-avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Kathryn H." /></div>
+            <div class="book-testimonial-info"><span class="book-testimonial-name">Kathryn H.</span><span class="book-testimonial-service">Travel Health Patient</span></div>
           </div>
         </div>
         <div class="book-testimonial-card">
           <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="book-testimonial-quote">"I've been coming to Denton Pharmacy for my weight loss programme and the results have been amazing. Ahmed really takes the time to understand your needs."</p>
+          <p class="book-testimonial-quote">"I travel 40 miles every month to see the team for my weight loss consultations – they're that good. Would never go anywhere else. The support has been incredible."</p>
           <div class="book-testimonial-author">
-            <div class="book-testimonial-info"><span class="book-testimonial-name">Georgia P.</span><span class="book-testimonial-service">Weight Loss Patient</span></div>
+            <div class="book-testimonial-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Sarah M." /></div>
+            <div class="book-testimonial-info"><span class="book-testimonial-name">Sarah M.</span><span class="book-testimonial-service">Weight Loss Patient</span></div>
           </div>
         </div>
         <div class="book-testimonial-card">
           <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="book-testimonial-quote">"Professional, friendly, and genuinely caring. The ear wax removal was quick and painless. So much better than waiting months for an NHS appointment."</p>
+          <p class="book-testimonial-quote">"The staff were just amazing... professional, courteous and helpful... If I could give them more than five stars I would... they truly take customer service to a whole new level."</p>
           <div class="book-testimonial-author">
-            <div class="book-testimonial-info"><span class="book-testimonial-name">Giedrius K.</span><span class="book-testimonial-service">Ear Wax Removal Patient</span></div>
+            <div class="book-testimonial-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Tom W." /></div>
+            <div class="book-testimonial-info"><span class="book-testimonial-name">Tom W.</span><span class="book-testimonial-service">Pharmacy Patient</span></div>
           </div>
         </div>
       <?php endif; ?>
@@ -433,8 +422,8 @@ get_header();
         </div>
       <?php endwhile; else : ?>
         <div class="book-faq-item">
-          <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">01</span><span class="book-faq-question">Is there free parking at your Denton pharmacy?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>Yes, absolutely. We have free parking available directly outside our pharmacy on Ashton Road. Our location is easily accessible from all parts of Denton and Tameside, making your visit stress-free and convenient.</p></div>
+          <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">01</span><span class="book-faq-question">Is there free parking at your Denton clinic?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
+          <div class="book-faq-answer"><p>Yes, absolutely. We have free parking available directly outside our clinic. Our location is easily accessible from all parts of Denton and Manchester, making your visit stress-free and convenient.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">02</span><span class="book-faq-question">How quickly can I start the weight loss programme?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
@@ -442,7 +431,7 @@ get_header();
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">03</span><span class="book-faq-question">Who will I be seeing for my consultation?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>You will see Ahmed Al-Liabi or one of our expert clinical team members. Ahmed is a GPhC Registered Pharmacist with over 15 years of experience serving the Denton community. You'll see the same friendly face for your follow-ups, ensuring continuity of care.</p></div>
+          <div class="book-faq-answer"><p>You will see Ahmed Al-Liabi or one of our expert clinical team members. Ahmed is a GPhC Registered Pharmacist with over 30 years of experience serving the Denton community. You'll see the same friendly face for your follow-ups, ensuring continuity of care.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">04</span><span class="book-faq-question">Do I need to book travel vaccinations in advance?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
@@ -450,7 +439,7 @@ get_header();
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">05</span><span class="book-faq-question">Why do so many Denton patients choose you?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>We combine clinical expertise with genuine warmth. Plus, we're a local independent pharmacy that has been part of the Denton community for years — we truly care about your health outcomes. Our patients appreciate the personal care you can't get from large chains.</p></div>
+          <div class="book-faq-answer"><p>We combine clinical expertise with genuine warmth. Plus, we're a local independent pharmacy that has been part of the Denton community for decades—we truly care about your health outcomes. Our patients appreciate the personal care you can't get from large chains.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">06</span><span class="book-faq-question">Do I need a referral from my GP?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
@@ -461,31 +450,6 @@ get_header();
   </div>
 </section>
 
-<!-- ============================================
-     FINAL CTA SECTION
-     ============================================ -->
-<section class="book-cta-section">
-  <div class="book-cta-bg-dots"></div>
-  <div class="book-cta-bg-blobs"></div>
-
-  <div class="section-container">
-    <div class="book-cta-content">
-      <h2 class="book-cta-title"><?php echo esc_html(dp_field('book_cta_title', 'Need Help Booking?')); ?></h2>
-      <p class="book-cta-description"><?php echo esc_html(dp_field('book_cta_description', 'Our friendly Denton team is here to answer your questions')); ?></p>
-
-      <div class="book-cta-buttons">
-        <a href="tel:<?php echo esc_attr(dp_phone_link()); ?>" class="cta-button book-cta-phone">
-          <i class="fas fa-phone"></i>
-          <?php echo esc_html(dp_phone()); ?>
-        </a>
-        <div class="book-cta-hours">
-          <i class="fas fa-clock"></i>
-          <span><?php echo esc_html(dp_field('book_cta_hours', 'Mon-Fri: 9am-6pm')); ?></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <?php
 get_footer();
