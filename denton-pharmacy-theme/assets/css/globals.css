@@ -792,7 +792,7 @@ html {
 /* Rating Badge */
 .rating-badge {
   position: absolute;
-  bottom: 3rem;
+  top: 2rem;
   right: -2rem;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
