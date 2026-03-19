@@ -255,7 +255,7 @@ get_header();
             <div class="book-service-icon-floating"><i class="fas fa-weight-scale"></i></div>
             <h3 class="book-service-title">Weight Loss Programme</h3>
             <p class="book-service-desc">Personalised weight management with GLP-1 treatments and ongoing pharmacist support.</p>
-            <div class="book-service-price-row"><span class="book-service-price">&pound;125</span><span class="book-service-price-label">/ month starting price</span></div>
+            <div class="book-service-price-row"><span class="book-service-price">&pound;130</span><span class="book-service-price-label">/ month starting price</span></div>
             <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
@@ -277,7 +277,7 @@ get_header();
             <div class="book-service-icon-floating"><i class="fas fa-ear-listen"></i></div>
             <h3 class="book-service-title">Ear Wax Removal</h3>
             <p class="book-service-desc">Professional microsuction ear cleaning by experienced healthcare professionals.</p>
-            <div class="book-service-price-row"><span class="book-service-price">&pound;20</span><span class="book-service-price-label">/ per ear</span></div>
+            <div class="book-service-price-row"><span class="book-service-price">&pound;59</span><span class="book-service-price-label">/ both ears</span></div>
             <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
@@ -315,13 +315,13 @@ get_header();
         </div>
       <?php endwhile; else : ?>
         <div class="book-service-card">
-          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-syringe"></i></div><div class="book-service-price-badge">&pound;15</div></div>
+          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-syringe"></i></div><div class="book-service-price-badge">&pound;25</div></div>
           <h3 class="book-service-title">Flu Vaccination</h3>
           <p class="book-service-desc">Essential seasonal flu protection for you and your family. Available for both private and NHS patients.</p>
           <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">Book Flu Jab</button>
         </div>
         <div class="book-service-card">
-          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-shield-virus"></i></div><div class="book-service-price-badge">&pound;45</div></div>
+          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-shield-virus"></i></div><div class="book-service-price-badge">&pound;90</div></div>
           <h3 class="book-service-title">COVID Booster</h3>
           <p class="book-service-desc">Private COVID-19 booster vaccinations for ongoing protection. No NHS eligibility required.</p>
           <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">Book Booster</button>
@@ -481,37 +481,28 @@ get_header();
 
 <!-- ============================================
      FINAL CTA SECTION
+     Matches Hair Loss premium CTA pattern:
+     terracotta primary + white phone secondary + trust checks
      ============================================ -->
 <section class="book-cta-section">
-  <div class="book-cta-glow-1"></div>
-  <div class="book-cta-glow-2"></div>
-  <div class="book-cta-dots"></div>
-
   <div class="section-container">
-    <div class="book-cta-content">
-      <div class="book-cta-badges">
-        <div class="book-cta-badge"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></div>
-        <div class="book-cta-badge"><i class="fas fa-bolt"></i><span>Same-Day Appointments</span></div>
-        <div class="book-cta-badge"><i class="fas fa-square-parking"></i><span>Free Parking</span></div>
-      </div>
-
-      <h2 class="book-cta-title"><?php echo esc_html(ep_field('book_cta_title', 'Need Help Booking?')); ?></h2>
-      <p class="book-cta-description"><?php echo esc_html(ep_field('book_cta_description', 'Our friendly Ashford team is here to answer your questions and help you find the right appointment')); ?></p>
-
+    <div class="book-cta-inner">
+      <h2 class="book-cta-title"><?php echo esc_html(ep_field('book_cta_title', 'Ready to Book Your Appointment?')); ?></h2>
+      <p class="book-cta-description"><?php echo esc_html(ep_field('book_cta_description', 'Speak directly with our clinical team — no waiting lists, no referrals needed.')); ?></p>
       <div class="book-cta-actions">
-        <a href="tel:<?php echo esc_attr(ep_phone_link()); ?>" class="cta-button primary-cta book-cta-phone">
+        <a href="<?php echo esc_url(ep_field('book_cta_url', ep_booking_url())); ?>" class="cta-button primary-cta">
+          <?php echo esc_html(ep_field('book_cta_button_text', 'Book an Appointment')); ?>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="tel:<?php echo esc_attr(ep_phone_link()); ?>" class="cta-button secondary-cta">
           <i class="fas fa-phone"></i>
           <?php echo esc_html(ep_phone()); ?>
         </a>
-        <button onclick="scrollToBooking()" class="cta-button secondary-cta book-cta-book">
-          Book Online <i class="fas fa-arrow-right"></i>
-        </button>
       </div>
-
-      <div class="book-cta-checks">
-        <div class="book-cta-check"><i class="fas fa-check"></i><span>No referral needed</span></div>
-        <div class="book-cta-check"><i class="fas fa-check"></i><span>Expert guidance</span></div>
-        <div class="book-cta-check"><i class="fas fa-check"></i><span><?php echo esc_html(ep_field('book_cta_hours', 'Mon–Fri: 9am–6pm')); ?></span></div>
+      <div class="book-cta-trust">
+        <span class="book-cta-trust-item"><i class="fas fa-shield-halved"></i> GPhC Registered</span>
+        <span class="book-cta-trust-item"><i class="fas fa-clock"></i> Same-Day Appointments</span>
+        <span class="book-cta-trust-item"><i class="fas fa-lock"></i> Private Consultations</span>
       </div>
     </div>
   </div>
