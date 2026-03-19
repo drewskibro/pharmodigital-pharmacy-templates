@@ -7,7 +7,7 @@
   --brand-secondary: #79bc2e; /* Green */
   --brand-bg: #e0e4e5;        /* Light Grey */
   --brand-dark: #2a507a;      /* Darker Blue for contrast */
-  --brand-light: #f5f7f8;     /* Very light grey/white for content areas */
+  --brand-light: #faf7f2;     /* Warm cream for tinted content areas */
 
   /* Purple palette (used across service & travel pages) */
   --brand-purple: #a39ee3;
@@ -656,6 +656,36 @@ html {
   height: 6px;
   background: #085db5;
   border-radius: 0 0 1rem 1rem;
+}
+
+/* Hero Testimonial — overlay variant (desktop, inside .hero-visual) */
+.hero-testimonial-overlay {
+  position: absolute;
+  bottom: -1rem;
+  left: -3rem;
+  z-index: 30;
+  max-width: 360px;
+  margin-top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 1.5rem;
+}
+
+.hero-testimonial-overlay .hero-quote {
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
+.hero-testimonial-overlay .author-name {
+  font-size: 0.875rem;
+}
+
+.hero-testimonial-overlay .result-badge {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
 }
 
 /* Hero Visual */
@@ -1894,7 +1924,7 @@ html {
    ============================================ */
 .how-it-works-section {
   padding: 6rem 0;
-  background: #f8fafc;
+  background: #fdf9f3;
 }
 
 .how-it-works-header {
@@ -2302,7 +2332,7 @@ html {
    ============================================ */
 .safe-section {
   padding: 6rem 0;
-  background: #f8fafc;
+  background: #fdf9f3;
   position: relative;
   overflow: hidden;
 }
@@ -2620,7 +2650,7 @@ html {
   position: relative;
   min-height: 600px;
   height: auto;
-  background: #f1f5f9;
+  background: #f5efe6;
   overflow: hidden;
   padding-bottom: 4rem;
 }

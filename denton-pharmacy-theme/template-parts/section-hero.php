@@ -126,8 +126,8 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                     <?php endforeach; ?>
                 </ul>
 
-                <!-- Testimonial card -->
-                <div class="hero-testimonial">
+                <!-- Testimonial card (mobile only — desktop version overlaps the image) -->
+                <div class="hero-testimonial mobile-only">
                     <div class="quote-icon">
                         <i class="fas fa-quote-left"></i>
                     </div>
@@ -171,6 +171,32 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                     <div class="hero-image-caption">
                         <p class="caption-label"><?php echo esc_html( dp_pharmacy_name() ); ?></p>
                         <p class="caption-title"><?php echo wp_kses( dp_field( 'hero_caption_title', 'Your Health,<br />Reimagined.' ), array( 'br' => array() ) ); ?></p>
+                    </div>
+                </div>
+
+                <!-- Testimonial card (overlapping bottom-left of image) -->
+                <div class="hero-testimonial hero-testimonial-overlay">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="hero-quote">
+                        "<?php echo esc_html( $testimonial_quote ); ?>"
+                    </p>
+                    <div class="hero-testimonial-footer">
+                        <div class="hero-testimonial-author">
+                            <p class="author-name"><?php echo esc_html( $testimonial_author ); ?></p>
+                            <div class="star-row">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="result-badge">
+                            <i class="fas fa-weight-scale"></i>
+                            <span><?php echo esc_html( $testimonial_result ); ?></span>
+                        </div>
                     </div>
                 </div>
 
