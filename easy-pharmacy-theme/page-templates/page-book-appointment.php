@@ -255,7 +255,7 @@ get_header();
             <div class="book-service-icon-floating"><i class="fas fa-weight-scale"></i></div>
             <h3 class="book-service-title">Weight Loss Programme</h3>
             <p class="book-service-desc">Personalised weight management with GLP-1 treatments and ongoing pharmacist support.</p>
-            <div class="book-service-price-row"><span class="book-service-price">&pound;125</span><span class="book-service-price-label">/ month starting price</span></div>
+            <div class="book-service-price-row"><span class="book-service-price">&pound;130</span><span class="book-service-price-label">/ month starting price</span></div>
             <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
@@ -277,7 +277,7 @@ get_header();
             <div class="book-service-icon-floating"><i class="fas fa-ear-listen"></i></div>
             <h3 class="book-service-title">Ear Wax Removal</h3>
             <p class="book-service-desc">Professional microsuction ear cleaning by experienced healthcare professionals.</p>
-            <div class="book-service-price-row"><span class="book-service-price">&pound;20</span><span class="book-service-price-label">/ per ear</span></div>
+            <div class="book-service-price-row"><span class="book-service-price">&pound;59</span><span class="book-service-price-label">/ both ears</span></div>
             <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
@@ -315,13 +315,13 @@ get_header();
         </div>
       <?php endwhile; else : ?>
         <div class="book-service-card">
-          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-syringe"></i></div><div class="book-service-price-badge">&pound;15</div></div>
+          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-syringe"></i></div><div class="book-service-price-badge">&pound;25</div></div>
           <h3 class="book-service-title">Flu Vaccination</h3>
           <p class="book-service-desc">Essential seasonal flu protection for you and your family. Available for both private and NHS patients.</p>
           <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">Book Flu Jab</button>
         </div>
         <div class="book-service-card">
-          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-shield-virus"></i></div><div class="book-service-price-badge">&pound;45</div></div>
+          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-shield-virus"></i></div><div class="book-service-price-badge">&pound;90</div></div>
           <h3 class="book-service-title">COVID Booster</h3>
           <p class="book-service-desc">Private COVID-19 booster vaccinations for ongoing protection. No NHS eligibility required.</p>
           <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">Book Booster</button>
