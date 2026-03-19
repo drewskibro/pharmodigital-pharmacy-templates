@@ -90,7 +90,6 @@ $tagline = ep_option( 'footer_tagline', 'Your trusted partner in health and well
             <li><a href="<?php echo esc_url( home_url( '/ear-wax-removal/' ) ); ?>" class="footer-link">Ear Wax Removal</a></li>
             <li><a href="<?php echo esc_url( home_url( '/hair-loss/' ) ); ?>" class="footer-link">Hair Loss Treatment</a></li>
             <li><a href="<?php echo esc_url( home_url( '/smoking-cessation/' ) ); ?>" class="footer-link">Smoking Cessation</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/flu-jab/' ) ); ?>" class="footer-link">Flu Vaccinations</a></li>
           </ul>
         </div>
 
@@ -102,7 +101,6 @@ $tagline = ep_option( 'footer_tagline', 'Your trusted partner in health and well
             <li><a href="<?php echo esc_url( home_url( '/team/' ) ); ?>" class="footer-link">Our Team</a></li>
             <li><a href="<?php echo esc_url( home_url( '/reviews/' ) ); ?>" class="footer-link">Patient Reviews</a></li>
             <li><a href="<?php echo esc_url( home_url( '/health-hub/' ) ); ?>" class="footer-link">Health Hub</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>" class="footer-link">FAQs</a></li>
             <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="footer-link">Contact Us</a></li>
           </ul>
         </div>
