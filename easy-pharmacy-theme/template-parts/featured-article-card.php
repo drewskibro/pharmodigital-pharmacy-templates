@@ -34,11 +34,29 @@ $author_avatar = '';
 $author_id     = get_the_author_meta( 'ID' );
 
 if ( function_exists( 'get_field' ) ) {
-    $acf_avatar = get_field( 'author_avatar', 'user_' . $author_id );
-    if ( $acf_avatar ) {
-        $author_avatar = is_array( $acf_avatar ) ? $acf_avatar['url'] : wp_get_attachment_image_url( $acf_avatar, 'thumbnail' );
+    // 1. Try post-level author photo
+    $author_photo_id = get_field( 'author_photo', $article_id );
+    if ( $author_photo_id ) {
+        $author_avatar = wp_get_attachment_image_url( $author_photo_id, 'thumbnail' );
+    }
+    // 2. Try ACF user avatar
+    if ( empty( $author_avatar ) ) {
+        $acf_avatar = get_field( 'author_avatar', 'user_' . $author_id );
+        if ( $acf_avatar ) {
+            $author_avatar = is_array( $acf_avatar ) ? $acf_avatar['url'] : wp_get_attachment_image_url( $acf_avatar, 'thumbnail' );
+        }
+    }
+    // 3. Try global pharmacist image from Pharmacy Settings
+    if ( empty( $author_avatar ) ) {
+        $pharmacist_image = ep_option( 'pharmacist_image' );
+        if ( $pharmacist_image ) {
+            $author_avatar = is_numeric( $pharmacist_image )
+                ? wp_get_attachment_image_url( $pharmacist_image, 'thumbnail' )
+                : ( is_array( $pharmacist_image ) ? $pharmacist_image['url'] : $pharmacist_image );
+        }
     }
 }
+// 4. Final fallback: Gravatar
 if ( empty( $author_avatar ) ) {
     $author_avatar = get_avatar_url( $author_id, array( 'size' => 48 ) );
 }
