@@ -273,32 +273,7 @@ html {
   padding-top: 40px;
   padding-bottom: 5rem;
   overflow: hidden;
-}
-
-.hero-bg-shape-1 {
-  position: absolute;
-  top: -20%;
-  right: -10%;
-  width: 800px;
-  height: 800px;
-  background: rgba(63, 115, 174, 0.1);
-  border-radius: 50%;
-  filter: blur(100px);
-  animation: float 6s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.hero-bg-shape-2 {
-  position: absolute;
-  bottom: -10%;
-  left: -10%;
-  width: 600px;
-  height: 600px;
-  background: rgba(121, 188, 46, 0.1);
-  border-radius: 50%;
-  filter: blur(80px);
-  animation: float 8s ease-in-out infinite reverse;
-  pointer-events: none;
+  background: linear-gradient(170deg, #fafaf8 0%, #f5f7fa 50%, #edf1f7 100%);
 }
 
 .hero-grid {
