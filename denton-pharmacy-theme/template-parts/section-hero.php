@@ -93,15 +93,6 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                     </div>
                 </div>
 
-                <!-- Section badge with pulse dot -->
-                <div class="hero-badge">
-                    <span class="pulse-dot">
-                        <span></span>
-                        <span></span>
-                    </span>
-                    <span class="hero-badge-text"><?php echo esc_html( $badge_text ); ?></span>
-                </div>
-
                 <!-- Headline -->
                 <h1 class="hero-title">
                     <span class="gradient-text"><?php echo wp_kses( $title, $allowed_title_tags ); ?></span>
