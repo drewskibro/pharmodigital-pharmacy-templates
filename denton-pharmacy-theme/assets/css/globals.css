@@ -658,6 +658,36 @@ html {
   border-radius: 0 0 1rem 1rem;
 }
 
+/* Hero Testimonial — overlay variant (desktop, inside .hero-visual) */
+.hero-testimonial-overlay {
+  position: absolute;
+  bottom: -1rem;
+  left: -3rem;
+  z-index: 30;
+  max-width: 360px;
+  margin-top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 1.5rem;
+}
+
+.hero-testimonial-overlay .hero-quote {
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
+.hero-testimonial-overlay .author-name {
+  font-size: 0.875rem;
+}
+
+.hero-testimonial-overlay .result-badge {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+}
+
 /* Hero Visual */
 .hero-visual {
   display: none;
