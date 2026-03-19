@@ -23,7 +23,7 @@ $cta_url         = ep_field( 'switching_cta_url', home_url( '/switch-provider/' 
 // Default features
 $default_features = array(
     array(
-        'icon'      => 'fas fa-prescription',
+        'icon'      => 'fas fa-file-medical',
         'title'     => 'Same-Day Prescriptions',
         'desc'      => 'No more waiting weeks for approval. Our prescribers review and issue prescriptions within hours, not days.',
         'image_key' => 'switching_feature_1_image',
