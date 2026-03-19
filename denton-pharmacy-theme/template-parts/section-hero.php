@@ -72,10 +72,6 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
 
 <section class="hero-section">
 
-    <!-- Decorative background blobs -->
-    <div class="hero-bg-shape-1"></div>
-    <div class="hero-bg-shape-2"></div>
-
     <div class="section-container">
         <div class="hero-grid">
 
@@ -91,15 +87,6 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                         <span><?php echo esc_html( $badge_title ); ?></span>
                         <span><?php echo esc_html( $badge_subtitle ); ?></span>
                     </div>
-                </div>
-
-                <!-- Section badge with pulse dot -->
-                <div class="hero-badge">
-                    <span class="pulse-dot">
-                        <span></span>
-                        <span></span>
-                    </span>
-                    <span class="hero-badge-text"><?php echo esc_html( $badge_text ); ?></span>
                 </div>
 
                 <!-- Headline -->
