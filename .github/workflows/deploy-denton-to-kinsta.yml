@@ -1,0 +1,40 @@
+name: Deploy Denton Theme to Kinsta
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'denton-pharmacy-theme/**'
+
+jobs:
+  deploy:
+    name: Deploy Denton to Kinsta
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Deploy theme files to Kinsta
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DENTON_KINSTA_SSH_HOST }}
+          username: ${{ secrets.DENTON_KINSTA_SSH_USER }}
+          password: ${{ secrets.DENTON_KINSTA_SSH_PASSWORD }}
+          port: ${{ secrets.DENTON_KINSTA_SSH_PORT }}
+          source: "denton-pharmacy-theme/"
+          target: "~/public/wp-content/themes/"
+
+      - name: Verify deployment
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DENTON_KINSTA_SSH_HOST }}
+          username: ${{ secrets.DENTON_KINSTA_SSH_USER }}
+          password: ${{ secrets.DENTON_KINSTA_SSH_PASSWORD }}
+          port: ${{ secrets.DENTON_KINSTA_SSH_PORT }}
+          script: |
+            echo "Checking deployed theme..."
+            ls -la ~/public/wp-content/themes/denton-pharmacy-theme/style.css
+            head -7 ~/public/wp-content/themes/denton-pharmacy-theme/style.css
+            echo "Deploy complete!"
