@@ -825,31 +825,26 @@ get_header();
      FINAL CTA SECTION
      ============================================ -->
 <section class="earwax-cta-section">
-  <div class="earwax-cta-glow-1"></div>
-  <div class="earwax-cta-glow-2"></div>
-  <div class="earwax-cta-dots"></div>
   <div class="section-container">
-    <div class="earwax-cta-content">
-      <div class="earwax-cta-badges">
-        <div class="earwax-cta-badge">
-          <span><?php echo esc_html( ep_field( 'ew_cta_badge_1', 'From £20 per ear' ) ); ?></span>
-        </div>
-        <div class="earwax-cta-badge">
-          <span><?php echo esc_html( ep_field( 'ew_cta_badge_2', 'Same-day available' ) ); ?></span>
-        </div>
-        <div class="earwax-cta-badge">
-          <span><?php echo esc_html( ep_field( 'ew_cta_badge_3', 'Free 7-day follow-up' ) ); ?></span>
-        </div>
-      </div>
+    <div class="earwax-cta-inner">
       <h2 class="earwax-cta-title"><?php echo esc_html( ep_field( 'ew_cta_title', 'Ready to hear clearly again?' ) ); ?></h2>
       <p class="earwax-cta-description">
         <?php echo esc_html( ep_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Ashford clinic today. Expert microsuction treatment with guaranteed results.' ) ); ?>
       </p>
       <div class="earwax-cta-actions">
-        <a href="<?php echo esc_url( ep_field( 'ew_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta earwax-cta-button-white">
-          <?php echo esc_html( ep_field( 'ew_cta_button_text', 'Book Appointment Online' ) ); ?>
+        <a href="<?php echo esc_url( ep_field( 'ew_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+          <?php echo esc_html( ep_field( 'ew_cta_button_text', 'Book an Appointment' ) ); ?>
           <i class="fas fa-arrow-right"></i>
         </a>
+        <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta">
+          <i class="fas fa-phone"></i>
+          <?php echo esc_html( ep_phone() ); ?>
+        </a>
+      </div>
+      <div class="earwax-cta-trust">
+        <span class="earwax-cta-trust-item"><i class="fas fa-shield-halved"></i> GPhC Registered</span>
+        <span class="earwax-cta-trust-item"><i class="fas fa-clock"></i> Same-Day Appointments</span>
+        <span class="earwax-cta-trust-item"><i class="fas fa-user-doctor"></i> No Referral Needed</span>
       </div>
     </div>
   </div>
