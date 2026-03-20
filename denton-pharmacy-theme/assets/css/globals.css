@@ -1208,12 +1208,20 @@ html {
   letter-spacing: 0.05em;
 }
 
+.nhs-header-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-dark));
+  border-radius: 2px;
+  margin: 0 auto 1.75rem;
+}
+
 .nhs-title {
   font-size: 2.5rem;
   font-weight: 800;
   color: #1e293b;
-  margin-bottom: 1.25rem;
-  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
 }
 
 @media (min-width: 768px) {
@@ -1223,11 +1231,12 @@ html {
 }
 
 .nhs-description {
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   color: #64748b;
-  line-height: 1.7;
-  max-width: 700px;
+  line-height: 1.75;
+  max-width: 680px;
   margin: 0 auto;
+  letter-spacing: 0.01em;
 }
 
 .nhs-grid {

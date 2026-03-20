@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // --- Section header ---
 $badge_text  = dp_field( 'nhs_badge_text', 'NHS Services' );
-$title       = dp_field( 'nhs_title', 'Free NHS Healthcare Services' );
+$title       = dp_field( 'nhs_title', 'Your NHS <span class="gradient-text">Community</span> Pharmacy' );
 $description = dp_field( 'nhs_description', 'Comprehensive NHS services for eligible patients. From prescriptions to vaccinations, we\'re here to support your health and wellbeing.' );
 
 // --- Bottom CTA ---
@@ -65,7 +65,8 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                 </svg>
                 <span><?php echo esc_html( $badge_text ); ?></span>
             </div>
-            <h2 class="nhs-title"><?php echo esc_html( $title ); ?></h2>
+            <div class="nhs-header-line"></div>
+            <h2 class="nhs-title"><?php echo wp_kses( $title, array( 'span' => array( 'class' => array() ), 'br' => array() ) ); ?></h2>
             <p class="nhs-description"><?php echo esc_html( $description ); ?></p>
         </div>
 
