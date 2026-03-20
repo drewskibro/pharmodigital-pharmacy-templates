@@ -920,15 +920,15 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(135deg, #faf8f4, #f5f0e8);
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.95), rgba(226, 232, 240, 0.9));
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(180, 160, 130, 0.15);
+  border: 1px solid rgba(63, 115, 174, 0.12);
   border-radius: 1.5rem;
   padding: 2.5rem 3rem;
   box-shadow:
     0 20px 60px -15px rgba(0, 0, 0, 0.06),
-    0 0 0 1px rgba(180, 160, 130, 0.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
   overflow: hidden;
 }
@@ -936,14 +936,14 @@ html {
 .stats-bar:hover {
   box-shadow:
     0 25px 70px -15px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(180, 160, 130, 0.15);
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
 }
 
 .stats-shimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
   animation: shimmer 4s infinite;
   pointer-events: none;
 }
@@ -1000,7 +1000,7 @@ html {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #1e293b;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -1008,14 +1008,14 @@ html {
 .stat-label {
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--text-slate);
+  color: #64748b;
   letter-spacing: 0.01em;
 }
 
 .stat-divider {
   width: 1px;
   height: 3rem;
-  background: linear-gradient(to bottom, transparent, rgba(63, 115, 174, 0.3), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(63, 115, 174, 0.12), transparent);
   flex-shrink: 0;
 }
 
@@ -1058,7 +1058,7 @@ html {
     gap: 1.5rem 1rem;
     padding: 2rem 1.25rem;
     border-radius: 1.5rem;
-    background: linear-gradient(135deg, #faf8f4, #f5f0e8);
+    background: linear-gradient(135deg, rgba(241, 245, 249, 0.95), rgba(226, 232, 240, 0.9));
   }
 
   .stat-item {
