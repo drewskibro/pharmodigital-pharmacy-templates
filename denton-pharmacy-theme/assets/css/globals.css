@@ -920,30 +920,28 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(135deg, rgba(241, 245, 249, 0.95), rgba(226, 232, 240, 0.9));
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(63, 115, 174, 0.12);
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 1.5rem;
   padding: 2.5rem 3rem;
   box-shadow:
-    0 20px 60px -15px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    0 20px 60px -15px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
   overflow: hidden;
 }
 
 .stats-bar:hover {
   box-shadow:
-    0 25px 70px -15px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 25px 70px -15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transform: translateY(-2px);
 }
 
 .stats-shimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
   animation: shimmer 4s infinite;
   pointer-events: none;
 }
@@ -965,8 +963,8 @@ html {
   width: 3rem;
   height: 3rem;
   border-radius: 0.75rem;
-  background: rgba(42, 80, 122, 0.10);
-  border: 1px solid rgba(42, 80, 122, 0.08);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -976,18 +974,18 @@ html {
 
 .stat-icon i {
   font-size: 1.125rem;
-  color: var(--brand-dark);
+  color: rgba(255, 255, 255, 0.9);
   transition: color 0.3s ease;
 }
 
 .stat-item:hover .stat-icon {
-  background: var(--brand-dark);
+  background: rgba(255, 255, 255, 0.15);
   transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(42, 80, 122, 0.25);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .stat-item:hover .stat-icon i {
-  color: var(--white);
+  color: #ffffff;
 }
 
 .stat-content {
@@ -1000,7 +998,7 @@ html {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 900;
-  color: #1e293b;
+  color: #ffffff;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -1008,14 +1006,14 @@ html {
 .stat-label {
   font-size: 0.8125rem;
   font-weight: 500;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.7);
   letter-spacing: 0.01em;
 }
 
 .stat-divider {
   width: 1px;
   height: 3rem;
-  background: linear-gradient(to bottom, transparent, rgba(63, 115, 174, 0.12), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.12), transparent);
   flex-shrink: 0;
 }
 
@@ -1058,7 +1056,7 @@ html {
     gap: 1.5rem 1rem;
     padding: 2rem 1.25rem;
     border-radius: 1.5rem;
-    background: linear-gradient(135deg, rgba(241, 245, 249, 0.95), rgba(226, 232, 240, 0.9));
+    background: linear-gradient(135deg, #1e293b, #0f172a);
   }
 
   .stat-item {
