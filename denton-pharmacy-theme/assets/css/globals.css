@@ -751,44 +751,6 @@ html {
   pointer-events: none;
 }
 
-.hero-image-caption {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  right: 1.5rem;
-  padding: 1.5rem;
-  background: rgba(8, 93, 181, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: var(--white);
-  box-shadow: 0 10px 30px -5px rgba(8, 93, 181, 0.4);
-  transform: translateY(0);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.hero-image-card:hover .hero-image-caption {
-  transform: translateY(-5px);
-  background: rgba(8, 93, 181, 0.95);
-}
-
-.caption-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  opacity: 0.9;
-}
-
-.caption-title {
-  font-size: 1.875rem;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
-}
-
 /* Rating Badge */
 .rating-badge {
   position: absolute;
