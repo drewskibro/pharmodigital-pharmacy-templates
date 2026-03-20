@@ -270,7 +270,7 @@ html {
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 5rem;
   overflow: hidden;
   background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
@@ -305,7 +305,7 @@ html {
   }
 }
 
-/* Legacy badge styles for service pages */
+/* Hero location badge + pulse dot */
 .hero-badge {
   display: inline-flex;
   align-items: center;
