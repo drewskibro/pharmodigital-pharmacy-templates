@@ -311,23 +311,23 @@ html {
   align-items: center;
   gap: 0.875rem;
   padding: 1rem 2.25rem 1rem 1.75rem;
-  background: rgba(163, 158, 227, 0.12);
+  background: rgba(63, 115, 174, 0.10);
   border-radius: 9999px;
   margin-bottom: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 16px rgba(163, 158, 227, 0.1);
+  box-shadow: 0 2px 16px rgba(63, 115, 174, 0.08);
 }
 
 .hero-local-badge:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 24px rgba(163, 158, 227, 0.18);
+  box-shadow: 0 4px 24px rgba(63, 115, 174, 0.15);
 }
 
 .hero-local-badge-dot {
   width: 0.625rem;
   height: 0.625rem;
   border-radius: 50%;
-  background: var(--brand-purple);
+  background: var(--brand-primary);
   flex-shrink: 0;
 }
 
