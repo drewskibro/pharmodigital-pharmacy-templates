@@ -309,12 +309,14 @@ html {
 .hero-local-badge {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 1.5rem 0.75rem 1rem;
-  background: #ffffff;
-  border: 1px solid rgba(8, 93, 181, 0.2);
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(8, 93, 181, 0.1);
+  gap: 0.875rem;
+  padding: 0.625rem 1.5rem 0.625rem 1.25rem;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   margin-bottom: 2rem;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -322,20 +324,29 @@ html {
 
 .hero-local-badge:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(8, 93, 181, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-.hero-local-badge-icon {
-  width: 2.75rem;
-  height: 2.75rem;
-  background: rgba(8, 93, 181, 0.12);
-  color: #085db5;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
+.hero-local-badge-dot {
+  position: relative;
+  width: 0.625rem;
+  height: 0.625rem;
   flex-shrink: 0;
+}
+
+.hero-local-badge-dot-core {
+  position: absolute;
+  inset: 0;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+.hero-local-badge-ping {
+  position: absolute;
+  inset: 0;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .hero-local-badge-content {
@@ -343,19 +354,19 @@ html {
   flex-direction: column;
 }
 
-.hero-local-badge-title {
-  font-size: 1rem;
-  font-weight: 800;
-  color: #1e293b;
-  line-height: 1.2;
-  margin-bottom: 0.125rem;
+.hero-local-badge-content span:first-child {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.hero-local-badge-subtitle {
-  font-size: 0.8125rem;
-  color: #64748b;
-  font-weight: 600;
-  text-transform: uppercase;
+.hero-local-badge-content span:last-child {
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
   letter-spacing: 0.02em;
 }
 
