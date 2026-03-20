@@ -309,23 +309,23 @@ html {
 .hero-local-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.875rem 2rem 0.875rem 1.5rem;
-  background: rgba(163, 158, 227, 0.1);
+  gap: 0.875rem;
+  padding: 1rem 2.25rem 1rem 1.75rem;
+  background: rgba(163, 158, 227, 0.12);
   border-radius: 9999px;
   margin-bottom: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 12px rgba(163, 158, 227, 0.08);
+  box-shadow: 0 2px 16px rgba(163, 158, 227, 0.1);
 }
 
 .hero-local-badge:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(163, 158, 227, 0.15);
+  box-shadow: 0 4px 24px rgba(163, 158, 227, 0.18);
 }
 
 .hero-local-badge-dot {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 50%;
   background: var(--brand-purple);
   flex-shrink: 0;
@@ -333,10 +333,10 @@ html {
 
 .hero-local-badge-text {
   font-family: var(--font-primary);
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 0.9375rem;
+  font-weight: 700;
   color: var(--brand-dark);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   line-height: 1;
 }
