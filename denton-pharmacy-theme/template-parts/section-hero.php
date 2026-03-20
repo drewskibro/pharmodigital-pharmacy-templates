@@ -168,10 +168,6 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                         <img src="<?php echo esc_url( DENTON_PHARMACY_URI . '/assets/images/hero-default.jpg' ); ?>" alt="<?php echo esc_attr( 'Pharmacy services at ' . dp_pharmacy_name() ); ?>" />
                     <?php endif; ?>
                     <div class="hero-overlay"></div>
-                    <div class="hero-image-caption">
-                        <p class="caption-label"><?php echo esc_html( dp_pharmacy_name() ); ?></p>
-                        <p class="caption-title"><?php echo wp_kses( dp_field( 'hero_caption_title', 'Your Health,<br />Reimagined.' ), array( 'br' => array() ) ); ?></p>
-                    </div>
                 </div>
 
                 <!-- Testimonial card (overlapping bottom-left of image) -->
