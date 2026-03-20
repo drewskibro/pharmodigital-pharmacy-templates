@@ -13,8 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- Local badge ---
-$badge_title    = dp_field( 'hero_badge_title', 'Your Local Denton Pharmacy' );
-$badge_subtitle = dp_field( 'hero_badge_subtitle', 'Serving Denton, Manchester & Beyond' );
+$badge_title    = dp_field( 'hero_badge_title', 'Serving Denton, Manchester & Beyond' );
 
 // --- Section badge ---
 $badge_text = dp_field( 'hero_badge_text', 'Trusted by 5,000+ Patients' );
@@ -80,8 +79,8 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
 
                 <!-- Local badge -->
                 <div class="hero-local-badge">
-                    <span class="hero-local-badge-title"><?php echo esc_html( $badge_title ); ?></span>
-                    <span class="hero-local-badge-subtitle"><?php echo esc_html( $badge_subtitle ); ?></span>
+                    <span class="hero-local-badge-dot"></span>
+                    <span class="hero-local-badge-text"><?php echo esc_html( $badge_title ); ?></span>
                 </div>
 
                 <!-- Headline -->
