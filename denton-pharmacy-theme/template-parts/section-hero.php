@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// --- Section badge ---
-$badge_text = dp_field( 'hero_badge_text', 'Trusted by 5,000+ Patients' );
+// --- Location badge ---
+$badge_text = dp_field( 'hero_badge_text', 'Serving Denton, Manchester & Beyond' );
 
 // --- Headline (allows <br>, <em>, <span> for styling) ---
 $allowed_title_tags = array(
@@ -73,6 +73,15 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
 
             <!-- LEFT: Content Column -->
             <div class="hero-content">
+
+                <!-- Location badge -->
+                <div class="hero-badge">
+                    <span class="pulse-dot">
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hero-badge-text"><?php echo esc_html( $badge_text ); ?></span>
+                </div>
 
                 <!-- Headline -->
                 <h1 class="hero-title">

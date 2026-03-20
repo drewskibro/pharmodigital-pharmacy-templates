@@ -734,10 +734,10 @@ function dp_register_acf_field_groups() {
         'fields'   => array(
             array(
                 'key'           => 'field_dp_hero_badge_text',
-                'label'         => 'Badge Text',
+                'label'         => 'Location Badge Text',
                 'name'          => 'hero_badge_text',
                 'type'          => 'text',
-                'default_value' => 'Trusted by 5,000+ Patients',
+                'default_value' => 'Serving Denton, Manchester & Beyond',
             ),
             array(
                 'key'           => 'field_dp_hero_title',
