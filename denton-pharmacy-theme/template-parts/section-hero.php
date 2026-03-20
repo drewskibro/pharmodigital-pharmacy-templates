@@ -80,14 +80,8 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
 
                 <!-- Local badge -->
                 <div class="hero-local-badge">
-                    <div class="hero-local-badge-dot">
-                        <span class="hero-local-badge-ping"></span>
-                        <span class="hero-local-badge-dot-core"></span>
-                    </div>
-                    <div class="hero-local-badge-content">
-                        <span><?php echo esc_html( $badge_title ); ?></span>
-                        <span><?php echo esc_html( $badge_subtitle ); ?></span>
-                    </div>
+                    <span class="hero-local-badge-title"><?php echo esc_html( $badge_title ); ?></span>
+                    <span class="hero-local-badge-subtitle"><?php echo esc_html( $badge_subtitle ); ?></span>
                 </div>
 
                 <!-- Headline -->
