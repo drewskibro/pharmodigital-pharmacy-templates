@@ -733,20 +733,6 @@ function dp_register_acf_field_groups() {
         'title'    => 'Home — Hero Section',
         'fields'   => array(
             array(
-                'key'           => 'field_dp_hero_badge_title',
-                'label'         => 'Badge Title',
-                'name'          => 'hero_badge_title',
-                'type'          => 'text',
-                'default_value' => 'Your Local Denton Pharmacy',
-            ),
-            array(
-                'key'           => 'field_dp_hero_badge_subtitle',
-                'label'         => 'Badge Subtitle',
-                'name'          => 'hero_badge_subtitle',
-                'type'          => 'text',
-                'default_value' => 'Serving Denton, Manchester & Beyond',
-            ),
-            array(
                 'key'           => 'field_dp_hero_badge_text',
                 'label'         => 'Badge Text',
                 'name'          => 'hero_badge_text',
