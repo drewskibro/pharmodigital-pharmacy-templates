@@ -920,30 +920,30 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
+  background: linear-gradient(135deg, #faf8f4, #f5f0e8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(180, 160, 130, 0.15);
   border-radius: 1.5rem;
   padding: 2.5rem 3rem;
   box-shadow:
-    0 20px 60px -15px rgba(0, 0, 0, 0.08),
-    0 0 0 1px rgba(63, 115, 174, 0.05);
+    0 20px 60px -15px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(180, 160, 130, 0.08);
   transition: all 0.3s ease;
   overflow: hidden;
 }
 
 .stats-bar:hover {
   box-shadow:
-    0 25px 70px -15px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(63, 115, 174, 0.1);
+    0 25px 70px -15px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(180, 160, 130, 0.15);
   transform: translateY(-2px);
 }
 
 .stats-shimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
   animation: shimmer 4s infinite;
   pointer-events: none;
 }
@@ -1058,7 +1058,7 @@ html {
     gap: 1.5rem 1rem;
     padding: 2rem 1.25rem;
     border-radius: 1.5rem;
-    background: rgba(255, 255, 255, 0.85);
+    background: linear-gradient(135deg, #faf8f4, #f5f0e8);
   }
 
   .stat-item {
