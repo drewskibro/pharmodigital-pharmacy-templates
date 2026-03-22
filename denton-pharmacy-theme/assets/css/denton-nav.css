@@ -133,7 +133,7 @@
 }
 
 .denton-logo-img {
-  height: 80px;
+  height: 160px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -145,7 +145,7 @@
 /* Smaller logo at 1024–1279px to free up space for action buttons */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .denton-logo-img {
-    height: 70px;
+    height: 140px;
   }
 }
 
@@ -163,26 +163,26 @@
 
 /* Shrink logo — mobile compact */
 .denton-nav.nav-compact .denton-logo-img {
-  height: 44px;
+  height: 60px;
 }
 
 /* Desktop 1024–1279px compact */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .denton-nav.nav-compact .denton-nav-top {
-    height: 60px;
+    height: 70px;
   }
   .denton-nav.nav-compact .denton-logo-img {
-    height: 40px;
+    height: 56px;
   }
 }
 
 /* Desktop 1280px+ compact */
 @media (min-width: 1280px) {
   .denton-nav.nav-compact .denton-nav-top {
-    height: 68px;
+    height: 76px;
   }
   .denton-nav.nav-compact .denton-logo-img {
-    height: 48px;
+    height: 64px;
   }
 }
 
