@@ -2,8 +2,8 @@
 /**
  * Template Part: Pharmacist Section
  *
- * Premium centred layout with circular profile photo, credentials,
- * bio, quote card, and dual CTAs on a warm cream background.
+ * Two-column layout: circular photo + identity on the left,
+ * bio, quote, credentials and CTAs on the right.
  *
  * @package Denton_Pharmacy
  */
@@ -14,11 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // --- ACF fields with Denton-specific defaults ---
 $badge_text     = dp_field( 'pharmacist_badge_text', 'Your Local Expert' );
-$badge_subtitle = dp_field( 'pharmacist_badge_subtitle', 'GPhC Registered Pharmacist' );
 $name           = dp_field( 'pharmacist_name', 'Meet Ahmed Al-Liabi' );
 $role           = dp_field( 'pharmacist_role', 'Lead Pharmacist & Independent Prescriber' );
 $experience     = dp_field( 'pharmacist_experience_years', '15+' );
-$experience_lbl = dp_field( 'pharmacist_experience_label', 'Years' );
+$experience_lbl = dp_field( 'pharmacist_experience_label', 'Years Experience' );
 $bio            = dp_field( 'pharmacist_bio', 'With over 15 years of experience, Ahmed leads our clinical team providing personalised, accessible healthcare in Denton. As an Independent Prescriber, he ensures you receive safe, effective treatments without the wait.' );
 $quote          = dp_field( 'pharmacist_quote', 'My goal is to make expert healthcare accessible to everyone in Denton — honest, professional care delivered to your door.' );
 $cta_text       = dp_field( 'pharmacist_cta_text', 'Book a Consultation' );
@@ -59,51 +58,55 @@ if ( empty( $credentials ) ) {
 
 <section class="pharmacist-section" id="about">
     <div class="section-container">
-        <div class="pharmacist-inner">
+        <div class="pharmacist-grid">
 
-            <!-- Profile header: photo + name + role -->
-            <div class="pharmacist-header">
+            <!-- LEFT: Photo + identity -->
+            <div class="pharmacist-left">
 
-                <!-- Circular photo -->
                 <?php if ( $pharmacist_image_url ) : ?>
                 <div class="pharmacist-photo-wrapper">
                     <img src="<?php echo esc_url( $pharmacist_image_url ); ?>" alt="<?php echo esc_attr( $pharmacist_image_alt ); ?>" class="pharmacist-photo" />
                 </div>
                 <?php endif; ?>
 
-                <!-- Badge -->
                 <div class="pharmacist-badge">
                     <i class="fas fa-stethoscope"></i>
                     <span><?php echo esc_html( $badge_text ); ?></span>
                 </div>
 
-                <!-- Name -->
                 <h2 class="pharmacist-name"><?php echo esc_html( $name ); ?></h2>
+                <p class="pharmacist-role"><?php echo esc_html( $role ); ?></p>
 
-                <!-- Role + experience chip inline -->
-                <div class="pharmacist-role-row">
-                    <span class="pharmacist-role"><?php echo esc_html( $role ); ?></span>
-                    <span class="pharmacist-experience-chip">
-                        <i class="fas fa-award"></i>
-                        <?php echo esc_html( $experience . ' ' . $experience_lbl ); ?>
-                    </span>
+                <span class="pharmacist-experience-chip">
+                    <i class="fas fa-award"></i>
+                    <?php echo esc_html( $experience . ' ' . $experience_lbl ); ?>
+                </span>
+
+                <!-- Credentials under the photo on desktop -->
+                <div class="pharmacist-credentials desktop-only">
+                    <?php foreach ( $credentials as $credential ) :
+                        $icon_class = dp_fa_class( $credential['credential_icon'] );
+                    ?>
+                        <div class="pharmacist-credential">
+                            <i class="<?php echo esc_attr( $icon_class ); ?>"></i>
+                            <span><?php echo esc_html( $credential['credential_text'] ); ?></span>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
-            <!-- Content card -->
-            <div class="pharmacist-card">
+            <!-- RIGHT: Bio, quote, CTAs -->
+            <div class="pharmacist-right">
 
-                <!-- Bio -->
                 <p class="pharmacist-bio"><?php echo esc_html( $bio ); ?></p>
 
-                <!-- Quote -->
                 <div class="pharmacist-quote-card">
                     <div class="pharmacist-quote-bar"></div>
                     <p class="pharmacist-quote"><?php echo esc_html( $quote ); ?></p>
                 </div>
 
-                <!-- Credentials row -->
-                <div class="pharmacist-credentials">
+                <!-- Credentials on mobile (hidden on desktop) -->
+                <div class="pharmacist-credentials mobile-only">
                     <?php foreach ( $credentials as $credential ) :
                         $icon_class = dp_fa_class( $credential['credential_icon'] );
                     ?>
@@ -114,7 +117,6 @@ if ( empty( $credentials ) ) {
                     <?php endforeach; ?>
                 </div>
 
-                <!-- CTAs -->
                 <div class="pharmacist-cta">
                     <a href="<?php echo esc_url( $cta_url ); ?>" class="cta-button primary-cta">
                         <?php echo esc_html( $cta_text ); ?>
