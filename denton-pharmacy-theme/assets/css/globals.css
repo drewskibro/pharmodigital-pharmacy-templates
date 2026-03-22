@@ -270,10 +270,16 @@ html {
   min-height: 80vh;
   display: flex;
   align-items: center;
-  padding-top: 0;
+  padding-top: 5rem;
   padding-bottom: 5rem;
   overflow: hidden;
   background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-top: 0;
+  }
 }
 
 .hero-grid {
