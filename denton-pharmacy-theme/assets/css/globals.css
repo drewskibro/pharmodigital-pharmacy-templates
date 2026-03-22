@@ -267,10 +267,10 @@ html {
 .hero-section {
   position: relative;
   width: 100%;
-  min-height: 90vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 0;
   padding-bottom: 5rem;
   overflow: hidden;
   background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
