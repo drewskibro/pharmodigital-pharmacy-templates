@@ -13,7 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- Location badge ---
-$badge_text = dp_field( 'hero_badge_text', 'Serving Denton, Manchester & Beyond' );
+$badge_icon     = dp_field( 'hero_badge_icon', 'fas fa-map-marker-alt' );
+$badge_text     = dp_field( 'hero_badge_text', 'Serving Denton, Manchester & Beyond' );
+$badge_subtitle = dp_field( 'hero_badge_subtitle', 'Your Local Pharmacy' );
 
 // --- Headline (allows <br>, <em>, <span> for styling) ---
 $allowed_title_tags = array(
@@ -74,13 +76,15 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
             <!-- LEFT: Content Column -->
             <div class="hero-content">
 
-                <!-- Location badge -->
-                <div class="hero-badge">
-                    <span class="pulse-dot">
-                        <span></span>
-                        <span></span>
-                    </span>
-                    <span class="hero-badge-text"><?php echo esc_html( $badge_text ); ?></span>
+                <!-- Location badge (rich two-line style) -->
+                <div class="hero-local-badge">
+                    <div class="hero-local-badge-icon">
+                        <i class="<?php echo esc_attr( dp_fa_class( $badge_icon ) ); ?>"></i>
+                    </div>
+                    <div class="hero-local-badge-content">
+                        <span class="hero-local-badge-title"><?php echo esc_html( $badge_text ); ?></span>
+                        <span class="hero-local-badge-subtitle"><?php echo esc_html( $badge_subtitle ); ?></span>
+                    </div>
                 </div>
 
                 <!-- Headline -->

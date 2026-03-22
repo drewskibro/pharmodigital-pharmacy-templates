@@ -270,7 +270,7 @@ html {
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 5rem;
   overflow: hidden;
   background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
@@ -305,58 +305,58 @@ html {
   }
 }
 
-/* Hero location badge + pulse dot */
-.hero-badge {
+/* Hero location badge (rich two-line style) */
+.hero-local-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1.75rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(63, 115, 174, 0.15);
-  border-radius: 9999px;
-  margin-bottom: 2rem;
-  box-shadow: 0 8px 30px rgba(63, 115, 174, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
-  cursor: default;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem 0.75rem 1rem;
+  background: var(--white);
+  border: 1px solid rgba(8, 93, 181, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(8, 93, 181, 0.08);
+  margin-bottom: 1.75rem;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.pulse-dot {
-  position: relative;
+.hero-local-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(8, 93, 181, 0.12);
+}
+
+.hero-local-badge-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  background: rgba(8, 93, 181, 0.1);
+  color: #085db5;
+  border-radius: 50%;
   display: flex;
-  width: 0.5rem;
-  height: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
 }
 
-.pulse-dot span:first-child {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: var(--brand-secondary);
-  opacity: 0.75;
-  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+.hero-local-badge-content {
+  display: flex;
+  flex-direction: column;
 }
 
-.pulse-dot span:last-child {
-  position: relative;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--brand-secondary);
+.hero-local-badge-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1.2;
+  margin-bottom: 0.125rem;
 }
 
-.hero-badge-text {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+.hero-local-badge-subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-slate);
+  font-weight: 600;
   text-transform: uppercase;
-  color: #475569;
-  transition: color 0.3s ease;
-}
-
-.hero-badge:hover .hero-badge-text {
-  color: var(--brand-primary);
+  letter-spacing: 0.02em;
 }
 
 /* Hero title: use nav blue for gradient */
@@ -1632,6 +1632,32 @@ html {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-slate);
+}
+
+/* Pulse dot (used in section badges across multiple pages) */
+.pulse-dot {
+  position: relative;
+  display: flex;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.pulse-dot span:first-child {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--brand-secondary);
+  opacity: 0.75;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.pulse-dot span:last-child {
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--brand-secondary);
 }
 
 .treatments-title {
