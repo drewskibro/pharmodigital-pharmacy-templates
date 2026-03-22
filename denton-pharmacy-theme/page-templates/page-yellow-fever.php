@@ -69,7 +69,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
   <div class="section-container">
     <div class="yellowfever-cert-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'yf_cert_badge', 'OFFICIAL CENTRE' ) ); ?></span>
       </div>
       <h2 class="yellowfever-cert-title"><?php echo esc_html( dp_field( 'yf_cert_title', 'Designated Yellow Fever Vaccination Centre' ) ); ?></h2>
@@ -188,7 +188,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
   <div class="section-container">
     <div class="yellowfever-about-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'yf_about_badge', 'ABOUT THE DISEASE' ) ); ?></span>
       </div>
       <h2 class="yellowfever-about-title"><?php echo esc_html( dp_field( 'yf_about_title', 'What is Yellow Fever?' ) ); ?></h2>
@@ -243,7 +243,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
   <div class="section-container">
     <div class="yellowfever-needs-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'yf_needs_badge', 'WHO NEEDS VACCINATION' ) ); ?></span>
       </div>
       <h2 class="yellowfever-needs-title"><?php echo esc_html( dp_field( 'yf_needs_title', 'Do You Need the Yellow Fever Vaccine?' ) ); ?></h2>
@@ -300,7 +300,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
   <div class="section-container">
     <div class="yellowfever-risk-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'yf_risk_badge', 'RISK COUNTRIES' ) ); ?></span>
       </div>
       <h2 class="yellowfever-risk-title"><?php echo esc_html( dp_field( 'yf_risk_title', 'Yellow Fever Risk Countries' ) ); ?></h2>
@@ -421,7 +421,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
   <div class="section-container">
     <div class="yellowfever-details-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'yf_details_badge', 'YOUR APPOINTMENT' ) ); ?></span>
       </div>
       <h2 class="yellowfever-details-title"><?php echo esc_html( dp_field( 'yf_details_title', 'What to Expect at Your Appointment' ) ); ?></h2>
@@ -467,7 +467,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
   <div class="section-container">
     <div class="yellowfever-faq-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'yf_faq_badge', 'YELLOW FEVER FAQs' ) ); ?></span>
       </div>
       <h2 class="yellowfever-faq-title"><?php echo esc_html( dp_field( 'yf_faq_title', 'Common Questions' ) ); ?></h2>

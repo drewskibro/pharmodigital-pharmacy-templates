@@ -22,10 +22,7 @@ get_header();
       <!-- Left: Content -->
       <div class="wl-hero-content">
         <div class="section-badge">
-          <span class="pulse-dot">
-            <span></span>
-            <span></span>
-          </span>
+          <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_hero_badge', 'MEDICAL WEIGHT LOSS' ) ); ?></span>
         </div>
 
@@ -162,7 +159,7 @@ get_header();
   <div class="section-container">
     <div class="wl-results-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_results_badge', 'REAL RESULTS' ) ); ?></span>
       </div>
       <h2 class="wl-results-title"><?php echo esc_html( dp_field( 'wl_results_title', 'Real Mounjaro & Wegovy results in Denton' ) ); ?></h2>
@@ -217,7 +214,7 @@ get_header();
   <div class="section-container">
     <div class="wl-features-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_features_badge', 'Why Choose Us' ) ); ?></span>
       </div>
       <h2 class="wl-features-title"><?php echo esc_html( dp_field( 'wl_features_title', 'The Denton Pharmacy Difference' ) ); ?></h2>
@@ -360,7 +357,7 @@ get_header();
   <div class="section-container">
     <div class="wl-journey-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_journey_badge', 'HOW WE SUPPORT YOU' ) ); ?></span>
       </div>
       <h2 class="wl-journey-title"><?php echo esc_html( dp_field( 'wl_journey_title', 'Your path to lasting weight loss' ) ); ?></h2>
@@ -497,7 +494,7 @@ get_header();
   <div class="section-container">
     <div class="wl-calculator-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_calculator_badge', 'WEIGHT LOSS CALCULATOR' ) ); ?></span>
       </div>
       <h2 class="wl-calculator-title"><?php echo esc_html( dp_field( 'wl_calculator_title', 'See how much you could lose' ) ); ?></h2>
@@ -634,7 +631,7 @@ get_header();
   <div class="section-container">
     <div class="wl-faq-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_faq_badge', 'FREQUENTLY ASKED QUESTIONS' ) ); ?></span>
       </div>
       <h2 class="wl-faq-title"><?php echo esc_html( dp_field( 'wl_faq_title', 'Your questions answered' ) ); ?></h2>
@@ -727,7 +724,7 @@ get_header();
   <div class="section-container">
     <div class="wl-testimonials-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_testimonials_badge', 'SUCCESS STORIES' ) ); ?></span>
       </div>
       <h2 class="wl-testimonials-title"><?php echo esc_html( dp_field( 'wl_testimonials_title', 'Real Denton success stories' ) ); ?></h2>
