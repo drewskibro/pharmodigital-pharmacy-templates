@@ -1174,7 +1174,7 @@ html {
    ============================================ */
 .nhs-section {
   position: relative;
-  background: var(--white);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 40%, #f8fafc 100%);
   padding: 6rem 0;
   overflow: hidden;
 }
@@ -1241,19 +1241,22 @@ html {
 }
 
 .nhs-header-line {
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--brand-primary), var(--brand-dark));
+  width: 48px;
+  height: 4px;
+  background: #005EB8;
+  border-radius: 2px;
   border-radius: 2px;
   margin: 0 auto 1.75rem;
 }
 
 .nhs-title {
+  font-family: var(--font-heading);
   font-size: 2.5rem;
-  font-weight: 800;
-  color: #1e293b;
+  font-weight: 900;
+  color: var(--brand-dark);
   margin-bottom: 1.5rem;
-  line-height: 1.15;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 @media (min-width: 768px) {
@@ -1263,12 +1266,13 @@ html {
 }
 
 .nhs-description {
-  font-size: 1.2rem;
-  color: #64748b;
-  line-height: 1.75;
-  max-width: 680px;
+  font-size: 1.25rem;
+  color: #4a5568;
+  line-height: 1.8;
+  max-width: 620px;
   margin: 0 auto;
   letter-spacing: 0.01em;
+  font-weight: 300;
 }
 
 /* --- NHS Card Grid --- */

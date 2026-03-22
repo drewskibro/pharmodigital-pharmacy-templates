@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // --- Section header ---
 $badge_text  = dp_field( 'nhs_badge_text', 'NHS Services' );
-$title       = dp_field( 'nhs_title', 'Your NHS <span class="gradient-text">Community</span> Pharmacy' );
+$title       = dp_field( 'nhs_title', 'Your NHS <span class="gradient-text">Community Pharmacy</span>' );
 $description = dp_field( 'nhs_description', 'Free NHS services for eligible patients. From prescriptions to health checks, we are here to support your wellbeing.' );
 
 // --- Bottom CTA ---
