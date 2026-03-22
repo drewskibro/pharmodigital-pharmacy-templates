@@ -100,51 +100,55 @@ get_header();
 </section>
 
 <!-- ============================================
-     STATS BAR
+     STATS BAR (Glassmorphic — matches home page)
      ============================================ -->
 <section class="wl-stats-section">
-  <div class="wl-stats-shimmer"></div>
-  <div class="wl-stats-dots"></div>
   <div class="section-container">
-    <div class="wl-stats-grid">
+    <div class="wl-stats-bar">
 
       <div class="wl-stat-item">
         <div class="wl-stat-icon">
           <i class="fas fa-star"></i>
         </div>
         <div class="wl-stat-content">
-          <p class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_1_number', '4.7★' ) ); ?></p>
-          <p class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_1_label', 'Google Rating' ) ); ?></p>
+          <span class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_1_number', '4.7' ) ); ?></span>
+          <span class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_1_label', 'Google Rating' ) ); ?></span>
         </div>
       </div>
+
+      <div class="wl-stat-divider"></div>
 
       <div class="wl-stat-item">
         <div class="wl-stat-icon">
           <i class="fas fa-users"></i>
         </div>
         <div class="wl-stat-content">
-          <p class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_2_number', '300+' ) ); ?></p>
-          <p class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_2_label', 'Patients Helped' ) ); ?></p>
+          <span class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_2_number', '300+' ) ); ?></span>
+          <span class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_2_label', 'Patients Helped' ) ); ?></span>
         </div>
       </div>
 
-      <div class="wl-stat-item desktop-only">
+      <div class="wl-stat-divider"></div>
+
+      <div class="wl-stat-item">
         <div class="wl-stat-icon">
           <i class="fas fa-shield-halved"></i>
         </div>
         <div class="wl-stat-content">
-          <p class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_3_number', 'GPhC' ) ); ?></p>
-          <p class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_3_label', 'Registered' ) ); ?></p>
+          <span class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_3_number', 'GPhC' ) ); ?></span>
+          <span class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_3_label', 'Fully Registered' ) ); ?></span>
         </div>
       </div>
+
+      <div class="wl-stat-divider"></div>
 
       <div class="wl-stat-item">
         <div class="wl-stat-icon">
           <i class="fas fa-award"></i>
         </div>
         <div class="wl-stat-content">
-          <p class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_4_number', '30+' ) ); ?></p>
-          <p class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_4_label', 'Years Experience' ) ); ?></p>
+          <span class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_4_number', '30+' ) ); ?></span>
+          <span class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_4_label', 'Years Experience' ) ); ?></span>
         </div>
       </div>
 
@@ -298,33 +302,29 @@ get_header();
           <div class="wl-features-credential"><i class="fas fa-award"></i><span>30+ Years</span></div>
         </div>
 
-        <div class="wl-features-social-proof-premium">
-          <div class="wl-social-avatars">
-            <?php
-            $avatar_ids = array(
-              dp_field( 'wl_social_avatar_1' ),
-              dp_field( 'wl_social_avatar_2' ),
-              dp_field( 'wl_social_avatar_3' ),
-            );
-            foreach ( $avatar_ids as $avatar_id ) :
-              $avatar_url = $avatar_id ? wp_get_attachment_image_url( $avatar_id, 'thumbnail' ) : '';
-              if ( $avatar_url ) :
-            ?>
-              <img src="<?php echo esc_url( $avatar_url ); ?>" alt="Happy patient" class="wl-social-img" />
-            <?php endif; endforeach; ?>
-            <div class="wl-social-count">
-              <span><?php echo esc_html( dp_field( 'wl_social_count', '300+' ) ); ?></span>
-            </div>
+        <?php
+        $wl_rating       = dp_option( 'google_rating', '4.7' );
+        $wl_review_count = dp_option( 'google_review_count', '60+' );
+        $wl_location     = dp_option( 'pharmacy_location_label', 'Denton' );
+        $wl_reviews_url  = dp_option( 'google_reviews_url', '#' );
+        ?>
+        <div class="wl-google-rating-badge">
+          <div class="wl-rating-header">
+            <svg class="wl-google-icon" width="24" height="24" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span class="wl-rating-score"><?php echo esc_html( $wl_rating ); ?></span>
           </div>
-          <div class="wl-social-content">
-            <div class="wl-social-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              <span class="wl-social-rating"><?php echo esc_html( dp_field( 'wl_social_rating', '4.9/5' ) ); ?></span>
-            </div>
-            <p class="wl-social-text">
-              Join <strong><?php echo esc_html( dp_field( 'wl_social_join_text', '300+ Denton locals' ) ); ?></strong> on their journey
-            </p>
+          <div class="wl-rating-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
+          <div class="wl-rating-label">
+            <span class="wl-rating-excellent">Excellent</span>
+          </div>
+          <div class="wl-rating-meta">
+            <span><?php echo esc_html( $wl_review_count ); ?> reviews</span>
+            <span class="wl-rating-dot">&middot;</span>
+            <span><?php echo esc_html( $wl_location ); ?></span>
+          </div>
+          <a href="<?php echo esc_url( $wl_reviews_url ); ?>" class="wl-rating-link" target="_blank" rel="noopener">View Reviews <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -718,56 +718,183 @@ get_header();
 </section>
 
 <!-- ============================================
-     TESTIMONIALS SECTION
+     TESTIMONIALS SECTION (Premium editorial layout)
      ============================================ -->
 <section class="wl-testimonials-section">
   <div class="section-container">
+
+    <!-- Section header -->
     <div class="wl-testimonials-header">
       <div class="section-badge">
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_testimonials_badge', 'SUCCESS STORIES' ) ); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_testimonials_badge', 'Real Transformations' ) ); ?></span>
       </div>
-      <h2 class="wl-testimonials-title"><?php echo esc_html( dp_field( 'wl_testimonials_title', 'Real Denton success stories' ) ); ?></h2>
-      <div class="wl-testimonials-divider"></div>
-      <p class="wl-testimonials-description"><?php echo esc_html( dp_field( 'wl_testimonials_description', 'See how our patients have transformed their lives with medical weight loss' ) ); ?></p>
+      <h2 class="wl-testimonials-title">
+        <?php echo esc_html( dp_field( 'wl_testimonials_title_start', 'Real Results.' ) ); ?>
+        <span class="gradient-text"><?php echo esc_html( dp_field( 'wl_testimonials_title_highlight', 'Lasting Health.' ) ); ?></span>
+      </h2>
+      <p class="wl-testimonials-description"><?php echo esc_html( dp_field( 'wl_testimonials_description', 'See how our patients across Denton have transformed their health with personalised weight loss care.' ) ); ?></p>
+      <div class="wl-testimonials-disclaimer">
+        <i class="fas fa-info-circle"></i>
+        <p><strong>Transparency Note:</strong> <?php echo esc_html( dp_field( 'wl_testimonials_disclaimer', 'The results below are from real Denton Pharmacy patients. Individual results may vary.' ) ); ?></p>
+      </div>
     </div>
 
+    <?php
+    // --- Allowed HTML for highlight spans ---
+    $wl_allowed_highlight = array( 'span' => array( 'class' => array() ) );
+
+    // --- Default testimonials ---
+    $wl_default_testimonials = array(
+        array(
+            'name'      => 'Sarah M.',
+            'service'   => 'Weight Loss',
+            'weight'    => '6st lost',
+            'quote'     => 'Thank you so much for your weight loss service. I\'ve tried <span class="wl-testimonial-highlight">everything over the years</span>. With your help, I\'ve finally managed to <span class="wl-testimonial-highlight">lose 6 stones</span>!!',
+            'checklist' => array( '6 Stone Weight Loss', 'Face-to-Face Support' ),
+        ),
+        array(
+            'name'      => 'James K.',
+            'service'   => 'Mounjaro',
+            'weight'    => '4st lost',
+            'quote'     => 'Ahmed really takes the time to <span class="wl-testimonial-highlight">understand your goals</span>. The monthly check-ins keep me on track and I\'ve <span class="wl-testimonial-highlight">never felt better</span>.',
+            'checklist' => array( 'Monthly Check-ins', 'Personalised Plan' ),
+        ),
+        array(
+            'name'      => 'Linda P.',
+            'service'   => 'Wegovy',
+            'weight'    => '3st lost',
+            'quote'     => 'I cannot thank you enough for helping me lose weight. Not only do I <span class="wl-testimonial-highlight">feel and look great</span>, my hip and knee pain is <span class="wl-testimonial-highlight">SO much better</span> now I weigh less.',
+            'checklist' => array( 'Improved Mobility', 'Ongoing Support' ),
+        ),
+    );
+
+    // --- Build testimonials from ACF or defaults ---
+    $wl_testimonials    = array();
+    $wl_use_acf         = false;
+
+    if ( function_exists( 'have_rows' ) && have_rows( 'wl_testimonials' ) ) {
+        while ( have_rows( 'wl_testimonials' ) ) {
+            the_row();
+            $t_name   = get_sub_field( 'author' ) ?: 'Patient';
+            $t_quote  = get_sub_field( 'quote' ) ?: '';
+            $t_weight = get_sub_field( 'weight_lost_short' ) ?: '';
+            $t_title  = get_sub_field( 'title' ) ?: 'Weight Loss';
+
+            $words    = preg_split( '/\s+/', trim( $t_name ) );
+            $initials = '';
+            foreach ( $words as $w ) {
+                if ( $w !== '' ) $initials .= strtoupper( mb_substr( $w, 0, 1 ) );
+            }
+
+            $wl_testimonials[] = array(
+                'name'      => $t_name,
+                'initials'  => $initials,
+                'service'   => $t_title,
+                'weight'    => $t_weight,
+                'quote'     => $t_quote,
+                'checklist' => array(),
+            );
+        }
+        $wl_use_acf = true;
+    }
+
+    if ( empty( $wl_testimonials ) ) {
+        foreach ( $wl_default_testimonials as $dt ) {
+            $words    = preg_split( '/\s+/', trim( $dt['name'] ) );
+            $initials = '';
+            foreach ( $words as $w ) {
+                if ( $w !== '' ) $initials .= strtoupper( mb_substr( $w, 0, 1 ) );
+            }
+            $dt['initials'] = $initials;
+            $wl_testimonials[] = $dt;
+        }
+    }
+    ?>
+
+    <!-- Testimonials grid (12-col asymmetric) -->
     <div class="wl-testimonials-grid">
-      <?php if ( have_rows( 'wl_testimonials' ) ) : while ( have_rows( 'wl_testimonials' ) ) : the_row(); ?>
-        <div class="wl-testimonial-card">
-          <div class="wl-testimonial-circle">
-            <span class="wl-testimonial-circle-number"><?php echo esc_html( get_sub_field( 'weight_lost_short' ) ); ?></span>
+
+      <?php foreach ( $wl_testimonials as $t_index => $t ) :
+          $is_large    = ( $t_index === 0 );
+          $card_class  = $is_large ? 'wl-testimonial-card wl-testimonial-card-large' : 'wl-testimonial-card wl-testimonial-card-medium';
+      ?>
+        <div class="<?php echo esc_attr( $card_class ); ?>">
+
+          <!-- Verified badge -->
+          <div class="wl-testimonial-verified">
+            <i class="fas fa-check-circle"></i>
+            <span><?php echo $is_large ? 'Verified Patient' : 'Verified'; ?></span>
           </div>
-          <h3 class="wl-testimonial-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-          <p class="wl-testimonial-quote"><?php echo esc_html( get_sub_field( 'quote' ) ); ?></p>
-          <div class="star-row wl-testimonial-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+          <?php if ( ! empty( $t['weight'] ) ) : ?>
+            <div class="wl-testimonial-weight-pill">
+              <i class="fas fa-arrow-trend-down"></i>
+              <span><?php echo esc_html( $t['weight'] ); ?></span>
+            </div>
+          <?php endif; ?>
+
+          <div class="wl-testimonial-card-body">
+            <!-- Stars -->
+            <div class="star-row <?php echo $is_large ? 'star-row-large' : ''; ?>">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+
+            <!-- Quote -->
+            <blockquote class="wl-testimonial-quote <?php echo $is_large ? 'wl-testimonial-quote-large' : ''; ?>">
+              <?php if ( $wl_use_acf ) : ?>
+                &ldquo;<?php echo esc_html( $t['quote'] ); ?>&rdquo;
+              <?php else : ?>
+                &ldquo;<?php echo wp_kses( $t['quote'], $wl_allowed_highlight ); ?>&rdquo;
+              <?php endif; ?>
+            </blockquote>
+
+            <!-- Author row -->
+            <div class="wl-testimonial-author-row">
+              <div class="wl-testimonial-avatar <?php echo $is_large ? 'wl-testimonial-avatar-large' : ''; ?>">
+                <?php echo esc_html( $t['initials'] ); ?>
+              </div>
+              <div class="wl-testimonial-author-info">
+                <span class="wl-testimonial-service"><?php echo esc_html( $t['service'] ); ?></span>
+                <h4 class="wl-testimonial-author-name"><?php echo esc_html( $t['name'] ); ?></h4>
+                <p class="wl-testimonial-author-status">Verified Patient</p>
+              </div>
+            </div>
+
+            <?php if ( ! empty( $t['checklist'] ) ) : ?>
+              <div class="wl-testimonial-checklist">
+                <?php foreach ( $t['checklist'] as $check ) : ?>
+                  <div class="wl-testimonial-check">
+                    <i class="fas fa-check"></i>
+                    <span><?php echo esc_html( $check ); ?></span>
+                  </div>
+                <?php endforeach; ?>
+              </div>
+            <?php endif; ?>
           </div>
-          <p class="wl-testimonial-author"><?php echo esc_html( get_sub_field( 'author' ) ); ?></p>
         </div>
-      <?php endwhile; else : ?>
-        <div class="wl-testimonial-card">
-          <div class="wl-testimonial-circle"><span class="wl-testimonial-circle-number">6st</span></div>
-          <h3 class="wl-testimonial-title">6 Stone Lost</h3>
-          <p class="wl-testimonial-quote">"Thank you so much for your weight loss service. I've tried everything over the years. With your help, I've finally managed to lose 6 stones!!"</p>
-          <div class="star-row wl-testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="wl-testimonial-author">Denton Patient</p>
+      <?php endforeach; ?>
+
+      <!-- CTA Card -->
+      <div class="wl-testimonial-card wl-testimonial-card-cta">
+        <div class="wl-testimonial-cta-glow"></div>
+        <div class="wl-testimonial-cta-body">
+          <div class="wl-testimonial-cta-content">
+            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( dp_field( 'wl_testimonials_cta_title', 'Trusted by 300+ Denton Patients' ) ); ?></h3>
+            <p class="wl-testimonial-cta-text"><?php echo esc_html( dp_field( 'wl_testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ) ); ?></p>
+          </div>
+          <div class="wl-testimonial-cta-rating">
+            <div class="wl-testimonial-cta-rating-card">
+              <span class="wl-testimonial-cta-score"><?php echo esc_html( dp_option( 'google_rating', '4.7' ) ); ?></span>
+              <div class="star-row star-row-small">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <span class="wl-testimonial-cta-label">Google Rating</span>
+            </div>
+          </div>
         </div>
-        <div class="wl-testimonial-card">
-          <div class="wl-testimonial-circle"><span class="wl-testimonial-circle-number">4st</span></div>
-          <h3 class="wl-testimonial-title">4 Stone Lost</h3>
-          <p class="wl-testimonial-quote">"Ahmed really takes the time to understand your goals. The monthly check-ins keep me on track and I've never felt better."</p>
-          <div class="star-row wl-testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="wl-testimonial-author">Denton Patient</p>
-        </div>
-        <div class="wl-testimonial-card">
-          <div class="wl-testimonial-circle"><span class="wl-testimonial-circle-number">3st</span></div>
-          <h3 class="wl-testimonial-title">3 Stone Lost</h3>
-          <p class="wl-testimonial-quote">"I cannot thank you enough for helping me lose weight. Not only do I feel and look great, my hip and knee pain is SO much better now I weigh less."</p>
-          <div class="star-row wl-testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="wl-testimonial-author">Manchester Patient</p>
-        </div>
-      <?php endif; ?>
+      </div>
+
     </div>
   </div>
 </section>
