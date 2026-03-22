@@ -17,6 +17,28 @@ $badge_icon     = dp_field( 'hero_badge_icon', 'fas fa-map-marker-alt' );
 $badge_text     = dp_field( 'hero_badge_text', 'Serving Denton, Manchester & Beyond' );
 $badge_subtitle = dp_field( 'hero_badge_subtitle', 'Your Local Pharmacy' );
 
+// --- NHS accent strip ---
+$default_nhs_pills = array(
+    array( 'icon' => 'fa-hand-holding-medical', 'text' => 'Pharmacy First' ),
+    array( 'icon' => 'fa-prescription',         'text' => 'Free NHS Prescriptions' ),
+    array( 'icon' => 'fa-syringe',              'text' => 'NHS Flu Jabs' ),
+);
+
+$nhs_pills = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'hero_nhs_pills' ) ) {
+    while ( have_rows( 'hero_nhs_pills' ) ) {
+        the_row();
+        $nhs_pills[] = array(
+            'icon' => get_sub_field( 'pill_icon' ) ?: 'fa-check',
+            'text' => get_sub_field( 'pill_text' ) ?: '',
+        );
+    }
+}
+
+if ( empty( $nhs_pills ) ) {
+    $nhs_pills = $default_nhs_pills;
+}
+
 // --- Headline (allows <br>, <em>, <span> for styling) ---
 $allowed_title_tags = array(
     'br'   => array(),
@@ -85,6 +107,22 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                         <span class="hero-local-badge-title"><?php echo esc_html( $badge_text ); ?></span>
                         <span class="hero-local-badge-subtitle"><?php echo esc_html( $badge_subtitle ); ?></span>
                     </div>
+                </div>
+
+                <!-- NHS accent strip -->
+                <div class="hero-nhs-strip">
+                    <span class="hero-nhs-label">
+                        <i class="fas fa-plus"></i>
+                        NHS
+                    </span>
+                    <?php foreach ( $nhs_pills as $pill ) :
+                        $pill_icon = dp_fa_class( $pill['icon'] );
+                    ?>
+                        <span class="hero-nhs-pill">
+                            <i class="fas <?php echo esc_attr( $pill_icon ); ?>"></i>
+                            <?php echo esc_html( $pill['text'] ); ?>
+                        </span>
+                    <?php endforeach; ?>
                 </div>
 
                 <!-- Headline -->
