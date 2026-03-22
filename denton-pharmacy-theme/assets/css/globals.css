@@ -9,9 +9,9 @@
   --brand-dark: #2a507a;      /* Darker Blue for contrast */
   --brand-light: #faf7f2;     /* Warm cream for tinted content areas */
 
-  /* Purple palette (used across service & travel pages) */
-  --brand-purple: #a39ee3;
-  --brand-purple-deep: #8b85d6;
+  /* Legacy purple aliases — mapped to brand blue for consistency */
+  --brand-purple: var(--brand-primary);
+  --brand-purple-deep: var(--brand-dark);
   --brand-accent: var(--brand-secondary);
 
   /* Nav height tokens — single source of truth for body offset & full-bleed heroes */
