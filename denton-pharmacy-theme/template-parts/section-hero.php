@@ -225,6 +225,10 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                             </div>
                             <span><?php echo esc_html( $rating_label ); ?></span>
                         </div>
+                        <div class="badge-success">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Excellent</span>
+                        </div>
                     </div>
                     <div class="rating-score">
                         <span class="score-number"><?php echo esc_html( $google_rating ); ?></span>
@@ -242,7 +246,10 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                             <i class="fas fa-map-marker-alt"></i>
                             <span><?php echo esc_html( $pharmacy_location ); ?></span>
                         </div>
-                        <a href="<?php echo esc_url( $google_review_url ); ?>" class="rating-link"><?php echo esc_html( $rating_link_text ); ?></a>
+                        <a href="<?php echo esc_url( $google_review_url ); ?>" class="rating-link">
+                            <?php echo esc_html( $rating_link_text ); ?>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
