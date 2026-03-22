@@ -1064,7 +1064,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'nhs_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Comprehensive NHS services for eligible patients. From prescriptions to vaccinations, we\'re here to support your health and wellbeing.',
+                'default_value' => 'Free NHS services for eligible patients. From prescriptions to health checks, we are here to support your wellbeing.',
             ),
             array(
                 'key'          => 'field_dp_nhs_cards',
@@ -1170,7 +1170,7 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Bottom CTA — Title',
                 'name'          => 'nhs_bottom_title',
                 'type'          => 'text',
-                'default_value' => 'Need help with NHS services?',
+                'default_value' => 'Your NHS services, under one roof',
             ),
             array(
                 'key'           => 'field_dp_nhs_bottom_description',
@@ -1178,7 +1178,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'nhs_bottom_description',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => 'Our friendly team is here to answer your questions about NHS prescriptions, eligibility, and services.',
+                'default_value' => 'No appointment needed for most services. Walk in or call us.',
             ),
             array(
                 'key'           => 'field_dp_nhs_bottom_cta_text',
