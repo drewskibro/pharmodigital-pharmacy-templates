@@ -1239,7 +1239,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'treatments_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Comprehensive healthcare solutions tailored to your needs, delivered discreetly to your door.',
+                'default_value' => 'Expert-led treatments and NHS services at your local pharmacy.',
             ),
             array(
                 'key'          => 'field_dp_treatments_cards',
@@ -1255,6 +1255,13 @@ function dp_register_acf_field_groups() {
                         'label' => 'Treatment Title',
                         'name'  => 'treatment_title',
                         'type'  => 'text',
+                    ),
+                    array(
+                        'key'          => 'field_dp_treatment_subtitle',
+                        'label'        => 'Short Subtitle',
+                        'name'         => 'treatment_subtitle',
+                        'type'         => 'text',
+                        'instructions' => '2-3 words shown below the title (e.g. "GLP-1 treatments").',
                     ),
                     array(
                         'key'           => 'field_dp_treatment_image',
