@@ -207,31 +207,61 @@ get_header();
             <?php endif; ?>
           </div>
         </div>
-      <?php endwhile; else : ?>
-        <!-- Default: Ahmed Al-Liabi -->
-        <div class="earwax-team-card">
-          <div class="earwax-team-content">
-            <h3 class="earwax-team-name">Ahmed Al-Liabi</h3>
-            <p class="earwax-team-role">Lead Pharmacist &amp; Founder</p>
-            <p class="earwax-team-bio">As the founder of Denton Pharmacy, Ahmed brings over 15 years of pharmaceutical experience. A GPhC-registered pharmacist (2208502), he is dedicated to providing expert ear care with a personal touch.</p>
-            <div class="earwax-team-tags">
-              <span class="earwax-team-tag">GPhC Registered</span>
-              <span class="earwax-team-tag">15+ Years Experience</span>
+      <?php endwhile; else :
+        // Try to pull pharmacist image from global options as fallback
+        $global_pharmacist_image_id  = dp_option( 'pharmacist_image' );
+        $global_pharmacist_image_url = $global_pharmacist_image_id ? wp_get_attachment_image_url( $global_pharmacist_image_id, 'medium_large' ) : '';
+
+        $default_team = array(
+          array(
+            'name'  => 'Ahmed Al-Liabi',
+            'role'  => 'Lead Pharmacist & Founder',
+            'bio'   => 'As the founder of Denton Pharmacy, Ahmed brings over 15 years of pharmaceutical experience. A GPhC-registered pharmacist (2208502), he is dedicated to providing expert ear care with a personal touch.',
+            'tags'  => array( 'GPhC Registered', '15+ Years Experience' ),
+            'badge' => 'Lead Pharmacist',
+            'badge_style' => 'green',
+          ),
+          array(
+            'name'  => 'Jignasa Modhvadia',
+            'role'  => 'Director',
+            'bio'   => 'Jignasa combines clinical expertise with exceptional patient care. She plays a key role in delivering specialist ear care services at our Denton clinic.',
+            'tags'  => array( 'Clinic Director', 'Patient Care Expert' ),
+            'badge' => 'Director',
+            'badge_style' => 'purple',
+          ),
+        );
+
+        foreach ( $default_team as $ti => $member ) :
+          $initials = '';
+          $parts = explode( ' ', trim( $member['name'] ) );
+          $initials = strtoupper( substr( $parts[0], 0, 1 ) );
+          if ( count( $parts ) > 1 ) {
+            $initials .= strtoupper( substr( end( $parts ), 0, 1 ) );
+          }
+        ?>
+          <div class="earwax-team-card">
+            <div class="earwax-team-image-wrapper">
+              <?php if ( $ti === 0 && $global_pharmacist_image_url ) : ?>
+                <img src="<?php echo esc_url( $global_pharmacist_image_url ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" class="earwax-team-image" />
+              <?php else : ?>
+                <div class="earwax-team-avatar">
+                  <span class="earwax-team-avatar-initials"><?php echo esc_html( $initials ); ?></span>
+                </div>
+              <?php endif; ?>
+              <div class="earwax-team-badge-<?php echo esc_attr( $member['badge_style'] ); ?>"><?php echo esc_html( $member['badge'] ); ?></div>
+            </div>
+            <div class="earwax-team-content">
+              <h3 class="earwax-team-name"><?php echo esc_html( $member['name'] ); ?></h3>
+              <p class="earwax-team-role"><?php echo esc_html( $member['role'] ); ?></p>
+              <p class="earwax-team-bio"><?php echo esc_html( $member['bio'] ); ?></p>
+              <div class="earwax-team-tags">
+                <?php foreach ( $member['tags'] as $tag ) : ?>
+                  <span class="earwax-team-tag"><?php echo esc_html( $tag ); ?></span>
+                <?php endforeach; ?>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Default: Jignasa Modhvadia -->
-        <div class="earwax-team-card">
-          <div class="earwax-team-content">
-            <h3 class="earwax-team-name">Jignasa Modhvadia</h3>
-            <p class="earwax-team-role">Director</p>
-            <p class="earwax-team-bio">Jignasa combines clinical expertise with exceptional patient care. She plays a key role in delivering specialist ear care services at our Denton clinic.</p>
-            <div class="earwax-team-tags">
-              <span class="earwax-team-tag">Clinic Director</span>
-              <span class="earwax-team-tag">Patient Care Expert</span>
-            </div>
-          </div>
-        </div>
+        <?php endforeach; ?>
       <?php endif; ?>
     </div>
   </div>
