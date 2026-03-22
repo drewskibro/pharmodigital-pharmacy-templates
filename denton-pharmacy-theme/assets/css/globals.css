@@ -2083,136 +2083,286 @@ html {
    HOW IT WORKS SECTION
    ============================================ */
 .how-it-works-section {
-  padding: 3rem 0 6rem;
   background: #fdf9f3;
+  padding: 5rem 0 6rem;
+  position: relative;
+  overflow: hidden;
 }
 
+.how-it-works-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: rgba(63, 115, 174, 0.05);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* Header */
 .how-it-works-header {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
+}
+
+.how-it-works-header .section-badge {
+  margin-bottom: 1.5rem;
 }
 
 .how-it-works-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .how-it-works-title {
+    font-size: 3rem;
+  }
 }
 
 .how-it-works-description {
   font-size: 1.125rem;
   color: var(--text-gray);
+  line-height: 1.7;
   max-width: 700px;
   margin: 0 auto;
+  font-weight: 500;
 }
 
+@media (min-width: 768px) {
+  .how-it-works-description {
+    font-size: 1.25rem;
+  }
+}
+
+/* Steps container */
 .how-it-works-steps {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-@media (min-width: 768px) {
-  .how-it-works-steps {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.how-it-works-step {
+  margin-bottom: 3rem;
   position: relative;
 }
 
-.how-it-works-step-card {
-  background: var(--white);
-  padding: 2.5rem 2rem;
-  border-radius: 1.5rem;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8f0;
-  transition: transform 0.3s ease;
-  height: 100%;
+@media (min-width: 1024px) {
+  .how-it-works-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+}
+
+/* Individual step */
+.how-it-works-step {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.how-it-works-step-card {
+  position: relative;
+  background: var(--white);
+  border: 2px solid rgba(63, 115, 174, 0.12);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(63, 115, 174, 0.08);
+  width: 100%;
+  max-width: 400px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
 .how-it-works-step-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.1);
+  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.18);
   border-color: var(--brand-primary);
 }
 
+@media (min-width: 768px) {
+  .how-it-works-step-card {
+    padding: 3rem 2.5rem;
+  }
+}
+
+/* Step number badge — overlaps card top */
 .how-it-works-step-number {
-  width: 3rem;
-  height: 3rem;
+  position: absolute;
+  top: -1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
   background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
-  font-weight: 800;
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
   box-shadow: 0 8px 20px rgba(63, 115, 174, 0.3);
+  z-index: 10;
 }
 
-.how-it-works-step-title {
+.how-it-works-step-number span {
+  font-family: var(--font-heading);
   font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--white);
+}
+
+/* Icon square */
+.how-it-works-step-icon {
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.10), rgba(42, 80, 122, 0.06));
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.how-it-works-step-card:hover .how-it-works-step-icon {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  transform: scale(1.1) rotate(5deg);
+}
+
+.how-it-works-step-icon i {
+  font-size: 2rem;
+  color: var(--brand-primary);
+  transition: color 0.4s ease;
+}
+
+.how-it-works-step-card:hover .how-it-works-step-icon i {
+  color: var(--white);
+}
+
+/* Title */
+.how-it-works-step-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
   font-weight: 700;
   color: #111827;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  transition: color 0.3s ease;
 }
 
+.how-it-works-step-card:hover .how-it-works-step-title {
+  color: var(--brand-primary);
+}
+
+@media (min-width: 768px) {
+  .how-it-works-step-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Description */
 .how-it-works-step-desc {
   font-size: 1rem;
   color: var(--text-gray);
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  font-weight: 500;
   flex: 1;
 }
 
+@media (min-width: 768px) {
+  .how-it-works-step-desc {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Time badge */
 .how-it-works-step-time {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(8, 93, 181, 0.06);
-  border: 1px solid rgba(8, 93, 181, 0.1);
+  background: rgba(63, 115, 174, 0.08);
   padding: 0.5rem 1rem;
   border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #085db5;
+  border: 1px solid rgba(63, 115, 174, 0.15);
+  transition: all 0.3s ease;
+}
+
+.how-it-works-step-card:hover .how-it-works-step-time {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
 }
 
 .how-it-works-step-time i {
-  font-size: 0.6875rem;
+  font-size: 0.875rem;
+  color: var(--brand-primary);
+  transition: color 0.3s ease;
 }
 
+.how-it-works-step-card:hover .how-it-works-step-time i {
+  color: var(--white);
+}
+
+.how-it-works-step-time span {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  transition: color 0.3s ease;
+}
+
+.how-it-works-step-card:hover .how-it-works-step-time span {
+  color: var(--white);
+}
+
+/* Timeline connector (desktop only) */
 .how-it-works-connector {
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .how-it-works-connector {
     display: block;
     position: absolute;
-    top: 1.5rem;
-    right: -1rem;
-    width: 2rem;
-    height: 2px;
-    background: #cbd5e1;
-    z-index: 0;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--brand-primary), var(--brand-dark));
+    z-index: 1;
   }
 
   .how-it-works-step:last-child .how-it-works-connector {
     display: none;
   }
+
+  .how-it-works-connector::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--brand-dark);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(63, 115, 174, 0.2);
+  }
 }
 
+/* CTA */
 .how-it-works-cta {
   text-align: center;
+  margin-top: 3rem;
 }
 
 
