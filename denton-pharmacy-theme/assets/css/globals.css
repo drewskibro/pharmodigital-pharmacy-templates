@@ -121,6 +121,47 @@ html {
   margin: 0.1em 0;
 }
 
+/* ---- Rotating headline (line 2) ---- */
+.hero-rotate-wrapper {
+  display: block;
+  position: relative;
+  height: 1.15em;
+  overflow: hidden;
+  margin: 0.1em 0;
+}
+
+.hero-rotate-phrase {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-dark);
+  font-size: 0.9em;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@media (max-width: 1023px) {
+  .hero-rotate-phrase {
+    text-align: center;
+  }
+}
+
+.hero-rotate-phrase.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-rotate-phrase.exit-up {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
 .desktop-only {
   display: none;
 }
@@ -299,11 +340,24 @@ html {
 
 .hero-content {
   text-align: center;
-  animation: fadeInUp 0.8s ease-out;
-  opacity: 1;
   position: relative;
   z-index: 35;
 }
+
+/* ---- Staggered entrance animations ---- */
+.hero-stagger {
+  opacity: 0;
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.hero-stagger-1 { animation-delay: 0s; }
+.hero-stagger-2 { animation-delay: 0.12s; }
+.hero-stagger-3 { animation-delay: 0.24s; }
+.hero-stagger-4 { animation-delay: 0.36s; }
+.hero-stagger-5 { animation-delay: 0.5s; }
+.hero-stagger-6 { animation-delay: 0.65s; }
+.hero-stagger-7 { animation-delay: 0.8s; }
+.hero-stagger-8 { animation-delay: 0.95s; }
 
 @media (min-width: 1024px) {
   .hero-content {
@@ -430,6 +484,7 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: block;
 }
 
 .hero-title {
