@@ -334,7 +334,7 @@
   transition: all 0.22s ease;
   white-space: nowrap;
   letter-spacing: 0.01em;
-  box-shadow: 0 4px 18px rgba(121, 188, 46, 0.42);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
@@ -354,7 +354,7 @@
 .denton-book-btn:hover {
   background: var(--dp-green-dark);
   transform: translateY(-1px);
-  box-shadow: 0 6px 26px rgba(121, 188, 46, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   color: #ffffff;
 }
 
@@ -435,9 +435,9 @@
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
   padding: 0 1rem;
   height: 100%;
   background: transparent;
@@ -458,7 +458,7 @@
   bottom: 0;
   left: 0.75rem;
   right: 0.75rem;
-  height: 2px;
+  height: 3px;
   background: var(--dp-green);
   transform: scaleX(0);
   transform-origin: center;
