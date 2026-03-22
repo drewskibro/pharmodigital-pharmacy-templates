@@ -851,6 +851,97 @@
   }
 }
 
+/* Process Cards — Used when no images are uploaded */
+.earwax-process-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  counter-reset: process-step;
+}
+
+@media (min-width: 768px) {
+  .earwax-process-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.earwax-process-card {
+  background: var(--brand-light);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.earwax-process-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.1);
+  border-color: var(--brand-primary);
+}
+
+.earwax-process-card-number {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 900;
+  box-shadow: 0 4px 12px rgba(63, 115, 174, 0.3);
+}
+
+.earwax-process-card-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.1), rgba(42, 80, 122, 0.08));
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto 1.5rem;
+  color: var(--brand-primary);
+  font-size: 1.75rem;
+  transition: all 0.4s ease;
+}
+
+.earwax-process-card:hover .earwax-process-card-icon {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.earwax-process-card-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.earwax-process-card-desc {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.earwax-process-card .earwax-process-step-time,
+.earwax-process-card .earwax-process-step-badge {
+  justify-content: center;
+}
+
 /* ============================================
    F7. PRICING — 2-column, featured card
    ============================================ */
