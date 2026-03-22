@@ -1,9 +1,9 @@
 <?php
 /**
- * Sticky CTA Bar
+ * Sticky CTA Bar — Dark Premium
  *
  * Fixed bottom bar that appears after scrolling 30% past the hero section.
- * Includes a "Book Now" button and a phone call button.
+ * Dark navy background with glassmorphic buttons and trust chip.
  *
  * @package Denton_Pharmacy
  */
@@ -23,8 +23,14 @@ $booking_url = dp_booking_url();
   <div class="sticky-cta-bar" id="stickyCTA">
     <div class="sticky-cta-content">
       <div class="sticky-cta-text">
-        <span class="sticky-cta-title"><?php echo esc_html( dp_field( 'sticky_cta_title', 'Ready to Transform Your Health?' ) ); ?></span>
-        <span class="sticky-cta-subtitle"><?php echo esc_html( dp_field( 'sticky_cta_subtitle', 'Book your consultation today' ) ); ?></span>
+        <span class="sticky-cta-title"><?php echo esc_html( dp_field( 'sticky_cta_title', 'Your neighbourhood pharmacy, clinically led' ) ); ?></span>
+        <span class="sticky-cta-subtitle"><?php echo esc_html( dp_field( 'sticky_cta_subtitle', 'Expert care, just around the corner' ) ); ?></span>
+      </div>
+      <div class="sticky-cta-centre">
+        <span class="sticky-cta-trust-chip">
+          <i class="fas fa-shield-halved"></i>
+          GPhC Registered
+        </span>
       </div>
       <div class="sticky-cta-buttons">
         <a href="<?php echo esc_url( $booking_url ); ?>" class="sticky-cta-button sticky-cta-primary">

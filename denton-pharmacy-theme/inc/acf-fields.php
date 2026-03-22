@@ -2231,7 +2231,7 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Title',
                 'name'          => 'sticky_cta_title',
                 'type'          => 'text',
-                'default_value' => 'Ready to Start Your Health Journey?',
+                'default_value' => 'Your neighbourhood pharmacy, clinically led',
             ),
             // Subtitle
             array(
@@ -2239,7 +2239,7 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Subtitle',
                 'name'          => 'sticky_cta_subtitle',
                 'type'          => 'text',
-                'default_value' => 'Book your appointment today — no waiting lists, no hidden fees.',
+                'default_value' => 'Expert care, just around the corner',
             ),
             // Book button text
             array(
