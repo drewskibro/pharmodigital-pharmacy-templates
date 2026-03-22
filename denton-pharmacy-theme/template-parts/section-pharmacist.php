@@ -2,8 +2,9 @@
 /**
  * Template Part: Pharmacist Section
  *
- * Two-column layout featuring the lead pharmacist with image/video on the left
- * and credentials, bio, and CTA on the right.
+ * Premium two-column layout featuring the lead pharmacist with a constrained
+ * image card on the left and credentials, bio, quote card, and dual CTAs
+ * on the right. Matches the NHS hero design language.
  *
  * @package Denton_Pharmacy
  */
@@ -13,17 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- ACF fields with Denton-specific defaults ---
+$badge_icon     = dp_field( 'pharmacist_badge_icon', 'fas fa-user-doctor' );
 $badge_text     = dp_field( 'pharmacist_badge_text', 'Your Local Expert' );
+$badge_subtitle = dp_field( 'pharmacist_badge_subtitle', 'Independent Prescriber' );
 $name           = dp_field( 'pharmacist_name', 'Meet Ahmed Al-Liabi' );
 $role           = dp_field( 'pharmacist_role', 'Lead Pharmacist & Independent Prescriber' );
 $bio            = dp_field( 'pharmacist_bio', 'With over 15 years of experience, Ahmed leads our clinical team providing personalised, accessible healthcare in Denton. As an Independent Prescriber, he ensures you receive safe, effective treatments without the wait.' );
-$quote          = dp_field( 'pharmacist_quote', '"My goal is to make expert healthcare accessible to everyone in Denton — honest, professional care delivered to your door."' );
+$quote          = dp_field( 'pharmacist_quote', 'My goal is to make expert healthcare accessible to everyone in Denton — honest, professional care delivered to your door.' );
 $experience     = dp_field( 'pharmacist_experience_years', '15+' );
 $experience_lbl = dp_field( 'pharmacist_experience_label', 'Years Experience' );
 $cta_text       = dp_field( 'pharmacist_cta_text', 'Start Your Online Consultation' );
 $cta_url        = dp_field( 'pharmacist_cta_url', dp_booking_url() );
 $video_url      = dp_field( 'pharmacist_video_url', '' );
 $video_label    = dp_field( 'pharmacist_video_label', 'Watch Welcome Message' );
+$phone          = dp_phone();
+$phone_link     = dp_phone_link();
 
 // --- Pharmacist photo (ACF image field, return format: ID) ---
 $pharmacist_image_id  = dp_field( 'pharmacist_photo' );
@@ -66,17 +71,19 @@ if ( empty( $credentials ) ) {
                 <!-- Decorative glow -->
                 <div class="pharmacist-image-glow"></div>
 
-                <!-- Image card (clickable if video URL is set) -->
+                <!-- Constrained image card -->
                 <div class="pharmacist-image-card"<?php if ( $video_url ) : ?> onclick="openVideoModal('<?php echo esc_url( $video_url ); ?>')" role="button" tabindex="0" aria-label="<?php echo esc_attr( $video_label ); ?>" onkeydown="if(event.key==='Enter')openVideoModal('<?php echo esc_url( $video_url ); ?>')"<?php endif; ?>>
                     <?php if ( $pharmacist_image_url ) : ?>
                         <img src="<?php echo esc_url( $pharmacist_image_url ); ?>" alt="<?php echo esc_attr( $pharmacist_image_alt ); ?>" class="pharmacist-image" />
                     <?php endif; ?>
 
+                    <!-- Gradient overlay -->
+                    <div class="pharmacist-image-overlay"></div>
+
                     <?php if ( $video_url ) : ?>
                         <!-- Play button overlay -->
                         <div class="pharmacist-video-overlay">
                             <div class="play-button">
-                                <div class="play-button-ping"></div>
                                 <i class="fas fa-play"></i>
                             </div>
                         </div>
@@ -84,25 +91,33 @@ if ( empty( $credentials ) ) {
                             <span><?php echo esc_html( $video_label ); ?></span>
                         </div>
                     <?php endif; ?>
-                </div>
 
-                <!-- Experience badge -->
-                <div class="pharmacist-experience-badge">
-                    <p class="pharmacist-experience-number"><?php echo esc_html( $experience ); ?></p>
-                    <p class="pharmacist-experience-label"><?php echo esc_html( $experience_lbl ); ?></p>
+                    <!-- Caption overlay with experience stat -->
+                    <div class="pharmacist-image-caption">
+                        <div class="pharmacist-caption-stat">
+                            <span class="pharmacist-caption-number"><?php echo esc_html( $experience ); ?></span>
+                            <span class="pharmacist-caption-label"><?php echo esc_html( $experience_lbl ); ?></span>
+                        </div>
+                        <div class="pharmacist-caption-divider"></div>
+                        <div class="pharmacist-caption-text">
+                            <span>Trusted by the Denton community</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- RIGHT: Content Column -->
             <div class="pharmacist-content">
 
-                <!-- Section badge -->
-                <div class="section-badge">
-                    <span class="pulse-dot">
-                        <span></span>
-                        <span></span>
-                    </span>
-                    <span class="section-badge-text"><?php echo esc_html( $badge_text ); ?></span>
+                <!-- Rich two-line badge (NHS style) -->
+                <div class="pharmacist-badge">
+                    <div class="pharmacist-badge-icon">
+                        <i class="<?php echo esc_attr( dp_fa_class( $badge_icon ) ); ?>"></i>
+                    </div>
+                    <div class="pharmacist-badge-content">
+                        <span class="pharmacist-badge-title"><?php echo esc_html( $badge_text ); ?></span>
+                        <span class="pharmacist-badge-subtitle"><?php echo esc_html( $badge_subtitle ); ?></span>
+                    </div>
                 </div>
 
                 <!-- Name & role -->
@@ -112,8 +127,13 @@ if ( empty( $credentials ) ) {
                 <!-- Bio -->
                 <p class="pharmacist-bio"><?php echo esc_html( $bio ); ?></p>
 
-                <!-- Quote -->
-                <p class="pharmacist-quote"><?php echo esc_html( $quote ); ?></p>
+                <!-- Quote card -->
+                <div class="pharmacist-quote-card">
+                    <div class="pharmacist-quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="pharmacist-quote"><?php echo esc_html( $quote ); ?></p>
+                </div>
 
                 <!-- Credentials -->
                 <div class="pharmacist-credentials">
@@ -127,11 +147,15 @@ if ( empty( $credentials ) ) {
                     <?php endforeach; ?>
                 </div>
 
-                <!-- CTA -->
+                <!-- Dual CTAs -->
                 <div class="pharmacist-cta">
                     <a href="<?php echo esc_url( $cta_url ); ?>" class="cta-button primary-cta">
                         <?php echo esc_html( $cta_text ); ?>
                         <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="cta-button secondary-cta">
+                        <i class="fas fa-phone"></i>
+                        <?php echo esc_html( 'Call ' . $phone ); ?>
                     </a>
                 </div>
 

@@ -1778,51 +1778,68 @@ html {
    ============================================ */
 .pharmacist-section {
   padding: 6rem 0;
-  background: var(--white);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
 }
 
 .pharmacist-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
 }
 
 @media (min-width: 1024px) {
   .pharmacist-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 4rem;
   }
 }
 
+/* ── Image column ── */
 .pharmacist-image-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .pharmacist-image-glow {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(63, 115, 174, 0.15) 0%, transparent 70%);
-  transform: scale(1.2);
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, rgba(8, 93, 181, 0.15), rgba(121, 188, 46, 0.1));
+  border-radius: 50%;
+  filter: blur(60px);
   z-index: 0;
   pointer-events: none;
+  animation: pulse-glow 4s ease-in-out infinite;
 }
 
 .pharmacist-image-card {
   position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 480px;
   border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.25);
   z-index: 1;
-  cursor: pointer;
-  border: 4px solid var(--white);
+  border: 6px solid var(--white);
+  transform: rotate(-2deg);
+  transition: transform 0.7s ease-out;
+}
+
+.pharmacist-image-card:hover {
+  transform: rotate(0deg) scale(1.02);
 }
 
 .pharmacist-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
   display: block;
   transition: transform 0.5s ease;
 }
@@ -1831,10 +1848,19 @@ html {
   transform: scale(1.03);
 }
 
+/* Gradient overlay on image */
+.pharmacist-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent 60%);
+  pointer-events: none;
+}
+
+/* Video play button */
 .pharmacist-video-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1843,7 +1869,7 @@ html {
 }
 
 .pharmacist-image-card:hover .pharmacist-video-overlay {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .play-button {
@@ -1862,21 +1888,13 @@ html {
   pointer-events: auto;
 }
 
-.play-button-ping {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 2px solid var(--white);
-  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
 .pharmacist-image-card:hover .play-button {
   transform: scale(1.1);
 }
 
 .pharmacist-video-label {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 5.5rem;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.9);
@@ -1889,46 +1907,142 @@ html {
   color: var(--text-dark);
   white-space: nowrap;
   pointer-events: auto;
+  z-index: 5;
 }
 
-.pharmacist-experience-badge {
+/* Glassmorphic caption overlay at bottom of image */
+.pharmacist-image-caption {
   position: absolute;
-  bottom: 3rem;
-  right: -1rem;
-  background: var(--brand-primary);
+  bottom: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(8, 93, 181, 0.88);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: var(--white);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 15px 40px rgba(63, 115, 174, 0.3);
-  z-index: 2;
-  text-align: center;
-  border: 4px solid var(--white);
-  animation: float 6s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
+  box-shadow: 0 10px 30px -5px rgba(8, 93, 181, 0.35);
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.pharmacist-experience-number {
+.pharmacist-image-card:hover .pharmacist-image-caption {
+  transform: translateY(-4px);
+  background: rgba(8, 93, 181, 0.94);
+}
+
+.pharmacist-caption-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.pharmacist-caption-number {
   font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 900;
   line-height: 1;
-  margin-bottom: 0.25rem;
 }
 
-.pharmacist-experience-label {
-  font-size: 0.75rem;
+.pharmacist-caption-label {
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
   opacity: 0.9;
+  white-space: nowrap;
 }
 
+.pharmacist-caption-divider {
+  width: 1px;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.pharmacist-caption-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+/* ── Content column ── */
 .pharmacist-content {
-  padding-left: 1rem;
+  padding-left: 0;
 }
 
+@media (min-width: 1024px) {
+  .pharmacist-content {
+    padding-left: 1rem;
+  }
+}
+
+/* Rich two-line badge (NHS style) */
+.pharmacist-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem 0.75rem 1rem;
+  background: var(--white);
+  border: 1px solid rgba(8, 93, 181, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(8, 93, 181, 0.08);
+  margin-bottom: 1.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pharmacist-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(8, 93, 181, 0.12);
+}
+
+.pharmacist-badge-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  background: rgba(8, 93, 181, 0.1);
+  color: #085db5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.pharmacist-badge-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.pharmacist-badge-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1.2;
+  margin-bottom: 0.125rem;
+}
+
+.pharmacist-badge-subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-slate);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Name & role */
 .pharmacist-name {
   font-size: 2.5rem;
   font-weight: 900;
   color: #111827;
+  margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
@@ -1939,6 +2053,7 @@ html {
   margin-bottom: 1.5rem;
 }
 
+/* Bio */
 .pharmacist-bio {
   font-size: 1.0625rem;
   color: var(--text-gray);
@@ -1946,36 +2061,79 @@ html {
   margin-bottom: 1.5rem;
 }
 
-.pharmacist-quote {
-  font-size: 1.125rem;
-  font-style: italic;
-  color: var(--text-dark);
-  border-left: 4px solid var(--brand-secondary);
-  padding-left: 1.5rem;
+/* Quote card */
+.pharmacist-quote-card {
+  background: rgba(8, 93, 181, 0.04);
+  border: 1px solid rgba(8, 93, 181, 0.12);
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
   margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
+.pharmacist-quote-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: rgba(8, 93, 181, 0.1);
+  color: #085db5;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.pharmacist-quote {
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Glassmorphic credential pills */
 .pharmacist-credentials {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 
 .pharmacist-credential {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: #f8fafc;
-  padding: 0.625rem 1rem;
-  border-radius: 0.5rem;
+  background: var(--white);
+  border: 1px solid rgba(8, 93, 181, 0.15);
+  padding: 0.625rem 1.125rem;
+  border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--text-slate);
+  color: #374151;
+  box-shadow: 0 2px 8px rgba(8, 93, 181, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pharmacist-credential:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(8, 93, 181, 0.1);
 }
 
 .pharmacist-credential i {
-  color: var(--brand-primary);
+  color: #085db5;
+  font-size: 0.8125rem;
+}
+
+/* Dual CTA row */
+.pharmacist-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
 
 
