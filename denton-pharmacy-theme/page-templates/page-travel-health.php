@@ -109,7 +109,7 @@ get_header();
 <!-- ============================================
      E3. SERVICES — 5-card grid with floating icons
      ============================================ -->
-<section class="travel-services-section" id="services">
+<section class="travel-services-section travel-reveal" id="services">
   <div class="section-container">
     <div class="travel-services-header">
       <div class="section-badge">
@@ -172,7 +172,7 @@ get_header();
 <!-- ============================================
      E4. VACCINATIONS GRID — 4-column; yellow fever card has gradient
      ============================================ -->
-<section class="travel-vaccines-section">
+<section class="travel-vaccines-section travel-reveal">
   <div class="travel-vaccines-blob-1"></div>
   <div class="travel-vaccines-blob-2"></div>
   <div class="section-container">
@@ -258,7 +258,7 @@ get_header();
 <!-- ============================================
      E5. WHY CHOOSE US — 2-column: image + 4 feature cards
      ============================================ -->
-<section class="travel-why-section">
+<section class="travel-why-section travel-reveal">
   <div class="section-container">
     <div class="travel-why-header">
       <div class="section-badge">
@@ -333,7 +333,7 @@ get_header();
 <!-- ============================================
      E6. PROCESS — 4 alternating steps
      ============================================ -->
-<section class="travel-process-section" id="process">
+<section class="travel-process-section travel-reveal" id="process">
   <div class="section-container">
     <div class="travel-process-header">
       <div class="section-badge">
@@ -407,7 +407,7 @@ get_header();
 <!-- ============================================
      E7. POPULAR DESTINATIONS — 4-column card grid
      ============================================ -->
-<section class="travel-destinations-section">
+<section class="travel-destinations-section travel-reveal">
   <div class="section-container">
     <div class="travel-destinations-header">
       <div class="section-badge">
@@ -468,7 +468,7 @@ get_header();
      E8. FAQ — Serif font styling (Playfair Display)
      .travel-faq-item / .travel-faq-active
      ============================================ -->
-<section class="travel-faq-section" id="faq">
+<section class="travel-faq-section travel-reveal" id="faq">
   <div class="section-container">
     <div class="travel-faq-header">
       <div class="section-badge">
@@ -525,7 +525,7 @@ get_header();
 <!-- ============================================
      E9. FINAL CTA — Purple gradient
      ============================================ -->
-<section class="travel-cta-section">
+<section class="travel-cta-section travel-reveal">
   <div class="travel-cta-glow-1"></div>
   <div class="travel-cta-glow-2"></div>
   <div class="travel-cta-dots"></div>
