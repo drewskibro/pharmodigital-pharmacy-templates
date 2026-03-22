@@ -102,7 +102,7 @@ get_header();
 <!-- ============================================
      STATS BAR (Glassmorphic — matches home page)
      ============================================ -->
-<section class="wl-stats-section">
+<section class="wl-stats-section wl-reveal">
   <div class="section-container">
     <div class="wl-stats-bar">
 
@@ -159,7 +159,7 @@ get_header();
 <!-- ============================================
      RESULTS SHOWCASE
      ============================================ -->
-<section class="wl-results-section">
+<section class="wl-results-section wl-reveal">
   <div class="section-container">
     <div class="wl-results-header">
       <div class="section-badge">
@@ -214,7 +214,7 @@ get_header();
 <!-- ============================================
      FEATURES SECTION
      ============================================ -->
-<section class="wl-features-section">
+<section class="wl-features-section wl-reveal">
   <div class="section-container">
     <div class="wl-features-header">
       <div class="section-badge">
@@ -334,7 +334,7 @@ get_header();
 <!-- ============================================
      CTA BAR
      ============================================ -->
-<section class="wl-cta-bar">
+<section class="wl-cta-bar wl-reveal">
   <div class="wl-cta-bar-shimmer"></div>
   <div class="section-container">
     <div class="wl-cta-bar-content">
@@ -353,7 +353,7 @@ get_header();
 <!-- ============================================
      JOURNEY STEPS
      ============================================ -->
-<section class="wl-journey-section">
+<section class="wl-journey-section wl-reveal">
   <div class="section-container">
     <div class="wl-journey-header">
       <div class="section-badge">
@@ -490,7 +490,7 @@ get_header();
 <!-- ============================================
      CALCULATOR SECTION
      ============================================ -->
-<section class="wl-calculator-section" id="calculator">
+<section class="wl-calculator-section wl-reveal" id="calculator">
   <div class="section-container">
     <div class="wl-calculator-header">
       <div class="section-badge">
@@ -627,7 +627,7 @@ get_header();
 <!-- ============================================
      FAQ SECTION
      ============================================ -->
-<section class="wl-faq-section">
+<section class="wl-faq-section wl-reveal">
   <div class="section-container">
     <div class="wl-faq-header">
       <div class="section-badge">
@@ -720,7 +720,7 @@ get_header();
 <!-- ============================================
      TESTIMONIALS SECTION (Premium editorial layout)
      ============================================ -->
-<section class="wl-testimonials-section">
+<section class="wl-testimonials-section wl-reveal">
   <div class="section-container">
 
     <!-- Section header -->
@@ -827,14 +827,14 @@ get_header();
             <span><?php echo $is_large ? 'Verified Patient' : 'Verified'; ?></span>
           </div>
 
-          <?php if ( ! empty( $t['weight'] ) ) : ?>
-            <div class="wl-testimonial-weight-pill">
-              <i class="fas fa-arrow-trend-down"></i>
-              <span><?php echo esc_html( $t['weight'] ); ?></span>
-            </div>
-          <?php endif; ?>
-
           <div class="wl-testimonial-card-body">
+            <?php if ( ! empty( $t['weight'] ) ) : ?>
+              <div class="wl-testimonial-weight-pill">
+                <i class="fas fa-arrow-trend-down"></i>
+                <span><?php echo esc_html( $t['weight'] ); ?></span>
+              </div>
+            <?php endif; ?>
+
             <!-- Stars -->
             <div class="star-row <?php echo $is_large ? 'star-row-large' : ''; ?>">
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -880,7 +880,7 @@ get_header();
         <div class="wl-testimonial-cta-glow"></div>
         <div class="wl-testimonial-cta-body">
           <div class="wl-testimonial-cta-content">
-            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( dp_field( 'wl_testimonials_cta_title', 'Trusted by 300+ Denton Patients' ) ); ?></h3>
+            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( dp_field( 'wl_testimonials_cta_title', 'Trusted by 5,000+ Denton Patients' ) ); ?></h3>
             <p class="wl-testimonial-cta-text"><?php echo esc_html( dp_field( 'wl_testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ) ); ?></p>
           </div>
           <div class="wl-testimonial-cta-rating">
@@ -902,7 +902,7 @@ get_header();
 <!-- ============================================
      FINAL CTA SECTION
      ============================================ -->
-<section class="wl-final-cta-section">
+<section class="wl-final-cta-section wl-reveal">
   <div class="wl-final-cta-glow-1"></div>
   <div class="wl-final-cta-glow-2"></div>
   <div class="wl-final-cta-dots"></div>
@@ -915,8 +915,8 @@ get_header();
         <div class="wl-final-cta-badge"><i class="fas fa-users"></i><span><?php echo esc_html( dp_field( 'wl_results_card3_number', '500+' ) ); ?> Patients Helped</span></div>
       </div>
 
-      <h2 class="wl-final-cta-title"><?php echo esc_html( dp_field( 'wl_final_cta_title', 'Ready to start your weight loss journey?' ) ); ?></h2>
-      <p class="wl-final-cta-description"><?php echo esc_html( dp_field( 'wl_final_cta_description', 'Join 500+ Denton residents who\'ve transformed their lives with medical weight loss. Book your consultation with Ahmed today.' ) ); ?></p>
+      <h2 class="wl-final-cta-title"><?php echo esc_html( dp_field( 'wl_final_cta_title', 'Book your weight loss consultation' ) ); ?></h2>
+      <p class="wl-final-cta-description"><?php echo esc_html( dp_field( 'wl_final_cta_description', 'Join 5,000+ patients who have transformed their lives with medical weight loss. Book your face-to-face consultation with Ahmed today.' ) ); ?></p>
 
       <div class="wl-final-cta-actions">
         <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="cta-button primary-cta wl-final-cta-button-white">

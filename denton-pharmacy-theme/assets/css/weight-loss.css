@@ -26,6 +26,24 @@
 /* ============================================
    ANIMATIONS
    ============================================ */
+
+/* Scroll-triggered reveal */
+.wl-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.wl-reveal.wl-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children within a revealed section */
+.wl-reveal-delay-1 { transition-delay: 0.1s; }
+.wl-reveal-delay-2 { transition-delay: 0.2s; }
+.wl-reveal-delay-3 { transition-delay: 0.3s; }
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -46,12 +64,18 @@
    ============================================ */
 .wl-hero-section {
   position: relative;
-  min-height: 90vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  padding: 40px 0 80px;
+  padding: 20px 0 80px;
   overflow: hidden;
   background: linear-gradient(to bottom, var(--brand-light), var(--white), var(--brand-light));
+}
+
+@media (min-width: 1024px) {
+  .wl-hero-section {
+    padding-top: 0;
+  }
 }
 
 .wl-hero-bg {
@@ -1825,16 +1849,34 @@
 }
 
 /* ============================================
-   FAQ SECTION
+   FAQ SECTION (Warm design)
    ============================================ */
 .wl-faq-section {
   padding: 6rem 0;
-  background: var(--white);
+  background: var(--brand-light);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative warm blob */
+.wl-faq-section::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(63, 115, 174, 0.04);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
 }
 
 .wl-faq-header {
   text-align: center;
   margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 .wl-faq-title {
@@ -1842,13 +1884,20 @@
   font-weight: 900;
   color: #111827;
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .wl-faq-title {
+    font-size: 3rem;
+  }
 }
 
 .wl-faq-divider {
   width: 60px;
   height: 3px;
-  background: var(--brand-purple);
+  background: var(--brand-primary);
   margin: 0 auto 1.5rem;
   border-radius: 9999px;
 }
@@ -1856,6 +1905,9 @@
 .wl-faq-description {
   font-size: 1.125rem;
   color: var(--text-gray);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .wl-faq-list {
@@ -1864,24 +1916,29 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .wl-faq-item {
   background: var(--white);
-  border: 1px solid #f3f4f6;
-  border-radius: 1rem;
+  border: 1.5px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.25rem;
   overflow: hidden;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .wl-faq-item:hover {
-  border-color: rgba(163, 158, 227, 0.3);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-color: rgba(63, 115, 174, 0.25);
+  box-shadow: 0 8px 24px rgba(63, 115, 174, 0.08);
+  transform: translateY(-2px);
 }
 
 .wl-faq-item.wl-faq-active {
-  border-color: var(--brand-purple);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-color: var(--brand-primary);
+  box-shadow: 0 12px 32px rgba(63, 115, 174, 0.12);
+  border-left: 4px solid var(--brand-primary);
 }
 
 .wl-faq-question {
@@ -1899,8 +1956,8 @@
 .wl-faq-number {
   width: 2.5rem;
   height: 2.5rem;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
-  border-radius: 0.5rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1909,6 +1966,11 @@
   font-weight: 700;
   font-size: 1.125rem;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.wl-faq-item:hover .wl-faq-number {
+  transform: scale(1.05);
 }
 
 .wl-faq-question-text {
@@ -1922,18 +1984,19 @@
 .wl-faq-icon {
   width: 2.75rem;
   height: 2.75rem;
-  background: rgba(163, 158, 227, 0.1);
+  background: rgba(63, 115, 174, 0.08);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--brand-purple);
-  transition: transform 0.3s ease;
+  color: var(--brand-primary);
+  transition: transform 0.3s ease, background 0.3s ease;
   flex-shrink: 0;
 }
 
 .wl-faq-item.wl-faq-active .wl-faq-icon {
   transform: rotate(45deg);
+  background: rgba(63, 115, 174, 0.15);
 }
 
 .wl-faq-answer {
@@ -1943,14 +2006,14 @@
 }
 
 .wl-faq-item.wl-faq-active .wl-faq-answer {
-  max-height: 300px;
+  max-height: 400px;
   padding: 0 2rem 2rem 6rem;
 }
 
 .wl-faq-answer p {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   color: var(--text-gray);
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 @media (max-width: 640px) {
@@ -2119,22 +2182,19 @@
   font-size: 0.625rem;
 }
 
-/* Weight loss pill */
+/* Weight loss pill — inline inside card body, not absolute */
 .wl-testimonial-weight-pill {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
   background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   color: var(--white);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.375rem 0.875rem;
   border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
   box-shadow: 0 4px 12px rgba(63, 115, 174, 0.3);
-  z-index: 20;
+  margin-bottom: 1rem;
 }
 
 .wl-testimonial-weight-pill i {
@@ -2522,24 +2582,31 @@
   }
 }
 
-.wl-final-cta-button-white {
+.wl-final-cta-section .wl-final-cta-button-white {
   background: var(--white);
-  color: var(--brand-dark);
+  color: #6B4FA0;
+  border: 2px solid var(--white);
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.wl-final-cta-button-white:hover {
-  background: rgba(255, 255, 255, 0.95);
+.wl-final-cta-section .wl-final-cta-button-white:hover {
+  background: #f8f6fb;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
-.wl-final-cta-button-outlined {
-  background: transparent;
-  color: var(--white);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.wl-final-cta-button-outlined:hover {
+.wl-final-cta-section .wl-final-cta-button-outlined {
   background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+}
+
+.wl-final-cta-section .wl-final-cta-button-outlined:hover {
+  background: rgba(255, 255, 255, 0.2);
   border-color: var(--white);
+  transform: translateY(-2px);
 }
 
 .wl-final-cta-checks {
