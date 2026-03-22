@@ -3783,21 +3783,23 @@ html {
    REVOLUTION SLIDER PLACEHOLDER
    ============================================ */
 .revslider-section {
-  position: relative;
   width: 100%;
+  height: 800px;
+  position: relative;
   overflow: hidden;
+  background: var(--brand-dark);
 }
 
 .revslider-wrapper {
-  position: relative;
   width: 100%;
-  height: 600px;
+  height: 100%;
+  position: relative;
 }
 
 .revslider-placeholder {
-  position: relative;
   width: 100%;
   height: 100%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3805,8 +3807,7 @@ html {
 
 .revslider-image {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3816,7 +3817,7 @@ html {
 .revslider-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, rgba(42, 80, 122, 0.75), rgba(63, 115, 174, 0.6));
   z-index: 1;
   pointer-events: none;
 }
@@ -3826,82 +3827,134 @@ html {
   z-index: 2;
   text-align: center;
   color: var(--white);
-  padding: 2rem;
   max-width: 900px;
-  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.revslider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .revslider-badge {
-  display: inline-block;
-  background: var(--brand-secondary);
-  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  font-size: 0.8125rem;
   font-weight: 700;
+  color: var(--white);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  margin-bottom: 1.5rem;
+}
+
+.revslider-badge i {
+  font-size: 0.75rem;
 }
 
 .revslider-title {
-  font-size: 3rem;
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
   font-weight: 900;
-  margin-bottom: 1rem;
   line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.04em;
   color: var(--white);
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
 }
 
 .revslider-subtitle {
   font-size: 1.25rem;
-  margin-bottom: 2rem;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 400;
 }
 
 .revslider-cta {
   display: flex;
+  align-items: center;
   gap: 1rem;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .revslider-btn-primary {
-  background: var(--brand-primary);
-  color: var(--white);
-  padding: 1rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 2.5rem;
+  background: var(--white);
+  color: var(--brand-dark);
+  text-decoration: none;
   border-radius: 9999px;
   font-weight: 700;
-  text-decoration: none;
-  transition: transform 0.3s ease;
+  font-size: 1.0625rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 12px 48px rgba(255, 255, 255, 0.15);
+  border: none;
 }
 
 .revslider-btn-primary:hover {
-  transform: scale(1.05);
-  background: var(--brand-dark);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 80px rgba(255, 255, 255, 0.25);
 }
 
 .revslider-btn-secondary {
-  background: transparent;
-  border: 2px solid var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   color: var(--white);
-  padding: 1rem 2rem;
+  text-decoration: none;
   border-radius: 9999px;
   font-weight: 700;
-  text-decoration: none;
-  transition: background 0.3s ease;
+  font-size: 1.0625rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .revslider-btn-secondary:hover {
-  background: var(--white);
-  color: var(--brand-dark);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-6px) scale(1.02);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  .revslider-wrapper {
-    height: 500px;
+  .revslider-section {
+    height: 600px;
   }
+
   .revslider-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .revslider-subtitle {
+    font-size: 1.0625rem;
+  }
+
+  .revslider-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .revslider-btn-primary,
+  .revslider-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 1.125rem 2rem;
+    font-size: 1rem;
   }
 }
 
