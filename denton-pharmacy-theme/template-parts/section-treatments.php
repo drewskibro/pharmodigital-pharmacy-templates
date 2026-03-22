@@ -69,6 +69,9 @@ if ( function_exists( 'have_rows' ) && have_rows( 'treatments_cards' ) ) {
 if ( empty( $treatments ) ) {
     $treatments = $default_treatments;
 }
+
+// Cap at 5 cards to prevent an orphan row in the 5-column grid.
+$treatments = array_slice( $treatments, 0, 5 );
 ?>
 
 <section class="treatments-section" id="treatments">
