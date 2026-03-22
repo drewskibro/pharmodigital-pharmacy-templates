@@ -1800,7 +1800,7 @@ html {
 
 
 /* ============================================
-   PHARMACIST SECTION — The Spotlight Card
+   PHARMACIST SECTION — Clean Clinical Card
    ============================================ */
 .pharmacist-section {
   padding: 5rem 0;
@@ -1842,7 +1842,7 @@ html {
   z-index: 1;
   background: var(--white);
   border-radius: 1.5rem;
-  padding: 2.5rem 2rem 2rem;
+  padding: 2rem;
   box-shadow:
     0 4px 6px rgba(0, 0, 0, 0.02),
     0 12px 24px rgba(0, 0, 0, 0.04),
@@ -1864,57 +1864,25 @@ html {
 .pharmacist-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.75rem;
 }
 
-@media (min-width: 1024px) {
-  .pharmacist-card {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pharmacist-grid {
-    grid-template-columns: 320px 1fr;
-    gap: 0;
-    align-items: stretch;
-  }
-}
-
-/* ── LEFT: Photo area with floating badges ── */
+/* ── LEFT: Photo + identity ── */
 .pharmacist-left {
-  text-align: center;
-  padding: 2.5rem 2rem;
-}
-
-@media (min-width: 1024px) {
-  .pharmacist-left {
-    background: linear-gradient(170deg, #faf7f1 0%, #f5f0e8 100%);
-    padding: 3rem 2.5rem;
-    border-right: 1px solid rgba(8, 93, 181, 0.06);
-  }
-}
-
-.pharmacist-photo-area {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 /* Circular photo with gradient ring */
 .pharmacist-photo-wrapper {
-  width: 180px;
-  height: 180px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  padding: 5px;
+  padding: 3px;
   background: linear-gradient(135deg, #085db5, #3f8fd4);
-  box-shadow: 0 16px 48px rgba(8, 93, 181, 0.25);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.pharmacist-card:hover .pharmacist-photo-wrapper {
-  transform: scale(1.03);
-  box-shadow: 0 20px 56px rgba(8, 93, 181, 0.3);
+  box-shadow: 0 8px 24px rgba(8, 93, 181, 0.2);
+  flex-shrink: 0;
 }
 
 .pharmacist-photo {
@@ -1924,113 +1892,57 @@ html {
   object-position: center 15%;
   border-radius: 50%;
   display: block;
-  border: 4px solid var(--white);
+  border: 3px solid var(--white);
 }
 
-/* ── Floating glassmorphic badges ── */
-.pharmacist-float-badge {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.92);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 0.875rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  padding: 0.625rem 0.875rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  z-index: 5;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+/* Identity block next to photo */
+.pharmacist-identity {
+  min-width: 0;
 }
 
-.pharmacist-card:hover .pharmacist-float-badge {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
-}
-
-/* Experience badge — bottom-right of photo */
-.pharmacist-float-experience {
-  bottom: -8px;
-  right: -30px;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.125rem;
-  padding: 0.5rem 0.875rem;
-}
-
-.pharmacist-card:hover .pharmacist-float-experience {
-  transform: translate(4px, -4px);
-}
-
-.pharmacist-float-number {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: #085db5;
-  line-height: 1;
-}
-
-.pharmacist-float-label {
-  font-size: 0.625rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #64748b;
-  white-space: nowrap;
-}
-
-/* Verified badge — top-right of photo */
-.pharmacist-float-verified {
-  top: 8px;
-  right: -36px;
-  padding: 0.4rem 0.75rem;
-  border-radius: 9999px;
-}
-
-.pharmacist-card:hover .pharmacist-float-verified {
-  transform: translate(4px, -2px);
-}
-
-.pharmacist-float-verified i {
-  color: #16a34a;
-  font-size: 0.8125rem;
-}
-
-.pharmacist-float-verified span {
+.pharmacist-eyebrow {
   font-size: 0.6875rem;
   font-weight: 700;
-  color: #374151;
-  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #085db5;
+  margin: 0 0 0.25rem;
 }
 
-/* Name */
 .pharmacist-name {
-  font-size: 1.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
   font-weight: 900;
   color: #111827;
   margin: 0 0 0.25rem;
   line-height: 1.2;
 }
 
-/* Role */
 .pharmacist-role {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--brand-primary);
-  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin: 0 0 0.375rem;
   line-height: 1.4;
+}
+
+.pharmacist-gphc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #16a34a;
+  margin: 0;
+}
+
+.pharmacist-gphc i {
+  font-size: 0.75rem;
 }
 
 /* ── RIGHT: Content ── */
 .pharmacist-right {
   text-align: left;
-  padding: 0 2rem 2rem;
-}
-
-@media (min-width: 1024px) {
-  .pharmacist-right {
-    padding: 3rem 3.5rem 3rem 3rem;
-  }
 }
 
 /* Badge pill */
@@ -2056,37 +1968,10 @@ html {
 
 /* Bio */
 .pharmacist-bio {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   color: var(--text-gray);
   line-height: 1.75;
   margin: 0 0 1.25rem;
-}
-
-/* Quote block */
-.pharmacist-quote-card {
-  display: flex;
-  gap: 1rem;
-  align-items: stretch;
-  margin-bottom: 1.5rem;
-  padding: 1.25rem 1.5rem;
-  background: linear-gradient(135deg, #fdf9f3, #faf5ed);
-  border: 1px solid rgba(180, 140, 80, 0.1);
-  border-radius: 0.875rem;
-}
-
-.pharmacist-quote-bar {
-  width: 5px;
-  flex-shrink: 0;
-  border-radius: 4px;
-  background: linear-gradient(180deg, #085db5, #3f8fd4);
-}
-
-.pharmacist-quote {
-  font-size: 1.0625rem;
-  font-style: italic;
-  color: #4b5563;
-  line-height: 1.7;
-  margin: 0;
 }
 
 /* Credential pills */
@@ -2128,39 +2013,67 @@ html {
   gap: 0.875rem;
 }
 
-/* ── Responsive ── */
-@media (min-width: 768px) {
-  .pharmacist-photo-wrapper {
-    width: 200px;
-    height: 200px;
-  }
+/* ── Trust checks footer ── */
+.pharmacist-trust-checks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  padding-top: 1.5rem;
+  margin-top: 1.75rem;
+  border-top: 1px solid #e5e7eb;
 }
 
+.pharmacist-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.pharmacist-trust-item i {
+  color: #16a34a;
+  font-size: 0.875rem;
+}
+
+/* ── Desktop: two-column layout ── */
 @media (min-width: 1024px) {
+  .pharmacist-card {
+    padding: 2.5rem 3rem 2rem;
+  }
+
+  .pharmacist-grid {
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .pharmacist-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 0.5rem;
+  }
+
   .pharmacist-photo-wrapper {
-    width: 240px;
-    height: 240px;
+    width: 120px;
+    height: 120px;
+    padding: 4px;
+    margin-bottom: 0.25rem;
   }
 
   .pharmacist-name {
-    font-size: 2rem;
-  }
-
-  .pharmacist-float-experience {
-    bottom: 0;
-    right: -44px;
-  }
-
-  .pharmacist-float-verified {
-    top: 14px;
-    right: -52px;
+    font-size: 1.625rem;
   }
 }
 
-/* Hide floating badges on very narrow screens where they'd overflow */
-@media (max-width: 420px) {
-  .pharmacist-float-badge {
-    display: none;
+/* ── Tablet: horizontal identity ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pharmacist-photo-wrapper {
+    width: 100px;
+    height: 100px;
   }
 }
 

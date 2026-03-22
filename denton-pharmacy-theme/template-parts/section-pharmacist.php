@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Part: Pharmacist Section — "The Spotlight Card"
+ * Template Part: Pharmacist Section — Clean Clinical Card
  *
- * Premium two-column layout inside a full-width white card with gradient
- * accent bar, floating glassmorphic badges around the photo, and
- * decorative background glows.
+ * Compact two-column layout: pharmacist identity on the left (photo, name,
+ * role, GPhC number), content + CTAs on the right. Trust checks and
+ * credential pills sit below the main grid.
  *
  * @package Denton_Pharmacy
  */
@@ -15,16 +15,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // --- ACF fields with Denton-specific defaults ---
 $badge_text     = dp_field( 'pharmacist_badge_text', 'Your Local Expert' );
-$name           = dp_field( 'pharmacist_name', 'Meet Ahmed Al-Liabi' );
-$role           = dp_field( 'pharmacist_role', 'Lead Pharmacist & Independent Prescriber' );
-$experience     = dp_field( 'pharmacist_experience_years', '15+' );
-$experience_lbl = dp_field( 'pharmacist_experience_label', 'Years Experience' );
-$bio            = dp_field( 'pharmacist_bio', 'With over 15 years of experience, Ahmed leads our clinical team providing personalised, accessible healthcare in Denton. As an Independent Prescriber, he ensures you receive safe, effective treatments without the wait.' );
-$quote          = dp_field( 'pharmacist_quote', 'My goal is to make expert healthcare accessible to everyone in Denton — honest, professional care delivered to your door.' );
-$cta_text       = dp_field( 'pharmacist_cta_text', 'Book a Consultation' );
+$name           = dp_field( 'pharmacist_name', 'Ahmed Al-Liabi' );
+$role           = dp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
+$bio            = dp_field( 'pharmacist_bio', 'With over 15 years of experience, Ahmed leads our clinical team dedicated to providing personalised, accessible healthcare in Denton. As an Independent Prescriber, he oversees our service to ensure you receive safe, effective treatments without the wait.' );
+$cta_text       = dp_field( 'pharmacist_cta_text', 'Start Your Online Consultation' );
 $cta_url        = dp_field( 'pharmacist_cta_url', dp_booking_url() );
 $phone          = dp_phone();
 $phone_link     = dp_phone_link();
+
+// --- GPhC number from global options ---
+$gphc_number    = dp_option( 'superintendent_gphc_number', '2088937' );
 
 // --- Pharmacist photo (ACF image field, return format: ID) ---
 $pharmacist_image_id  = dp_field( 'pharmacist_photo' );
@@ -55,6 +55,13 @@ if ( function_exists( 'have_rows' ) && have_rows( 'pharmacist_credentials' ) ) {
 if ( empty( $credentials ) ) {
     $credentials = $default_credentials;
 }
+
+// --- Trust checks ---
+$trust_checks = array(
+    'Same-Day Appointments',
+    'No GP Referral Needed',
+    'Face-to-Face Consultations',
+);
 ?>
 
 <section class="pharmacist-section" id="about">
@@ -71,33 +78,26 @@ if ( empty( $credentials ) ) {
 
             <div class="pharmacist-grid">
 
-                <!-- LEFT: Photo with floating badges + identity -->
+                <!-- LEFT: Photo + identity -->
                 <div class="pharmacist-left">
-                    <div class="pharmacist-photo-area">
-                        <?php if ( $pharmacist_image_url ) : ?>
-                        <div class="pharmacist-photo-wrapper">
-                            <img src="<?php echo esc_url( $pharmacist_image_url ); ?>" alt="<?php echo esc_attr( $pharmacist_image_alt ); ?>" class="pharmacist-photo" />
-                        </div>
-                        <?php endif; ?>
-
-                        <!-- Floating experience badge -->
-                        <div class="pharmacist-float-badge pharmacist-float-experience">
-                            <span class="pharmacist-float-number"><?php echo esc_html( $experience ); ?></span>
-                            <span class="pharmacist-float-label"><?php echo esc_html( $experience_lbl ); ?></span>
-                        </div>
-
-                        <!-- Floating verified badge -->
-                        <div class="pharmacist-float-badge pharmacist-float-verified">
-                            <i class="fas fa-shield-halved"></i>
-                            <span>GPhC Verified</span>
-                        </div>
+                    <?php if ( $pharmacist_image_url ) : ?>
+                    <div class="pharmacist-photo-wrapper">
+                        <img src="<?php echo esc_url( $pharmacist_image_url ); ?>" alt="<?php echo esc_attr( $pharmacist_image_alt ); ?>" class="pharmacist-photo" />
                     </div>
+                    <?php endif; ?>
 
-                    <h2 class="pharmacist-name"><?php echo esc_html( $name ); ?></h2>
-                    <p class="pharmacist-role"><?php echo esc_html( $role ); ?></p>
+                    <div class="pharmacist-identity">
+                        <p class="pharmacist-eyebrow">Your consultation with</p>
+                        <h2 class="pharmacist-name"><?php echo esc_html( $name ); ?></h2>
+                        <p class="pharmacist-role"><?php echo esc_html( $role ); ?></p>
+                        <p class="pharmacist-gphc">
+                            <i class="fas fa-shield-halved"></i>
+                            GPhC: <?php echo esc_html( $gphc_number ); ?>
+                        </p>
+                    </div>
                 </div>
 
-                <!-- RIGHT: Content -->
+                <!-- RIGHT: Content + CTAs -->
                 <div class="pharmacist-right">
 
                     <div class="pharmacist-badge">
@@ -106,11 +106,6 @@ if ( empty( $credentials ) ) {
                     </div>
 
                     <p class="pharmacist-bio"><?php echo esc_html( $bio ); ?></p>
-
-                    <div class="pharmacist-quote-card">
-                        <div class="pharmacist-quote-bar"></div>
-                        <p class="pharmacist-quote"><?php echo esc_html( $quote ); ?></p>
-                    </div>
 
                     <div class="pharmacist-credentials">
                         <?php foreach ( $credentials as $credential ) :
@@ -136,6 +131,17 @@ if ( empty( $credentials ) ) {
                 </div>
 
             </div>
+
+            <!-- Trust checks -->
+            <div class="pharmacist-trust-checks">
+                <?php foreach ( $trust_checks as $check ) : ?>
+                    <span class="pharmacist-trust-item">
+                        <i class="fas fa-check-circle"></i>
+                        <?php echo esc_html( $check ); ?>
+                    </span>
+                <?php endforeach; ?>
+            </div>
+
         </div>
     </div>
 </section>
