@@ -1869,19 +1869,30 @@ html {
 
 @media (min-width: 1024px) {
   .pharmacist-card {
-    padding: 3.5rem 3.5rem 3rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   .pharmacist-grid {
-    grid-template-columns: 280px 1fr;
-    gap: 3.5rem;
-    align-items: center;
+    grid-template-columns: 320px 1fr;
+    gap: 0;
+    align-items: stretch;
   }
 }
 
 /* ── LEFT: Photo area with floating badges ── */
 .pharmacist-left {
   text-align: center;
+  padding: 2.5rem 2rem;
+}
+
+@media (min-width: 1024px) {
+  .pharmacist-left {
+    background: linear-gradient(170deg, #faf7f1 0%, #f5f0e8 100%);
+    padding: 3rem 2.5rem;
+    border-right: 1px solid rgba(8, 93, 181, 0.06);
+  }
 }
 
 .pharmacist-photo-area {
@@ -2013,6 +2024,13 @@ html {
 /* ── RIGHT: Content ── */
 .pharmacist-right {
   text-align: left;
+  padding: 0 2rem 2rem;
+}
+
+@media (min-width: 1024px) {
+  .pharmacist-right {
+    padding: 3rem 3.5rem 3rem 3rem;
+  }
 }
 
 /* Badge pill */
@@ -2038,7 +2056,7 @@ html {
 
 /* Bio */
 .pharmacist-bio {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   color: var(--text-gray);
   line-height: 1.75;
   margin: 0 0 1.25rem;
@@ -2050,20 +2068,21 @@ html {
   gap: 1rem;
   align-items: stretch;
   margin-bottom: 1.5rem;
-  padding: 1.125rem 1.375rem;
-  background: rgba(8, 93, 181, 0.035);
-  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #fdf9f3, #faf5ed);
+  border: 1px solid rgba(180, 140, 80, 0.1);
+  border-radius: 0.875rem;
 }
 
 .pharmacist-quote-bar {
-  width: 4px;
+  width: 5px;
   flex-shrink: 0;
   border-radius: 4px;
   background: linear-gradient(180deg, #085db5, #3f8fd4);
 }
 
 .pharmacist-quote {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-style: italic;
   color: #4b5563;
   line-height: 1.7;
@@ -2119,8 +2138,8 @@ html {
 
 @media (min-width: 1024px) {
   .pharmacist-photo-wrapper {
-    width: 220px;
-    height: 220px;
+    width: 240px;
+    height: 240px;
   }
 
   .pharmacist-name {
@@ -2128,13 +2147,13 @@ html {
   }
 
   .pharmacist-float-experience {
-    bottom: -4px;
-    right: -40px;
+    bottom: 0;
+    right: -44px;
   }
 
   .pharmacist-float-verified {
-    top: 12px;
-    right: -48px;
+    top: 14px;
+    right: -52px;
   }
 }
 
