@@ -140,21 +140,16 @@ if ( empty( $testimonials ) ) {
         <!-- Section header -->
         <div class="testimonials-header">
             <div class="section-badge">
-                <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
                 <span class="section-badge-text"><?php echo esc_html( $badge_text ); ?></span>
             </div>
             <h2 class="testimonials-title">
                 <?php echo esc_html( $title_start ); ?> <span class="gradient-text"><?php echo esc_html( $title_highlight ); ?></span>
             </h2>
-            <p class="testimonials-description">
-                <?php echo esc_html( $description ); ?>
-            </p>
-            <p class="testimonials-disclaimer">
+            <p class="testimonials-description"><?php echo esc_html( $description ); ?></p>
+            <div class="testimonials-disclaimer">
                 <i class="fas fa-info-circle"></i>
-                <?php echo esc_html( $disclaimer ); ?>
-            </p>
+                <p><strong>Transparency Note:</strong> <?php echo esc_html( $disclaimer ); ?></p>
+            </div>
         </div>
 
         <!-- Testimonials grid -->
@@ -162,19 +157,20 @@ if ( empty( $testimonials ) ) {
 
             <?php foreach ( $testimonials as $index => $testimonial ) :
                 // First testimonial is "large", rest are "medium"
-                $is_large   = ( $index === 0 );
-                $card_class = $is_large ? 'testimonial-card testimonial-card-large' : 'testimonial-card testimonial-card-medium';
-                $star_class = $is_large ? 'star-row star-row-large' : 'star-row star-row-small';
+                $is_large    = ( $index === 0 );
+                $card_class  = $is_large ? 'testimonial-card testimonial-card-large' : 'testimonial-card testimonial-card-medium';
+                $star_class  = $is_large ? 'star-row star-row-large' : 'star-row';
                 $quote_class = $is_large ? 'testimonial-quote testimonial-quote-large' : 'testimonial-quote';
                 $avatar_class = $is_large ? 'testimonial-avatar testimonial-avatar-large' : 'testimonial-avatar';
                 $name_class  = $is_large ? 'testimonial-author-name testimonial-author-name-large' : 'testimonial-author-name';
+                $verified_label = $is_large ? 'Verified Patient' : 'Verified';
             ?>
                 <div class="<?php echo esc_attr( $card_class ); ?>">
 
                     <!-- Verified badge -->
                     <div class="testimonial-verified">
-                        <i class="fas fa-circle-check"></i>
-                        <span>Verified Patient</span>
+                        <i class="fas fa-check-circle"></i>
+                        <span><?php echo esc_html( $verified_label ); ?></span>
                     </div>
 
                     <div class="testimonial-card-body">
@@ -203,12 +199,9 @@ if ( empty( $testimonials ) ) {
                                 <?php echo esc_html( $testimonial['initials'] ); ?>
                             </div>
                             <div class="testimonial-author-info">
-                                <span class="<?php echo esc_attr( $name_class ); ?>"><?php echo esc_html( $testimonial['name'] ); ?></span>
                                 <span class="testimonial-service"><?php echo esc_html( $testimonial['service'] ); ?></span>
-                                <span class="testimonial-author-status">
-                                    <i class="fas fa-circle-check"></i>
-                                    Verified Patient
-                                </span>
+                                <h4 class="<?php echo esc_attr( $name_class ); ?>"><?php echo esc_html( $testimonial['name'] ); ?></h4>
+                                <p class="testimonial-author-status">Verified Patient</p>
                             </div>
                         </div>
 
@@ -231,7 +224,7 @@ if ( empty( $testimonials ) ) {
                             <div class="testimonial-checklist">
                                 <?php foreach ( $testimonial['checklist'] as $check_item ) : ?>
                                     <div class="testimonial-check">
-                                        <i class="fas fa-check-circle"></i>
+                                        <i class="fas fa-check"></i>
                                         <span><?php echo esc_html( $check_item ); ?></span>
                                     </div>
                                 <?php endforeach; ?>
@@ -250,11 +243,9 @@ if ( empty( $testimonials ) ) {
                         <h3 class="testimonial-cta-title"><?php echo esc_html( $cta_title ); ?></h3>
                         <p class="testimonial-cta-text"><?php echo esc_html( $cta_text ); ?></p>
                     </div>
-
-                    <!-- Rating card -->
                     <div class="testimonial-cta-rating">
                         <div class="testimonial-cta-rating-card">
-                            <div class="testimonial-cta-score"><?php echo esc_html( $rating ); ?></div>
+                            <span class="testimonial-cta-score"><?php echo esc_html( $rating ); ?></span>
                             <div class="star-row star-row-small">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -269,6 +260,5 @@ if ( empty( $testimonials ) ) {
             </div>
 
         </div>
-
     </div>
 </section>
