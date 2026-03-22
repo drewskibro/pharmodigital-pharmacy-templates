@@ -108,16 +108,12 @@ $total_steps = count( $steps );
         <div class="how-it-works-steps">
 
             <?php foreach ( $steps as $index => $step ) :
-                $icon_class = dp_fa_class( $step['step_icon'] );
                 $time_icon_class = dp_fa_class( $step['step_time_icon'] );
             ?>
                 <div class="how-it-works-step">
                     <div class="how-it-works-step-card">
                         <div class="how-it-works-step-number">
                             <span><?php echo esc_html( $step['step_number'] ); ?></span>
-                        </div>
-                        <div class="how-it-works-step-icon">
-                            <i class="<?php echo esc_attr( $icon_class ); ?>"></i>
                         </div>
                         <h3 class="how-it-works-step-title"><?php echo esc_html( $step['step_title'] ); ?></h3>
                         <p class="how-it-works-step-desc"><?php echo esc_html( $step['step_description'] ); ?></p>

@@ -2158,12 +2158,6 @@ html {
   box-shadow: 0 8px 20px rgba(63, 115, 174, 0.3);
 }
 
-.how-it-works-step-icon {
-  font-size: 2.5rem;
-  color: var(--brand-secondary);
-  margin-bottom: 1.5rem;
-}
-
 .how-it-works-step-title {
   font-size: 1.25rem;
   font-weight: 700;
@@ -2183,12 +2177,17 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: #f1f5f9;
+  background: rgba(8, 93, 181, 0.06);
+  border: 1px solid rgba(8, 93, 181, 0.1);
   padding: 0.5rem 1rem;
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--text-slate);
+  color: #085db5;
+}
+
+.how-it-works-step-time i {
+  font-size: 0.6875rem;
 }
 
 .how-it-works-connector {
