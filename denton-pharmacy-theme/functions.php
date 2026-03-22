@@ -139,8 +139,8 @@ function denton_pharmacy_scripts() {
     }
 
     if ( is_page_template( 'page-templates/page-ear-wax-removal.php' ) ) {
-        wp_enqueue_style( 'denton-ear-wax', DENTON_PHARMACY_URI . '/assets/css/ear-wax-removal.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
-        wp_enqueue_script( 'denton-ear-wax-js', DENTON_PHARMACY_URI . '/assets/js/ear-wax-removal.js', array(), DENTON_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-ear-wax', DENTON_PHARMACY_URI . '/assets/css/ear-wax-removal.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/ear-wax-removal.css' ) );
+        wp_enqueue_script( 'denton-ear-wax-js', DENTON_PHARMACY_URI . '/assets/js/ear-wax-removal.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/ear-wax-removal.js' ), true );
     }
 
     if ( is_page_template( 'page-templates/page-hair-loss.php' ) ) {

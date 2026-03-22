@@ -340,19 +340,47 @@ get_header();
     </div>
 
     <?php if ( have_rows( 'ew_process_steps' ) ) : $step_index = 0; while ( have_rows( 'ew_process_steps' ) ) : the_row(); $step_index++;
-      $step_direction = ( $step_index % 2 === 0 ) ? 'earwax-process-step-right' : 'earwax-process-step-left';
       $step_image_id  = get_sub_field( 'image' );
       $step_image_url = $step_image_id ? wp_get_attachment_image_url( $step_image_id, 'medium_large' ) : '';
       $step_time      = get_sub_field( 'time' );
       $step_badge     = get_sub_field( 'badge' );
+      $step_direction = $step_image_url ? ( ( $step_index % 2 === 0 ) ? 'earwax-process-step-right' : 'earwax-process-step-left' ) : '';
     ?>
-      <div class="earwax-process-step <?php echo esc_attr( $step_direction ); ?>">
-        <div class="earwax-process-step-content">
-          <div class="earwax-process-step-icon">
+      <?php if ( $step_image_url ) : ?>
+        <div class="earwax-process-step <?php echo esc_attr( $step_direction ); ?>">
+          <div class="earwax-process-step-content">
+            <div class="earwax-process-step-icon">
+              <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+            </div>
+            <h3 class="earwax-process-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+            <p class="earwax-process-step-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+            <?php if ( $step_time ) : ?>
+              <div class="earwax-process-step-time">
+                <i class="fas fa-clock"></i>
+                <span><?php echo esc_html( $step_time ); ?></span>
+              </div>
+            <?php endif; ?>
+            <?php if ( $step_badge ) : ?>
+              <div class="earwax-process-step-badge">
+                <i class="fas fa-check-circle"></i>
+                <span><?php echo esc_html( $step_badge ); ?></span>
+              </div>
+            <?php endif; ?>
+          </div>
+          <div class="earwax-process-step-image">
+            <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
+          </div>
+        </div>
+      <?php else : ?>
+        <!-- No image — render as card in grid -->
+      <?php if ( $step_index === 1 ) : ?><div class="earwax-process-cards"><?php endif; ?>
+        <div class="earwax-process-card">
+          <div class="earwax-process-card-number"><?php echo esc_html( $step_index ); ?></div>
+          <div class="earwax-process-card-icon">
             <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
           </div>
-          <h3 class="earwax-process-step-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-          <p class="earwax-process-step-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+          <h3 class="earwax-process-card-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+          <p class="earwax-process-card-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
           <?php if ( $step_time ) : ?>
             <div class="earwax-process-step-time">
               <i class="fas fa-clock"></i>
@@ -366,49 +394,43 @@ get_header();
             </div>
           <?php endif; ?>
         </div>
-        <?php if ( $step_image_url ) : ?>
-          <div class="earwax-process-step-image">
-            <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
-          </div>
-        <?php endif; ?>
-      </div>
-    <?php endwhile; else : ?>
-      <!-- Step 1: Assessment -->
-      <div class="earwax-process-step earwax-process-step-left">
-        <div class="earwax-process-step-content">
-          <div class="earwax-process-step-icon">
+      <?php endif; ?>
+    <?php endwhile; ?>
+    <?php if ( ! $step_image_url ) : ?></div><?php endif; ?>
+    <?php else : ?>
+      <!-- Default: 3-step card grid -->
+      <div class="earwax-process-cards">
+        <div class="earwax-process-card">
+          <div class="earwax-process-card-number">1</div>
+          <div class="earwax-process-card-icon">
             <i class="fas fa-clipboard-check"></i>
           </div>
-          <h3 class="earwax-process-step-title">Initial Assessment</h3>
-          <p class="earwax-process-step-desc">Detailed ear examination, discussion of symptoms, treatment plan explanation, and no-obligation quote.</p>
+          <h3 class="earwax-process-card-title">Initial Assessment</h3>
+          <p class="earwax-process-card-desc">Detailed ear examination, discussion of symptoms, and treatment plan explanation with a no-obligation quote.</p>
           <div class="earwax-process-step-time">
             <i class="fas fa-clock"></i>
             <span>10 minutes</span>
           </div>
         </div>
-      </div>
-      <!-- Step 2: Treatment -->
-      <div class="earwax-process-step earwax-process-step-right">
-        <div class="earwax-process-step-content">
-          <div class="earwax-process-step-icon">
+        <div class="earwax-process-card">
+          <div class="earwax-process-card-number">2</div>
+          <div class="earwax-process-card-icon">
             <i class="fas fa-microscope"></i>
           </div>
-          <h3 class="earwax-process-step-title">Microsuction Treatment</h3>
-          <p class="earwax-process-step-desc">Gentle wax removal with continuous monitoring, progress updates, and immediate relief.</p>
+          <h3 class="earwax-process-card-title">Microsuction Treatment</h3>
+          <p class="earwax-process-card-desc">Gentle wax removal with continuous monitoring, progress updates, and immediate relief.</p>
           <div class="earwax-process-step-time">
             <i class="fas fa-clock"></i>
             <span>15-20 minutes</span>
           </div>
         </div>
-      </div>
-      <!-- Step 3: Aftercare -->
-      <div class="earwax-process-step earwax-process-step-left">
-        <div class="earwax-process-step-content">
-          <div class="earwax-process-step-icon">
+        <div class="earwax-process-card">
+          <div class="earwax-process-card-number">3</div>
+          <div class="earwax-process-card-icon">
             <i class="fas fa-heart-pulse"></i>
           </div>
-          <h3 class="earwax-process-step-title">Aftercare Support</h3>
-          <p class="earwax-process-step-desc">Prevention advice, personalised home care tips, and expert guidance on keeping your ears healthy long-term.</p>
+          <h3 class="earwax-process-card-title">Aftercare Support</h3>
+          <p class="earwax-process-card-desc">Personalised prevention advice, home care tips, and expert guidance on keeping your ears healthy long-term.</p>
           <div class="earwax-process-step-badge">
             <i class="fas fa-check-circle"></i>
             <span>Personalised care plan</span>
