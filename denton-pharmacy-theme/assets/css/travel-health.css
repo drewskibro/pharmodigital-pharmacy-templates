@@ -41,7 +41,7 @@
 .travel-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(109, 104, 181, 0.9), rgba(163, 158, 227, 0.8), rgba(163, 158, 227, 0.4));
+  background: linear-gradient(to right, rgba(42, 80, 122, 0.92), rgba(63, 115, 174, 0.85), rgba(63, 115, 174, 0.4));
   z-index: 1;
   pointer-events: none;
 }
@@ -468,7 +468,7 @@
    ============================================ */
 .travel-vaccines-section {
   padding: 6rem 0;
-  background: linear-gradient(to bottom, #ffffff 0%, #f4f3ff 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f5fa 100%);
   position: relative;
   overflow: hidden;
 }
@@ -479,7 +479,7 @@
   left: 0;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(163, 158, 227, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(63, 115, 174, 0.08) 0%, transparent 70%);
   transform: translate(-30%, -30%);
   pointer-events: none;
   z-index: 0;
@@ -491,7 +491,7 @@
   right: 0;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(109, 104, 181, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(42, 80, 122, 0.06) 0%, transparent 70%);
   transform: translate(30%, 30%);
   pointer-events: none;
   z-index: 0;
@@ -880,15 +880,16 @@
 
 .travel-process-step-content {
   position: relative;
+  padding-top: 2.5rem;
 }
 
 .travel-process-step-number {
   position: absolute;
-  top: -24px;
+  top: 0;
   left: 0;
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, var(--brand-purple, var(--brand-primary)), var(--brand-dark));
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -897,24 +898,25 @@
   font-size: 24px;
   font-weight: 900;
   color: var(--white);
-  box-shadow: 0 8px 25px rgba(109, 104, 181, 0.3);
+  box-shadow: 0 8px 25px rgba(63, 115, 174, 0.3);
   z-index: 2;
 }
 
 .travel-process-step-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.15), rgba(109, 104, 181, 0.1));
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.12), rgba(42, 80, 122, 0.08));
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .travel-process-step-icon i {
   font-size: 32px;
-  color: var(--brand-purple, var(--brand-primary));
+  color: var(--brand-primary);
 }
 
 .travel-process-step-title {
@@ -953,12 +955,12 @@
   background: var(--brand-light);
   padding: 0.875rem 1.25rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(163, 158, 227, 0.2);
+  border: 1px solid rgba(63, 115, 174, 0.2);
   width: fit-content;
 }
 
 .travel-process-step-meta i {
-  color: var(--brand-purple, var(--brand-primary));
+  color: var(--brand-primary);
   font-size: 1rem;
 }
 
@@ -993,10 +995,10 @@
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  background: linear-gradient(135deg, var(--brand-purple, var(--brand-primary)), var(--brand-dark));
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   padding: 1rem 1.5rem;
   border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(109, 104, 181, 0.4);
+  box-shadow: 0 10px 30px rgba(63, 115, 174, 0.4);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -1345,11 +1347,11 @@
 
 
 /* ============================================
-   FINAL CTA — Purple gradient
+   FINAL CTA — Deep blue gradient
    ============================================ */
 .travel-cta-section {
   position: relative;
-  background: #3f73ae;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
   padding: 6rem 0;
   overflow: hidden;
 }
@@ -1514,3 +1516,58 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
 }
+
+
+/* ============================================
+   SCROLL-REVEAL ANIMATIONS
+   ============================================ */
+.travel-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.travel-reveal.travel-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for child elements */
+.travel-reveal.travel-delay-1 { transition-delay: 0.1s; }
+.travel-reveal.travel-delay-2 { transition-delay: 0.2s; }
+.travel-reveal.travel-delay-3 { transition-delay: 0.3s; }
+.travel-reveal.travel-delay-4 { transition-delay: 0.4s; }
+
+
+/* ============================================
+   VACCINE CARD STAGGER ENTRANCE
+   ============================================ */
+.travel-vaccines-grid .travel-vaccine-card,
+.travel-vaccines-grid .travel-vaccine-card-yellow {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.travel-vaccines-section.travel-visible .travel-vaccine-card,
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(1),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(1) { transition-delay: 0.05s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(2),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(2) { transition-delay: 0.1s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(3),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(3) { transition-delay: 0.15s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(4),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(4) { transition-delay: 0.2s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(5),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(5) { transition-delay: 0.25s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(6),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(6) { transition-delay: 0.3s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(7),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(7) { transition-delay: 0.35s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(8),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(8) { transition-delay: 0.4s; }
