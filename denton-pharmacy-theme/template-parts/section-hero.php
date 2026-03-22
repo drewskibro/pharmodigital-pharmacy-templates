@@ -94,7 +94,7 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
             <div class="hero-content">
 
                 <!-- NHS accent strip -->
-                <div class="hero-nhs-strip">
+                <div class="hero-nhs-strip hero-stagger hero-stagger-1">
                     <span class="hero-nhs-label">
                         <i class="fas fa-plus"></i>
                         NHS
@@ -109,18 +109,46 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                     <?php endforeach; ?>
                 </div>
 
-                <!-- Headline -->
+                <?php
+                // --- Headline: 3 lines with rotating middle ---
+                $hero_line_1 = dp_field( 'hero_title_line_1', 'Lose Weight.' );
+                $hero_line_3 = dp_field( 'hero_title_line_3', 'Get NHS Care.' );
+
+                // Rotating phrases for line 2 (ACF repeater or defaults)
+                $default_rotate_phrases = array( 'Travel Safe.', 'Feel Great.', 'Live Better.' );
+                $rotate_phrases = array();
+                if ( function_exists( 'have_rows' ) && have_rows( 'hero_rotate_phrases' ) ) {
+                    while ( have_rows( 'hero_rotate_phrases' ) ) {
+                        the_row();
+                        $phrase = get_sub_field( 'phrase' );
+                        if ( $phrase ) {
+                            $rotate_phrases[] = $phrase;
+                        }
+                    }
+                }
+                if ( empty( $rotate_phrases ) ) {
+                    $rotate_phrases = $default_rotate_phrases;
+                }
+                ?>
+
+                <!-- Headline with staggered lines -->
                 <h1 class="hero-title">
-                    <span class="gradient-text"><?php echo wp_kses( $title, $allowed_title_tags ); ?></span>
+                    <span class="gradient-text hero-stagger hero-stagger-2"><?php echo esc_html( $hero_line_1 ); ?></span>
+                    <span class="hero-rotate-wrapper hero-stagger hero-stagger-3" aria-label="<?php echo esc_attr( implode( ', ', $rotate_phrases ) ); ?>">
+                        <?php foreach ( $rotate_phrases as $p_index => $phrase ) : ?>
+                            <span class="hero-rotate-phrase<?php echo $p_index === 0 ? ' active' : ''; ?>"><?php echo esc_html( $phrase ); ?></span>
+                        <?php endforeach; ?>
+                    </span>
+                    <span class="gradient-text hero-stagger hero-stagger-4"><?php echo esc_html( $hero_line_3 ); ?></span>
                 </h1>
 
                 <!-- Description -->
-                <p class="hero-description">
+                <p class="hero-description hero-stagger hero-stagger-5">
                     <?php echo esc_html( $description ); ?>
                 </p>
 
                 <!-- CTAs -->
-                <div class="hero-actions">
+                <div class="hero-actions hero-stagger hero-stagger-6">
                     <a href="<?php echo esc_url( $cta_primary_url ); ?>" class="cta-button primary-cta">
                         <?php echo esc_html( $cta_primary_text ); ?>
                         <i class="fas fa-arrow-right"></i>
@@ -132,7 +160,7 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                 </div>
 
                 <!-- Trust indicators -->
-                <ul class="trust-indicators">
+                <ul class="trust-indicators hero-stagger hero-stagger-7">
                     <?php foreach ( $trust_indicators as $i => $indicator ) : ?>
                         <?php if ( $i > 0 ) : ?>
                             <li class="trust-item trust-divider">
@@ -147,7 +175,7 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                 </ul>
 
                 <!-- Testimonial card (mobile only — desktop version overlaps the image) -->
-                <div class="hero-testimonial mobile-only">
+                <div class="hero-testimonial mobile-only hero-stagger hero-stagger-8">
                     <div class="quote-icon">
                         <i class="fas fa-quote-left"></i>
                     </div>
@@ -258,3 +286,37 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
         </div>
     </div>
 </section>
+
+<!-- Hero rotating headline JS -->
+<script>
+(function() {
+    var wrapper = document.querySelector('.hero-rotate-wrapper');
+    if (!wrapper) return;
+
+    var phrases = wrapper.querySelectorAll('.hero-rotate-phrase');
+    if (phrases.length < 2) return;
+
+    var current = 0;
+    var interval = 3500; // ms between rotations
+
+    setInterval(function() {
+        var prev = current;
+        current = (current + 1) % phrases.length;
+
+        // Exit current phrase upward
+        phrases[prev].classList.remove('active');
+        phrases[prev].classList.add('exit-up');
+
+        // Enter next phrase from below
+        phrases[current].classList.remove('exit-up');
+        // Force reflow so the element starts from translateY(100%)
+        void phrases[current].offsetWidth;
+        phrases[current].classList.add('active');
+
+        // Clean up exit class after transition
+        setTimeout(function() {
+            phrases[prev].classList.remove('exit-up');
+        }, 600);
+    }, interval);
+})();
+</script>
