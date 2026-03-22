@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- Section badge ---
-$badge_text = dp_field( 'switching_badge_text', '50+ Patients Switched This Month' );
+$badge_text = dp_field( 'switching_badge_text', 'Trusted by Hundreds Who\'ve Switched' );
 
 // --- Title (allows <span> for gradient-text styling) ---
 $allowed_title_tags = array(
@@ -23,24 +23,24 @@ $allowed_title_tags = array(
 $title = dp_field( 'switching_title', 'Frustrated with Your Current <span class="gradient-text">Weight Loss Provider?</span>' );
 
 // --- Description ---
-$description = dp_field( 'switching_description', 'Tired of waiting weeks for prescriptions? Fed up with impersonal online-only services? At Denton Pharmacy, you get real pharmacist support, same-day prescriptions, and premium discreet delivery — all from a trusted local pharmacy.' );
+$description = dp_field( 'switching_description', 'Tired of waiting weeks for prescriptions? Fed up with chatbots instead of real pharmacists? Join hundreds who have switched to Denton Pharmacy for faster service, genuine support, and premium care you can trust.' );
 
 // --- 3 Feature items (individual ACF fields per feature) ---
 $default_features = array(
     array(
         'icon'  => 'fa-file-signature',
         'title' => 'Same-Day Prescriptions',
-        'desc'  => 'No more waiting weeks for approval. Our pharmacist reviews and approves your prescription the same day you consult with us.',
+        'desc'  => 'No more waiting weeks for approval. Our prescribers review and issue prescriptions within hours, not days.',
     ),
     array(
         'icon'  => 'fa-user-doctor',
         'title' => 'Real Pharmacist Support',
-        'desc'  => 'Speak with Ahmed and our Denton team directly. No chatbots, no call centres — just real, qualified healthcare professionals.',
+        'desc'  => 'Speak with Ahmed and our Denton team directly — no chatbots, no automated responses, just genuine expert care.',
     ),
     array(
-        'icon'  => 'fa-box-open',
-        'title' => 'Premium Discreet Packaging',
-        'desc'  => 'Your medication arrives in our signature packaging — discreet, secure, and delivered free within 24 hours.',
+        'icon'  => 'fa-comments',
+        'title' => 'Face-to-Face Consultations',
+        'desc'  => 'See your pharmacist in person at our Denton pharmacy — real conversations, real care, with same-day appointments available.',
     ),
 );
 
@@ -66,9 +66,9 @@ $default_trust = array(
         'label' => 'Google Rating',
     ),
     array(
-        'icon'  => 'fa-truck-fast',
-        'value' => '24h',
-        'label' => 'Delivery Time',
+        'icon'  => 'fa-award',
+        'value' => '15+',
+        'label' => 'Years Experience',
     ),
 );
 
@@ -98,6 +98,7 @@ $switching_image_alt = $switching_image_id
 $google_rating       = dp_option( 'google_rating', '4.7' );
 $google_review_count = dp_option( 'google_review_count', '89+' );
 $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
+$gphc_number         = dp_option( 'superintendent_gphc_number', '2088937' );
 ?>
 
 <section class="switching-section">
@@ -110,11 +111,11 @@ $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
             <div class="switching-content">
 
                 <!-- Section badge -->
-                <div class="switching-badge-strong">
+                <div class="section-badge">
                     <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
                         <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                     </svg>
-                    <span><?php echo esc_html( $badge_text ); ?></span>
+                    <span class="section-badge-text"><?php echo esc_html( $badge_text ); ?></span>
                 </div>
 
                 <!-- Title -->
@@ -133,8 +134,8 @@ $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
                         $icon_class = dp_fa_class( $feature['icon'] );
                     ?>
                         <div class="switching-feature switching-feature-premium">
-                            <div class="switching-feature-product">
-                                <i class="<?php echo esc_attr( $icon_class ); ?>" style="color: var(--color-primary); font-size: 1.25rem;"></i>
+                            <div class="switching-feature-icon">
+                                <i class="<?php echo esc_attr( $icon_class ); ?>"></i>
                             </div>
                             <div class="switching-feature-text">
                                 <h3 class="switching-feature-title"><?php echo esc_html( $feature['title'] ); ?></h3>
@@ -153,7 +154,7 @@ $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
                             <div class="switching-trust-icon">
                                 <i class="<?php echo esc_attr( $icon_class ); ?>"></i>
                             </div>
-                            <span class="switching-trust-number"><span class="gradient-text"><?php echo esc_html( $item['value'] ); ?></span></span>
+                            <span class="switching-trust-number"><?php echo esc_html( $item['value'] ); ?></span>
                             <span class="switching-trust-label"><?php echo esc_html( $item['label'] ); ?></span>
                         </div>
 
@@ -187,47 +188,33 @@ $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
                     <?php endif; ?>
                 </div>
 
-                <!-- Google rating badge -->
+                <!-- Google rating badge — glassmorphic overlay -->
                 <div class="switching-rating-badge">
-                    <div class="switching-rating-header">
-                        <div class="switching-rating-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="switching-rating-content">
-                            <span class="switching-rating-label">Google Rating</span>
+                    <div class="switching-rating-top">
+                        <div class="switching-rating-score-block">
                             <span class="switching-rating-score"><?php echo esc_html( $google_rating ); ?></span>
-                        </div>
-                    </div>
-
-                    <div class="switching-rating-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-
-                    <span class="switching-rating-count">Based on <?php echo esc_html( $google_review_count ); ?> reviews</span>
-
-                    <div class="switching-rating-divider"></div>
-
-                    <div class="switching-rating-footer">
-                        <div class="switching-rating-stats">
-                            <div class="switching-rating-stat-row">
-                                <span class="switching-rating-stat-icon"><i class="fas fa-users"></i></span>
-                                <span class="switching-rating-stat-text">Patients served</span>
-                                <span class="switching-rating-stat-number">5,000+</span>
-                            </div>
-                            <div class="switching-rating-stat-row">
-                                <span class="switching-rating-stat-icon"><i class="fas fa-map-marker-alt"></i></span>
-                                <span class="switching-rating-stat-text"><?php echo esc_html( $pharmacy_location ); ?> since</span>
-                                <span class="switching-rating-stat-number">2008</span>
+                            <div class="switching-rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
-                        <div class="switching-rating-badge-pill">
+                        <div class="switching-rating-meta">
+                            <span class="switching-rating-label">Google Rating</span>
+                            <span class="switching-rating-count"><?php echo esc_html( $google_review_count ); ?> verified reviews</span>
+                        </div>
+                    </div>
+                    <div class="switching-rating-pills">
+                        <span class="switching-rating-pill">
                             <i class="fas fa-shield-halved"></i>
-                            <span>GPhC Verified</span>
-                        </div>
+                            GPhC: <?php echo esc_html( $gphc_number ); ?>
+                        </span>
+                        <span class="switching-rating-pill">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <?php echo esc_html( $pharmacy_location ); ?> since 2008
+                        </span>
                     </div>
                 </div>
 
