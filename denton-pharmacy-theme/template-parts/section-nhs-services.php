@@ -4,7 +4,8 @@
  *
  * 6-card colour-coded grid with inline SVG icons showcasing NHS services.
  * Each card features a colour class, SVG icon, badge, title, description,
- * 3-item bullet list, and action button.
+ * 3-item bullet list, and action button. Cards animate in on scroll with
+ * a staggered reveal.
  *
  * @package Denton_Pharmacy
  */
@@ -16,11 +17,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 // --- Section header ---
 $badge_text  = dp_field( 'nhs_badge_text', 'NHS Services' );
 $title       = dp_field( 'nhs_title', 'Your NHS <span class="gradient-text">Community</span> Pharmacy' );
-$description = dp_field( 'nhs_description', 'Comprehensive NHS services for eligible patients. From prescriptions to vaccinations, we\'re here to support your health and wellbeing.' );
+$description = dp_field( 'nhs_description', 'Free NHS services for eligible patients. From prescriptions to health checks, we are here to support your wellbeing.' );
 
 // --- Bottom CTA ---
-$bottom_title    = dp_field( 'nhs_bottom_title', 'Need help with NHS services?' );
-$bottom_desc     = dp_field( 'nhs_bottom_description', 'Our friendly team is here to answer your questions about NHS prescriptions, eligibility, and services.' );
+$bottom_title    = dp_field( 'nhs_bottom_title', 'Your NHS services, under one roof' );
+$bottom_desc     = dp_field( 'nhs_bottom_description', 'No appointment needed for most services. Walk in or call us.' );
 $bottom_cta_text = dp_field( 'nhs_bottom_cta_text', 'Visit Us in Denton' );
 $phone        = dp_phone();
 $phone_link   = dp_phone_link();
@@ -73,8 +74,10 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
         <!-- Card grid -->
         <div class="nhs-grid">
 
-            <?php foreach ( $cards as $card ) : ?>
-                <div class="nhs-card nhs-card-<?php echo esc_attr( $card['colour'] ); ?>">
+            <?php foreach ( $cards as $index => $card ) : ?>
+                <div class="nhs-card nhs-card-<?php echo esc_attr( $card['colour'] ); ?> nhs-card-reveal" style="--reveal-delay: <?php echo intval( $index ); ?>">
+                    <!-- Clinical colour top-bar -->
+                    <div class="nhs-card-topbar"></div>
                     <div class="nhs-card-content">
 
                         <!-- Card icon (inline SVG) -->
@@ -171,28 +174,80 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
 
         </div>
 
-        <!-- Bottom CTA block -->
+        <!-- Bottom CTA — dark NHS-blue premium -->
         <div class="nhs-bottom-cta">
-            <div class="nhs-bottom-cta-content">
-                <h3><?php echo esc_html( $bottom_title ); ?></h3>
-                <p><?php echo esc_html( $bottom_desc ); ?></p>
-            </div>
-            <div class="nhs-bottom-cta-actions">
-                <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="nhs-btn-primary">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                    </svg>
-                    <?php echo esc_html( 'Call ' . $phone ); ?>
-                </a>
-                <a href="#location" class="nhs-btn-secondary">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-                        <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                    <?php echo esc_html( $bottom_cta_text ); ?>
-                </a>
+            <!-- Decorative elements -->
+            <div class="nhs-bottom-cta-glow-1"></div>
+            <div class="nhs-bottom-cta-glow-2"></div>
+            <div class="nhs-bottom-cta-dots"></div>
+
+            <div class="nhs-bottom-cta-inner">
+                <!-- Trust chips -->
+                <div class="nhs-bottom-cta-chips">
+                    <span class="nhs-cta-chip">
+                        <i class="fas fa-shield-halved"></i>
+                        GPhC Registered
+                    </span>
+                    <span class="nhs-cta-chip">
+                        <i class="fas fa-clock"></i>
+                        Walk-Ins Welcome
+                    </span>
+                    <span class="nhs-cta-chip">
+                        <i class="fas fa-hand-holding-medical"></i>
+                        Free NHS Services
+                    </span>
+                </div>
+
+                <h3 class="nhs-bottom-cta-title"><?php echo esc_html( $bottom_title ); ?></h3>
+                <p class="nhs-bottom-cta-desc"><?php echo esc_html( $bottom_desc ); ?></p>
+
+                <div class="nhs-bottom-cta-actions">
+                    <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="nhs-btn-primary">
+                        <i class="fas fa-phone"></i>
+                        <?php echo esc_html( 'Call ' . $phone ); ?>
+                    </a>
+                    <a href="#location" class="nhs-btn-secondary">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <?php echo esc_html( $bottom_cta_text ); ?>
+                    </a>
+                </div>
+
+                <!-- Trust checks -->
+                <div class="nhs-bottom-cta-checks">
+                    <span><i class="fas fa-check-circle"></i> No referral needed</span>
+                    <span><i class="fas fa-check-circle"></i> Same-day service</span>
+                    <span><i class="fas fa-check-circle"></i> Open 6 days a week</span>
+                </div>
             </div>
         </div>
 
     </div>
 </section>
+
+<!-- Staggered scroll-reveal for NHS cards -->
+<script>
+(function() {
+    var cards = document.querySelectorAll('.nhs-card-reveal');
+    if (!cards.length || !('IntersectionObserver' in window)) {
+        cards.forEach(function(c) { c.classList.add('nhs-card-visible'); });
+        return;
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var card = entry.target;
+                var delay = parseInt(card.style.getPropertyValue('--reveal-delay') || 0, 10);
+                setTimeout(function() {
+                    card.classList.add('nhs-card-visible');
+                }, delay * 120);
+                observer.unobserve(card);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    cards.forEach(function(card) {
+        observer.observe(card);
+    });
+})();
+</script>
