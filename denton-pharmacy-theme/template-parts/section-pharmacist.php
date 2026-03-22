@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- ACF fields with Denton-specific defaults ---
+$section_title  = dp_field( 'pharmacist_section_title', 'Meet Your Pharmacist' );
+$section_sub    = dp_field( 'pharmacist_section_subtitle', 'Every consultation is led by a qualified, GPhC-registered prescriber who knows your name.' );
 $badge_text     = dp_field( 'pharmacist_badge_text', 'Your Local Expert' );
 $name           = dp_field( 'pharmacist_name', 'Ahmed Al-Liabi' );
 $role           = dp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
@@ -71,6 +73,20 @@ $trust_checks = array(
     <div class="pharmacist-bg-glow pharmacist-bg-glow-2"></div>
 
     <div class="section-container">
+
+        <!-- Section header -->
+        <div class="pharmacist-header">
+            <div class="section-badge">
+                <span class="pulse-dot">
+                    <span></span>
+                    <span></span>
+                </span>
+                <span class="section-badge-text"><?php echo esc_html( $badge_text ); ?></span>
+            </div>
+            <h2 class="pharmacist-section-title"><?php echo esc_html( $section_title ); ?></h2>
+            <p class="pharmacist-section-subtitle"><?php echo esc_html( $section_sub ); ?></p>
+        </div>
+
         <div class="pharmacist-card">
 
             <!-- Gradient accent top bar -->
@@ -99,11 +115,6 @@ $trust_checks = array(
 
                 <!-- RIGHT: Content + CTAs -->
                 <div class="pharmacist-right">
-
-                    <div class="pharmacist-badge">
-                        <i class="fas fa-stethoscope"></i>
-                        <span><?php echo esc_html( $badge_text ); ?></span>
-                    </div>
 
                     <p class="pharmacist-bio"><?php echo esc_html( $bio ); ?></p>
 

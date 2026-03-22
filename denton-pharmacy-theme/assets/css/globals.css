@@ -1803,10 +1803,32 @@ html {
    PHARMACIST SECTION — Clean Clinical Card
    ============================================ */
 .pharmacist-section {
-  padding: 5rem 0;
-  background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
+  padding: 5rem 0 2rem;
+  background: #fdf9f3;
   position: relative;
   overflow: hidden;
+}
+
+/* Section header */
+.pharmacist-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.pharmacist-section-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin: 0 0 1rem;
+  line-height: 1.15;
+}
+
+.pharmacist-section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
 }
 
 /* Decorative background glows */
@@ -1945,27 +1967,6 @@ html {
   text-align: left;
 }
 
-/* Badge pill */
-.pharmacist-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 1.125rem;
-  background: rgba(8, 93, 181, 0.06);
-  border: 1px solid rgba(8, 93, 181, 0.12);
-  border-radius: 9999px;
-  margin-bottom: 1rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #085db5;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.pharmacist-badge i {
-  font-size: 0.6875rem;
-}
-
 /* Bio */
 .pharmacist-bio {
   font-size: 1.0625rem;
@@ -2082,7 +2083,7 @@ html {
    HOW IT WORKS SECTION
    ============================================ */
 .how-it-works-section {
-  padding: 6rem 0;
+  padding: 3rem 0 6rem;
   background: #fdf9f3;
 }
 
