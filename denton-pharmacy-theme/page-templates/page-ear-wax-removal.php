@@ -22,7 +22,7 @@ get_header();
       <!-- Left: Content -->
       <div class="earwax-hero-content">
         <div class="section-badge">
-          <span class="pulse-dot"><span></span><span></span></span>
+          <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_hero_badge', 'SAME-DAY MICROSUCTION AVAILABLE' ) ); ?></span>
         </div>
 
@@ -126,7 +126,7 @@ get_header();
   <div class="section-container">
     <div class="earwax-symptoms-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_symptoms_badge', 'COMMON SYMPTOMS' ) ); ?></span>
       </div>
       <h2 class="earwax-symptoms-title"><?php echo esc_html( dp_field( 'ew_symptoms_title', 'Is Ear Wax Affecting Your Daily Life?' ) ); ?></h2>
@@ -170,7 +170,7 @@ get_header();
   <div class="section-container">
     <div class="earwax-team-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_team_badge', 'OUR TEAM' ) ); ?></span>
       </div>
       <h2 class="earwax-team-title"><?php echo esc_html( dp_field( 'ew_team_title', 'Meet Your Denton Ear Care Specialists' ) ); ?></h2>
@@ -244,7 +244,7 @@ get_header();
   <div class="section-container">
     <div class="earwax-comparison-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_compare_badge', 'TREATMENT COMPARISON' ) ); ?></span>
       </div>
       <h2 class="earwax-comparison-title"><?php echo esc_html( dp_field( 'ew_compare_title', 'How Our Treatment Compares' ) ); ?></h2>
@@ -332,7 +332,7 @@ get_header();
   <div class="section-container">
     <div class="earwax-process-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_process_badge', 'HOW IT WORKS' ) ); ?></span>
       </div>
       <h2 class="earwax-process-title"><?php echo esc_html( dp_field( 'ew_process_title', 'Our Professional Ear Wax Removal Process' ) ); ?></h2>
@@ -426,7 +426,7 @@ get_header();
   <div class="section-container">
     <div class="earwax-pricing-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_pricing_badge', 'TRANSPARENT PRICING' ) ); ?></span>
       </div>
       <h2 class="earwax-pricing-title"><?php echo esc_html( dp_field( 'ew_pricing_title', 'Simple, Transparent Pricing' ) ); ?></h2>
@@ -494,7 +494,7 @@ get_header();
   <div class="section-container">
     <div class="earwax-testimonials-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_testimonials_badge', 'PATIENT TESTIMONIALS' ) ); ?></span>
       </div>
       <h2 class="earwax-testimonials-title"><?php echo esc_html( dp_field( 'ew_testimonials_title', 'Hear What Our Denton Patients Say' ) ); ?></h2>
@@ -544,7 +544,7 @@ get_header();
   <div class="section-container">
     <div class="earwax-faq-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_faq_badge', 'FREQUENTLY ASKED QUESTIONS' ) ); ?></span>
       </div>
       <h2 class="earwax-faq-title"><?php echo esc_html( dp_field( 'ew_faq_title', 'Frequently Asked Questions — Ear Wax Removal Denton' ) ); ?></h2>

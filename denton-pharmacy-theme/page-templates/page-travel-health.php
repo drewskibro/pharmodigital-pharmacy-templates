@@ -28,7 +28,7 @@ get_header();
       <!-- Left: Content -->
       <div class="travel-hero-content">
         <div class="section-badge">
-          <span class="pulse-dot"><span></span><span></span></span>
+          <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_hero_badge', 'TRAVEL HEALTH SERVICES' ) ); ?></span>
         </div>
 
@@ -113,7 +113,7 @@ get_header();
   <div class="section-container">
     <div class="travel-services-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_services_badge', 'COMPREHENSIVE TRAVEL HEALTH' ) ); ?></span>
       </div>
       <h2 class="travel-services-title">
@@ -178,7 +178,7 @@ get_header();
   <div class="section-container">
     <div class="travel-vaccines-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_vaccines_badge', 'ALL VACCINATIONS' ) ); ?></span>
       </div>
       <h3 class="travel-vaccines-title">
@@ -262,7 +262,7 @@ get_header();
   <div class="section-container">
     <div class="travel-why-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_why_badge', 'WHY CHOOSE US' ) ); ?></span>
       </div>
       <h2 class="travel-why-title">
@@ -337,7 +337,7 @@ get_header();
   <div class="section-container">
     <div class="travel-process-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_process_badge', 'HOW IT WORKS' ) ); ?></span>
       </div>
       <h2 class="travel-process-title">
@@ -411,7 +411,7 @@ get_header();
   <div class="section-container">
     <div class="travel-destinations-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_destinations_badge', 'POPULAR DESTINATIONS' ) ); ?></span>
       </div>
       <h2 class="travel-destinations-title">
@@ -472,7 +472,7 @@ get_header();
   <div class="section-container">
     <div class="travel-faq-header">
       <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_faq_badge', 'FREQUENTLY ASKED QUESTIONS' ) ); ?></span>
       </div>
       <h2 class="travel-faq-title">
