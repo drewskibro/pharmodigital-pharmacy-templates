@@ -158,31 +158,31 @@
 
 /* Shrink top bar — mobile */
 .denton-nav.nav-compact .denton-nav-top {
-  height: 64px;
+  height: 80px;
 }
 
 /* Shrink logo — mobile compact */
 .denton-nav.nav-compact .denton-logo-img {
-  height: 60px;
+  height: 80px;
 }
 
 /* Desktop 1024–1279px compact */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .denton-nav.nav-compact .denton-nav-top {
-    height: 70px;
+    height: 90px;
   }
   .denton-nav.nav-compact .denton-logo-img {
-    height: 56px;
+    height: 90px;
   }
 }
 
 /* Desktop 1280px+ compact */
 @media (min-width: 1280px) {
   .denton-nav.nav-compact .denton-nav-top {
-    height: 76px;
+    height: 100px;
   }
   .denton-nav.nav-compact .denton-logo-img {
-    height: 64px;
+    height: 100px;
   }
 }
 
@@ -713,7 +713,7 @@
 
 /* Adjust mobile menu position when nav is compact (scrolled) */
 .denton-nav.nav-compact .denton-mobile-menu {
-  top: 64px;
+  top: 80px;
 }
 
 /* Mobile Nav Links */
