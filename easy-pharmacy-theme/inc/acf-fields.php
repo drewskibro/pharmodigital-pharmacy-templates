@@ -982,7 +982,7 @@ function ep_register_acf_field_groups() {
                 'label'         => 'Services Links',
                 'name'          => 'nav_dd_ew_services',
                 'type'          => 'repeater',
-                'instructions'  => 'Ear wax removal service pages (e.g. Microsuction, Ear Irrigation, Ear Health Check). Leave empty to use built-in defaults.',
+                'instructions'  => 'Ear wax removal service pages (e.g. Microsuction, Ear Infection, Ear Health Check). Leave empty to use built-in defaults.',
                 'min'           => 0,
                 'max'           => 10,
                 'layout'        => 'table',

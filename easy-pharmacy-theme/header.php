@@ -114,7 +114,7 @@ $default_th_dests = array(
 );
 $default_ew_services = array(
     array( 'label' => 'Microsuction',     'icon' => 'fas fa-stethoscope',      'url' => '' ),
-    array( 'label' => 'Ear Irrigation',   'icon' => 'fas fa-droplet',          'url' => '' ),
+    array( 'label' => 'Ear Infection',    'icon' => 'fas fa-droplet',          'url' => '' ),
     array( 'label' => 'Ear Health Check', 'icon' => 'fas fa-magnifying-glass', 'url' => '' ),
 );
 $default_ew_info = array(
