@@ -72,23 +72,6 @@ get_header();
         <div class="travel-hero-image-card">
           <img src="<?php echo esc_url( $th_hero_bg_url ); ?>" alt="<?php echo esc_attr( dp_field( 'th_hero_bg_alt', 'Travel health destination' ) ); ?>" />
         </div>
-        <!-- Credential strip beneath image -->
-        <div class="travel-hero-credentials">
-          <div class="travel-hero-credential">
-            <i class="fas fa-shield-virus"></i>
-            <span>NaTHNaC Yellow Fever Centre</span>
-          </div>
-          <div class="travel-hero-credential-divider"></div>
-          <div class="travel-hero-credential">
-            <i class="fas fa-user-doctor"></i>
-            <span>GPhC Registered</span>
-          </div>
-          <div class="travel-hero-credential-divider"></div>
-          <div class="travel-hero-credential">
-            <i class="fas fa-syringe"></i>
-            <span>All Travel Vaccines</span>
-          </div>
-        </div>
       </div>
 
     </div>

@@ -235,7 +235,7 @@
   position: relative;
   width: 100%;
   max-width: 480px;
-  height: 440px;
+  height: 500px;
   border-radius: 2rem;
   overflow: hidden;
   box-shadow: 0 30px 60px -15px rgba(63, 115, 174, 0.25);
@@ -260,47 +260,6 @@
   transform: scale(1.05);
 }
 
-/* Credential strip beneath hero image */
-.travel-hero-credentials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.25rem;
-  padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(63, 115, 174, 0.1);
-  border-radius: 100px;
-}
-
-.travel-hero-credential {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
-
-.travel-hero-credential i {
-  font-size: 0.8125rem;
-  color: var(--brand-primary);
-}
-
-.travel-hero-credential span {
-  font-family: var(--font-primary);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #374151;
-  letter-spacing: 0.02em;
-}
-
-.travel-hero-credential-divider {
-  width: 1px;
-  height: 1rem;
-  background: rgba(63, 115, 174, 0.2);
-  flex-shrink: 0;
-}
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
