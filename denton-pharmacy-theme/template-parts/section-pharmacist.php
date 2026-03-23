@@ -14,9 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- ACF fields with Denton-specific defaults ---
-$section_title  = dp_field( 'pharmacist_section_title', 'Meet Your Pharmacist' );
-$section_sub    = dp_field( 'pharmacist_section_subtitle', 'Every consultation is led by a qualified, GPhC-registered prescriber who knows your name.' );
-$badge_text     = dp_field( 'pharmacist_badge_text', 'Your Local Expert' );
+$section_title  = dp_field( 'pharmacist_section_title', 'Meet Your Clinical Team' );
+$section_sub    = dp_field( 'pharmacist_section_subtitle', 'Every consultation is led by a qualified, GPhC-registered prescriber from our clinical team.' );
+$badge_text     = dp_field( 'pharmacist_badge_text', 'Your Local Experts' );
+$eyebrow_text   = dp_field( 'pharmacist_eyebrow_text', 'Led by' );
 $name           = dp_field( 'pharmacist_name', 'Ahmed Al-Liabi' );
 $role           = dp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
 $bio            = dp_field( 'pharmacist_bio', 'With over 15 years of experience, Ahmed leads our clinical team dedicated to providing personalised, accessible healthcare in Denton. As an Independent Prescriber, he oversees our service to ensure you receive safe, effective treatments without the wait.' );
@@ -102,7 +103,7 @@ $trust_checks = array(
                     <?php endif; ?>
 
                     <div class="pharmacist-identity">
-                        <p class="pharmacist-eyebrow">Your consultation with</p>
+                        <p class="pharmacist-eyebrow"><?php echo esc_html( $eyebrow_text ); ?></p>
                         <h2 class="pharmacist-name"><?php echo esc_html( $name ); ?></h2>
                         <p class="pharmacist-role"><?php echo esc_html( $role ); ?></p>
                         <p class="pharmacist-gphc">
