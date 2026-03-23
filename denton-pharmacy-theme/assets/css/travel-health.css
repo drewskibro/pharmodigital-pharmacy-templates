@@ -67,7 +67,8 @@
 
 @media (min-width: 1024px) {
   .travel-hero-section {
-    padding-top: 2.5rem;
+    padding-top: 1rem;
+    min-height: auto;
   }
 
   .travel-hero-grid {
