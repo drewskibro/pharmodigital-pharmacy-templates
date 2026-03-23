@@ -637,6 +637,7 @@ Every client's theme auto-deploys to Kinsta when code is pushed to `main`. The w
 3. **Use `appleboy/scp-action`** for file transfer, `appleboy/ssh-action` for remote commands
 4. **Use `~/public/...` paths** — never hardcode Kinsta site IDs
 5. **Branch protection** — push to feature branches, merge to `main` via PR
+6. **CSS cache-busting** — `THEME_VERSION` must use `filemtime()` of a CSS file (e.g. `globals.css`), NOT `filemtime(__FILE__)` on `functions.php`. Otherwise editing CSS won't change the `?ver=` query string and Kinsta's edge cache + browser cache will keep serving the old file
 
 ---
 

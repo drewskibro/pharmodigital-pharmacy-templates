@@ -337,6 +337,20 @@ Three stacked sections: `.article-hero` → `.article-image-section` → `.artic
 
 **Never use negative `margin-top`** on `.article-image-section` — it eats spacing and crowds the title against the image.
 
+### CSS Cache-Busting — Use CSS filemtime, Not functions.php filemtime
+
+The version string for enqueued stylesheets must derive from the **CSS file's own modification time**, not `functions.php`:
+
+```php
+// WRONG — changing globals.css won't bust the cache
+define( 'THEME_VERSION', filemtime( __FILE__ ) );
+
+// RIGHT — any CSS edit auto-invalidates browser + CDN cache
+define( 'THEME_VERSION', filemtime( get_theme_file_path( 'assets/css/globals.css' ) ) );
+```
+
+**Symptom if broken:** You edit `globals.css`, deploy, hard-refresh, and the old styles still load. The `?ver=` query string hasn't changed because `functions.php` wasn't modified. Kinsta's edge cache and the browser both serve the stale file.
+
 ### Permalink & Category Auto-Setup
 
 On theme activation, `functions.php`:
