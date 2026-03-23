@@ -326,9 +326,11 @@ get_header();
     <div class="travel-why-grid">
       <?php if ( have_rows( 'th_why_cards' ) ) : $card_index = 0; while ( have_rows( 'th_why_cards' ) ) : the_row(); $card_index++; ?>
         <div class="travel-why-card">
-          <div class="travel-why-card-number"><?php echo str_pad( $card_index, 2, '0', STR_PAD_LEFT ); ?></div>
-          <div class="travel-why-card-icon-wrap">
-            <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+          <div class="travel-why-card-top">
+            <div class="travel-why-card-number"><?php echo str_pad( $card_index, 2, '0', STR_PAD_LEFT ); ?></div>
+            <div class="travel-why-card-icon-wrap">
+              <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+            </div>
           </div>
           <h3 class="travel-why-card-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
           <p class="travel-why-card-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
@@ -345,9 +347,11 @@ get_header();
         foreach ( $why_cards as $i => $card ) :
         ?>
           <div class="travel-why-card">
-            <div class="travel-why-card-number"><?php echo str_pad( $i + 1, 2, '0', STR_PAD_LEFT ); ?></div>
-            <div class="travel-why-card-icon-wrap">
-              <i class="<?php echo esc_attr( $card['icon'] ); ?>"></i>
+            <div class="travel-why-card-top">
+              <div class="travel-why-card-number"><?php echo str_pad( $i + 1, 2, '0', STR_PAD_LEFT ); ?></div>
+              <div class="travel-why-card-icon-wrap">
+                <i class="<?php echo esc_attr( $card['icon'] ); ?>"></i>
+              </div>
             </div>
             <h3 class="travel-why-card-title"><?php echo esc_html( $card['title'] ); ?></h3>
             <p class="travel-why-card-description"><?php echo esc_html( $card['desc'] ); ?></p>
