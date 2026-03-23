@@ -256,76 +256,86 @@ get_header();
 </section>
 
 <!-- ============================================
-     E5. WHY CHOOSE US — 2-column: image + 4 feature cards
+     E5. WHY CHOOSE US — pharmacist strip + 4-card premium grid
      ============================================ -->
 <section class="travel-why-section travel-reveal">
   <div class="section-container">
+    <!-- Decorative background elements -->
+    <div class="travel-why-bg-glow travel-why-bg-glow-1"></div>
+    <div class="travel-why-bg-glow travel-why-bg-glow-2"></div>
+
     <div class="travel-why-header">
       <div class="section-badge">
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_why_badge', 'WHY CHOOSE US' ) ); ?></span>
       </div>
       <h2 class="travel-why-title">
-        <?php echo esc_html( dp_field( 'th_why_title_highlight', 'Why choose our' ) ); ?> <?php echo esc_html( dp_field( 'th_why_title_rest', 'Denton travel clinic?' ) ); ?>
+        <?php echo esc_html( dp_field( 'th_why_title_highlight', 'Why choose our' ) ); ?> <span class="travel-why-title-accent"><?php echo esc_html( dp_field( 'th_why_title_rest', 'Denton travel clinic?' ) ); ?></span>
       </h2>
     </div>
 
-    <div class="travel-why-grid">
-      <!-- Left: Image -->
-      <div class="travel-why-image-wrapper">
-        <div class="travel-why-image-bg-circle"></div>
-        <div class="travel-why-image-card">
-          <?php
-          $why_image_id  = dp_field( 'th_why_image' );
-          if ( ! $why_image_id ) {
-              $why_image_id = dp_option( 'pharmacist_image' );
-          }
-          $why_image_url = $why_image_id ? wp_get_attachment_image_url( $why_image_id, 'large' ) : '';
-          ?>
-          <?php if ( $why_image_url ) : ?>
-            <img src="<?php echo esc_url( $why_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'th_why_image_alt', 'Expert pharmacist at Denton Pharmacy' ) ); ?>" />
-          <?php endif; ?>
-        </div>
-        <div class="travel-why-badge">
-          <p class="travel-why-badge-text"><?php echo esc_html( dp_field( 'th_why_badge_number', '15+ Years' ) ); ?></p>
-          <p class="travel-why-badge-sub"><?php echo esc_html( dp_field( 'th_why_badge_label', 'Experience' ) ); ?></p>
-        </div>
-      </div>
-
-      <!-- Right: Feature Cards -->
-      <div class="travel-why-content">
-        <?php if ( have_rows( 'th_why_cards' ) ) : while ( have_rows( 'th_why_cards' ) ) : the_row(); ?>
-          <div class="travel-why-card">
-            <div class="travel-why-card-icon">
-              <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
-            </div>
-            <div class="travel-why-card-text">
-              <h3 class="travel-why-card-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-              <p class="travel-why-card-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
-            </div>
+    <!-- Pharmacist intro strip -->
+    <?php
+    $why_image_id  = dp_field( 'th_why_image' );
+    if ( ! $why_image_id ) {
+        $why_image_id = dp_option( 'pharmacist_image' );
+    }
+    $why_image_url = $why_image_id ? wp_get_attachment_image_url( $why_image_id, 'medium' ) : '';
+    $pharmacist_name = dp_field( 'pharmacist_name', 'Ahmed Al-Liabi' );
+    $pharmacist_role = dp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
+    ?>
+    <div class="travel-why-pharmacist-strip">
+      <div class="travel-why-pharmacist-inner">
+        <?php if ( $why_image_url ) : ?>
+          <div class="travel-why-photo-wrapper">
+            <img src="<?php echo esc_url( $why_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'th_why_image_alt', $pharmacist_name . ' — Denton Pharmacy' ) ); ?>" class="travel-why-photo" />
+            <div class="travel-why-photo-ring"></div>
           </div>
-        <?php endwhile; else : ?>
-          <?php
-          $why_cards = array(
-            array( 'icon' => 'fas fa-user-doctor', 'title' => 'Expert Pharmacist Consultations', 'desc' => 'Ahmed and the team provide up-to-date advice tailored to your specific itinerary.' ),
-            array( 'icon' => 'fas fa-calendar-check', 'title' => 'Flexible Appointments', 'desc' => 'Same-day and weekend appointments available to suit your schedule.' ),
-            array( 'icon' => 'fas fa-tags', 'title' => 'Competitive Pricing', 'desc' => 'Transparent, affordable pricing for all vaccinations and antimalarials.' ),
-            array( 'icon' => 'fas fa-location-dot', 'title' => 'Convenient Location', 'desc' => 'Easy to find in Denton with parking available nearby.' ),
-          );
-          foreach ( $why_cards as $card ) :
-          ?>
-            <div class="travel-why-card">
-              <div class="travel-why-card-icon">
-                <i class="<?php echo esc_attr( $card['icon'] ); ?>"></i>
-              </div>
-              <div class="travel-why-card-text">
-                <h3 class="travel-why-card-title"><?php echo esc_html( $card['title'] ); ?></h3>
-                <p class="travel-why-card-description"><?php echo esc_html( $card['desc'] ); ?></p>
-              </div>
-            </div>
-          <?php endforeach; ?>
         <?php endif; ?>
+        <div class="travel-why-pharmacist-info">
+          <h3 class="travel-why-pharmacist-name"><?php echo esc_html( $pharmacist_name ); ?></h3>
+          <p class="travel-why-pharmacist-role"><?php echo esc_html( $pharmacist_role ); ?></p>
+        </div>
+        <div class="travel-why-experience-pill">
+          <span class="travel-why-experience-number"><?php echo esc_html( dp_field( 'th_why_badge_number', '15+' ) ); ?></span>
+          <span class="travel-why-experience-label"><?php echo esc_html( dp_field( 'th_why_badge_label', 'Years Experience' ) ); ?></span>
+        </div>
       </div>
+    </div>
+
+    <!-- 2x2 premium feature grid -->
+    <div class="travel-why-grid">
+      <?php if ( have_rows( 'th_why_cards' ) ) : $card_index = 0; while ( have_rows( 'th_why_cards' ) ) : the_row(); $card_index++; ?>
+        <div class="travel-why-card">
+          <div class="travel-why-card-number"><?php echo str_pad( $card_index, 2, '0', STR_PAD_LEFT ); ?></div>
+          <div class="travel-why-card-icon-wrap">
+            <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
+          </div>
+          <h3 class="travel-why-card-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+          <p class="travel-why-card-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+          <div class="travel-why-card-accent"></div>
+        </div>
+      <?php endwhile; else : ?>
+        <?php
+        $why_cards = array(
+          array( 'icon' => 'fas fa-user-doctor', 'title' => 'Expert Pharmacist Consultations', 'desc' => 'Ahmed and the team provide up-to-date advice tailored to your specific itinerary.' ),
+          array( 'icon' => 'fas fa-calendar-check', 'title' => 'Flexible Appointments', 'desc' => 'Same-day and weekend appointments available to suit your schedule.' ),
+          array( 'icon' => 'fas fa-tags', 'title' => 'Competitive Pricing', 'desc' => 'Transparent, affordable pricing for all vaccinations and antimalarials.' ),
+          array( 'icon' => 'fas fa-location-dot', 'title' => 'Convenient Location', 'desc' => 'Easy to find in Denton with parking available nearby.' ),
+        );
+        foreach ( $why_cards as $i => $card ) :
+        ?>
+          <div class="travel-why-card">
+            <div class="travel-why-card-number"><?php echo str_pad( $i + 1, 2, '0', STR_PAD_LEFT ); ?></div>
+            <div class="travel-why-card-icon-wrap">
+              <i class="<?php echo esc_attr( $card['icon'] ); ?>"></i>
+            </div>
+            <h3 class="travel-why-card-title"><?php echo esc_html( $card['title'] ); ?></h3>
+            <p class="travel-why-card-description"><?php echo esc_html( $card['desc'] ); ?></p>
+            <div class="travel-why-card-accent"></div>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </div>
   </div>
 </section>
