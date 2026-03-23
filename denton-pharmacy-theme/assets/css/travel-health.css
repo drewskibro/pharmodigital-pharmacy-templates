@@ -20,60 +20,65 @@
 
 
 /* ============================================
-   HERO SECTION — Pattern B Dark
-   Full-width background image, dark overlay, white text
+   HERO SECTION — Split layout: warm cream left, image card right
    ============================================ */
 .travel-hero-section {
   position: relative;
-  min-height: 90vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  padding: 40px 0 80px;
+  padding: 5rem 0;
   overflow: hidden;
-  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=900&fit=crop');
-  background-size: cover;
-  background-position: center;
-  /* Pull hero up under fixed nav to eliminate white gap */
-  margin-top: calc(-1 * var(--nav-height));
-  padding-top: calc(var(--nav-height) + 40px);
+  background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
 }
 
-.travel-hero-overlay {
+/* Decorative blobs — warm blue tint */
+.travel-hero-glow {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(42, 80, 122, 0.92), rgba(63, 115, 174, 0.85), rgba(63, 115, 174, 0.4));
-  z-index: 1;
+  border-radius: 50%;
+  filter: blur(80px);
   pointer-events: none;
 }
 
-.travel-hero-dots {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
-  z-index: 2;
-  pointer-events: none;
+.travel-hero-glow-1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(63, 115, 174, 0.07);
+  top: -150px;
+  right: -100px;
+}
+
+.travel-hero-glow-2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(63, 115, 174, 0.05);
+  bottom: -120px;
+  left: -80px;
 }
 
 .travel-hero-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
   position: relative;
   z-index: 10;
 }
 
 @media (min-width: 1024px) {
+  .travel-hero-section {
+    padding-top: 2.5rem;
+  }
+
   .travel-hero-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 4rem;
   }
 }
 
 /* Left Content */
 .travel-hero-content {
   text-align: center;
-  color: var(--white);
 }
 
 @media (min-width: 1024px) {
@@ -82,13 +87,11 @@
   }
 }
 
-/* Hero badge — glassmorphic white on dark */
-/* Hero badge — use global .section-badge styles (no overrides) */
-
 .travel-hero-title {
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 900;
-  color: var(--white);
+  color: #111827;
   margin-top: 0;
   margin-bottom: 1.5rem;
   line-height: 1.1;
@@ -96,7 +99,7 @@
 }
 
 .travel-hero-title-accent {
-  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -116,7 +119,7 @@
 
 .travel-hero-description {
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-gray);
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 600px;
@@ -154,14 +157,12 @@
   }
 }
 
-/* Hero CTA — use global .primary-cta / .secondary-cta styles (no overrides) */
-
-/* Trust Badges — glassmorphic pills */
+/* Trust Badges — warm glassmorphic pills */
 .travel-hero-trust {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-content: center;
 }
 
@@ -175,42 +176,131 @@
 .travel-hero-trust-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.1);
+  gap: 0.625rem;
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 0.625rem 1.25rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: background 0.3s ease;
+  border: 1px solid rgba(63, 115, 174, 0.12);
+  box-shadow: 0 2px 12px rgba(63, 115, 174, 0.06);
+  transition: all 0.3s ease;
   white-space: nowrap;
 }
 
 .travel-hero-trust-item:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(63, 115, 174, 0.12);
 }
 
 .travel-hero-trust-item i {
-  color: var(--white);
-  font-size: 1rem;
+  color: var(--brand-primary);
+  font-size: 0.9375rem;
 }
 
 .travel-hero-trust-item span {
-  color: var(--white);
+  color: #111827;
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: 0.02em;
 }
 
-/* Hero visual — hidden, background image handles visual */
+/* Right: Image card column */
 .travel-hero-visual {
   display: none;
+  position: relative;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 1024px) {
   .travel-hero-visual {
-    display: block;
+    display: flex;
   }
+}
+
+.travel-hero-visual-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.15), rgba(63, 115, 174, 0.05));
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.travel-hero-image-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 440px;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(63, 115, 174, 0.25);
+  border: 6px solid var(--white);
+  z-index: 2;
+  transform: rotate(-2deg);
+  transition: transform 0.7s ease-out;
+}
+
+.travel-hero-image-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.travel-hero-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.travel-hero-image-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Floating badge on image */
+.travel-hero-float-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: -1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+  animation: float 6s ease-in-out infinite;
+}
+
+.travel-hero-float-badge i {
+  font-size: 1.5rem;
+  color: var(--brand-primary);
+}
+
+.travel-hero-float-badge-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.travel-hero-float-badge-sub {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-gray);
+  margin: 0;
+  line-height: 1.3;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 

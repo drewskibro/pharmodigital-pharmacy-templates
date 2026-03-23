@@ -8,19 +8,12 @@ get_header();
 ?>
 
 <!-- ============================================
-     E1. HERO SECTION — Pattern B Dark
-     Full-width background image, dark overlay, white text, glassmorphic trust pills
+     E1. HERO SECTION — Split layout: warm cream left, image card right
      ============================================ -->
 <section class="travel-hero-section">
-  <?php
-  $th_hero_bg_id  = dp_field( 'th_hero_bg_image' );
-  $th_hero_bg_url = $th_hero_bg_id ? wp_get_attachment_image_url( $th_hero_bg_id, 'full' ) : '';
-  ?>
-  <?php if ( $th_hero_bg_url ) : ?>
-    <style>.travel-hero-section { background-image: url('<?php echo esc_url( $th_hero_bg_url ); ?>'); }</style>
-  <?php endif; ?>
-  <div class="travel-hero-overlay"></div>
-  <div class="travel-hero-dots"></div>
+  <!-- Decorative blobs -->
+  <div class="travel-hero-glow travel-hero-glow-1"></div>
+  <div class="travel-hero-glow travel-hero-glow-2"></div>
 
   <div class="section-container">
     <div class="travel-hero-grid">
@@ -38,7 +31,7 @@ get_header();
         </h1>
 
         <p class="travel-hero-description">
-          <?php echo esc_html( dp_field( 'th_hero_description', 'Expert travel vaccinations and health advice for your next adventure. Book your appointment at our Denton travel clinic with Ahmed.' ) ); ?>
+          <?php echo esc_html( dp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Denton travel clinic with Ahmed.' ) ); ?>
         </p>
 
         <div class="travel-hero-actions">
@@ -52,7 +45,7 @@ get_header();
           </a>
         </div>
 
-        <!-- Trust Badges — glassmorphic pills -->
+        <!-- Trust Badges -->
         <div class="travel-hero-trust">
           <div class="travel-hero-trust-item">
             <i class="fas fa-shield-virus"></i>
@@ -69,8 +62,25 @@ get_header();
         </div>
       </div>
 
-      <!-- Right: Visual (background image handles the visual) -->
-      <div class="travel-hero-visual"></div>
+      <!-- Right: Image card -->
+      <div class="travel-hero-visual">
+        <div class="travel-hero-visual-glow"></div>
+        <?php
+        $th_hero_bg_id  = dp_field( 'th_hero_bg_image' );
+        $th_hero_bg_url = $th_hero_bg_id ? wp_get_attachment_image_url( $th_hero_bg_id, 'full' ) : 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=900&fit=crop';
+        ?>
+        <div class="travel-hero-image-card">
+          <img src="<?php echo esc_url( $th_hero_bg_url ); ?>" alt="<?php echo esc_attr( dp_field( 'th_hero_bg_alt', 'Travel health destination' ) ); ?>" />
+        </div>
+        <!-- Floating badge -->
+        <div class="travel-hero-float-badge">
+          <i class="fas fa-shield-virus"></i>
+          <div>
+            <p class="travel-hero-float-badge-title"><?php echo esc_html( dp_field( 'th_hero_float_title', 'Yellow Fever' ) ); ?></p>
+            <p class="travel-hero-float-badge-sub"><?php echo esc_html( dp_field( 'th_hero_float_sub', 'Approved Centre' ) ); ?></p>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
