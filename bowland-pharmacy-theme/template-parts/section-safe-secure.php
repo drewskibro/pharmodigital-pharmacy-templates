@@ -56,7 +56,7 @@ if ( empty( $features ) ) {
 
 // --- GPhC credential data (global options) ---
 $company_registration = bp_option( 'company_registration', 'TBC' );
-$gphc_registration    = bp_option( 'gphc_registration', 'TBC' );
+$gphc_registration    = bp_option( 'gphc_registration', '1089163' );
 $superintendent_name  = bp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
 $superintendent_gphc  = bp_option( 'superintendent_gphc_number', '2208502' );
 $gphc_verify_url      = 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_registration;

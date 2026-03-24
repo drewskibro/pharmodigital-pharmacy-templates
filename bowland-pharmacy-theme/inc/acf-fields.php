@@ -319,7 +319,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'GPhC Pharmacy Number',
                 'name'          => 'gphc_registration',
                 'type'          => 'text',
-                'default_value' => 'TBC',
+                'default_value' => '1089163',
             ),
             array(
                 'key'           => 'field_bp_compliance_company_reg',

@@ -34,7 +34,7 @@ $twitter_url   = bp_option( 'social_twitter', 'https://twitter.com' );
 $linkedin_url  = bp_option( 'social_linkedin', 'https://linkedin.com' );
 
 // Registration.
-$gphc_number = bp_option( 'gphc_registration', 'TBC' );
+$gphc_number = bp_option( 'gphc_registration', '1089163' );
 $company_reg = bp_option( 'company_registration', 'TBC' );
 $established = bp_option( 'established_year', '2009' );
 
