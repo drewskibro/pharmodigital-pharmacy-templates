@@ -1,0 +1,2423 @@
+/* ============================================
+   HEALTH HUB PAGE STYLES — Bowland Pharmacy
+   Uses healthhub- prefix
+   ============================================ */
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.healthhub-hero-section {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 20px 0 80px;
+  overflow: hidden;
+  background: #f0f4f8;
+}
+
+.healthhub-hero-bg-blob-1 {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 800px;
+  height: 800px;
+  background: rgba(121, 188, 46, 0.08);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  animation: float 8s ease-in-out infinite;
+}
+
+.healthhub-hero-bg-blob-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: rgba(63, 115, 174, 0.08);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+/* Dots hidden — too busy on warm background */
+.healthhub-hero-dots {
+  display: none;
+}
+
+.healthhub-hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Badge: glassmorphic treatment */
+.healthhub-hero-section .section-badge {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(121, 188, 46, 0.12);
+  box-shadow: 0 8px 30px rgba(121, 188, 46, 0.10);
+}
+
+.healthhub-hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #1e3a5f;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .healthhub-hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .healthhub-hero-title {
+    font-size: 4.25rem;
+  }
+}
+
+/* Ensure gradient-text shows brand gradient */
+.healthhub-hero-title .gradient-text {
+  background: linear-gradient(135deg, #1e3a5f, #3f73ae);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.healthhub-hero-description {
+  font-size: 1.125rem;
+  color: #4a5568;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto 2rem;
+}
+
+/* Filter Pills */
+.healthhub-filter-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.healthhub-filter-pills {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 639px) {
+  .healthhub-filter-pills {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    width: 100%;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.healthhub-filter-pill,
+.healthhub-filter-btn {
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-family: var(--font-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.healthhub-filter-pill.active,
+.healthhub-filter-btn.active {
+  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 15px rgba(121, 188, 46, 0.35);
+}
+
+.healthhub-filter-pill:not(.active),
+.healthhub-filter-btn:not(.active) {
+  background: rgba(255, 255, 255, 0.95);
+  color: #4a5568;
+  border: 1px solid rgba(121, 188, 46, 0.15);
+}
+
+.healthhub-filter-pill:not(.active):hover,
+.healthhub-filter-btn:not(.active):hover {
+  border-color: rgba(121, 188, 46, 0.4);
+  color: #1e3a5f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(121, 188, 46, 0.12);
+}
+
+/* ============================================
+   FEATURED ARTICLE
+   ============================================ */
+.healthhub-featured-section {
+  padding: 0 0 3rem;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 20;
+}
+
+.healthhub-featured-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 2rem;
+  border: 1px solid rgba(121, 188, 46, 0.08);
+  box-shadow:
+    0 4px 6px rgba(121, 188, 46, 0.04),
+    0 20px 50px rgba(121, 188, 46, 0.12);
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .healthhub-featured-card {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 420px;
+  }
+}
+
+/* Green accent bar at bottom of featured card */
+.healthhub-featured-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #79bc2e, #8fcf45);
+  border-radius: 0 0 2rem 2rem;
+  z-index: 5;
+}
+
+.healthhub-featured-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 8px 15px rgba(121, 188, 46, 0.08),
+    0 30px 60px rgba(121, 188, 46, 0.18);
+  border-color: rgba(121, 188, 46, 0.15);
+}
+
+.healthhub-featured-content {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .healthhub-featured-content {
+    padding: 3rem;
+    width: 60%;
+  }
+}
+
+.healthhub-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.healthhub-category-badge {
+  background: rgba(121, 188, 46, 0.12);
+  color: #5a9e1a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.healthhub-reading-time {
+  font-size: 0.875rem;
+  color: var(--text-slate);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.healthhub-featured-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1e3a5f;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .healthhub-featured-title {
+    font-size: 2.25rem;
+  }
+}
+
+.healthhub-featured-card:hover .healthhub-featured-title {
+  color: #3f73ae;
+}
+
+.healthhub-featured-excerpt {
+  font-size: 1.0625rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.healthhub-author-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.healthhub-author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.healthhub-author-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(121, 188, 46, 0.15);
+}
+
+.healthhub-author-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1e3a5f;
+}
+
+.healthhub-read-link {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #3f73ae;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.healthhub-featured-card:hover .healthhub-read-link {
+  transform: translateX(4px);
+  color: #79bc2e;
+}
+
+.healthhub-featured-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 250px;
+}
+
+@media (min-width: 1024px) {
+  .healthhub-featured-image-wrapper {
+    width: 40%;
+    min-height: auto;
+  }
+}
+
+.healthhub-featured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.healthhub-featured-card:hover .healthhub-featured-image {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   ARTICLES GRID
+   ============================================ */
+.healthhub-grid-section {
+  padding: 2rem 0 6rem;
+  background: #fff;
+}
+
+.healthhub-article-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .healthhub-article-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .healthhub-article-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.healthhub-article-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #f3f4f6;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+.healthhub-article-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 15px rgba(121, 188, 46, 0.06),
+    0 20px 40px rgba(121, 188, 46, 0.12);
+  border-color: rgba(121, 188, 46, 0.2);
+}
+
+.healthhub-card-image-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.healthhub-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.healthhub-article-card:hover .healthhub-card-image {
+  transform: scale(1.05);
+}
+
+.healthhub-category-badge-overlay {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(121, 188, 46, 0.3);
+  z-index: 10;
+}
+
+.healthhub-card-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.healthhub-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.healthhub-article-card:hover .healthhub-card-title {
+  color: #3f73ae;
+}
+
+.healthhub-card-excerpt {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.healthhub-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f3f4f6;
+  font-size: 0.875rem;
+  color: var(--text-slate);
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+.healthhub-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.healthhub-pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: var(--font-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: var(--text-gray);
+  background: #fff;
+  border: 1px solid #f3f4f6;
+}
+
+.healthhub-pagination .page-numbers:hover {
+  border-color: rgba(121, 188, 46, 0.4);
+  color: #1e3a5f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(121, 188, 46, 0.15);
+}
+
+.healthhub-pagination .page-numbers.current {
+  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(121, 188, 46, 0.3);
+}
+
+.healthhub-pagination .page-numbers.dots {
+  border: none;
+  background: transparent;
+  pointer-events: none;
+  color: var(--text-slate);
+}
+
+.healthhub-pagination .page-numbers.prev,
+.healthhub-pagination .page-numbers.next {
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   NO RESULTS STATE
+   ============================================ */
+.healthhub-no-posts {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: #f0f4f8;
+  border-radius: 2rem;
+  border: 1px solid rgba(121, 188, 46, 0.08);
+}
+
+.healthhub-no-posts-icon {
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto 1.5rem;
+  background: rgba(121, 188, 46, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #79bc2e;
+}
+
+.healthhub-no-posts-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.healthhub-no-posts-text {
+  font-size: 1.0625rem;
+  color: #4a5568;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.healthhub-no-posts-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 15px rgba(121, 188, 46, 0.3);
+}
+
+.healthhub-no-posts-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(121, 188, 46, 0.4);
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.healthhub-cta-section {
+  position: relative;
+  background: linear-gradient(135deg, #1e3a5f, #3f73ae);
+  padding: 6rem 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.healthhub-cta-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.healthhub-cta-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.healthhub-cta-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .healthhub-cta-title {
+    font-size: 3.5rem;
+  }
+}
+
+.healthhub-cta-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.5rem;
+}
+
+.healthhub-cta-button {
+  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+.healthhub-cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   FADE IN ANIMATION (for card transitions)
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   TABLE OF CONTENTS (auto-generated)
+   ============================================ */
+.article-toc {
+  background: #f0f4f8;
+  border: 1px solid rgba(121, 188, 46, 0.12);
+  border-left: 4px solid #79bc2e;
+  border-radius: 0 1rem 1rem 0;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.article-toc-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.125rem 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  transition: background-color 0.2s ease;
+}
+
+.article-toc-toggle:hover {
+  background: rgba(121, 188, 46, 0.04);
+}
+
+.article-toc-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  color: #fff;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.article-toc-toggle-label {
+  flex: 1;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1e3a5f;
+}
+
+.article-toc-toggle-chevron {
+  flex-shrink: 0;
+  color: #79bc2e;
+  font-size: 0.875rem;
+  transition: transform 0.3s ease;
+}
+
+.article-toc[data-collapsed="true"] .article-toc-toggle-chevron {
+  transform: rotate(180deg);
+}
+
+.article-toc-list {
+  list-style: none;
+  counter-reset: toc-counter;
+  margin: 0;
+  padding: 0 1.5rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+  overflow: hidden;
+}
+
+.article-toc[data-collapsed="true"] .article-toc-list {
+  max-height: 0 !important;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.article-toc-list li {
+  counter-increment: toc-counter;
+  margin: 0;
+  padding: 0;
+}
+
+.article-toc-list li a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.5rem;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1e3a5f;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+
+.article-toc-list li a::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #79bc2e;
+  min-width: 1.5rem;
+}
+
+.article-toc-list li a:hover {
+  background: rgba(121, 188, 46, 0.08);
+  color: #3f73ae;
+}
+
+.article-toc-list li.article-toc-sub a {
+  padding-left: 2.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-gray);
+}
+
+.article-toc-list li.article-toc-sub a::before {
+  font-size: 0.75rem;
+  color: var(--text-slate);
+}
+
+.article-toc-list li.article-toc-sub a:hover {
+  color: #3f73ae;
+  background: rgba(121, 188, 46, 0.06);
+}
+
+/* ============================================
+   SINGLE POST — ARTICLE HERO
+   ============================================ */
+.article-hero {
+  position: relative;
+  background: #f0f4f8;
+  padding: 5rem 0 4rem;
+  overflow: hidden;
+}
+
+.article-hero-blob-1 {
+  position: absolute;
+  top: -30%;
+  right: -15%;
+  width: 600px;
+  height: 600px;
+  background: rgba(121, 188, 46, 0.06);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.article-hero-blob-2 {
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(63, 115, 174, 0.06);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.article-hero-inner {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Breadcrumb */
+.article-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-slate);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.article-breadcrumb a {
+  color: var(--text-slate);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article-breadcrumb a:hover {
+  color: #3f73ae;
+}
+
+.article-breadcrumb i {
+  font-size: 0.625rem;
+  color: rgba(121, 188, 46, 0.4);
+}
+
+.article-hero-meta-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #1e3a5f;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .article-hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .article-hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+.article-hero-excerpt {
+  font-size: 1.1875rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-hero-author-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.article-hero-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.article-hero-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(121, 188, 46, 0.15);
+}
+
+.article-hero-author-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.article-hero-author-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #1e3a5f;
+}
+
+.article-hero-author-role {
+  font-size: 0.8125rem;
+  color: var(--text-slate);
+}
+
+.article-hero-date {
+  font-size: 0.875rem;
+  color: var(--text-slate);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* ============================================
+   SINGLE POST — FEATURED IMAGE
+   ============================================ */
+.article-image-section {
+  margin-top: 0;
+  position: relative;
+  z-index: 15;
+  padding-bottom: 3rem;
+}
+
+.article-image-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px rgba(121, 188, 46, 0.04),
+    0 20px 50px rgba(121, 188, 46, 0.12);
+}
+
+.article-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   SINGLE POST — ARTICLE BODY
+   ============================================ */
+.article-body-section {
+  padding: 3rem 0 4rem;
+  background: #fff;
+}
+
+/* ============================================
+   ARTICLE CONTENT TYPOGRAPHY
+   ============================================ */
+.article-content {
+  max-width: 820px;
+  margin: 0 auto;
+  font-family: var(--font-primary);
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: #374151;
+}
+
+/* First paragraph — larger intro */
+.article-content > p:first-of-type {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  color: #1e3a5f;
+  font-weight: 500;
+}
+
+/* Headings */
+.article-content h2 {
+  font-family: var(--font-heading);
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: #1e3a5f;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+  padding-left: 1.25rem;
+  border-left: 4px solid #79bc2e;
+}
+
+.article-content h3 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.article-content h4 {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Paragraphs */
+.article-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* Links */
+.article-content a {
+  color: #3f73ae;
+  text-decoration: underline;
+  text-decoration-color: rgba(63, 115, 174, 0.3);
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
+}
+
+.article-content a:hover {
+  color: #79bc2e;
+  text-decoration-color: #79bc2e;
+}
+
+/* Lists */
+.article-content ul,
+.article-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.article-content li {
+  margin-bottom: 0.625rem;
+  padding-left: 0.5rem;
+}
+
+.article-content ul li::marker {
+  color: #79bc2e;
+  font-size: 1.2em;
+}
+
+.article-content ol li::marker {
+  color: #3f73ae;
+  font-weight: 700;
+}
+
+/* Nested lists */
+.article-content li > ul,
+.article-content li > ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* Blockquotes */
+.article-content blockquote {
+  margin: 2.5rem 0;
+  padding: 1.75rem 2rem;
+  background: #f0f4f8;
+  border-left: 4px solid #79bc2e;
+  border-radius: 0 1rem 1rem 0;
+  font-style: italic;
+  color: #1e3a5f;
+  font-size: 1.1875rem;
+  line-height: 1.7;
+}
+
+.article-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Images within content */
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(121, 188, 46, 0.12);
+  margin: 2rem 0;
+}
+
+.article-content .wp-caption {
+  max-width: 100%;
+  margin: 2rem 0;
+}
+
+.article-content .wp-caption img {
+  margin: 0 0 0.75rem;
+}
+
+.article-content .wp-caption-text {
+  font-size: 0.875rem;
+  color: var(--text-slate);
+  text-align: center;
+  font-style: italic;
+}
+
+/* Horizontal rules */
+.article-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(121, 188, 46, 0.3), transparent);
+  margin: 3rem 0;
+}
+
+/* Strong / Bold */
+.article-content strong {
+  font-weight: 700;
+  color: #1a202c;
+}
+
+/* Tables */
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  font-size: 0.9375rem;
+}
+
+.article-content thead th {
+  background: #1e3a5f;
+  color: #fff;
+  padding: 0.875rem 1.25rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.article-content td {
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.article-content tbody tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+.article-content tbody tr:hover td {
+  background: rgba(121, 188, 46, 0.04);
+}
+
+/* Code */
+.article-content code {
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 0.875em;
+  background: rgba(121, 188, 46, 0.08);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  color: #5a9e1a;
+}
+
+.article-content pre {
+  background: #1a202c;
+  color: #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.article-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Figures / embeds */
+.article-content figure {
+  margin: 2.5rem 0;
+}
+
+.article-content figcaption {
+  font-size: 0.875rem;
+  color: var(--text-slate);
+  text-align: center;
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+.article-content iframe {
+  max-width: 100%;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+}
+
+
+/* ============================================
+   SINGLE POST — TAGS
+   ============================================ */
+.article-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  max-width: 820px;
+  margin: 3rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.article-tags > i {
+  color: var(--text-slate);
+  font-size: 0.875rem;
+}
+
+.article-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.875rem;
+  background: #f0f4f8;
+  color: #5a9e1a;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(121, 188, 46, 0.12);
+}
+
+.article-tag:hover {
+  background: rgba(121, 188, 46, 0.12);
+  border-color: rgba(121, 188, 46, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   SINGLE POST — POST NAVIGATION
+   ============================================ */
+.article-navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 820px;
+  margin: 3rem auto 0;
+}
+
+@media (max-width: 639px) {
+  .article-navigation {
+    grid-template-columns: 1fr;
+  }
+}
+
+.article-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px solid #f3f4f6;
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.article-nav-link:hover {
+  border-color: rgba(121, 188, 46, 0.2);
+  box-shadow: 0 8px 20px rgba(121, 188, 46, 0.08);
+  transform: translateY(-2px);
+}
+
+.article-nav-next {
+  text-align: right;
+}
+
+.article-nav-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #79bc2e;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.article-nav-next .article-nav-label {
+  justify-content: flex-end;
+}
+
+.article-nav-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================
+   SINGLE POST — RELATED POSTS
+   ============================================ */
+.article-related-section {
+  padding: 5rem 0;
+  background: #f0f4f8;
+}
+
+.article-related-heading {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #1e3a5f;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .article-related-heading {
+    font-size: 2.5rem;
+  }
+}
+
+/* ============================================
+   PILLAR BACKLINK (shown on cluster posts)
+   ============================================ */
+.cluster-pillar-backlink {
+  background: #fff;
+  padding: 0;
+}
+
+.cluster-pillar-backlink-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  background: #f0f4f8;
+  border: 1px solid rgba(121, 188, 46, 0.12);
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.cluster-pillar-backlink-inner:hover {
+  border-color: rgba(121, 188, 46, 0.3);
+  box-shadow: 0 4px 20px rgba(121, 188, 46, 0.1);
+  transform: translateY(-1px);
+}
+
+.cluster-pillar-backlink-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  color: #fff;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+}
+
+.cluster-pillar-backlink-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.cluster-pillar-backlink-label {
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #79bc2e;
+}
+
+.cluster-pillar-backlink-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  line-height: 1.3;
+}
+
+.cluster-pillar-backlink-title i {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+.cluster-pillar-backlink-inner:hover .cluster-pillar-backlink-title i {
+  opacity: 1;
+  margin-left: 0.5rem;
+}
+
+/* ============================================
+   CLUSTER HUB (shown on pillar posts)
+   ============================================ */
+.cluster-hub-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #fff 0%, #f0f4f8 100%);
+}
+
+.cluster-hub-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cluster-hub-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  color: #fff;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 25px rgba(121, 188, 46, 0.25);
+}
+
+.cluster-hub-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #1e3a5f;
+  margin: 0 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .cluster-hub-title {
+    font-size: 2.5rem;
+  }
+}
+
+.cluster-hub-subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+.cluster-hub-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .cluster-hub-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cluster-hub-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   MEDICAL REVIEWER / FACT-CHECK BLOCK
+   Now a standalone section above the article body.
+   ============================================ */
+.article-fact-check-section {
+  padding: 0 0 1rem;
+}
+
+.article-fact-check {
+  max-width: 820px;
+  margin: 0 auto;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(121, 188, 46, 0.12);
+  background: #f0f4f8;
+  overflow: hidden;
+}
+
+.article-fact-check-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #1e3a5f, #3f73ae);
+  color: #fff;
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.article-fact-check-header i {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.article-fact-check-people {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .article-fact-check-people {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.article-fact-check-person {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.article-fact-check-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(121, 188, 46, 0.15);
+}
+
+.article-fact-check-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.article-fact-check-label {
+  font-family: var(--font-primary);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #79bc2e;
+}
+
+.article-fact-check-name {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: #1e3a5f;
+}
+
+.article-fact-check-role {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  color: var(--text-gray);
+  line-height: 1.4;
+}
+
+.article-fact-check-verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.375rem;
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #3f73ae;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article-fact-check-verify:hover {
+  color: #79bc2e;
+}
+
+.article-fact-check-verify i {
+  font-size: 0.6875rem;
+}
+
+.article-fact-check-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0.875rem 1.5rem;
+  border-top: 1px solid rgba(121, 188, 46, 0.1);
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  color: var(--text-slate);
+}
+
+.article-fact-check-footer i {
+  margin-right: 0.25rem;
+}
+
+.article-fact-check-footer .fa-check-circle {
+  color: #79bc2e;
+}
+
+/* ============================================
+   FAQ ACCORDION SECTION
+   ============================================ */
+.article-faq-section {
+  padding: 1rem 0 4rem;
+  background: #fff;
+}
+
+.article-faq-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.article-faq-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.article-faq-header .section-badge {
+  margin-bottom: 1rem;
+}
+
+.article-faq-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #1e3a5f;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .article-faq-title {
+    font-size: 2.5rem;
+  }
+}
+
+.article-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.article-faq-item {
+  border: 1px solid rgba(121, 188, 46, 0.1);
+  border-radius: 1rem;
+  background: #f0f4f8;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.article-faq-item.is-open {
+  border-color: rgba(121, 188, 46, 0.2);
+  box-shadow: 0 4px 20px rgba(121, 188, 46, 0.08);
+}
+
+.article-faq-question {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-primary);
+  transition: background-color 0.2s ease;
+}
+
+.article-faq-question:hover {
+  background: rgba(121, 188, 46, 0.04);
+}
+
+.article-faq-number {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+}
+
+.article-faq-question-text {
+  flex: 1;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  line-height: 1.4;
+}
+
+.article-faq-toggle {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #79bc2e;
+  font-size: 0.875rem;
+  transition: transform 0.3s ease;
+}
+
+.article-faq-item.is-open .article-faq-toggle {
+  transform: rotate(45deg);
+}
+
+.article-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.article-faq-answer-inner {
+  padding: 0 1.5rem 1.5rem 4.75rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-gray);
+}
+
+.article-faq-answer-inner p:first-child {
+  margin-top: 0;
+}
+
+.article-faq-answer-inner p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 639px) {
+  .article-faq-answer-inner {
+    padding-left: 1.5rem;
+  }
+}
+
+/* ============================================
+   HEALTH HUB — SOCIAL PROOF / GOOGLE RATING
+   Soft blue band between hero and grid.
+   Reuses globals.css .rating-badge with
+   position: static override for inline use.
+   ============================================ */
+.healthhub-social-proof-section {
+  background: #f0f4f8;
+  padding: 4rem 0;
+}
+
+.healthhub-social-proof-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .healthhub-social-proof-wrapper {
+    flex-direction: row;
+    text-align: left;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+/* Override default absolute positioning on rating badge */
+.healthhub-social-proof-section .rating-badge {
+  position: static;
+  flex-shrink: 0;
+}
+
+.healthhub-social-proof-content {
+  max-width: 550px;
+}
+
+.healthhub-social-proof-eyebrow {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #3f73ae;
+  margin: 0 0 0.75rem;
+}
+
+.healthhub-social-proof-headline {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #1e3a5f;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .healthhub-social-proof-headline {
+    font-size: 2.25rem;
+  }
+}
+
+.healthhub-social-proof-subtext {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================
+   HEALTH HUB — IN-GRID CTA CARD
+   Blends into the article grid as a
+   booking prompt card.
+   ============================================ */
+.healthhub-cta-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  height: 100%;
+  background: linear-gradient(135deg, #1e3a5f, #3f73ae);
+  transition: all 0.4s ease;
+}
+
+.healthhub-cta-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 15px rgba(30, 58, 95, 0.12),
+    0 20px 40px rgba(63, 115, 174, 0.2);
+}
+
+.healthhub-cta-card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  flex: 1;
+}
+
+.healthhub-cta-card-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.healthhub-cta-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.75rem;
+  line-height: 1.3;
+}
+
+.healthhub-cta-card-text {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0 0 1.75rem;
+}
+
+.healthhub-cta-card-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: #fff;
+  color: #3f73ae;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.healthhub-cta-card-button:hover {
+  background: #f0f4f8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.healthhub-cta-card-button i {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.healthhub-cta-card-button:hover i {
+  transform: translateX(3px);
+}
+
+/* ============================================
+   SINGLE POST — SOCIAL PROOF / GOOGLE RATING
+   Soft blue band on single posts, placed
+   before the CTA section to build trust.
+   ============================================ */
+.article-social-proof-section {
+  background: #f0f4f8;
+  padding: 4rem 0;
+}
+
+.article-social-proof-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .article-social-proof-wrapper {
+    flex-direction: row;
+    text-align: left;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+.article-social-proof-section .rating-badge {
+  position: static;
+  flex-shrink: 0;
+}
+
+.article-social-proof-content {
+  max-width: 550px;
+}
+
+.article-social-proof-eyebrow {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #3f73ae;
+  margin: 0 0 0.75rem;
+}
+
+.article-social-proof-headline {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #1e3a5f;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .article-social-proof-headline {
+    font-size: 2.25rem;
+  }
+}
+
+.article-social-proof-subtext {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================
+   SINGLE POST — ARTICLE CTA SECTION
+   Full-width navy section with trust badges,
+   placed after article content, before
+   related posts.
+   ============================================ */
+/* ============================================
+   CONSULTATION CLOSER
+   Appended inside the_content() via filter —
+   sits at the end of the article body text,
+   bookending the clinically reviewed block.
+   ============================================ */
+
+/* --- Card wrapper (mirrors .article-fact-check) --- */
+
+.article-closer-card {
+  margin-top: 3rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background: #fff;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(121, 188, 46, 0.12);
+  box-shadow: 0 12px 40px rgba(121, 188, 46, 0.1);
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- Header bar (mirrors .article-fact-check-header) --- */
+
+.article-closer-header {
+  background: linear-gradient(135deg, #1e3a5f, #3f73ae);
+  padding: 0.875rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.article-closer-header i {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Body: pharmacist left, CTA right --- */
+
+.article-closer-body {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 1.75rem;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .article-closer-body {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+}
+
+/* Pharmacist column */
+
+.article-closer-pharmacist {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.article-closer-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(121, 188, 46, 0.2);
+  box-shadow: 0 4px 16px rgba(121, 188, 46, 0.12);
+  flex-shrink: 0;
+}
+
+.article-closer-pharmacist-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.article-closer-pharmacist-label {
+  font-family: var(--font-primary);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #79bc2e;
+}
+
+.article-closer-pharmacist-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e3a5f;
+}
+
+.article-closer-pharmacist-role {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  color: var(--text-gray);
+  line-height: 1.4;
+}
+
+.article-closer-pharmacist-gphc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #3f73ae;
+  margin-top: 0.25rem;
+}
+
+.article-closer-pharmacist-gphc i {
+  font-size: 0.6875rem;
+  color: #79bc2e;
+}
+
+/* CTA column */
+
+.article-closer-action {
+  flex: 1;
+}
+
+.article-closer-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e3a5f;
+  margin: 0 0 0.625rem;
+  line-height: 1.25;
+}
+
+.article-closer-description {
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+.article-closer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.article-closer-book {
+  background: linear-gradient(135deg, #79bc2e, #5a9e1a) !important;
+  color: #fff !important;
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 8px 24px rgba(121, 188, 46, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-closer-book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(121, 188, 46, 0.4);
+}
+
+.article-closer-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #3f73ae;
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid rgba(121, 188, 46, 0.2);
+  border-radius: 100px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.article-closer-phone:hover {
+  border-color: rgba(121, 188, 46, 0.4);
+  background: rgba(121, 188, 46, 0.04);
+}
+
+.article-closer-phone i {
+  font-size: 0.8125rem;
+  color: #79bc2e;
+}
+
+/* --- Trust row inside card --- */
+
+.article-closer-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1rem 2rem 1.25rem;
+  border-top: 1px solid rgba(121, 188, 46, 0.08);
+}
+
+.article-closer-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #1e3a5f;
+}
+
+.article-closer-trust-item i {
+  color: #79bc2e;
+  font-size: 0.75rem;
+}
+
+/* --- Compliance footer (below card) --- */
+
+.article-closer-compliance {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.article-closer-compliance-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-slate);
+  background: rgba(30, 58, 95, 0.04);
+  border: 1px solid rgba(30, 58, 95, 0.06);
+  border-radius: 100px;
+  padding: 0.5rem 1rem;
+}
+
+.article-closer-compliance-pill i {
+  font-size: 0.6875rem;
+  color: #3f73ae;
+}
+
+/* --- Mobile --- */
+
+@media (max-width: 640px) {
+  .article-closer-body {
+    padding: 1.5rem;
+  }
+
+  .article-closer-pharmacist {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .article-closer-pharmacist-info {
+    align-items: center;
+  }
+
+  .article-closer-action {
+    text-align: center;
+  }
+
+  .article-closer-title {
+    font-size: 1.375rem;
+  }
+
+  .article-closer-buttons {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article-closer-trust {
+    gap: 0.75rem;
+  }
+}
+
+/* ============================================
+   VIMEO EMBED SHORTCODE
+   [vimeo] card inside blog post content
+   ============================================ */
+
+.vimeo-embed-card {
+  position: relative;
+  margin: 2.5rem 0;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+  box-shadow: 0 15px 40px rgba(121, 188, 46, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vimeo-embed-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(121, 188, 46, 0.22);
+}
+
+.vimeo-embed-card:focus-visible {
+  outline: 3px solid var(--brand-blue);
+  outline-offset: 3px;
+}
+
+.vimeo-embed-thumbnail {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.vimeo-embed-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.vimeo-embed-card:hover .vimeo-embed-thumbnail img {
+  transform: scale(1.04);
+}
+
+.vimeo-embed-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+.vimeo-embed-card:hover .vimeo-embed-overlay {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.vimeo-embed-play {
+  width: 4.5rem;
+  height: 4.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.vimeo-embed-card:hover .vimeo-embed-play {
+  transform: scale(1.1);
+}
+
+.vimeo-embed-play i {
+  color: var(--brand-blue);
+  font-size: 1.25rem;
+  margin-left: 0.2rem;
+}
+
+.vimeo-embed-caption {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1rem 1.5rem;
+  background: #f0f4f8;
+  border-top: 1px solid rgba(121, 188, 46, 0.12);
+}
+
+.vimeo-embed-caption i {
+  color: #79bc2e;
+  font-size: 0.875rem;
+}
+
+.vimeo-embed-caption span {
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+@media (max-width: 768px) {
+  .vimeo-embed-play {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .vimeo-embed-play i {
+    font-size: 1rem;
+  }
+}
+
+/* Mounjaro calculator styles moved to mounjaro-calculator.css */

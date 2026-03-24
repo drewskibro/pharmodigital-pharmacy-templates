@@ -1,0 +1,1748 @@
+/* ============================================
+   TRAVEL HEALTH PAGE STYLES — BOWLAND PHARMACY
+   All classes use travel- prefix except shared components
+   Colour system: blue/green brand
+   ============================================ */
+
+/* Scoped accent variables for gradient elements */
+.travel-stats-section,
+.travel-cta-section,
+.travel-process-card-number,
+.travel-faq-number,
+.travel-faq-icon,
+.travel-why-badge,
+.travel-service-icon-small,
+.travel-vaccine-icon i {
+  --brand-accent-light: #3f73ae;
+  --brand-accent-deep: #2a507a;
+}
+
+
+/* ============================================
+   HERO SECTION — Split layout: warm cream left, image card right
+   ============================================ */
+.travel-hero-section {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 5rem 0;
+  overflow: hidden;
+  background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
+}
+
+/* Decorative blobs — warm blue tint */
+.travel-hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.travel-hero-glow-1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(63, 115, 174, 0.07);
+  top: -150px;
+  right: -100px;
+}
+
+.travel-hero-glow-2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(63, 115, 174, 0.05);
+  bottom: -120px;
+  left: -80px;
+}
+
+.travel-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .travel-hero-section {
+    padding-top: 1rem;
+    min-height: auto;
+  }
+
+  .travel-hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+/* Left Content */
+.travel-hero-content {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .travel-hero-content {
+    text-align: left;
+  }
+}
+
+.travel-hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.travel-hero-title-accent {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (min-width: 768px) {
+  .travel-hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .travel-hero-title {
+    font-size: 4rem;
+  }
+}
+
+.travel-hero-description {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+@media (max-width: 1023px) {
+  .travel-hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .travel-hero-description {
+    font-size: 1.25rem;
+  }
+}
+
+.travel-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .travel-hero-actions {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1023px) {
+  .travel-hero-actions {
+    justify-content: center;
+  }
+}
+
+/* Trust Badges — warm glassmorphic pills */
+.travel-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .travel-hero-trust {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+}
+
+.travel-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(63, 115, 174, 0.12);
+  box-shadow: 0 2px 12px rgba(63, 115, 174, 0.06);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.travel-hero-trust-item:hover {
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(63, 115, 174, 0.12);
+}
+
+.travel-hero-trust-item i {
+  color: var(--brand-primary);
+  font-size: 0.9375rem;
+}
+
+.travel-hero-trust-item span {
+  color: #111827;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+}
+
+/* Right: Image card column */
+.travel-hero-visual {
+  display: none;
+  position: relative;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .travel-hero-visual {
+    display: flex;
+  }
+}
+
+.travel-hero-visual-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.15), rgba(63, 115, 174, 0.05));
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.travel-hero-image-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 500px;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(63, 115, 174, 0.25);
+  border: 6px solid var(--white);
+  z-index: 2;
+  transform: rotate(-2deg);
+  transition: transform 0.7s ease-out;
+}
+
+.travel-hero-image-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.travel-hero-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.travel-hero-image-card:hover img {
+  transform: scale(1.05);
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+
+/* ============================================
+   STATS BAR — Purple gradient, 4-column
+   ============================================ */
+.travel-stats-section {
+  position: relative;
+  background: linear-gradient(135deg, #3f73ae, #2a507a);
+  padding: 2rem 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.travel-stats-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  animation: shimmer 4s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.travel-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .travel-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+}
+
+.travel-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .travel-stat-item {
+    justify-content: flex-start;
+  }
+}
+
+.travel-stat-icon {
+  width: 4rem;
+  height: 4rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.travel-stat-icon i {
+  font-size: 1.375rem;
+  color: var(--white);
+}
+
+.travel-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.travel-stat-number {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.travel-stat-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/* ============================================
+   SERVICES SECTION — 5-card grid with floating icons
+   ============================================ */
+.travel-services-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+}
+
+.travel-services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.travel-services-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .travel-services-title {
+    font-size: 3rem;
+  }
+}
+
+.travel-services-description {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .travel-services-description {
+    font-size: 1.25rem;
+  }
+}
+
+.travel-services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .travel-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .travel-services-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.travel-service-card-premium {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(63, 115, 174, 0.12);
+}
+
+.travel-service-card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.18);
+  border-color: var(--brand-primary);
+}
+
+.travel-service-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0f4f8, #e8edf2);
+}
+
+.travel-service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.travel-service-card-premium:hover .travel-service-image {
+  transform: scale(1.1);
+}
+
+.travel-service-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.05), transparent);
+  pointer-events: none;
+}
+
+.travel-service-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+.travel-service-icon-small {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, var(--brand-accent-light), var(--brand-accent-deep));
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -3rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 3px solid var(--white);
+  position: relative;
+  z-index: 10;
+}
+
+.travel-service-icon-small i {
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.travel-service-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.travel-service-desc {
+  font-size: 0.875rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+
+/* ============================================
+   VACCINATIONS GRID — 4-column
+   ============================================ */
+.travel-vaccines-section {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f5fa 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.travel-vaccines-blob-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(63, 115, 174, 0.08) 0%, transparent 70%);
+  transform: translate(-30%, -30%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.travel-vaccines-blob-2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(42, 80, 122, 0.06) 0%, transparent 70%);
+  transform: translate(30%, 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.travel-vaccines-section .section-container {
+  position: relative;
+  z-index: 1;
+}
+
+.travel-vaccines-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.travel-vaccines-header .section-badge {
+  margin-bottom: 1.5rem;
+}
+
+.travel-vaccines-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .travel-vaccines-title {
+    font-size: 2.5rem;
+  }
+}
+
+.travel-vaccines-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .travel-vaccines-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .travel-vaccines-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.travel-vaccine-card {
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.15);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px -5px rgba(63, 115, 174, 0.08);
+}
+
+.travel-vaccine-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -5px rgba(63, 115, 174, 0.18);
+  border-color: var(--brand-primary);
+}
+
+.travel-vaccine-icon {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.12), rgba(42, 80, 122, 0.08));
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.travel-vaccine-icon i {
+  font-size: 1.25rem;
+  color: var(--brand-primary);
+}
+
+.travel-vaccine-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+/* Yellow Fever Special Card */
+.travel-vaccine-card-yellow {
+  background: linear-gradient(135deg, #fcc926, #f59f00);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.travel-vaccine-card-yellow:hover {
+  box-shadow: 0 20px 40px -5px rgba(252, 201, 38, 0.3);
+}
+
+.travel-vaccine-card-yellow .travel-vaccine-icon {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.travel-vaccine-card-yellow .travel-vaccine-icon i {
+  color: var(--white);
+}
+
+.travel-vaccine-card-yellow .travel-vaccine-name {
+  color: var(--white);
+  font-size: 1.125rem;
+}
+
+.travel-vaccine-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/* ============================================
+   WHY CHOOSE US — pharmacist strip + 2×2 premium grid
+   ============================================ */
+.travel-why-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background glows */
+.travel-why-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.travel-why-bg-glow-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(63, 115, 174, 0.08);
+  top: -100px;
+  right: -100px;
+}
+
+.travel-why-bg-glow-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(63, 115, 174, 0.06);
+  bottom: -80px;
+  left: -80px;
+}
+
+.travel-why-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.travel-why-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.travel-why-title-accent {
+  color: var(--brand-primary);
+}
+
+@media (min-width: 768px) {
+  .travel-why-title {
+    font-size: 3rem;
+  }
+}
+
+/* --- Pharmacist intro strip --- */
+.travel-why-pharmacist-strip {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 3rem;
+}
+
+.travel-why-pharmacist-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: #fff;
+  border: 2px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.25rem;
+  padding: 1.25rem 2rem;
+  max-width: 640px;
+  margin: 0 auto;
+  box-shadow: 0 4px 24px rgba(63, 115, 174, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.travel-why-pharmacist-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--brand-primary), var(--brand-dark));
+  border-radius: 4px 0 0 4px;
+}
+
+/* Photo with brand ring */
+.travel-why-photo-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+}
+
+.travel-why-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.travel-why-photo-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  z-index: 1;
+}
+
+.travel-why-pharmacist-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.travel-why-pharmacist-name {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 0.125rem;
+  line-height: 1.3;
+}
+
+.travel-why-pharmacist-role {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-gray);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Experience pill */
+.travel-why-experience-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  border-radius: 100px;
+  padding: 0.625rem 1.25rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(63, 115, 174, 0.3);
+}
+
+.travel-why-experience-number {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.travel-why-experience-label {
+  font-family: var(--font-primary);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+/* --- 2×2 premium feature grid --- */
+.travel-why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .travel-why-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Individual feature card */
+.travel-why-card {
+  position: relative;
+  background: #fff;
+  border: 2px solid rgba(63, 115, 174, 0.08);
+  border-radius: 1.5rem;
+  padding: 2.25rem 2rem 2rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 20px rgba(63, 115, 174, 0.06);
+  overflow: hidden;
+}
+
+.travel-why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.15);
+  border-color: rgba(63, 115, 174, 0.2);
+}
+
+/* Bottom accent bar — hidden by default, slides in on hover */
+.travel-why-card-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-dark));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.travel-why-card:hover .travel-why-card-accent {
+  transform: scaleX(1);
+}
+
+/* Top row — number left, icon right */
+.travel-why-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+/* Card number — prominent, gradient text */
+.travel-why-card-number {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.25;
+  transition: opacity 0.4s ease;
+}
+
+.travel-why-card:hover .travel-why-card-number {
+  opacity: 0.45;
+}
+
+/* Icon container — soft tinted background */
+.travel-why-card-icon-wrap {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(63, 115, 174, 0.08);
+  border-radius: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease, transform 0.4s ease;
+  flex-shrink: 0;
+}
+
+.travel-why-card:hover .travel-why-card-icon-wrap {
+  background: rgba(63, 115, 174, 0.14);
+  transform: scale(1.08);
+}
+
+.travel-why-card-icon-wrap i {
+  font-size: 1.125rem;
+  color: var(--brand-primary);
+}
+
+/* Card title */
+.travel-why-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 0.625rem;
+  line-height: 1.3;
+}
+
+/* Card description */
+.travel-why-card-description {
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  color: var(--text-gray);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* --- Mobile adjustments --- */
+@media (max-width: 639px) {
+  .travel-why-pharmacist-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .travel-why-pharmacist-info {
+    flex-basis: 100%;
+    order: -1;
+  }
+
+  .travel-why-photo-wrapper {
+    order: -2;
+  }
+
+  .travel-why-experience-pill {
+    margin: 0 auto;
+  }
+
+  .travel-why-pharmacist-inner::before {
+    width: 100%;
+    height: 4px;
+    top: 0;
+    left: 0;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .travel-why-card {
+    padding: 2rem 1.5rem 1.75rem;
+  }
+}
+
+
+/* ============================================
+   PROCESS SECTION — 4 alternating steps
+   ============================================ */
+.travel-process-section {
+  padding: 6rem 0;
+  background: var(--white);
+}
+
+.travel-process-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.travel-process-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .travel-process-title {
+    font-size: 3rem;
+  }
+}
+
+/* Alternating step layout */
+.travel-process-step {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .travel-process-step {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.travel-process-step:last-child {
+  margin-bottom: 0;
+}
+
+.travel-process-step-content {
+  position: relative;
+  padding-top: 2.5rem;
+}
+
+.travel-process-step-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--white);
+  box-shadow: 0 8px 25px rgba(63, 115, 174, 0.3);
+  z-index: 2;
+}
+
+.travel-process-step-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.12), rgba(42, 80, 122, 0.08));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.travel-process-step-icon i {
+  font-size: 32px;
+  color: var(--brand-primary);
+}
+
+.travel-process-step-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .travel-process-step-title {
+    font-size: 2.25rem;
+  }
+}
+
+.travel-process-step-description {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .travel-process-step-description {
+    font-size: 1.125rem;
+  }
+}
+
+.travel-process-step-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--brand-light);
+  padding: 0.875rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(63, 115, 174, 0.2);
+  width: fit-content;
+}
+
+.travel-process-step-meta i {
+  color: var(--brand-primary);
+  font-size: 1rem;
+}
+
+.travel-process-step-meta span {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.travel-process-step-image {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 4px solid var(--white);
+}
+
+.travel-process-step-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.travel-process-step:hover .travel-process-step-image img {
+  transform: scale(1.05);
+}
+
+/* Floating badge on step image */
+.travel-process-step-floating-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(63, 115, 174, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.travel-process-step-floating-badge i {
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.travel-process-step-floating-badge span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* Alternating layout — swap content/image order */
+@media (min-width: 1024px) {
+  .travel-process-step-right .travel-process-step-content {
+    order: 2;
+  }
+
+  .travel-process-step-right .travel-process-step-image {
+    order: 1;
+  }
+}
+
+
+/* ============================================
+   POPULAR DESTINATIONS — 4-column card grid
+   ============================================ */
+.travel-destinations-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+}
+
+.travel-destinations-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.travel-destinations-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .travel-destinations-title {
+    font-size: 3rem;
+  }
+}
+
+.travel-destinations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .travel-destinations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .travel-destinations-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.travel-destination-card {
+  display: block;
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid #f3f4f6;
+  transition: box-shadow 0.5s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.travel-destination-card:hover {
+  box-shadow: var(--shadow-2xl);
+  transform: translateY(-0.5rem);
+}
+
+.travel-destination-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.travel-destination-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.travel-destination-card:hover .travel-destination-image {
+  transform: scale(1.1);
+}
+
+.travel-destination-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(42, 80, 122, 0.15) 50%, transparent);
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.travel-destination-card:hover .travel-destination-overlay {
+  opacity: 1;
+}
+
+.travel-destination-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  z-index: 10;
+}
+
+.travel-destination-name {
+  font-family: var(--font-primary);
+  color: var(--white);
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.travel-destination-card:hover .travel-destination-name {
+  transform: translateY(-0.25rem);
+}
+
+
+/* ============================================
+   FAQ SECTION — Serif font styling (Playfair Display)
+   .travel-faq-item / .travel-faq-active
+   ============================================ */
+.travel-faq-section {
+  padding: 7rem 0;
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f4f8 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.travel-faq-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(63, 115, 174, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.travel-faq-header {
+  text-align: center;
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.travel-faq-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .travel-faq-title {
+    font-size: 3.5rem;
+  }
+}
+
+.travel-faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.travel-faq-item {
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.08);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.travel-faq-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(63, 115, 174, 0.1);
+  border-color: rgba(63, 115, 174, 0.2);
+}
+
+.travel-faq-item.travel-faq-active {
+  box-shadow: 0 25px 50px rgba(63, 115, 174, 0.12);
+  border-color: var(--brand-primary);
+}
+
+.travel-faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.3s ease;
+}
+
+.travel-faq-number {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  width: 2rem;
+  flex-shrink: 0;
+}
+
+.travel-faq-item:hover .travel-faq-number,
+.travel-faq-item.travel-faq-active .travel-faq-number {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.travel-faq-question-text {
+  flex: 1;
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: color 0.3s ease;
+}
+
+.travel-faq-item:hover .travel-faq-question-text,
+.travel-faq-item.travel-faq-active .travel-faq-question-text {
+  color: var(--brand-primary);
+}
+
+@media (min-width: 768px) {
+  .travel-faq-question-text {
+    font-size: 1.5rem;
+  }
+}
+
+.travel-faq-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(63, 115, 174, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-primary);
+  font-size: 1rem;
+  transition: all 0.4s ease;
+  flex-shrink: 0;
+}
+
+.travel-faq-item:hover .travel-faq-icon {
+  background: var(--brand-primary);
+  color: var(--white);
+}
+
+.travel-faq-item.travel-faq-active .travel-faq-icon {
+  background: var(--brand-primary);
+  color: var(--white);
+  transform: rotate(45deg);
+}
+
+.travel-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), padding 0.5s ease;
+}
+
+.travel-faq-item.travel-faq-active .travel-faq-answer {
+  max-height: 500px;
+  padding: 0 2.5rem 2.5rem 5.5rem;
+}
+
+.travel-faq-answer p {
+  font-size: 1.125rem;
+  color: #4b5563;
+  line-height: 1.8;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 639px) {
+  .travel-faq-question {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .travel-faq-number {
+    font-size: 1.25rem;
+    width: 1.5rem;
+  }
+
+  .travel-faq-question-text {
+    font-size: 1.125rem;
+  }
+
+  .travel-faq-item.travel-faq-active .travel-faq-answer {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+}
+
+
+/* ============================================
+   FINAL CTA — Deep blue gradient
+   ============================================ */
+.travel-cta-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.travel-cta-glow-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.travel-cta-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.travel-cta-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.travel-cta-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.travel-cta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.travel-cta-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.875rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.travel-cta-badge i {
+  font-size: 1.125rem;
+  color: var(--white);
+}
+
+.travel-cta-badge span {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.travel-cta-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  color: var(--white);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .travel-cta-title {
+    font-size: 3.5rem;
+  }
+}
+
+.travel-cta-description {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .travel-cta-description {
+    font-size: 1.25rem;
+  }
+}
+
+.travel-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .travel-cta-actions {
+    flex-direction: row;
+  }
+}
+
+.travel-cta-button-white {
+  background: var(--white);
+  color: #2a507a;
+}
+
+.travel-cta-button-white:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.travel-cta-button-outlined {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.travel-cta-button-outlined:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.travel-cta-checks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.travel-cta-check {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.travel-cta-check i {
+  font-size: 1.125rem;
+  color: var(--white);
+}
+
+.travel-cta-check span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* ============================================
+   SCROLL-REVEAL ANIMATIONS
+   ============================================ */
+.travel-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.travel-reveal.travel-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for child elements */
+.travel-reveal.travel-delay-1 { transition-delay: 0.1s; }
+.travel-reveal.travel-delay-2 { transition-delay: 0.2s; }
+.travel-reveal.travel-delay-3 { transition-delay: 0.3s; }
+.travel-reveal.travel-delay-4 { transition-delay: 0.4s; }
+
+
+/* ============================================
+   VACCINE CARD STAGGER ENTRANCE
+   ============================================ */
+.travel-vaccines-grid .travel-vaccine-card,
+.travel-vaccines-grid .travel-vaccine-card-yellow {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.travel-vaccines-section.travel-visible .travel-vaccine-card,
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(1),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(1) { transition-delay: 0.05s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(2),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(2) { transition-delay: 0.1s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(3),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(3) { transition-delay: 0.15s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(4),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(4) { transition-delay: 0.2s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(5),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(5) { transition-delay: 0.25s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(6),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(6) { transition-delay: 0.3s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(7),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(7) { transition-delay: 0.35s; }
+.travel-vaccines-section.travel-visible .travel-vaccine-card:nth-child(8),
+.travel-vaccines-section.travel-visible .travel-vaccine-card-yellow:nth-child(8) { transition-delay: 0.4s; }
