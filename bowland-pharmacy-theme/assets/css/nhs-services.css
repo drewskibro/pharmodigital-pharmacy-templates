@@ -1,0 +1,234 @@
+/* ============================================
+   NHS SERVICES — Page-Specific Styles
+   Prefix: .nhs-
+   ============================================
+   globals.css already provides: .hero-section, .hero-grid,
+   .hero-content, .hero-title, .hero-description, .hero-actions,
+   .hero-visual, .hero-visual-glow, .hero-image-card, .hero-overlay,
+   .hero-image-caption, .rating-badge, .trust-indicators,
+   .stats-section, .stats-bar, .stat-item, .section-badge,
+   and all shared CTA / animation classes.
+
+   This file adds ONLY what is new or needs NHS-specific overrides.
+   ============================================ */
+
+
+/* ============================================
+   S1: HERO — Local Badge
+   ============================================
+   Replaces .section-badge with a richer two-line
+   badge featuring an icon circle, title, and subtitle.
+   (Mirrors the home-page .hero-local-badge but scoped
+   to .nhs- so the NHS template owns its own markup.)
+   ============================================ */
+.nhs-hero-local-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem 0.75rem 1rem;
+  background: var(--white);
+  border: 1px solid rgba(8, 93, 181, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(8, 93, 181, 0.1);
+  margin-bottom: 2rem;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nhs-hero-local-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(8, 93, 181, 0.15);
+}
+
+.nhs-hero-local-badge-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  background: rgba(8, 93, 181, 0.12);
+  color: #085db5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.nhs-hero-local-badge-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.nhs-hero-local-badge-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1.2;
+  margin-bottom: 0.125rem;
+}
+
+.nhs-hero-local-badge-subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-slate);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+
+/* ============================================
+   S1: HERO — Accent Text (italic serif line)
+   ============================================
+   Identical to .hero-accent-text in globals but
+   scoped to .nhs- so the NHS template is self-contained.
+   ============================================ */
+.nhs-hero-accent-text {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-dark);
+  display: block;
+  font-size: 0.9em;
+  margin: 0.1em 0;
+}
+
+
+/* ============================================
+   S1: HERO — Visual Column (image card + rating)
+   ============================================
+   The right-hand column that appears on desktop.
+   Hidden on mobile, flex on >= 1024px (handled below).
+   Overrides from the Anima model for the NHS page:
+   - Stronger bottom gradient on the image overlay
+   - Slightly different caption positioning (no glass card)
+   ============================================ */
+.nhs-hero-visual {
+  display: none; /* hidden on mobile */
+  position: relative;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nhs-hero-visual-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(
+    135deg,
+    rgba(63, 115, 174, 0.2),
+    rgba(121, 188, 46, 0.15)
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: -1;
+  animation: pulse-glow 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.nhs-hero-image-card {
+  position: relative;
+  width: 420px;
+  height: 560px;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+  border: 6px solid var(--white);
+  z-index: 20;
+  transform: rotate(-2deg);
+  transition: transform 0.7s ease-out;
+}
+
+.nhs-hero-image-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.nhs-hero-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transform: scale(1.05);
+}
+
+.nhs-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  pointer-events: none;
+}
+
+.nhs-hero-image-caption {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(8, 93, 181, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  box-shadow: 0 10px 30px -5px rgba(8, 93, 181, 0.4);
+  z-index: 10;
+  transform: translateY(0);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.nhs-hero-image-card:hover .nhs-hero-image-caption {
+  transform: translateY(-5px);
+  background: rgba(8, 93, 181, 0.95);
+}
+
+.nhs-hero-caption-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.nhs-hero-caption-title {
+  font-family: var(--font-heading);
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Rating badge — absolute inside the NHS visual column */
+.nhs-hero-visual .rating-badge {
+  position: absolute;
+  bottom: 3rem;
+  right: -2rem;
+  z-index: 30;
+}
+
+
+/* ============================================
+   S2: STATS — 5-column override
+   ============================================
+   The NHS model shows 5 stats (not the default 4).
+   On mobile the shared stats-bar grid (2-col) still
+   works; we just need the desktop row to be 5-wide.
+   ============================================ */
+.nhs-stats-bar {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+
+/* ============================================
+   DESKTOP BREAKPOINTS
+   ============================================ */
+@media (min-width: 1024px) {
+  /* Show the visual column on desktop */
+  .nhs-hero-visual {
+    display: flex;
+  }
+
+  /* 5-column stats on desktop (when using grid) */
+  .nhs-stats-bar {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
