@@ -43,7 +43,7 @@ function bowland_pharmacy_setup() {
     ) );
 
     add_image_size( 'medium-large', 720, 9999, false );
-    add_image_size( 'treatment-card', 600, 400, true );
+    add_image_size( 'treatment-card', 480, 640, true );
     add_image_size( 'health-hub-featured', 800, 600, true );
     add_image_size( 'health-hub-card', 600, 400, true );
     add_image_size( 'pharmacist-photo', 600, 750, true );
