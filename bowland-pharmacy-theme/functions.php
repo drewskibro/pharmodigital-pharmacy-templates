@@ -203,6 +203,15 @@ function bowland_pharmacy_scripts() {
         BOWLAND_PHARMACY_VERSION,
         true
     );
+
+    // Scroll Reveal — smooth entrance animations on scroll
+    wp_enqueue_script(
+        'bowland-scroll-reveal',
+        BOWLAND_PHARMACY_URI . '/assets/js/scroll-reveal.js',
+        array(),
+        filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/scroll-reveal.js' ),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'bowland_pharmacy_scripts' );
 
