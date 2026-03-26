@@ -5535,6 +5535,7 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_yf_cta_title', 'label' => 'Title', 'name' => 'yf_cta_title', 'type' => 'text' ),
             array( 'key' => 'field_dp_yf_cta_desc', 'label' => 'Description', 'name' => 'yf_cta_desc', 'type' => 'textarea', 'rows' => 2 ),
             array( 'key' => 'field_dp_yf_cta_url', 'label' => 'CTA URL', 'name' => 'yf_cta_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_yf_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'yf_cta_button_text', 'type' => 'text', 'default_value' => 'Book Vaccination' ),
             array(
                 'key'          => 'field_dp_yf_cta_checks',
                 'label'        => 'CTA Checkmarks',

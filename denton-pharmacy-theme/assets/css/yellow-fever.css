@@ -61,7 +61,7 @@
    ============================================ */
 .yellowfever-hero-section {
   position: relative;
-  min-height: 80vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   padding: 40px 0;
@@ -173,6 +173,7 @@
 
 .yellowfever-btn-primary:hover {
   background: rgba(255, 255, 255, 0.9);
+  color: #d97706;
   transform: scale(1.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
