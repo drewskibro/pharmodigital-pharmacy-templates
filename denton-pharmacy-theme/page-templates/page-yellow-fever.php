@@ -7,17 +7,6 @@
 get_header();
 ?>
 
-<!-- Breadcrumb -->
-<div class="yellowfever-breadcrumb">
-  <div class="section-container">
-    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
-    <span class="separator">/</span>
-    <a href="<?php echo esc_url( dp_field( 'yf_parent_url', home_url( '/travel-health/' ) ) ); ?>">Travel Health</a>
-    <span class="separator">/</span>
-    <span class="current">Yellow Fever Vaccination</span>
-  </div>
-</div>
-
 <!-- ============================================================
      1. HERO
      ============================================================ -->
@@ -28,6 +17,17 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
 <section class="yellowfever-hero-section"<?php if ( $hero_image_url ) : ?> style="background-image: url('<?php echo esc_url( $hero_image_url ); ?>');"<?php endif; ?>>
   <div class="yellowfever-hero-overlay"></div>
   <div class="yellowfever-hero-dots"></div>
+
+  <!-- Breadcrumb -->
+  <div class="yellowfever-breadcrumb">
+    <div class="section-container">
+      <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
+      <span class="separator">/</span>
+      <a href="<?php echo esc_url( dp_field( 'yf_parent_url', home_url( '/travel-health/' ) ) ); ?>">Travel Health</a>
+      <span class="separator">/</span>
+      <span class="current">Yellow Fever Vaccination</span>
+    </div>
+  </div>
 
   <div class="section-container">
     <div class="yellowfever-hero-content">

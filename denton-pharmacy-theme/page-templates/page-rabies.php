@@ -10,17 +10,6 @@ $prefix = 'rabies';
 $vaccine_name = dp_field('vaccine_name', 'Rabies');
 ?>
 
-<!-- Breadcrumb -->
-<div class="rabies-breadcrumb">
-  <div class="section-container">
-    <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
-    <span class="separator">/</span>
-    <a href="<?php echo esc_url(dp_field('vaccine_parent_url', '/travel-health/')); ?>">Travel Health</a>
-    <span class="separator">/</span>
-    <span class="current"><?php echo esc_html($vaccine_name); ?> Vaccination</span>
-  </div>
-</div>
-
 <!-- Hero Section -->
 <?php
 $hero_image_id  = dp_field( 'vaccine_hero_image' );
@@ -29,6 +18,17 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
 <section class="rabies-hero-section"<?php if ( $hero_image_url ) : ?> style="background-image: url('<?php echo esc_url( $hero_image_url ); ?>');"<?php endif; ?>>
   <div class="rabies-hero-overlay"></div>
   <div class="rabies-hero-dots"></div>
+
+  <!-- Breadcrumb -->
+  <div class="rabies-breadcrumb">
+    <div class="section-container">
+      <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
+      <span class="separator">/</span>
+      <a href="<?php echo esc_url(dp_field('vaccine_parent_url', '/travel-health/')); ?>">Travel Health</a>
+      <span class="separator">/</span>
+      <span class="current"><?php echo esc_html($vaccine_name); ?> Vaccination</span>
+    </div>
+  </div>
 
   <div class="section-container">
     <div class="rabies-hero-content">
