@@ -8,10 +8,9 @@
    BREADCRUMB
    ============================================ */
 .hepatitis-breadcrumb {
-  padding: 1rem 0;
-  background: var(--white);
-  border-bottom: 1px solid rgba(63, 115, 174, 0.1);
-  margin-top: 0; /* Body already has padding-top: 80px for fixed nav */
+  position: relative;
+  z-index: 10;
+  padding: 1.25rem 0 0;
 }
 
 .hepatitis-breadcrumb .section-container {
@@ -19,25 +18,25 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: var(--text-gray);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .hepatitis-breadcrumb a {
-  color: var(--text-gray);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .hepatitis-breadcrumb a:hover {
-  color: var(--brand-primary);
+  color: var(--white);
 }
 
 .hepatitis-breadcrumb .separator {
-  color: #cbd5e1;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .hepatitis-breadcrumb .current {
-  color: var(--brand-primary);
+  color: var(--white);
   font-weight: 600;
 }
 
