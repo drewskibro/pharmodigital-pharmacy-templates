@@ -4691,6 +4691,7 @@ function dp_register_acf_field_groups() {
                     array( 'key' => 'field_dp_team_member_image', 'label' => 'Photo', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
                     array( 'key' => 'field_dp_team_member_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text' ),
                     array( 'key' => 'field_dp_team_member_role', 'label' => 'Role', 'name' => 'role', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_team_member_gphc', 'label' => 'GPhC Number', 'name' => 'gphc_number', 'type' => 'text', 'instructions' => 'GPhC registration number (e.g. 2208502). Used for E-E-A-T verification link.' ),
                     array( 'key' => 'field_dp_team_member_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'instructions' => 'Overlay badge on photo, e.g. Lead Pharmacist' ),
                     array(
                         'key'     => 'field_dp_team_member_badge_type',

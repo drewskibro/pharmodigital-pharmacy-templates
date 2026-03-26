@@ -140,6 +140,7 @@ function denton_pharmacy_scripts() {
 
     if ( is_page_template( 'page-templates/page-team.php' ) ) {
         wp_enqueue_style( 'denton-team', DENTON_PHARMACY_URI . '/assets/css/team.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-team-js', DENTON_PHARMACY_URI . '/assets/js/team.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-ear-wax-removal.php' ) ) {

@@ -11,7 +11,7 @@ get_header();
      H1. HERO SECTION — Pattern B Dark
      Purple gradient background, white text, image card with price badge + testimonial
      ============================================ -->
-<section class="switch-hero-section">
+<section class="switch-hero-section switch-reveal">
   <div class="switch-hero-gradient"></div>
   <div class="switch-hero-dots"></div>
   <div class="switch-hero-glow-1"></div>
@@ -69,9 +69,17 @@ get_header();
             <?php
             $sp_hero_image_id  = dp_field( 'sp_hero_image' );
             $sp_hero_image_url = $sp_hero_image_id ? wp_get_attachment_image_url( $sp_hero_image_id, 'large' ) : '';
+            if ( ! $sp_hero_image_url ) {
+                // Fallback to global pharmacist image
+                $pharmacist_id = dp_option( 'pharmacist_image' );
+                $sp_hero_image_url = $pharmacist_id ? wp_get_attachment_image_url( $pharmacist_id, 'large' ) : '';
+            }
+            if ( ! $sp_hero_image_url ) {
+                $sp_hero_image_url = get_theme_file_uri( 'assets/images/ahmed-pharmacist.jpg' );
+            }
             ?>
             <?php if ( $sp_hero_image_url ) : ?>
-              <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'sp_hero_image_alt', 'Happy patient consulting with pharmacist at Denton Pharmacy' ) ); ?>" class="switch-hero-image" />
+              <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'sp_hero_image_alt', 'Ahmed, Lead Pharmacist at Denton Pharmacy' ) ); ?>" class="switch-hero-image" />
             <?php endif; ?>
             <div class="switch-hero-overlay"></div>
           </div>
@@ -116,7 +124,7 @@ get_header();
      H2. STATS BAR — Negative margin overlap
      Glassmorphic, z-index: 20, individual fields × 4
      ============================================ -->
-<section class="stats-section switch-stats-overlap">
+<section class="stats-section switch-stats-overlap switch-reveal">
   <div class="section-container">
     <div class="stats-bar">
       <div class="stat-item">
@@ -158,7 +166,7 @@ get_header();
      H3. COMPARISON SECTION — 3-card grid
      Problem / Featured (Denton Pharmacy) / Benefits
      ============================================ -->
-<section class="switch-comparison-section" id="comparison">
+<section class="switch-comparison-section switch-reveal" id="comparison">
   <div class="section-container">
     <!-- Section Header -->
     <div class="comparison-section-header">
@@ -340,7 +348,7 @@ get_header();
      H4. EVIDENCE / COMPARISON DETAIL — Extended breakdown
      Stat cards with gradient numbers
      ============================================ -->
-<section class="switch-evidence-section">
+<section class="switch-evidence-section switch-reveal">
   <div class="section-container">
     <div class="switch-evidence-header">
       <div class="section-badge">
@@ -401,7 +409,7 @@ get_header();
      H5. BENEFITS — Feature cards grid
      Why patients switch to Denton Pharmacy
      ============================================ -->
-<section class="switch-benefits-section">
+<section class="switch-benefits-section switch-reveal">
   <div class="section-container">
     <div class="switch-benefits-header">
       <div class="section-badge">
@@ -464,7 +472,7 @@ get_header();
      H6. PROCESS — Steps for switching
      Tab navigation + content cards + What's Included box
      ============================================ -->
-<section class="switch-process-section">
+<section class="switch-process-section switch-reveal">
   <div class="section-container">
     <div class="switch-process-header">
       <div class="section-badge">
@@ -481,7 +489,7 @@ get_header();
     <?php
     // Default steps data
     $default_steps = array(
-        array( 'title' => 'Book Consultation', 'description' => 'Visit us in Denton or book a phone consultation. Tell us about your current treatment and goals.', 'image' => '' ),
+        array( 'title' => 'Book Consultation', 'description' => 'Visit us in Denton or <a href="' . esc_url( dp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
         array( 'title' => 'We Handle Everything', 'description' => 'No prescription transfer needed. Our team manages the entire switch seamlessly for you.', 'image' => '' ),
         array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption. Same-day approval available for seamless care.', 'image' => '' ),
         array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our Denton pharmacy with expert guidance and personalised care.', 'image' => '' ),
@@ -526,7 +534,7 @@ get_header();
             </figure>
           <?php endif; ?>
           <h4 class="process-card-title"><?php echo esc_html( $step['title'] ); ?></h4>
-          <p class="process-card-description"><?php echo esc_html( $step['description'] ); ?></p>
+          <p class="process-card-description"><?php echo wp_kses_post( $step['description'] ); ?></p>
         </div>
       <?php endforeach; ?>
     </div>
@@ -563,7 +571,7 @@ get_header();
 <!-- ============================================
      H7. FINAL CTA — Purple gradient
      ============================================ -->
-<section class="switch-cta-section">
+<section class="switch-cta-section switch-reveal">
   <div class="switch-cta-glow-1"></div>
   <div class="switch-cta-glow-2"></div>
   <div class="switch-cta-dots"></div>

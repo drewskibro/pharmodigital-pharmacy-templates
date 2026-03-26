@@ -299,6 +299,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .book-hero-overlay {
@@ -311,7 +312,7 @@
 /* Floating Testimonial */
 .book-hero-testimonial-card {
   position: absolute;
-  bottom: 3rem;
+  bottom: -2rem;
   left: -4rem;
   width: 340px;
   background: rgba(255, 255, 255, 0.98);
@@ -332,7 +333,7 @@
 @media (max-width: 1023px) {
   .book-hero-testimonial-card {
     left: -2rem;
-    bottom: 2rem;
+    bottom: -2rem;
   }
 }
 
@@ -346,7 +347,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 1rem;
+    bottom: -1.5rem;
     width: 90%;
     max-width: 340px;
   }

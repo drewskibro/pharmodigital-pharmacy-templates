@@ -11,6 +11,24 @@
 }
 
 /* ============================================
+   SCROLL-TRIGGERED REVEAL ANIMATIONS
+   ============================================ */
+.switch-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.switch-reveal.switch-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.switch-reveal-delay-1 { transition-delay: 0.1s; }
+.switch-reveal-delay-2 { transition-delay: 0.2s; }
+.switch-reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ============================================
    H1. HERO SECTION — Pattern B Dark
    Dark background, white text, image card
    ============================================ */
@@ -1683,6 +1701,18 @@
   line-height: 1.5;
   letter-spacing: -0.01em;
   margin: 0;
+}
+
+.process-card-description a {
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-decoration-color: rgba(63, 115, 174, 0.3);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.process-card-description a:hover {
+  text-decoration-color: var(--brand-primary);
 }
 
 /* What's Included Box */

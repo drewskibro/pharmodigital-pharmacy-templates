@@ -146,7 +146,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 20%;
   transform: scale(1.05);
 }
 
@@ -159,7 +159,7 @@
 
 .nhs-hero-image-caption {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: calc(1.5rem - 20px);
   left: 1.5rem;
   right: 1.5rem;
   padding: 1.5rem;

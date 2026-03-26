@@ -245,8 +245,30 @@
   transition: transform 0.7s ease;
 }
 
-.team-member-image-placeholder {
-  background: linear-gradient(135deg, rgba(63, 115, 174, 0.1), rgba(121, 188, 46, 0.08));
+/* Initials Circle — fallback when no photo */
+.team-member-initials-circle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.12), rgba(42, 80, 122, 0.08));
+}
+
+.team-member-initials {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  box-shadow: 0 12px 40px rgba(63, 115, 174, 0.3);
 }
 
 .team-member-card:hover .team-member-image {
@@ -341,6 +363,34 @@
   border-radius: 0.5rem;
   font-size: 0.75rem;
   font-weight: 700;
+}
+
+/* GPhC Verification Link */
+.team-gphc-verify-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(63, 115, 174, 0.08);
+  color: var(--brand-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(63, 115, 174, 0.15);
+}
+
+.team-gphc-verify-link:hover {
+  background: var(--brand-primary);
+  color: var(--white);
+  border-color: var(--brand-primary);
+}
+
+.team-gphc-verify-link .fa-external-link-alt {
+  font-size: 0.625rem;
+  opacity: 0.7;
 }
 
 .team-member-bio {
@@ -620,4 +670,18 @@
 .team-cta-trust-item i {
   font-size: 1.25rem;
   color: var(--white);
+}
+
+/* ============================================
+   SCROLL-TRIGGERED REVEAL ANIMATIONS
+   ============================================ */
+.team-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.team-reveal.team-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

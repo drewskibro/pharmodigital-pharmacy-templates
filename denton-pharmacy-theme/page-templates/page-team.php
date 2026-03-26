@@ -8,7 +8,7 @@ get_header();
 ?>
 
 <!-- Hero Section -->
-<section class="team-hero-section">
+<section class="team-hero-section team-reveal">
   <div class="team-hero-bg-blob-1"></div>
   <div class="team-hero-bg-blob-2"></div>
   <div class="team-hero-dots"></div>
@@ -33,7 +33,7 @@ get_header();
 </section>
 
 <!-- Stats Bar -->
-<section class="team-stats-section">
+<section class="team-stats-section team-reveal">
   <div class="section-container">
     <div class="team-stats-bar">
       <?php if ( have_rows( 'team_stats' ) ) : $stat_count = 0; while ( have_rows( 'team_stats' ) ) : the_row(); $stat_count++; ?>
@@ -71,27 +71,36 @@ get_header();
 </section>
 
 <!-- Team Members Grid -->
-<section class="team-members-section">
+<section class="team-members-section team-reveal">
   <div class="section-container">
     <div class="team-grid">
       <?php if ( have_rows( 'team_members' ) ) : while ( have_rows( 'team_members' ) ) : the_row();
-        $member_image_id = get_sub_field( 'image' );
+        $member_image_id  = get_sub_field( 'image' );
         $member_image_url = $member_image_id ? wp_get_attachment_image_url( $member_image_id, 'large' ) : '';
-        $badge_text = get_sub_field( 'badge_text' );
-        $badge_type = get_sub_field( 'badge_type' );
+        $member_name      = get_sub_field( 'name' );
+        $member_gphc      = get_sub_field( 'gphc_number' );
+        $badge_text       = get_sub_field( 'badge_text' );
+        $badge_type       = get_sub_field( 'badge_type' );
+        // Extract initials from name for avatar fallback
+        $name_parts = explode( ' ', trim( $member_name ) );
+        $initials   = strtoupper( substr( $name_parts[0], 0, 1 ) . ( isset( $name_parts[1] ) ? substr( $name_parts[1], 0, 1 ) : '' ) );
       ?>
         <div class="team-member-card">
-          <?php if ( $member_image_url ) : ?>
-            <div class="team-member-image-wrapper">
-              <img src="<?php echo esc_url( $member_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'name' ) ); ?>" class="team-member-image" />
-              <div class="team-member-overlay"></div>
-              <?php if ( $badge_text ) : ?>
-                <div class="team-member-badge-<?php echo esc_attr( $badge_type ); ?>"><?php echo esc_html( $badge_text ); ?></div>
-              <?php endif; ?>
-            </div>
-          <?php endif; ?>
+          <div class="team-member-image-wrapper">
+            <?php if ( $member_image_url ) : ?>
+              <img src="<?php echo esc_url( $member_image_url ); ?>" alt="<?php echo esc_attr( $member_name ); ?>" class="team-member-image" />
+            <?php else : ?>
+              <div class="team-member-initials-circle">
+                <span class="team-member-initials"><?php echo esc_html( $initials ); ?></span>
+              </div>
+            <?php endif; ?>
+            <div class="team-member-overlay"></div>
+            <?php if ( $badge_text ) : ?>
+              <div class="team-member-badge-<?php echo esc_attr( $badge_type ); ?>"><?php echo esc_html( $badge_text ); ?></div>
+            <?php endif; ?>
+          </div>
           <div class="team-member-content">
-            <h3 class="team-member-name"><?php echo esc_html( get_sub_field( 'name' ) ); ?></h3>
+            <h3 class="team-member-name"><?php echo esc_html( $member_name ); ?></h3>
             <p class="team-member-role"><?php echo esc_html( get_sub_field( 'role' ) ); ?></p>
 
             <?php if ( have_rows( 'credentials' ) ) : ?>
@@ -100,6 +109,14 @@ get_header();
                   <span class="team-credential-badge"><?php echo esc_html( get_sub_field( 'credential' ) ); ?></span>
                 <?php endwhile; ?>
               </div>
+            <?php endif; ?>
+
+            <?php if ( $member_gphc ) : ?>
+              <a href="https://www.pharmacyregulation.org/registers/pharmacist/<?php echo esc_attr( $member_gphc ); ?>" target="_blank" rel="noopener" class="team-gphc-verify-link">
+                <i class="fas fa-shield-halved"></i>
+                Verify GPhC Registration
+                <i class="fas fa-external-link-alt"></i>
+              </a>
             <?php endif; ?>
 
             <p class="team-member-bio"><?php echo esc_html( get_sub_field( 'bio' ) ); ?></p>
@@ -114,10 +131,18 @@ get_header();
           </div>
         </div>
       <?php endwhile; else : ?>
+        <?php
+        // Ahmed: use ACF pharmacist image → theme fallback
+        $ahmed_image_id  = dp_option( 'pharmacist_image' );
+        $ahmed_image_url = $ahmed_image_id ? wp_get_attachment_image_url( $ahmed_image_id, 'large' ) : '';
+        if ( ! $ahmed_image_url ) {
+            $ahmed_image_url = get_theme_file_uri( 'assets/images/ahmed-pharmacist.jpg' );
+        }
+        ?>
         <!-- Ahmed Al-Liabi -->
         <div class="team-member-card">
           <div class="team-member-image-wrapper">
-            <div class="team-member-image team-member-image-placeholder"></div>
+            <img src="<?php echo esc_url( $ahmed_image_url ); ?>" alt="Ahmed Al-Liabi" class="team-member-image" />
             <div class="team-member-overlay"></div>
             <div class="team-member-badge-founder">Lead Pharmacist</div>
           </div>
@@ -128,6 +153,11 @@ get_header();
               <span class="team-credential-badge">GPhC: 2208502</span>
               <span class="team-credential-badge">Independent Prescriber</span>
             </div>
+            <a href="https://www.pharmacyregulation.org/registers/pharmacist/2208502" target="_blank" rel="noopener" class="team-gphc-verify-link">
+              <i class="fas fa-shield-halved"></i>
+              Verify GPhC Registration
+              <i class="fas fa-external-link-alt"></i>
+            </a>
             <p class="team-member-bio">With over 15 years of experience serving the Denton community, Ahmed leads our team with dedication and expertise. As an Independent Prescriber, he specialises in travel health, medical weight loss, and ear wax removal.</p>
             <div class="team-member-specialties">
               <span class="team-specialty-tag">Weight Loss</span>
@@ -139,7 +169,9 @@ get_header();
         <!-- Jignasa Modhvadia -->
         <div class="team-member-card">
           <div class="team-member-image-wrapper">
-            <div class="team-member-image team-member-image-placeholder"></div>
+            <div class="team-member-initials-circle">
+              <span class="team-member-initials">JM</span>
+            </div>
             <div class="team-member-overlay"></div>
             <div class="team-member-badge-director">Director</div>
           </div>
@@ -161,18 +193,25 @@ get_header();
         <!-- Baljender Nagi -->
         <div class="team-member-card">
           <div class="team-member-image-wrapper">
-            <div class="team-member-image team-member-image-placeholder"></div>
+            <div class="team-member-initials-circle">
+              <span class="team-member-initials">BN</span>
+            </div>
             <div class="team-member-overlay"></div>
-            <div class="team-member-badge-senior">Senior Pharmacist</div>
+            <div class="team-member-badge-senior">Senior Pharmacy Technician</div>
           </div>
           <div class="team-member-content">
             <h3 class="team-member-name">Baljender Nagi</h3>
-            <p class="team-member-role">Senior Pharmacist</p>
+            <p class="team-member-role">Senior Pharmacy Technician</p>
             <div class="team-member-credentials">
-              <span class="team-credential-badge">GPhC Registered</span>
+              <span class="team-credential-badge">GPhC: 5113254</span>
               <span class="team-credential-badge">Clinical Specialist</span>
             </div>
-            <p class="team-member-bio">Baljender is a highly experienced pharmacist and a senior member of our clinical team. Her extensive knowledge and friendly approach ensure the highest standard of care across all of our pharmacy services.</p>
+            <a href="https://www.pharmacyregulation.org/registers/pharmacy-technician/5113254" target="_blank" rel="noopener" class="team-gphc-verify-link">
+              <i class="fas fa-shield-halved"></i>
+              Verify GPhC Registration
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <p class="team-member-bio">Baljender is a highly experienced pharmacy technician and a senior member of our clinical team. Her extensive knowledge and friendly approach ensure the highest standard of care across all of our pharmacy services.</p>
             <div class="team-member-specialties">
               <span class="team-specialty-tag">NHS Services</span>
               <span class="team-specialty-tag">Clinical Services</span>
@@ -186,7 +225,7 @@ get_header();
 </section>
 
 <!-- Values Section -->
-<section class="team-values-section">
+<section class="team-values-section team-reveal">
   <div class="section-container">
     <div class="team-section-header">
       <div class="section-badge">
@@ -231,7 +270,7 @@ get_header();
 </section>
 
 <!-- CTA Section -->
-<section class="team-cta-section">
+<section class="team-cta-section team-reveal">
   <div class="team-cta-blob-1"></div>
   <div class="team-cta-blob-2"></div>
 
