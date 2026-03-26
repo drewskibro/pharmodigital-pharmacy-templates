@@ -88,8 +88,8 @@ $default_th_dests = array(
 $default_sv_links = array(
     array( 'label' => 'NHS Prescriptions', 'description' => 'Fast collection & delivery service',           'icon' => 'fas fa-file-medical', 'url' => home_url( '/nhs-services/' ) ),
     array( 'label' => 'Ear Wax Removal',   'description' => 'Professional microsuction clinic',              'icon' => 'fas fa-heart',        'url' => home_url( '/ear-wax-removal/' ) ),
-    array( 'label' => 'Pharmacy First',    'description' => 'Care for 7 common conditions',                 'icon' => 'fas fa-plus-circle',  'url' => '' ),
-    array( 'label' => 'Blood Testing',     'description' => 'Private health checks & diagnostic panels',    'icon' => 'fas fa-flask',        'url' => '' ),
+    array( 'label' => 'Pharmacy First',    'description' => 'Care for 7 common conditions',                 'icon' => 'fas fa-plus-circle',  'url' => home_url( '/pharmacy-first/' ) ),
+    array( 'label' => 'Blood Testing',     'description' => 'Private health checks & diagnostic panels',    'icon' => 'fas fa-flask',        'url' => home_url( '/blood-testing/' ) ),
 );
 
 // Use ACF rows when available, otherwise defaults.

@@ -911,6 +911,8 @@
   font-family: var(--font-heading);
   font-size: 1.125rem;
   font-weight: 900;
+  line-height: 1;
+  padding-bottom: 0.1em;
   box-shadow: 0 4px 12px rgba(63, 115, 174, 0.3);
 }
 

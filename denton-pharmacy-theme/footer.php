@@ -93,6 +93,7 @@ $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and well
             <li><a href="<?php echo esc_url( home_url( '/ear-wax-removal/' ) ); ?>" class="footer-link">Ear Wax Removal</a></li>
             <li><a href="<?php echo esc_url( home_url( '/hair-loss/' ) ); ?>" class="footer-link">Hair Loss Treatment</a></li>
             <li><a href="<?php echo esc_url( home_url( '/nhs-services/' ) ); ?>" class="footer-link">NHS Services</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/blood-testing/' ) ); ?>" class="footer-link">Blood Testing</a></li>
             <li><a href="<?php echo esc_url( home_url( '/nhs-services/' ) ); ?>" class="footer-link">Flu Vaccinations</a></li>
           </ul>
         </div>

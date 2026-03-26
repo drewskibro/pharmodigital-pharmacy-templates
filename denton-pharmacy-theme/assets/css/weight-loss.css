@@ -1085,6 +1085,8 @@
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--white);
+  line-height: 1;
+  padding-bottom: 0.1em;
   box-shadow: 0 8px 20px rgba(163, 158, 227, 0.3);
 }
 
@@ -1249,6 +1251,8 @@
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
+  line-height: 1;
+  padding-bottom: 0.1em;
 }
 
 .wl-journey-tab:hover .wl-journey-tab-counter {

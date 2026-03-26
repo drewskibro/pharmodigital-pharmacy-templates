@@ -8974,5 +8974,459 @@ function dp_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // =========================================================================
+    // N. PHARMACY FIRST PAGE FIELDS
+    // =========================================================================
+
+    // ── N1. Hero ──────────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_pf_hero',
+        'title'  => 'Pharmacy First — Hero',
+        'fields' => array(
+            array( 'key' => 'field_dp_pf_hero_badge', 'label' => 'Badge Text', 'name' => 'pf_hero_badge', 'type' => 'text', 'default_value' => 'NHS PHARMACY FIRST SERVICE' ),
+            array( 'key' => 'field_dp_pf_hero_title_highlight', 'label' => 'Title (Gradient)', 'name' => 'pf_hero_title_highlight', 'type' => 'text', 'default_value' => 'Free NHS Treatment' ),
+            array( 'key' => 'field_dp_pf_hero_title_rest', 'label' => 'Title (Rest)', 'name' => 'pf_hero_title_rest', 'type' => 'text', 'default_value' => 'in Denton' ),
+            array( 'key' => 'field_dp_pf_hero_description', 'label' => 'Description', 'name' => 'pf_hero_description', 'type' => 'textarea', 'rows' => 3 ),
+            array( 'key' => 'field_dp_pf_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'pf_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Pharmacy First Visit' ),
+            array( 'key' => 'field_dp_pf_hero_cta_url', 'label' => 'CTA Button URL', 'name' => 'pf_hero_cta_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_pf_hero_image', 'label' => 'Hero Image', 'name' => 'pf_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
+            array( 'key' => 'field_dp_pf_hero_image_alt', 'label' => 'Hero Image Alt', 'name' => 'pf_hero_image_alt', 'type' => 'text' ),
+            array( 'key' => 'field_dp_pf_price_label', 'label' => 'Price Label', 'name' => 'pf_price_label', 'type' => 'text', 'default_value' => 'NHS Service' ),
+            array( 'key' => 'field_dp_pf_price_amount', 'label' => 'Price Amount', 'name' => 'pf_price_amount', 'type' => 'text', 'default_value' => 'FREE' ),
+            array( 'key' => 'field_dp_pf_price_sub', 'label' => 'Price Subtext', 'name' => 'pf_price_sub', 'type' => 'text', 'default_value' => 'no charge to you' ),
+            array( 'key' => 'field_dp_pf_trust_1', 'label' => 'Trust Pill 1', 'name' => 'pf_trust_1', 'type' => 'text', 'default_value' => 'NHS Funded' ),
+            array( 'key' => 'field_dp_pf_trust_2', 'label' => 'Trust Pill 2', 'name' => 'pf_trust_2', 'type' => 'text', 'default_value' => 'No GP Appointment Needed' ),
+            array( 'key' => 'field_dp_pf_trust_3', 'label' => 'Trust Pill 3', 'name' => 'pf_trust_3', 'type' => 'text', 'default_value' => 'Same-Day Treatment' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-pharmacy-first.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2300,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N2. Stats Bar ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_pf_stats',
+        'title'  => 'Pharmacy First — Stats Bar',
+        'fields' => array(
+            array( 'key' => 'field_dp_pf_stat_1_icon', 'label' => 'Stat 1 Icon', 'name' => 'pf_stat_1_icon', 'type' => 'text', 'default_value' => 'fas fa-sterling-sign' ),
+            array( 'key' => 'field_dp_pf_stat_1_number', 'label' => 'Stat 1 Number', 'name' => 'pf_stat_1_number', 'type' => 'text', 'default_value' => 'FREE' ),
+            array( 'key' => 'field_dp_pf_stat_1_label', 'label' => 'Stat 1 Label', 'name' => 'pf_stat_1_label', 'type' => 'text', 'default_value' => 'No Cost to You' ),
+            array( 'key' => 'field_dp_pf_stat_2_icon', 'label' => 'Stat 2 Icon', 'name' => 'pf_stat_2_icon', 'type' => 'text', 'default_value' => 'fas fa-list-check' ),
+            array( 'key' => 'field_dp_pf_stat_2_number', 'label' => 'Stat 2 Number', 'name' => 'pf_stat_2_number', 'type' => 'text', 'default_value' => '7' ),
+            array( 'key' => 'field_dp_pf_stat_2_label', 'label' => 'Stat 2 Label', 'name' => 'pf_stat_2_label', 'type' => 'text', 'default_value' => 'Conditions Treated' ),
+            array( 'key' => 'field_dp_pf_stat_3_icon', 'label' => 'Stat 3 Icon', 'name' => 'pf_stat_3_icon', 'type' => 'text', 'default_value' => 'fas fa-user-doctor' ),
+            array( 'key' => 'field_dp_pf_stat_3_number', 'label' => 'Stat 3 Number', 'name' => 'pf_stat_3_number', 'type' => 'text', 'default_value' => 'No GP' ),
+            array( 'key' => 'field_dp_pf_stat_3_label', 'label' => 'Stat 3 Label', 'name' => 'pf_stat_3_label', 'type' => 'text', 'default_value' => 'Appointment Needed' ),
+            array( 'key' => 'field_dp_pf_stat_4_icon', 'label' => 'Stat 4 Icon', 'name' => 'pf_stat_4_icon', 'type' => 'text', 'default_value' => 'fas fa-clock' ),
+            array( 'key' => 'field_dp_pf_stat_4_number', 'label' => 'Stat 4 Number', 'name' => 'pf_stat_4_number', 'type' => 'text', 'default_value' => 'Same Day' ),
+            array( 'key' => 'field_dp_pf_stat_4_label', 'label' => 'Stat 4 Label', 'name' => 'pf_stat_4_label', 'type' => 'text', 'default_value' => 'Treatment Available' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-pharmacy-first.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2301,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N3. Conditions Grid ───────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_pf_conditions',
+        'title'  => 'Pharmacy First — Conditions',
+        'fields' => array(
+            array( 'key' => 'field_dp_pf_conditions_badge', 'label' => 'Badge Text', 'name' => 'pf_conditions_badge', 'type' => 'text', 'default_value' => 'CONDITIONS WE TREAT' ),
+            array( 'key' => 'field_dp_pf_conditions_title', 'label' => 'Section Title', 'name' => 'pf_conditions_title', 'type' => 'text', 'default_value' => '7 Common Conditions Treated Free' ),
+            array( 'key' => 'field_dp_pf_conditions_desc', 'label' => 'Description', 'name' => 'pf_conditions_description', 'type' => 'textarea', 'rows' => 2 ),
+            array(
+                'key'          => 'field_dp_pf_conditions',
+                'label'        => 'Conditions',
+                'name'         => 'pf_conditions',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Condition',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_pf_cond_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_pf_cond_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_pf_cond_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_pf_cond_tag', 'label' => 'Tag (optional)', 'name' => 'tag', 'type' => 'text', 'wrapper' => array( 'width' => '15' ) ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-pharmacy-first.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2302,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N4. Process + Eligibility ─────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_pf_process',
+        'title'  => 'Pharmacy First — Process & Eligibility',
+        'fields' => array(
+            array( 'key' => 'field_dp_pf_process_badge', 'label' => 'Badge Text', 'name' => 'pf_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
+            array( 'key' => 'field_dp_pf_process_title', 'label' => 'Section Title', 'name' => 'pf_process_title', 'type' => 'text', 'default_value' => 'Three Simple Steps to Free Treatment' ),
+            array( 'key' => 'field_dp_pf_process_desc', 'label' => 'Description', 'name' => 'pf_process_description', 'type' => 'text' ),
+            array(
+                'key'          => 'field_dp_pf_process_steps',
+                'label'        => 'Steps',
+                'name'         => 'pf_process_steps',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Step',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_pf_step_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_pf_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_pf_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '50' ) ),
+                ),
+            ),
+            array( 'key' => 'field_dp_pf_eligibility_title', 'label' => 'Eligibility Title', 'name' => 'pf_eligibility_title', 'type' => 'text', 'default_value' => 'Who Is Eligible?' ),
+            array( 'key' => 'field_dp_pf_eligibility_text', 'label' => 'Eligibility Text', 'name' => 'pf_eligibility_text', 'type' => 'textarea', 'rows' => 3 ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-pharmacy-first.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2303,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N5. FAQ ───────────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_pf_faq',
+        'title'  => 'Pharmacy First — FAQ',
+        'fields' => array(
+            array( 'key' => 'field_dp_pf_faq_badge', 'label' => 'Badge Text', 'name' => 'pf_faq_badge', 'type' => 'text', 'default_value' => 'FREQUENTLY ASKED QUESTIONS' ),
+            array( 'key' => 'field_dp_pf_faq_title', 'label' => 'Section Title', 'name' => 'pf_faq_title', 'type' => 'text', 'default_value' => 'Pharmacy First — Your Questions Answered' ),
+            array(
+                'key'          => 'field_dp_pf_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'pf_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_pf_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_pf_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-pharmacy-first.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2304,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── N6. Final CTA ─────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_pf_cta',
+        'title'  => 'Pharmacy First — Final CTA',
+        'fields' => array(
+            array( 'key' => 'field_dp_pf_cta_badge_1', 'label' => 'Badge 1', 'name' => 'pf_cta_badge_1', 'type' => 'text', 'default_value' => 'Free NHS Service' ),
+            array( 'key' => 'field_dp_pf_cta_badge_2', 'label' => 'Badge 2', 'name' => 'pf_cta_badge_2', 'type' => 'text', 'default_value' => 'No GP Needed' ),
+            array( 'key' => 'field_dp_pf_cta_badge_3', 'label' => 'Badge 3', 'name' => 'pf_cta_badge_3', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
+            array( 'key' => 'field_dp_pf_cta_title', 'label' => 'Title', 'name' => 'pf_cta_title', 'type' => 'text', 'default_value' => 'Get Free NHS Treatment Today' ),
+            array( 'key' => 'field_dp_pf_cta_desc', 'label' => 'Description', 'name' => 'pf_cta_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_pf_cta_primary_url', 'label' => 'CTA URL', 'name' => 'pf_cta_primary_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_pf_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'pf_cta_button_text', 'type' => 'text', 'default_value' => 'Book Pharmacy First Visit' ),
+            array( 'key' => 'field_dp_pf_cta_check_1', 'label' => 'Trust Check 1', 'name' => 'pf_cta_check_1', 'type' => 'text', 'default_value' => 'No referral needed' ),
+            array( 'key' => 'field_dp_pf_cta_check_2', 'label' => 'Trust Check 2', 'name' => 'pf_cta_check_2', 'type' => 'text', 'default_value' => '7 conditions treated free' ),
+            array( 'key' => 'field_dp_pf_cta_check_3', 'label' => 'Trust Check 3', 'name' => 'pf_cta_check_3', 'type' => 'text', 'default_value' => 'Same-day appointments' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-pharmacy-first.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2305,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // O. BLOOD TESTING PAGE FIELDS
+    // =========================================================================
+
+    // ── O1. Hero ─────────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bt_hero',
+        'title'  => 'Blood Testing — Hero',
+        'fields' => array(
+            array( 'key' => 'field_dp_bt_hero_badge', 'label' => 'Badge Text', 'name' => 'bt_hero_badge', 'type' => 'text', 'default_value' => 'PRIVATE BLOOD TESTING SERVICE' ),
+            array( 'key' => 'field_dp_bt_hero_title_highlight', 'label' => 'Title (Gradient)', 'name' => 'bt_hero_title_highlight', 'type' => 'text', 'default_value' => 'Private Blood Testing' ),
+            array( 'key' => 'field_dp_bt_hero_title_rest', 'label' => 'Title (Rest)', 'name' => 'bt_hero_title_rest', 'type' => 'text', 'default_value' => 'in Denton' ),
+            array( 'key' => 'field_dp_bt_hero_description', 'label' => 'Description', 'name' => 'bt_hero_description', 'type' => 'textarea', 'rows' => 3 ),
+            array( 'key' => 'field_dp_bt_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'bt_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Blood Test' ),
+            array( 'key' => 'field_dp_bt_hero_cta_url', 'label' => 'CTA Button URL', 'name' => 'bt_hero_cta_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_bt_price_label', 'label' => 'Card Label', 'name' => 'bt_price_label', 'type' => 'text', 'default_value' => 'Private Blood Testing' ),
+            array( 'key' => 'field_dp_bt_price_amount', 'label' => 'Card Amount', 'name' => 'bt_price_amount', 'type' => 'text', 'default_value' => 'FROM £39' ),
+            array( 'key' => 'field_dp_bt_price_sub', 'label' => 'Card Sub-text', 'name' => 'bt_price_sub', 'type' => 'text', 'default_value' => 'per test panel' ),
+            array( 'key' => 'field_dp_bt_trust_1', 'label' => 'Trust Pill 1', 'name' => 'bt_trust_1', 'type' => 'text', 'default_value' => 'Fast Results' ),
+            array( 'key' => 'field_dp_bt_trust_2', 'label' => 'Trust Pill 2', 'name' => 'bt_trust_2', 'type' => 'text', 'default_value' => 'No GP Referral Needed' ),
+            array( 'key' => 'field_dp_bt_trust_3', 'label' => 'Trust Pill 3', 'name' => 'bt_trust_3', 'type' => 'text', 'default_value' => 'Professional Phlebotomy' ),
+            array( 'key' => 'field_dp_bt_float_number', 'label' => 'Floating Badge Number', 'name' => 'bt_float_number', 'type' => 'text', 'default_value' => '20+' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-blood-testing.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2400,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── O2. Stats Bar ────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bt_stats',
+        'title'  => 'Blood Testing — Stats Bar',
+        'fields' => array(
+            array( 'key' => 'field_dp_bt_stat_1_icon',   'label' => 'Stat 1 Icon',   'name' => 'bt_stat_1_icon',   'type' => 'text', 'default_value' => 'fas fa-vials' ),
+            array( 'key' => 'field_dp_bt_stat_1_number', 'label' => 'Stat 1 Number', 'name' => 'bt_stat_1_number', 'type' => 'text', 'default_value' => '20+' ),
+            array( 'key' => 'field_dp_bt_stat_1_label',  'label' => 'Stat 1 Label',  'name' => 'bt_stat_1_label',  'type' => 'text', 'default_value' => 'Tests Available' ),
+            array( 'key' => 'field_dp_bt_stat_2_icon',   'label' => 'Stat 2 Icon',   'name' => 'bt_stat_2_icon',   'type' => 'text', 'default_value' => 'fas fa-sterling-sign' ),
+            array( 'key' => 'field_dp_bt_stat_2_number', 'label' => 'Stat 2 Number', 'name' => 'bt_stat_2_number', 'type' => 'text', 'default_value' => 'From £39' ),
+            array( 'key' => 'field_dp_bt_stat_2_label',  'label' => 'Stat 2 Label',  'name' => 'bt_stat_2_label',  'type' => 'text', 'default_value' => 'Per Panel' ),
+            array( 'key' => 'field_dp_bt_stat_3_icon',   'label' => 'Stat 3 Icon',   'name' => 'bt_stat_3_icon',   'type' => 'text', 'default_value' => 'fas fa-user-doctor' ),
+            array( 'key' => 'field_dp_bt_stat_3_number', 'label' => 'Stat 3 Number', 'name' => 'bt_stat_3_number', 'type' => 'text', 'default_value' => 'No GP' ),
+            array( 'key' => 'field_dp_bt_stat_3_label',  'label' => 'Stat 3 Label',  'name' => 'bt_stat_3_label',  'type' => 'text', 'default_value' => 'Referral Needed' ),
+            array( 'key' => 'field_dp_bt_stat_4_icon',   'label' => 'Stat 4 Icon',   'name' => 'bt_stat_4_icon',   'type' => 'text', 'default_value' => 'fas fa-clock' ),
+            array( 'key' => 'field_dp_bt_stat_4_number', 'label' => 'Stat 4 Number', 'name' => 'bt_stat_4_number', 'type' => 'text', 'default_value' => '2-5 Days' ),
+            array( 'key' => 'field_dp_bt_stat_4_label',  'label' => 'Stat 4 Label',  'name' => 'bt_stat_4_label',  'type' => 'text', 'default_value' => 'For Results' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-blood-testing.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2401,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── O3. Tests Grid ───────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bt_tests',
+        'title'  => 'Blood Testing — Tests Grid',
+        'fields' => array(
+            array( 'key' => 'field_dp_bt_tests_badge', 'label' => 'Badge Text', 'name' => 'bt_tests_badge', 'type' => 'text', 'default_value' => 'OUR BLOOD TESTS' ),
+            array( 'key' => 'field_dp_bt_tests_title', 'label' => 'Section Title', 'name' => 'bt_tests_title', 'type' => 'text', 'default_value' => 'Available Blood Test Panels' ),
+            array( 'key' => 'field_dp_bt_tests_description', 'label' => 'Section Description', 'name' => 'bt_tests_description', 'type' => 'textarea', 'rows' => 2 ),
+            array(
+                'key'          => 'field_dp_bt_tests_repeater',
+                'label'        => 'Test Panels',
+                'name'         => 'bt_tests',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Test Panel',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_bt_test_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-vial', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_bt_test_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_bt_test_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_bt_test_tag', 'label' => 'Tag (optional)', 'name' => 'tag', 'type' => 'text', 'wrapper' => array( 'width' => '15' ) ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-blood-testing.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2402,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── O4. Process & Who It's For ───────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bt_process',
+        'title'  => 'Blood Testing — Process & Eligibility',
+        'fields' => array(
+            array( 'key' => 'field_dp_bt_process_badge', 'label' => 'Badge Text', 'name' => 'bt_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
+            array( 'key' => 'field_dp_bt_process_title', 'label' => 'Section Title', 'name' => 'bt_process_title', 'type' => 'text', 'default_value' => 'Three Simple Steps to Your Results' ),
+            array( 'key' => 'field_dp_bt_process_desc', 'label' => 'Section Description', 'name' => 'bt_process_description', 'type' => 'text', 'default_value' => 'No GP referral needed — just walk in or book online' ),
+            array(
+                'key'          => 'field_dp_bt_process_steps',
+                'label'        => 'Steps',
+                'name'         => 'bt_process_steps',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Step',
+                'max'          => 3,
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_bt_step_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_bt_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_bt_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '50' ) ),
+                ),
+            ),
+            array( 'key' => 'field_dp_bt_eligibility_title', 'label' => 'Eligibility Title', 'name' => 'bt_eligibility_title', 'type' => 'text', 'default_value' => 'Who Is Blood Testing For?' ),
+            array( 'key' => 'field_dp_bt_eligibility_text', 'label' => 'Eligibility Text', 'name' => 'bt_eligibility_text', 'type' => 'textarea', 'rows' => 4 ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-blood-testing.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2403,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── O5. FAQ ──────────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bt_faq',
+        'title'  => 'Blood Testing — FAQ',
+        'fields' => array(
+            array( 'key' => 'field_dp_bt_faq_badge', 'label' => 'Badge Text', 'name' => 'bt_faq_badge', 'type' => 'text', 'default_value' => 'FREQUENTLY ASKED QUESTIONS' ),
+            array( 'key' => 'field_dp_bt_faq_title', 'label' => 'Section Title', 'name' => 'bt_faq_title', 'type' => 'text', 'default_value' => 'Blood Testing — Your Questions Answered' ),
+            array(
+                'key'          => 'field_dp_bt_faq_repeater',
+                'label'        => 'FAQs',
+                'name'         => 'bt_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_bt_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_bt_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-blood-testing.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2404,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // ── O6. Final CTA ────────────────────────────────────────────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bt_cta',
+        'title'  => 'Blood Testing — Final CTA',
+        'fields' => array(
+            array( 'key' => 'field_dp_bt_cta_badge_1', 'label' => 'Badge 1', 'name' => 'bt_cta_badge_1', 'type' => 'text', 'default_value' => 'Professional Phlebotomy' ),
+            array( 'key' => 'field_dp_bt_cta_badge_2', 'label' => 'Badge 2', 'name' => 'bt_cta_badge_2', 'type' => 'text', 'default_value' => 'Confidential Results' ),
+            array( 'key' => 'field_dp_bt_cta_badge_3', 'label' => 'Badge 3', 'name' => 'bt_cta_badge_3', 'type' => 'text', 'default_value' => 'No Referral' ),
+            array( 'key' => 'field_dp_bt_cta_title', 'label' => 'Title', 'name' => 'bt_cta_title', 'type' => 'text', 'default_value' => 'Book Your Blood Test in Denton Today' ),
+            array( 'key' => 'field_dp_bt_cta_desc', 'label' => 'Description', 'name' => 'bt_cta_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_bt_cta_primary_url', 'label' => 'CTA URL', 'name' => 'bt_cta_primary_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_bt_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'bt_cta_button_text', 'type' => 'text', 'default_value' => 'Book Online' ),
+            array( 'key' => 'field_dp_bt_cta_check_1', 'label' => 'Trust Check 1', 'name' => 'bt_cta_check_1', 'type' => 'text', 'default_value' => 'No referral needed' ),
+            array( 'key' => 'field_dp_bt_cta_check_2', 'label' => 'Trust Check 2', 'name' => 'bt_cta_check_2', 'type' => 'text', 'default_value' => 'Results in 2-5 days' ),
+            array( 'key' => 'field_dp_bt_cta_check_3', 'label' => 'Trust Check 3', 'name' => 'bt_cta_check_3', 'type' => 'text', 'default_value' => 'GPhC registered' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-blood-testing.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2405,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );

@@ -147,6 +147,16 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-ear-wax-js', DENTON_PHARMACY_URI . '/assets/js/ear-wax-removal.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/ear-wax-removal.js' ), true );
     }
 
+    if ( is_page_template( 'page-templates/page-pharmacy-first.php' ) ) {
+        wp_enqueue_style( 'denton-pharmacy-first', DENTON_PHARMACY_URI . '/assets/css/pharmacy-first.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/pharmacy-first.css' ) );
+        wp_enqueue_script( 'denton-pharmacy-first-js', DENTON_PHARMACY_URI . '/assets/js/pharmacy-first.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/pharmacy-first.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-blood-testing.php' ) ) {
+        wp_enqueue_style( 'denton-blood-testing', DENTON_PHARMACY_URI . '/assets/css/blood-testing.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/blood-testing.css' ) );
+        wp_enqueue_script( 'denton-blood-testing-js', DENTON_PHARMACY_URI . '/assets/js/blood-testing.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/blood-testing.js' ), true );
+    }
+
     if ( is_page_template( 'page-templates/page-hair-loss.php' ) ) {
         wp_enqueue_style( 'denton-hair-loss', DENTON_PHARMACY_URI . '/assets/css/hair-loss.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
         wp_enqueue_script( 'denton-hair-loss-js', DENTON_PHARMACY_URI . '/assets/js/hair-loss.js', array(), DENTON_PHARMACY_VERSION, true );

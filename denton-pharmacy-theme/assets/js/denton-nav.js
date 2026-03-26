@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'nhs': '/nhs-services/',
           'nhs services': '/nhs-services/',
           'prescriptions': '/nhs-services/',
-          'pharmacy first': '/nhs-services/',
+          'pharmacy first': '/pharmacy-first/',
           'flu': '/nhs-services/',
           'flu jab': '/nhs-services/',
           'hair loss': '/hair-loss/',
@@ -134,6 +134,9 @@ document.addEventListener('DOMContentLoaded', function () {
           'register': '/switch-provider/',
           'team': '/team/',
           'about': '/team/',
+          'blood test': '/blood-testing/',
+          'blood testing': '/blood-testing/',
+          'blood': '/blood-testing/',
           'blog': '/health-hub/'
         };
 
