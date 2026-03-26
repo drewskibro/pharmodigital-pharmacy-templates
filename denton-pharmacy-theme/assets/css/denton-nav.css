@@ -102,6 +102,7 @@
 
 .denton-nav-top .denton-logo {
   justify-self: start;
+  transform: translateY(-8px);
 }
 
 .denton-nav-top .denton-top-actions {
@@ -133,7 +134,7 @@
 }
 
 .denton-logo-img {
-  height: 160px;
+  height: 80px;
   width: auto;
   display: block;
   object-fit: contain;

@@ -197,12 +197,111 @@
   line-height: 1.2;
 }
 
-/* Rating badge — absolute inside the NHS visual column */
+/* Rating badge — anchored to the foot of the image card.
+   top: auto cancels the globals.css top: -1.5rem default.
+   bottom: 20px = (600px visual − 560px card) / 2, aligning the badge
+   with the bottom edge of the centred image card. */
 .nhs-hero-visual .rating-badge {
-  position: absolute;
-  bottom: 3rem;
-  right: -2rem;
+  top: 375.6px;
+  left: 424px;
+  right: -32px;
+  bottom: 48px;
   z-index: 30;
+  padding: 20px;
+  min-width: 270px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.nhs-hero-visual .rating-header {
+  margin-bottom: 12px;
+  padding-bottom: 0;
+}
+
+.nhs-hero-visual .google-icon-wrapper {
+  width: 30.4px;
+  height: 30.4px;
+}
+
+.nhs-hero-visual .rating-label > span {
+  display: inline-block;
+  width: 48.025px;
+  height: 21px;
+  line-height: 21px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.nhs-hero-visual .badge-success span {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  height: 15px;
+  text-transform: uppercase;
+  width: 47.125px;
+}
+
+.nhs-hero-visual .badge-success span {
+  display: inline-block;
+  width: 47.125px;
+}
+
+
+.nhs-hero-visual .rating-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.nhs-hero-visual .rating-score-detail {
+  padding-bottom: 6px;
+}
+
+.nhs-hero-visual .star-row {
+  box-sizing: border-box;
+  color: rgb(244, 180, 0);
+  gap: 0.25rem;
+  display: flex;
+  font-size: 14px;
+  height: 14px;
+  line-height: 21px;
+  margin: 0;
+  padding: 0;
+  width: 112.15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nhs-hero-visual .rating-count {
+  font-size: 11px;
+  font-weight: 500;
+  height: 16.5px;
+  line-height: 16.5px;
+  margin: 0;
+  padding: 0;
+  width: 112.15px;
+  color: rgb(156, 163, 175);
+}
+
+.nhs-hero-visual .rating-link {
+  font-size: 10px;
+  font-weight: 700;
+  height: 15px;
+  line-height: 15px;
+  width: 65.75px;
+}
+
+.nhs-hero-visual .rating-location span {
+  display: inline-block;
+  color: rgb(107, 114, 128);
+  font-size: 12px;
+  font-weight: 700;
+  height: 18px;
+  line-height: 18px;
+  width: 64.7125px;
+}
+
+.nhs-hero-visual .score-number {
+  font-size: 48px;
 }
 
 

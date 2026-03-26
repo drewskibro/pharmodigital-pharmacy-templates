@@ -342,9 +342,16 @@ get_header();
     </div>
 
     <div class="book-testimonials-grid">
+      <?php
+      function book_initials_avatar( $name ) {
+        $words    = explode( ' ', trim( $name ) );
+        $initials = strtoupper( substr( $words[0], 0, 1 ) );
+        if ( isset( $words[1] ) ) $initials .= strtoupper( substr( $words[1], 0, 1 ) );
+        return '<div class="book-testimonial-avatar-initials">' . esc_html( $initials ) . '</div>';
+      }
+      ?>
       <?php if (have_rows('book_testimonials')) : while (have_rows('book_testimonials')) : the_row();
-        $avatar_id = get_sub_field('avatar');
-        $avatar_url = $avatar_id ? wp_get_attachment_image_url($avatar_id, 'thumbnail') : '';
+        $name = get_sub_field('name');
       ?>
         <div class="book-testimonial-card">
           <div class="star-row">
@@ -352,13 +359,9 @@ get_header();
           </div>
           <p class="book-testimonial-quote">"<?php echo esc_html(get_sub_field('quote')); ?>"</p>
           <div class="book-testimonial-author">
-            <?php if ($avatar_url) : ?>
-              <div class="book-testimonial-avatar">
-                <img src="<?php echo esc_url($avatar_url); ?>" alt="<?php echo esc_attr(get_sub_field('name')); ?>" />
-              </div>
-            <?php endif; ?>
+            <?php echo book_initials_avatar( $name ); ?>
             <div class="book-testimonial-info">
-              <span class="book-testimonial-name"><?php echo esc_html(get_sub_field('name')); ?></span>
+              <span class="book-testimonial-name"><?php echo esc_html( $name ); ?></span>
               <span class="book-testimonial-service"><?php echo esc_html(get_sub_field('service')); ?></span>
             </div>
           </div>
@@ -368,7 +371,7 @@ get_header();
           <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           <p class="book-testimonial-quote">"Very efficient service. I phoned the evening before in a panic thinking we were too late for our holiday vaccinations. We got an appointment for the following day... Excellent advice given. Would highly recommend."</p>
           <div class="book-testimonial-author">
-            <div class="book-testimonial-avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Kathryn H." /></div>
+            <?php echo book_initials_avatar( 'Kathryn H.' ); ?>
             <div class="book-testimonial-info"><span class="book-testimonial-name">Kathryn H.</span><span class="book-testimonial-service">Travel Health Patient</span></div>
           </div>
         </div>
@@ -376,7 +379,7 @@ get_header();
           <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           <p class="book-testimonial-quote">"I travel 40 miles every month to see the team for my weight loss consultations – they're that good. Would never go anywhere else. The support has been incredible."</p>
           <div class="book-testimonial-author">
-            <div class="book-testimonial-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Sarah M." /></div>
+            <?php echo book_initials_avatar( 'Sarah M.' ); ?>
             <div class="book-testimonial-info"><span class="book-testimonial-name">Sarah M.</span><span class="book-testimonial-service">Weight Loss Patient</span></div>
           </div>
         </div>
@@ -384,7 +387,7 @@ get_header();
           <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           <p class="book-testimonial-quote">"The staff were just amazing... professional, courteous and helpful... If I could give them more than five stars I would... they truly take customer service to a whole new level."</p>
           <div class="book-testimonial-author">
-            <div class="book-testimonial-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Tom W." /></div>
+            <?php echo book_initials_avatar( 'Tom W.' ); ?>
             <div class="book-testimonial-info"><span class="book-testimonial-name">Tom W.</span><span class="book-testimonial-service">Pharmacy Patient</span></div>
           </div>
         </div>
