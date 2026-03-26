@@ -155,6 +155,7 @@
 /* Hide trust bar when compact */
 .denton-nav.nav-compact .denton-nav-trust-bar {
   height: 0 !important;
+  border-bottom: none;
 }
 
 /* Shrink top bar — mobile */
