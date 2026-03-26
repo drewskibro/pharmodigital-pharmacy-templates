@@ -134,7 +134,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         </div>
 
         <div class="yellowfever-cert-actions">
-          <a href="<?php echo esc_url( dp_field( 'yf_cert_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">Book Appointment</a>
+          <a href="<?php echo esc_url( dp_field( 'yf_cert_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">Book Yellow Fever Vaccination</a>
           <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button secondary-cta">Call <?php echo esc_html( dp_phone() ); ?></a>
         </div>
 

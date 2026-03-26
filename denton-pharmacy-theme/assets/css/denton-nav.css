@@ -113,6 +113,12 @@
   justify-self: end;
 }
 
+@media (max-width: 1023px) {
+  .denton-nav-top .denton-container {
+    grid-template-columns: 1fr auto;
+  }
+}
+
 @media (min-width: 1280px) {
   .denton-nav-top .denton-container {
     padding: 0 3.5rem;
