@@ -96,8 +96,9 @@ $treatments = array_slice( $treatments, 0, 5 );
                 $img_id  = ! empty( $treatment['treatment_image_id'] ) ? $treatment['treatment_image_id'] : 0;
                 $img_alt = $treatment['treatment_title'] . ' treatment at ' . dp_pharmacy_name();
                 $subtitle = ! empty( $treatment['treatment_subtitle'] ) ? $treatment['treatment_subtitle'] : '';
+                $card_slug = sanitize_html_class( basename( trim( parse_url( $treatment['treatment_url'], PHP_URL_PATH ), '/' ) ) );
             ?>
-                <a href="<?php echo esc_url( $treatment['treatment_url'] ); ?>" class="treatment-card">
+                <a href="<?php echo esc_url( $treatment['treatment_url'] ); ?>" class="treatment-card treatment-card--<?php echo $card_slug; ?>">
                     <div class="treatment-card-inner">
                         <?php if ( $img_id ) :
                             echo wp_get_attachment_image( $img_id, 'treatment-card', false, array(

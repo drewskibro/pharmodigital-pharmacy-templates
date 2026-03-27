@@ -1901,6 +1901,11 @@ html {
   transform: scale(1.08);
 }
 
+/* Per-card image focal point overrides */
+.treatment-card--hair-loss .treatment-card-image {
+  object-position: center top;
+}
+
 .treatment-card-overlay {
   position: absolute;
   inset: 0;
