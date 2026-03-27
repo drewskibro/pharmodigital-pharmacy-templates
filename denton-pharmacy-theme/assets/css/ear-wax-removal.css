@@ -12,14 +12,14 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0 0 40px;
+  padding: 3rem 0 40px;
   overflow: hidden;
   background: linear-gradient(to bottom, var(--brand-light), var(--white));
 }
 
 @media (min-width: 1024px) {
   .earwax-hero-section {
-    padding: 0;
+    padding: 4rem 0;
     min-height: 85vh;
   }
 }
@@ -289,9 +289,15 @@
 .earwax-stats-section {
   position: relative;
   z-index: 20;
-  margin-top: -2.5rem;
+  margin-top: 0;
   padding: 0 0 2rem;
   background: transparent;
+}
+
+@media (min-width: 1024px) {
+  .earwax-stats-section {
+    margin-top: -2.5rem;
+  }
 }
 
 .earwax-stats-bar {

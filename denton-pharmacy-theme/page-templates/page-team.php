@@ -111,8 +111,13 @@ get_header();
               </div>
             <?php endif; ?>
 
-            <?php if ( $member_gphc ) : ?>
-              <a href="https://www.pharmacyregulation.org/registers/pharmacist/<?php echo esc_attr( $member_gphc ); ?>" target="_blank" rel="noopener" class="team-gphc-verify-link">
+            <?php
+            $gphc_url = get_sub_field( 'gphc_url' );
+            if ( ! $gphc_url && $member_gphc ) {
+                $gphc_url = 'https://www.pharmacyregulation.org/registers/pharmacist/' . $member_gphc;
+            }
+            if ( $gphc_url ) : ?>
+              <a href="<?php echo esc_url( $gphc_url ); ?>" target="_blank" rel="noopener" class="team-gphc-verify-link">
                 <i class="fas fa-shield-halved"></i>
                 Verify GPhC Registration
                 <i class="fas fa-external-link-alt"></i>
@@ -166,56 +171,61 @@ get_header();
             </div>
           </div>
         </div>
-        <!-- Jignasa Modhvadia -->
+        <!-- Elisha Mackin -->
         <div class="team-member-card">
           <div class="team-member-image-wrapper">
             <div class="team-member-initials-circle">
-              <span class="team-member-initials">JM</span>
+              <span class="team-member-initials">EM</span>
             </div>
             <div class="team-member-overlay"></div>
-            <div class="team-member-badge-director">Director</div>
+            <div class="team-member-badge-senior">Trainee Pharmacy Technician</div>
           </div>
           <div class="team-member-content">
-            <h3 class="team-member-name">Jignasa Modhvadia</h3>
-            <p class="team-member-role">Director of Pharmacy</p>
+            <h3 class="team-member-name">Elisha Mackin</h3>
+            <p class="team-member-role">Trainee Pharmacy Technician</p>
             <div class="team-member-credentials">
-              <span class="team-credential-badge">Company Director</span>
-              <span class="team-credential-badge">Clinical Operations</span>
+              <span class="team-credential-badge">Trainee Technician</span>
+              <span class="team-credential-badge">Patient Support</span>
             </div>
-            <p class="team-member-bio">As Director of Pharmacy, Jignasa combines strategic leadership with hands-on operational management. She ensures the smooth running of our Denton clinic while maintaining the highest standards of patient care.</p>
-            <div class="team-member-specialties">
-              <span class="team-specialty-tag">Clinic Operations</span>
-              <span class="team-specialty-tag">Patient Care</span>
-              <span class="team-specialty-tag">Staff Development</span>
-            </div>
-          </div>
-        </div>
-        <!-- Baljender Nagi -->
-        <div class="team-member-card">
-          <div class="team-member-image-wrapper">
-            <div class="team-member-initials-circle">
-              <span class="team-member-initials">BN</span>
-            </div>
-            <div class="team-member-overlay"></div>
-            <div class="team-member-badge-senior">Senior Pharmacy Technician</div>
-          </div>
-          <div class="team-member-content">
-            <h3 class="team-member-name">Baljender Nagi</h3>
-            <p class="team-member-role">Senior Pharmacy Technician</p>
-            <div class="team-member-credentials">
-              <span class="team-credential-badge">GPhC: 5113254</span>
-              <span class="team-credential-badge">Clinical Specialist</span>
-            </div>
-            <a href="https://www.pharmacyregulation.org/registers/pharmacy-technician/5113254" target="_blank" rel="noopener" class="team-gphc-verify-link">
+            <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
               <i class="fas fa-shield-halved"></i>
               Verify GPhC Registration
               <i class="fas fa-external-link-alt"></i>
             </a>
-            <p class="team-member-bio">Baljender is a highly experienced pharmacy technician and a senior member of our clinical team. Her extensive knowledge and friendly approach ensure the highest standard of care across all of our pharmacy services.</p>
+            <p class="team-member-bio">Elisha is a dedicated trainee pharmacy technician developing her clinical skills within our Denton team. Her enthusiasm and commitment to patient care make her a valued member of our growing pharmacy family.</p>
             <div class="team-member-specialties">
-              <span class="team-specialty-tag">NHS Services</span>
-              <span class="team-specialty-tag">Clinical Services</span>
+              <span class="team-specialty-tag">Dispensing</span>
               <span class="team-specialty-tag">Patient Support</span>
+              <span class="team-specialty-tag">NHS Services</span>
+            </div>
+          </div>
+        </div>
+        <!-- Paula Gaunt -->
+        <div class="team-member-card">
+          <div class="team-member-image-wrapper">
+            <div class="team-member-initials-circle">
+              <span class="team-member-initials">PG</span>
+            </div>
+            <div class="team-member-overlay"></div>
+            <div class="team-member-badge-senior">Trainee Pharmacy Technician</div>
+          </div>
+          <div class="team-member-content">
+            <h3 class="team-member-name">Paula Gaunt</h3>
+            <p class="team-member-role">Trainee Pharmacy Technician</p>
+            <div class="team-member-credentials">
+              <span class="team-credential-badge">Trainee Technician</span>
+              <span class="team-credential-badge">Patient Support</span>
+            </div>
+            <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
+              <i class="fas fa-shield-halved"></i>
+              Verify GPhC Registration
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <p class="team-member-bio">Paula brings warmth and dedication to her role as a trainee pharmacy technician. She is actively building her expertise across our pharmacy services and is committed to delivering outstanding care to every patient.</p>
+            <div class="team-member-specialties">
+              <span class="team-specialty-tag">Dispensing</span>
+              <span class="team-specialty-tag">Patient Support</span>
+              <span class="team-specialty-tag">NHS Services</span>
             </div>
           </div>
         </div>
@@ -235,6 +245,11 @@ get_header();
               <span class="team-credential-badge">Pharmacy Assistant</span>
               <span class="team-credential-badge">Patient Support</span>
             </div>
+            <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
+              <i class="fas fa-shield-halved"></i>
+              Verify GPhC Registration
+              <i class="fas fa-external-link-alt"></i>
+            </a>
             <p class="team-member-bio">Joanne is a valued member of the Denton Pharmacy team, providing friendly and efficient support to patients and staff alike. Her warm approach ensures every patient feels welcome and well looked after.</p>
             <div class="team-member-specialties">
               <span class="team-specialty-tag">Patient Support</span>
@@ -321,9 +336,9 @@ get_header();
       </div>
 
       <div class="team-cta-trust-row">
-        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span>Expert team</span></div>
-        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span>Same-day appointments</span></div>
-        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span>15+ years serving Denton</span></div>
+        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'team_cta_trust_1', 'Expert team' ) ); ?></span></div>
+        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'team_cta_trust_2', 'Same-day appointments' ) ); ?></span></div>
+        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'team_cta_trust_3', '15+ years serving Denton' ) ); ?></span></div>
       </div>
     </div>
   </div>

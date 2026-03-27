@@ -295,7 +295,9 @@
 .team-member-badge-senior {
   position: absolute;
   bottom: 1.5rem;
-  left: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
   padding: 0.625rem 1.25rem;
   border-radius: 9999px;
   font-size: 0.75rem;
