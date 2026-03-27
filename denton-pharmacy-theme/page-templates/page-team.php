@@ -219,6 +219,30 @@ get_header();
             </div>
           </div>
         </div>
+        <!-- Joanne Tabberner -->
+        <div class="team-member-card">
+          <div class="team-member-image-wrapper">
+            <div class="team-member-initials-circle">
+              <span class="team-member-initials">JT</span>
+            </div>
+            <div class="team-member-overlay"></div>
+            <div class="team-member-badge-senior">Pharmacy Assistant</div>
+          </div>
+          <div class="team-member-content">
+            <h3 class="team-member-name">Joanne Tabberner</h3>
+            <p class="team-member-role">Pharmacy Assistant</p>
+            <div class="team-member-credentials">
+              <span class="team-credential-badge">Pharmacy Assistant</span>
+              <span class="team-credential-badge">Patient Support</span>
+            </div>
+            <p class="team-member-bio">Joanne is a valued member of the Denton Pharmacy team, providing friendly and efficient support to patients and staff alike. Her warm approach ensures every patient feels welcome and well looked after.</p>
+            <div class="team-member-specialties">
+              <span class="team-specialty-tag">Patient Support</span>
+              <span class="team-specialty-tag">NHS Services</span>
+              <span class="team-specialty-tag">Dispensing</span>
+            </div>
+          </div>
+        </div>
       <?php endif; ?>
     </div>
   </div>
