@@ -32,7 +32,7 @@ $default_steps = array(
     array(
         'step_number'      => '2',
         'step_icon'        => 'fa-user-doctor',
-        'step_title'       => 'Speak to Ahmed',
+        'step_title'       => 'Speak to ' . dp_option( 'superintendent_pharmacist', 'Our Pharmacist' ),
         'step_description' => 'Our expert pharmacist reviews your consultation and calls you the same day to discuss your treatment plan and answer any questions.',
         'step_time_icon'   => 'fa-clock',
         'step_time'        => 'Same day',

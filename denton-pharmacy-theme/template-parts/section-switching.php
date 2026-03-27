@@ -35,7 +35,7 @@ $default_features = array(
     array(
         'icon'  => 'fa-user-doctor',
         'title' => 'Real Pharmacist Support',
-        'desc'  => 'Speak with Ahmed and our Denton team directly — no chatbots, no automated responses, just genuine expert care.',
+        'desc'  => 'Speak with ' . dp_option( 'superintendent_pharmacist', 'our pharmacist' ) . ' directly — no chatbots, no automated responses, just genuine expert care.',
     ),
     array(
         'icon'  => 'fa-comments',
@@ -213,7 +213,7 @@ $gphc_number         = dp_option( 'superintendent_gphc_number', '2088937' );
                         </span>
                         <span class="switching-rating-pill">
                             <i class="fas fa-map-marker-alt"></i>
-                            <?php echo esc_html( $pharmacy_location ); ?> since 2008
+                            <?php echo esc_html( $pharmacy_location ); ?> since <?php echo esc_html( dp_option( 'established_year', '2009' ) ); ?>
                         </span>
                     </div>
                 </div>
