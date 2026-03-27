@@ -748,6 +748,51 @@ function dp_register_acf_field_groups() {
                 'instructions'  => 'Supports <br>, <em>, and <span> tags for styling.',
             ),
             array(
+                'key'           => 'field_dp_hero_title_line_1',
+                'label'         => 'Hero Title — Line 1',
+                'name'          => 'hero_title_line_1',
+                'type'          => 'text',
+                'default_value' => 'Lose Weight.',
+                'instructions'  => 'First line of the rotating hero headline.',
+            ),
+            array(
+                'key'           => 'field_dp_hero_title_line_3',
+                'label'         => 'Hero Title — Line 3',
+                'name'          => 'hero_title_line_3',
+                'type'          => 'text',
+                'default_value' => 'Get NHS Care.',
+                'instructions'  => 'Third line of the rotating hero headline.',
+            ),
+            array(
+                'key'          => 'field_dp_hero_rotate_phrases',
+                'label'        => 'Hero Rotating Phrases',
+                'name'         => 'hero_rotate_phrases',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 10,
+                'button_label' => 'Add Phrase',
+                'instructions' => 'Middle rotating line of the hero headline.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_hero_rotate_phrase', 'label' => 'Phrase', 'name' => 'phrase', 'type' => 'text' ),
+                ),
+            ),
+            array(
+                'key'          => 'field_dp_hero_nhs_pills',
+                'label'        => 'Hero NHS Pills',
+                'name'         => 'hero_nhs_pills',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Pill',
+                'instructions' => 'NHS accent strip pills shown above the hero headline.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_hero_nhs_pill_icon', 'label' => 'Icon', 'name' => 'pill_icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-heart' ),
+                    array( 'key' => 'field_dp_hero_nhs_pill_text', 'label' => 'Text', 'name' => 'pill_text', 'type' => 'text' ),
+                ),
+            ),
+            array(
                 'key'           => 'field_dp_hero_description',
                 'label'         => 'Hero Description',
                 'name'          => 'hero_description',
@@ -1187,6 +1232,52 @@ function dp_register_acf_field_groups() {
                 'type'          => 'text',
                 'default_value' => 'Visit Us in Denton',
             ),
+            array(
+                'key'          => 'field_dp_nhs_cta_chips',
+                'label'        => 'Bottom CTA — Trust Chips',
+                'name'         => 'nhs_cta_chips',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Chip',
+                'instructions' => 'Leave empty to use defaults (GPhC Registered, Walk-Ins Welcome, Free NHS Services).',
+                'sub_fields'   => array(
+                    array(
+                        'key'           => 'field_dp_nhs_chip_icon',
+                        'label'         => 'Icon',
+                        'name'          => 'chip_icon',
+                        'type'          => 'text',
+                        'default_value' => 'fa-shield-halved',
+                        'instructions'  => 'Font Awesome icon class',
+                    ),
+                    array(
+                        'key'   => 'field_dp_nhs_chip_text',
+                        'label' => 'Text',
+                        'name'  => 'chip_text',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
+            array(
+                'key'          => 'field_dp_nhs_bottom_checks',
+                'label'        => 'Bottom CTA — Trust Checks',
+                'name'         => 'nhs_bottom_checks',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Check',
+                'instructions' => 'Leave empty to use defaults (No referral needed, Same-day service, Open 6 days a week).',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_dp_nhs_check_text',
+                        'label' => 'Text',
+                        'name'  => 'check_text',
+                        'type'  => 'text',
+                    ),
+                ),
+            ),
         ),
         'location' => array(
             array(
@@ -1419,6 +1510,25 @@ function dp_register_acf_field_groups() {
                 'preview_size'  => 'medium',
                 'library'       => 'all',
                 'instructions'  => 'Upload a professional photo. Recommended: 600x750px portrait.',
+            ),
+            array(
+                'key'          => 'field_dp_pharmacist_trust_checks',
+                'label'        => 'Trust Checks',
+                'name'         => 'pharmacist_trust_checks',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Check',
+                'instructions' => 'Leave empty to use defaults (Same-Day Appointments, No GP Referral Needed, Face-to-Face Consultations).',
+                'sub_fields'   => array(
+                    array(
+                        'key'   => 'field_dp_pharmacist_trust_check_text',
+                        'label' => 'Text',
+                        'name'  => 'check_text',
+                        'type'  => 'text',
+                    ),
+                ),
             ),
             array(
                 'key'          => 'field_dp_pharmacist_credentials',
@@ -1901,6 +2011,20 @@ function dp_register_acf_field_groups() {
                 'default_value' => 'Your safety is our top priority. We are a fully registered and inspected pharmacy, dispensing only genuine, UK-licensed medications from trusted pharmaceutical suppliers.',
             ),
             array(
+                'key'           => 'field_dp_safe_verify_link_text',
+                'label'         => 'Verify Link Text',
+                'name'          => 'safe_verify_link_text',
+                'type'          => 'text',
+                'default_value' => 'Verify Our Registration',
+            ),
+            array(
+                'key'           => 'field_dp_safe_verify_note',
+                'label'         => 'Verify Note',
+                'name'          => 'safe_verify_note',
+                'type'          => 'text',
+                'default_value' => 'The GPhC is the official body that regulates and inspects all pharmacies in the UK',
+            ),
+            array(
                 'key'          => 'field_dp_safe_features',
                 'label'        => 'Trust Features',
                 'name'         => 'safe_features',
@@ -1990,6 +2114,22 @@ function dp_register_acf_field_groups() {
                 'default_value' => '',
                 'instructions'  => 'URL for the "View all articles" link. Defaults to /health-hub/.',
             ),
+            // View all link text
+            array(
+                'key'           => 'field_dp_home_healthhub_view_all_text',
+                'label'         => 'View All Link Text',
+                'name'          => 'healthhub_view_all_text',
+                'type'          => 'text',
+                'default_value' => 'View all articles',
+            ),
+            // Read article link text
+            array(
+                'key'           => 'field_dp_home_healthhub_read_article_text',
+                'label'         => 'Read Article Link Text',
+                'name'          => 'healthhub_read_article_text',
+                'type'          => 'text',
+                'default_value' => 'Read Article',
+            ),
         ),
         'location' => array(
             array(
@@ -2059,6 +2199,30 @@ function dp_register_acf_field_groups() {
                 'return_format' => 'id',
                 'preview_size'  => 'medium',
                 'instructions'  => 'Optional storefront photo for the info card.',
+            ),
+            // CTA primary button text
+            array(
+                'key'           => 'field_dp_home_location_cta_primary_text',
+                'label'         => 'CTA Primary Button Text',
+                'name'          => 'location_cta_primary_text',
+                'type'          => 'text',
+                'default_value' => 'Book an Appointment',
+            ),
+            // CTA secondary button text
+            array(
+                'key'           => 'field_dp_home_location_cta_secondary_text',
+                'label'         => 'CTA Secondary Button Text',
+                'name'          => 'location_cta_secondary_text',
+                'type'          => 'text',
+                'default_value' => 'Call Us',
+            ),
+            // Get Directions link text
+            array(
+                'key'           => 'field_dp_home_location_directions_text',
+                'label'         => 'Get Directions Link Text',
+                'name'          => 'location_directions_text',
+                'type'          => 'text',
+                'default_value' => 'Get Directions',
             ),
         ),
         'location' => array(
@@ -2132,6 +2296,30 @@ function dp_register_acf_field_groups() {
                 'name'          => 'testimonials_disclaimer',
                 'type'          => 'text',
                 'default_value' => 'The results below are from real Denton Pharmacy patients. Individual results may vary.',
+            ),
+            // Verified label (large card)
+            array(
+                'key'           => 'field_dp_home_testimonials_verified_label',
+                'label'         => 'Verified Label (Large Card)',
+                'name'          => 'testimonials_verified_label',
+                'type'          => 'text',
+                'default_value' => 'Verified Patient',
+            ),
+            // Verified label (small cards)
+            array(
+                'key'           => 'field_dp_home_testimonials_verified_label_short',
+                'label'         => 'Verified Label (Small Cards)',
+                'name'          => 'testimonials_verified_label_short',
+                'type'          => 'text',
+                'default_value' => 'Verified',
+            ),
+            // Transparency label
+            array(
+                'key'           => 'field_dp_home_testimonials_transparency_label',
+                'label'         => 'Transparency Label',
+                'name'          => 'testimonials_transparency_label',
+                'type'          => 'text',
+                'default_value' => 'Transparency Note:',
             ),
             // CTA title
             array(
@@ -2280,6 +2468,22 @@ function dp_register_acf_field_groups() {
                 'name'          => 'sticky_cta_button_text',
                 'type'          => 'text',
                 'default_value' => 'Book Now',
+            ),
+            // Trust chip text
+            array(
+                'key'           => 'field_dp_home_sticky_cta_trust_text',
+                'label'         => 'Trust Chip Text',
+                'name'          => 'sticky_cta_trust_text',
+                'type'          => 'text',
+                'default_value' => 'GPhC Registered',
+            ),
+            // Call button mobile text
+            array(
+                'key'           => 'field_dp_home_sticky_cta_call_text',
+                'label'         => 'Call Button Mobile Text',
+                'name'          => 'sticky_cta_call_text',
+                'type'          => 'text',
+                'default_value' => 'Call Us',
             ),
         ),
         'location' => array(
@@ -2558,6 +2762,7 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_wl_hero_cta_url', 'label' => 'Primary CTA URL', 'name' => 'wl_hero_cta_url', 'type' => 'text', 'default_value' => '', 'instructions' => 'URL or anchor like #calculator. Leave blank for booking page.' ),
             array( 'key' => 'field_dp_wl_hero_testimonial_quote', 'label' => 'Testimonial Quote', 'name' => 'wl_hero_testimonial_quote', 'type' => 'textarea', 'rows' => 2, 'default_value' => '"Ahmed really takes the time to understand your goals. I\'ve lost 3 stone in 6 months and feel like a different person."' ),
             array( 'key' => 'field_dp_wl_hero_testimonial_name', 'label' => 'Testimonial Author', 'name' => 'wl_hero_testimonial_name', 'type' => 'text', 'default_value' => 'Denton Patient' ),
+            array( 'key' => 'field_dp_wl_hero_testimonial_location', 'label' => 'Testimonial Location', 'name' => 'wl_hero_testimonial_location', 'type' => 'text', 'default_value' => 'Denton' ),
             array( 'key' => 'field_dp_wl_hero_result_badge', 'label' => 'Result Badge Text', 'name' => 'wl_hero_result_badge', 'type' => 'text', 'default_value' => 'Real Results' ),
             array(
                 'key'           => 'field_dp_wl_hero_image_1',
@@ -2586,6 +2791,31 @@ function dp_register_acf_field_groups() {
                 'preview_size'  => 'medium',
                 'instructions'  => 'Recommended: 800x600px landscape.',
             ),
+        ),
+        'location'              => $wl_location,
+        'menu_order'            => 400,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // D1b. Weight Loss — Stats Bar
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_wl_stats',
+        'title'    => 'Weight Loss — Stats Bar',
+        'fields'   => array(
+            array( 'key' => 'field_dp_wl_stat_1_number', 'label' => 'Stat 1 — Number', 'name' => 'wl_stat_1_number', 'type' => 'text', 'default_value' => '4.7', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_dp_wl_stat_1_label', 'label' => 'Stat 1 — Label', 'name' => 'wl_stat_1_label', 'type' => 'text', 'default_value' => 'Google Rating', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_dp_wl_stat_2_number', 'label' => 'Stat 2 — Number', 'name' => 'wl_stat_2_number', 'type' => 'text', 'default_value' => '300+', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_dp_wl_stat_2_label', 'label' => 'Stat 2 — Label', 'name' => 'wl_stat_2_label', 'type' => 'text', 'default_value' => 'Patients Helped', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_dp_wl_stat_3_number', 'label' => 'Stat 3 — Number', 'name' => 'wl_stat_3_number', 'type' => 'text', 'default_value' => 'GPhC', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_dp_wl_stat_3_label', 'label' => 'Stat 3 — Label', 'name' => 'wl_stat_3_label', 'type' => 'text', 'default_value' => 'Fully Registered', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_dp_wl_stat_4_number', 'label' => 'Stat 4 — Number', 'name' => 'wl_stat_4_number', 'type' => 'text', 'default_value' => '30+', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_dp_wl_stat_4_label', 'label' => 'Stat 4 — Label', 'name' => 'wl_stat_4_label', 'type' => 'text', 'default_value' => 'Years Experience', 'wrapper' => array( 'width' => '50' ) ),
         ),
         'location'              => $wl_location,
         'menu_order'            => 400,
@@ -2676,7 +2906,25 @@ function dp_register_acf_field_groups() {
         'title'    => 'Weight Loss — Features Section',
         'fields'   => array(
             array( 'key' => 'field_dp_wl_features_badge', 'label' => 'Badge Text', 'name' => 'wl_features_badge', 'type' => 'text', 'default_value' => 'Why Choose Us' ),
+            array( 'key' => 'field_dp_wl_features_title_field', 'label' => 'Title', 'name' => 'wl_features_title', 'type' => 'text', 'default_value' => 'The Denton Pharmacy Difference' ),
             array( 'key' => 'field_dp_wl_features_description', 'label' => 'Description', 'name' => 'wl_features_description', 'type' => 'text', 'default_value' => 'Real face-to-face support. Expert guidance. Proven results.' ),
+            array( 'key' => 'field_dp_wl_features_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'wl_features_cta_primary_text', 'type' => 'text', 'default_value' => 'Start Your Journey' ),
+            array( 'key' => 'field_dp_wl_features_cta_secondary_text', 'label' => 'Secondary CTA Text', 'name' => 'wl_features_cta_secondary_text', 'type' => 'text', 'default_value' => 'Call Us' ),
+            array(
+                'key'          => 'field_dp_wl_features_credentials',
+                'label'        => 'Credentials',
+                'name'         => 'wl_features_credentials',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Credential',
+                'instructions' => 'Leave empty to use defaults (GPhC Registered, Independent Prescriber, 30+ Years).',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_wl_feat_cred_icon', 'label' => 'Icon', 'name' => 'cred_icon', 'type' => 'text', 'default_value' => 'fa-shield-halved' ),
+                    array( 'key' => 'field_dp_wl_feat_cred_text', 'label' => 'Text', 'name' => 'cred_text', 'type' => 'text' ),
+                ),
+            ),
             array(
                 'key'           => 'field_dp_wl_features_image',
                 'label'         => 'Image',
@@ -2689,6 +2937,8 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_wl_features_image_alt', 'label' => 'Image Alt Text', 'name' => 'wl_features_image_alt', 'type' => 'text', 'default_value' => 'Weight loss success patient' ),
             array( 'key' => 'field_dp_wl_features_rating_text', 'label' => 'Rating Badge Text', 'name' => 'wl_features_rating_text', 'type' => 'text', 'default_value' => '4.7/5' ),
             array( 'key' => 'field_dp_wl_features_reviews_text', 'label' => 'Reviews Badge Text', 'name' => 'wl_features_reviews_text', 'type' => 'text', 'default_value' => '300+ Google Reviews' ),
+            array( 'key' => 'field_dp_wl_features_view_reviews_text', 'label' => 'View Reviews Link Text', 'name' => 'wl_features_view_reviews_text', 'type' => 'text', 'default_value' => 'View Reviews' ),
+            array( 'key' => 'field_dp_wl_features_reviews_label', 'label' => 'Reviews Label (after count)', 'name' => 'wl_features_reviews_label', 'type' => 'text', 'default_value' => 'reviews' ),
             array(
                 'key'          => 'field_dp_wl_features',
                 'label'        => 'Feature Cards',
@@ -2722,6 +2972,7 @@ function dp_register_acf_field_groups() {
         'title'    => 'Weight Loss — Journey Steps',
         'fields'   => array(
             array( 'key' => 'field_dp_wl_journey_badge', 'label' => 'Badge Text', 'name' => 'wl_journey_badge', 'type' => 'text', 'default_value' => 'HOW WE SUPPORT YOU' ),
+            array( 'key' => 'field_dp_wl_journey_title', 'label' => 'Title (plain text fallback)', 'name' => 'wl_journey_title', 'type' => 'text', 'default_value' => 'Your path to lasting weight loss', 'instructions' => 'Used as a single-line title. Leave blank to use the split title fields below.' ),
             array( 'key' => 'field_dp_wl_journey_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'wl_journey_title_highlight', 'type' => 'text', 'default_value' => 'Your Path To' ),
             array( 'key' => 'field_dp_wl_journey_title_line2', 'label' => 'Title Line 2 (accent)', 'name' => 'wl_journey_title_line2', 'type' => 'text', 'default_value' => ' Lasting Weight Loss' ),
             array( 'key' => 'field_dp_wl_journey_description', 'label' => 'Description', 'name' => 'wl_journey_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'A structured, evidence-based approach with regular face-to-face support every step of the way.' ),
@@ -2802,7 +3053,16 @@ function dp_register_acf_field_groups() {
         'fields'   => array(
             array( 'key' => 'field_dp_wl_testimonials_badge', 'label' => 'Badge Text', 'name' => 'wl_testimonials_badge', 'type' => 'text', 'default_value' => 'SUCCESS STORIES' ),
             array( 'key' => 'field_dp_wl_testimonials_title', 'label' => 'Title', 'name' => 'wl_testimonials_title', 'type' => 'text', 'default_value' => 'Real Denton success stories' ),
+            array( 'key' => 'field_dp_wl_testimonials_title_start', 'label' => 'Title Start (split)', 'name' => 'wl_testimonials_title_start', 'type' => 'text', 'default_value' => 'Real Results.' ),
+            array( 'key' => 'field_dp_wl_testimonials_title_highlight', 'label' => 'Title Highlight (split)', 'name' => 'wl_testimonials_title_highlight', 'type' => 'text', 'default_value' => 'Lasting Health.' ),
             array( 'key' => 'field_dp_wl_testimonials_description', 'label' => 'Description', 'name' => 'wl_testimonials_description', 'type' => 'text', 'default_value' => 'See how our patients have transformed their lives with medical weight loss' ),
+            array( 'key' => 'field_dp_wl_testimonials_disclaimer', 'label' => 'Disclaimer', 'name' => 'wl_testimonials_disclaimer', 'type' => 'text', 'default_value' => 'The results below are from real Denton Pharmacy patients. Individual results may vary.' ),
+            array( 'key' => 'field_dp_wl_testimonials_cta_title', 'label' => 'CTA Card Title', 'name' => 'wl_testimonials_cta_title', 'type' => 'text', 'default_value' => 'Trusted by 5,000+ Denton Patients' ),
+            array( 'key' => 'field_dp_wl_testimonials_cta_text', 'label' => 'CTA Card Text', 'name' => 'wl_testimonials_cta_text', 'type' => 'text', 'default_value' => 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ),
+            array( 'key' => 'field_dp_wl_testimonials_cta_rating_label', 'label' => 'CTA Rating Label', 'name' => 'wl_testimonials_cta_rating_label', 'type' => 'text', 'default_value' => 'Google Rating' ),
+            array( 'key' => 'field_dp_wl_testimonials_verified_label', 'label' => 'Verified Label (full)', 'name' => 'wl_testimonials_verified_label', 'type' => 'text', 'default_value' => 'Verified Patient' ),
+            array( 'key' => 'field_dp_wl_testimonials_verified_label_short', 'label' => 'Verified Label (short)', 'name' => 'wl_testimonials_verified_label_short', 'type' => 'text', 'default_value' => 'Verified' ),
+            array( 'key' => 'field_dp_wl_testimonials_transparency_label', 'label' => 'Transparency Label', 'name' => 'wl_testimonials_transparency_label', 'type' => 'text', 'default_value' => 'Transparency Note:' ),
             array(
                 'key'          => 'field_dp_wl_testimonials',
                 'label'        => 'Testimonials',
@@ -2838,6 +3098,36 @@ function dp_register_acf_field_groups() {
         'fields'   => array(
             array( 'key' => 'field_dp_wl_final_cta_title', 'label' => 'Title', 'name' => 'wl_final_cta_title', 'type' => 'text', 'default_value' => 'Ready to start your weight loss journey?' ),
             array( 'key' => 'field_dp_wl_final_cta_description', 'label' => 'Description', 'name' => 'wl_final_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join 500+ Denton residents who\'ve transformed their lives with medical weight loss. Book your consultation with Ahmed today.' ),
+            array( 'key' => 'field_dp_wl_final_cta_button_text', 'label' => 'Primary Button Text', 'name' => 'wl_final_cta_button_text', 'type' => 'text', 'default_value' => 'Book Your Consultation' ),
+            array(
+                'key'          => 'field_dp_wl_final_cta_badges',
+                'label'        => 'Trust Badges',
+                'name'         => 'wl_final_cta_badges',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Badge',
+                'instructions' => 'Leave empty to use defaults.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_wl_final_badge_icon', 'label' => 'Icon', 'name' => 'badge_icon', 'type' => 'text', 'default_value' => 'fa-shield-halved' ),
+                    array( 'key' => 'field_dp_wl_final_badge_text', 'label' => 'Text', 'name' => 'badge_text', 'type' => 'text' ),
+                ),
+            ),
+            array(
+                'key'          => 'field_dp_wl_final_cta_checks',
+                'label'        => 'Trust Checks',
+                'name'         => 'wl_final_cta_checks',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'min'          => 0,
+                'max'          => 6,
+                'button_label' => 'Add Check',
+                'instructions' => 'Leave empty to use defaults.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_wl_final_check_text', 'label' => 'Text', 'name' => 'check_text', 'type' => 'text' ),
+                ),
+            ),
         ),
         'location'              => $wl_location,
         'menu_order'            => 409,
@@ -5245,6 +5535,7 @@ function dp_register_acf_field_groups() {
                 ),
             ),
             array( 'key' => 'field_dp_yf_cert_cta_url', 'label' => 'CTA URL', 'name' => 'yf_cert_cta_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_yf_cert_cta_text', 'label' => 'CTA Button Text', 'name' => 'yf_cert_cta_text', 'type' => 'text', 'default_value' => 'Book Yellow Fever Vaccination' ),
             array( 'key' => 'field_dp_yf_cert_callout_badge', 'label' => 'Callout Badge', 'name' => 'yf_cert_callout_badge', 'type' => 'text', 'default_value' => 'IMPORTANT' ),
             array( 'key' => 'field_dp_yf_cert_callout_title', 'label' => 'Callout Title', 'name' => 'yf_cert_callout_title', 'type' => 'text', 'default_value' => '10-Day Validity Rule' ),
             array( 'key' => 'field_dp_yf_cert_callout_text', 'label' => 'Callout Text', 'name' => 'yf_cert_callout_text', 'type' => 'textarea', 'rows' => 2 ),
@@ -5441,6 +5732,7 @@ function dp_register_acf_field_groups() {
             ),
             array( 'key' => 'field_dp_yf_risk_footer_text', 'label' => 'Footer Text', 'name' => 'yf_risk_footer_text', 'type' => 'text' ),
             array( 'key' => 'field_dp_yf_risk_cta_url', 'label' => 'CTA URL', 'name' => 'yf_risk_cta_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_yf_risk_cta_text', 'label' => 'CTA Button Text', 'name' => 'yf_risk_cta_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
         ),
         'location'              => $yf_location,
         'menu_order'            => 1205,

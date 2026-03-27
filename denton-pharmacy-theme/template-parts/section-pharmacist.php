@@ -59,12 +59,21 @@ if ( empty( $credentials ) ) {
     $credentials = $default_credentials;
 }
 
-// --- Trust checks ---
-$trust_checks = array(
-    'Same-Day Appointments',
-    'No GP Referral Needed',
-    'Face-to-Face Consultations',
-);
+// --- Trust checks (ACF repeater with defaults) ---
+$default_trust_checks = array( 'Same-Day Appointments', 'No GP Referral Needed', 'Face-to-Face Consultations' );
+$trust_checks = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'pharmacist_trust_checks' ) ) {
+    while ( have_rows( 'pharmacist_trust_checks' ) ) {
+        the_row();
+        $text = get_sub_field( 'check_text' );
+        if ( $text ) {
+            $trust_checks[] = $text;
+        }
+    }
+}
+if ( empty( $trust_checks ) ) {
+    $trust_checks = $default_trust_checks;
+}
 ?>
 
 <section class="pharmacist-section" id="about">

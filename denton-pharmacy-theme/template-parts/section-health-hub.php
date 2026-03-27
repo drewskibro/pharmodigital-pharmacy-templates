@@ -18,6 +18,8 @@ $badge_text      = dp_field( 'healthhub_badge_text', 'Expert Advice' );
 $title_start     = dp_field( 'healthhub_title_start', 'Latest from the' );
 $title_highlight = dp_field( 'healthhub_title_highlight', 'Health Hub' );
 $view_all_url    = dp_field( 'healthhub_view_all_url', home_url( '/health-hub/' ) );
+$view_all_text   = dp_field( 'healthhub_view_all_text', 'View all articles' );
+$read_article_text = dp_field( 'healthhub_read_article_text', 'Read Article' );
 
 // --- Query latest 3 posts ---
 $healthhub_query = new WP_Query( array(
@@ -48,7 +50,7 @@ $has_posts = $healthhub_query->have_posts();
                 </h2>
             </div>
             <a href="<?php echo esc_url( $view_all_url ); ?>" class="healthhub-view-all">
-                View all articles
+                <?php echo esc_html( $view_all_text ); ?>
                 <i class="fas fa-arrow-right"></i>
             </a>
         </div>
@@ -82,7 +84,7 @@ $has_posts = $healthhub_query->have_posts();
                             <h3 class="healthhub-card-title"><?php echo esc_html( $post_title ); ?></h3>
                             <p class="healthhub-card-excerpt"><?php echo esc_html( $post_excerpt ); ?></p>
                             <span class="healthhub-card-link">
-                                Read Article
+                                <?php echo esc_html( $read_article_text ); ?>
                                 <i class="fas fa-arrow-right"></i>
                             </span>
                         </div>

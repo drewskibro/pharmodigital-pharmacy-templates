@@ -129,7 +129,7 @@ $booking_url = dp_booking_url();
                     <?php if ( $directions_url ) : ?>
                         <a href="<?php echo esc_url( $directions_url ); ?>" class="location-directions-link" target="_blank" rel="noopener noreferrer">
                             <i class="fas fa-diamond-turn-right"></i>
-                            Get Directions
+                            <?php echo esc_html( dp_field( 'location_directions_text', 'Get Directions' ) ); ?>
                         </a>
                     <?php endif; ?>
                 </div>
@@ -195,12 +195,12 @@ $booking_url = dp_booking_url();
         <!-- CTAs -->
         <div class="location-card-cta">
             <a href="<?php echo esc_url( $booking_url ); ?>" class="cta-button primary-cta">
-                Book an Appointment
+                <?php echo esc_html( dp_field( 'location_cta_primary_text', 'Book an Appointment' ) ); ?>
                 <i class="fas fa-arrow-right"></i>
             </a>
             <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="cta-button secondary-cta">
                 <i class="fas fa-phone"></i>
-                Call Us
+                <?php echo esc_html( dp_field( 'location_cta_secondary_text', 'Call Us' ) ); ?>
             </a>
         </div>
 

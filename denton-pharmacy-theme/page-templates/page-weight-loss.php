@@ -268,23 +268,41 @@ get_header();
         <div class="wl-features-rating-stars">
           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
         </div>
-        <span class="wl-features-rating-meta"><?php echo esc_html( $wl_review_count ); ?> reviews · <?php echo esc_html( $wl_location ); ?></span>
-        <a href="<?php echo esc_url( $wl_reviews_url ); ?>" class="wl-features-rating-link" target="_blank" rel="noopener">View Reviews <i class="fas fa-arrow-right"></i></a>
+        <span class="wl-features-rating-meta"><?php echo esc_html( $wl_review_count ); ?> <?php echo esc_html( dp_field( 'wl_features_reviews_label', 'reviews' ) ); ?> · <?php echo esc_html( $wl_location ); ?></span>
+        <a href="<?php echo esc_url( $wl_reviews_url ); ?>" class="wl-features-rating-link" target="_blank" rel="noopener"><?php echo esc_html( dp_field( 'wl_features_view_reviews_text', 'View Reviews' ) ); ?> <i class="fas fa-arrow-right"></i></a>
       </div>
 
       <div class="wl-features-actions">
         <a href="<?php echo esc_url( dp_field( 'wl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">
-          Start Your Journey <i class="fas fa-arrow-right"></i>
+          <?php echo esc_html( dp_field( 'wl_features_cta_primary_text', 'Start Your Journey' ) ); ?> <i class="fas fa-arrow-right"></i>
         </a>
         <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button secondary-cta">
-          <i class="fas fa-phone"></i> Call Us
+          <i class="fas fa-phone"></i> <?php echo esc_html( dp_field( 'wl_features_cta_secondary_text', 'Call Us' ) ); ?>
         </a>
       </div>
 
       <div class="wl-features-credentials">
-        <div class="wl-features-credential"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></div>
-        <div class="wl-features-credential"><i class="fas fa-user-doctor"></i><span>Independent Prescriber</span></div>
-        <div class="wl-features-credential"><i class="fas fa-award"></i><span>30+ Years</span></div>
+        <?php
+        $wl_default_creds = array(
+            array( 'cred_icon' => 'fa-shield-halved', 'cred_text' => 'GPhC Registered' ),
+            array( 'cred_icon' => 'fa-user-doctor', 'cred_text' => 'Independent Prescriber' ),
+            array( 'cred_icon' => 'fa-award', 'cred_text' => '30+ Years' ),
+        );
+        $wl_creds = array();
+        if ( function_exists( 'have_rows' ) && have_rows( 'wl_features_credentials' ) ) {
+            while ( have_rows( 'wl_features_credentials' ) ) {
+                the_row();
+                $wl_creds[] = array(
+                    'cred_icon' => get_sub_field( 'cred_icon' ) ?: 'fa-shield-halved',
+                    'cred_text' => get_sub_field( 'cred_text' ) ?: '',
+                );
+            }
+        }
+        if ( empty( $wl_creds ) ) { $wl_creds = $wl_default_creds; }
+        foreach ( $wl_creds as $cred ) :
+        ?>
+          <div class="wl-features-credential"><i class="<?php echo esc_attr( dp_fa_class( $cred['cred_icon'] ) ); ?>"></i><span><?php echo esc_html( $cred['cred_text'] ); ?></span></div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>
@@ -572,7 +590,7 @@ get_header();
       <p class="wl-testimonials-description"><?php echo esc_html( dp_field( 'wl_testimonials_description', 'See how our patients across Denton have transformed their health with personalised weight loss care.' ) ); ?></p>
       <div class="wl-testimonials-disclaimer">
         <i class="fas fa-info-circle"></i>
-        <p><strong>Transparency Note:</strong> <?php echo esc_html( dp_field( 'wl_testimonials_disclaimer', 'The results below are from real Denton Pharmacy patients. Individual results may vary.' ) ); ?></p>
+        <p><strong><?php echo esc_html( dp_field( 'wl_testimonials_transparency_label', 'Transparency Note:' ) ); ?></strong> <?php echo esc_html( dp_field( 'wl_testimonials_disclaimer', 'The results below are from real Denton Pharmacy patients. Individual results may vary.' ) ); ?></p>
       </div>
     </div>
 
@@ -660,7 +678,7 @@ get_header();
           <!-- Verified badge -->
           <div class="wl-testimonial-verified">
             <i class="fas fa-check-circle"></i>
-            <span><?php echo $is_large ? 'Verified Patient' : 'Verified'; ?></span>
+            <span><?php echo esc_html( $is_large ? dp_field( 'wl_testimonials_verified_label', 'Verified Patient' ) : dp_field( 'wl_testimonials_verified_label_short', 'Verified' ) ); ?></span>
           </div>
 
           <div class="wl-testimonial-card-body">
@@ -693,7 +711,7 @@ get_header();
               <div class="wl-testimonial-author-info">
                 <span class="wl-testimonial-service"><?php echo esc_html( $t['service'] ); ?></span>
                 <h4 class="wl-testimonial-author-name"><?php echo esc_html( $t['name'] ); ?></h4>
-                <p class="wl-testimonial-author-status">Verified Patient</p>
+                <p class="wl-testimonial-author-status"><?php echo esc_html( dp_field( 'wl_testimonials_verified_label', 'Verified Patient' ) ); ?></p>
               </div>
             </div>
 
@@ -725,7 +743,7 @@ get_header();
               <div class="star-row star-row-small">
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
               </div>
-              <span class="wl-testimonial-cta-label">Google Rating</span>
+              <span class="wl-testimonial-cta-label"><?php echo esc_html( dp_field( 'wl_testimonials_cta_rating_label', 'Google Rating' ) ); ?></span>
             </div>
           </div>
         </div>
@@ -746,9 +764,27 @@ get_header();
   <div class="section-container">
     <div class="wl-final-cta-content">
       <div class="wl-final-cta-badges">
-        <div class="wl-final-cta-badge"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></div>
-        <div class="wl-final-cta-badge"><i class="fas fa-user-doctor"></i><span>Independent Prescriber</span></div>
-        <div class="wl-final-cta-badge"><i class="fas fa-users"></i><span><?php echo esc_html( dp_field( 'wl_results_card3_number', '500+' ) ); ?> Patients Helped</span></div>
+        <?php
+        $wl_default_badges = array(
+            array( 'badge_icon' => 'fa-shield-halved', 'badge_text' => 'GPhC Registered' ),
+            array( 'badge_icon' => 'fa-user-doctor', 'badge_text' => 'Independent Prescriber' ),
+            array( 'badge_icon' => 'fa-users', 'badge_text' => dp_field( 'wl_results_card3_number', '500+' ) . ' Patients Helped' ),
+        );
+        $wl_cta_badges = array();
+        if ( function_exists( 'have_rows' ) && have_rows( 'wl_final_cta_badges' ) ) {
+            while ( have_rows( 'wl_final_cta_badges' ) ) {
+                the_row();
+                $wl_cta_badges[] = array(
+                    'badge_icon' => get_sub_field( 'badge_icon' ) ?: 'fa-shield-halved',
+                    'badge_text' => get_sub_field( 'badge_text' ) ?: '',
+                );
+            }
+        }
+        if ( empty( $wl_cta_badges ) ) { $wl_cta_badges = $wl_default_badges; }
+        foreach ( $wl_cta_badges as $badge ) :
+        ?>
+          <div class="wl-final-cta-badge"><i class="<?php echo esc_attr( dp_fa_class( $badge['badge_icon'] ) ); ?>"></i><span><?php echo esc_html( $badge['badge_text'] ); ?></span></div>
+        <?php endforeach; ?>
       </div>
 
       <h2 class="wl-final-cta-title"><?php echo esc_html( dp_field( 'wl_final_cta_title', 'Book your weight loss consultation' ) ); ?></h2>
@@ -756,7 +792,7 @@ get_header();
 
       <div class="wl-final-cta-actions">
         <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="cta-button primary-cta wl-final-cta-button-white">
-          Book Your Consultation <i class="fas fa-arrow-right"></i>
+          <?php echo esc_html( dp_field( 'wl_final_cta_button_text', 'Book Your Consultation' ) ); ?> <i class="fas fa-arrow-right"></i>
         </a>
         <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button secondary-cta wl-final-cta-button-outlined">
           <i class="fas fa-phone"></i> <?php echo esc_html( 'Call ' . dp_phone() ); ?>
@@ -764,9 +800,21 @@ get_header();
       </div>
 
       <div class="wl-final-cta-checks">
-        <div class="wl-final-cta-check"><i class="fas fa-check"></i><span>Expert guidance</span></div>
-        <div class="wl-final-cta-check"><i class="fas fa-check"></i><span>No obligation</span></div>
-        <div class="wl-final-cta-check"><i class="fas fa-check"></i><span>Same-day appointments</span></div>
+        <?php
+        $wl_default_checks = array( 'Expert guidance', 'No obligation', 'Same-day appointments' );
+        $wl_cta_checks = array();
+        if ( function_exists( 'have_rows' ) && have_rows( 'wl_final_cta_checks' ) ) {
+            while ( have_rows( 'wl_final_cta_checks' ) ) {
+                the_row();
+                $text = get_sub_field( 'check_text' );
+                if ( $text ) { $wl_cta_checks[] = $text; }
+            }
+        }
+        if ( empty( $wl_cta_checks ) ) { $wl_cta_checks = $wl_default_checks; }
+        foreach ( $wl_cta_checks as $check ) :
+        ?>
+          <div class="wl-final-cta-check"><i class="fas fa-check"></i><span><?php echo esc_html( $check ); ?></span></div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>

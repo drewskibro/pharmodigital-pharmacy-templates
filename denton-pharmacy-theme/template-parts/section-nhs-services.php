@@ -26,6 +26,42 @@ $bottom_cta_text = dp_field( 'nhs_bottom_cta_text', 'Visit Us in Denton' );
 $phone        = dp_phone();
 $phone_link   = dp_phone_link();
 
+// --- Trust chips (ACF repeater with defaults) ---
+$default_chips = array(
+    array( 'chip_icon' => 'fa-shield-halved', 'chip_text' => 'GPhC Registered' ),
+    array( 'chip_icon' => 'fa-clock',         'chip_text' => 'Walk-Ins Welcome' ),
+    array( 'chip_icon' => 'fa-hand-holding-medical', 'chip_text' => 'Free NHS Services' ),
+);
+$chips = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cta_chips' ) ) {
+    while ( have_rows( 'nhs_cta_chips' ) ) {
+        the_row();
+        $chips[] = array(
+            'chip_icon' => get_sub_field( 'chip_icon' ) ?: 'fa-shield-halved',
+            'chip_text' => get_sub_field( 'chip_text' ) ?: '',
+        );
+    }
+}
+if ( empty( $chips ) ) {
+    $chips = $default_chips;
+}
+
+// --- Trust checks (ACF repeater with defaults) ---
+$default_bottom_checks = array( 'No referral needed', 'Same-day service', 'Open 6 days a week' );
+$bottom_checks = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'nhs_bottom_checks' ) ) {
+    while ( have_rows( 'nhs_bottom_checks' ) ) {
+        the_row();
+        $text = get_sub_field( 'check_text' );
+        if ( $text ) {
+            $bottom_checks[] = $text;
+        }
+    }
+}
+if ( empty( $bottom_checks ) ) {
+    $bottom_checks = $default_bottom_checks;
+}
+
 // --- Card data from ACF repeater (pre-populated via WP-CLI or acf/load_value) ---
 $cards = array();
 if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
@@ -184,18 +220,14 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
             <div class="nhs-bottom-cta-inner">
                 <!-- Trust chips -->
                 <div class="nhs-bottom-cta-chips">
-                    <span class="nhs-cta-chip">
-                        <i class="fas fa-shield-halved"></i>
-                        GPhC Registered
-                    </span>
-                    <span class="nhs-cta-chip">
-                        <i class="fas fa-clock"></i>
-                        Walk-Ins Welcome
-                    </span>
-                    <span class="nhs-cta-chip">
-                        <i class="fas fa-hand-holding-medical"></i>
-                        Free NHS Services
-                    </span>
+                    <?php foreach ( $chips as $chip ) :
+                        $icon_class = dp_fa_class( $chip['chip_icon'] );
+                    ?>
+                        <span class="nhs-cta-chip">
+                            <i class="<?php echo esc_attr( $icon_class ); ?>"></i>
+                            <?php echo esc_html( $chip['chip_text'] ); ?>
+                        </span>
+                    <?php endforeach; ?>
                 </div>
 
                 <h3 class="nhs-bottom-cta-title"><?php echo esc_html( $bottom_title ); ?></h3>
@@ -214,9 +246,9 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
 
                 <!-- Trust checks -->
                 <div class="nhs-bottom-cta-checks">
-                    <span><i class="fas fa-check-circle"></i> No referral needed</span>
-                    <span><i class="fas fa-check-circle"></i> Same-day service</span>
-                    <span><i class="fas fa-check-circle"></i> Open 6 days a week</span>
+                    <?php foreach ( $bottom_checks as $check ) : ?>
+                        <span><i class="fas fa-check-circle"></i> <?php echo esc_html( $check ); ?></span>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

@@ -29,7 +29,7 @@ $booking_url = dp_booking_url();
       <div class="sticky-cta-centre">
         <span class="sticky-cta-trust-chip">
           <i class="fas fa-shield-halved"></i>
-          GPhC Registered
+          <?php echo esc_html( dp_field( 'sticky_cta_trust_text', 'GPhC Registered' ) ); ?>
         </span>
       </div>
       <div class="sticky-cta-buttons">
@@ -40,7 +40,7 @@ $booking_url = dp_booking_url();
         <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="sticky-cta-button sticky-cta-secondary">
           <i class="fas fa-phone"></i>
           <span class="desktop-only">Call: <?php echo esc_html( $phone ); ?></span>
-          <span class="mobile-only">Call Us</span>
+          <span class="mobile-only"><?php echo esc_html( dp_field( 'sticky_cta_call_text', 'Call Us' ) ); ?></span>
         </a>
       </div>
     </div>

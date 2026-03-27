@@ -139,10 +139,10 @@ $gphc_verify_url      = 'https://www.pharmacyregulation.org/registers/pharmacy/r
                 <div class="safe-credential-footer">
                     <a href="<?php echo esc_url( $gphc_verify_url ); ?>" target="_blank" rel="noopener noreferrer" class="safe-verify-link">
                         <i class="fas fa-shield-halved"></i>
-                        Verify Our Registration
+                        <?php echo esc_html( dp_field( 'safe_verify_link_text', 'Verify Our Registration' ) ); ?>
                         <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
-                    <p class="safe-verify-note">The GPhC is the official body that regulates and inspects all pharmacies in the UK</p>
+                    <p class="safe-verify-note"><?php echo esc_html( dp_field( 'safe_verify_note', 'The GPhC is the official body that regulates and inspects all pharmacies in the UK' ) ); ?></p>
                 </div>
 
             </div>
