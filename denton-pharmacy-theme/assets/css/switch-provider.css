@@ -1958,7 +1958,7 @@
    ============================================ */
 .switch-cta-section {
   position: relative;
-  background: linear-gradient(135deg, rgba(245, 247, 248, 0.5) 0%, rgba(163, 158, 227, 0.15) 50%, rgba(63, 115, 174, 0.2) 100%);
+  background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
   padding: 7rem 0;
   overflow: hidden;
 }
@@ -1969,9 +1969,9 @@
   right: -10%;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(63, 115, 174, 0.2) 0%, transparent 70%);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
   filter: blur(120px);
-  animation: float 20s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -1981,18 +1981,17 @@
   left: -10%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(163, 158, 227, 0.18) 0%, transparent 70%);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
   filter: blur(100px);
-  animation: float 25s ease-in-out infinite reverse;
   pointer-events: none;
 }
 
 .switch-cta-dots {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.6;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
   pointer-events: none;
 }
 
@@ -2006,6 +2005,7 @@
   font-size: 3rem;
   font-weight: 900;
   font-family: var(--font-heading);
+  color: var(--white);
   margin-top: 0;
   margin-bottom: 1.75rem;
   line-height: 1.12;
@@ -2013,10 +2013,8 @@
 }
 
 .switch-cta-title .gradient-text {
-  background: linear-gradient(135deg, #3f73ae 0%, #2a507a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
+  -webkit-text-fill-color: var(--white);
 }
 
 @media (min-width: 768px) {
@@ -2027,11 +2025,10 @@
 
 .switch-cta-description {
   font-size: 1.25rem;
-  color: #374151;
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.65;
   max-width: 900px;
   margin: 0 auto 3rem;
-  letter-spacing: -0.01em;
   font-weight: 500;
 }
 
@@ -2057,25 +2054,25 @@
 }
 
 .switch-cta-button-white {
-  background: linear-gradient(to right, #3f73ae, #2a507a);
-  color: #ffffff;
-  box-shadow: 0 8px 24px rgba(63, 115, 174, 0.3);
+  background: var(--white);
+  color: var(--brand-dark);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .switch-cta-button-white:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 32px rgba(63, 115, 174, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
 .switch-cta-button-outlined {
-  background: #ffffff;
-  color: #2a507a;
-  border: 2px solid rgba(63, 115, 174, 0.2);
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .switch-cta-button-outlined:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: #3f73ae;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-3px) scale(1.05);
 }
 
@@ -2095,12 +2092,11 @@
 
 .switch-cta-check i {
   font-size: 1.25rem;
-  color: #3f73ae;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .switch-cta-check span {
   font-size: 1.0625rem;
   font-weight: 700;
-  color: #374151;
-  letter-spacing: -0.01em;
+  color: var(--white);
 }
