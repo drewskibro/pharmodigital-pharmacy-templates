@@ -196,6 +196,136 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
 </section>
 
 <!-- ============================================
+     H6. PROCESS — Steps for switching
+     Tab navigation + content cards + What's Included box
+     ============================================ -->
+<section class="switch-process-section switch-reveal">
+  <div class="section-container">
+    <div class="switch-process-header">
+      <div class="section-badge">
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        <span class="section-badge-text"><?php echo esc_html( dp_field( 'sp_process_badge', 'HOW TO SWITCH' ) ); ?></span>
+      </div>
+      <h2 class="switch-process-title">
+        <span class="gradient-text"><?php echo esc_html( dp_field( 'sp_process_title_line1', 'Make The Switch' ) ); ?></span>
+        <span class="hero-accent-text"><?php echo esc_html( dp_field( 'sp_process_title_line2', ' Today' ) ); ?></span>
+      </h2>
+      <p class="switch-process-description"><?php echo esc_html( dp_field( 'sp_process_description', 'Switch to Denton Pharmacy in under 5 minutes. Better support, better value, better results.' ) ); ?></p>
+    </div>
+
+    <?php
+    // Default steps data
+    $default_steps = array(
+        array( 'title' => 'Book Consultation', 'description' => 'Visit us in Denton or <a href="' . esc_url( dp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
+        array( 'title' => 'We Handle Everything', 'description' => 'No prescription transfer needed. Our team manages the entire switch seamlessly for you.', 'image' => '' ),
+        array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption. Same-day approval available for seamless care.', 'image' => '' ),
+        array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our Denton pharmacy with expert guidance and personalised care.', 'image' => '' ),
+    );
+
+    $has_steps = have_rows( 'sp_process_steps' );
+    $steps     = array();
+
+    if ( $has_steps ) {
+        while ( have_rows( 'sp_process_steps' ) ) {
+            the_row();
+            $img_id  = get_sub_field( 'image' );
+            $img_url = $img_id ? wp_get_attachment_image_url( $img_id, 'medium_large' ) : '';
+            $steps[] = array(
+                'title'       => get_sub_field( 'title' ),
+                'description' => get_sub_field( 'description' ),
+                'image'       => $img_url,
+            );
+        }
+    } else {
+        $steps = $default_steps;
+    }
+    ?>
+
+    <!-- Numbered Tabs Navigation -->
+    <div class="process-tabs-navigation">
+      <?php foreach ( $steps as $i => $step ) : ?>
+        <div class="process-tab-slide<?php echo $i === 0 ? ' process-tab-active' : ''; ?>" data-step="<?php echo esc_attr( $i + 1 ); ?>">
+          <span class="process-tab-counter"><?php echo esc_html( $i + 1 ); ?></span>
+          <strong class="process-tab-title"><?php echo esc_html( $step['title'] ); ?></strong>
+        </div>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- Step Content Cards Grid -->
+    <div class="process-content-grid">
+      <?php foreach ( $steps as $i => $step ) : ?>
+        <div class="process-content-card" data-step="<?php echo esc_attr( $i + 1 ); ?>">
+          <?php if ( ! empty( $step['image'] ) ) : ?>
+            <figure class="process-card-image">
+              <img src="<?php echo esc_url( $step['image'] ); ?>" alt="<?php echo esc_attr( $step['title'] ); ?>" />
+            </figure>
+          <?php endif; ?>
+          <h4 class="process-card-title"><?php echo esc_html( $step['title'] ); ?></h4>
+          <p class="process-card-description"><?php echo wp_kses_post( $step['description'] ); ?></p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- What's Included Box -->
+    <div class="process-included-box">
+      <div class="process-included-grid">
+
+        <!-- Left: Checklist -->
+        <div class="process-included-content">
+          <p class="process-included-eyebrow"><?php echo esc_html( dp_field( 'sp_included_eyebrow', 'Your complete switching package' ) ); ?></p>
+          <h4 class="process-included-title"><?php echo esc_html( dp_field( 'sp_included_title', 'What\'s Included' ) ); ?></h4>
+          <ul class="process-included-list">
+            <?php if ( have_rows( 'sp_included_items' ) ) : while ( have_rows( 'sp_included_items' ) ) : the_row(); ?>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
+              </li>
+            <?php endwhile; else : ?>
+              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with Ahmed</span></li>
+              <li><i class="fas fa-check-circle"></i><span>Medication included in your monthly plan</span></li>
+              <li><i class="fas fa-check-circle"></i><span>Blood pressure, weight, and health monitoring</span></li>
+              <li><i class="fas fa-check-circle"></i><span>Direct phone and email access between appointments</span></li>
+              <li><i class="fas fa-check-circle"></i><span>Personalised diet and lifestyle guidance</span></li>
+            <?php endif; ?>
+          </ul>
+          <div class="process-included-cta">
+            <a href="<?php echo esc_url( dp_field( 'sp_included_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">
+              <?php echo esc_html( dp_field( 'sp_included_cta_text', 'Start Your Switch' ) ); ?>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Price + value summary -->
+        <div class="process-included-value">
+          <div class="process-included-price-card">
+            <span class="process-included-price-from">From</span>
+            <span class="process-included-price-amount"><?php echo esc_html( dp_field( 'sp_hero_price_amount', '£125/mo' ) ); ?></span>
+            <span class="process-included-price-note">All-inclusive monthly plan</span>
+            <div class="process-included-price-divider"></div>
+            <div class="process-included-price-features">
+              <div class="process-included-price-feature">
+                <i class="fas fa-bolt"></i>
+                <span>Zero gap in treatment</span>
+              </div>
+              <div class="process-included-price-feature">
+                <i class="fas fa-user-doctor"></i>
+                <span>Face-to-face with Ahmed</span>
+              </div>
+              <div class="process-included-price-feature">
+                <i class="fas fa-pills"></i>
+                <span>Medication included</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
      H3. COMPARISON SECTION — 3-card grid
      Problem / Featured (Denton Pharmacy) / Benefits
      ============================================ -->
@@ -556,136 +686,6 @@ $sp_band_stat_text = dp_field( 'sp_band_stat_label', 'of patients recommend swit
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     H6. PROCESS — Steps for switching
-     Tab navigation + content cards + What's Included box
-     ============================================ -->
-<section class="switch-process-section switch-reveal">
-  <div class="section-container">
-    <div class="switch-process-header">
-      <div class="section-badge">
-        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        <span class="section-badge-text"><?php echo esc_html( dp_field( 'sp_process_badge', 'HOW TO SWITCH' ) ); ?></span>
-      </div>
-      <h2 class="switch-process-title">
-        <span class="gradient-text"><?php echo esc_html( dp_field( 'sp_process_title_line1', 'Make The Switch' ) ); ?></span>
-        <span class="hero-accent-text"><?php echo esc_html( dp_field( 'sp_process_title_line2', ' Today' ) ); ?></span>
-      </h2>
-      <p class="switch-process-description"><?php echo esc_html( dp_field( 'sp_process_description', 'Switch to Denton Pharmacy in under 5 minutes. Better support, better value, better results.' ) ); ?></p>
-    </div>
-
-    <?php
-    // Default steps data
-    $default_steps = array(
-        array( 'title' => 'Book Consultation', 'description' => 'Visit us in Denton or <a href="' . esc_url( dp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
-        array( 'title' => 'We Handle Everything', 'description' => 'No prescription transfer needed. Our team manages the entire switch seamlessly for you.', 'image' => '' ),
-        array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption. Same-day approval available for seamless care.', 'image' => '' ),
-        array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our Denton pharmacy with expert guidance and personalised care.', 'image' => '' ),
-    );
-
-    $has_steps = have_rows( 'sp_process_steps' );
-    $steps     = array();
-
-    if ( $has_steps ) {
-        while ( have_rows( 'sp_process_steps' ) ) {
-            the_row();
-            $img_id  = get_sub_field( 'image' );
-            $img_url = $img_id ? wp_get_attachment_image_url( $img_id, 'medium_large' ) : '';
-            $steps[] = array(
-                'title'       => get_sub_field( 'title' ),
-                'description' => get_sub_field( 'description' ),
-                'image'       => $img_url,
-            );
-        }
-    } else {
-        $steps = $default_steps;
-    }
-    ?>
-
-    <!-- Numbered Tabs Navigation -->
-    <div class="process-tabs-navigation">
-      <?php foreach ( $steps as $i => $step ) : ?>
-        <div class="process-tab-slide<?php echo $i === 0 ? ' process-tab-active' : ''; ?>" data-step="<?php echo esc_attr( $i + 1 ); ?>">
-          <span class="process-tab-counter"><?php echo esc_html( $i + 1 ); ?></span>
-          <strong class="process-tab-title"><?php echo esc_html( $step['title'] ); ?></strong>
-        </div>
-      <?php endforeach; ?>
-    </div>
-
-    <!-- Step Content Cards Grid -->
-    <div class="process-content-grid">
-      <?php foreach ( $steps as $i => $step ) : ?>
-        <div class="process-content-card" data-step="<?php echo esc_attr( $i + 1 ); ?>">
-          <?php if ( ! empty( $step['image'] ) ) : ?>
-            <figure class="process-card-image">
-              <img src="<?php echo esc_url( $step['image'] ); ?>" alt="<?php echo esc_attr( $step['title'] ); ?>" />
-            </figure>
-          <?php endif; ?>
-          <h4 class="process-card-title"><?php echo esc_html( $step['title'] ); ?></h4>
-          <p class="process-card-description"><?php echo wp_kses_post( $step['description'] ); ?></p>
-        </div>
-      <?php endforeach; ?>
-    </div>
-
-    <!-- What's Included Box -->
-    <div class="process-included-box">
-      <div class="process-included-grid">
-
-        <!-- Left: Checklist -->
-        <div class="process-included-content">
-          <p class="process-included-eyebrow"><?php echo esc_html( dp_field( 'sp_included_eyebrow', 'Your complete switching package' ) ); ?></p>
-          <h4 class="process-included-title"><?php echo esc_html( dp_field( 'sp_included_title', 'What\'s Included' ) ); ?></h4>
-          <ul class="process-included-list">
-            <?php if ( have_rows( 'sp_included_items' ) ) : while ( have_rows( 'sp_included_items' ) ) : the_row(); ?>
-              <li>
-                <i class="fas fa-check-circle"></i>
-                <span><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
-              </li>
-            <?php endwhile; else : ?>
-              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with Ahmed</span></li>
-              <li><i class="fas fa-check-circle"></i><span>Medication included in your monthly plan</span></li>
-              <li><i class="fas fa-check-circle"></i><span>Blood pressure, weight, and health monitoring</span></li>
-              <li><i class="fas fa-check-circle"></i><span>Direct phone and email access between appointments</span></li>
-              <li><i class="fas fa-check-circle"></i><span>Personalised diet and lifestyle guidance</span></li>
-            <?php endif; ?>
-          </ul>
-          <div class="process-included-cta">
-            <a href="<?php echo esc_url( dp_field( 'sp_included_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">
-              <?php echo esc_html( dp_field( 'sp_included_cta_text', 'Start Your Switch' ) ); ?>
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right: Price + value summary -->
-        <div class="process-included-value">
-          <div class="process-included-price-card">
-            <span class="process-included-price-from">From</span>
-            <span class="process-included-price-amount"><?php echo esc_html( dp_field( 'sp_hero_price_amount', '£125/mo' ) ); ?></span>
-            <span class="process-included-price-note">All-inclusive monthly plan</span>
-            <div class="process-included-price-divider"></div>
-            <div class="process-included-price-features">
-              <div class="process-included-price-feature">
-                <i class="fas fa-bolt"></i>
-                <span>Zero gap in treatment</span>
-              </div>
-              <div class="process-included-price-feature">
-                <i class="fas fa-user-doctor"></i>
-                <span>Face-to-face with Ahmed</span>
-              </div>
-              <div class="process-included-price-feature">
-                <i class="fas fa-pills"></i>
-                <span>Medication included</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </div>
   </div>
 </section>
