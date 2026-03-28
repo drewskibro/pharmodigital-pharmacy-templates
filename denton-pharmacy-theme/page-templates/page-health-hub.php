@@ -108,6 +108,82 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
   </div>
 </section>
 
+<!-- ============================================
+     CATEGORY CARDS — "What brings you here today?"
+     ============================================ -->
+<?php
+$hh_cats_title = dp_field( 'hh_cats_title', 'What brings you here today?' );
+$hh_cats_desc  = dp_field( 'hh_cats_description', 'Start with the health topic that matters most to you right now' );
+
+$default_cats = array(
+    array(
+        'title'       => 'Weight Loss Journeys',
+        'description' => 'GLP-1 medications, side effects management, nutrition guides, and real patient experiences',
+        'url'         => add_query_arg( 'category', 'weight-loss', get_permalink() ),
+        'image_id'    => 0,
+    ),
+    array(
+        'title'       => 'Travel Health Guides',
+        'description' => 'Destination-specific vaccines, malaria prevention, yellow fever requirements, and travel safety',
+        'url'         => add_query_arg( 'category', 'travel-health', get_permalink() ),
+        'image_id'    => 0,
+    ),
+    array(
+        'title'       => 'NHS & Wellness',
+        'description' => 'Pharmacy First, prescription services, seasonal health, and staying healthy year-round',
+        'url'         => add_query_arg( 'category', 'nhs-services', get_permalink() ),
+        'image_id'    => 0,
+    ),
+);
+
+$cats = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'hh_category_cards' ) ) {
+    while ( have_rows( 'hh_category_cards' ) ) {
+        the_row();
+        $cats[] = array(
+            'title'       => get_sub_field( 'title' ) ?: '',
+            'description' => get_sub_field( 'description' ) ?: '',
+            'url'         => get_sub_field( 'url' ) ?: '#',
+            'image_id'    => get_sub_field( 'image' ),
+        );
+    }
+}
+if ( empty( $cats ) ) {
+    $cats = $default_cats;
+}
+?>
+
+<section class="healthhub-cats-section">
+  <div class="section-container">
+    <div class="healthhub-cats-header">
+      <h2 class="healthhub-cats-title"><?php echo esc_html( $hh_cats_title ); ?></h2>
+      <p class="healthhub-cats-description"><?php echo esc_html( $hh_cats_desc ); ?></p>
+    </div>
+
+    <div class="healthhub-cats-grid">
+      <?php foreach ( $cats as $cat ) :
+        $img_url = ! empty( $cat['image_id'] ) ? wp_get_attachment_image_url( $cat['image_id'], 'large' ) : '';
+      ?>
+        <a href="<?php echo esc_url( $cat['url'] ); ?>" class="healthhub-cat-card">
+          <div class="healthhub-cat-card-inner">
+            <?php if ( $img_url ) : ?>
+              <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $cat['title'] ); ?>" class="healthhub-cat-card-image" />
+            <?php endif; ?>
+            <div class="healthhub-cat-card-overlay"></div>
+            <div class="healthhub-cat-card-content">
+              <h3 class="healthhub-cat-card-title"><?php echo esc_html( $cat['title'] ); ?></h3>
+              <p class="healthhub-cat-card-desc"><?php echo esc_html( $cat['description'] ); ?></p>
+              <span class="healthhub-cat-card-link">
+                Explore <i class="fas fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
 <?php
 // ============================================
 // FEATURED ARTICLE (only on page 1, no category filter)
