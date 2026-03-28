@@ -1307,20 +1307,21 @@
 }
 
 .travel-process-step-icon {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, rgba(63, 115, 174, 0.12), rgba(42, 80, 122, 0.08));
-  border-radius: 20px;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 1.5rem;
   margin-bottom: 2rem;
+  box-shadow: 0 8px 20px rgba(63, 115, 174, 0.25);
 }
 
 .travel-process-step-icon i {
-  font-size: 32px;
-  color: var(--brand-primary);
+  font-size: 1.25rem;
+  color: var(--white);
 }
 
 .travel-process-step-title {
