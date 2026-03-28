@@ -3502,7 +3502,9 @@ html {
 }
 
 .location-contact-link {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1rem;
   color: #111827;
   font-weight: 600;
@@ -3512,6 +3514,29 @@ html {
 .location-card-cta {
   display: flex;
   gap: 1rem;
+}
+
+/* Location section — mobile fixes */
+@media (max-width: 639px) {
+  .location-hours-row {
+    gap: 1rem;
+  }
+
+  .location-hours-day {
+    min-width: 5.5rem;
+    flex-shrink: 0;
+  }
+
+  .location-card-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .location-card-cta .cta-button {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 
