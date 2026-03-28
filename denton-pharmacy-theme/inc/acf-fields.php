@@ -2755,6 +2755,48 @@ function dp_register_acf_field_groups() {
     );
 
     // -------------------------------------------------------------------------
+    // C2. Health Hub — Category Cards
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_hh_cats',
+        'title'    => 'Health Hub — Category Cards',
+        'fields'   => array(
+            array( 'key' => 'field_dp_hh_cats_title', 'label' => 'Section Title', 'name' => 'hh_cats_title', 'type' => 'text', 'default_value' => 'What brings you here today?' ),
+            array( 'key' => 'field_dp_hh_cats_description', 'label' => 'Section Description', 'name' => 'hh_cats_description', 'type' => 'text', 'default_value' => 'Start with the health topic that matters most to you right now' ),
+            array(
+                'key'        => 'field_dp_hh_category_cards',
+                'label'      => 'Category Cards',
+                'name'       => 'hh_category_cards',
+                'type'       => 'repeater',
+                'min'        => 0,
+                'max'        => 4,
+                'layout'     => 'block',
+                'sub_fields' => array(
+                    array( 'key' => 'field_dp_hh_cat_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '50' ) ),
+                    array( 'key' => 'field_dp_hh_cat_url', 'label' => 'URL', 'name' => 'url', 'type' => 'url', 'wrapper' => array( 'width' => '50' ) ),
+                    array( 'key' => 'field_dp_hh_cat_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+                    array( 'key' => 'field_dp_hh_cat_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Portrait-oriented lifestyle image. Recommended: 600x750px.' ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-health-hub.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 160,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
     // D1. Weight Loss — Hero Section
     // -------------------------------------------------------------------------
     acf_add_local_field_group( array(
