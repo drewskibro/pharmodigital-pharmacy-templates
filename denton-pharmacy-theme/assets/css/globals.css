@@ -2212,6 +2212,27 @@ html {
   font-size: 0.875rem;
 }
 
+/* ── Mobile: centre credentials, CTAs and trust checks ── */
+@media (max-width: 1023px) {
+  .pharmacist-credentials {
+    justify-content: center;
+  }
+
+  .pharmacist-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pharmacist-cta .cta-button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .pharmacist-trust-checks {
+    justify-content: center;
+  }
+}
+
 /* ── Desktop: two-column layout ── */
 @media (min-width: 1024px) {
   .pharmacist-card {
