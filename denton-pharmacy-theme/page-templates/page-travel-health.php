@@ -9,7 +9,39 @@ get_header();
 
 <!-- ============================================
      E1. HERO SECTION — Split layout: warm cream left, image card right
+     with floating Yellow Fever badge, testimonial card, and rating badge
      ============================================ -->
+<?php
+// --- Hero content ---
+$th_badge         = dp_field( 'th_hero_badge', 'TRAVEL HEALTH SERVICES' );
+$th_title_line1   = dp_field( 'th_hero_title_line1', 'Denton\'s Leading' );
+$th_title_line2   = dp_field( 'th_hero_title_line2', 'Travel Clinic' );
+$th_title_line3   = dp_field( 'th_hero_title_line3', 'Fly Happy.' );
+$th_description   = dp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Denton travel clinic with Ahmed.' );
+$th_cta_text      = dp_field( 'th_hero_cta_text', 'Book Appointment' );
+$th_cta_url       = dp_field( 'th_hero_cta_url' ) ?: dp_booking_url();
+
+// --- Hero image ---
+$th_hero_bg_id  = dp_field( 'th_hero_bg_image' );
+$th_hero_bg_url = $th_hero_bg_id ? wp_get_attachment_image_url( $th_hero_bg_id, 'full' ) : '';
+$th_hero_bg_alt = dp_field( 'th_hero_bg_alt', 'Travel health destination' );
+
+// --- Floating badge ---
+$th_float_badge_text  = dp_field( 'th_hero_float_badge_text', 'Yellow Fever Centre' );
+$th_float_badge_label = dp_field( 'th_hero_float_badge_label', 'OFFICIAL' );
+
+// --- Testimonial ---
+$th_testimonial_quote  = dp_field( 'th_hero_testimonial_quote', 'Ahmed was brilliant — explained everything clearly and made the whole family feel at ease before our trip to Kenya.' );
+$th_testimonial_author = dp_field( 'th_hero_testimonial_author', 'Denton Patient' );
+$th_testimonial_dest   = dp_field( 'th_hero_testimonial_destination', 'Kenya' );
+
+// --- Rating badge (pull from global options) ---
+$google_rating     = dp_option( 'google_rating', '4.9' );
+$google_review_url = dp_option( 'google_review_url', '#' );
+$google_reviews    = dp_option( 'google_review_count', '300+' );
+$pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
+?>
+
 <section class="travel-hero-section">
   <!-- Decorative blobs -->
   <div class="travel-hero-glow travel-hero-glow-1"></div>
@@ -22,21 +54,22 @@ get_header();
       <div class="travel-hero-content">
         <div class="section-badge">
           <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-          <span class="section-badge-text"><?php echo esc_html( dp_field( 'th_hero_badge', 'TRAVEL HEALTH SERVICES' ) ); ?></span>
+          <span class="section-badge-text"><?php echo esc_html( $th_badge ); ?></span>
         </div>
 
         <h1 class="travel-hero-title">
-          <?php echo esc_html( dp_field( 'th_hero_title_line1', 'Denton\'s Leading' ) ); ?><br />
-          <span class="travel-hero-title-accent"><?php echo esc_html( dp_field( 'th_hero_title_line2', 'Travel Clinic' ) ); ?></span>
+          <?php echo esc_html( $th_title_line1 ); ?><br />
+          <span class="travel-hero-title-accent"><?php echo esc_html( $th_title_line2 ); ?></span><br />
+          <span class="travel-hero-title-line3"><?php echo esc_html( $th_title_line3 ); ?></span>
         </h1>
 
         <p class="travel-hero-description">
-          <?php echo esc_html( dp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Denton travel clinic with Ahmed.' ) ); ?>
+          <?php echo esc_html( $th_description ); ?>
         </p>
 
         <div class="travel-hero-actions">
-          <a href="<?php echo esc_url( dp_field( 'th_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta travel-hero-cta-primary">
-            <?php echo esc_html( dp_field( 'th_hero_cta_text', 'Book Appointment' ) ); ?>
+          <a href="<?php echo esc_url( $th_cta_url ); ?>" class="cta-button primary-cta travel-hero-cta-primary">
+            <?php echo esc_html( $th_cta_text ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
           <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button secondary-cta travel-hero-cta-secondary">
@@ -62,15 +95,68 @@ get_header();
         </div>
       </div>
 
-      <!-- Right: Image card -->
+      <!-- Right: Image card with floating elements -->
       <div class="travel-hero-visual">
         <div class="travel-hero-visual-glow"></div>
-        <?php
-        $th_hero_bg_id  = dp_field( 'th_hero_bg_image' );
-        $th_hero_bg_url = $th_hero_bg_id ? wp_get_attachment_image_url( $th_hero_bg_id, 'full' ) : 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=900&fit=crop';
-        ?>
+
+        <!-- Floating Yellow Fever badge -->
+        <div class="travel-hero-float-badge">
+          <i class="fas fa-certificate"></i>
+          <div class="travel-hero-float-badge-content">
+            <span class="travel-hero-float-badge-label"><?php echo esc_html( $th_float_badge_label ); ?></span>
+            <span class="travel-hero-float-badge-text"><?php echo esc_html( $th_float_badge_text ); ?></span>
+          </div>
+        </div>
+
+        <!-- Image card -->
         <div class="travel-hero-image-card">
-          <img src="<?php echo esc_url( $th_hero_bg_url ); ?>" alt="<?php echo esc_attr( dp_field( 'th_hero_bg_alt', 'Travel health destination' ) ); ?>" />
+          <?php if ( $th_hero_bg_url ) : ?>
+            <img src="<?php echo esc_url( $th_hero_bg_url ); ?>" alt="<?php echo esc_attr( $th_hero_bg_alt ); ?>" />
+          <?php endif; ?>
+        </div>
+
+        <!-- Testimonial card (overlapping bottom-left) -->
+        <div class="travel-hero-testimonial">
+          <div class="travel-hero-testimonial-quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="travel-hero-testimonial-quote">"<?php echo esc_html( $th_testimonial_quote ); ?>"</p>
+          <div class="travel-hero-testimonial-footer">
+            <div class="travel-hero-testimonial-author">
+              <p class="travel-hero-testimonial-name"><?php echo esc_html( $th_testimonial_author ); ?></p>
+              <div class="star-row">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+            <?php if ( $th_testimonial_dest ) : ?>
+              <div class="travel-hero-testimonial-dest">
+                <i class="fas fa-plane"></i>
+                <span><?php echo esc_html( $th_testimonial_dest ); ?></span>
+              </div>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile testimonial (below content on small screens) -->
+      <div class="travel-hero-testimonial-mobile mobile-only">
+        <div class="travel-hero-testimonial-quote-icon">
+          <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="travel-hero-testimonial-quote">"<?php echo esc_html( $th_testimonial_quote ); ?>"</p>
+        <div class="travel-hero-testimonial-footer">
+          <div class="travel-hero-testimonial-author">
+            <p class="travel-hero-testimonial-name"><?php echo esc_html( $th_testimonial_author ); ?></p>
+            <div class="star-row">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+          <?php if ( $th_testimonial_dest ) : ?>
+            <div class="travel-hero-testimonial-dest">
+              <i class="fas fa-plane"></i>
+              <span><?php echo esc_html( $th_testimonial_dest ); ?></span>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
 
