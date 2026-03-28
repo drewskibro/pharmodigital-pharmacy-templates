@@ -831,7 +831,7 @@ html {
     0 1px 3px rgba(63, 115, 174, 0.06),
     0 8px 24px rgba(63, 115, 174, 0.08),
     0 24px 48px rgba(63, 115, 174, 0.06);
-  border: 1.5px solid rgba(63, 115, 174, 0.1);
+  border: 1.5px solid rgba(63, 115, 174, 0.15);
   min-width: 270px;
   z-index: 30;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -882,8 +882,8 @@ html {
 
 .rating-label > span {
   font-weight: 800;
-  font-size: 0.8125rem;
-  color: #111827;
+  font-size: 0.875rem;
+  color: #0f172a;
   letter-spacing: -0.01em;
 }
 
@@ -891,21 +891,21 @@ html {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  background: #f0fdf4;
+  background: rgba(121, 188, 46, 0.1);
   padding: 0.25rem 0.6rem;
   border-radius: 9999px;
-  border: 1px solid #bbf7d0;
+  border: 1px solid rgba(121, 188, 46, 0.3);
 }
 
 .badge-success i {
   font-size: 0.5rem;
-  color: #16a34a;
+  color: #5a9a1a;
 }
 
 .badge-success span {
   font-size: 0.6rem;
   font-weight: 800;
-  color: #15803d;
+  color: #4a8516;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
