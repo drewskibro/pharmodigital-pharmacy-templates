@@ -168,6 +168,14 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-switch-provider-js', DENTON_PHARMACY_URI . '/assets/js/switch-provider.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
+    if ( is_page_template( 'page-templates/page-contact.php' ) ) {
+        wp_enqueue_style( 'denton-contact', DENTON_PHARMACY_URI . '/assets/css/contact.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_script( 'denton-contact-js', DENTON_PHARMACY_URI . '/assets/js/contact.js', array(), DENTON_PHARMACY_VERSION, true );
+        wp_localize_script( 'denton-contact-js', 'dpContactAjax', array(
+            'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        ) );
+    }
+
     // Vaccination pages
     if ( is_page_template( 'page-templates/page-rabies.php' ) ) {
         wp_enqueue_style( 'denton-rabies', DENTON_PHARMACY_URI . '/assets/css/rabies.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
@@ -984,3 +992,65 @@ function denton_pharmacy_mounjaro_calculator_shortcode( $atts ) {
     return ob_get_clean();
 }
 add_shortcode( 'mounjaro_calculator', 'denton_pharmacy_mounjaro_calculator_shortcode' );
+
+/**
+ * Contact Form AJAX Handler
+ *
+ * Processes the contact form submission via admin-ajax.php,
+ * validates inputs, checks honeypot + nonce, and sends email via wp_mail().
+ */
+function dp_contact_form_handler() {
+    // Verify nonce
+    if ( ! isset( $_POST['dp_contact_nonce'] ) || ! wp_verify_nonce( $_POST['dp_contact_nonce'], 'dp_contact_form_nonce' ) ) {
+        wp_send_json_error( array( 'message' => 'Security check failed. Please refresh the page and try again.' ) );
+    }
+
+    // Honeypot check
+    if ( ! empty( $_POST['contact_website'] ) ) {
+        wp_send_json_error( array( 'message' => 'Spam detected.' ) );
+    }
+
+    // Sanitise inputs
+    $name    = sanitize_text_field( $_POST['contact_name'] ?? '' );
+    $email   = sanitize_email( $_POST['contact_email'] ?? '' );
+    $phone   = sanitize_text_field( $_POST['contact_phone'] ?? '' );
+    $subject = sanitize_text_field( $_POST['contact_subject'] ?? '' );
+    $message = sanitize_textarea_field( $_POST['contact_message'] ?? '' );
+
+    // Validate required fields
+    if ( empty( $name ) || empty( $email ) || empty( $subject ) || empty( $message ) ) {
+        wp_send_json_error( array( 'message' => 'Please fill in all required fields.' ) );
+    }
+
+    if ( ! is_email( $email ) ) {
+        wp_send_json_error( array( 'message' => 'Please enter a valid email address.' ) );
+    }
+
+    // Build email
+    $to      = dp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
+    $subject_line = '[' . dp_pharmacy_name() . ' Website] ' . $subject . ' from ' . $name;
+
+    $body  = "New contact form submission from " . home_url() . "\n\n";
+    $body .= "Name: " . $name . "\n";
+    $body .= "Email: " . $email . "\n";
+    if ( $phone ) {
+        $body .= "Phone: " . $phone . "\n";
+    }
+    $body .= "Subject: " . $subject . "\n\n";
+    $body .= "Message:\n" . $message . "\n";
+
+    $headers = array(
+        'From: ' . dp_pharmacy_name() . ' <wordpress@' . wp_parse_url( home_url(), PHP_URL_HOST ) . '>',
+        'Reply-To: ' . $name . ' <' . $email . '>',
+    );
+
+    $sent = wp_mail( $to, $subject_line, $body, $headers );
+
+    if ( $sent ) {
+        wp_send_json_success( array( 'message' => 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.' ) );
+    } else {
+        wp_send_json_error( array( 'message' => 'Sorry, there was an error sending your message. Please call us on ' . dp_phone() . ' instead.' ) );
+    }
+}
+add_action( 'wp_ajax_dp_contact_form', 'dp_contact_form_handler' );
+add_action( 'wp_ajax_nopriv_dp_contact_form', 'dp_contact_form_handler' );

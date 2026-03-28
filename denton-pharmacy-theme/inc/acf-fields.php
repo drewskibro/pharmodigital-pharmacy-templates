@@ -9771,5 +9771,139 @@ function dp_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // =========================================================================
+    // N. CONTACT PAGE FIELDS
+    // =========================================================================
+
+    // -------------------------------------------------------------------------
+    // N1. Contact Hero
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_contact_hero',
+        'title'  => 'Contact — Hero',
+        'fields' => array(
+            array( 'key' => 'field_dp_contact_hero_badge', 'label' => 'Badge Text', 'name' => 'contact_hero_badge', 'type' => 'text', 'default_value' => 'GET IN TOUCH' ),
+            array( 'key' => 'field_dp_contact_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'contact_hero_title_line1', 'type' => 'text', 'default_value' => 'Contact' ),
+            array( 'key' => 'field_dp_contact_hero_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'contact_hero_title_highlight', 'type' => 'text', 'default_value' => 'Denton Pharmacy' ),
+            array( 'key' => 'field_dp_contact_hero_description', 'label' => 'Description', 'name' => 'contact_hero_description', 'type' => 'textarea', 'rows' => 3 ),
+            array( 'key' => 'field_dp_contact_hero_image', 'label' => 'Hero Image', 'name' => 'contact_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Storefront or pharmacy photo. Falls back to Location Store Image from Pharmacy Settings.' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-contact.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2500,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // N2. Contact Form
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_contact_form',
+        'title'  => 'Contact — Form Settings',
+        'fields' => array(
+            array( 'key' => 'field_dp_contact_form_badge', 'label' => 'Section Badge', 'name' => 'contact_form_badge', 'type' => 'text', 'default_value' => 'SEND A MESSAGE' ),
+            array( 'key' => 'field_dp_contact_form_heading', 'label' => 'Form Heading', 'name' => 'contact_form_heading', 'type' => 'text', 'default_value' => 'How Can We Help?' ),
+            array( 'key' => 'field_dp_contact_form_description', 'label' => 'Form Description', 'name' => 'contact_form_description', 'type' => 'textarea', 'rows' => 2 ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-contact.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2510,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // N3. Contact FAQ
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_contact_faq',
+        'title'  => 'Contact — FAQ',
+        'fields' => array(
+            array(
+                'key'          => 'field_dp_contact_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'contact_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_contact_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_contact_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-contact.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2520,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // N4. Contact Final CTA
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_contact_cta',
+        'title'  => 'Contact — Final CTA',
+        'fields' => array(
+            array( 'key' => 'field_dp_contact_cta_badge_1', 'label' => 'Badge 1', 'name' => 'contact_cta_badge_1', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
+            array( 'key' => 'field_dp_contact_cta_badge_2', 'label' => 'Badge 2', 'name' => 'contact_cta_badge_2', 'type' => 'text', 'default_value' => 'Same-Day Appointments' ),
+            array( 'key' => 'field_dp_contact_cta_badge_3', 'label' => 'Badge 3', 'name' => 'contact_cta_badge_3', 'type' => 'text', 'default_value' => 'Free Parking' ),
+            array( 'key' => 'field_dp_contact_cta_title', 'label' => 'Title', 'name' => 'contact_cta_title', 'type' => 'text', 'default_value' => 'Ready to Visit Denton Pharmacy?' ),
+            array( 'key' => 'field_dp_contact_cta_desc', 'label' => 'Description', 'name' => 'contact_cta_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_contact_cta_url', 'label' => 'CTA URL', 'name' => 'contact_cta_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_contact_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'contact_cta_button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+            array( 'key' => 'field_dp_contact_cta_check_1', 'label' => 'Trust Check 1', 'name' => 'contact_cta_check_1', 'type' => 'text', 'default_value' => 'No referral needed' ),
+            array( 'key' => 'field_dp_contact_cta_check_2', 'label' => 'Trust Check 2', 'name' => 'contact_cta_check_2', 'type' => 'text', 'default_value' => 'Expert guidance' ),
+            array( 'key' => 'field_dp_contact_cta_check_3', 'label' => 'Trust Check 3', 'name' => 'contact_cta_check_3', 'type' => 'text', 'default_value' => '15+ years serving Denton' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-contact.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2530,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'dp_register_acf_field_groups' );
