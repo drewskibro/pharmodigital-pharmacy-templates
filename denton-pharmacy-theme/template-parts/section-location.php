@@ -17,7 +17,7 @@ $map_image_id = dp_field( 'location_map_image' );
 if ( ! $map_image_id ) {
     $map_image_id = dp_option( 'location_map_image' );
 }
-$map_image_url = $map_image_id ? wp_get_attachment_image_url( $map_image_id, 'large' ) : '';
+$map_image_url = $map_image_id ? wp_get_attachment_image_url( $map_image_id, 'full' ) : '';
 $map_image_alt = $map_image_id
     ? get_post_meta( $map_image_id, '_wp_attachment_image_alt', true )
     : 'Map showing ' . esc_attr( dp_pharmacy_name() ) . ' location';

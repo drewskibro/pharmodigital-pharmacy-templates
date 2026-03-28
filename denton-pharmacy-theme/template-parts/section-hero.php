@@ -56,7 +56,7 @@ $trust_indicators = dp_field( 'hero_trust_indicators' );
 if ( empty( $trust_indicators ) || ! is_array( $trust_indicators ) ) {
     $trust_indicators = array(
         array( 'icon' => 'fas fa-shield-halved', 'text' => 'GPhC Registered' ),
-        array( 'icon' => 'fas fa-check-circle',  'text' => 'UK Licensed' ),
+        array( 'icon' => 'fas fa-certificate',    'text' => 'UK Licensed' ),
         array( 'icon' => 'fas fa-heart',          'text' => 'NHS & Private' ),
     );
 }

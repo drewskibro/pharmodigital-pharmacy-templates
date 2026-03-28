@@ -39,12 +39,9 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
 
     // Primary CTA
     $cta_text = dp_field( 'revslider_placeholder_cta_text', 'Book Travel Clinic' );
-    $cta_url  = home_url( '/travel-health/' );
-
-    // If a booking URL is configured, prefer it for the primary CTA
-    $booking_url = dp_booking_url();
-    if ( $booking_url ) {
-        $cta_url = $booking_url;
+    $cta_url  = dp_field( 'revslider_placeholder_cta_url' );
+    if ( ! $cta_url ) {
+        $cta_url = dp_booking_url() ?: home_url( '/travel-health/' );
     }
 
     // Secondary CTA
