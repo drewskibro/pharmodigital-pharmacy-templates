@@ -633,28 +633,58 @@ $sp_band_stat_text = dp_field( 'sp_band_stat_label', 'of patients recommend swit
 
     <!-- What's Included Box -->
     <div class="process-included-box">
-      <div class="process-included-content">
-        <p class="process-included-eyebrow"><?php echo esc_html( dp_field( 'sp_included_eyebrow', 'Your complete switching package' ) ); ?></p>
-        <h4 class="process-included-title"><?php echo esc_html( dp_field( 'sp_included_title', 'What\'s Included' ) ); ?></h4>
-        <ul class="process-included-list">
-          <?php if ( have_rows( 'sp_included_items' ) ) : while ( have_rows( 'sp_included_items' ) ) : the_row(); ?>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
-            </li>
-          <?php endwhile; else : ?>
-            <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with Ahmed</span></li>
-            <li><i class="fas fa-check-circle"></i><span>Medication included in your monthly plan</span></li>
-            <li><i class="fas fa-check-circle"></i><span>Blood pressure, weight, and health monitoring</span></li>
-            <li><i class="fas fa-check-circle"></i><span>Direct phone and email access between appointments</span></li>
-            <li><i class="fas fa-check-circle"></i><span>Personalised diet and lifestyle guidance</span></li>
-          <?php endif; ?>
-        </ul>
-        <div class="process-included-cta">
-          <a href="<?php echo esc_url( dp_field( 'sp_included_cta_url', '' ) ?: dp_booking_url() ); ?>" class="process-cta-button">
-            <span class="button-title"><?php echo esc_html( dp_field( 'sp_included_cta_text', 'Start Your Switch' ) ); ?></span>
-          </a>
+      <div class="process-included-grid">
+
+        <!-- Left: Checklist -->
+        <div class="process-included-content">
+          <p class="process-included-eyebrow"><?php echo esc_html( dp_field( 'sp_included_eyebrow', 'Your complete switching package' ) ); ?></p>
+          <h4 class="process-included-title"><?php echo esc_html( dp_field( 'sp_included_title', 'What\'s Included' ) ); ?></h4>
+          <ul class="process-included-list">
+            <?php if ( have_rows( 'sp_included_items' ) ) : while ( have_rows( 'sp_included_items' ) ) : the_row(); ?>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
+              </li>
+            <?php endwhile; else : ?>
+              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with Ahmed</span></li>
+              <li><i class="fas fa-check-circle"></i><span>Medication included in your monthly plan</span></li>
+              <li><i class="fas fa-check-circle"></i><span>Blood pressure, weight, and health monitoring</span></li>
+              <li><i class="fas fa-check-circle"></i><span>Direct phone and email access between appointments</span></li>
+              <li><i class="fas fa-check-circle"></i><span>Personalised diet and lifestyle guidance</span></li>
+            <?php endif; ?>
+          </ul>
+          <div class="process-included-cta">
+            <a href="<?php echo esc_url( dp_field( 'sp_included_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">
+              <?php echo esc_html( dp_field( 'sp_included_cta_text', 'Start Your Switch' ) ); ?>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
+
+        <!-- Right: Price + value summary -->
+        <div class="process-included-value">
+          <div class="process-included-price-card">
+            <span class="process-included-price-from">From</span>
+            <span class="process-included-price-amount"><?php echo esc_html( dp_field( 'sp_hero_price_amount', '£125/mo' ) ); ?></span>
+            <span class="process-included-price-note">All-inclusive monthly plan</span>
+            <div class="process-included-price-divider"></div>
+            <div class="process-included-price-features">
+              <div class="process-included-price-feature">
+                <i class="fas fa-bolt"></i>
+                <span>Zero gap in treatment</span>
+              </div>
+              <div class="process-included-price-feature">
+                <i class="fas fa-user-doctor"></i>
+                <span>Face-to-face with Ahmed</span>
+              </div>
+              <div class="process-included-price-feature">
+                <i class="fas fa-pills"></i>
+                <span>Medication included</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
