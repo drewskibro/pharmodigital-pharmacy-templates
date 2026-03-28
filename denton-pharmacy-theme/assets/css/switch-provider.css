@@ -449,15 +449,9 @@
    Negative margin, glassmorphic, z-index: 20
    ============================================ */
 .switch-stats-overlap {
-  margin-top: -5rem;
+  margin-top: 2rem;
   position: relative;
   z-index: 20;
-}
-
-@media (max-width: 767px) {
-  .switch-stats-overlap {
-    margin-top: 2rem;
-  }
 }
 
 .switch-stats-overlap .stats-bar {
