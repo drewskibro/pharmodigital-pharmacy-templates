@@ -8,14 +8,38 @@ get_header();
 ?>
 
 <!-- ============================================
-     H1. HERO SECTION — Pattern B Dark
-     Purple gradient background, white text, image card with price badge + testimonial
+     H1. HERO SECTION — Pattern A Light (warm cream)
+     Split layout: content left, image card right with floating elements
      ============================================ -->
+<?php
+// --- Hero content ---
+$sp_badge      = dp_field( 'sp_hero_badge', 'SWITCH TO DENTON PHARMACY' );
+$sp_line1      = dp_field( 'sp_hero_title_line1', 'Frustrated with' );
+$sp_line2      = dp_field( 'sp_hero_title_line2', 'Your Current' );
+$sp_line3      = dp_field( 'sp_hero_title_line3', 'Weight Loss Provider?' );
+$sp_subtitle   = dp_field( 'sp_hero_subtitle', 'Switch to Denton Pharmacy for expert care, transparent pricing, and ongoing pharmacist support. No waiting lists.' );
+$sp_cta_text   = dp_field( 'sp_hero_cta_text', 'Start Your Switch Today' );
+$sp_cta_url    = dp_field( 'sp_hero_cta_url', '#comparison' );
+
+// --- Hero image ---
+$sp_hero_image_id  = dp_field( 'sp_hero_image' );
+$sp_hero_image_url = $sp_hero_image_id ? wp_get_attachment_image_url( $sp_hero_image_id, 'full' ) : '';
+if ( ! $sp_hero_image_url ) {
+    $pharmacist_id = dp_option( 'pharmacist_image' );
+    $sp_hero_image_url = $pharmacist_id ? wp_get_attachment_image_url( $pharmacist_id, 'full' ) : '';
+}
+
+// --- Testimonial ---
+$sp_testi_quote  = dp_field( 'sp_hero_testimonial_text', 'Ahmed genuinely cares about your progress. The face-to-face support makes all the difference.' );
+$sp_testi_name   = dp_field( 'sp_hero_testimonial_name', 'Denton Patient' );
+$sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
+?>
+
 <section class="switch-hero-section switch-reveal">
-  <div class="switch-hero-gradient"></div>
-  <div class="switch-hero-dots"></div>
-  <div class="switch-hero-glow-1"></div>
-  <div class="switch-hero-glow-2"></div>
+  <!-- Decorative blobs -->
+  <div class="switch-hero-glow switch-hero-glow-1"></div>
+  <div class="switch-hero-glow switch-hero-glow-2"></div>
+
   <div class="section-container">
     <div class="switch-hero-grid">
 
@@ -23,21 +47,22 @@ get_header();
       <div class="switch-hero-content">
         <div class="section-badge">
           <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-          <span class="section-badge-text"><?php echo esc_html( dp_field( 'sp_hero_badge', 'SWITCH TO DENTON PHARMACY' ) ); ?></span>
+          <span class="section-badge-text"><?php echo esc_html( $sp_badge ); ?></span>
         </div>
+
         <h1 class="switch-hero-title">
-          <span class="gradient-text"><?php echo esc_html( dp_field( 'sp_hero_title_line1', 'Frustrated with' ) ); ?></span>
-          <span class="hero-accent-text"><?php echo esc_html( dp_field( 'sp_hero_title_line2', 'Your Current' ) ); ?></span>
-          <span class="gradient-text"><?php echo esc_html( dp_field( 'sp_hero_title_line3', 'Weight Loss Provider?' ) ); ?></span>
+          <?php echo esc_html( $sp_line1 ); ?><br />
+          <span class="switch-hero-title-accent"><?php echo esc_html( $sp_line2 ); ?></span><br />
+          <span class="switch-hero-title-bold"><?php echo esc_html( $sp_line3 ); ?></span>
         </h1>
 
         <p class="switch-hero-subtitle">
-          <?php echo esc_html( dp_field( 'sp_hero_subtitle', 'Switch to Denton Pharmacy for expert care, transparent pricing, and ongoing pharmacist support. No waiting lists.' ) ); ?>
+          <?php echo esc_html( $sp_subtitle ); ?>
         </p>
 
         <div class="switch-hero-actions">
-          <a href="<?php echo esc_url( dp_field( 'sp_hero_cta_url', '#comparison' ) ); ?>" class="cta-button primary-cta">
-            <?php echo esc_html( dp_field( 'sp_hero_cta_text', 'Start Your Switch Today' ) ); ?>
+          <a href="<?php echo esc_url( $sp_cta_url ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( $sp_cta_text ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
           <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button secondary-cta">
@@ -46,49 +71,41 @@ get_header();
           </a>
         </div>
 
-        <!-- Trust Indicators -->
+        <!-- Trust Badges -->
         <div class="switch-hero-trust-row">
           <div class="switch-hero-trust-pill">
             <i class="fas fa-bolt"></i>
-            <span><?php echo esc_html( dp_field( 'sp_hero_trust_1', 'Zero gap in treatment' ) ); ?></span>
+            <span><?php echo esc_html( dp_field( 'sp_hero_trust_1', 'Zero Gap in Treatment' ) ); ?></span>
           </div>
           <div class="switch-hero-trust-pill">
             <i class="fas fa-calendar-check"></i>
             <span><?php echo esc_html( dp_field( 'sp_hero_trust_2', 'Same Day Appointments' ) ); ?></span>
           </div>
+          <div class="switch-hero-trust-pill">
+            <i class="fas fa-user-doctor"></i>
+            <span><?php echo esc_html( dp_field( 'sp_hero_trust_3', 'Face-to-Face Care' ) ); ?></span>
+          </div>
         </div>
       </div>
 
-      <!-- Right Image -->
+      <!-- Right: Image card with floating elements -->
       <div class="switch-hero-visual">
         <div class="switch-hero-visual-glow"></div>
 
+        <!-- Floating price badge -->
+        <div class="switch-hero-price-badge">
+          <i class="fas fa-tag"></i>
+          <div class="switch-hero-price-content">
+            <span class="switch-hero-price-label"><?php echo esc_html( dp_field( 'sp_hero_price_label', 'FROM' ) ); ?></span>
+            <span class="switch-hero-price-amount"><?php echo esc_html( dp_field( 'sp_hero_price_amount', '£125/mo' ) ); ?></span>
+          </div>
+        </div>
+
         <!-- Main image card -->
         <div class="switch-hero-image-card">
-          <div class="switch-hero-image-inner">
-            <?php
-            $sp_hero_image_id  = dp_field( 'sp_hero_image' );
-            $sp_hero_image_url = $sp_hero_image_id ? wp_get_attachment_image_url( $sp_hero_image_id, 'large' ) : '';
-            if ( ! $sp_hero_image_url ) {
-                // Fallback to global pharmacist image
-                $pharmacist_id = dp_option( 'pharmacist_image' );
-                $sp_hero_image_url = $pharmacist_id ? wp_get_attachment_image_url( $pharmacist_id, 'large' ) : '';
-            }
-            if ( ! $sp_hero_image_url ) {
-                $sp_hero_image_url = get_theme_file_uri( 'assets/images/ahmed-pharmacist.jpg' );
-            }
-            ?>
-            <?php if ( $sp_hero_image_url ) : ?>
-              <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'sp_hero_image_alt', 'Ahmed, Lead Pharmacist at Denton Pharmacy' ) ); ?>" class="switch-hero-image" />
-            <?php endif; ?>
-            <div class="switch-hero-overlay"></div>
-          </div>
-          <!-- Floating price badge -->
-          <div class="switch-hero-price-badge">
-            <span class="switch-hero-price-label"><?php echo esc_html( dp_field( 'sp_hero_price_label', 'From' ) ); ?></span>
-            <span class="switch-hero-price-amount"><?php echo esc_html( dp_field( 'sp_hero_price_amount', '£125/mo' ) ); ?></span>
-            <span class="switch-hero-price-note"><?php echo esc_html( dp_field( 'sp_hero_price_note', 'All-inclusive' ) ); ?></span>
-          </div>
+          <?php if ( $sp_hero_image_url ) : ?>
+            <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'sp_hero_image_alt', 'Ahmed, Lead Pharmacist at Denton Pharmacy' ) ); ?>" class="switch-hero-image" />
+          <?php endif; ?>
         </div>
 
         <!-- Testimonial card -->
@@ -96,26 +113,42 @@ get_header();
           <div class="switch-hero-quote-icon">
             <i class="fas fa-quote-left"></i>
           </div>
-          <p class="switch-hero-quote-text">
-            <?php echo esc_html( dp_field( 'sp_hero_testimonial_text', '"Ahmed genuinely cares about your progress. The face-to-face support makes all the difference."' ) ); ?>
-          </p>
+          <p class="switch-hero-quote-text">"<?php echo esc_html( $sp_testi_quote ); ?>"</p>
           <div class="switch-hero-quote-footer">
             <div class="switch-hero-author">
-              <span class="switch-hero-name"><?php echo esc_html( dp_field( 'sp_hero_testimonial_name', 'Denton Patient' ) ); ?></span>
+              <span class="switch-hero-name"><?php echo esc_html( $sp_testi_name ); ?></span>
               <div class="star-row">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
               </div>
             </div>
             <div class="switch-hero-result-badge">
-              <span><?php echo esc_html( dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' ) ); ?></span>
+              <i class="fas fa-weight-scale"></i>
+              <span><?php echo esc_html( $sp_testi_result ); ?></span>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Mobile testimonial -->
+      <div class="switch-hero-testimonial-mobile mobile-only">
+        <div class="switch-hero-quote-icon">
+          <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="switch-hero-quote-text">"<?php echo esc_html( $sp_testi_quote ); ?>"</p>
+        <div class="switch-hero-quote-footer">
+          <div class="switch-hero-author">
+            <span class="switch-hero-name"><?php echo esc_html( $sp_testi_name ); ?></span>
+            <div class="star-row">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="switch-hero-result-badge">
+            <i class="fas fa-weight-scale"></i>
+            <span><?php echo esc_html( $sp_testi_result ); ?></span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
