@@ -83,7 +83,10 @@ get_header();
               <i class="fas fa-quote-left"></i>
             </div>
             <p class="book-hero-quote-text">
-              <?php echo esc_html(dp_field('book_hero_quote', 'Booking was so easy and Ahmed was fantastic. I was seen on time and the advice was excellent.')); ?>
+              <?php
+              $default_quote = 'Booking was so easy and ' . dp_option( 'superintendent_pharmacist', 'our pharmacist' ) . ' was fantastic. I was seen on time and the advice was excellent.';
+              echo esc_html( dp_field( 'book_hero_quote', $default_quote ) );
+              ?>
             </p>
             <div class="book-hero-quote-footer">
               <div class="book-hero-author">
@@ -434,7 +437,7 @@ get_header();
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">03</span><span class="book-faq-question">Who will I be seeing for my consultation?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>You will see Ahmed Al-Liabi or one of our expert clinical team members. Ahmed is a GPhC Registered Pharmacist with over 30 years of experience serving the Denton community. You'll see the same friendly face for your follow-ups, ensuring continuity of care.</p></div>
+          <div class="book-faq-answer"><p><?php echo esc_html( sprintf( 'You will see %s or one of our expert clinical team members — a GPhC Registered Pharmacist with years of experience serving our community. You\'ll see the same friendly face for your follow-ups, ensuring continuity of care.', dp_option( 'superintendent_pharmacist', 'our lead pharmacist' ) ) ); ?></p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">04</span><span class="book-faq-question">Do I need to book travel vaccinations in advance?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
