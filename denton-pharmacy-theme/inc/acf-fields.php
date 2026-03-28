@@ -1950,6 +1950,14 @@ function dp_register_acf_field_groups() {
                 'default_value' => 'Book Travel Clinic',
             ),
             array(
+                'key'           => 'field_dp_revslider_placeholder_cta_url',
+                'label'         => 'Primary CTA URL',
+                'name'          => 'revslider_placeholder_cta_url',
+                'type'          => 'url',
+                'instructions'  => 'Leave blank to use the global booking URL, or enter a custom URL.',
+                'default_value' => '',
+            ),
+            array(
                 'key'           => 'field_dp_revslider_placeholder_secondary_text',
                 'label'         => 'Secondary Link Text',
                 'name'          => 'revslider_placeholder_secondary_text',
