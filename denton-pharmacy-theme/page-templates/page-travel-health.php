@@ -369,7 +369,7 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         $why_image_id = dp_option( 'pharmacist_image' );
     }
     $why_image_url = $why_image_id ? wp_get_attachment_image_url( $why_image_id, 'medium' ) : '';
-    $pharmacist_name = dp_field( 'pharmacist_name', dp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' ) );
+    $pharmacist_name = dp_field( 'pharmacist_name', dp_option( 'superintendent_pharmacist', 'our pharmacist' ) );
     $pharmacist_role = dp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
     ?>
     <div class="travel-why-pharmacist-strip">
@@ -468,10 +468,10 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         <?php if ( $step_image_url ) : ?>
           <div class="travel-process-step-image">
             <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
-            <?php if ( $step_index === 2 ) : ?>
+            <?php $floating_badge = get_sub_field( 'floating_badge' ); if ( $floating_badge ) : ?>
               <div class="travel-process-step-floating-badge">
                 <i class="fas fa-user-doctor"></i>
-                <span>Expert Advice</span>
+                <span><?php echo esc_html( $floating_badge ); ?></span>
               </div>
             <?php endif; ?>
           </div>
