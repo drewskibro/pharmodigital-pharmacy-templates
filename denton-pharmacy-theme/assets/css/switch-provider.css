@@ -449,15 +449,9 @@
    Negative margin, glassmorphic, z-index: 20
    ============================================ */
 .switch-stats-overlap {
-  margin-top: -5rem;
+  margin-top: 2rem;
   position: relative;
   z-index: 20;
-}
-
-@media (max-width: 767px) {
-  .switch-stats-overlap {
-    margin-top: 2rem;
-  }
 }
 
 .switch-stats-overlap .stats-bar {
@@ -1216,10 +1210,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.2;
+  line-height: 1.3;
   letter-spacing: -0.05em;
   margin-bottom: 0.5rem;
-  padding-bottom: 0.25rem;
+  padding: 0.125rem 0 0.375rem;
 }
 
 @media (min-width: 768px) {
@@ -1370,6 +1364,193 @@
   line-height: 1.65;
   font-weight: 500;
   margin: 0;
+}
+
+
+/* ============================================
+   H5b. SOCIAL PROOF BAND — Full-width lifestyle image
+   ============================================ */
+.switch-band-section {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Background image layer */
+.switch-band-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.switch-band-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.switch-band-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(42, 80, 122, 0.75) 100%);
+  pointer-events: none;
+}
+
+/* Content grid */
+.switch-band-grid {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+@media (min-width: 1024px) {
+  .switch-band-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+  }
+}
+
+/* Left: Big stat */
+.switch-band-stat {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .switch-band-stat {
+    text-align: left;
+  }
+}
+
+.switch-band-stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .switch-band-stat-number {
+    font-size: 7rem;
+  }
+}
+
+.switch-band-stat-label {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  font-weight: 500;
+  max-width: 360px;
+}
+
+@media (max-width: 1023px) {
+  .switch-band-stat-label {
+    margin: 0 auto;
+  }
+}
+
+/* Right: Testimonial card */
+.switch-band-testimonial {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.switch-band-quote-icon {
+  position: absolute;
+  top: -1.25rem;
+  left: 2rem;
+  width: 3rem;
+  height: 3rem;
+  background: var(--brand-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(63, 115, 174, 0.3);
+}
+
+.switch-band-quote-icon i {
+  color: var(--white);
+  font-size: 0.875rem;
+}
+
+.switch-band-quote {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .switch-band-quote {
+    font-size: 1.25rem;
+  }
+}
+
+.switch-band-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.switch-band-author-name {
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #111827;
+  margin-bottom: 0.125rem;
+}
+
+.switch-band-author-location {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--text-slate);
+  margin-bottom: 0.375rem;
+}
+
+.switch-band-author-info .star-row {
+  gap: 0.2rem;
+}
+
+.switch-band-author-info .star-row i {
+  font-size: 0.875rem;
+  color: #F4B400;
+}
+
+.switch-band-result {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--brand-primary);
+  color: var(--white);
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.switch-band-result i {
+  font-size: 0.75rem;
 }
 
 

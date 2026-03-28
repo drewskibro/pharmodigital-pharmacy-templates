@@ -4535,6 +4535,37 @@ function dp_register_acf_field_groups() {
     ) );
 
     // -------------------------------------------------------------------------
+    // H5b. Switch Provider — Social Proof Band
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_sp_band',
+        'title'    => 'Switch Provider — Social Proof Band',
+        'fields'   => array(
+            array(
+                'key'           => 'field_dp_sp_band_image',
+                'label'         => 'Background Image',
+                'name'          => 'sp_band_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Full-width lifestyle image. Recommended: 1920x800px.',
+            ),
+            array( 'key' => 'field_dp_sp_band_stat_number', 'label' => 'Stat Number', 'name' => 'sp_band_stat_number', 'type' => 'text', 'default_value' => '95%' ),
+            array( 'key' => 'field_dp_sp_band_stat_label', 'label' => 'Stat Label', 'name' => 'sp_band_stat_label', 'type' => 'text', 'default_value' => 'of patients recommend switching to Denton Pharmacy' ),
+            array( 'key' => 'field_dp_sp_band_quote', 'label' => 'Testimonial Quote', 'name' => 'sp_band_quote', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'I was with a national provider for months and felt like just a number. Switching to Ahmed at Denton Pharmacy changed everything — real face-to-face care, no waiting lists, and I\'ve lost 3 stone in 4 months.' ),
+            array( 'key' => 'field_dp_sp_band_author', 'label' => 'Author Name', 'name' => 'sp_band_author', 'type' => 'text', 'default_value' => 'Sarah M.' ),
+            array( 'key' => 'field_dp_sp_band_location', 'label' => 'Author Subtitle', 'name' => 'sp_band_location', 'type' => 'text', 'default_value' => 'Switched from National Provider' ),
+            array( 'key' => 'field_dp_sp_band_result', 'label' => 'Result Badge', 'name' => 'sp_band_result', 'type' => 'text', 'default_value' => '3 Stone Lost', 'instructions' => 'Leave blank to hide.' ),
+        ),
+        'location'              => $sp_location,
+        'menu_order'            => 555,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // H6. Switch Provider — Process Section
     // -------------------------------------------------------------------------
     acf_add_local_field_group( array(
