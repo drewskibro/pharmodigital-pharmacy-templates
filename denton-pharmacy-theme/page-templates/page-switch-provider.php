@@ -502,6 +502,65 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
 </section>
 
 <!-- ============================================
+     H5b. SOCIAL PROOF BAND — Full-width lifestyle image with testimonial overlay
+     ============================================ -->
+<?php
+$sp_band_image_id = dp_field( 'sp_band_image' );
+$sp_band_image_url = $sp_band_image_id ? wp_get_attachment_image_url( $sp_band_image_id, 'full' ) : '';
+$sp_band_quote     = dp_field( 'sp_band_quote', 'I was with a national provider for months and felt like just a number. Switching to Ahmed at Denton Pharmacy changed everything — real face-to-face care, no waiting lists, and I\'ve lost 3 stone in 4 months.' );
+$sp_band_author    = dp_field( 'sp_band_author', 'Sarah M.' );
+$sp_band_result    = dp_field( 'sp_band_result', '3 Stone Lost' );
+$sp_band_location  = dp_field( 'sp_band_location', 'Switched from National Provider' );
+$sp_band_stat_num  = dp_field( 'sp_band_stat_number', '95%' );
+$sp_band_stat_text = dp_field( 'sp_band_stat_label', 'of patients recommend switching to Denton Pharmacy' );
+?>
+
+<section class="switch-band-section switch-reveal">
+  <!-- Background image -->
+  <div class="switch-band-bg">
+    <?php if ( $sp_band_image_url ) : ?>
+      <img src="<?php echo esc_url( $sp_band_image_url ); ?>" alt="Denton Pharmacy patient consultation" class="switch-band-bg-image" />
+    <?php endif; ?>
+    <div class="switch-band-overlay"></div>
+  </div>
+
+  <div class="section-container">
+    <div class="switch-band-grid">
+
+      <!-- Left: Stat callout -->
+      <div class="switch-band-stat">
+        <span class="switch-band-stat-number"><?php echo esc_html( $sp_band_stat_num ); ?></span>
+        <span class="switch-band-stat-label"><?php echo esc_html( $sp_band_stat_text ); ?></span>
+      </div>
+
+      <!-- Right: Testimonial card -->
+      <div class="switch-band-testimonial">
+        <div class="switch-band-quote-icon">
+          <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="switch-band-quote">"<?php echo esc_html( $sp_band_quote ); ?>"</p>
+        <div class="switch-band-footer">
+          <div class="switch-band-author-info">
+            <span class="switch-band-author-name"><?php echo esc_html( $sp_band_author ); ?></span>
+            <span class="switch-band-author-location"><?php echo esc_html( $sp_band_location ); ?></span>
+            <div class="star-row">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+          <?php if ( $sp_band_result ) : ?>
+            <div class="switch-band-result">
+              <i class="fas fa-weight-scale"></i>
+              <span><?php echo esc_html( $sp_band_result ); ?></span>
+            </div>
+          <?php endif; ?>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
      H6. PROCESS — Steps for switching
      Tab navigation + content cards + What's Included box
      ============================================ -->
