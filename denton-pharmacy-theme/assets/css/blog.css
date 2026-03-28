@@ -13,7 +13,9 @@
   align-items: center;
   padding: 20px 0 80px;
   overflow: hidden;
-  background: #f0f4f8;
+  background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
+  margin-top: -200px;
+  padding-top: 220px;
 }
 
 .healthhub-hero-bg-blob-1 {
@@ -22,11 +24,11 @@
   right: -10%;
   width: 800px;
   height: 800px;
-  background: rgba(121, 188, 46, 0.08);
+  background: rgba(63, 115, 174, 0.07);
   border-radius: 50%;
   filter: blur(80px);
   z-index: 0;
-  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .healthhub-hero-bg-blob-2 {
@@ -35,11 +37,11 @@
   left: -10%;
   width: 700px;
   height: 700px;
-  background: rgba(63, 115, 174, 0.08);
+  background: rgba(63, 115, 174, 0.05);
   border-radius: 50%;
   filter: blur(80px);
   z-index: 0;
-  animation: float 10s ease-in-out infinite reverse;
+  pointer-events: none;
 }
 
 /* Dots hidden — too busy on warm background */
@@ -55,20 +57,11 @@
   margin: 0 auto;
 }
 
-/* Badge: glassmorphic treatment */
-.healthhub-hero-section .section-badge {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(121, 188, 46, 0.12);
-  box-shadow: 0 8px 30px rgba(121, 188, 46, 0.10);
-}
-
 .healthhub-hero-title {
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 900;
-  color: #1e3a5f;
+  color: #111827;
   margin-top: 0;
   margin-bottom: 1.5rem;
   line-height: 1.1;
@@ -89,7 +82,7 @@
 
 /* Ensure gradient-text shows brand gradient */
 .healthhub-hero-title .gradient-text {
-  background: linear-gradient(135deg, #1e3a5f, #3f73ae);
+  background: linear-gradient(135deg, #054a91, #085db5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -145,25 +138,25 @@
 
 .healthhub-filter-pill.active,
 .healthhub-filter-btn.active {
-  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   color: #fff;
   border: none;
-  box-shadow: 0 4px 15px rgba(121, 188, 46, 0.35);
+  box-shadow: 0 4px 15px rgba(63, 115, 174, 0.35);
 }
 
 .healthhub-filter-pill:not(.active),
 .healthhub-filter-btn:not(.active) {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.85);
   color: #4a5568;
-  border: 1px solid rgba(121, 188, 46, 0.15);
+  border: 1px solid rgba(63, 115, 174, 0.12);
 }
 
 .healthhub-filter-pill:not(.active):hover,
 .healthhub-filter-btn:not(.active):hover {
-  border-color: rgba(121, 188, 46, 0.4);
-  color: #1e3a5f;
+  border-color: rgba(63, 115, 174, 0.3);
+  color: #111827;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(121, 188, 46, 0.12);
+  box-shadow: 0 4px 12px rgba(63, 115, 174, 0.1);
 }
 
 /* ============================================
