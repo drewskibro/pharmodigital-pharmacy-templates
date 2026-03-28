@@ -4353,14 +4353,16 @@ html {
 
 .footer-contact-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
 }
 
 .footer-contact-icon {
   color: var(--brand-primary);
   font-size: 1.25rem;
-  margin-top: 0.25rem;
+  width: 1.25rem;
+  flex-shrink: 0;
+  text-align: center;
 }
 
 .footer-contact-text {
