@@ -431,6 +431,8 @@ html {
 @media (max-width: 1023px) {
   .hero-nhs-strip {
     justify-content: center;
+    gap: 0.375rem;
+    margin-bottom: 1rem;
   }
 }
 
