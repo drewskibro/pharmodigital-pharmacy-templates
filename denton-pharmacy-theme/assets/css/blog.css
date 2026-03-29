@@ -61,28 +61,32 @@
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 900;
-  color: #111827;
+  color: #1e293b;
   margin-top: 0;
   margin-bottom: 1.5rem;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 @media (min-width: 768px) {
   .healthhub-hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   .healthhub-hero-title {
-    font-size: 4.25rem;
+    font-size: 3.75rem;
   }
 }
 
-/* Ensure gradient-text shows brand gradient */
+.healthhub-hero-title-accent {
+  font-style: italic;
+  color: #1e293b;
+}
+
 .healthhub-hero-title .gradient-text {
-  background: linear-gradient(135deg, #054a91, #085db5);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

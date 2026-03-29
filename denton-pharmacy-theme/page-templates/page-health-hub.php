@@ -27,10 +27,9 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
       </div>
 
       <h1 class="healthhub-hero-title">
-        <?php
-        $title_text = dp_field( 'hh_hero_title', 'Expert insights on weight loss, travel health, and <span class="gradient-text">living your healthiest life</span>' );
-        echo wp_kses( $title_text, array( 'span' => array( 'class' => array() ) ) );
-        ?>
+        <?php echo esc_html( dp_field( 'hh_hero_title_line1', 'Expert Insights on' ) ); ?><br />
+        <span class="healthhub-hero-title-accent"><?php echo esc_html( dp_field( 'hh_hero_title_line2', 'Weight Loss, Travel Health' ) ); ?></span><br />
+        <span class="gradient-text"><?php echo esc_html( dp_field( 'hh_hero_title_line3', 'Living Your Healthiest Life.' ) ); ?></span>
       </h1>
 
       <!-- Category Filter Pills -->
