@@ -183,8 +183,15 @@ get_header();
 
 <!-- ============================================
      N4. HOW IT WORKS + ELIGIBILITY
-     3-step process cards + eligibility info box
+     Two-column: process steps left, lifestyle image right
      ============================================ -->
+<?php
+$pf_process_image_id  = dp_field( 'pf_process_image' );
+if ( ! $pf_process_image_id ) {
+    $pf_process_image_id = dp_option( 'pharmacist_image' );
+}
+$pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_process_image_id, 'large' ) : '';
+?>
 <section class="pharmfirst-process-section pharmfirst-reveal">
   <div class="section-container">
     <div class="pharmfirst-process-header">
@@ -196,38 +203,62 @@ get_header();
       <p class="pharmfirst-process-description"><?php echo esc_html( dp_field( 'pf_process_description', 'No referral, no red tape — just expert NHS care when you need it' ) ); ?></p>
     </div>
 
-    <div class="pharmfirst-process-cards">
-      <?php if ( have_rows( 'pf_process_steps' ) ) : $step_num = 0; while ( have_rows( 'pf_process_steps' ) ) : the_row(); $step_num++; ?>
-        <div class="pharmfirst-process-card">
-          <div class="pharmfirst-process-card-number"><?php echo esc_html( $step_num ); ?></div>
-          <div class="pharmfirst-process-card-icon">
-            <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
-          </div>
-          <h3 class="pharmfirst-process-card-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-          <p class="pharmfirst-process-card-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
-        </div>
-      <?php endwhile; else : ?>
-        <?php
-        $steps = array(
-          array( 'icon' => 'fas fa-door-open', 'title' => 'Walk In or Book', 'desc' => 'Visit Denton Pharmacy during opening hours or book a convenient slot online. No GP referral needed.', 'link' => true ),
-          array( 'icon' => 'fas fa-stethoscope', 'title' => 'Pharmacist Assessment', 'desc' => 'Our trained pharmacist will assess your symptoms in a private consultation room and determine the best treatment.' ),
-          array( 'icon' => 'fas fa-pills', 'title' => 'Receive Treatment', 'desc' => 'If appropriate, you\'ll receive NHS-funded medication on the spot — completely free of charge. No prescription needed.' ),
-        );
-        foreach ( $steps as $i => $step ) :
-        ?>
+    <div class="pharmfirst-process-layout">
+
+      <!-- Left: Step cards -->
+      <div class="pharmfirst-process-steps">
+        <?php if ( have_rows( 'pf_process_steps' ) ) : $step_num = 0; while ( have_rows( 'pf_process_steps' ) ) : the_row(); $step_num++; ?>
           <div class="pharmfirst-process-card">
-            <div class="pharmfirst-process-card-number"><?php echo esc_html( $i + 1 ); ?></div>
+            <div class="pharmfirst-process-card-number"><?php echo esc_html( $step_num ); ?></div>
             <div class="pharmfirst-process-card-icon">
-              <i class="<?php echo esc_attr( $step['icon'] ); ?>"></i>
+              <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
             </div>
-            <h3 class="pharmfirst-process-card-title"><?php echo esc_html( $step['title'] ); ?></h3>
-            <p class="pharmfirst-process-card-desc"><?php echo esc_html( $step['desc'] ); ?></p>
-            <?php if ( ! empty( $step['link'] ) ) : ?>
-              <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="pharmfirst-process-card-link">Book a slot <i class="fas fa-arrow-right"></i></a>
-            <?php endif; ?>
+            <div class="pharmfirst-process-card-body">
+              <h3 class="pharmfirst-process-card-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+              <p class="pharmfirst-process-card-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
+            </div>
           </div>
-        <?php endforeach; ?>
-      <?php endif; ?>
+        <?php endwhile; else : ?>
+          <?php
+          $steps = array(
+            array( 'icon' => 'fas fa-door-open', 'title' => 'Walk In or Book', 'desc' => 'Visit Denton Pharmacy during opening hours or book a convenient slot online. No GP referral needed.' ),
+            array( 'icon' => 'fas fa-stethoscope', 'title' => 'Pharmacist Assessment', 'desc' => 'Our trained pharmacist will assess your symptoms in a private consultation room and determine the best treatment.' ),
+            array( 'icon' => 'fas fa-pills', 'title' => 'Receive Treatment', 'desc' => 'If appropriate, you\'ll receive NHS-funded medication on the spot — completely free of charge.' ),
+          );
+          foreach ( $steps as $i => $step ) :
+          ?>
+            <div class="pharmfirst-process-card">
+              <div class="pharmfirst-process-card-number"><?php echo esc_html( $i + 1 ); ?></div>
+              <div class="pharmfirst-process-card-icon">
+                <i class="<?php echo esc_attr( $step['icon'] ); ?>"></i>
+              </div>
+              <div class="pharmfirst-process-card-body">
+                <h3 class="pharmfirst-process-card-title"><?php echo esc_html( $step['title'] ); ?></h3>
+                <p class="pharmfirst-process-card-desc"><?php echo esc_html( $step['desc'] ); ?></p>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
+      </div>
+
+      <!-- Right: Lifestyle image -->
+      <div class="pharmfirst-process-visual desktop-only">
+        <div class="pharmfirst-process-visual-glow"></div>
+        <div class="pharmfirst-process-image-card">
+          <?php if ( $pf_process_image_url ) : ?>
+            <img src="<?php echo esc_url( $pf_process_image_url ); ?>" alt="Pharmacist consultation at <?php echo esc_attr( dp_pharmacy_name() ); ?>" />
+          <?php endif; ?>
+        </div>
+        <!-- Floating NHS badge -->
+        <div class="pharmfirst-process-float-badge">
+          <i class="fas fa-hand-holding-medical"></i>
+          <div class="pharmfirst-process-float-badge-content">
+            <span class="pharmfirst-process-float-badge-label">NHS FUNDED</span>
+            <span class="pharmfirst-process-float-badge-text">100% Free</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Eligibility Info Box -->
