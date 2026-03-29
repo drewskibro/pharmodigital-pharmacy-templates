@@ -261,11 +261,26 @@
   z-index: 10;
 }
 
+.healthhub-cat-card-label {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
 .healthhub-cat-card-title {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 800;
-  font-style: italic;
   color: var(--white);
   margin: 0 0 0.5rem;
   line-height: 1.2;
@@ -748,7 +763,7 @@
    ============================================ */
 .healthhub-cta-section {
   position: relative;
-  background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   padding: 6rem 0;
   overflow: hidden;
   text-align: center;
@@ -2005,7 +2020,7 @@
   border-radius: 1.5rem;
   overflow: hidden;
   height: 100%;
-  background: linear-gradient(135deg, #1e3a5f, #3f73ae);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   transition: all 0.4s ease;
 }
 

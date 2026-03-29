@@ -2772,8 +2772,9 @@ function dp_register_acf_field_groups() {
                 'max'        => 4,
                 'layout'     => 'block',
                 'sub_fields' => array(
-                    array( 'key' => 'field_dp_hh_cat_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '50' ) ),
-                    array( 'key' => 'field_dp_hh_cat_url', 'label' => 'URL', 'name' => 'url', 'type' => 'url', 'wrapper' => array( 'width' => '50' ) ),
+                    array( 'key' => 'field_dp_hh_cat_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_hh_cat_label', 'label' => 'Label Badge', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '30' ), 'instructions' => 'Uppercase category label (e.g. WEIGHT LOSS)' ),
+                    array( 'key' => 'field_dp_hh_cat_url', 'label' => 'URL', 'name' => 'url', 'type' => 'url', 'wrapper' => array( 'width' => '35' ) ),
                     array( 'key' => 'field_dp_hh_cat_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
                     array( 'key' => 'field_dp_hh_cat_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Portrait-oriented lifestyle image. Recommended: 600x750px.' ),
                 ),
