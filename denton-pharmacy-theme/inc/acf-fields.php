@@ -4360,7 +4360,7 @@ function dp_register_acf_field_groups() {
                 'library'       => 'all',
                 'instructions'  => 'Upload a hero image. Default: stock photo of patient with pharmacist.',
             ),
-            array( 'key' => 'field_dp_switch_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'sp_hero_image_alt', 'type' => 'text', 'default_value' => 'Happy patient consulting with pharmacist at Denton Pharmacy' ),
+            array( 'key' => 'field_dp_switch_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'sp_hero_image_alt', 'type' => 'text', 'default_value' => '' ),
             array( 'key' => 'field_dp_switch_hero_price_label', 'label' => 'Price Badge Label', 'name' => 'sp_hero_price_label', 'type' => 'text', 'default_value' => 'From' ),
             array( 'key' => 'field_dp_switch_hero_price_amount', 'label' => 'Price Badge Amount', 'name' => 'sp_hero_price_amount', 'type' => 'text', 'default_value' => '£125/mo' ),
             array( 'key' => 'field_dp_switch_hero_price_note', 'label' => 'Price Badge Note', 'name' => 'sp_hero_price_note', 'type' => 'text', 'default_value' => 'All-inclusive' ),

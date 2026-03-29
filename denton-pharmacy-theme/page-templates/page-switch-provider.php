@@ -13,11 +13,11 @@ get_header();
      ============================================ -->
 <?php
 // --- Hero content ---
-$sp_badge      = dp_field( 'sp_hero_badge', 'SWITCH TO DENTON PHARMACY' );
+$sp_badge      = dp_field( 'sp_hero_badge', 'SWITCH TO ' . strtoupper( dp_pharmacy_name() ) );
 $sp_line1      = dp_field( 'sp_hero_title_line1', 'Frustrated with' );
 $sp_line2      = dp_field( 'sp_hero_title_line2', 'Your Current' );
 $sp_line3      = dp_field( 'sp_hero_title_line3', 'Weight Loss Provider?' );
-$sp_subtitle   = dp_field( 'sp_hero_subtitle', 'Switch to Denton Pharmacy for expert care, transparent pricing, and ongoing pharmacist support. No waiting lists.' );
+$sp_subtitle   = dp_field( 'sp_hero_subtitle', 'Switch to ' . dp_pharmacy_name() . ' for expert care, transparent pricing, and ongoing pharmacist support. No waiting lists.' );
 $sp_cta_text   = dp_field( 'sp_hero_cta_text', 'Start Your Switch Today' );
 $sp_cta_url    = dp_field( 'sp_hero_cta_url', '#comparison' );
 
@@ -30,8 +30,8 @@ if ( ! $sp_hero_image_url ) {
 }
 
 // --- Testimonial ---
-$sp_testi_quote  = dp_field( 'sp_hero_testimonial_text', 'Ahmed genuinely cares about your progress. The face-to-face support makes all the difference.' );
-$sp_testi_name   = dp_field( 'sp_hero_testimonial_name', 'Denton Patient' );
+$sp_testi_quote  = dp_field( 'sp_hero_testimonial_text', dp_option( 'superintendent_pharmacist', 'Our pharmacist' ) . ' genuinely cares about your progress. The face-to-face support makes all the difference.' );
+$sp_testi_name   = dp_field( 'sp_hero_testimonial_name', dp_option( 'pharmacy_town', 'Denton' ) . ' Patient' );
 $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
 ?>
 
@@ -104,7 +104,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <!-- Main image card -->
         <div class="switch-hero-image-card">
           <?php if ( $sp_hero_image_url ) : ?>
-            <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'sp_hero_image_alt', 'Ahmed, Lead Pharmacist at Denton Pharmacy' ) ); ?>" class="switch-hero-image" />
+            <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'sp_hero_image_alt', dp_option( 'superintendent_pharmacist', 'Lead Pharmacist' ) . ' at ' . dp_pharmacy_name() ) ); ?>" class="switch-hero-image" />
           <?php endif; ?>
         </div>
 
@@ -187,7 +187,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
       <div class="stat-item">
         <div class="stat-icon"><i class="<?php echo esc_attr( dp_fa_class( dp_field( 'sp_stat_4_icon', 'fa-location-dot' ) ) ); ?>"></i></div>
         <div class="stat-content">
-          <span class="stat-number"><?php echo esc_html( dp_field( 'sp_stat_4_number', 'Denton' ) ); ?></span>
+          <span class="stat-number"><?php echo esc_html( dp_field( 'sp_stat_4_number', dp_option( 'pharmacy_town', 'Denton' ) ) ); ?></span>
           <span class="stat-label"><?php echo esc_html( dp_field( 'sp_stat_4_label', 'Based Care' ) ); ?></span>
         </div>
       </div>
@@ -210,16 +210,16 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <span class="gradient-text"><?php echo esc_html( dp_field( 'sp_process_title_line1', 'Make The Switch' ) ); ?></span>
         <span class="hero-accent-text"><?php echo esc_html( dp_field( 'sp_process_title_line2', ' Today' ) ); ?></span>
       </h2>
-      <p class="switch-process-description"><?php echo esc_html( dp_field( 'sp_process_description', 'Switch to Denton Pharmacy in under 5 minutes. Better support, better value, better results.' ) ); ?></p>
+      <p class="switch-process-description"><?php echo esc_html( dp_field( 'sp_process_description', 'Switch to ' . dp_pharmacy_name() . ' in under 5 minutes. Better support, better value, better results.' ) ); ?></p>
     </div>
 
     <?php
     // Default steps data
     $default_steps = array(
-        array( 'title' => 'Book Consultation', 'description' => 'Visit us in Denton or <a href="' . esc_url( dp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
+        array( 'title' => 'Book Consultation', 'description' => 'Visit us in ' . dp_option( 'pharmacy_town', 'Denton' ) . ' or <a href="' . esc_url( dp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
         array( 'title' => 'We Handle Everything', 'description' => 'No prescription transfer needed. Our team manages the entire switch seamlessly for you.', 'image' => '' ),
         array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption. Same-day approval available for seamless care.', 'image' => '' ),
-        array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our Denton pharmacy with expert guidance and personalised care.', 'image' => '' ),
+        array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our ' . dp_option( 'pharmacy_town', 'Denton' ) . ' pharmacy with expert guidance and personalised care.', 'image' => '' ),
     );
 
     $has_steps = have_rows( 'sp_process_steps' );
@@ -281,7 +281,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
                 <span><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
               </li>
             <?php endwhile; else : ?>
-              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with Ahmed</span></li>
+              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with <?php echo esc_html( dp_option( 'superintendent_pharmacist', 'our pharmacist' ) ); ?></span></li>
               <li><i class="fas fa-check-circle"></i><span>Medication included in your monthly plan</span></li>
               <li><i class="fas fa-check-circle"></i><span>Blood pressure, weight, and health monitoring</span></li>
               <li><i class="fas fa-check-circle"></i><span>Direct phone and email access between appointments</span></li>
@@ -310,7 +310,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
               </div>
               <div class="process-included-price-feature">
                 <i class="fas fa-user-doctor"></i>
-                <span>Face-to-face with Ahmed</span>
+                <span>Face-to-face with <?php echo esc_html( dp_option( 'superintendent_pharmacist', 'our pharmacist' ) ); ?></span>
               </div>
               <div class="process-included-price-feature">
                 <i class="fas fa-pills"></i>
@@ -336,7 +336,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
       <div class="comparison-header-wrapper">
         <div class="comparison-header-accent-line"></div>
         <div class="section-header">
-          <p class="comparison-header-badge"><?php echo esc_html( dp_field( 'sp_compare_badge', 'THE DENTON PHARMACY DIFFERENCE' ) ); ?></p>
+          <p class="comparison-header-badge"><?php echo esc_html( dp_field( 'sp_compare_badge', 'THE ' . strtoupper( dp_pharmacy_name() ) . ' DIFFERENCE' ) ); ?></p>
         </div>
       </div>
       <h2 class="comparison-section-title"><?php echo esc_html( dp_field( 'sp_compare_title', 'Compare Your Options' ) ); ?></h2>
@@ -407,9 +407,9 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
             <div class="comparison-card-icon comparison-card-icon-purple">
               <i class="<?php echo esc_attr( dp_field( 'sp_card2_icon', 'fas fa-heart-pulse' ) ); ?>"></i>
             </div>
-            <span class="comparison-card-badge comparison-card-badge-purple"><?php echo esc_html( dp_field( 'sp_card2_badge', 'DENTON BASED' ) ); ?></span>
+            <span class="comparison-card-badge comparison-card-badge-purple"><?php echo esc_html( dp_field( 'sp_card2_badge', strtoupper( dp_option( 'pharmacy_town', 'Denton' ) ) . ' BASED' ) ); ?></span>
           </div>
-          <h3 class="comparison-card-title"><?php echo esc_html( dp_field( 'sp_card2_title', 'Denton Pharmacy' ) ); ?></h3>
+          <h3 class="comparison-card-title"><?php echo esc_html( dp_field( 'sp_card2_title', dp_pharmacy_name() ) ); ?></h3>
           <p class="comparison-card-subtitle comparison-card-subtitle-purple"><?php echo esc_html( dp_field( 'sp_card2_subtitle', 'Face-to-face weight loss care' ) ); ?></p>
           <div class="comparison-card-pricing">
             <div class="comparison-card-price-row">
@@ -427,7 +427,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
             <?php endwhile; else : ?>
               <li class="comparison-card-feature">
                 <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
-                <span class="comparison-card-feature-text comparison-card-feature-text-bold">Monthly face-to-face appointments in Denton</span>
+                <span class="comparison-card-feature-text comparison-card-feature-text-bold">Monthly face-to-face appointments in <?php echo esc_html( dp_option( 'pharmacy_town', 'Denton' ) ); ?></span>
               </li>
               <li class="comparison-card-feature">
                 <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
@@ -464,7 +464,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
           <span class="comparison-card-badge comparison-card-badge-light-purple"><?php echo esc_html( dp_field( 'sp_card3_badge', 'YOUR BENEFITS' ) ); ?></span>
         </div>
         <h3 class="comparison-card-title"><?php echo esc_html( dp_field( 'sp_card3_title', 'What You Gain' ) ); ?></h3>
-        <p class="comparison-card-subtitle"><?php echo esc_html( dp_field( 'sp_card3_subtitle', 'The Denton Pharmacy advantage' ) ); ?></p>
+        <p class="comparison-card-subtitle"><?php echo esc_html( dp_field( 'sp_card3_subtitle', 'The ' . dp_pharmacy_name() . ' advantage' ) ); ?></p>
         <div class="comparison-card-value-section">
           <div class="comparison-card-value-row">
             <i class="fas fa-heart comparison-card-value-icon"></i>
@@ -487,7 +487,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
             </li>
             <li class="comparison-card-feature">
               <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
-              <span class="comparison-card-feature-text">Convenient Denton location with parking</span>
+              <span class="comparison-card-feature-text">Convenient <?php echo esc_html( dp_option( 'pharmacy_town', 'Denton' ) ); ?> location with parking</span>
             </li>
             <li class="comparison-card-feature">
               <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
@@ -495,7 +495,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
             </li>
             <li class="comparison-card-feature">
               <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
-              <span class="comparison-card-feature-text">Support a Denton independent business</span>
+              <span class="comparison-card-feature-text">Support a <?php echo esc_html( dp_option( 'pharmacy_town', 'Denton' ) ); ?> independent business</span>
             </li>
           <?php endif; ?>
         </ul>
@@ -522,7 +522,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <span class="gradient-text"><?php echo esc_html( dp_field( 'sp_evidence_title_line1', 'Real data.' ) ); ?></span>
         <span class="hero-accent-text"><?php echo esc_html( dp_field( 'sp_evidence_title_line2', 'Real results.' ) ); ?></span>
       </h2>
-      <p class="switch-evidence-subtitle"><?php echo esc_html( dp_field( 'sp_evidence_subtitle', 'Evidence-based care with measurable outcomes from hundreds of Denton patients' ) ); ?></p>
+      <p class="switch-evidence-subtitle"><?php echo esc_html( dp_field( 'sp_evidence_subtitle', 'Evidence-based care with measurable outcomes from hundreds of ' . dp_option( 'pharmacy_town', 'Denton' ) . ' patients' ) ); ?></p>
     </div>
 
     <div class="switch-evidence-grid">
@@ -546,7 +546,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <div class="switch-evidence-card">
           <div class="switch-evidence-stat-number">4.9/5</div>
           <p class="switch-evidence-stat-label">Google Reviews</p>
-          <p class="switch-evidence-stat-description">from verified Denton patients on Google</p>
+          <p class="switch-evidence-stat-description">from verified <?php echo esc_html( dp_option( 'pharmacy_town', 'Denton' ) ); ?> patients on Google</p>
         </div>
         <div class="switch-evidence-card">
           <div class="switch-evidence-stat-number">10%+</div>
@@ -583,7 +583,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <span class="gradient-text"><?php echo esc_html( dp_field( 'sp_benefits_title_line1', 'The Benefits of' ) ); ?></span>
         <span class="hero-accent-text"><?php echo esc_html( dp_field( 'sp_benefits_title_line2', ' Switching' ) ); ?></span>
       </h2>
-      <p class="switch-benefits-description"><?php echo esc_html( dp_field( 'sp_benefits_description', 'Discover why patients across Greater Manchester are choosing Denton Pharmacy for their weight loss care' ) ); ?></p>
+      <p class="switch-benefits-description"><?php echo esc_html( dp_field( 'sp_benefits_description', 'Discover why patients across Greater Manchester are choosing ' . dp_pharmacy_name() . ' for their weight loss care' ) ); ?></p>
     </div>
 
     <div class="switch-benefits-grid">
@@ -599,7 +599,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-user-doctor"></i></div>
           <h3 class="switch-benefit-title">Face-to-Face Care</h3>
-          <p class="switch-benefit-description">Monthly in-person consultations with Ahmed, your dedicated pharmacist who knows your history</p>
+          <p class="switch-benefit-description">Monthly in-person consultations with <?php echo esc_html( dp_option( 'superintendent_pharmacist', 'our pharmacist' ) ); ?>, your dedicated pharmacist who knows your history</p>
         </div>
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-shield-halved"></i></div>
@@ -619,7 +619,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-map-marker-alt"></i></div>
           <h3 class="switch-benefit-title">Local Expertise</h3>
-          <p class="switch-benefit-description">Trusted by the Denton community with free parking and convenient access from across Greater Manchester</p>
+          <p class="switch-benefit-description">Trusted by the <?php echo esc_html( dp_option( 'pharmacy_town', 'Denton' ) ); ?> community with free parking and convenient access from across Greater Manchester</p>
         </div>
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-comments"></i></div>
@@ -637,19 +637,19 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
 <?php
 $sp_band_image_id = dp_field( 'sp_band_image' );
 $sp_band_image_url = $sp_band_image_id ? wp_get_attachment_image_url( $sp_band_image_id, 'full' ) : '';
-$sp_band_quote     = dp_field( 'sp_band_quote', 'I was with a national provider for months and felt like just a number. Switching to Ahmed at Denton Pharmacy changed everything — real face-to-face care, no waiting lists, and I\'ve lost 3 stone in 4 months.' );
+$sp_band_quote     = dp_field( 'sp_band_quote', 'I was with a national provider for months and felt like just a number. Switching to ' . dp_option( 'superintendent_pharmacist', 'our pharmacist' ) . ' at ' . dp_pharmacy_name() . ' changed everything — real face-to-face care, no waiting lists, and I\'ve lost 3 stone in 4 months.' );
 $sp_band_author    = dp_field( 'sp_band_author', 'Sarah M.' );
 $sp_band_result    = dp_field( 'sp_band_result', '3 Stone Lost' );
 $sp_band_location  = dp_field( 'sp_band_location', 'Switched from National Provider' );
 $sp_band_stat_num  = dp_field( 'sp_band_stat_number', '95%' );
-$sp_band_stat_text = dp_field( 'sp_band_stat_label', 'of patients recommend switching to Denton Pharmacy' );
+$sp_band_stat_text = dp_field( 'sp_band_stat_label', 'of patients recommend switching to ' . dp_pharmacy_name() );
 ?>
 
 <section class="switch-band-section switch-reveal">
   <!-- Background image -->
   <div class="switch-band-bg">
     <?php if ( $sp_band_image_url ) : ?>
-      <img src="<?php echo esc_url( $sp_band_image_url ); ?>" alt="Denton Pharmacy patient consultation" class="switch-band-bg-image" />
+      <img src="<?php echo esc_url( $sp_band_image_url ); ?>" alt="<?php echo esc_attr( dp_pharmacy_name() ); ?> patient consultation" class="switch-band-bg-image" />
     <?php endif; ?>
     <div class="switch-band-overlay"></div>
   </div>
