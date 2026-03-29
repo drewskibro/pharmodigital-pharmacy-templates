@@ -331,18 +331,43 @@ endif;
 </section>
 
 <!-- ============================================
-     CTA SECTION
+     CTA SECTION — Deep purple gradient (shared pattern)
      ============================================ -->
 <section class="healthhub-cta-section">
+  <div class="healthhub-cta-glow-1"></div>
+  <div class="healthhub-cta-glow-2"></div>
   <div class="healthhub-cta-dots"></div>
   <div class="section-container">
     <div class="healthhub-cta-content">
+
+      <!-- Trust badges row -->
+      <div class="healthhub-cta-badges">
+        <span class="healthhub-cta-badge"><i class="fas fa-shield-halved"></i> GPhC Registered</span>
+        <span class="healthhub-cta-badge"><i class="fas fa-calendar-check"></i> Same-Day Appointments</span>
+        <span class="healthhub-cta-badge"><i class="fas fa-square-parking"></i> Free Parking</span>
+      </div>
+
       <h2 class="healthhub-cta-title"><?php echo esc_html( dp_field( 'hh_cta_title', 'Ready to Transform Your Health?' ) ); ?></h2>
-      <p class="healthhub-cta-description"><?php echo esc_html( dp_field( 'hh_cta_description', 'Expert advice from pharmacists you can trust' ) ); ?></p>
-      <a href="<?php echo esc_url( dp_field( 'hh_cta_url', dp_booking_url() ) ); ?>" class="cta-button primary-cta healthhub-cta-button">
-        <?php echo esc_html( dp_field( 'hh_cta_text', 'Explore Our Services' ) ); ?>
-        <i class="fas fa-arrow-right"></i>
-      </a>
+      <p class="healthhub-cta-description"><?php echo esc_html( dp_field( 'hh_cta_description', 'Expert care from pharmacists you can trust. Book your consultation today.' ) ); ?></p>
+
+      <div class="healthhub-cta-actions">
+        <a href="<?php echo esc_url( dp_field( 'hh_cta_url', dp_booking_url() ) ); ?>" class="cta-button healthhub-cta-button-primary">
+          <?php echo esc_html( dp_field( 'hh_cta_text', 'Book an Appointment' ) ); ?>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button healthhub-cta-button-secondary">
+          <i class="fas fa-phone"></i>
+          Call <?php echo esc_html( dp_phone() ); ?>
+        </a>
+      </div>
+
+      <!-- Trust checks row -->
+      <div class="healthhub-cta-checks">
+        <span class="healthhub-cta-check"><i class="fas fa-check"></i> No Referral Needed</span>
+        <span class="healthhub-cta-check"><i class="fas fa-check"></i> Expert Guidance</span>
+        <span class="healthhub-cta-check"><i class="fas fa-check"></i> Open 6 Days a Week</span>
+      </div>
+
     </div>
   </div>
 </section>
