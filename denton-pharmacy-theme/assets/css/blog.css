@@ -1945,7 +1945,7 @@
    position: static override for inline use.
    ============================================ */
 .healthhub-social-proof-section {
-  background: #f0f4f8;
+  background: linear-gradient(170deg, #f5efe6 0%, #faf6f0 50%, #fdf9f3 100%);
   padding: 4rem 0;
 }
 
