@@ -9451,6 +9451,15 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_pf_process_title', 'label' => 'Section Title', 'name' => 'pf_process_title', 'type' => 'text', 'default_value' => 'Three Simple Steps to Free Treatment' ),
             array( 'key' => 'field_dp_pf_process_desc', 'label' => 'Description', 'name' => 'pf_process_description', 'type' => 'text' ),
             array(
+                'key'           => 'field_dp_pf_process_image',
+                'label'         => 'Lifestyle Image',
+                'name'          => 'pf_process_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Portrait lifestyle image (e.g. pharmacist consultation). Recommended: 800x1000px. Falls back to global pharmacist image.',
+            ),
+            array(
                 'key'          => 'field_dp_pf_process_steps',
                 'label'        => 'Steps',
                 'name'         => 'pf_process_steps',
