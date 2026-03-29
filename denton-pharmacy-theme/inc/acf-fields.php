@@ -3226,8 +3226,11 @@ function dp_register_acf_field_groups() {
                 'instructions'  => 'Full-width hero background. Recommended: 1920x900px.',
             ),
             array( 'key' => 'field_dp_th_trust_1', 'label' => 'Trust Badge 1', 'name' => 'th_trust_1', 'type' => 'text', 'default_value' => 'Yellow Fever Centre' ),
+            array( 'key' => 'field_dp_th_trust_1_icon', 'label' => 'Trust Badge 1 — Icon', 'name' => 'th_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-shield-virus', 'instructions' => 'Font Awesome class, e.g. fas fa-shield-virus' ),
             array( 'key' => 'field_dp_th_trust_2', 'label' => 'Trust Badge 2', 'name' => 'th_trust_2', 'type' => 'text', 'default_value' => 'All Travel Vaccinations' ),
+            array( 'key' => 'field_dp_th_trust_2_icon', 'label' => 'Trust Badge 2 — Icon', 'name' => 'th_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe' ),
             array( 'key' => 'field_dp_th_trust_3', 'label' => 'Trust Badge 3', 'name' => 'th_trust_3', 'type' => 'text', 'default_value' => 'Expert Travel Advice' ),
+            array( 'key' => 'field_dp_th_trust_3_icon', 'label' => 'Trust Badge 3 — Icon', 'name' => 'th_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-user-doctor', 'instructions' => 'Font Awesome class, e.g. fas fa-user-doctor' ),
             array( 'key' => 'field_dp_th_hero_float_badge_label', 'label' => 'Floating Badge — Label', 'name' => 'th_hero_float_badge_label', 'type' => 'text', 'default_value' => 'OFFICIAL', 'instructions' => 'Small uppercase label on the floating image badge.' ),
             array( 'key' => 'field_dp_th_hero_float_badge_text', 'label' => 'Floating Badge — Text', 'name' => 'th_hero_float_badge_text', 'type' => 'text', 'default_value' => 'Yellow Fever Centre' ),
             array( 'key' => 'field_dp_th_hero_testimonial_quote', 'label' => 'Hero Testimonial — Quote', 'name' => 'th_hero_testimonial_quote', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Ahmed was brilliant — explained everything clearly and made the whole family feel at ease before our trip to Kenya.' ),
@@ -3605,8 +3608,11 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_ew_price_amount', 'label' => 'Price Badge — Amount', 'name' => 'ew_price_amount', 'type' => 'text', 'default_value' => '£40' ),
             array( 'key' => 'field_dp_ew_price_sub', 'label' => 'Price Badge — Subtext', 'name' => 'ew_price_sub', 'type' => 'text', 'default_value' => 'per ear' ),
             array( 'key' => 'field_dp_ew_trust_1', 'label' => 'Trust Item 1', 'name' => 'ew_trust_1', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
+            array( 'key' => 'field_dp_ew_trust_1_icon', 'label' => 'Trust Item 1 — Icon', 'name' => 'ew_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'instructions' => 'Font Awesome class, e.g. fas fa-check-circle' ),
             array( 'key' => 'field_dp_ew_trust_2', 'label' => 'Trust Item 2', 'name' => 'ew_trust_2', 'type' => 'text', 'default_value' => 'Same-day available' ),
+            array( 'key' => 'field_dp_ew_trust_2_icon', 'label' => 'Trust Item 2 — Icon', 'name' => 'ew_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-clock', 'instructions' => 'Font Awesome class, e.g. fas fa-clock' ),
             array( 'key' => 'field_dp_ew_trust_3', 'label' => 'Trust Item 3', 'name' => 'ew_trust_3', 'type' => 'text', 'default_value' => 'From £40 per ear' ),
+            array( 'key' => 'field_dp_ew_trust_3_icon', 'label' => 'Trust Item 3 — Icon', 'name' => 'ew_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-tag', 'instructions' => 'Font Awesome class, e.g. fas fa-tag' ),
         ),
         'location'              => $ew_location,
         'menu_order'            => 600,
@@ -3944,6 +3950,9 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_ew_cta_description', 'label' => 'Description', 'name' => 'ew_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your ear wax removal appointment at our Denton clinic today. Expert microsuction treatment with guaranteed results.' ),
             array( 'key' => 'field_dp_ew_cta_primary_url', 'label' => 'CTA URL', 'name' => 'ew_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page.' ),
             array( 'key' => 'field_dp_ew_cta_button_text', 'label' => 'Button Text', 'name' => 'ew_cta_button_text', 'type' => 'text', 'default_value' => 'Book Appointment Online' ),
+            array( 'key' => 'field_dp_ew_cta_check_1', 'label' => 'Trust Check 1', 'name' => 'ew_cta_check_1', 'type' => 'text', 'default_value' => 'No referral needed' ),
+            array( 'key' => 'field_dp_ew_cta_check_2', 'label' => 'Trust Check 2', 'name' => 'ew_cta_check_2', 'type' => 'text', 'default_value' => 'Expert microsuction' ),
+            array( 'key' => 'field_dp_ew_cta_check_3', 'label' => 'Trust Check 3', 'name' => 'ew_cta_check_3', 'type' => 'text', 'default_value' => 'Same-day appointments' ),
         ),
         'location'              => $ew_location,
         'menu_order'            => 609,
@@ -4349,7 +4358,11 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_switch_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'sp_hero_cta_text', 'type' => 'text', 'default_value' => 'Start Your Switch Today' ),
             array( 'key' => 'field_dp_switch_hero_cta_url', 'label' => 'CTA Button URL', 'name' => 'sp_hero_cta_url', 'type' => 'text', 'default_value' => '#comparison' ),
             array( 'key' => 'field_dp_switch_hero_trust_1', 'label' => 'Trust Pill 1', 'name' => 'sp_hero_trust_1', 'type' => 'text', 'default_value' => 'Zero gap in treatment' ),
+            array( 'key' => 'field_dp_switch_hero_trust_1_icon', 'label' => 'Trust Pill 1 — Icon', 'name' => 'sp_hero_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-bolt', 'instructions' => 'Font Awesome class, e.g. fas fa-bolt' ),
             array( 'key' => 'field_dp_switch_hero_trust_2', 'label' => 'Trust Pill 2', 'name' => 'sp_hero_trust_2', 'type' => 'text', 'default_value' => 'Same Day Appointments' ),
+            array( 'key' => 'field_dp_switch_hero_trust_2_icon', 'label' => 'Trust Pill 2 — Icon', 'name' => 'sp_hero_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check', 'instructions' => 'Font Awesome class, e.g. fas fa-calendar-check' ),
+            array( 'key' => 'field_dp_switch_hero_trust_3', 'label' => 'Trust Pill 3', 'name' => 'sp_hero_trust_3', 'type' => 'text', 'default_value' => 'Face-to-Face Care' ),
+            array( 'key' => 'field_dp_switch_hero_trust_3_icon', 'label' => 'Trust Pill 3 — Icon', 'name' => 'sp_hero_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-user-doctor', 'instructions' => 'Font Awesome class, e.g. fas fa-user-doctor' ),
             array(
                 'key'           => 'field_dp_switch_hero_image',
                 'label'         => 'Hero Image',
@@ -5964,10 +5977,6 @@ function dp_register_acf_field_groups() {
         array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-india.php' ) ),
     );
 
-    $cv_location = array(
-        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-cape-verde.php' ) ),
-    );
-
     // Helper: standard field group options.
     $fg_opts = array(
         'position'              => 'normal',
@@ -6411,128 +6420,6 @@ function dp_register_acf_field_groups() {
         ),
         'location'   => $in_location,
         'menu_order' => 1540,
-    ) ) );
-
-    // -------------------------------------------------------------------------
-    // L4. Cape Verde — Hero
-    // -------------------------------------------------------------------------
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_hero',
-        'title'      => 'Cape Verde — Hero Section',
-        'fields'     => array(
-            array( 'key' => 'field_dp_cv_hero_badge', 'label' => 'Badge Text', 'name' => 'cv_hero_badge', 'type' => 'text', 'default_value' => 'CAPE VERDE TRAVEL HEALTH' ),
-            array( 'key' => 'field_dp_cv_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'cv_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
-            array( 'key' => 'field_dp_cv_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'cv_hero_title_highlight', 'type' => 'text', 'default_value' => 'Cape Verde' ),
-            array( 'key' => 'field_dp_cv_hero_description', 'label' => 'Description', 'name' => 'cv_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Cape Verde holiday. Get protected before you travel with Denton's trusted travel health specialists." ),
-            array( 'key' => 'field_dp_cv_hero_cta_text', 'label' => 'CTA Text', 'name' => 'cv_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
-            array( 'key' => 'field_dp_cv_hero_cta_url', 'label' => 'CTA URL', 'name' => 'cv_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1600,
-    ) ) );
-
-    // L4. Cape Verde — Quick Info Bar
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_stats',
-        'title'      => 'Cape Verde — Quick Info Bar',
-        'fields'     => array(
-            array(
-                'key' => 'field_dp_cv_stats', 'label' => 'Stats', 'name' => 'cv_stats', 'type' => 'repeater', 'layout' => 'table', 'min' => 0, 'max' => 4, 'button_label' => 'Add Stat',
-                'sub_fields' => array(
-                    array( 'key' => 'field_dp_cv_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_dp_cv_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_dp_cv_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
-                ),
-            ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1605,
-    ) ) );
-
-    // L4. Cape Verde — Recommended Vaccinations
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_vaccines',
-        'title'      => 'Cape Verde — Recommended Vaccinations',
-        'fields'     => array(
-            array( 'key' => 'field_dp_cv_vaccines_title', 'label' => 'Title', 'name' => 'cv_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in Cape Verde' ),
-            array( 'key' => 'field_dp_cv_vaccines_desc', 'label' => 'Description', 'name' => 'cv_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to Cape Verde' ),
-            array(
-                'key' => 'field_dp_cv_vaccinations', 'label' => 'Vaccinations', 'name' => 'cv_vaccinations', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 10, 'button_label' => 'Add Vaccination',
-                'sub_fields' => array(
-                    array( 'key' => 'field_dp_cv_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
-                    array( 'key' => 'field_dp_cv_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_cv_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'blue' => 'Blue (Essential/Recommended)', 'gray' => 'Grey (Consider/Rural)' ), 'default_value' => 'blue', 'wrapper' => array( 'width' => '15' ) ),
-                    array( 'key' => 'field_dp_cv_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Recommended', 'wrapper' => array( 'width' => '15' ) ),
-                    array( 'key' => 'field_dp_cv_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
-                    array( 'key' => 'field_dp_cv_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
-                ),
-            ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1610,
-    ) ) );
-
-    // L4. Cape Verde — Malaria Information
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_malaria',
-        'title'      => 'Cape Verde — Malaria Information',
-        'fields'     => array(
-            array( 'key' => 'field_dp_cv_malaria_image', 'label' => 'Image', 'name' => 'cv_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
-            array( 'key' => 'field_dp_cv_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'cv_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
-            array( 'key' => 'field_dp_cv_malaria_badge', 'label' => 'Section Badge', 'name' => 'cv_malaria_badge', 'type' => 'text', 'default_value' => 'MOSQUITO RISKS' ),
-            array( 'key' => 'field_dp_cv_malaria_title', 'label' => 'Title', 'name' => 'cv_malaria_title', 'type' => 'text', 'default_value' => 'Malaria & Dengue in Cape Verde' ),
-            array( 'key' => 'field_dp_cv_malaria_intro', 'label' => 'Intro Text', 'name' => 'cv_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk is generally low but present on Santiago island. Dengue fever and Zika virus are also risks. Bite avoidance is essential.' ),
-            array(
-                'key' => 'field_dp_cv_malaria_risks', 'label' => 'Risk Items', 'name' => 'cv_malaria_risks', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 4, 'button_label' => 'Add Risk Item',
-                'sub_fields' => array(
-                    array( 'key' => 'field_dp_cv_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_cv_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'low-risk', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_cv_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
-                    array( 'key' => 'field_dp_cv_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
-                ),
-            ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1620,
-    ) ) );
-
-    // L4. Cape Verde — Health Advice
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_health',
-        'title'      => 'Cape Verde — Health Advice',
-        'fields'     => array(
-            array( 'key' => 'field_dp_cv_health_badge', 'label' => 'Badge Text', 'name' => 'cv_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
-            array( 'key' => 'field_dp_cv_health_title', 'label' => 'Title', 'name' => 'cv_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in Cape Verde' ),
-            array( 'key' => 'field_dp_cv_health_subtitle', 'label' => 'Subtitle', 'name' => 'cv_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe trip' ),
-            array(
-                'key' => 'field_dp_cv_health_tips', 'label' => 'Health Tips', 'name' => 'cv_health_tips', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 4, 'button_label' => 'Add Tip',
-                'sub_fields' => array(
-                    array( 'key' => 'field_dp_cv_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_cv_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
-                    array( 'key' => 'field_dp_cv_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
-                    array( 'key' => 'field_dp_cv_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
-                ),
-            ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1630,
-    ) ) );
-
-    // L4. Cape Verde — Final CTA
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_cta',
-        'title'      => 'Cape Verde — Final CTA',
-        'fields'     => array(
-            array( 'key' => 'field_dp_cv_cta_title', 'label' => 'Title', 'name' => 'cv_cta_title', 'type' => 'text', 'default_value' => 'Ready for Cape Verde?' ),
-            array( 'key' => 'field_dp_cv_cta_description', 'label' => 'Description', 'name' => 'cv_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ),
-            array( 'key' => 'field_dp_cv_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'cv_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
-            array( 'key' => 'field_dp_cv_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'cv_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
-            array( 'key' => 'field_dp_cv_cta_check_1', 'label' => 'Check 1', 'name' => 'cv_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
-            array( 'key' => 'field_dp_cv_cta_check_2', 'label' => 'Check 2', 'name' => 'cv_cta_check_2', 'type' => 'text', 'default_value' => 'Expert Advice' ),
-            array( 'key' => 'field_dp_cv_cta_check_3', 'label' => 'Check 3', 'name' => 'cv_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines' ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1640,
     ) ) );
 
     // =========================================================================
@@ -9156,6 +9043,14 @@ function dp_register_acf_field_groups() {
                 'preview_size'  => 'medium',
             ),
             array(
+                'key'           => 'field_dp_travel_cv_malaria_image_alt',
+                'label'         => 'Image Alt Text',
+                'name'          => 'cv_malaria_image_alt',
+                'type'          => 'text',
+                'default_value' => 'Cape Verde landscape',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
                 'key'           => 'field_dp_travel_cv_malaria_badge_text',
                 'label'         => 'Image Badge Text',
                 'name'          => 'cv_malaria_badge_text',
@@ -9448,8 +9343,11 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_pf_price_amount', 'label' => 'Price Amount', 'name' => 'pf_price_amount', 'type' => 'text', 'default_value' => 'FREE' ),
             array( 'key' => 'field_dp_pf_price_sub', 'label' => 'Price Subtext', 'name' => 'pf_price_sub', 'type' => 'text', 'default_value' => 'no charge to you' ),
             array( 'key' => 'field_dp_pf_trust_1', 'label' => 'Trust Pill 1', 'name' => 'pf_trust_1', 'type' => 'text', 'default_value' => 'NHS Funded' ),
+            array( 'key' => 'field_dp_pf_trust_1_icon', 'label' => 'Trust Pill 1 — Icon', 'name' => 'pf_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'instructions' => 'Font Awesome class, e.g. fas fa-check-circle' ),
             array( 'key' => 'field_dp_pf_trust_2', 'label' => 'Trust Pill 2', 'name' => 'pf_trust_2', 'type' => 'text', 'default_value' => 'No GP Appointment Needed' ),
+            array( 'key' => 'field_dp_pf_trust_2_icon', 'label' => 'Trust Pill 2 — Icon', 'name' => 'pf_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check', 'instructions' => 'Font Awesome class, e.g. fas fa-calendar-check' ),
             array( 'key' => 'field_dp_pf_trust_3', 'label' => 'Trust Pill 3', 'name' => 'pf_trust_3', 'type' => 'text', 'default_value' => 'Same-Day Treatment' ),
+            array( 'key' => 'field_dp_pf_trust_3_icon', 'label' => 'Trust Pill 3 — Icon', 'name' => 'pf_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-clock', 'instructions' => 'Font Awesome class, e.g. fas fa-clock' ),
         ),
         'location' => array(
             array(
@@ -9673,8 +9571,11 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_bt_price_amount', 'label' => 'Card Amount', 'name' => 'bt_price_amount', 'type' => 'text', 'default_value' => 'FROM £39' ),
             array( 'key' => 'field_dp_bt_price_sub', 'label' => 'Card Sub-text', 'name' => 'bt_price_sub', 'type' => 'text', 'default_value' => 'per test panel' ),
             array( 'key' => 'field_dp_bt_trust_1', 'label' => 'Trust Pill 1', 'name' => 'bt_trust_1', 'type' => 'text', 'default_value' => 'Fast Results' ),
+            array( 'key' => 'field_dp_bt_trust_1_icon', 'label' => 'Trust Pill 1 — Icon', 'name' => 'bt_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'instructions' => 'Font Awesome class, e.g. fas fa-check-circle' ),
             array( 'key' => 'field_dp_bt_trust_2', 'label' => 'Trust Pill 2', 'name' => 'bt_trust_2', 'type' => 'text', 'default_value' => 'No GP Referral Needed' ),
+            array( 'key' => 'field_dp_bt_trust_2_icon', 'label' => 'Trust Pill 2 — Icon', 'name' => 'bt_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check', 'instructions' => 'Font Awesome class, e.g. fas fa-calendar-check' ),
             array( 'key' => 'field_dp_bt_trust_3', 'label' => 'Trust Pill 3', 'name' => 'bt_trust_3', 'type' => 'text', 'default_value' => 'Professional Phlebotomy' ),
+            array( 'key' => 'field_dp_bt_trust_3_icon', 'label' => 'Trust Pill 3 — Icon', 'name' => 'bt_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-clock', 'instructions' => 'Font Awesome class, e.g. fas fa-clock' ),
             array( 'key' => 'field_dp_bt_float_number', 'label' => 'Floating Badge Number', 'name' => 'bt_float_number', 'type' => 'text', 'default_value' => '20+' ),
         ),
         'location' => array(

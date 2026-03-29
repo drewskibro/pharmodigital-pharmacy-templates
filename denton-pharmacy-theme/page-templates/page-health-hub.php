@@ -94,7 +94,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
             <i class="fas fa-map-marker-alt"></i>
             <span><?php echo esc_html( dp_field( 'hh_social_rating_location', dp_option( 'pharmacy_town', 'Denton, UK' ) ) ); ?></span>
           </div>
-          <a href="#reviews" class="rating-link">View Reviews</a>
+          <a href="<?php echo esc_url( dp_option( 'google_review_url', '#reviews' ) ); ?>" class="rating-link" target="_blank" rel="noopener noreferrer">View Reviews</a>
         </div>
       </div>
 

@@ -48,15 +48,15 @@ get_header();
 
         <div class="bloodtest-hero-trust">
           <div class="bloodtest-hero-trust-item">
-            <i class="fas fa-check-circle"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'bt_trust_1_icon', 'fas fa-check-circle' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'bt_trust_1', 'Fast Results' ) ); ?></span>
           </div>
           <div class="bloodtest-hero-trust-item">
-            <i class="fas fa-calendar-check"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'bt_trust_2_icon', 'fas fa-calendar-check' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'bt_trust_2', 'No GP Referral Needed' ) ); ?></span>
           </div>
           <div class="bloodtest-hero-trust-item">
-            <i class="fas fa-clock"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'bt_trust_3_icon', 'fas fa-clock' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'bt_trust_3', 'Professional Phlebotomy' ) ); ?></span>
           </div>
         </div>

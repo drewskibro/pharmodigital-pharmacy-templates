@@ -81,15 +81,15 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         <!-- Trust Badges -->
         <div class="travel-hero-trust">
           <div class="travel-hero-trust-item">
-            <i class="fas fa-shield-virus"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'th_trust_1_icon', 'fas fa-shield-virus' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'th_trust_1', 'Yellow Fever Centre' ) ); ?></span>
           </div>
           <div class="travel-hero-trust-item">
-            <i class="fas fa-syringe"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'th_trust_2_icon', 'fas fa-syringe' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'th_trust_2', 'All Travel Vaccinations' ) ); ?></span>
           </div>
           <div class="travel-hero-trust-item">
-            <i class="fas fa-user-doctor"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'th_trust_3_icon', 'fas fa-user-doctor' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'th_trust_3', 'Expert Travel Advice' ) ); ?></span>
           </div>
         </div>

@@ -74,15 +74,15 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <!-- Trust Badges -->
         <div class="switch-hero-trust-row">
           <div class="switch-hero-trust-pill">
-            <i class="fas fa-bolt"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'sp_hero_trust_1_icon', 'fas fa-bolt' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'sp_hero_trust_1', 'Zero Gap in Treatment' ) ); ?></span>
           </div>
           <div class="switch-hero-trust-pill">
-            <i class="fas fa-calendar-check"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'sp_hero_trust_2_icon', 'fas fa-calendar-check' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'sp_hero_trust_2', 'Same Day Appointments' ) ); ?></span>
           </div>
           <div class="switch-hero-trust-pill">
-            <i class="fas fa-user-doctor"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'sp_hero_trust_3_icon', 'fas fa-user-doctor' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'sp_hero_trust_3', 'Face-to-Face Care' ) ); ?></span>
           </div>
         </div>

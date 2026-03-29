@@ -156,7 +156,7 @@ for ( $i = 1; $i <= 5; $i++ ) {
           </div>
           <div class="rating-footer">
             <div class="rating-location"><i class="fas fa-map-marker-alt"></i><span><?php echo esc_html( $rating_location ); ?></span></div>
-            <a href="#" class="rating-link">View Reviews</a>
+            <a href="<?php echo esc_url( dp_option( 'google_review_url', '#' ) ); ?>" class="rating-link" target="_blank" rel="noopener noreferrer">View Reviews</a>
           </div>
         </div>
       </div>

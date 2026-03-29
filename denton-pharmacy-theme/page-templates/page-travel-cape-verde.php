@@ -145,7 +145,7 @@ get_header();
           $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : '';
           ?>
           <?php if ( $malaria_image_url ) : ?>
-          <img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="Cape Verde landscape" class="capeverde-malaria-image" />
+          <img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'cv_malaria_image_alt', 'Cape Verde landscape' ) ); ?>" class="capeverde-malaria-image" />
           <?php endif; ?>
           <div class="capeverde-malaria-overlay"></div>
           <div class="capeverde-malaria-badge">
