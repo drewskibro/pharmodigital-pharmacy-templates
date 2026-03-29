@@ -174,6 +174,13 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                     <?php endforeach; ?>
                 </ul>
 
+                <!-- Compact hero image (mobile only) -->
+                <?php if ( $hero_image_url ) : ?>
+                <div class="hero-mobile-image mobile-only hero-stagger hero-stagger-7b">
+                    <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( $hero_image_alt ); ?>" loading="lazy" />
+                </div>
+                <?php endif; ?>
+
                 <!-- Testimonial card (mobile only — desktop version overlaps the image) -->
                 <div class="hero-testimonial mobile-only hero-stagger hero-stagger-8">
                     <div class="quote-icon">
