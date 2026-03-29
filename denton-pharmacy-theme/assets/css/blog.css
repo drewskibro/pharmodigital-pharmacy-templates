@@ -1077,9 +1077,11 @@
    ============================================ */
 .article-hero {
   position: relative;
-  background: #f0f4f8;
+  background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
   padding: 5rem 0 4rem;
   overflow: hidden;
+  margin-top: -200px;
+  padding-top: 220px;
 }
 
 .article-hero-blob-1 {
