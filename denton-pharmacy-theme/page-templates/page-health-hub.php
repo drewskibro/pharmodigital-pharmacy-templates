@@ -118,18 +118,21 @@ $hh_cats_desc  = dp_field( 'hh_cats_description', 'Start with the health topic t
 $default_cats = array(
     array(
         'title'       => 'Weight Loss Journeys',
+        'label'       => 'WEIGHT LOSS',
         'description' => 'GLP-1 medications, side effects management, nutrition guides, and real patient experiences',
         'url'         => add_query_arg( 'category', 'weight-loss', get_permalink() ),
         'image_id'    => 0,
     ),
     array(
         'title'       => 'Travel Health Guides',
+        'label'       => 'TRAVEL HEALTH',
         'description' => 'Destination-specific vaccines, malaria prevention, yellow fever requirements, and travel safety',
         'url'         => add_query_arg( 'category', 'travel-health', get_permalink() ),
         'image_id'    => 0,
     ),
     array(
         'title'       => 'NHS & Wellness',
+        'label'       => 'WELLNESS',
         'description' => 'Pharmacy First, prescription services, seasonal health, and staying healthy year-round',
         'url'         => add_query_arg( 'category', 'nhs-services', get_permalink() ),
         'image_id'    => 0,
@@ -142,6 +145,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'hh_category_cards' ) ) {
         the_row();
         $cats[] = array(
             'title'       => get_sub_field( 'title' ) ?: '',
+            'label'       => get_sub_field( 'label' ) ?: '',
             'description' => get_sub_field( 'description' ) ?: '',
             'url'         => get_sub_field( 'url' ) ?: '#',
             'image_id'    => get_sub_field( 'image' ),
@@ -171,6 +175,9 @@ if ( empty( $cats ) ) {
             <?php endif; ?>
             <div class="healthhub-cat-card-overlay"></div>
             <div class="healthhub-cat-card-content">
+              <?php if ( ! empty( $cat['label'] ) ) : ?>
+                <span class="healthhub-cat-card-label"><?php echo esc_html( $cat['label'] ); ?></span>
+              <?php endif; ?>
               <h3 class="healthhub-cat-card-title"><?php echo esc_html( $cat['title'] ); ?></h3>
               <p class="healthhub-cat-card-desc"><?php echo esc_html( $cat['description'] ); ?></p>
               <span class="healthhub-cat-card-link">
