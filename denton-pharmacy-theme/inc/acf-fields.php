@@ -9894,7 +9894,7 @@ function dp_register_acf_field_groups() {
         'fields' => array(
             array( 'key' => 'field_dp_contact_hero_badge', 'label' => 'Badge Text', 'name' => 'contact_hero_badge', 'type' => 'text', 'default_value' => 'GET IN TOUCH' ),
             array( 'key' => 'field_dp_contact_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'contact_hero_title_line1', 'type' => 'text', 'default_value' => 'Contact' ),
-            array( 'key' => 'field_dp_contact_hero_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'contact_hero_title_highlight', 'type' => 'text', 'default_value' => 'Denton Pharmacy' ),
+            array( 'key' => 'field_dp_contact_hero_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'contact_hero_title_highlight', 'type' => 'text', 'default_value' => '' ),
             array( 'key' => 'field_dp_contact_hero_description', 'label' => 'Description', 'name' => 'contact_hero_description', 'type' => 'textarea', 'rows' => 3 ),
             array( 'key' => 'field_dp_contact_hero_image', 'label' => 'Hero Image', 'name' => 'contact_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Storefront or pharmacy photo. Falls back to Location Store Image from Pharmacy Settings.' ),
         ),
@@ -9950,6 +9950,8 @@ function dp_register_acf_field_groups() {
         'key'    => 'group_dp_contact_faq',
         'title'  => 'Contact — FAQ',
         'fields' => array(
+            array( 'key' => 'field_dp_contact_faq_badge', 'label' => 'Section Badge', 'name' => 'contact_faq_badge', 'type' => 'text', 'default_value' => 'COMMON QUESTIONS' ),
+            array( 'key' => 'field_dp_contact_faq_title', 'label' => 'Section Title', 'name' => 'contact_faq_title', 'type' => 'text', 'default_value' => 'Frequently Asked Questions' ),
             array(
                 'key'          => 'field_dp_contact_faqs',
                 'label'        => 'FAQs',
@@ -9990,7 +9992,7 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_contact_cta_badge_1', 'label' => 'Badge 1', 'name' => 'contact_cta_badge_1', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
             array( 'key' => 'field_dp_contact_cta_badge_2', 'label' => 'Badge 2', 'name' => 'contact_cta_badge_2', 'type' => 'text', 'default_value' => 'Same-Day Appointments' ),
             array( 'key' => 'field_dp_contact_cta_badge_3', 'label' => 'Badge 3', 'name' => 'contact_cta_badge_3', 'type' => 'text', 'default_value' => 'Free Parking' ),
-            array( 'key' => 'field_dp_contact_cta_title', 'label' => 'Title', 'name' => 'contact_cta_title', 'type' => 'text', 'default_value' => 'Ready to Visit Denton Pharmacy?' ),
+            array( 'key' => 'field_dp_contact_cta_title', 'label' => 'Title', 'name' => 'contact_cta_title', 'type' => 'text', 'default_value' => '' ),
             array( 'key' => 'field_dp_contact_cta_desc', 'label' => 'Description', 'name' => 'contact_cta_description', 'type' => 'textarea', 'rows' => 2 ),
             array( 'key' => 'field_dp_contact_cta_url', 'label' => 'CTA URL', 'name' => 'contact_cta_url', 'type' => 'url' ),
             array( 'key' => 'field_dp_contact_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'contact_cta_button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),

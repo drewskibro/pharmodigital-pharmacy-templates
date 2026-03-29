@@ -146,9 +146,9 @@ $parking        = dp_option( 'pharmacy_parking', 'Free customer parking availabl
     <div class="contact-faq-header">
       <div class="section-badge">
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        <span class="section-badge-text">COMMON QUESTIONS</span>
+        <span class="section-badge-text"><?php echo esc_html( dp_field( 'contact_faq_badge', 'COMMON QUESTIONS' ) ); ?></span>
       </div>
-      <h2 class="contact-faq-title">Frequently Asked Questions</h2>
+      <h2 class="contact-faq-title"><?php echo esc_html( dp_field( 'contact_faq_title', 'Frequently Asked Questions' ) ); ?></h2>
     </div>
 
     <div class="contact-faq-list">
@@ -192,13 +192,13 @@ $parking        = dp_option( 'pharmacy_parking', 'Free customer parking availabl
             <span class="contact-faq-toggle"><i class="fas fa-plus"></i></span>
           </button>
           <div class="contact-faq-answer">
-            <p><?php echo esc_html( $parking ); ?> We're also easily accessible by public transport, with bus stops nearby on Ashton Road.</p>
+            <p><?php echo esc_html( $parking ); ?> We're also easily accessible by public transport, with bus stops nearby on <?php echo esc_html( $addr_line_1 ); ?>.</p>
           </div>
         </div>
         <div class="contact-faq-item">
           <button class="contact-faq-question" onclick="toggleContactFAQ(this)" aria-expanded="false">
             <span class="contact-faq-number">4</span>
-            <span class="contact-faq-question-text">How do I switch my prescriptions to Denton Pharmacy?</span>
+            <span class="contact-faq-question-text">How do I switch my prescriptions to <?php echo esc_html( dp_pharmacy_name() ); ?>?</span>
             <span class="contact-faq-toggle"><i class="fas fa-plus"></i></span>
           </button>
           <div class="contact-faq-answer">
@@ -226,7 +226,7 @@ $parking        = dp_option( 'pharmacy_parking', 'Free customer parking availabl
         <span class="contact-cta-badge"><?php echo esc_html( dp_field( 'contact_cta_badge_3', 'Free Parking' ) ); ?></span>
       </div>
 
-      <h2 class="contact-cta-title"><?php echo esc_html( dp_field( 'contact_cta_title', 'Ready to Visit Denton Pharmacy?' ) ); ?></h2>
+      <h2 class="contact-cta-title"><?php echo esc_html( dp_field( 'contact_cta_title', 'Ready to Visit ' . dp_pharmacy_name() . '?' ) ); ?></h2>
       <p class="contact-cta-description"><?php echo esc_html( dp_field( 'contact_cta_description', 'Whether you need expert health advice, a prescription, or a private consultation, our team is ready to help. Book online or pop into the pharmacy today.' ) ); ?></p>
 
       <div class="contact-cta-actions">
@@ -243,7 +243,7 @@ $parking        = dp_option( 'pharmacy_parking', 'Free customer parking availabl
       <div class="contact-cta-trust-row">
         <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_1', 'No referral needed' ) ); ?></span></div>
         <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_2', 'Expert guidance' ) ); ?></span></div>
-        <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_3', '15+ years serving Denton' ) ); ?></span></div>
+        <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_3', '15+ years serving ' . dp_option( 'pharmacy_town', 'Denton' ) ) ); ?></span></div>
       </div>
     </div>
   </div>
