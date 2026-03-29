@@ -29,14 +29,24 @@ $read_time  = max( 1, ceil( $word_count / 250 ) );
 
 // Author info.
 $author_name   = get_the_author();
+if ( empty( $author_name ) ) {
+    $author_name = dp_option( 'pharmacist_name', 'Ahmed Al-Liabi' );
+}
 $author_role   = dp_option( 'default_author_role', 'Lead Pharmacist' );
 $author_avatar = '';
 $author_id     = get_the_author_meta( 'ID' );
 
+// Fallback chain: per-post ACF → per-user ACF → global pharmacist image → Gravatar
 if ( function_exists( 'get_field' ) ) {
     $acf_avatar = get_field( 'author_avatar', 'user_' . $author_id );
     if ( $acf_avatar ) {
         $author_avatar = is_array( $acf_avatar ) ? $acf_avatar['url'] : wp_get_attachment_image_url( $acf_avatar, 'thumbnail' );
+    }
+}
+if ( empty( $author_avatar ) ) {
+    $pharmacist_img_id = dp_option( 'pharmacist_image' );
+    if ( $pharmacist_img_id ) {
+        $author_avatar = wp_get_attachment_image_url( $pharmacist_img_id, 'thumbnail' );
     }
 }
 if ( empty( $author_avatar ) ) {
