@@ -13,25 +13,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- NHS accent strip ---
-$default_nhs_pills = array(
-    array( 'icon' => 'fa-hand-holding-medical', 'text' => 'Pharmacy First' ),
-    array( 'icon' => 'fa-pills',                'text' => 'Free NHS Prescriptions' ),
-    array( 'icon' => 'fa-syringe',              'text' => 'NHS Flu Jabs' ),
-);
+$nhs_label = dp_field( 'hero_nhs_label', '' );
 
 $nhs_pills = array();
 if ( function_exists( 'have_rows' ) && have_rows( 'hero_nhs_pills' ) ) {
     while ( have_rows( 'hero_nhs_pills' ) ) {
         the_row();
-        $nhs_pills[] = array(
-            'icon' => get_sub_field( 'pill_icon' ) ?: 'fa-check',
-            'text' => get_sub_field( 'pill_text' ) ?: '',
-        );
+        $pill_text = get_sub_field( 'pill_text' );
+        if ( $pill_text ) {
+            $nhs_pills[] = array(
+                'icon' => get_sub_field( 'pill_icon' ) ?: 'fa-check',
+                'text' => $pill_text,
+            );
+        }
     }
-}
-
-if ( empty( $nhs_pills ) ) {
-    $nhs_pills = $default_nhs_pills;
 }
 
 // --- Headline (allows <br>, <em>, <span> for styling) ---
@@ -94,11 +89,14 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
             <div class="hero-content">
 
                 <!-- NHS accent strip -->
+                <?php if ( $nhs_label || ! empty( $nhs_pills ) ) : ?>
                 <div class="hero-nhs-strip hero-stagger hero-stagger-1">
+                    <?php if ( $nhs_label ) : ?>
                     <span class="hero-nhs-label">
                         <i class="fas fa-plus"></i>
-                        NHS
+                        <?php echo esc_html( $nhs_label ); ?>
                     </span>
+                    <?php endif; ?>
                     <?php foreach ( $nhs_pills as $pill ) :
                         $pill_icon = dp_fa_class( $pill['icon'] );
                     ?>
@@ -108,6 +106,7 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                         </span>
                     <?php endforeach; ?>
                 </div>
+                <?php endif; ?>
 
                 <?php
                 // --- Headline: 3 lines with rotating middle ---

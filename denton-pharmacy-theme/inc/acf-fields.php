@@ -778,6 +778,14 @@ function dp_register_acf_field_groups() {
                 ),
             ),
             array(
+                'key'           => 'field_dp_hero_nhs_label',
+                'label'         => 'NHS Strip Label',
+                'name'          => 'hero_nhs_label',
+                'type'          => 'text',
+                'instructions'  => 'Label shown at the start of the NHS pill strip (e.g. "NHS"). Leave blank to hide it.',
+                'default_value' => '',
+            ),
+            array(
                 'key'          => 'field_dp_hero_nhs_pills',
                 'label'        => 'Hero NHS Pills',
                 'name'         => 'hero_nhs_pills',
