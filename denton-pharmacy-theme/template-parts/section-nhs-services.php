@@ -73,6 +73,12 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
             get_sub_field( 'card_item_2' ),
             get_sub_field( 'card_item_3' ),
         ) );
+
+        $link = get_sub_field( 'card_link' );
+        $btn_text   = ( is_array( $link ) && ! empty( $link['title'] ) )  ? $link['title']  : 'Learn More';
+        $btn_url    = ( is_array( $link ) && ! empty( $link['url'] ) )    ? $link['url']    : home_url( '/book-appointment/' );
+        $btn_target = ( is_array( $link ) && ! empty( $link['target'] ) ) ? $link['target'] : '';
+
         $cards[] = array(
             'colour' => get_sub_field( 'card_colour' ) ?: 'blue',
             'icon'   => get_sub_field( 'card_icon' )   ?: 'prescription',
@@ -80,8 +86,9 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
             'title'  => get_sub_field( 'card_title' )   ?: '',
             'desc'   => get_sub_field( 'card_desc' )    ?: '',
             'items'  => $items,
-            'btn'    => get_sub_field( 'card_btn' )     ?: 'Learn More',
-            'url'    => get_sub_field( 'card_url' )     ?: home_url( '/book-appointment/' ),
+            'btn'    => $btn_text,
+            'url'    => $btn_url,
+            'target' => $btn_target,
         );
     }
 }
@@ -216,7 +223,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                         <?php endif; ?>
 
                         <!-- Button -->
-                        <a href="<?php echo esc_url( $card['url'] ); ?>" class="nhs-card-btn">
+                        <a href="<?php echo esc_url( $card['url'] ); ?>" class="nhs-card-btn"<?php echo ! empty( $card['target'] ) ? ' target="' . esc_attr( $card['target'] ) . '" rel="noopener"' : ''; ?>>
                             <?php echo esc_html( $card['btn'] ); ?>
                         </a>
 
