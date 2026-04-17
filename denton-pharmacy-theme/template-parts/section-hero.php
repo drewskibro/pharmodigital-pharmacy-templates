@@ -13,8 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- NHS accent strip ---
-$nhs_label = dp_field( 'hero_nhs_label', '' );
-
 $nhs_pills = array();
 if ( function_exists( 'have_rows' ) && have_rows( 'hero_nhs_pills' ) ) {
     while ( have_rows( 'hero_nhs_pills' ) ) {
@@ -89,14 +87,8 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
             <div class="hero-content">
 
                 <!-- NHS accent strip -->
-                <?php if ( $nhs_label || ! empty( $nhs_pills ) ) : ?>
+                <?php if ( ! empty( $nhs_pills ) ) : ?>
                 <div class="hero-nhs-strip hero-stagger hero-stagger-1">
-                    <?php if ( $nhs_label ) : ?>
-                    <span class="hero-nhs-label">
-                        <i class="fas fa-plus"></i>
-                        <?php echo esc_html( $nhs_label ); ?>
-                    </span>
-                    <?php endif; ?>
                     <?php foreach ( $nhs_pills as $pill ) :
                         $pill_icon = dp_fa_class( $pill['icon'] );
                     ?>
