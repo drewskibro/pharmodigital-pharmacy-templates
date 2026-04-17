@@ -519,6 +519,20 @@
   z-index: 100;
 }
 
+/* Nav dropdowns use the UI font (DM Sans), not the editorial heading font */
+.denton-dropdown,
+.denton-dropdown h1,
+.denton-dropdown h2,
+.denton-dropdown h3,
+.denton-dropdown h4,
+.denton-dropdown h5,
+.denton-dropdown h6,
+.denton-dropdown p,
+.denton-dropdown a,
+.denton-dropdown span {
+  font-family: 'DM Sans', sans-serif;
+}
+
 .denton-dropdown.wide {
   width: 44rem;
   display: flex;

@@ -93,7 +93,7 @@ function denton_pharmacy_scripts() {
         'denton-nav',
         DENTON_PHARMACY_URI . '/assets/css/denton-nav.css',
         array( 'denton-globals' ),
-        DENTON_PHARMACY_VERSION
+        filemtime( DENTON_PHARMACY_DIR . '/assets/css/denton-nav.css' )
     );
 
     // Theme stylesheet (style.css - mostly metadata)
