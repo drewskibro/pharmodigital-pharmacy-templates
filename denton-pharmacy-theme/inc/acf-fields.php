@@ -1090,6 +1090,16 @@ function dp_register_acf_field_groups() {
         'title'    => 'Home — NHS Services',
         'fields'   => array(
             array(
+                'key'           => 'field_dp_nhs_show_badge',
+                'label'         => 'Show Section Badge',
+                'name'          => 'nhs_show_badge',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+                'ui_on_text'    => 'Show',
+                'ui_off_text'   => 'Hide',
+            ),
+            array(
                 'key'           => 'field_dp_nhs_badge_text',
                 'label'         => 'Section Badge',
                 'name'          => 'nhs_badge_text',
