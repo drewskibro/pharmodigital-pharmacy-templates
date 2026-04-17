@@ -322,6 +322,14 @@ function dp_register_acf_field_groups() {
                 'default_value' => '1033447',
             ),
             array(
+                'key'           => 'field_dp_compliance_gphc_url',
+                'label'         => 'GPhC Register URL',
+                'name'          => 'gphc_register_url',
+                'type'          => 'url',
+                'instructions'  => 'URL to the GPhC register (opens in new tab from footer).',
+                'default_value' => 'https://www.pharmacyregulation.org/registers/pharmacist',
+            ),
+            array(
                 'key'           => 'field_dp_compliance_company_reg',
                 'label'         => 'Company Registration',
                 'name'          => 'company_registration',

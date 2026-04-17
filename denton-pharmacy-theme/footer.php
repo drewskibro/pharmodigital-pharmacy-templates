@@ -34,9 +34,10 @@ $twitter_url   = dp_option( 'social_twitter', 'https://twitter.com' );
 $linkedin_url  = dp_option( 'social_linkedin', 'https://linkedin.com' );
 
 // Registration.
-$gphc_number = dp_option( 'gphc_registration', '1033447' );
-$company_reg = dp_option( 'company_registration', '14519140' );
-$established = dp_option( 'established_year', '2009' );
+$gphc_number     = dp_option( 'gphc_registration', '1033447' );
+$gphc_register_url = dp_option( 'gphc_register_url', 'https://www.pharmacyregulation.org/registers/pharmacist' );
+$company_reg     = dp_option( 'company_registration', '14519140' );
+$established     = dp_option( 'established_year', '2009' );
 
 $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and wellness across Denton, Manchester, and beyond.' );
 ?>
@@ -156,7 +157,7 @@ $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and well
 
       <!-- Certifications bar -->
       <div class="footer-certifications">
-        <div class="footer-cert-item">
+        <a href="<?php echo esc_url( $gphc_register_url ); ?>" class="footer-cert-item footer-cert-link" target="_blank" rel="noopener" title="Verify on the GPhC register">
           <div class="footer-cert-icon">
             <i class="fas fa-shield-halved"></i>
           </div>
@@ -164,7 +165,7 @@ $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and well
             <span class="footer-cert-label">GPhC Registered</span>
             <span class="footer-cert-number"><?php echo esc_html( $gphc_number ); ?></span>
           </div>
-        </div>
+        </a>
         <div class="footer-cert-divider"></div>
         <div class="footer-cert-item">
           <div class="footer-cert-icon">

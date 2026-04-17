@@ -4419,6 +4419,17 @@ html {
   gap: 0.75rem;
 }
 
+a.footer-cert-link {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+a.footer-cert-link:hover {
+  opacity: 0.75;
+  transform: translateY(-1px);
+}
+
 .footer-cert-icon {
   font-size: 1.5rem;
   color: #16a34a;
