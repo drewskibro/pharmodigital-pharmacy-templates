@@ -38,11 +38,16 @@ $title = dp_field( 'hero_title', 'Lose Weight. <br><em class="hero-accent-text">
 // --- Description ---
 $description = dp_field( 'hero_description', 'Expert pharmacy services from your local Denton team. Clinically-led weight loss, travel vaccinations, and NHS care — with free delivery across Manchester.' );
 
-// --- CTAs ---
-$cta_primary_text   = dp_field( 'hero_cta_primary_text', 'Start Your Weight Loss Journey' );
-$cta_primary_url    = dp_field( 'hero_cta_primary_url' ) ?: dp_booking_url();
-$cta_secondary_text = dp_field( 'hero_cta_secondary_text', 'Travel Clinic' );
-$cta_secondary_url  = dp_field( 'hero_cta_secondary_url' ) ?: '#treatments';
+// --- CTAs (ACF link field: array with url, title, target) ---
+$cta_primary        = dp_field( 'hero_cta_primary' );
+$cta_primary_text   = ( is_array( $cta_primary ) && ! empty( $cta_primary['title'] ) ) ? $cta_primary['title'] : 'Start Your Weight Loss Journey';
+$cta_primary_url    = ( is_array( $cta_primary ) && ! empty( $cta_primary['url'] ) ) ? $cta_primary['url'] : dp_booking_url();
+$cta_primary_target = ( is_array( $cta_primary ) && ! empty( $cta_primary['target'] ) ) ? $cta_primary['target'] : '';
+
+$cta_secondary        = dp_field( 'hero_cta_secondary' );
+$cta_secondary_text   = ( is_array( $cta_secondary ) && ! empty( $cta_secondary['title'] ) ) ? $cta_secondary['title'] : 'Travel Clinic';
+$cta_secondary_url    = ( is_array( $cta_secondary ) && ! empty( $cta_secondary['url'] ) ) ? $cta_secondary['url'] : '#treatments';
+$cta_secondary_target = ( is_array( $cta_secondary ) && ! empty( $cta_secondary['target'] ) ) ? $cta_secondary['target'] : '';
 
 // --- Trust indicators ---
 $trust_indicators = dp_field( 'hero_trust_indicators' );
@@ -140,11 +145,11 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
 
                 <!-- CTAs -->
                 <div class="hero-actions hero-stagger hero-stagger-6">
-                    <a href="<?php echo esc_url( $cta_primary_url ); ?>" class="cta-button primary-cta">
+                    <a href="<?php echo esc_url( $cta_primary_url ); ?>" class="cta-button primary-cta"<?php echo $cta_primary_target ? ' target="' . esc_attr( $cta_primary_target ) . '" rel="noopener"' : ''; ?>>
                         <?php echo esc_html( $cta_primary_text ); ?>
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="<?php echo esc_url( $cta_secondary_url ); ?>" class="cta-button secondary-cta">
+                    <a href="<?php echo esc_url( $cta_secondary_url ); ?>" class="cta-button secondary-cta"<?php echo $cta_secondary_target ? ' target="' . esc_attr( $cta_secondary_target ) . '" rel="noopener"' : ''; ?>>
                         <?php echo esc_html( $cta_secondary_text ); ?>
                         <i class="fas fa-plane"></i>
                     </a>
