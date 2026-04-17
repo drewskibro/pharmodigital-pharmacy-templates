@@ -165,6 +165,19 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                                     </svg>
                                     <?php
                                     break;
+                                case 'blister':
+                                    ?>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                                        <circle cx="8" cy="9" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="12" cy="9" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="16" cy="9" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="8" cy="15" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="12" cy="15" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="16" cy="15" r="1.5" fill="currentColor"></circle>
+                                    </svg>
+                                    <?php
+                                    break;
                                 default:
                                     ?>
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">

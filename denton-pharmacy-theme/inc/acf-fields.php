@@ -1159,6 +1159,7 @@ function dp_register_acf_field_groups() {
                             'pharmacyfirst' => 'Pharmacy First',
                             'newmedicine'   => 'New Medicine',
                             'flu'           => 'Flu',
+                            'blister'       => 'Blister Pack',
                         ),
                         'default_value' => 'prescription',
                         'wrapper'       => array( 'width' => '50' ),
