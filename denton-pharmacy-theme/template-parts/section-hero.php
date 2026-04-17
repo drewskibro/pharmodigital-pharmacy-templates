@@ -39,10 +39,10 @@ $title = dp_field( 'hero_title', 'Lose Weight. <br><em class="hero-accent-text">
 $description = dp_field( 'hero_description', 'Expert pharmacy services from your local Denton team. Clinically-led weight loss, travel vaccinations, and NHS care — with free delivery across Manchester.' );
 
 // --- CTAs ---
-$cta_primary_text   = dp_field( 'hero_cta_primary_text', 'Start Your Journey' );
-$cta_primary_url    = dp_booking_url();
-$cta_secondary_text = dp_field( 'hero_cta_secondary_text', 'Popular Treatments' );
-$cta_secondary_url  = '#treatments';
+$cta_primary_text   = dp_field( 'hero_cta_primary_text', 'Start Your Weight Loss Journey' );
+$cta_primary_url    = dp_field( 'hero_cta_primary_url' ) ?: dp_booking_url();
+$cta_secondary_text = dp_field( 'hero_cta_secondary_text', 'Travel Clinic' );
+$cta_secondary_url  = dp_field( 'hero_cta_secondary_url' ) ?: '#treatments';
 
 // --- Trust indicators ---
 $trust_indicators = dp_field( 'hero_trust_indicators' );
@@ -146,7 +146,7 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                     </a>
                     <a href="<?php echo esc_url( $cta_secondary_url ); ?>" class="cta-button secondary-cta">
                         <?php echo esc_html( $cta_secondary_text ); ?>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-plane"></i>
                     </a>
                 </div>
 
