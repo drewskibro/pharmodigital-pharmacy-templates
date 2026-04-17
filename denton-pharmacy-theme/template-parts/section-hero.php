@@ -110,8 +110,7 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                 $hero_line_1 = dp_field( 'hero_title_line_1', 'Lose Weight.' );
                 $hero_line_3 = dp_field( 'hero_title_line_3', 'Get NHS Care.' );
 
-                // Rotating phrases for line 2 (ACF repeater or defaults)
-                $default_rotate_phrases = array( 'Travel Safe.', 'Feel Great.', 'Live Better.' );
+                // Rotating phrases for line 2 (ACF repeater, seeded in DB)
                 $rotate_phrases = array();
                 if ( function_exists( 'have_rows' ) && have_rows( 'hero_rotate_phrases' ) ) {
                     while ( have_rows( 'hero_rotate_phrases' ) ) {
@@ -121,9 +120,6 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                             $rotate_phrases[] = $phrase;
                         }
                     }
-                }
-                if ( empty( $rotate_phrases ) ) {
-                    $rotate_phrases = $default_rotate_phrases;
                 }
                 ?>
 
