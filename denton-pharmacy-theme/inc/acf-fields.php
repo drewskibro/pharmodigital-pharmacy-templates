@@ -9577,6 +9577,107 @@ function dp_register_acf_field_groups() {
     ) );
 
     // =========================================================================
+    // N.2 NHS PRESCRIPTIONS PAGE FIELDS
+    // All fields intentionally have NO default_value — content is seeded in DB.
+    // =========================================================================
+    $np_location = array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-nhs-prescriptions.php' ) ) );
+
+    // Hero
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_np_hero',
+        'title'  => 'NHS Prescriptions — Hero',
+        'fields' => array(
+            array( 'key' => 'field_dp_np_hero_badge', 'label' => 'Badge Text', 'name' => 'np_hero_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_title_accent', 'label' => 'Title (Gradient)', 'name' => 'np_hero_title_accent', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_title_rest', 'label' => 'Title (Rest)', 'name' => 'np_hero_title_rest', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_description', 'label' => 'Description', 'name' => 'np_hero_description', 'type' => 'textarea', 'rows' => 3 ),
+            array( 'key' => 'field_dp_np_hero_cta_primary', 'label' => 'Primary CTA', 'name' => 'np_hero_cta_primary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_np_hero_cta_secondary', 'label' => 'Secondary CTA', 'name' => 'np_hero_cta_secondary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_np_hero_trust_pills', 'label' => 'Trust Pills', 'name' => 'np_hero_trust_pills', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add Pill', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_hero_trust_pill_icon', 'label' => 'Icon (FA class)', 'name' => 'icon', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_hero_trust_pill_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+            ) ),
+            array( 'key' => 'field_dp_np_hero_card_label', 'label' => 'Info Card — Label', 'name' => 'np_hero_card_label', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_card_price', 'label' => 'Info Card — Price/Amount', 'name' => 'np_hero_card_price', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_card_sub', 'label' => 'Info Card — Sub-text', 'name' => 'np_hero_card_sub', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_card_checks', 'label' => 'Info Card — Check Items', 'name' => 'np_hero_card_checks', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add Check', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_hero_card_check_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+            ) ),
+        ),
+        'location' => $np_location,
+        'menu_order' => 2400, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // Eligibility Grid
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_np_elig',
+        'title'  => 'NHS Prescriptions — Who\'s Eligible',
+        'fields' => array(
+            array( 'key' => 'field_dp_np_elig_badge', 'label' => 'Badge Text', 'name' => 'np_elig_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_elig_title', 'label' => 'Section Title', 'name' => 'np_elig_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_elig_description', 'label' => 'Description', 'name' => 'np_elig_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_np_elig_items', 'label' => 'Eligibility Items', 'name' => 'np_elig_items', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add Item', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_elig_item_icon', 'label' => 'Icon (FA class)', 'name' => 'icon', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_elig_item_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_elig_item_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+            ) ),
+        ),
+        'location' => $np_location,
+        'menu_order' => 2401, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // Process Steps
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_np_process',
+        'title'  => 'NHS Prescriptions — How It Works',
+        'fields' => array(
+            array( 'key' => 'field_dp_np_process_badge', 'label' => 'Badge Text', 'name' => 'np_process_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_process_title', 'label' => 'Section Title', 'name' => 'np_process_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_process_description', 'label' => 'Description', 'name' => 'np_process_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_np_process_steps', 'label' => 'Steps', 'name' => 'np_process_steps', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add Step', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_process_step_icon', 'label' => 'Icon (FA class)', 'name' => 'icon', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_process_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_process_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+            ) ),
+        ),
+        'location' => $np_location,
+        'menu_order' => 2402, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // FAQ
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_np_faq',
+        'title'  => 'NHS Prescriptions — FAQ',
+        'fields' => array(
+            array( 'key' => 'field_dp_np_faq_badge', 'label' => 'Badge Text', 'name' => 'np_faq_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_faq_title', 'label' => 'Section Title', 'name' => 'np_faq_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_faqs', 'label' => 'FAQs', 'name' => 'np_faqs', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add FAQ', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+            ) ),
+        ),
+        'location' => $np_location,
+        'menu_order' => 2403, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // Final CTA
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_np_cta',
+        'title'  => 'NHS Prescriptions — Final CTA',
+        'fields' => array(
+            array( 'key' => 'field_dp_np_cta_title', 'label' => 'Title', 'name' => 'np_cta_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_cta_description', 'label' => 'Description', 'name' => 'np_cta_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_np_cta_primary', 'label' => 'Primary CTA', 'name' => 'np_cta_primary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_np_cta_secondary', 'label' => 'Secondary CTA', 'name' => 'np_cta_secondary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_np_cta_badges', 'label' => 'Trust Badges', 'name' => 'np_cta_badges', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add Badge', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_cta_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+            ) ),
+        ),
+        'location' => $np_location,
+        'menu_order' => 2404, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // =========================================================================
     // O. BLOOD TESTING PAGE FIELDS
     // =========================================================================
 

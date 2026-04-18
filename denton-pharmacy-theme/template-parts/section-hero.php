@@ -27,14 +27,6 @@ if ( function_exists( 'have_rows' ) && have_rows( 'hero_nhs_pills' ) ) {
     }
 }
 
-// --- Headline (allows <br>, <em>, <span> for styling) ---
-$allowed_title_tags = array(
-    'br'   => array(),
-    'em'   => array( 'class' => array() ),
-    'span' => array( 'class' => array() ),
-);
-$title = dp_field( 'hero_title', 'Lose Weight. <br><em class="hero-accent-text">Travel Safe.</em><br>Get NHS Care.' );
-
 // --- Description ---
 $description = dp_field( 'hero_description', 'Expert pharmacy services from your local Denton team. Clinically-led weight loss, travel vaccinations, and NHS care — with free delivery across Manchester.' );
 
