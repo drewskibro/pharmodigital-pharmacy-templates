@@ -146,7 +146,10 @@ $show_hero = $hero_badge || $hero_title_accent || $hero_title_rest || $hero_desc
                             <?php endforeach; ?>
                         </ul>
                         <?php endif; ?>
-                        <?php $gphc_url = dp_option( 'gphc_register_url', 'https://www.pharmacyregulation.org/registers/pharmacist' ); ?>
+                        <?php
+                        $gphc_num = dp_option( 'gphc_registration', '1033447' );
+                        $gphc_url = dp_option( 'gphc_register_url' ) ?: 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_num;
+                        ?>
                         <a href="<?php echo esc_url( $gphc_url ); ?>" class="npres-trust-card-footer" target="_blank" rel="noopener" title="Verify on the GPhC register">
                             <i class="fas fa-shield-halved"></i>
                             <span>GPhC Registered Pharmacy</span>

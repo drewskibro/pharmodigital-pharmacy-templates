@@ -34,10 +34,10 @@ $twitter_url   = dp_option( 'social_twitter', 'https://twitter.com' );
 $linkedin_url  = dp_option( 'social_linkedin', 'https://linkedin.com' );
 
 // Registration.
-$gphc_number     = dp_option( 'gphc_registration', '1033447' );
-$gphc_register_url = dp_option( 'gphc_register_url', 'https://www.pharmacyregulation.org/registers/pharmacist' );
-$company_reg     = dp_option( 'company_registration', '14519140' );
-$established     = dp_option( 'established_year', '2009' );
+$gphc_number       = dp_option( 'gphc_registration', '1033447' );
+$gphc_register_url = dp_option( 'gphc_register_url' ) ?: 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_number;
+$company_reg       = dp_option( 'company_registration', '14519140' );
+$established       = dp_option( 'established_year', '2009' );
 
 $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and wellness across Denton, Manchester, and beyond.' );
 ?>

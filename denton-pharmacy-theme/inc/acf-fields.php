@@ -323,11 +323,10 @@ function dp_register_acf_field_groups() {
             ),
             array(
                 'key'           => 'field_dp_compliance_gphc_url',
-                'label'         => 'GPhC Register URL',
+                'label'         => 'GPhC Register URL (override)',
                 'name'          => 'gphc_register_url',
                 'type'          => 'url',
-                'instructions'  => 'URL to the GPhC register (opens in new tab from footer).',
-                'default_value' => 'https://www.pharmacyregulation.org/registers/pharmacist',
+                'instructions'  => 'Leave blank to auto-build from the pharmacy number above. Only fill in if you need to override the default.',
             ),
             array(
                 'key'           => 'field_dp_compliance_company_reg',
