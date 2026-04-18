@@ -475,6 +475,15 @@ html {
   transform: translateY(-1px);
 }
 
+a.hero-nhs-pill {
+  text-decoration: none;
+  color: #005EB8;
+}
+
+a.hero-nhs-pill:hover {
+  color: #005EB8;
+}
+
 .hero-nhs-pill i {
   font-size: 0.625rem;
   opacity: 0.8;

@@ -17,11 +17,16 @@ $nhs_pills = array();
 if ( function_exists( 'have_rows' ) && have_rows( 'hero_nhs_pills' ) ) {
     while ( have_rows( 'hero_nhs_pills' ) ) {
         the_row();
-        $pill_text = get_sub_field( 'pill_text' );
-        if ( $pill_text ) {
+        $link = get_sub_field( 'pill_link' );
+        $text   = ( is_array( $link ) && ! empty( $link['title'] ) )  ? $link['title']  : '';
+        $url    = ( is_array( $link ) && ! empty( $link['url'] ) )    ? $link['url']    : '';
+        $target = ( is_array( $link ) && ! empty( $link['target'] ) ) ? $link['target'] : '';
+        if ( $text ) {
             $nhs_pills[] = array(
-                'icon' => get_sub_field( 'pill_icon' ) ?: 'fa-check',
-                'text' => $pill_text,
+                'icon'   => get_sub_field( 'pill_icon' ) ?: 'fa-check',
+                'text'   => $text,
+                'url'    => $url,
+                'target' => $target,
             );
         }
     }
@@ -88,11 +93,19 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                 <div class="hero-nhs-strip hero-stagger hero-stagger-1">
                     <?php foreach ( $nhs_pills as $pill ) :
                         $pill_icon = dp_fa_class( $pill['icon'] );
+                        $pill_tag  = ! empty( $pill['url'] ) ? 'a' : 'span';
                     ?>
-                        <span class="hero-nhs-pill">
+                        <<?php echo $pill_tag; ?> class="hero-nhs-pill<?php echo ! empty( $pill['url'] ) ? ' hero-nhs-pill--link' : ''; ?>"<?php
+                            if ( ! empty( $pill['url'] ) ) {
+                                echo ' href="' . esc_url( $pill['url'] ) . '"';
+                                if ( ! empty( $pill['target'] ) ) {
+                                    echo ' target="' . esc_attr( $pill['target'] ) . '" rel="noopener"';
+                                }
+                            }
+                        ?>>
                             <i class="fas <?php echo esc_attr( $pill_icon ); ?>"></i>
                             <?php echo esc_html( $pill['text'] ); ?>
-                        </span>
+                        </<?php echo $pill_tag; ?>>
                     <?php endforeach; ?>
                 </div>
                 <?php endif; ?>

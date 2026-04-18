@@ -796,7 +796,7 @@ function dp_register_acf_field_groups() {
                 'instructions' => 'NHS accent strip pills shown above the hero headline.',
                 'sub_fields'   => array(
                     array( 'key' => 'field_dp_hero_nhs_pill_icon', 'label' => 'Icon', 'name' => 'pill_icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-heart' ),
-                    array( 'key' => 'field_dp_hero_nhs_pill_text', 'label' => 'Text', 'name' => 'pill_text', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_hero_nhs_pill_link', 'label' => 'Link', 'name' => 'pill_link', 'type' => 'link', 'return_format' => 'array', 'instructions' => 'Pill label + URL + target. Leave URL blank to render as a non-clickable badge.' ),
                 ),
             ),
             array(
