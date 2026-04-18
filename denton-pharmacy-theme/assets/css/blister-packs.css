@@ -1,0 +1,1185 @@
+/* ============================================
+   PHARMACY FIRST PAGE STYLES — Denton Pharmacy
+   Uses bpack- prefix
+   Pattern A Light hero with rotated image card
+   ============================================ */
+
+
+/* ============================================
+   N1. HERO — Pattern A Light
+   ============================================ */
+.bpack-hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 3rem 0 40px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, var(--brand-light), var(--white));
+}
+
+@media (min-width: 1024px) {
+  .bpack-hero-section {
+    padding: 1rem 0 3rem;
+    min-height: auto;
+  }
+}
+
+.bpack-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(63, 115, 174, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bpack-hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bpack-hero-glow-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: rgba(63, 115, 174, 0.08);
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.bpack-hero-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: rgba(121, 188, 46, 0.06);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  animation: float 10s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+.bpack-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .bpack-hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Left Content */
+.bpack-hero-content {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .bpack-hero-content {
+    text-align: left;
+  }
+}
+
+.bpack-hero-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .bpack-hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bpack-hero-title {
+    font-size: 4rem;
+  }
+}
+
+.bpack-hero-description {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .bpack-hero-description {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .bpack-hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.bpack-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .bpack-hero-actions {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1023px) {
+  .bpack-hero-actions {
+    justify-content: center;
+  }
+}
+
+/* (trust-row removed — badge moved to hero-visual) */
+
+.bpack-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .bpack-hero-trust {
+    justify-content: flex-start;
+  }
+}
+
+.bpack-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bpack-hero-trust-item i {
+  color: var(--brand-primary);
+  font-size: 1.125rem;
+}
+
+.bpack-hero-trust-item span {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-slate);
+}
+
+/* Right Visual — NHS Trust Card */
+.bpack-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bpack-trust-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
+  box-shadow: 0 30px 80px rgba(42, 80, 122, 0.3);
+  transform: rotate(-1.5deg);
+  transition: transform 0.5s ease;
+}
+
+.bpack-trust-card:hover {
+  transform: rotate(0deg);
+}
+
+.bpack-trust-card-glow {
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.bpack-trust-card-inner {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2.5rem;
+}
+
+/* Card header — icon + label */
+.bpack-trust-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.bpack-trust-card-nhs-icon {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bpack-trust-card-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* FREE block */
+.bpack-trust-card-free {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.bpack-trust-card-amount {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bpack-trust-card-sub {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Divider */
+.bpack-trust-card-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin-bottom: 1.5rem;
+}
+
+/* Trust list */
+.bpack-trust-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.bpack-trust-card-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bpack-trust-card-list li i {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  flex-shrink: 0;
+}
+
+/* Footer — GPhC */
+.bpack-trust-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.bpack-trust-card-footer i {
+  font-size: 0.875rem;
+}
+
+/* Floating condition-count badge — positioned beside trust card */
+.bpack-hero-float-badge {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 6rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  border: 1px solid rgba(63, 115, 174, 0.2);
+  animation: float 6s ease-in-out infinite;
+  z-index: 10;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .bpack-hero-float-badge {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bpack-hero-float-badge {
+    right: 0rem;
+  }
+}
+
+.bpack-hero-float-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--brand-primary);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.bpack-hero-float-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-slate);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+
+/* ============================================
+   N2. STATS BAR — Glassmorphic white
+   ============================================ */
+.bpack-stats-section {
+  position: relative;
+  z-index: 20;
+  margin-top: 0;
+  padding: 2rem 0 2rem;
+  background: transparent;
+}
+
+@media (min-width: 1024px) {
+  .bpack-stats-section {
+    margin-top: -2.5rem;
+    padding: 0 0 2rem;
+  }
+}
+
+.bpack-stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.5rem;
+  padding: 2rem 3rem;
+  box-shadow: 0 10px 40px rgba(63, 115, 174, 0.08);
+}
+
+.bpack-stat-divider {
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(to bottom, transparent, rgba(63, 115, 174, 0.2), transparent);
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .bpack-stat-divider {
+    display: block;
+  }
+}
+
+.bpack-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bpack-stat-icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--brand-primary);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bpack-stat-icon i {
+  font-size: 1.125rem;
+  color: var(--white);
+}
+
+.bpack-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.bpack-stat-number {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.bpack-stat-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+
+/* ============================================
+   N3. CONDITIONS GRID — 7-card grid
+   ============================================ */
+.bpack-conditions-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+}
+
+.bpack-conditions-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.bpack-conditions-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.bpack-conditions-description {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.bpack-conditions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .bpack-conditions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bpack-conditions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Centre the 7th card on desktop (3-col grid: row 3 has 1 orphan) */
+@media (min-width: 1024px) {
+  .bpack-condition-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
+.bpack-condition-card {
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(63, 115, 174, 0.05);
+}
+
+.bpack-condition-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.12);
+  border-color: var(--brand-primary);
+}
+
+.bpack-condition-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.15), rgba(42, 80, 122, 0.1));
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--brand-primary);
+  font-size: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.bpack-condition-card:hover .bpack-condition-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+}
+
+.bpack-condition-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.bpack-condition-desc {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.bpack-condition-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 1rem;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.bpack-condition-tag i {
+  font-size: 0.75rem;
+}
+
+
+/* ============================================
+   N4. PROCESS — 3-step cards + Eligibility
+   ============================================ */
+.bpack-process-section {
+  padding: 6rem 0;
+  background: var(--white);
+}
+
+.bpack-process-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.bpack-process-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.bpack-process-description {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+}
+
+/* Two-column layout: steps left, image right */
+.bpack-process-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .bpack-process-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.bpack-process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bpack-process-card {
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  position: relative;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.bpack-process-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(63, 115, 174, 0.08);
+  border-color: var(--brand-primary);
+}
+
+.bpack-process-card-body {
+  flex: 1;
+}
+
+.bpack-process-card-body .bpack-process-card-title {
+  text-align: left;
+  margin-top: 0;
+}
+
+.bpack-process-card-body .bpack-process-card-desc {
+  text-align: left;
+}
+
+/* Image card (right column) */
+.bpack-process-visual {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bpack-process-visual-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.12), rgba(63, 115, 174, 0.04));
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bpack-process-image-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 480px;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.2);
+  border: 6px solid var(--white);
+  z-index: 2;
+  transform: rotate(2deg);
+  transition: transform 0.7s ease-out;
+}
+
+.bpack-process-image-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.bpack-process-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.bpack-process-image-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Floating NHS badge */
+.bpack-process-float-badge {
+  position: absolute;
+  bottom: 1rem;
+  left: -1.5rem;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+  padding: 0.875rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(42, 80, 122, 0.35);
+  transition: transform 0.5s ease;
+}
+
+.bpack-process-float-badge:hover {
+  transform: translateY(-4px);
+}
+
+.bpack-process-float-badge > i {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+.bpack-process-float-badge-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.bpack-process-float-badge-label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.bpack-process-float-badge-text {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.bpack-process-card-number {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 900;
+  line-height: 1;
+  padding-bottom: 0.1em;
+  box-shadow: 0 4px 12px rgba(63, 115, 174, 0.3);
+}
+
+.bpack-process-card-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.1), rgba(42, 80, 122, 0.08));
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto 1.5rem;
+  color: var(--brand-primary);
+  font-size: 1.75rem;
+  transition: all 0.4s ease;
+}
+
+.bpack-process-card:hover .bpack-process-card-icon {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.bpack-process-card-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.bpack-process-card-desc {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+.bpack-process-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.bpack-process-card-link:hover {
+  gap: 0.625rem;
+}
+
+.bpack-process-card-link i {
+  font-size: 0.75rem;
+}
+
+/* Eligibility Info Box */
+.bpack-eligibility-box {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.06), rgba(42, 80, 122, 0.04));
+  border: 1px solid rgba(63, 115, 174, 0.15);
+  border-left: 4px solid var(--brand-primary);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 4rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bpack-eligibility-icon {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  background: var(--brand-primary);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.25rem;
+}
+
+.bpack-eligibility-content {
+  flex: 1;
+}
+
+.bpack-eligibility-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.bpack-eligibility-text {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+/* ============================================
+   N5. FAQ — Numbered accordion
+   ============================================ */
+.bpack-faq-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.bpack-faq-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: rgba(63, 115, 174, 0.04);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.bpack-faq-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.bpack-faq-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+}
+
+.bpack-faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+.bpack-faq-item {
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.bpack-faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(63, 115, 174, 0.08);
+}
+
+.bpack-faq-item.active {
+  border-color: var(--brand-primary);
+  border-left: 4px solid var(--brand-primary);
+  box-shadow: 0 8px 24px rgba(63, 115, 174, 0.1);
+}
+
+.bpack-faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.bpack-faq-number {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--brand-primary);
+  opacity: 0.4;
+}
+
+.bpack-faq-item.active .bpack-faq-number {
+  opacity: 1;
+}
+
+.bpack-faq-text {
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.bpack-faq-icon {
+  color: var(--brand-primary);
+  transition: transform 0.3s ease;
+}
+
+.bpack-faq-item.active .bpack-faq-icon {
+  transform: rotate(45deg);
+}
+
+.bpack-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.bpack-faq-item.active .bpack-faq-answer {
+  max-height: 300px;
+  padding: 0 1.5rem 1.5rem 4rem;
+}
+
+.bpack-faq-answer p {
+  color: var(--text-gray);
+  line-height: 1.7;
+}
+
+
+/* ============================================
+   N6. FINAL CTA — Deep blue gradient
+   ============================================ */
+.bpack-cta-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary)) !important;
+  padding: 6rem 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.bpack-cta-glow-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.bpack-cta-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.bpack-cta-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.bpack-cta-content {
+  position: relative;
+  z-index: 10;
+}
+
+.bpack-cta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.bpack-cta-badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bpack-cta-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.bpack-cta-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.bpack-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.bpack-cta-button-white {
+  background: var(--white) !important;
+  color: var(--brand-dark) !important;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+}
+
+.bpack-cta-button-white:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  transform: scale(1.05);
+}
+
+.bpack-cta-button-outline {
+  background: transparent !important;
+  color: var(--white) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+}
+
+.bpack-cta-button-outline:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transform: scale(1.05);
+}
+
+.bpack-cta-trust-checks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.bpack-cta-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.bpack-cta-check i {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+.bpack-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.bpack-reveal.bpack-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
