@@ -88,10 +88,11 @@ get_header();
               <li><i class="fas fa-check"></i> <span><?php echo esc_html( dp_field( 'pf_trust_2', 'No GP Appointment Needed' ) ); ?></span></li>
               <li><i class="fas fa-check"></i> <span><?php echo esc_html( dp_field( 'pf_trust_3', 'Same-Day Treatment' ) ); ?></span></li>
             </ul>
-            <div class="pharmfirst-trust-card-footer">
+            <?php $gphc_url = dp_option( 'gphc_register_url', 'https://www.pharmacyregulation.org/registers/pharmacist' ); ?>
+            <a href="<?php echo esc_url( $gphc_url ); ?>" class="pharmfirst-trust-card-footer" target="_blank" rel="noopener" title="Verify on the GPhC register">
               <i class="fas fa-shield-halved"></i>
               <span>GPhC Registered Pharmacy</span>
-            </div>
+            </a>
           </div>
         </div>
       </div>
