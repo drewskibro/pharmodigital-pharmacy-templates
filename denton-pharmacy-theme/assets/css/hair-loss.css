@@ -260,7 +260,7 @@
    ============================================ */
 .hairloss-stats-section {
   position: relative;
-  background: linear-gradient(135deg, #a39ee3, #8b85d6, #2a507a);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   padding: 2rem 0;
   overflow: hidden;
 }
