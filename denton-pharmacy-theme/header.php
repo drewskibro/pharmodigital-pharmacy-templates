@@ -50,13 +50,25 @@ $nav_th_show  = dp_option( 'nav_travel_health_show', '1' );
 $nav_th_label = dp_option( 'nav_travel_health_label', 'Travel' );
 $nav_th_url   = dp_nav_url( 'nav_travel_health_url', '/travel-health/' );
 
+$nav_bt_show  = dp_option( 'nav_blood_testing_show', '1' );
+$nav_bt_label = dp_option( 'nav_blood_testing_label', 'Blood Testing' );
+$nav_bt_url   = dp_nav_url( 'nav_blood_testing_url', '/blood-testing/' );
+
+$nav_ec_show  = dp_option( 'nav_ear_clinic_show', '1' );
+$nav_ec_label = dp_option( 'nav_ear_clinic_label', 'Ear Clinic' );
+$nav_ec_url   = dp_nav_url( 'nav_ear_clinic_url', '/ear-wax-removal/' );
+
 $nav_sv_show  = dp_option( 'nav_services_show', '1' );
-$nav_sv_label = dp_option( 'nav_services_label', 'Services' );
+$nav_sv_label = dp_option( 'nav_services_label', 'NHS Services' );
 $nav_sv_url   = dp_nav_url( 'nav_services_url', '/nhs-services/' );
 
 $nav_hh_show  = dp_option( 'nav_hub_show', '1' );
 $nav_hh_label = dp_option( 'nav_hub_label', 'Hub' );
 $nav_hh_url   = dp_nav_url( 'nav_hub_url', '/health-hub/' );
+
+$nav_ct_show  = dp_option( 'nav_contact_show', '1' );
+$nav_ct_label = dp_option( 'nav_contact_label', 'Contact' );
+$nav_ct_url   = dp_nav_url( 'nav_contact_url', '/contact/' );
 
 // ---------------------------------------------------------------------------
 // Dropdown sub-links — repeater rows or hardcoded defaults.
@@ -86,10 +98,9 @@ $default_th_dests = array(
     array( 'name' => 'Cape Verde', 'flag_url' => 'https://flagcdn.com/w40/cv.png', 'url' => home_url( '/travel-cape-verde/' ) ),
 );
 $default_sv_links = array(
-    array( 'label' => 'NHS Prescriptions', 'description' => 'Fast collection & delivery service',           'icon' => 'fas fa-file-medical', 'url' => home_url( '/nhs-services/' ) ),
-    array( 'label' => 'Ear Wax Removal',   'description' => 'Professional microsuction clinic',              'icon' => 'fas fa-heart',        'url' => home_url( '/ear-wax-removal/' ) ),
-    array( 'label' => 'Pharmacy First',    'description' => 'Care for 7 common conditions',                 'icon' => 'fas fa-plus-circle',  'url' => home_url( '/pharmacy-first/' ) ),
-    array( 'label' => 'Blood Testing',     'description' => 'Private health checks & diagnostic panels',    'icon' => 'fas fa-flask',        'url' => home_url( '/blood-testing/' ) ),
+    array( 'label' => 'NHS Prescriptions', 'description' => 'Free for eligible patients, fast delivery', 'icon' => 'fas fa-file-medical',         'url' => home_url( '/nhs-prescriptions/' ) ),
+    array( 'label' => 'Pharmacy First',    'description' => '7 common conditions treated free',          'icon' => 'fas fa-hand-holding-medical', 'url' => home_url( '/pharmacy-first/' ) ),
+    array( 'label' => 'Blister Packs',     'description' => 'Pre-packed medication made simple',         'icon' => 'fas fa-pills',                'url' => home_url( '/blister-packs/' ) ),
 );
 
 // Use ACF rows when available, otherwise defaults.
@@ -289,8 +300,8 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
             </button>
             <div class="denton-dropdown">
               <div class="denton-dropdown-header teal">
-                <h3>Pharmacy Services</h3>
-                <p>NHS &amp; private healthcare solutions</p>
+                <h3>NHS Services</h3>
+                <p>Free care for eligible patients</p>
               </div>
               <div class="denton-dropdown-content">
                 <?php foreach ( $sv_links as $link ) :
@@ -310,7 +321,7 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
               </div>
               <div class="denton-dropdown-footer">
                 <a href="<?php echo esc_url( $nav_sv_url ); ?>" class="denton-footer-link">
-                  View all pharmacy services
+                  View all NHS services
                   <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                 </a>
               </div>
@@ -318,10 +329,31 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
           </div>
           <?php endif; ?>
 
+          <?php // ── Blood Testing (no dropdown) ───────────────────── ?>
+          <?php if ( $nav_bt_show ) : ?>
+          <div class="denton-menu-item">
+            <a href="<?php echo esc_url( $nav_bt_url ); ?>" class="denton-menu-btn"><?php echo esc_html( $nav_bt_label ); ?></a>
+          </div>
+          <?php endif; ?>
+
+          <?php // ── Ear Clinic (no dropdown) ──────────────────────── ?>
+          <?php if ( $nav_ec_show ) : ?>
+          <div class="denton-menu-item">
+            <a href="<?php echo esc_url( $nav_ec_url ); ?>" class="denton-menu-btn"><?php echo esc_html( $nav_ec_label ); ?></a>
+          </div>
+          <?php endif; ?>
+
           <?php // ── Hub (no dropdown) ─────────────────────────────── ?>
           <?php if ( $nav_hh_show ) : ?>
           <div class="denton-menu-item">
             <a href="<?php echo esc_url( $nav_hh_url ); ?>" class="denton-menu-btn"><?php echo esc_html( $nav_hh_label ); ?></a>
+          </div>
+          <?php endif; ?>
+
+          <?php // ── Contact (no dropdown) ─────────────────────────── ?>
+          <?php if ( $nav_ct_show ) : ?>
+          <div class="denton-menu-item">
+            <a href="<?php echo esc_url( $nav_ct_url ); ?>" class="denton-menu-btn"><?php echo esc_html( $nav_ct_label ); ?></a>
           </div>
           <?php endif; ?>
 
@@ -379,7 +411,7 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
         </div>
         <?php endif; ?>
 
-        <?php // ── Services Accordion ── ?>
+        <?php // ── NHS Services Accordion ── ?>
         <?php if ( $nav_sv_show ) : ?>
         <div class="denton-mobile-accordion">
           <button class="denton-mobile-accordion-btn">
@@ -396,8 +428,20 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
         </div>
         <?php endif; ?>
 
+        <?php if ( $nav_bt_show ) : ?>
+        <a href="<?php echo esc_url( $nav_bt_url ); ?>" class="denton-mobile-link"><?php echo esc_html( $nav_bt_label ); ?></a>
+        <?php endif; ?>
+
+        <?php if ( $nav_ec_show ) : ?>
+        <a href="<?php echo esc_url( $nav_ec_url ); ?>" class="denton-mobile-link"><?php echo esc_html( $nav_ec_label ); ?></a>
+        <?php endif; ?>
+
         <?php if ( $nav_hh_show ) : ?>
         <a href="<?php echo esc_url( $nav_hh_url ); ?>" class="denton-mobile-link"><?php echo esc_html( $nav_hh_label ); ?></a>
+        <?php endif; ?>
+
+        <?php if ( $nav_ct_show ) : ?>
+        <a href="<?php echo esc_url( $nav_ct_url ); ?>" class="denton-mobile-link"><?php echo esc_html( $nav_ct_label ); ?></a>
         <?php endif; ?>
 
       </div>
