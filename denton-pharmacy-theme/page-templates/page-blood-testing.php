@@ -133,7 +133,7 @@ get_header();
 <!-- ============================================
      O3. TESTS GRID — Available blood test panels
      ============================================ -->
-<section class="bloodtest-tests-section bloodtest-reveal">
+<section class="bloodtest-tests-section">
   <div class="section-container">
     <div class="bloodtest-tests-header">
       <div class="section-badge">
