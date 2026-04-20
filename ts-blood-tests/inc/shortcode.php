@@ -61,10 +61,10 @@ function tsbt_render_shortcode( $atts ) {
 
                     <dl class="tsbt-meta">
                         <?php if ( $row['retail'] ) : ?>
-                            <div><dt>Price</dt><dd>£<?php echo esc_html( $row['retail'] ); ?></dd></div>
+                            <div><dt>Price</dt><dd><?php echo esc_html( $row['retail'] ); ?></dd></div>
                         <?php endif; ?>
                         <?php if ( $show_wholesale && $row['wholesale'] ) : ?>
-                            <div><dt>Wholesale</dt><dd>£<?php echo esc_html( $row['wholesale'] ); ?></dd></div>
+                            <div><dt>Wholesale</dt><dd><?php echo esc_html( $row['wholesale'] ); ?></dd></div>
                         <?php endif; ?>
                         <?php if ( $row['turnaround'] ) : ?>
                             <div><dt>Turnaround</dt><dd><?php echo esc_html( $row['turnaround'] ); ?></dd></div>
