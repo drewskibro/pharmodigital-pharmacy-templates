@@ -11,6 +11,21 @@
     margin: 0 auto;
 }
 
+.tsbt-wrap,
+.tsbt-wrap * {
+    box-sizing: border-box;
+}
+
+.tsbt-wrap .tsbt-name { color: #1f2937 !important; }
+.tsbt-wrap .tsbt-code { color: #2a507a !important; background: #f1f5f9 !important; }
+.tsbt-wrap .tsbt-meta dt { color: #6b7280 !important; }
+.tsbt-wrap .tsbt-meta dd { color: #2a507a !important; }
+.tsbt-wrap .tsbt-tests p { color: #4b5563 !important; }
+.tsbt-wrap .tsbt-tests summary { color: #3f73ae !important; }
+.tsbt-wrap .tsbt-count { color: #6b7280 !important; }
+.tsbt-wrap .tsbt-empty { color: #6b7280 !important; }
+.tsbt-wrap .tsbt-card { background: #fff !important; }
+
 .tsbt-search {
     position: sticky;
     top: 0;
