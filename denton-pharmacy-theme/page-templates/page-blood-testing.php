@@ -144,41 +144,7 @@ get_header();
       <p class="bloodtest-tests-description"><?php echo esc_html( dp_field( 'bt_tests_description', 'We offer a comprehensive range of blood tests to help you monitor your health, diagnose conditions, and gain peace of mind — all without a GP referral.' ) ); ?></p>
     </div>
 
-    <div class="bloodtest-tests-grid">
-      <?php if ( have_rows( 'bt_tests' ) ) : while ( have_rows( 'bt_tests' ) ) : the_row(); ?>
-        <div class="bloodtest-test-card">
-          <div class="bloodtest-test-icon"><i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i></div>
-          <h3 class="bloodtest-test-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-          <p class="bloodtest-test-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
-          <?php $tag = get_sub_field( 'tag' ); if ( $tag ) : ?>
-            <div class="bloodtest-test-tag"><i class="fas fa-tag"></i> <?php echo esc_html( $tag ); ?></div>
-          <?php endif; ?>
-        </div>
-      <?php endwhile; else : ?>
-        <?php
-        $tests = array(
-          array( 'icon' => 'fas fa-droplet', 'title' => 'Full Blood Count', 'desc' => 'Checks red and white blood cells, haemoglobin, and platelets. A comprehensive overview of your general health.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-lungs', 'title' => 'Thyroid Function', 'desc' => 'Measures TSH, T3, and T4 to assess thyroid performance. Essential for fatigue, weight changes, or mood issues.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-flask-vial', 'title' => 'Liver Function', 'desc' => 'Evaluates liver enzymes and proteins. Recommended if you drink alcohol regularly or take certain medications.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-filter', 'title' => 'Kidney Function', 'desc' => 'Assesses creatinine, urea, and eGFR to check how well your kidneys are working.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-chart-line', 'title' => 'Diabetes Check (HbA1c)', 'desc' => 'Measures average blood sugar levels over 2-3 months. Key test for diagnosing or monitoring diabetes.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-heart-pulse', 'title' => 'Cholesterol & Lipids', 'desc' => 'Full lipid profile including total cholesterol, HDL, LDL, and triglycerides.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-sun', 'title' => 'Vitamin D', 'desc' => 'Checks vitamin D levels, commonly low in the UK. Important for bone health, immunity, and mood.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-vial', 'title' => 'Iron Studies', 'desc' => 'Ferritin and iron levels. Essential if you experience tiredness, dizziness, or shortness of breath.', 'tag' => '' ),
-        );
-        foreach ( $tests as $test ) :
-        ?>
-          <div class="bloodtest-test-card">
-            <div class="bloodtest-test-icon"><i class="<?php echo esc_attr( $test['icon'] ); ?>"></i></div>
-            <h3 class="bloodtest-test-title"><?php echo esc_html( $test['title'] ); ?></h3>
-            <p class="bloodtest-test-desc"><?php echo esc_html( $test['desc'] ); ?></p>
-            <?php if ( $test['tag'] ) : ?>
-              <div class="bloodtest-test-tag"><i class="fas fa-tag"></i> <?php echo esc_html( $test['tag'] ); ?></div>
-            <?php endif; ?>
-          </div>
-        <?php endforeach; ?>
-      <?php endif; ?>
-    </div>
+    <?php echo do_shortcode( '[ts_blood_tests]' ); ?>
   </div>
 </section>
 
