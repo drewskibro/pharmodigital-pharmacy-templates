@@ -309,6 +309,11 @@ get_header();
 </section>
 
 <!-- ============================================
+     SWITCHING PROVIDER SECTION
+     ============================================ -->
+<?php get_template_part( 'template-parts/section', 'switching' ); ?>
+
+<!-- ============================================
      CTA BAR
      ============================================ -->
 <section class="wl-cta-bar wl-reveal">
