@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'TSBT_VERSION', '1.0.0' );
+define( 'TSBT_VERSION', '1.0.1' );
 define( 'TSBT_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TSBT_URL', plugin_dir_url( __FILE__ ) );
 
