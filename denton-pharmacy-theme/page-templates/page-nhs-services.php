@@ -49,8 +49,8 @@ $trust_3_text = dp_field( 'nhs_hero_trust_3_text', '4.7★ Rated' );
 
 // Rating badge
 $rating_score    = dp_field( 'nhs_hero_rating_score' );
-if ( ! $rating_score ) { $rating_score = dp_option( 'google_rating', '4.7' ); }
-$rating_count    = dp_field( 'nhs_hero_rating_count', '89' );
+if ( ! $rating_score ) { $rating_score = dp_option( 'google_rating', '4.9' ); }
+$rating_count    = dp_field( 'nhs_hero_rating_count', dp_option( 'google_review_count', '300+' ) );
 $rating_location = dp_field( 'nhs_hero_rating_location' );
 if ( ! $rating_location ) { $rating_location = dp_option( 'pharmacy_location_label', 'Denton, UK' ); }
 

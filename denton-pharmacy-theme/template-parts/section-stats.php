@@ -21,7 +21,7 @@ $default_stats = array(
     ),
     array(
         'icon'   => 'fas fa-star',
-        'number' => '4.7',
+        'number' => dp_option( 'google_rating', '4.9' ),
         'label'  => 'Google Rating',
     ),
     array(

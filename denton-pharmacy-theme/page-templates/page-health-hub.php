@@ -76,7 +76,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
           </div>
         </div>
         <div class="rating-score">
-          <span class="score-number"><?php echo esc_html( dp_field( 'hh_social_rating_score', dp_option( 'google_rating', '4.7' ) ) ); ?></span>
+          <span class="score-number"><?php echo esc_html( dp_field( 'hh_social_rating_score', dp_option( 'google_rating', '4.9' ) ) ); ?></span>
           <div class="rating-score-detail">
             <div class="star-row">
               <i class="fas fa-star"></i>

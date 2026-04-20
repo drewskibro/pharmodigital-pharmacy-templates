@@ -69,7 +69,7 @@ $hero_image_alt = $hero_image_id
     : 'Pharmacy services at ' . esc_attr( dp_pharmacy_name() );
 
 // --- Google rating (global options + page overrides) ---
-$google_rating       = dp_option( 'google_rating', '4.7' );
+$google_rating       = dp_option( 'google_rating', '4.9' );
 $google_review_url   = dp_option( 'google_review_url', '#' );
 $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
 
