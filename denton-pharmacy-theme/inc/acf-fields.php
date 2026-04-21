@@ -364,7 +364,7 @@ function dp_register_acf_field_groups() {
                         'name'         => 'destination_url',
                         'type'         => 'url',
                         'placeholder'  => 'https://maps.app.goo.gl/...',
-                        'instructions' => 'Paste the share link from Google Maps (any format: https://maps.app.goo.gl/… or the long /place/… URL). On save, the name and coordinates below auto-fill from the link. Clicking the hotspot on the site also opens this link.',
+                        'instructions' => "How to get this link:\n1. Open Google Maps and search the parking\n2. Click the pin of the correct place (not a search result)\n3. Click Share → Copy link\n4. Paste it here\n\nOn save, the name and coordinates auto-fill from the link. If you later paste a different link, the name and coordinates are re-fetched and overwritten. If the link stays the same, any manual edits you made stay.",
                         'required'     => 0,
                     ),
                     array(

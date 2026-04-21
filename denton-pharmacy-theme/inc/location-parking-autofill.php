@@ -102,8 +102,31 @@ function dp_parse_google_maps_url( $url ) {
 }
 
 /**
- * After ACF saves the options page, auto-fill any parking callouts
- * where the editor pasted a URL but left label or coords blank.
+ * Fingerprints option — tracks the last URL that was successfully
+ * parsed for each parking row (keyed by the row's label+coords pair,
+ * falling back to row index).
+ *
+ * On save we compare the currently-saved URL against the stored
+ * fingerprint; if they differ we re-parse and overwrite label + coords,
+ * then update the fingerprint. If they match we leave everything alone
+ * so the editor's manual tweaks to name/description survive.
+ */
+const DP_PARKING_FINGERPRINT_OPTION = 'dp_parking_callouts_fingerprints';
+
+function dp_parking_fingerprints_get() {
+    $stored = get_option( DP_PARKING_FINGERPRINT_OPTION, array() );
+    return is_array( $stored ) ? $stored : array();
+}
+
+function dp_parking_fingerprints_save( array $fingerprints ) {
+    update_option( DP_PARKING_FINGERPRINT_OPTION, $fingerprints, false );
+}
+
+/**
+ * After ACF saves the options page, diff each parking row's URL against
+ * its stored fingerprint. If the URL changed (or there's no fingerprint
+ * yet), re-parse and overwrite the label + coords from Google Maps.
+ * If the URL is unchanged, leave the row alone.
  */
 function dp_autofill_parking_callouts( $post_id ) {
     // Only option-page saves. Skip posts/pages/users/terms.
@@ -112,41 +135,55 @@ function dp_autofill_parking_callouts( $post_id ) {
     }
 
     $callouts = get_field( 'location_parking_callouts', $post_id );
-    if ( ! is_array( $callouts ) || empty( $callouts ) ) {
+    if ( ! is_array( $callouts ) ) {
         return;
     }
 
-    $changed = false;
+    $fingerprints = dp_parking_fingerprints_get();
+    $changed      = false;
 
     foreach ( $callouts as $i => $row ) {
-        $url    = isset( $row['destination_url'] ) ? trim( (string) $row['destination_url'] ) : '';
-        $label  = isset( $row['label'] ) ? trim( (string) $row['label'] ) : '';
-        $coords = isset( $row['coords'] ) ? trim( (string) $row['coords'] ) : '';
+        $url        = isset( $row['destination_url'] ) ? trim( (string) $row['destination_url'] ) : '';
+        $last_url   = isset( $fingerprints[ $i ] ) ? (string) $fingerprints[ $i ] : '';
 
         if ( $url === '' ) {
+            // Row has no URL; clear its fingerprint slot so a later paste re-parses.
+            if ( $last_url !== '' ) {
+                $fingerprints[ $i ] = '';
+            }
             continue;
         }
-        if ( $label !== '' && $coords !== '' ) {
-            continue; // nothing to fill
+
+        if ( $url === $last_url ) {
+            // URL unchanged — respect any manual edits made to label/desc/coords.
+            continue;
         }
 
         $parsed = dp_parse_google_maps_url( $url );
 
-        if ( $label === '' && ! empty( $parsed['label'] ) ) {
-            $callouts[ $i ]['label'] = $parsed['label'];
-            $changed = true;
-        }
-        if ( $coords === '' && ! empty( $parsed['coords'] ) ) {
-            $callouts[ $i ]['coords'] = $parsed['coords'];
-            $changed = true;
+        // Only record the fingerprint if we actually pulled something useful out
+        // of the URL; otherwise leave it so the editor can retry on the next save.
+        if ( ! empty( $parsed['label'] ) || ! empty( $parsed['coords'] ) ) {
+            if ( ! empty( $parsed['label'] ) ) {
+                $callouts[ $i ]['label'] = $parsed['label'];
+            }
+            if ( ! empty( $parsed['coords'] ) ) {
+                $callouts[ $i ]['coords'] = $parsed['coords'];
+            }
+            $fingerprints[ $i ] = $url;
+            $changed            = true;
         }
     }
 
+    // Trim fingerprint array to the number of rows so deleted rows drop off.
+    $fingerprints = array_slice( $fingerprints, 0, count( $callouts ) );
+
     if ( $changed ) {
-        // Guard against re-entry: detach the hook before writing back.
         remove_action( 'acf/save_post', 'dp_autofill_parking_callouts', 20 );
         update_field( 'location_parking_callouts', $callouts, $post_id );
         add_action( 'acf/save_post', 'dp_autofill_parking_callouts', 20 );
     }
+
+    dp_parking_fingerprints_save( $fingerprints );
 }
 add_action( 'acf/save_post', 'dp_autofill_parking_callouts', 20 );
