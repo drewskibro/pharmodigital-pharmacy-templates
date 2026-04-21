@@ -13,18 +13,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- Map background layer (Google Maps iframe embed — static images retired) ---
-$maps_embed_url = dp_option( 'location_google_maps_embed' );
-if ( ! $maps_embed_url ) {
-    // Build from address fields
+// Prefer a coords-centered embed so Google does NOT drop its default red pin;
+// that way our custom branded pin is the only marker on the map.
+$center_coords = trim( (string) dp_option( 'location_center_coords', '53.4557,-2.1120' ) );
+$map_zoom      = (int) dp_option( 'location_zoom', 17 );
+$custom_embed  = dp_option( 'location_google_maps_embed' );
+
+if ( $custom_embed ) {
+    $maps_embed_url = $custom_embed;
+} elseif ( $center_coords ) {
+    $maps_embed_url = 'https://maps.google.com/maps?ll=' . rawurlencode( $center_coords ) . '&z=' . (int) $map_zoom . '&t=m&output=embed';
+} else {
     $addr_line_1  = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
     $addr_line_2  = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
     $addr_line_3  = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
     $full_address = $addr_line_1 . ', ' . $addr_line_2 . ', ' . $addr_line_3;
-    $maps_embed_url = 'https://maps.google.com/maps?q=' . rawurlencode( $full_address ) . '&t=&z=16&ie=UTF8&iwloc=&output=embed';
+    $maps_embed_url = 'https://maps.google.com/maps?q=' . rawurlencode( $full_address ) . '&t=m&z=' . (int) $map_zoom . '&output=embed';
+}
+
+// --- Directions URL for the pharmacy pin ---
+$pharmacy_directions = dp_option( 'pharmacy_directions_url' );
+if ( ! $pharmacy_directions && $center_coords ) {
+    $pharmacy_directions = 'https://www.google.com/maps/dir/?api=1&destination=' . rawurlencode( $center_coords );
 }
 
 // --- Map overlay: pharmacy pin + parking callouts ---
-$pin_x = (float) dp_option( 'location_pin_x', 62 );
+$pin_x = (float) dp_option( 'location_pin_x', 50 );
 $pin_y = (float) dp_option( 'location_pin_y', 50 );
 
 $parking_callouts = dp_option( 'location_parking_callouts' );
@@ -91,23 +105,28 @@ $booking_url = dp_booking_url();
         <!-- Annotations: pharmacy pin + parking callouts -->
         <div class="location-map-annotations" aria-hidden="true">
 
-            <!-- Pharmacy pin -->
-            <div
+            <!-- Pharmacy pin (clickable → opens directions in Google Maps) -->
+            <a
                 class="location-pin location-pin--pharmacy"
                 style="--pin-x: <?php echo esc_attr( $pin_x ); ?>%; --pin-y: <?php echo esc_attr( $pin_y ); ?>%;"
+                <?php if ( $pharmacy_directions ) : ?>href="<?php echo esc_url( $pharmacy_directions ); ?>" target="_blank" rel="noopener noreferrer" title="Get directions on Google Maps"<?php else : ?>href="#"<?php endif; ?>
             >
                 <span class="location-pin-halo"></span>
                 <span class="location-pin-halo location-pin-halo--delayed"></span>
                 <span class="location-pin-dot">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M12 4v16M4 12h16"></path>
                     </svg>
                 </span>
                 <span class="location-pin-label">
                     <span class="location-pin-label-name"><?php echo esc_html( dp_pharmacy_name() ); ?></span>
                     <span class="location-pin-label-addr"><?php echo esc_html( dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' ) ); ?></span>
+                    <span class="location-pin-label-cta">
+                        Get directions
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </span>
                 </span>
-            </div>
+            </a>
 
             <?php foreach ( $parking_callouts as $i => $callout ) :
                 $c_label = isset( $callout['label'] ) ? $callout['label'] : '';
@@ -115,24 +134,32 @@ $booking_url = dp_booking_url();
                 $c_x     = isset( $callout['position_x'] ) ? (float) $callout['position_x'] : 50;
                 $c_y     = isset( $callout['position_y'] ) ? (float) $callout['position_y'] : 30;
                 $anchor  = isset( $callout['anchor'] ) ? $callout['anchor'] : 'ne';
+                $c_url   = isset( $callout['destination_url'] ) ? $callout['destination_url'] : '';
                 if ( $c_label === '' ) { continue; }
+
+                $tag      = $c_url ? 'a' : 'div';
+                $link_att = $c_url ? ' href="' . esc_url( $c_url ) . '" target="_blank" rel="noopener noreferrer" title="Open in Google Maps"' : '';
             ?>
-                <div
-                    class="location-callout location-callout--<?php echo esc_attr( $anchor ); ?>"
+                <<?php echo $tag; ?>
+                    class="location-callout location-callout--<?php echo esc_attr( $anchor ); ?><?php echo $c_url ? ' is-clickable' : ''; ?>"
                     style="--pin-x: <?php echo esc_attr( $c_x ); ?>%; --pin-y: <?php echo esc_attr( $c_y ); ?>%; --callout-delay: <?php echo esc_attr( 0.4 + ( $i * 0.15 ) ); ?>s;"
+                    <?php echo $link_att; ?>
                 >
                     <span class="location-callout-dot"></span>
                     <span class="location-callout-line"></span>
-                    <div class="location-callout-card">
+                    <span class="location-callout-card">
                         <span class="location-callout-icon" aria-hidden="true">P</span>
-                        <div class="location-callout-text">
+                        <span class="location-callout-text">
                             <span class="location-callout-label"><?php echo esc_html( $c_label ); ?></span>
                             <?php if ( $c_desc !== '' ) : ?>
                                 <span class="location-callout-desc"><?php echo esc_html( $c_desc ); ?></span>
                             <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
+                            <?php if ( $c_url ) : ?>
+                                <span class="location-callout-cta">Directions <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                            <?php endif; ?>
+                        </span>
+                    </span>
+                </<?php echo $tag; ?>>
             <?php endforeach; ?>
 
         </div>

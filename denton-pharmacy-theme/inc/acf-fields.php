@@ -290,6 +290,27 @@ function dp_register_acf_field_groups() {
                 'default_value' => 'Free customer parking available nearby.',
             ),
 
+            // --- Map centre coordinates (used to drop Google's default red pin) ---
+            array(
+                'key'           => 'field_dp_location_center_coords',
+                'label'         => 'Map Centre Coordinates (lat,lng)',
+                'name'          => 'location_center_coords',
+                'type'          => 'text',
+                'default_value' => '53.4557,-2.1120',
+                'placeholder'   => '53.4557,-2.1120',
+                'instructions'  => 'Latitude,longitude of the pharmacy (no spaces). Used to centre the embedded map without showing Google\'s default red pin. Get from Google Maps → right-click the pharmacy → copy coordinates.',
+            ),
+            array(
+                'key'           => 'field_dp_location_zoom',
+                'label'         => 'Map Zoom',
+                'name'          => 'location_zoom',
+                'type'          => 'number',
+                'min'           => 10,
+                'max'           => 20,
+                'default_value' => 17,
+                'instructions'  => '15 = neighbourhood, 17 = street, 19 = building.',
+            ),
+
             // --- Map overlay: pharmacy pin position ---
             array(
                 'key'           => 'field_dp_location_pin_x',
@@ -373,6 +394,14 @@ function dp_register_acf_field_groups() {
                         ),
                         'default_value' => 'ne',
                         'instructions'  => 'Where the floating label card sits relative to the dot.',
+                    ),
+                    array(
+                        'key'          => 'field_dp_location_callout_url',
+                        'label'        => 'Google Maps URL',
+                        'name'         => 'destination_url',
+                        'type'         => 'url',
+                        'placeholder'  => 'https://www.google.com/maps/dir/?api=1&destination=...',
+                        'instructions' => 'Clicking the hotspot opens this in a new tab. Easiest: find the parking on Google Maps → Share → Copy link.',
                     ),
                 ),
             ),

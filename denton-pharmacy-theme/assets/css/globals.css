@@ -3684,6 +3684,10 @@ a.hero-nhs-pill:hover {
   min-height: 600px;
   border: 0;
   filter: saturate(0.85) contrast(0.98);
+  /* Freeze the iframe: acts as a visual backdrop only so the overlay
+     annotations stay geo-anchored. Users navigate via the clickable pin
+     and parking hotspots (each opens Google Maps in a new tab). */
+  pointer-events: none;
 }
 
 .location-map-overlay {
@@ -3710,15 +3714,18 @@ a.hero-nhs-pill:hover {
   pointer-events: auto;
 }
 
-/* ---- Pharmacy pin ---- */
+/* ---- Pharmacy pin (clickable → Google Maps directions) ---- */
 .location-pin {
   position: absolute;
   left: var(--pin-x, 50%);
   top: var(--pin-y, 50%);
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   transform: translate(-50%, -100%);
   color: var(--brand-primary, #3f73ae);
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 4;
 }
 
 .location-pin-dot {
@@ -3729,14 +3736,23 @@ a.hero-nhs-pill:hover {
   justify-content: center;
   background: var(--brand-primary, #3f73ae);
   color: #fff;
-  border: 3px solid #fff;
+  border: 4px solid #fff;
   border-radius: 50%;
   box-shadow:
-    0 10px 24px -6px rgba(15, 42, 80, 0.45),
-    0 2px 6px rgba(15, 42, 80, 0.25),
+    0 14px 30px -8px rgba(15, 42, 80, 0.55),
+    0 3px 8px rgba(15, 42, 80, 0.3),
     inset 0 0 0 1px rgba(255, 255, 255, 0.15);
   z-index: 3;
   animation: location-pin-drop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.location-pin:hover .location-pin-dot,
+.location-pin:focus-visible .location-pin-dot {
+  transform: scale(1.06);
+  box-shadow:
+    0 18px 40px -8px rgba(15, 42, 80, 0.6),
+    0 4px 10px rgba(15, 42, 80, 0.32);
 }
 
 .location-pin-dot::after {
@@ -3745,49 +3761,50 @@ a.hero-nhs-pill:hover {
   position: absolute;
   left: 50%;
   top: 100%;
-  width: 2px;
-  height: 12px;
+  width: 3px;
+  height: 14px;
   background: var(--brand-primary, #3f73ae);
   transform: translateX(-50%);
-  border-radius: 0 0 2px 2px;
-  box-shadow: 0 2px 4px rgba(15, 42, 80, 0.25);
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 2px 4px rgba(15, 42, 80, 0.3);
 }
 
 .location-pin-halo {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   border: 2px solid var(--brand-primary, #3f73ae);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  animation: location-pin-pulse 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation: location-pin-pulse 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
   animation-delay: 0.7s;
+  pointer-events: none;
 }
 
 .location-pin-halo--delayed {
-  animation-delay: 1.9s;
+  animation-delay: 2.0s;
 }
 
 .location-pin-label {
   position: absolute;
-  left: calc(100% + 14px);
+  left: calc(100% + 16px);
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  padding: 0.55rem 0.85rem 0.6rem;
+  padding: 0.6rem 0.95rem 0.65rem;
   background: #fff;
-  border-radius: 0.55rem;
+  border-radius: 0.6rem;
   box-shadow:
-    0 10px 28px -10px rgba(15, 42, 80, 0.35),
-    0 2px 6px rgba(15, 42, 80, 0.12);
+    0 12px 32px -10px rgba(15, 42, 80, 0.4),
+    0 3px 8px rgba(15, 42, 80, 0.14);
   white-space: nowrap;
-  font-size: 0.75rem;
-  line-height: 1.2;
+  font-size: 0.8125rem;
+  line-height: 1.25;
   opacity: 0;
   animation: location-annotation-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
 }
@@ -3805,7 +3822,8 @@ a.hero-nhs-pill:hover {
 }
 
 .location-pin-label-name {
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 0.9375rem;
   color: #0f2a50;
   letter-spacing: -0.01em;
 }
@@ -3817,7 +3835,31 @@ a.hero-nhs-pill:hover {
   letter-spacing: 0.06em;
 }
 
-/* ---- Parking callouts ---- */
+.location-pin-label-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.3rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(63, 115, 174, 0.14);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--brand-primary, #3f73ae);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: gap 0.25s ease;
+}
+
+.location-pin:hover .location-pin-label-cta,
+.location-pin:focus-visible .location-pin-label-cta {
+  gap: 0.55rem;
+}
+
+.location-pin-label-cta i {
+  font-size: 0.625rem;
+}
+
+/* ---- Parking callouts (clickable → Google Maps) ---- */
 .location-callout {
   position: absolute;
   left: var(--pin-x, 50%);
@@ -3827,7 +3869,11 @@ a.hero-nhs-pill:hover {
   z-index: 2;
   opacity: 0;
   animation: location-annotation-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--callout-delay, 0.5s) forwards;
+  color: inherit;
+  text-decoration: none;
 }
+
+a.location-callout { cursor: pointer; }
 
 .location-callout-dot {
   position: absolute;
@@ -3892,7 +3938,24 @@ a.hero-nhs-pill:hover {
     0 2px 6px rgba(15, 42, 80, 0.1);
   border: 1px solid rgba(63, 115, 174, 0.14);
   white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
+
+a.location-callout:hover .location-callout-card,
+a.location-callout:focus-visible .location-callout-card {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 40px -12px rgba(15, 42, 80, 0.45),
+    0 4px 10px rgba(15, 42, 80, 0.14);
+  border-color: rgba(63, 115, 174, 0.4);
+}
+
+a.location-callout:hover .location-callout-dot,
+a.location-callout:focus-visible .location-callout-dot {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.location-callout-dot { transition: transform 0.25s ease; }
 
 .location-callout-icon {
   width: 28px;
@@ -3930,6 +3993,23 @@ a.hero-nhs-pill:hover {
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
+
+.location-callout-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+  font-size: 0.625rem;
+  font-weight: 800;
+  color: var(--brand-primary, #3f73ae);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: gap 0.25s ease;
+}
+
+.location-callout-cta i { font-size: 0.5625rem; }
+
+a.location-callout:hover .location-callout-cta { gap: 0.5rem; }
 
 /* Card anchor directions — offset card from dot, rotate connector */
 .location-callout--ne .location-callout-card { left: 90px; top: -60px; transform: translate(0, 0); }
