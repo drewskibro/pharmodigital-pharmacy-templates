@@ -3813,16 +3813,15 @@ a.hero-nhs-pill:hover {
   100% { opacity: 1; transform: translateX(-50%) scaleX(1); }
 }
 
-/* Pharmacy label — permanently visible, anchored to the upper-left of
-   the pin so it stays clear of parking markers that tend to cluster to
-   the right and below the pharmacy. */
+/* Pharmacy label — permanently visible balloon. Default anchor is
+   up-left of the pin; modifier classes on .location-pin flip it to
+   the other three corners so editors can dodge overlapping markers. */
 .location-pin-label {
   position: absolute;
-  right: calc(50% + 18px);
-  bottom: calc(50% + 18px);
   left: auto;
   top: auto;
-  transform: none;
+  right: auto;
+  bottom: auto;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
@@ -3840,24 +3839,74 @@ a.hero-nhs-pill:hover {
   animation: location-pin-label-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
 }
 
-/* Beak — bottom-right corner of the card, pointing down-right toward the pin. */
+/* Beak — one of the four corners, depending on .location-pin--label-* */
 .location-pin-label::after {
   content: "";
   position: absolute;
-  right: 14px;
-  bottom: -6px;
   width: 12px;
   height: 12px;
   background: #fff;
+}
+
+/* --- Up & left (default) --- */
+.location-pin--label-up-left .location-pin-label {
+  right: calc(50% + 18px);
+  bottom: calc(50% + 18px);
+}
+.location-pin--label-up-left .location-pin-label::after {
+  right: 14px;
+  bottom: -6px;
   transform: rotate(45deg);
   border-right: 1px solid rgba(63, 115, 174, 0.16);
   border-bottom: 1px solid rgba(63, 115, 174, 0.16);
   border-radius: 0 0 2px 0;
 }
 
+/* --- Up & right --- */
+.location-pin--label-up-right .location-pin-label {
+  left: calc(50% + 18px);
+  bottom: calc(50% + 18px);
+}
+.location-pin--label-up-right .location-pin-label::after {
+  left: 14px;
+  bottom: -6px;
+  transform: rotate(45deg);
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-bottom: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 0 0 2px;
+}
+
+/* --- Down & left --- */
+.location-pin--label-down-left .location-pin-label {
+  right: calc(50% + 18px);
+  top: calc(50% + 18px);
+}
+.location-pin--label-down-left .location-pin-label::after {
+  right: 14px;
+  top: -6px;
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-right: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 2px 0 0;
+}
+
+/* --- Down & right --- */
+.location-pin--label-down-right .location-pin-label {
+  left: calc(50% + 18px);
+  top: calc(50% + 18px);
+}
+.location-pin--label-down-right .location-pin-label::after {
+  left: 14px;
+  top: -6px;
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 2px 0 0 0;
+}
+
 @keyframes location-pin-label-in {
-  from { opacity: 0; transform: translate(6px, 6px); }
-  to   { opacity: 1; transform: translate(0, 0);     }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* On tablet/mobile the map is shorter — drop the permanent label and

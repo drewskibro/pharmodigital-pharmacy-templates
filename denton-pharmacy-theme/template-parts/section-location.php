@@ -114,9 +114,16 @@ $booking_url = dp_booking_url();
             data-zoom="<?php echo esc_attr( $map_zoom ); ?>"
         >
 
+            <?php
+            $label_anchor = dp_option( 'location_label_anchor', 'up-left' );
+            $allowed_anchors = array( 'up-left', 'up-right', 'down-left', 'down-right' );
+            if ( ! in_array( $label_anchor, $allowed_anchors, true ) ) {
+                $label_anchor = 'up-left';
+            }
+            ?>
             <!-- Pharmacy pin (always at map centre, since the map is centred on the pharmacy) -->
             <a
-                class="location-pin location-pin--pharmacy"
+                class="location-pin location-pin--pharmacy location-pin--label-<?php echo esc_attr( $label_anchor ); ?>"
                 <?php if ( $pharmacy_directions ) : ?>href="<?php echo esc_url( $pharmacy_directions ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Get directions to <?php echo esc_attr( dp_pharmacy_name() ); ?> on Google Maps"<?php else : ?>href="#"<?php endif; ?>
             >
                 <span class="location-pin-dot">

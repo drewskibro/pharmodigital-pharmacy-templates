@@ -290,6 +290,22 @@ function dp_register_acf_field_groups() {
                 'default_value' => 'Free customer parking available nearby.',
             ),
 
+            // --- Pharmacy label popup anchor ---
+            array(
+                'key'           => 'field_dp_location_label_anchor',
+                'label'         => 'Pharmacy label position',
+                'name'          => 'location_label_anchor',
+                'type'          => 'select',
+                'choices'       => array(
+                    'up-left'    => 'Up & left of pin',
+                    'up-right'   => 'Up & right of pin',
+                    'down-left'  => 'Down & left of pin',
+                    'down-right' => 'Down & right of pin',
+                ),
+                'default_value' => 'up-left',
+                'instructions'  => 'Which corner the "Denton Pharmacy — Get directions" balloon sits on relative to the pin. Flip it if parking markers or city labels start covering it.',
+            ),
+
             // --- Pharmacy pin icon (overrides the default Swiss cross) ---
             array(
                 'key'           => 'field_dp_location_pin_icon',

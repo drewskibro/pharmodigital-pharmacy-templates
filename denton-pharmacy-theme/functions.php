@@ -255,6 +255,10 @@ if ( file_exists( DENTON_PHARMACY_DIR . '/inc/acf-fields.php' ) ) {
     require_once DENTON_PHARMACY_DIR . '/inc/acf-fields.php';
 }
 
+if ( file_exists( DENTON_PHARMACY_DIR . '/inc/location-parking-autofill.php' ) ) {
+    require_once DENTON_PHARMACY_DIR . '/inc/location-parking-autofill.php';
+}
+
 /**
  * Helper: Get option field with fallback
  *
