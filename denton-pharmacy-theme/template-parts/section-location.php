@@ -12,25 +12,24 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// --- Map background layer ---
-$map_image_id = dp_field( 'location_map_image' );
-if ( ! $map_image_id ) {
-    $map_image_id = dp_option( 'location_map_image' );
-}
-$map_image_url = $map_image_id ? wp_get_attachment_image_url( $map_image_id, 'full' ) : '';
-$map_image_alt = $map_image_id
-    ? get_post_meta( $map_image_id, '_wp_attachment_image_alt', true )
-    : 'Map showing ' . esc_attr( dp_pharmacy_name() ) . ' location';
-
-// Google Maps embed URL (used when no static map image is uploaded)
+// --- Map background layer (Google Maps iframe embed — static images retired) ---
 $maps_embed_url = dp_option( 'location_google_maps_embed' );
-if ( ! $maps_embed_url && ! $map_image_url ) {
+if ( ! $maps_embed_url ) {
     // Build from address fields
-    $addr_line_1 = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
-    $addr_line_2 = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
-    $addr_line_3 = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
+    $addr_line_1  = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
+    $addr_line_2  = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
+    $addr_line_3  = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
     $full_address = $addr_line_1 . ', ' . $addr_line_2 . ', ' . $addr_line_3;
-    $maps_embed_url = 'https://maps.google.com/maps?q=' . rawurlencode( $full_address ) . '&t=&z=15&ie=UTF8&iwloc=&output=embed';
+    $maps_embed_url = 'https://maps.google.com/maps?q=' . rawurlencode( $full_address ) . '&t=&z=16&ie=UTF8&iwloc=&output=embed';
+}
+
+// --- Map overlay: pharmacy pin + parking callouts ---
+$pin_x = (float) dp_option( 'location_pin_x', 62 );
+$pin_y = (float) dp_option( 'location_pin_y', 50 );
+
+$parking_callouts = dp_option( 'location_parking_callouts' );
+if ( ! is_array( $parking_callouts ) ) {
+    $parking_callouts = array();
 }
 
 // --- Floating card header ---
@@ -75,9 +74,8 @@ $booking_url = dp_booking_url();
 
     <!-- Map background layer -->
     <div class="location-map-wrapper">
-        <?php if ( $map_image_url ) : ?>
-            <img src="<?php echo esc_url( $map_image_url ); ?>" alt="<?php echo esc_attr( $map_image_alt ); ?>" class="location-map-image" />
-        <?php elseif ( $maps_embed_url ) : ?>
+
+        <?php if ( $maps_embed_url ) : ?>
             <iframe
                 class="location-map-embed"
                 src="<?php echo esc_url( $maps_embed_url ); ?>"
@@ -87,7 +85,58 @@ $booking_url = dp_booking_url();
                 title="<?php echo esc_attr( dp_pharmacy_name() . ' location map' ); ?>"
             ></iframe>
         <?php endif; ?>
-        <div class="location-map-overlay"></div>
+
+        <div class="location-map-overlay" aria-hidden="true"></div>
+
+        <!-- Annotations: pharmacy pin + parking callouts -->
+        <div class="location-map-annotations" aria-hidden="true">
+
+            <!-- Pharmacy pin -->
+            <div
+                class="location-pin location-pin--pharmacy"
+                style="--pin-x: <?php echo esc_attr( $pin_x ); ?>%; --pin-y: <?php echo esc_attr( $pin_y ); ?>%;"
+            >
+                <span class="location-pin-halo"></span>
+                <span class="location-pin-halo location-pin-halo--delayed"></span>
+                <span class="location-pin-dot">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 4v16M4 12h16"></path>
+                    </svg>
+                </span>
+                <span class="location-pin-label">
+                    <span class="location-pin-label-name"><?php echo esc_html( dp_pharmacy_name() ); ?></span>
+                    <span class="location-pin-label-addr"><?php echo esc_html( dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' ) ); ?></span>
+                </span>
+            </div>
+
+            <?php foreach ( $parking_callouts as $i => $callout ) :
+                $c_label = isset( $callout['label'] ) ? $callout['label'] : '';
+                $c_desc  = isset( $callout['description'] ) ? $callout['description'] : '';
+                $c_x     = isset( $callout['position_x'] ) ? (float) $callout['position_x'] : 50;
+                $c_y     = isset( $callout['position_y'] ) ? (float) $callout['position_y'] : 30;
+                $anchor  = isset( $callout['anchor'] ) ? $callout['anchor'] : 'ne';
+                if ( $c_label === '' ) { continue; }
+            ?>
+                <div
+                    class="location-callout location-callout--<?php echo esc_attr( $anchor ); ?>"
+                    style="--pin-x: <?php echo esc_attr( $c_x ); ?>%; --pin-y: <?php echo esc_attr( $c_y ); ?>%; --callout-delay: <?php echo esc_attr( 0.4 + ( $i * 0.15 ) ); ?>s;"
+                >
+                    <span class="location-callout-dot"></span>
+                    <span class="location-callout-line"></span>
+                    <div class="location-callout-card">
+                        <span class="location-callout-icon" aria-hidden="true">P</span>
+                        <div class="location-callout-text">
+                            <span class="location-callout-label"><?php echo esc_html( $c_label ); ?></span>
+                            <?php if ( $c_desc !== '' ) : ?>
+                                <span class="location-callout-desc"><?php echo esc_html( $c_desc ); ?></span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+
+        </div>
+
     </div>
 
     <!-- Floating info card -->
