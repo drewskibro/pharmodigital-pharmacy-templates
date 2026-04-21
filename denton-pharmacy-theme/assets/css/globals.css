@@ -4687,6 +4687,15 @@ a.hero-nhs-pill:hover {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
   white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+a.sticky-cta-trust-chip:hover,
+a.sticky-cta-trust-chip:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #fff;
 }
 
 .sticky-cta-trust-chip i {

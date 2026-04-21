@@ -12,9 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$phone      = dp_phone();
-$phone_link = dp_phone_link();
+$phone       = dp_phone();
+$phone_link  = dp_phone_link();
 $booking_url = dp_booking_url();
+
+$gphc_number       = dp_option( 'gphc_number', '1033447' );
+$gphc_register_url = dp_option( 'gphc_register_url' ) ?: 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_number;
 ?>
 
   <!-- ============================================
@@ -27,10 +30,10 @@ $booking_url = dp_booking_url();
         <span class="sticky-cta-subtitle"><?php echo esc_html( dp_field( 'sticky_cta_subtitle', 'Expert care, just around the corner' ) ); ?></span>
       </div>
       <div class="sticky-cta-centre">
-        <span class="sticky-cta-trust-chip">
+        <a href="<?php echo esc_url( $gphc_register_url ); ?>" class="sticky-cta-trust-chip" target="_blank" rel="noopener noreferrer" title="Verify on the GPhC register">
           <i class="fas fa-shield-halved"></i>
           <?php echo esc_html( dp_field( 'sticky_cta_trust_text', 'GPhC Registered' ) ); ?>
-        </span>
+        </a>
       </div>
       <div class="sticky-cta-buttons">
         <a href="<?php echo esc_url( $booking_url ); ?>" class="sticky-cta-button sticky-cta-primary">
