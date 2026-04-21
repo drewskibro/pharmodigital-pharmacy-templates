@@ -3714,11 +3714,13 @@ a.hero-nhs-pill:hover {
   pointer-events: auto;
 }
 
-/* ---- Pharmacy pin (clickable → Google Maps directions) ---- */
+/* ---- Pharmacy pin (clickable → Google Maps directions)
+       Always sits at the map centre because the iframe is centred on the
+       pharmacy coordinates. ---- */
 .location-pin {
   position: absolute;
-  left: var(--pin-x, 50%);
-  top: var(--pin-y, 50%);
+  left: 50%;
+  top: 50%;
   width: 56px;
   height: 56px;
   transform: translate(-50%, -100%);
@@ -3859,21 +3861,32 @@ a.hero-nhs-pill:hover {
   font-size: 0.625rem;
 }
 
-/* ---- Parking callouts (clickable → Google Maps) ---- */
+/* ---- Parking callouts (clickable → Google Maps)
+       Geo-anchored: JS sets --dx and --dy in px based on each callout's
+       real lat/lng projected through Web Mercator at the iframe's zoom.
+       Callouts stay hidden until positioned to avoid a flash at (50%,50%). ---- */
 .location-callout {
   position: absolute;
-  left: var(--pin-x, 50%);
-  top: var(--pin-y, 50%);
+  left: 50%;
+  top: 50%;
   width: 0;
   height: 0;
   z-index: 2;
   opacity: 0;
-  animation: location-annotation-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--callout-delay, 0.5s) forwards;
+  transform: translate(var(--dx, 0px), var(--dy, 0px));
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
-a.location-callout { cursor: pointer; }
+.location-callout.is-positioned {
+  animation: location-callout-fade-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--callout-delay, 0.5s) forwards;
+}
+
+@keyframes location-callout-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
 .location-callout-dot {
   position: absolute;

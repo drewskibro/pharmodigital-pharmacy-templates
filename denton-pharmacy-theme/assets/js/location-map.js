@@ -1,0 +1,72 @@
+/**
+ * Location map — geo-anchored callout positioning.
+ *
+ * The Google Maps iframe underneath is a frozen visual backdrop. We project
+ * each parking callout's real lat/lng through the same Web Mercator maths
+ * that Google uses internally, so the overlay dots always align with the
+ * exact geographic point regardless of map centre or zoom.
+ *
+ * Formula: https://en.wikipedia.org/wiki/Web_Mercator_projection
+ * Pharmacy pin always sits at the map's visual centre (the iframe is
+ * centred on the pharmacy coords).
+ */
+(function () {
+  'use strict';
+
+  var TILE = 256; // Web Mercator base tile size
+
+  function latLngToWorldPx(lat, lng, zoom) {
+    var scale = TILE * Math.pow(2, zoom);
+    var x = (lng + 180) / 360 * scale;
+    var sin = Math.sin(lat * Math.PI / 180);
+    var y = (0.5 - Math.log((1 + sin) / (1 - sin)) / (4 * Math.PI)) * scale;
+    return { x: x, y: y };
+  }
+
+  function positionCallouts(root) {
+    var centerLat = parseFloat(root.getAttribute('data-center-lat'));
+    var centerLng = parseFloat(root.getAttribute('data-center-lng'));
+    var zoom      = parseFloat(root.getAttribute('data-zoom'));
+
+    if (!isFinite(centerLat) || !isFinite(centerLng) || !isFinite(zoom)) {
+      return;
+    }
+
+    var centerPx = latLngToWorldPx(centerLat, centerLng, zoom);
+    var callouts = root.querySelectorAll('.location-callout[data-lat][data-lng]');
+
+    callouts.forEach(function (node) {
+      var lat = parseFloat(node.getAttribute('data-lat'));
+      var lng = parseFloat(node.getAttribute('data-lng'));
+      if (!isFinite(lat) || !isFinite(lng)) { return; }
+
+      var p  = latLngToWorldPx(lat, lng, zoom);
+      var dx = Math.round(p.x - centerPx.x);
+      var dy = Math.round(p.y - centerPx.y);
+
+      node.style.setProperty('--dx', dx + 'px');
+      node.style.setProperty('--dy', dy + 'px');
+      node.classList.add('is-positioned');
+    });
+  }
+
+  function init() {
+    var roots = document.querySelectorAll('.location-map-annotations[data-center-lat]');
+    roots.forEach(positionCallouts);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // Recompute on resize — the maths is zoom-based so pixel offsets are
+  // stable, but this catches any edge cases (e.g. CSS media-query changes
+  // hiding/showing the layer).
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(init, 150);
+  }, { passive: true });
+})();

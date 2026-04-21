@@ -38,13 +38,17 @@ if ( ! $pharmacy_directions && $center_coords ) {
 }
 
 // --- Map overlay: pharmacy pin + parking callouts ---
-$pin_x = (float) dp_option( 'location_pin_x', 50 );
-$pin_y = (float) dp_option( 'location_pin_y', 50 );
-
+// Pharmacy pin always sits at the map centre (50/50) by definition —
+// the map is centred on the pharmacy coordinates.
 $parking_callouts = dp_option( 'location_parking_callouts' );
 if ( ! is_array( $parking_callouts ) ) {
     $parking_callouts = array();
 }
+
+// Parse centre coords into floats for JS data attributes.
+$center_parts    = array_map( 'trim', explode( ',', $center_coords ) );
+$center_lat      = isset( $center_parts[0] ) ? (float) $center_parts[0] : 0;
+$center_lng      = isset( $center_parts[1] ) ? (float) $center_parts[1] : 0;
 
 // --- Floating card header ---
 $badge_text      = dp_field( 'location_badge_text', 'Visit Us' );
@@ -102,13 +106,17 @@ $booking_url = dp_booking_url();
 
         <div class="location-map-overlay" aria-hidden="true"></div>
 
-        <!-- Annotations: pharmacy pin + parking callouts -->
-        <div class="location-map-annotations" aria-hidden="true">
+        <!-- Annotations: pharmacy pin + parking callouts (geo-anchored by JS) -->
+        <div
+            class="location-map-annotations"
+            data-center-lat="<?php echo esc_attr( $center_lat ); ?>"
+            data-center-lng="<?php echo esc_attr( $center_lng ); ?>"
+            data-zoom="<?php echo esc_attr( $map_zoom ); ?>"
+        >
 
-            <!-- Pharmacy pin (clickable → opens directions in Google Maps) -->
+            <!-- Pharmacy pin (always at map centre, since the map is centred on the pharmacy) -->
             <a
                 class="location-pin location-pin--pharmacy"
-                style="--pin-x: <?php echo esc_attr( $pin_x ); ?>%; --pin-y: <?php echo esc_attr( $pin_y ); ?>%;"
                 <?php if ( $pharmacy_directions ) : ?>href="<?php echo esc_url( $pharmacy_directions ); ?>" target="_blank" rel="noopener noreferrer" title="Get directions on Google Maps"<?php else : ?>href="#"<?php endif; ?>
             >
                 <span class="location-pin-halo"></span>
@@ -129,21 +137,32 @@ $booking_url = dp_booking_url();
             </a>
 
             <?php foreach ( $parking_callouts as $i => $callout ) :
-                $c_label = isset( $callout['label'] ) ? $callout['label'] : '';
-                $c_desc  = isset( $callout['description'] ) ? $callout['description'] : '';
-                $c_x     = isset( $callout['position_x'] ) ? (float) $callout['position_x'] : 50;
-                $c_y     = isset( $callout['position_y'] ) ? (float) $callout['position_y'] : 30;
-                $anchor  = isset( $callout['anchor'] ) ? $callout['anchor'] : 'ne';
-                $c_url   = isset( $callout['destination_url'] ) ? $callout['destination_url'] : '';
-                if ( $c_label === '' ) { continue; }
+                $c_label  = isset( $callout['label'] ) ? $callout['label'] : '';
+                $c_desc   = isset( $callout['description'] ) ? $callout['description'] : '';
+                $c_coords = isset( $callout['coords'] ) ? trim( (string) $callout['coords'] ) : '';
+                $anchor   = isset( $callout['anchor'] ) ? $callout['anchor'] : 'ne';
+                $c_url    = isset( $callout['destination_url'] ) ? $callout['destination_url'] : '';
 
-                $tag      = $c_url ? 'a' : 'div';
-                $link_att = $c_url ? ' href="' . esc_url( $c_url ) . '" target="_blank" rel="noopener noreferrer" title="Open in Google Maps"' : '';
+                if ( $c_label === '' || $c_coords === '' ) { continue; }
+
+                $coord_parts = array_map( 'trim', explode( ',', $c_coords ) );
+                $c_lat       = isset( $coord_parts[0] ) ? (float) $coord_parts[0] : 0;
+                $c_lng       = isset( $coord_parts[1] ) ? (float) $coord_parts[1] : 0;
+
+                // Fallback URL: open Google Maps search at the coords
+                if ( ! $c_url ) {
+                    $c_url = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $c_coords );
+                }
             ?>
-                <<?php echo $tag; ?>
-                    class="location-callout location-callout--<?php echo esc_attr( $anchor ); ?><?php echo $c_url ? ' is-clickable' : ''; ?>"
-                    style="--pin-x: <?php echo esc_attr( $c_x ); ?>%; --pin-y: <?php echo esc_attr( $c_y ); ?>%; --callout-delay: <?php echo esc_attr( 0.4 + ( $i * 0.15 ) ); ?>s;"
-                    <?php echo $link_att; ?>
+                <a
+                    class="location-callout location-callout--<?php echo esc_attr( $anchor ); ?>"
+                    style="--callout-delay: <?php echo esc_attr( 0.4 + ( $i * 0.15 ) ); ?>s;"
+                    data-lat="<?php echo esc_attr( $c_lat ); ?>"
+                    data-lng="<?php echo esc_attr( $c_lng ); ?>"
+                    href="<?php echo esc_url( $c_url ); ?>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="<?php echo esc_attr( $c_label . ' — open in Google Maps' ); ?>"
                 >
                     <span class="location-callout-dot"></span>
                     <span class="location-callout-line"></span>
@@ -154,12 +173,10 @@ $booking_url = dp_booking_url();
                             <?php if ( $c_desc !== '' ) : ?>
                                 <span class="location-callout-desc"><?php echo esc_html( $c_desc ); ?></span>
                             <?php endif; ?>
-                            <?php if ( $c_url ) : ?>
-                                <span class="location-callout-cta">Directions <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                            <?php endif; ?>
+                            <span class="location-callout-cta">Directions <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                         </span>
                     </span>
-                </<?php echo $tag; ?>>
+                </a>
             <?php endforeach; ?>
 
         </div>

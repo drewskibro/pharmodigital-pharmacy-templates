@@ -232,6 +232,15 @@ function denton_pharmacy_scripts() {
         DENTON_PHARMACY_VERSION,
         true
     );
+
+    // Location map JS — geo-anchored parking callouts via Web Mercator
+    wp_enqueue_script(
+        'denton-location-map',
+        DENTON_PHARMACY_URI . '/assets/js/location-map.js',
+        array(),
+        filemtime( DENTON_PHARMACY_DIR . '/assets/js/location-map.js' ),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'denton_pharmacy_scripts' );
 

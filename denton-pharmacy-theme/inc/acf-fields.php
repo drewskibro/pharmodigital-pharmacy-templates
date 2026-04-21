@@ -311,31 +311,10 @@ function dp_register_acf_field_groups() {
                 'instructions'  => '15 = neighbourhood, 17 = street, 19 = building.',
             ),
 
-            // --- Map overlay: pharmacy pin position ---
-            array(
-                'key'           => 'field_dp_location_pin_x',
-                'label'         => 'Pharmacy Pin — Horizontal Position (%)',
-                'name'          => 'location_pin_x',
-                'type'          => 'number',
-                'min'           => 0,
-                'max'           => 100,
-                'default_value' => 62,
-                'append'        => '%',
-                'instructions'  => 'Position of the pharmacy pin over the map. 0 = left edge, 100 = right edge. Keep on the right half so it is not covered by the floating card.',
-            ),
-            array(
-                'key'           => 'field_dp_location_pin_y',
-                'label'         => 'Pharmacy Pin — Vertical Position (%)',
-                'name'          => 'location_pin_y',
-                'type'          => 'number',
-                'min'           => 0,
-                'max'           => 100,
-                'default_value' => 50,
-                'append'        => '%',
-                'instructions'  => 'Position of the pharmacy pin over the map. 0 = top, 100 = bottom.',
-            ),
-
             // --- Map overlay: parking callouts (up to 2) ---
+            // Dots are geo-anchored by lat,lng via Web Mercator math in JS —
+            // no fiddly %-based positioning. Move the map centre or change
+            // the zoom and the dots follow automatically.
             array(
                 'key'          => 'field_dp_location_parking_callouts',
                 'label'        => 'Parking Hotspots',
@@ -345,7 +324,7 @@ function dp_register_acf_field_groups() {
                 'max'          => 2,
                 'layout'       => 'block',
                 'button_label' => 'Add parking hotspot',
-                'instructions' => 'Add up to 2 nearby parking hotspots. Each shows a dot on the map with a floating label card connected by a thin line.',
+                'instructions' => 'Add up to 2 nearby parking hotspots. Each dot is placed on the map from real lat,lng coordinates. Click opens Google Maps directions in a new tab.',
                 'sub_fields'   => array(
                     array(
                         'key'         => 'field_dp_location_callout_label',
@@ -362,24 +341,12 @@ function dp_register_acf_field_groups() {
                         'placeholder' => 'e.g. 2 min walk · Free after 6pm',
                     ),
                     array(
-                        'key'           => 'field_dp_location_callout_x',
-                        'label'         => 'Dot — Horizontal Position (%)',
-                        'name'          => 'position_x',
-                        'type'          => 'number',
-                        'min'           => 0,
-                        'max'           => 100,
-                        'default_value' => 50,
-                        'append'        => '%',
-                    ),
-                    array(
-                        'key'           => 'field_dp_location_callout_y',
-                        'label'         => 'Dot — Vertical Position (%)',
-                        'name'          => 'position_y',
-                        'type'          => 'number',
-                        'min'           => 0,
-                        'max'           => 100,
-                        'default_value' => 30,
-                        'append'        => '%',
+                        'key'          => 'field_dp_location_callout_coords',
+                        'label'        => 'Coordinates (lat,lng)',
+                        'name'         => 'coords',
+                        'type'         => 'text',
+                        'placeholder'  => '53.4563,-2.1142',
+                        'instructions' => 'Right-click the parking on Google Maps and click the coordinates that appear — they copy to your clipboard. Paste here.',
                     ),
                     array(
                         'key'           => 'field_dp_location_callout_anchor',
@@ -401,7 +368,7 @@ function dp_register_acf_field_groups() {
                         'name'         => 'destination_url',
                         'type'         => 'url',
                         'placeholder'  => 'https://www.google.com/maps/dir/?api=1&destination=...',
-                        'instructions' => 'Clicking the hotspot opens this in a new tab. Easiest: find the parking on Google Maps → Share → Copy link.',
+                        'instructions' => 'Clicking the hotspot opens this in a new tab. Easiest: find the parking on Google Maps → Share → Copy link. If empty, a search URL is generated from the coordinates.',
                     ),
                 ),
             ),
