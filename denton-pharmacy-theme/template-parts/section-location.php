@@ -117,7 +117,7 @@ $booking_url = dp_booking_url();
             <!-- Pharmacy pin (always at map centre, since the map is centred on the pharmacy) -->
             <a
                 class="location-pin location-pin--pharmacy"
-                <?php if ( $pharmacy_directions ) : ?>href="<?php echo esc_url( $pharmacy_directions ); ?>" target="_blank" rel="noopener noreferrer" title="Get directions on Google Maps"<?php else : ?>href="#"<?php endif; ?>
+                <?php if ( $pharmacy_directions ) : ?>href="<?php echo esc_url( $pharmacy_directions ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Get directions to <?php echo esc_attr( dp_pharmacy_name() ); ?> on Google Maps"<?php else : ?>href="#"<?php endif; ?>
             >
                 <span class="location-pin-dot">
                     <?php

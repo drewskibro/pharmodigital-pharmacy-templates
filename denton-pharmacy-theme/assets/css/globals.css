@@ -3813,11 +3813,16 @@ a.hero-nhs-pill:hover {
   100% { opacity: 1; transform: translateX(-50%) scaleX(1); }
 }
 
+/* Pharmacy label — permanently visible, anchored to the upper-left of
+   the pin so it stays clear of parking markers that tend to cluster to
+   the right and below the pharmacy. */
 .location-pin-label {
   position: absolute;
-  left: 50%;
-  bottom: calc(100% + 16px);
-  transform: translateX(-50%) translateY(6px);
+  right: calc(50% + 18px);
+  bottom: calc(50% + 18px);
+  left: auto;
+  top: auto;
+  transform: none;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
@@ -3831,32 +3836,34 @@ a.hero-nhs-pill:hover {
   white-space: nowrap;
   font-size: 0.8125rem;
   line-height: 1.25;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 6;
+  animation: location-pin-label-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
 }
 
+/* Beak — bottom-right corner of the card, pointing down-right toward the pin. */
 .location-pin-label::after {
   content: "";
   position: absolute;
-  left: 50%;
-  top: 100%;
+  right: 14px;
+  bottom: -6px;
   width: 12px;
   height: 12px;
   background: #fff;
-  transform: translate(-50%, -54%) rotate(45deg);
+  transform: rotate(45deg);
   border-right: 1px solid rgba(63, 115, 174, 0.16);
   border-bottom: 1px solid rgba(63, 115, 174, 0.16);
   border-radius: 0 0 2px 0;
 }
 
-.location-pin:hover .location-pin-label,
-.location-pin:focus-visible .location-pin-label {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+@keyframes location-pin-label-in {
+  from { opacity: 0; transform: translate(6px, 6px); }
+  to   { opacity: 1; transform: translate(0, 0);     }
+}
+
+/* On tablet/mobile the map is shorter — drop the permanent label and
+   keep the info inside the stacked card to avoid clutter. */
+@media (max-width: 1023px) {
+  .location-pin-label { display: none; }
 }
 
 .location-pin-label-name {
