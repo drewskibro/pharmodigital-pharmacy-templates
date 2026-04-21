@@ -136,6 +136,37 @@ function dp_parking_fingerprints_save( array $fingerprints ) {
  * yet), re-parse and overwrite the label + coords from Google Maps.
  * If the URL is unchanged, leave the row alone.
  */
+/**
+ * Parse the pharmacy's own Google Maps share link and write its coords
+ * into location_center_coords. Uses the same fingerprint trick as the
+ * callouts so manual edits survive unless the URL changes.
+ */
+function dp_autofill_pharmacy_center( $post_id ) {
+    $url = trim( (string) get_field( 'location_pharmacy_maps_url', $post_id ) );
+    if ( $url === '' ) {
+        return;
+    }
+
+    $fingerprints = dp_parking_fingerprints_get();
+    $last_url     = isset( $fingerprints['__pharmacy__'] ) ? (string) $fingerprints['__pharmacy__'] : '';
+    $cur_coords   = trim( (string) get_field( 'location_center_coords', $post_id ) );
+
+    if ( $url === $last_url && $cur_coords !== '' ) {
+        error_log( '[dp_autofill] pharmacy skip (url unchanged, coords present)' );
+        return;
+    }
+
+    $parsed = dp_parse_google_maps_url( $url );
+    error_log( '[dp_autofill] pharmacy parsed coords=' . $parsed['coords'] );
+
+    if ( ! empty( $parsed['coords'] ) ) {
+        $ok = update_field( 'field_dp_location_center_coords', $parsed['coords'], 'option' );
+        error_log( '[dp_autofill] pharmacy center write: ' . var_export( $ok, true ) );
+        $fingerprints['__pharmacy__'] = $url;
+        dp_parking_fingerprints_save( $fingerprints );
+    }
+}
+
 function dp_autofill_parking_callouts( $post_id ) {
     // Only option-page saves. Skip posts/pages/users/terms.
     if ( is_numeric( $post_id ) ) {
@@ -143,6 +174,9 @@ function dp_autofill_parking_callouts( $post_id ) {
     }
 
     error_log( '[dp_autofill] hook fired with post_id: ' . var_export( $post_id, true ) );
+
+    // --- Pharmacy centre coords: parse from the pharmacy Google Maps link ---
+    dp_autofill_pharmacy_center( $post_id );
 
     $callouts = get_field( 'location_parking_callouts', $post_id );
     if ( ! is_array( $callouts ) ) {
@@ -153,53 +187,63 @@ function dp_autofill_parking_callouts( $post_id ) {
     error_log( '[dp_autofill] rows: ' . count( $callouts ) );
 
     $fingerprints = dp_parking_fingerprints_get();
-    $changed      = false;
 
     foreach ( $callouts as $i => $row ) {
         $url        = isset( $row['destination_url'] ) ? trim( (string) $row['destination_url'] ) : '';
         $last_url   = isset( $fingerprints[ $i ] ) ? (string) $fingerprints[ $i ] : '';
+        $cur_label  = isset( $row['label'] ) ? trim( (string) $row['label'] ) : '';
+        $cur_coords = isset( $row['coords'] ) ? trim( (string) $row['coords'] ) : '';
+
+        error_log( '[dp_autofill] row ' . $i . ' url=' . $url . ' last=' . $last_url . ' label=' . $cur_label . ' coords=' . $cur_coords );
 
         if ( $url === '' ) {
-            // Row has no URL; clear its fingerprint slot so a later paste re-parses.
             if ( $last_url !== '' ) {
                 $fingerprints[ $i ] = '';
             }
             continue;
         }
 
-        if ( $url === $last_url ) {
-            // URL unchanged — respect any manual edits made to label/desc/coords.
+        // Re-parse when the URL changed OR when label/coords are empty (editor
+        // cleared them manually to force a refresh). Fingerprint alone isn't
+        // enough because we want empty cells to always refill.
+        if ( $url === $last_url && $cur_label !== '' && $cur_coords !== '' ) {
+            error_log( '[dp_autofill] row ' . $i . ' skip (url unchanged, label+coords present)' );
             continue;
         }
 
         $parsed = dp_parse_google_maps_url( $url );
+        error_log( '[dp_autofill] row ' . $i . ' parsed label=' . $parsed['label'] . ' coords=' . $parsed['coords'] );
 
         // Only record the fingerprint if we actually pulled something useful out
         // of the URL; otherwise leave it so the editor can retry on the next save.
         if ( ! empty( $parsed['label'] ) || ! empty( $parsed['coords'] ) ) {
+            // Write directly to the sub-fields by field key. On the options
+            // page, update_field() on the whole repeater by name returns
+            // false; update_sub_field() with the key path is the reliable
+            // ACF-sanctioned way to patch individual cells.
+            $row_index = $i + 1; // ACF sub-field rows are 1-indexed.
             if ( ! empty( $parsed['label'] ) ) {
-                $callouts[ $i ]['label'] = $parsed['label'];
+                $ok_label = update_sub_field(
+                    array( 'field_dp_location_parking_callouts', $row_index, 'field_dp_location_callout_label' ),
+                    $parsed['label'],
+                    'option'
+                );
+                error_log( '[dp_autofill] row ' . $i . ' label write: ' . var_export( $ok_label, true ) );
             }
             if ( ! empty( $parsed['coords'] ) ) {
-                $callouts[ $i ]['coords'] = $parsed['coords'];
+                $ok_coords = update_sub_field(
+                    array( 'field_dp_location_parking_callouts', $row_index, 'field_dp_location_callout_coords' ),
+                    $parsed['coords'],
+                    'option'
+                );
+                error_log( '[dp_autofill] row ' . $i . ' coords write: ' . var_export( $ok_coords, true ) );
             }
             $fingerprints[ $i ] = $url;
-            $changed            = true;
         }
     }
 
     // Trim fingerprint array to the number of rows so deleted rows drop off.
     $fingerprints = array_slice( $fingerprints, 0, count( $callouts ) );
-
-    if ( $changed ) {
-        remove_action( 'acf/save_post', 'dp_autofill_parking_callouts', 20 );
-        // Always write to the standard 'option' store where Pharmacy Settings
-        // sub-pages keep their data. The $post_id we receive from the hook can
-        // be a sub-page slug, but the rows live under the 'options_*' prefix.
-        $ok = update_field( 'location_parking_callouts', $callouts, 'option' );
-        error_log( '[dp_autofill] update_field returned: ' . var_export( $ok, true ) );
-        add_action( 'acf/save_post', 'dp_autofill_parking_callouts', 20 );
-    }
 
     dp_parking_fingerprints_save( $fingerprints );
 }

@@ -322,6 +322,15 @@ function dp_register_acf_field_groups() {
                 'instructions'  => 'Optional. PNG or SVG with transparent background — renders inside the navy disc on the map. If empty, a default medical cross is used. Best: square, at least 128×128, with generous padding so it breathes inside the disc.',
             ),
 
+            // --- Pharmacy Google Maps share link (auto-fills centre coords on save) ---
+            array(
+                'key'           => 'field_dp_location_pharmacy_maps_url',
+                'label'         => 'Pharmacy Google Maps link',
+                'name'          => 'location_pharmacy_maps_url',
+                'type'          => 'url',
+                'instructions'  => 'Paste the Google Maps share link of the pharmacy. On save, the centre coordinates below auto-fill from it. Same flow as the parking hotspots: Google Maps → click the pharmacy pin → Share → Copy link → paste here.',
+            ),
+
             // --- Map centre coordinates (used to drop Google's default red pin) ---
             array(
                 'key'           => 'field_dp_location_center_coords',
@@ -330,7 +339,7 @@ function dp_register_acf_field_groups() {
                 'type'          => 'text',
                 'default_value' => '53.4557,-2.1120',
                 'placeholder'   => '53.4557,-2.1120',
-                'instructions'  => 'Latitude,longitude of the pharmacy (no spaces). Used to centre the embedded map without showing Google\'s default red pin. Get from Google Maps → right-click the pharmacy → copy coordinates.',
+                'instructions'  => 'Auto-filled from the Google Maps link above. Overwrite only if you need to nudge the map centre manually.',
             ),
             array(
                 'key'           => 'field_dp_location_zoom',
