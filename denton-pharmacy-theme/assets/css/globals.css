@@ -3950,23 +3950,57 @@ a.hero-nhs-pill:hover {
   z-index: 2;
 }
 
-/* Subtle pulse around each parking marker */
+/* Continuous pulse around each parking marker — two staggered waves so
+   it reads as alive at a glance, not just on hover. */
 .location-callout-dot::after {
   content: "";
   position: absolute;
-  inset: -1.5px;
-  border: 1px solid var(--brand-primary, #3f73ae);
+  inset: -2px;
+  border: 1.5px solid var(--brand-primary, #3f73ae);
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
-  animation: location-parking-pulse 3.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation: location-parking-pulse 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
   animation-delay: var(--callout-delay, 0s);
+  box-sizing: border-box;
+}
+
+.location-callout .location-callout-dot {
+  /* Second wave — layered on the wrapper so it doesn't collide with the
+     dot's own ::before (the P letter) and ::after (the first wave). */
+  position: absolute;
+}
+
+.location-callout::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  margin: -13px 0 0 -13px;
+  border: 1.5px solid var(--brand-primary, #3f73ae);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: location-parking-pulse 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: calc(var(--callout-delay, 0s) + 1.4s);
+  z-index: 1;
+  box-sizing: border-box;
 }
 
 @keyframes location-parking-pulse {
-  0%   { transform: scale(0.95); opacity: 0.35; }
-  70%  { transform: scale(1.9);  opacity: 0;    }
-  100% { transform: scale(1.9);  opacity: 0;    }
+  0%   { transform: scale(0.95); opacity: 0.55; border-width: 1.5px; }
+  60%  { opacity: 0.25; }
+  100% { transform: scale(2.3);  opacity: 0;    border-width: 0.5px; }
+}
+
+@media (max-width: 1023px) {
+  .location-callout::before {
+    width: 20px;
+    height: 20px;
+    margin: -12px 0 0 -12px;
+  }
 }
 
 .location-callout:hover .location-callout-dot,
