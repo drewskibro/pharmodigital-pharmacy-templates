@@ -3733,19 +3733,18 @@ a.hero-nhs-pill:hover {
   z-index: 4;
 }
 
-/* Elliptical ground shadow — replaces the tail, anchors the pin to the
-   map like it's resting on a surface. */
+/* Elliptical ground shadow — soft diffuse cushion, not a visible element. */
 .location-pin::before {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -10px;
-  width: 36px;
-  height: 8px;
-  background: radial-gradient(ellipse at center, rgba(15, 42, 80, 0.4) 0%, rgba(15, 42, 80, 0.1) 55%, transparent 75%);
+  bottom: -14px;
+  width: 48px;
+  height: 12px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.1) 45%, transparent 72%);
   transform: translateX(-50%);
   border-radius: 50%;
-  filter: blur(1px);
+  filter: blur(4px);
   z-index: 1;
   pointer-events: none;
   animation: location-pin-shadow-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
@@ -3799,6 +3798,20 @@ a.hero-nhs-pill:hover {
 
 /* Remove the old tail — ground shadow replaces it. */
 .location-pin-dot::after { content: none; }
+
+/* Custom pin icon (overrides the default Swiss cross) */
+.location-pin-icon {
+  display: block;
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+  /* If the editor uploads a dark/coloured artwork, this keeps it reading
+     cleanly against the navy disc. Remove for a full-colour logo. */
+  filter: brightness(0) invert(1);
+}
 
 /* Halo rings — slow GPS-style breathing pulse */
 .location-pin-halo {

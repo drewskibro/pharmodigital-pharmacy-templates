@@ -290,6 +290,18 @@ function dp_register_acf_field_groups() {
                 'default_value' => 'Free customer parking available nearby.',
             ),
 
+            // --- Pharmacy pin icon (overrides the default Swiss cross) ---
+            array(
+                'key'           => 'field_dp_location_pin_icon',
+                'label'         => 'Pharmacy Pin Icon',
+                'name'          => 'location_pin_icon',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'thumbnail',
+                'library'       => 'all',
+                'instructions'  => 'Optional. PNG or SVG with transparent background — renders inside the navy disc on the map. If empty, a default medical cross is used. Best: square, at least 128×128, with generous padding so it breathes inside the disc.',
+            ),
+
             // --- Map centre coordinates (used to drop Google's default red pin) ---
             array(
                 'key'           => 'field_dp_location_center_coords',

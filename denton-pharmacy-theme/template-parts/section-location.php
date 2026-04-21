@@ -122,9 +122,17 @@ $booking_url = dp_booking_url();
                 <span class="location-pin-halo"></span>
                 <span class="location-pin-halo location-pin-halo--delayed"></span>
                 <span class="location-pin-dot">
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-                        <path d="M10 3.5h4a1 1 0 0 1 1 1V9h4.5a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H15v4.5a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V15H4.5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1H9V4.5a1 1 0 0 1 1-1z"/>
-                    </svg>
+                    <?php
+                    $pin_icon_id  = dp_option( 'location_pin_icon' );
+                    $pin_icon_url = $pin_icon_id ? wp_get_attachment_image_url( $pin_icon_id, 'medium' ) : '';
+                    if ( $pin_icon_url ) :
+                    ?>
+                        <img class="location-pin-icon" src="<?php echo esc_url( $pin_icon_url ); ?>" alt="" aria-hidden="true" />
+                    <?php else : ?>
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                            <path d="M10 3.5h4a1 1 0 0 1 1 1V9h4.5a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H15v4.5a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V15H4.5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1H9V4.5a1 1 0 0 1 1-1z"/>
+                        </svg>
+                    <?php endif; ?>
                 </span>
                 <span class="location-pin-label">
                     <span class="location-pin-label-name"><?php echo esc_html( dp_pharmacy_name() ); ?></span>
