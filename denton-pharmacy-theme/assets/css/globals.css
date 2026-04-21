@@ -3714,20 +3714,41 @@ a.hero-nhs-pill:hover {
   pointer-events: auto;
 }
 
-/* ---- Pharmacy pin (clickable → Google Maps directions)
-       Always sits at the map centre because the iframe is centred on the
-       pharmacy coordinates. ---- */
+/* ---- Pharmacy pin — Swiss Apothecary
+       Concentric rings, filled medical cross, elliptical ground shadow
+       (no stick). Sits at the map centre because the iframe is centred
+       on the pharmacy coordinates. ---- */
 .location-pin {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 56px;
-  height: 56px;
-  transform: translate(-50%, -100%);
+  width: 60px;
+  height: 60px;
+  /* Anchor the visual centre of the disc on the geo point (no tail means
+     we pin by centre, not by bottom). */
+  transform: translate(-50%, -50%);
   color: var(--brand-primary, #3f73ae);
   text-decoration: none;
   cursor: pointer;
   z-index: 4;
+}
+
+/* Elliptical ground shadow — replaces the tail, anchors the pin to the
+   map like it's resting on a surface. */
+.location-pin::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 36px;
+  height: 8px;
+  background: radial-gradient(ellipse at center, rgba(15, 42, 80, 0.4) 0%, rgba(15, 42, 80, 0.1) 55%, transparent 75%);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  filter: blur(1px);
+  z-index: 1;
+  pointer-events: none;
+  animation: location-pin-shadow-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
 
 .location-pin-dot {
@@ -3738,56 +3759,71 @@ a.hero-nhs-pill:hover {
   justify-content: center;
   background: var(--brand-primary, #3f73ae);
   color: #fff;
-  border: 4px solid #fff;
+  border: 5px solid #fff;
   border-radius: 50%;
+  /* Four-layer depth:
+     1. Outer hairline ring — defines crisp silhouette on busy map textures
+     2. Deep directional shadow — elevation
+     3. Ambient close shadow — softness
+     4/5. Inner bevel highlight + inset — glass-like apothecary bottle feel */
   box-shadow:
-    0 14px 30px -8px rgba(15, 42, 80, 0.55),
-    0 3px 8px rgba(15, 42, 80, 0.3),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    0 0 0 1.5px rgba(63, 115, 174, 0.35),
+    0 18px 38px -10px rgba(15, 42, 80, 0.55),
+    0 5px 12px rgba(15, 42, 80, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.14);
   z-index: 3;
   animation: location-pin-drop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .location-pin:hover .location-pin-dot,
 .location-pin:focus-visible .location-pin-dot {
-  transform: scale(1.06);
+  transform: scale(1.08);
   box-shadow:
-    0 18px 40px -8px rgba(15, 42, 80, 0.6),
-    0 4px 10px rgba(15, 42, 80, 0.32);
+    0 0 0 1.5px rgba(63, 115, 174, 0.5),
+    0 24px 46px -10px rgba(15, 42, 80, 0.6),
+    0 6px 14px rgba(15, 42, 80, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.16);
 }
 
-.location-pin-dot::after {
-  /* precision tail connecting pin to map */
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  width: 3px;
-  height: 14px;
-  background: var(--brand-primary, #3f73ae);
-  transform: translateX(-50%);
-  border-radius: 0 0 3px 3px;
-  box-shadow: 0 2px 4px rgba(15, 42, 80, 0.3);
+.location-pin:hover::before,
+.location-pin:focus-visible::before {
+  width: 42px;
+  opacity: 0.9;
+  transition: width 0.35s ease, opacity 0.35s ease;
 }
 
+/* Remove the old tail — ground shadow replaces it. */
+.location-pin-dot::after { content: none; }
+
+/* Halo rings — slow GPS-style breathing pulse */
 .location-pin-halo {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   border: 2px solid var(--brand-primary, #3f73ae);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  animation: location-pin-pulse 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-  animation-delay: 0.7s;
+  animation: location-pin-pulse 3.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: 0.8s;
   pointer-events: none;
+  z-index: 2;
 }
 
 .location-pin-halo--delayed {
-  animation-delay: 2.0s;
+  animation-delay: 2.4s;
+}
+
+@keyframes location-pin-shadow-in {
+  0%   { opacity: 0; transform: translateX(-50%) scaleX(0.2); }
+  100% { opacity: 1; transform: translateX(-50%) scaleX(1); }
 }
 
 .location-pin-label {
@@ -4044,9 +4080,9 @@ a.location-callout:hover .location-callout-cta { gap: 0.5rem; }
 }
 
 @keyframes location-pin-pulse {
-  0%   { transform: translate(-50%, -50%) scale(0.6); opacity: 0.7; }
-  80%  { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
-  100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+  0%   { transform: translate(-50%, -50%) scale(0.9); opacity: 0.55; border-width: 2px; }
+  55%  { opacity: 0.35; }
+  100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0;    border-width: 1px; }
 }
 
 @keyframes location-annotation-in {

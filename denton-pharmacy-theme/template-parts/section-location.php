@@ -122,8 +122,8 @@ $booking_url = dp_booking_url();
                 <span class="location-pin-halo"></span>
                 <span class="location-pin-halo location-pin-halo--delayed"></span>
                 <span class="location-pin-dot">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M12 4v16M4 12h16"></path>
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                        <path d="M10 3.5h4a1 1 0 0 1 1 1V9h4.5a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H15v4.5a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V15H4.5a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1H9V4.5a1 1 0 0 1 1-1z"/>
                     </svg>
                 </span>
                 <span class="location-pin-label">
