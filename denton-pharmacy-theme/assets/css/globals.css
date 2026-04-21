@@ -4038,9 +4038,9 @@ a.location-callout:hover .location-callout-cta { gap: 0.5rem; }
 .location-callout--sw .location-callout-line { transform: rotate(144deg); width: 90px; }
 
 @keyframes location-pin-drop {
-  0%   { transform: translate(-50%, -160%); opacity: 0; }
-  60%  { transform: translate(-50%, -95%);  opacity: 1; }
-  100% { transform: translate(-50%, -100%); opacity: 1; }
+  0%   { transform: translateY(-24px); opacity: 0; }
+  60%  { transform: translateY(4px);   opacity: 1; }
+  100% { transform: translateY(0);     opacity: 1; }
 }
 
 @keyframes location-pin-pulse {
