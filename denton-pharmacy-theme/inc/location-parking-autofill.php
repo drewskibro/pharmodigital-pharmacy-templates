@@ -134,10 +134,15 @@ function dp_autofill_parking_callouts( $post_id ) {
         return;
     }
 
+    error_log( '[dp_autofill] hook fired with post_id: ' . var_export( $post_id, true ) );
+
     $callouts = get_field( 'location_parking_callouts', $post_id );
     if ( ! is_array( $callouts ) ) {
+        error_log( '[dp_autofill] no callouts found for post_id ' . $post_id );
         return;
     }
+
+    error_log( '[dp_autofill] rows: ' . count( $callouts ) );
 
     $fingerprints = dp_parking_fingerprints_get();
     $changed      = false;
@@ -180,7 +185,11 @@ function dp_autofill_parking_callouts( $post_id ) {
 
     if ( $changed ) {
         remove_action( 'acf/save_post', 'dp_autofill_parking_callouts', 20 );
-        update_field( 'location_parking_callouts', $callouts, $post_id );
+        // Always write to the standard 'option' store where Pharmacy Settings
+        // sub-pages keep their data. The $post_id we receive from the hook can
+        // be a sub-page slug, but the rows live under the 'options_*' prefix.
+        $ok = update_field( 'location_parking_callouts', $callouts, 'option' );
+        error_log( '[dp_autofill] update_field returned: ' . var_export( $ok, true ) );
         add_action( 'acf/save_post', 'dp_autofill_parking_callouts', 20 );
     }
 
