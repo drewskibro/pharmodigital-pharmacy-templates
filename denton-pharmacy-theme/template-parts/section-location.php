@@ -148,7 +148,7 @@ $booking_url = dp_booking_url();
                 $c_label  = isset( $callout['label'] ) ? $callout['label'] : '';
                 $c_desc   = isset( $callout['description'] ) ? $callout['description'] : '';
                 $c_coords = isset( $callout['coords'] ) ? trim( (string) $callout['coords'] ) : '';
-                $anchor   = isset( $callout['anchor'] ) ? $callout['anchor'] : 'ne';
+                $anchor   = isset( $callout['anchor'] ) ? $callout['anchor'] : 'above';
                 $c_url    = isset( $callout['destination_url'] ) ? $callout['destination_url'] : '';
 
                 if ( $c_label === '' || $c_coords === '' ) { continue; }
@@ -162,29 +162,36 @@ $booking_url = dp_booking_url();
                     $c_url = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $c_coords );
                 }
             ?>
-                <a
+                <div
                     class="location-callout location-callout--<?php echo esc_attr( $anchor ); ?>"
                     style="--callout-delay: <?php echo esc_attr( 0.4 + ( $i * 0.15 ) ); ?>s;"
                     data-lat="<?php echo esc_attr( $c_lat ); ?>"
                     data-lng="<?php echo esc_attr( $c_lng ); ?>"
-                    href="<?php echo esc_url( $c_url ); ?>"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="<?php echo esc_attr( $c_label . ' — open in Google Maps' ); ?>"
                 >
-                    <span class="location-callout-dot"></span>
-                    <span class="location-callout-line"></span>
-                    <span class="location-callout-card">
-                        <span class="location-callout-icon" aria-hidden="true">P</span>
-                        <span class="location-callout-text">
+                    <button
+                        type="button"
+                        class="location-callout-dot"
+                        aria-label="<?php echo esc_attr( $c_label ); ?> — show details"
+                        aria-haspopup="true"
+                    ></button>
+                    <div class="location-callout-card" role="tooltip">
+                        <div class="location-callout-text">
                             <span class="location-callout-label"><?php echo esc_html( $c_label ); ?></span>
                             <?php if ( $c_desc !== '' ) : ?>
                                 <span class="location-callout-desc"><?php echo esc_html( $c_desc ); ?></span>
                             <?php endif; ?>
-                            <span class="location-callout-cta">Directions <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                        </span>
-                    </span>
-                </a>
+                        </div>
+                        <a
+                            href="<?php echo esc_url( $c_url ); ?>"
+                            class="location-callout-directions"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Directions
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
             <?php endforeach; ?>
 
         </div>

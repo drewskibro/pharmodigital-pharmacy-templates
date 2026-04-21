@@ -50,9 +50,51 @@
     });
   }
 
+  function bindPopupToggle() {
+    var dots = document.querySelectorAll('.location-callout-dot');
+    dots.forEach(function (dot) {
+      if (dot.dataset.popupBound === '1') { return; }
+      dot.dataset.popupBound = '1';
+      dot.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var callout = dot.closest('.location-callout');
+        if (!callout) { return; }
+        var wasOpen = callout.classList.contains('is-open');
+        // Close any currently open popup — only one at a time.
+        document.querySelectorAll('.location-callout.is-open').forEach(function (n) {
+          n.classList.remove('is-open');
+        });
+        if (!wasOpen) { callout.classList.add('is-open'); }
+      });
+    });
+  }
+
+  function bindGlobalClose() {
+    if (document.body.dataset.calloutGlobalBound === '1') { return; }
+    document.body.dataset.calloutGlobalBound = '1';
+
+    // Tap / click outside any callout closes open popups.
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('.location-callout')) { return; }
+      document.querySelectorAll('.location-callout.is-open').forEach(function (n) {
+        n.classList.remove('is-open');
+      });
+    });
+
+    // Escape closes popups.
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') { return; }
+      document.querySelectorAll('.location-callout.is-open').forEach(function (n) {
+        n.classList.remove('is-open');
+      });
+    });
+  }
+
   function init() {
     var roots = document.querySelectorAll('.location-map-annotations[data-center-lat]');
     roots.forEach(positionCallouts);
+    bindPopupToggle();
+    bindGlobalClose();
   }
 
   if (document.readyState === 'loading') {

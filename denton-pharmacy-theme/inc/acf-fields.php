@@ -362,17 +362,15 @@ function dp_register_acf_field_groups() {
                     ),
                     array(
                         'key'           => 'field_dp_location_callout_anchor',
-                        'label'         => 'Card direction',
+                        'label'         => 'Popup position',
                         'name'          => 'anchor',
                         'type'          => 'select',
                         'choices'       => array(
-                            'ne' => 'Up & right',
-                            'nw' => 'Up & left',
-                            'se' => 'Down & right',
-                            'sw' => 'Down & left',
+                            'above' => 'Above the dot',
+                            'below' => 'Below the dot',
                         ),
-                        'default_value' => 'ne',
-                        'instructions'  => 'Where the floating label card sits relative to the dot.',
+                        'default_value' => 'above',
+                        'instructions'  => 'Where the info popup appears when someone hovers or taps the parking marker. Choose "below" if the dot sits near the top of the map.',
                     ),
                     array(
                         'key'          => 'field_dp_location_callout_url',
