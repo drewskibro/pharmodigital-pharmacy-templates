@@ -3815,35 +3815,48 @@ a.hero-nhs-pill:hover {
 
 .location-pin-label {
   position: absolute;
-  left: calc(100% + 16px);
-  top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  bottom: calc(100% + 16px);
+  transform: translateX(-50%) translateY(6px);
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  padding: 0.6rem 0.95rem 0.65rem;
+  padding: 0.75rem 1rem 0.8rem;
   background: #fff;
-  border-radius: 0.6rem;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(63, 115, 174, 0.16);
   box-shadow:
-    0 12px 32px -10px rgba(15, 42, 80, 0.4),
-    0 3px 8px rgba(15, 42, 80, 0.14);
+    0 18px 42px -14px rgba(15, 42, 80, 0.42),
+    0 3px 10px rgba(15, 42, 80, 0.14);
   white-space: nowrap;
   font-size: 0.8125rem;
   line-height: 1.25;
   opacity: 0;
-  animation: location-annotation-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 6;
 }
 
-.location-pin-label::before {
+.location-pin-label::after {
   content: "";
   position: absolute;
-  left: -5px;
-  top: 50%;
-  width: 10px;
-  height: 10px;
+  left: 50%;
+  top: 100%;
+  width: 12px;
+  height: 12px;
   background: #fff;
-  transform: translateY(-50%) rotate(45deg);
-  border-radius: 2px 0 0 0;
+  transform: translate(-50%, -54%) rotate(45deg);
+  border-right: 1px solid rgba(63, 115, 174, 0.16);
+  border-bottom: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 0 2px 0;
+}
+
+.location-pin:hover .location-pin-label,
+.location-pin:focus-visible .location-pin-label {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
 }
 
 .location-pin-label-name {
