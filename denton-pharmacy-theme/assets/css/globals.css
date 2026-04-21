@@ -3805,26 +3805,8 @@ a.hero-nhs-pill:hover {
   user-select: none;
 }
 
-/* Halo rings — slow GPS-style breathing pulse */
-.location-pin-halo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 60px;
-  height: 60px;
-  border: 2px solid var(--brand-primary, #3f73ae);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  animation: location-pin-pulse 3.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-  animation-delay: 0.8s;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.location-pin-halo--delayed {
-  animation-delay: 2.4s;
-}
+/* Pharmacy pin halo retired — the parking markers carry the pulse now. */
+.location-pin-halo { display: none; }
 
 @keyframes location-pin-shadow-in {
   0%   { opacity: 0; transform: translateX(-50%) scaleX(0.2); }
@@ -3929,26 +3911,26 @@ a.hero-nhs-pill:hover {
   to   { opacity: 1; }
 }
 
-/* The visible parking marker — mini apothecary disc with a serif P.
+/* The visible parking marker — compact apothecary disc with a serif P.
    Acts as a button: click/tap toggles the info popup. */
 .location-callout-dot {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 32px;
-  height: 32px;
+  width: 22px;
+  height: 22px;
   background: #fff;
-  border: 2px solid var(--brand-primary, #3f73ae);
+  border: 1.5px solid var(--brand-primary, #3f73ae);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 0 0 3px #fff,
-    0 0 0 4px rgba(63, 115, 174, 0.18),
-    0 10px 22px -8px rgba(15, 42, 80, 0.4),
-    0 2px 6px rgba(15, 42, 80, 0.16);
+    0 0 0 2px #fff,
+    0 0 0 2.5px rgba(63, 115, 174, 0.18),
+    0 6px 14px -4px rgba(15, 42, 80, 0.3),
+    0 1px 4px rgba(15, 42, 80, 0.14);
   cursor: pointer;
   padding: 0;
   transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
@@ -3960,10 +3942,31 @@ a.hero-nhs-pill:hover {
   content: "P";
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.7rem;
   color: var(--brand-primary, #3f73ae);
   line-height: 1;
   letter-spacing: -0.02em;
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtle pulse around each parking marker */
+.location-callout-dot::after {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border: 1px solid var(--brand-primary, #3f73ae);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: location-parking-pulse 3.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: var(--callout-delay, 0s);
+}
+
+@keyframes location-parking-pulse {
+  0%   { transform: scale(0.95); opacity: 0.35; }
+  70%  { transform: scale(1.9);  opacity: 0;    }
+  100% { transform: scale(1.9);  opacity: 0;    }
 }
 
 .location-callout:hover .location-callout-dot,
@@ -4160,9 +4163,8 @@ a.hero-nhs-pill:hover {
     background: linear-gradient(to bottom, transparent 55%, rgba(17, 24, 39, 0.18) 100%);
   }
   .location-pin { width: 52px; height: 52px; }
-  .location-pin-halo { width: 52px; height: 52px; }
-  .location-callout-dot { width: 28px; height: 28px; }
-  .location-callout-dot::before { font-size: 0.85rem; }
+  .location-callout-dot { width: 20px; height: 20px; }
+  .location-callout-dot::before { font-size: 0.625rem; }
   .location-callout-card { min-width: 200px; max-width: 220px; }
 }
 

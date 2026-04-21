@@ -119,8 +119,6 @@ $booking_url = dp_booking_url();
                 class="location-pin location-pin--pharmacy"
                 <?php if ( $pharmacy_directions ) : ?>href="<?php echo esc_url( $pharmacy_directions ); ?>" target="_blank" rel="noopener noreferrer" title="Get directions on Google Maps"<?php else : ?>href="#"<?php endif; ?>
             >
-                <span class="location-pin-halo"></span>
-                <span class="location-pin-halo location-pin-halo--delayed"></span>
                 <span class="location-pin-dot">
                     <?php
                     $pin_icon_id  = dp_option( 'location_pin_icon' );
