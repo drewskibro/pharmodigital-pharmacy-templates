@@ -116,7 +116,7 @@ $booking_url = dp_booking_url();
 
             <?php
             $label_anchor = dp_option( 'location_label_anchor', 'up-left' );
-            $allowed_anchors = array( 'up-left', 'up-right', 'down-left', 'down-right' );
+            $allowed_anchors = array( 'up', 'down', 'left', 'right', 'up-left', 'up-right', 'down-left', 'down-right' );
             if ( ! in_array( $label_anchor, $allowed_anchors, true ) ) {
                 $label_anchor = 'up-left';
             }

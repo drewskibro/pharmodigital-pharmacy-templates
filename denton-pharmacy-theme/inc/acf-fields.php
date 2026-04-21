@@ -297,13 +297,17 @@ function dp_register_acf_field_groups() {
                 'name'          => 'location_label_anchor',
                 'type'          => 'select',
                 'choices'       => array(
+                    'up'         => 'Above pin (centered)',
+                    'down'       => 'Below pin (centered)',
+                    'left'       => 'Left of pin (centered)',
+                    'right'      => 'Right of pin (centered)',
                     'up-left'    => 'Up & left of pin',
                     'up-right'   => 'Up & right of pin',
                     'down-left'  => 'Down & left of pin',
                     'down-right' => 'Down & right of pin',
                 ),
                 'default_value' => 'up-left',
-                'instructions'  => 'Which corner the "Denton Pharmacy — Get directions" balloon sits on relative to the pin. Flip it if parking markers or city labels start covering it.',
+                'instructions'  => 'Where the pharmacy balloon sits relative to the pin. Flip it if parking markers or city labels start covering it.',
             ),
 
             // --- Pharmacy pin icon (overrides the default Swiss cross) ---

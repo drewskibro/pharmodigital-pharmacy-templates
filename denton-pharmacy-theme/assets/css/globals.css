@@ -3848,6 +3848,66 @@ a.hero-nhs-pill:hover {
   background: #fff;
 }
 
+/* --- Cardinal: above (centered) --- */
+.location-pin--label-up .location-pin-label {
+  left: 50%;
+  bottom: calc(50% + 40px);
+  transform: translateX(-50%);
+}
+.location-pin--label-up .location-pin-label::after {
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  border-right: 1px solid rgba(63, 115, 174, 0.16);
+  border-bottom: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 0 2px 0;
+}
+
+/* --- Cardinal: below (centered) --- */
+.location-pin--label-down .location-pin-label {
+  left: 50%;
+  top: calc(50% + 40px);
+  transform: translateX(-50%);
+}
+.location-pin--label-down .location-pin-label::after {
+  left: 50%;
+  top: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 2px 0 0 0;
+}
+
+/* --- Cardinal: left (centered) --- */
+.location-pin--label-left .location-pin-label {
+  right: calc(50% + 40px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.location-pin--label-left .location-pin-label::after {
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-right: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 2px 0 0;
+}
+
+/* --- Cardinal: right (centered) --- */
+.location-pin--label-right .location-pin-label {
+  left: calc(50% + 40px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.location-pin--label-right .location-pin-label::after {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border-bottom: 1px solid rgba(63, 115, 174, 0.16);
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 0 0 2px;
+}
+
 /* --- Up & left (default) --- */
 .location-pin--label-up-left .location-pin-label {
   right: calc(50% + 18px);
@@ -4374,12 +4434,14 @@ a.hero-nhs-pill:hover {
 .location-hours-row {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   font-size: 0.9375rem;
   margin-bottom: 0.25rem;
 }
 
 .location-hours-day {
   color: var(--text-gray);
+  flex-shrink: 0;
 }
 
 .location-hours-time {
