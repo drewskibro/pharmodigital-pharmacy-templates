@@ -23,7 +23,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  * in place. Safe to call multiple times on different sources.
  */
 function dp_regex_google_maps( $text, array &$result ) {
-    // @lat,lng pattern (with optional trailing ,zoom)
+    // Preferred: !3d<lat>!4d<lng> — the actual place coords embedded in
+    // Google's `data=` blob. Matches what right-clicking the place on
+    // Google Maps gives you.
+    if ( $result['coords'] === '' && preg_match( '#!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)#', $text, $m ) ) {
+        $result['coords'] = $m[1] . ',' . $m[2];
+    }
+
+    // Fallback: @lat,lng,zoom — viewport centre of the shared map view.
+    // Usually off from the actual place by a few metres, so only used if
+    // the !3d/!4d pair isn't present.
     if ( $result['coords'] === '' && preg_match( '#@(-?\d+\.\d+),(-?\d+\.\d+)#', $text, $m ) ) {
         $result['coords'] = $m[1] . ',' . $m[2];
     }
@@ -38,12 +47,11 @@ function dp_regex_google_maps( $text, array &$result ) {
     // og:title fallback (only present in HTML bodies)
     if ( $result['label'] === '' && preg_match( '#<meta\s+[^>]*property=["\']og:title["\'][^>]*content=["\']([^"\']+)["\']#i', $text, $m ) ) {
         $title = html_entity_decode( $m[1], ENT_QUOTES | ENT_HTML5, 'UTF-8' );
-        // Google sometimes appends " - Google Maps" — strip it
         $title = preg_replace( '#\s+-\s+Google Maps\s*$#i', '', $title );
         $result['label'] = trim( $title );
     }
 
-    // Static-map center= fallback for coords
+    // Static-map center= fallback for coords (lowest priority)
     if ( $result['coords'] === '' && preg_match( '#center=(-?\d+\.\d+)(?:%2C|,)(-?\d+\.\d+)#i', $text, $m ) ) {
         $result['coords'] = $m[1] . ',' . $m[2];
     }
