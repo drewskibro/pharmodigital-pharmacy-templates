@@ -69,6 +69,31 @@
     });
   }
 
+  function bindParkingListTriggers() {
+    var triggers = document.querySelectorAll('[data-parking-trigger]');
+    triggers.forEach(function (btn) {
+      if (btn.dataset.triggerBound === '1') { return; }
+      btn.dataset.triggerBound = '1';
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var idx = btn.getAttribute('data-parking-trigger');
+        var callout = document.querySelector('.location-callout[data-parking-index="' + idx + '"]');
+        if (!callout) { return; }
+        // Close any other open popup, open this one.
+        document.querySelectorAll('.location-callout.is-open').forEach(function (n) {
+          if (n !== callout) { n.classList.remove('is-open'); }
+        });
+        callout.classList.add('is-open');
+        // Scroll the map wrapper into view so the popup is visible on mobile.
+        var wrap = callout.closest('.location-map-wrapper');
+        if (wrap && typeof wrap.scrollIntoView === 'function') {
+          wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+  }
+
   function bindGlobalClose() {
     if (document.body.dataset.calloutGlobalBound === '1') { return; }
     document.body.dataset.calloutGlobalBound = '1';
@@ -94,6 +119,7 @@
     var roots = document.querySelectorAll('.location-map-annotations[data-center-lat]');
     roots.forEach(positionCallouts);
     bindPopupToggle();
+    bindParkingListTriggers();
     bindGlobalClose();
   }
 

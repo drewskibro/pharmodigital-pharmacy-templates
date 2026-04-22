@@ -15,27 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 // --- Map background layer (Google Maps iframe embed — static images retired) ---
 // Prefer a coords-centered embed so Google does NOT drop its default red pin;
 // that way our custom branded pin is the only marker on the map.
-$center_coords = trim( (string) dp_option( 'location_center_coords', '53.4557,-2.1120' ) );
-$map_zoom      = (int) dp_option( 'location_zoom', 17 );
-$custom_embed  = dp_option( 'location_google_maps_embed' );
+$center_coords  = trim( (string) dp_option( 'location_center_coords', '53.4557,-2.1120' ) );
+$map_zoom       = (int) dp_option( 'location_zoom', 17 );
+$maps_embed_url = 'https://maps.google.com/maps?ll=' . rawurlencode( $center_coords ) . '&z=' . (int) $map_zoom . '&t=m&output=embed';
 
-if ( $custom_embed ) {
-    $maps_embed_url = $custom_embed;
-} elseif ( $center_coords ) {
-    $maps_embed_url = 'https://maps.google.com/maps?ll=' . rawurlencode( $center_coords ) . '&z=' . (int) $map_zoom . '&t=m&output=embed';
-} else {
-    $addr_line_1  = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
-    $addr_line_2  = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
-    $addr_line_3  = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
-    $full_address = $addr_line_1 . ', ' . $addr_line_2 . ', ' . $addr_line_3;
-    $maps_embed_url = 'https://maps.google.com/maps?q=' . rawurlencode( $full_address ) . '&t=m&z=' . (int) $map_zoom . '&output=embed';
-}
-
-// --- Directions URL for the pharmacy pin ---
-$pharmacy_directions = dp_option( 'pharmacy_directions_url' );
-if ( ! $pharmacy_directions && $center_coords ) {
-    $pharmacy_directions = 'https://www.google.com/maps/dir/?api=1&destination=' . rawurlencode( $center_coords );
-}
+// Directions URL is derived from the pharmacy coordinates — no separate field.
+$pharmacy_directions = 'https://www.google.com/maps/dir/?api=1&destination=' . rawurlencode( $center_coords );
 
 // --- Map overlay: pharmacy pin + parking callouts ---
 // Pharmacy pin always sits at the map centre (50/50) by definition —
@@ -69,7 +54,7 @@ $pharmacy_image_alt = $pharmacy_image_id
 $addr_line_1    = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
 $addr_line_2    = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
 $addr_line_3    = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
-$directions_url = dp_option( 'pharmacy_directions_url' );
+$directions_url = $pharmacy_directions;
 
 // --- Details: Opening Hours ---
 $hours_weekday  = dp_option( 'hours_weekday', '9:00am – 6:00pm' );
@@ -172,6 +157,7 @@ $booking_url = dp_booking_url();
                     style="--callout-delay: <?php echo esc_attr( 0.4 + ( $i * 0.15 ) ); ?>s;"
                     data-lat="<?php echo esc_attr( $c_lat ); ?>"
                     data-lng="<?php echo esc_attr( $c_lng ); ?>"
+                    data-parking-index="<?php echo esc_attr( $i ); ?>"
                 >
                     <button
                         type="button"
@@ -300,6 +286,28 @@ $booking_url = dp_booking_url();
                 <div class="location-detail-text">
                     <span class="location-detail-label">Parking</span>
                     <span class="location-detail-value"><?php echo esc_html( $parking ); ?></span>
+
+                    <?php if ( ! empty( $parking_callouts ) ) : ?>
+                        <ul class="location-parking-list">
+                            <?php foreach ( $parking_callouts as $i => $callout ) :
+                                $p_label  = isset( $callout['label'] ) ? $callout['label'] : '';
+                                $p_coords = isset( $callout['coords'] ) ? trim( (string) $callout['coords'] ) : '';
+                                if ( $p_label === '' || $p_coords === '' ) { continue; }
+                            ?>
+                                <li class="location-parking-item">
+                                    <span class="location-parking-name"><?php echo esc_html( $p_label ); ?></span>
+                                    <button
+                                        type="button"
+                                        class="location-parking-directions"
+                                        data-parking-trigger="<?php echo esc_attr( $i ); ?>"
+                                    >
+                                        <i class="fas fa-diamond-turn-right"></i>
+                                        Get Directions
+                                    </button>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
                 </div>
             </div>
 

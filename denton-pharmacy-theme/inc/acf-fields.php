@@ -247,15 +247,13 @@ function dp_register_acf_field_groups() {
         'key'      => 'group_dp_location',
         'title'    => 'Location',
         'fields'   => array(
+            // --- Pharmacy Google Maps link — the ONE field editors need to paste ---
             array(
-                'key'           => 'field_dp_location_map_image',
-                'label'         => 'Map Image',
-                'name'          => 'location_map_image',
-                'type'          => 'image',
-                'return_format' => 'id',
-                'preview_size'  => 'medium',
-                'library'       => 'all',
-                'instructions'  => 'Upload a static map image or screenshot of your location on Google Maps.',
+                'key'           => 'field_dp_location_pharmacy_maps_url',
+                'label'         => '⭐ Pharmacy Google Maps link (paste this)',
+                'name'          => 'location_pharmacy_maps_url',
+                'type'          => 'url',
+                'instructions'  => "This is the only field you need to paste.\n\nHow to get it:\n1. Open Google Maps and search the pharmacy\n2. Click the pharmacy pin (not a search result)\n3. Share → Copy link\n4. Paste it here and save\n\nOn save: the map centre coordinates auto-fill from this link, the iframe re-centres on the pharmacy, and the Directions button points to the correct place.",
             ),
             array(
                 'key'           => 'field_dp_location_store_image',
@@ -266,20 +264,6 @@ function dp_register_acf_field_groups() {
                 'preview_size'  => 'medium',
                 'library'       => 'all',
                 'instructions'  => 'Upload a photo of your pharmacy storefront.',
-            ),
-            array(
-                'key'           => 'field_dp_location_google_maps_embed',
-                'label'         => 'Google Maps Embed URL',
-                'name'          => 'location_google_maps_embed',
-                'type'          => 'url',
-                'instructions'  => 'Optional. Paste a Google Maps embed URL here. If left blank, a map will be generated automatically from your address. To get an embed URL: go to Google Maps → find your location → click Share → Embed a map → copy the src URL from the iframe code.',
-            ),
-            array(
-                'key'           => 'field_dp_location_directions_url',
-                'label'         => 'Google Maps Directions URL',
-                'name'          => 'pharmacy_directions_url',
-                'type'          => 'url',
-                'default_value' => 'https://www.google.com/maps/dir/?api=1&destination=53.4554,-2.1128',
             ),
             array(
                 'key'           => 'field_dp_location_parking',
@@ -320,15 +304,6 @@ function dp_register_acf_field_groups() {
                 'preview_size'  => 'thumbnail',
                 'library'       => 'all',
                 'instructions'  => 'Optional. PNG or SVG with transparent background — renders inside the navy disc on the map. If empty, a default medical cross is used. Best: square, at least 128×128, with generous padding so it breathes inside the disc.',
-            ),
-
-            // --- Pharmacy Google Maps share link (auto-fills centre coords on save) ---
-            array(
-                'key'           => 'field_dp_location_pharmacy_maps_url',
-                'label'         => 'Pharmacy Google Maps link',
-                'name'          => 'location_pharmacy_maps_url',
-                'type'          => 'url',
-                'instructions'  => 'Paste the Google Maps share link of the pharmacy. On save, the centre coordinates below auto-fill from it. Same flow as the parking hotspots: Google Maps → click the pharmacy pin → Share → Copy link → paste here.',
             ),
 
             // --- Map centre coordinates (used to drop Google's default red pin) ---
@@ -1049,7 +1024,26 @@ function dp_register_acf_field_groups() {
                 'return_format' => 'id',
                 'preview_size'  => 'medium',
                 'library'       => 'all',
-                'instructions'  => 'Upload the main hero image (right column). Recommended: at least 800x1000px.',
+                'instructions'  => 'Upload the main hero image (right column). Landscape (16:9) works best — e.g. pharmacy exterior shot.',
+            ),
+            array(
+                'key'           => 'field_dp_hero_image_focus',
+                'label'         => 'Hero Image Focus',
+                'name'          => 'hero_image_focus',
+                'type'          => 'select',
+                'choices'       => array(
+                    'center center' => 'Center (default)',
+                    'center top'    => 'Top',
+                    'center bottom' => 'Bottom',
+                    'left center'   => 'Left',
+                    'right center'  => 'Right',
+                    'left top'      => 'Top-left',
+                    'right top'     => 'Top-right',
+                    'left bottom'   => 'Bottom-left',
+                    'right bottom'  => 'Bottom-right',
+                ),
+                'default_value' => 'center center',
+                'instructions'  => 'Which part of the photo to prioritise when it gets cropped in the hero frame. Pick where the pharmacy front is most visible — e.g. "Bottom" if the sky is taking too much room.',
             ),
         ),
         'location' => array(
