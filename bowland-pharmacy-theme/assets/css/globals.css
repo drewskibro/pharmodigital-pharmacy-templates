@@ -784,8 +784,10 @@ html {
 
 .hero-image-card {
   position: relative;
-  width: 420px;
-  height: 560px;
+  width: 600px;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
   border-radius: 2rem;
   overflow: hidden;
   box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
@@ -803,6 +805,7 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center; /* overridden inline by ACF focus field */
   transform: scale(1.05);
   transition: transform 0.7s ease;
 }
@@ -821,7 +824,7 @@ html {
 /* Rating Badge */
 .rating-badge {
   position: absolute;
-  top: -1.5rem;
+  bottom: -1.5rem;
   right: -3rem;
   background: var(--white);
   backdrop-filter: blur(16px);
@@ -3345,19 +3348,669 @@ html {
 .location-map-wrapper {
   position: absolute;
   inset: 0;
+  overflow: hidden;
 }
 
 .location-map-image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
+}
+
+.location-map-embed {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  border: 0;
+  filter: saturate(0.85) contrast(0.98);
+  /* Freeze the iframe: acts as a visual backdrop only so the overlay
+     annotations stay geo-anchored. Users navigate via the clickable pin
+     and parking hotspots (each opens Google Maps in a new tab). */
+  pointer-events: none;
 }
 
 .location-map-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  background:
+    linear-gradient(to right, rgba(245, 239, 230, 0.55) 0%, rgba(245, 239, 230, 0.0) 42%),
+    linear-gradient(to bottom, transparent 60%, rgba(17, 24, 39, 0.14) 100%);
   pointer-events: none;
+}
+
+/* ============================================
+   LOCATION — MAP ANNOTATIONS (pin + parking callouts)
+   Wayfinding overlay. Editable via ACF.
+   ============================================ */
+.location-map-annotations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.location-map-annotations > * {
+  pointer-events: auto;
+}
+
+/* ---- Pharmacy pin — Swiss Apothecary
+       Concentric rings, filled medical cross, elliptical ground shadow
+       (no stick). Sits at the map centre because the iframe is centred
+       on the pharmacy coordinates. ---- */
+.location-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  /* Anchor the visual centre of the disc on the geo point (no tail means
+     we pin by centre, not by bottom). */
+  transform: translate(-50%, -50%);
+  color: var(--brand-primary, #3f73ae);
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 4;
+}
+
+/* Elliptical ground shadow — soft diffuse cushion, not a visible element. */
+.location-pin::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  width: 48px;
+  height: 12px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.1) 45%, transparent 72%);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  filter: blur(4px);
+  z-index: 1;
+  pointer-events: none;
+  animation: location-pin-shadow-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.location-pin-dot {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--brand-primary, #3f73ae);
+  border: 2.5px solid var(--brand-primary, #3f73ae);
+  border-radius: 50%;
+  /* Apothecary token: white canvas, precise navy ring, soft concentric
+     breath, clean cast shadow. Lets any client logo keep its own colours. */
+  box-shadow:
+    0 0 0 4px #fff,
+    0 0 0 5.5px rgba(63, 115, 174, 0.18),
+    0 18px 38px -10px rgba(15, 42, 80, 0.38),
+    0 5px 12px rgba(15, 42, 80, 0.18);
+  z-index: 3;
+  animation: location-pin-drop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.location-pin:hover .location-pin-dot,
+.location-pin:focus-visible .location-pin-dot {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 0 4px #fff,
+    0 0 0 5.5px rgba(63, 115, 174, 0.35),
+    0 24px 46px -10px rgba(15, 42, 80, 0.46),
+    0 6px 14px rgba(15, 42, 80, 0.22);
+}
+
+.location-pin:hover::before,
+.location-pin:focus-visible::before {
+  width: 42px;
+  opacity: 0.9;
+  transition: width 0.35s ease, opacity 0.35s ease;
+}
+
+/* Remove the old tail — ground shadow replaces it. */
+.location-pin-dot::after { content: none; }
+
+/* Custom pin icon (overrides the default Swiss cross) */
+.location-pin-icon {
+  display: block;
+  width: 68%;
+  height: 68%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Pharmacy pin halo retired — the parking markers carry the pulse now. */
+.location-pin-halo { display: none; }
+
+@keyframes location-pin-shadow-in {
+  0%   { opacity: 0; transform: translateX(-50%) scaleX(0.2); }
+  100% { opacity: 1; transform: translateX(-50%) scaleX(1); }
+}
+
+/* Pharmacy label — permanently visible balloon. Default anchor is
+   up-left of the pin; modifier classes on .location-pin flip it to
+   the other three corners so editors can dodge overlapping markers. */
+.location-pin-label {
+  position: absolute;
+  left: auto;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.75rem 1rem 0.8rem;
+  background: #fff;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(63, 115, 174, 0.16);
+  box-shadow:
+    0 18px 42px -14px rgba(15, 42, 80, 0.42),
+    0 3px 10px rgba(15, 42, 80, 0.14);
+  white-space: nowrap;
+  font-size: 0.8125rem;
+  line-height: 1.25;
+  z-index: 6;
+  animation: location-pin-label-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+/* Beak — one of the four corners, depending on .location-pin--label-* */
+.location-pin-label::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+}
+
+/* --- Cardinal: above (centered) --- */
+.location-pin--label-up .location-pin-label {
+  left: 50%;
+  bottom: calc(50% + 40px);
+  transform: translateX(-50%);
+}
+.location-pin--label-up .location-pin-label::after {
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  border-right: 1px solid rgba(63, 115, 174, 0.16);
+  border-bottom: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 0 2px 0;
+}
+
+/* --- Cardinal: below (centered) --- */
+.location-pin--label-down .location-pin-label {
+  left: 50%;
+  top: calc(50% + 40px);
+  transform: translateX(-50%);
+}
+.location-pin--label-down .location-pin-label::after {
+  left: 50%;
+  top: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 2px 0 0 0;
+}
+
+/* --- Cardinal: left (centered) --- */
+.location-pin--label-left .location-pin-label {
+  right: calc(50% + 40px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.location-pin--label-left .location-pin-label::after {
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-right: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 2px 0 0;
+}
+
+/* --- Cardinal: right (centered) --- */
+.location-pin--label-right .location-pin-label {
+  left: calc(50% + 40px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.location-pin--label-right .location-pin-label::after {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border-bottom: 1px solid rgba(63, 115, 174, 0.16);
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 0 0 2px;
+}
+
+/* --- Up & left (default) --- */
+.location-pin--label-up-left .location-pin-label {
+  right: calc(50% + 18px);
+  bottom: calc(50% + 18px);
+}
+.location-pin--label-up-left .location-pin-label::after {
+  right: 14px;
+  bottom: -6px;
+  transform: rotate(45deg);
+  border-right: 1px solid rgba(63, 115, 174, 0.16);
+  border-bottom: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 0 2px 0;
+}
+
+/* --- Up & right --- */
+.location-pin--label-up-right .location-pin-label {
+  left: calc(50% + 18px);
+  bottom: calc(50% + 18px);
+}
+.location-pin--label-up-right .location-pin-label::after {
+  left: 14px;
+  bottom: -6px;
+  transform: rotate(45deg);
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-bottom: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 0 0 2px;
+}
+
+/* --- Down & left --- */
+.location-pin--label-down-left .location-pin-label {
+  right: calc(50% + 18px);
+  top: calc(50% + 18px);
+}
+.location-pin--label-down-left .location-pin-label::after {
+  right: 14px;
+  top: -6px;
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-right: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 2px 0 0;
+}
+
+/* --- Down & right --- */
+.location-pin--label-down-right .location-pin-label {
+  left: calc(50% + 18px);
+  top: calc(50% + 18px);
+}
+.location-pin--label-down-right .location-pin-label::after {
+  left: 14px;
+  top: -6px;
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 2px 0 0 0;
+}
+
+@keyframes location-pin-label-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* On tablet/mobile the map is shorter — drop the permanent label and
+   keep the info inside the stacked card to avoid clutter. */
+@media (max-width: 1023px) {
+  .location-pin-label { display: none; }
+}
+
+.location-pin-label-name {
+  font-weight: 800;
+  font-size: 0.9375rem;
+  color: #0f2a50;
+  letter-spacing: -0.01em;
+}
+
+.location-pin-label-addr {
+  font-size: 0.6875rem;
+  color: var(--text-slate, #475569);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.location-pin-label-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.3rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(63, 115, 174, 0.14);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--brand-primary, #3f73ae);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: gap 0.25s ease;
+}
+
+.location-pin:hover .location-pin-label-cta,
+.location-pin:focus-visible .location-pin-label-cta {
+  gap: 0.55rem;
+}
+
+.location-pin-label-cta i {
+  font-size: 0.625rem;
+}
+
+/* ---- Parking callouts (clickable → Google Maps)
+       Geo-anchored: JS sets --dx and --dy in px based on each callout's
+       real lat/lng projected through Web Mercator at the iframe's zoom.
+       Callouts stay hidden until positioned to avoid a flash at (50%,50%). ---- */
+.location-callout {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  z-index: 2;
+  opacity: 0;
+  transform: translate(var(--dx, 0px), var(--dy, 0px));
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.location-callout.is-positioned {
+  animation: location-callout-fade-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--callout-delay, 0.5s) forwards;
+}
+
+@keyframes location-callout-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* The visible parking marker — compact apothecary disc with a serif P.
+   Acts as a button: click/tap toggles the info popup. */
+.location-callout-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border: 1.5px solid var(--brand-primary, #3f73ae);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 2.5px rgba(63, 115, 174, 0.18),
+    0 6px 14px -4px rgba(15, 42, 80, 0.3),
+    0 1px 4px rgba(15, 42, 80, 0.14);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+  z-index: 2;
+  font: inherit;
+}
+
+.location-callout-dot::before {
+  content: "P";
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: var(--brand-primary, #3f73ae);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 2;
+}
+
+/* Continuous pulse around each parking marker — two staggered waves so
+   it reads as alive at a glance, not just on hover. */
+.location-callout-dot::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border: 1.5px solid var(--brand-primary, #3f73ae);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: location-parking-pulse 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: var(--callout-delay, 0s);
+  box-sizing: border-box;
+}
+
+.location-callout .location-callout-dot {
+  /* Second wave — layered on the wrapper so it doesn't collide with the
+     dot's own ::before (the P letter) and ::after (the first wave). */
+  position: absolute;
+}
+
+.location-callout::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  margin: -13px 0 0 -13px;
+  border: 1.5px solid var(--brand-primary, #3f73ae);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: location-parking-pulse 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: calc(var(--callout-delay, 0s) + 1.4s);
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+@keyframes location-parking-pulse {
+  0%   { transform: scale(0.95); opacity: 0.55; border-width: 1.5px; }
+  60%  { opacity: 0.25; }
+  100% { transform: scale(2.3);  opacity: 0;    border-width: 0.5px; }
+}
+
+@media (max-width: 1023px) {
+  .location-callout::before {
+    width: 20px;
+    height: 20px;
+    margin: -12px 0 0 -12px;
+  }
+}
+
+.location-callout:hover .location-callout-dot,
+.location-callout:focus-within .location-callout-dot,
+.location-callout.is-open .location-callout-dot {
+  transform: translate(-50%, -50%) scale(1.12);
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 4px rgba(63, 115, 174, 0.4),
+    0 14px 26px -8px rgba(15, 42, 80, 0.5),
+    0 3px 8px rgba(15, 42, 80, 0.2);
+}
+
+/* Retired — popup architecture replaces the connector line entirely. */
+.location-callout-line { display: none !important; }
+
+/* Info popup — hidden by default, reveals on hover (desktop) or tap
+   (mobile, via .is-open set by JS). */
+.location-callout-card {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 20px);
+  transform: translateX(-50%) translateY(6px);
+  min-width: 220px;
+  max-width: 260px;
+  padding: 0.85rem 1rem 0.95rem;
+  background: #fff;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(63, 115, 174, 0.16);
+  box-shadow:
+    0 18px 42px -14px rgba(15, 42, 80, 0.42),
+    0 3px 10px rgba(15, 42, 80, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 6;
+  white-space: normal;
+}
+
+/* Beak pointing from card down to dot */
+.location-callout-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  transform: translate(-50%, -54%) rotate(45deg);
+  border-right: 1px solid rgba(63, 115, 174, 0.16);
+  border-bottom: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 0 0 3px 0;
+}
+
+/* "Below" variant — card sits under the dot (beak on top). */
+.location-callout--below .location-callout-card {
+  bottom: auto;
+  top: calc(100% + 20px);
+  transform: translateX(-50%) translateY(-6px);
+}
+
+.location-callout--below .location-callout-card::after {
+  top: 0;
+  transform: translate(-50%, -46%) rotate(45deg);
+  border: none;
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 3px 0 0 0;
+}
+
+/* Reveal triggers: desktop hover, desktop focus-within, any .is-open (JS tap) */
+.location-callout:hover .location-callout-card,
+.location-callout:focus-within .location-callout-card,
+.location-callout.is-open .location-callout-card {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.location-callout--below:hover .location-callout-card,
+.location-callout--below:focus-within .location-callout-card,
+.location-callout--below.is-open .location-callout-card {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Retired — the inline P icon is now the dot itself. */
+.location-callout-icon { display: none; }
+
+.location-callout-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  line-height: 1.3;
+}
+
+.location-callout-label {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #0f2a50;
+  letter-spacing: -0.01em;
+}
+
+.location-callout-desc {
+  font-size: 0.75rem;
+  color: var(--text-slate, #475569);
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.location-callout-directions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+  padding: 0.55rem 0.95rem 0.6rem;
+  background: var(--brand-primary, #3f73ae);
+  color: #fff;
+  border-radius: 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px -4px rgba(63, 115, 174, 0.45);
+  align-self: flex-start;
+}
+
+.location-callout-directions i {
+  font-size: 0.625rem;
+}
+
+.location-callout-directions:hover,
+.location-callout-directions:focus-visible {
+  background: var(--brand-dark, #2a5280);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px -4px rgba(63, 115, 174, 0.55);
+  color: #fff;
+}
+
+/* Legacy anchor classes (ne/nw/se/sw) from the earlier connector-line
+   design — map them to the new simplified above/below model so saved
+   content keeps working. */
+.location-callout--ne,
+.location-callout--nw { /* card above the dot — default */ }
+
+.location-callout--se .location-callout-card,
+.location-callout--sw .location-callout-card {
+  bottom: auto;
+  top: calc(100% + 20px);
+  transform: translateX(-50%) translateY(-6px);
+}
+.location-callout--se .location-callout-card::after,
+.location-callout--sw .location-callout-card::after {
+  top: 0;
+  transform: translate(-50%, -46%) rotate(45deg);
+  border: none;
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 3px 0 0 0;
+}
+
+@keyframes location-pin-drop {
+  0%   { transform: translateY(-24px); opacity: 0; }
+  60%  { transform: translateY(4px);   opacity: 1; }
+  100% { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes location-pin-pulse {
+  0%   { transform: translate(-50%, -50%) scale(0.9); opacity: 0.55; border-width: 2px; }
+  55%  { opacity: 0.35; }
+  100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0;    border-width: 1px; }
+}
+
+@keyframes location-annotation-in {
+  from { opacity: 0; transform: translateY(-50%) translateX(-4px); }
+  to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* Tablet & down — annotations stay visible; popups trigger by tap.
+   Shrink the pharmacy pin and parking discs a touch so they don't
+   dominate the smaller map. */
+@media (max-width: 1023px) {
+  .location-map-embed {
+    min-height: 420px;
+    filter: saturate(0.9);
+  }
+  .location-map-overlay {
+    background: linear-gradient(to bottom, transparent 55%, rgba(17, 24, 39, 0.18) 100%);
+  }
+  .location-pin { width: 52px; height: 52px; }
+  .location-callout-dot { width: 20px; height: 20px; }
+  .location-callout-dot::before { font-size: 0.625rem; }
+  .location-callout-card { min-width: 200px; max-width: 220px; }
 }
 
 .location-card {
@@ -3368,6 +4021,24 @@ html {
   max-width: 500px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   margin-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1023px) {
+  .location-card {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding: 2rem;
+  }
+}
+
+/* Home & NHS Services — offset location card from the left edge (desktop only) */
+@media (min-width: 1024px) {
+  .page-template-page-templatespage-home-php .location-card,
+  .page-template-page-templatespage-nhs-services-php .location-card {
+    margin-left: 60px;
+  }
 }
 
 .location-card-header {
@@ -3442,6 +4113,51 @@ html {
   margin-top: 0.5rem;
 }
 
+.location-parking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.location-parking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(63, 115, 174, 0.06);
+  font-size: 0.875rem;
+}
+
+.location-parking-name {
+  font-weight: 500;
+  color: var(--text-dark, #0f1e33);
+  line-height: 1.3;
+}
+
+.location-parking-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.location-parking-directions:hover {
+  opacity: 0.7;
+}
+
 .location-hours-row {
   display: flex;
   justify-content: space-between;
@@ -3452,6 +4168,7 @@ html {
 
 .location-hours-day {
   color: var(--text-gray);
+  flex-shrink: 0;
 }
 
 .location-hours-time {
@@ -3464,7 +4181,9 @@ html {
 }
 
 .location-contact-link {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1rem;
   color: #111827;
   font-weight: 600;
@@ -3474,6 +4193,29 @@ html {
 .location-card-cta {
   display: flex;
   gap: 1rem;
+}
+
+/* Location section — mobile fixes */
+@media (max-width: 639px) {
+  .location-hours-row {
+    gap: 1rem;
+  }
+
+  .location-hours-day {
+    min-width: 5.5rem;
+    flex-shrink: 0;
+  }
+
+  .location-card-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .location-card-cta .cta-button {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 

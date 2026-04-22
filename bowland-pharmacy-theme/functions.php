@@ -212,6 +212,15 @@ function bowland_pharmacy_scripts() {
         filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/scroll-reveal.js' ),
         true
     );
+
+    // Location map — geo-anchored callouts + popup behaviour
+    wp_enqueue_script(
+        'bowland-location-map',
+        BOWLAND_PHARMACY_URI . '/assets/js/location-map.js',
+        array(),
+        filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/location-map.js' ),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'bowland_pharmacy_scripts' );
 
@@ -224,6 +233,10 @@ if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/acf-options.php' ) ) {
 
 if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/acf-fields.php' ) ) {
     require_once BOWLAND_PHARMACY_DIR . '/inc/acf-fields.php';
+}
+
+if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/location-parking-autofill.php' ) ) {
+    require_once BOWLAND_PHARMACY_DIR . '/inc/location-parking-autofill.php';
 }
 
 /**
