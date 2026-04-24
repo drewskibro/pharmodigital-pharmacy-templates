@@ -91,9 +91,9 @@ function bowland_pharmacy_scripts() {
     // Navigation CSS — three-tier Bowland nav
     wp_enqueue_style(
         'bowland-nav',
-        BOWLAND_PHARMACY_URI . '/assets/css/bowland-nav.css',
+        BOWLAND_PHARMACY_URI . '/assets/css/denton-nav.css',
         array( 'bowland-globals' ),
-        BOWLAND_PHARMACY_VERSION
+        filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/denton-nav.css' )
     );
 
     // Theme stylesheet (style.css - mostly metadata)
@@ -140,11 +140,32 @@ function bowland_pharmacy_scripts() {
 
     if ( is_page_template( 'page-templates/page-team.php' ) ) {
         wp_enqueue_style( 'bowland-team', BOWLAND_PHARMACY_URI . '/assets/css/team.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
+        wp_enqueue_script( 'bowland-team-js', BOWLAND_PHARMACY_URI . '/assets/js/team.js', array(), BOWLAND_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-ear-wax-removal.php' ) ) {
         wp_enqueue_style( 'bowland-ear-wax', BOWLAND_PHARMACY_URI . '/assets/css/ear-wax-removal.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/ear-wax-removal.css' ) );
         wp_enqueue_script( 'bowland-ear-wax-js', BOWLAND_PHARMACY_URI . '/assets/js/ear-wax-removal.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/ear-wax-removal.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-pharmacy-first.php' ) ) {
+        wp_enqueue_style( 'bowland-pharmacy-first', BOWLAND_PHARMACY_URI . '/assets/css/pharmacy-first.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/pharmacy-first.css' ) );
+        wp_enqueue_script( 'bowland-pharmacy-first-js', BOWLAND_PHARMACY_URI . '/assets/js/pharmacy-first.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/pharmacy-first.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-nhs-prescriptions.php' ) ) {
+        wp_enqueue_style( 'bowland-nhs-prescriptions', BOWLAND_PHARMACY_URI . '/assets/css/nhs-prescriptions.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/nhs-prescriptions.css' ) );
+        wp_enqueue_script( 'bowland-nhs-prescriptions-js', BOWLAND_PHARMACY_URI . '/assets/js/nhs-prescriptions.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/nhs-prescriptions.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-blister-packs.php' ) ) {
+        wp_enqueue_style( 'bowland-blister-packs', BOWLAND_PHARMACY_URI . '/assets/css/blister-packs.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/blister-packs.css' ) );
+        wp_enqueue_script( 'bowland-blister-packs-js', BOWLAND_PHARMACY_URI . '/assets/js/blister-packs.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/blister-packs.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-blood-testing.php' ) ) {
+        wp_enqueue_style( 'bowland-blood-testing', BOWLAND_PHARMACY_URI . '/assets/css/blood-testing.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/blood-testing.css' ) );
+        wp_enqueue_script( 'bowland-blood-testing-js', BOWLAND_PHARMACY_URI . '/assets/js/blood-testing.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/blood-testing.js' ), true );
     }
 
     if ( is_page_template( 'page-templates/page-hair-loss.php' ) ) {
@@ -155,6 +176,14 @@ function bowland_pharmacy_scripts() {
     if ( is_page_template( 'page-templates/page-switch-provider.php' ) ) {
         wp_enqueue_style( 'bowland-switch-provider', BOWLAND_PHARMACY_URI . '/assets/css/switch-provider.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
         wp_enqueue_script( 'bowland-switch-provider-js', BOWLAND_PHARMACY_URI . '/assets/js/switch-provider.js', array(), BOWLAND_PHARMACY_VERSION, true );
+    }
+
+    if ( is_page_template( 'page-templates/page-contact.php' ) ) {
+        wp_enqueue_style( 'bowland-contact', BOWLAND_PHARMACY_URI . '/assets/css/contact.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
+        wp_enqueue_script( 'bowland-contact-js', BOWLAND_PHARMACY_URI . '/assets/js/contact.js', array(), BOWLAND_PHARMACY_VERSION, true );
+        wp_localize_script( 'bowland-contact-js', 'dpContactAjax', array(
+            'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        ) );
     }
 
     // Vaccination pages
@@ -186,43 +215,10 @@ function bowland_pharmacy_scripts() {
         }
     }
 
-    // Pharmacy First page
-    if ( is_page_template( 'page-templates/page-pharmacy-first.php' ) ) {
-        wp_enqueue_style( 'bowland-pharmacy-first', BOWLAND_PHARMACY_URI . '/assets/css/pharmacy-first.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/pharmacy-first.css' ) );
-        wp_enqueue_script( 'bowland-pharmacy-first-js', BOWLAND_PHARMACY_URI . '/assets/js/pharmacy-first.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/pharmacy-first.js' ), true );
-    }
-
-    // NHS Prescriptions page
-    if ( is_page_template( 'page-templates/page-nhs-prescriptions.php' ) ) {
-        wp_enqueue_style( 'bowland-nhs-prescriptions', BOWLAND_PHARMACY_URI . '/assets/css/nhs-prescriptions.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/nhs-prescriptions.css' ) );
-        wp_enqueue_script( 'bowland-nhs-prescriptions-js', BOWLAND_PHARMACY_URI . '/assets/js/nhs-prescriptions.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/nhs-prescriptions.js' ), true );
-    }
-
-    // Blister Packs page
-    if ( is_page_template( 'page-templates/page-blister-packs.php' ) ) {
-        wp_enqueue_style( 'bowland-blister-packs', BOWLAND_PHARMACY_URI . '/assets/css/blister-packs.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/blister-packs.css' ) );
-        wp_enqueue_script( 'bowland-blister-packs-js', BOWLAND_PHARMACY_URI . '/assets/js/blister-packs.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/blister-packs.js' ), true );
-    }
-
-    // Blood Testing page (template ready for future activation)
-    if ( is_page_template( 'page-templates/page-blood-testing.php' ) ) {
-        wp_enqueue_style( 'bowland-blood-testing', BOWLAND_PHARMACY_URI . '/assets/css/blood-testing.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/blood-testing.css' ) );
-        wp_enqueue_script( 'bowland-blood-testing-js', BOWLAND_PHARMACY_URI . '/assets/js/blood-testing.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/blood-testing.js' ), true );
-    }
-
-    // Contact page (with AJAX form handler)
-    if ( is_page_template( 'page-templates/page-contact.php' ) ) {
-        wp_enqueue_style( 'bowland-contact', BOWLAND_PHARMACY_URI . '/assets/css/contact.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
-        wp_enqueue_script( 'bowland-contact-js', BOWLAND_PHARMACY_URI . '/assets/js/contact.js', array(), BOWLAND_PHARMACY_VERSION, true );
-        wp_localize_script( 'bowland-contact-js', 'bpContactAjax', array(
-            'ajaxurl' => admin_url( 'admin-ajax.php' ),
-        ) );
-    }
-
     // Navigation JS — three-tier Bowland nav, loaded on all pages in footer
     wp_enqueue_script(
         'bowland-nav-js',
-        BOWLAND_PHARMACY_URI . '/assets/js/bowland-nav.js',
+        BOWLAND_PHARMACY_URI . '/assets/js/denton-nav.js',
         array(),
         BOWLAND_PHARMACY_VERSION,
         true
@@ -237,16 +233,7 @@ function bowland_pharmacy_scripts() {
         true
     );
 
-    // Scroll Reveal — smooth entrance animations on scroll
-    wp_enqueue_script(
-        'bowland-scroll-reveal',
-        BOWLAND_PHARMACY_URI . '/assets/js/scroll-reveal.js',
-        array(),
-        filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/scroll-reveal.js' ),
-        true
-    );
-
-    // Location map — geo-anchored callouts + popup behaviour
+    // Location map JS — geo-anchored parking callouts via Web Mercator
     wp_enqueue_script(
         'bowland-location-map',
         BOWLAND_PHARMACY_URI . '/assets/js/location-map.js',
@@ -359,7 +346,7 @@ function bp_pharmacy_name() {
  * Helper: Get pharmacy phone
  */
 function bp_phone() {
-    return bp_option( 'pharmacy_phone', '0161 998 7114' );
+    return bp_option( 'pharmacy_phone', '0161 336 2548' );
 }
 
 /**
@@ -748,7 +735,7 @@ function bowland_pharmacy_add_consultation_closer( $content ) {
     $reviewer_gphc = bp_option( 'superintendent_gphc_number', '2208502' );
     $author_role   = bp_option( 'default_author_role', 'Lead Pharmacist' );
     $pharmacy_name = bp_pharmacy_name();
-    $pharmacy_town = bp_option( 'pharmacy_town', 'Wythenshawe' );
+    $pharmacy_town = bp_option( 'pharmacy_town', 'Denton' );
     $booking_url   = bp_booking_url();
     $phone         = bp_phone();
     $phone_link    = bp_phone_link();
@@ -1063,7 +1050,7 @@ function bp_contact_form_handler() {
     }
 
     // Build email
-    $to      = bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' );
+    $to      = bp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
     $subject_line = '[' . bp_pharmacy_name() . ' Website] ' . $subject . ' from ' . $name;
 
     $body  = "New contact form submission from " . home_url() . "\n\n";
