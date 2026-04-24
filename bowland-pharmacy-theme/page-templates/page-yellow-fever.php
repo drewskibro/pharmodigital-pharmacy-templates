@@ -33,10 +33,10 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       <div class="yellowfever-hero-line"></div>
       <span class="yellowfever-hero-label"><?php echo esc_html( bp_field( 'yf_hero_label', 'OFFICIAL YELLOW FEVER CENTRE' ) ); ?></span>
 
-      <h1 class="yellowfever-hero-title"><?php echo esc_html( bp_field( 'yf_hero_title', 'Yellow Fever Vaccination Service in Denton' ) ); ?></h1>
+      <h1 class="yellowfever-hero-title"><?php echo esc_html( bp_field( 'yf_hero_title', 'Yellow Fever Vaccination Service in Wythenshawe' ) ); ?></h1>
 
       <p class="yellowfever-hero-description">
-        <?php echo esc_html( bp_field( 'yf_hero_description', 'We are an official NHS Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Denton Pharmacy.' ) ); ?>
+        <?php echo esc_html( bp_field( 'yf_hero_description', 'We are an official NHS Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Bowland Pharmacy.' ) ); ?>
       </p>
 
       <div class="yellowfever-hero-actions">
@@ -425,7 +425,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'yf_details_badge', 'YOUR APPOINTMENT' ) ); ?></span>
       </div>
       <h2 class="yellowfever-details-title"><?php echo esc_html( bp_field( 'yf_details_title', 'What to Expect at Your Appointment' ) ); ?></h2>
-      <p class="yellowfever-details-desc"><?php echo esc_html( bp_field( 'yf_details_desc', 'Simple, straightforward vaccination process at our Denton clinic' ) ); ?></p>
+      <p class="yellowfever-details-desc"><?php echo esc_html( bp_field( 'yf_details_desc', 'Simple, straightforward vaccination process at our Wythenshawe clinic' ) ); ?></p>
     </div>
 
     <!-- Hero Image -->
@@ -526,7 +526,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       </div>
 
       <h2 class="yellowfever-cta-title"><?php echo esc_html( bp_field( 'yf_cta_title', 'Get your Yellow Fever vaccination and certificate' ) ); ?></h2>
-      <p class="yellowfever-cta-desc"><?php echo esc_html( bp_field( 'yf_cta_desc', 'Book your Yellow Fever vaccination at our official centre in Denton. Certificate issued on the day.' ) ); ?></p>
+      <p class="yellowfever-cta-desc"><?php echo esc_html( bp_field( 'yf_cta_desc', 'Book your Yellow Fever vaccination at our official centre in Wythenshawe. Certificate issued on the day.' ) ); ?></p>
 
       <div class="yellowfever-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'yf_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta white-btn"><?php echo esc_html( bp_field( 'yf_cta_button_text', 'Book Vaccination' ) ); ?></a>

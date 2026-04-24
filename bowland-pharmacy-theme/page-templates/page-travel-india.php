@@ -273,7 +273,7 @@ get_header();
       <h2 class="india-cta-title"><?php echo esc_html( bp_field( 'in_cta_title', 'Ready for your India adventure?' ) ); ?></h2>
       <p class="india-cta-description">
         <?php
-        $india_cta_default = 'Book your India travel health consultation at our ' . bp_option( 'pharmacy_town', 'Denton' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.';
+        $india_cta_default = 'Book your India travel health consultation at our ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.';
         echo esc_html( bp_field( 'in_cta_description', $india_cta_default ) );
         ?>
       </p>

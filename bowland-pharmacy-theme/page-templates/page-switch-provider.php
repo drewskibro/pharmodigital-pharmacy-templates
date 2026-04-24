@@ -31,7 +31,7 @@ if ( ! $sp_hero_image_url ) {
 
 // --- Testimonial ---
 $sp_testi_quote  = bp_field( 'sp_hero_testimonial_text', bp_option( 'superintendent_pharmacist', 'Our pharmacist' ) . ' genuinely cares about your progress. The face-to-face support makes all the difference.' );
-$sp_testi_name   = bp_field( 'sp_hero_testimonial_name', bp_option( 'pharmacy_town', 'Denton' ) . ' Patient' );
+$sp_testi_name   = bp_field( 'sp_hero_testimonial_name', bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' Patient' );
 $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
 ?>
 
@@ -187,7 +187,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
       <div class="stat-item">
         <div class="stat-icon"><i class="<?php echo esc_attr( bp_fa_class( bp_field( 'sp_stat_4_icon', 'fa-location-dot' ) ) ); ?>"></i></div>
         <div class="stat-content">
-          <span class="stat-number"><?php echo esc_html( bp_field( 'sp_stat_4_number', bp_option( 'pharmacy_town', 'Denton' ) ) ); ?></span>
+          <span class="stat-number"><?php echo esc_html( bp_field( 'sp_stat_4_number', bp_option( 'pharmacy_town', 'Wythenshawe' ) ) ); ?></span>
           <span class="stat-label"><?php echo esc_html( bp_field( 'sp_stat_4_label', 'Based Care' ) ); ?></span>
         </div>
       </div>
@@ -216,10 +216,10 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
     <?php
     // Default steps data
     $default_steps = array(
-        array( 'title' => 'Book Consultation', 'description' => 'Visit us in ' . bp_option( 'pharmacy_town', 'Denton' ) . ' or <a href="' . esc_url( bp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
+        array( 'title' => 'Book Consultation', 'description' => 'Visit us in ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' or <a href="' . esc_url( bp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
         array( 'title' => 'We Handle Everything', 'description' => 'No prescription transfer needed. Our team manages the entire switch seamlessly for you.', 'image' => '' ),
         array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption. Same-day approval available for seamless care.', 'image' => '' ),
-        array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our ' . bp_option( 'pharmacy_town', 'Denton' ) . ' pharmacy with expert guidance and personalised care.', 'image' => '' ),
+        array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' pharmacy with expert guidance and personalised care.', 'image' => '' ),
     );
 
     $has_steps = have_rows( 'sp_process_steps' );
@@ -327,7 +327,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
 
 <!-- ============================================
      H3. COMPARISON SECTION — 3-card grid
-     Problem / Featured (Denton Pharmacy) / Benefits
+     Problem / Featured (Bowland Pharmacy) / Benefits
      ============================================ -->
 <section class="switch-comparison-section switch-reveal" id="comparison">
   <div class="section-container">
@@ -407,7 +407,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
             <div class="comparison-card-icon comparison-card-icon-purple">
               <i class="<?php echo esc_attr( bp_field( 'sp_card2_icon', 'fas fa-heart-pulse' ) ); ?>"></i>
             </div>
-            <span class="comparison-card-badge comparison-card-badge-purple"><?php echo esc_html( bp_field( 'sp_card2_badge', strtoupper( bp_option( 'pharmacy_town', 'Denton' ) ) . ' BASED' ) ); ?></span>
+            <span class="comparison-card-badge comparison-card-badge-purple"><?php echo esc_html( bp_field( 'sp_card2_badge', strtoupper( bp_option( 'pharmacy_town', 'Wythenshawe' ) ) . ' BASED' ) ); ?></span>
           </div>
           <h3 class="comparison-card-title"><?php echo esc_html( bp_field( 'sp_card2_title', bp_pharmacy_name() ) ); ?></h3>
           <p class="comparison-card-subtitle comparison-card-subtitle-purple"><?php echo esc_html( bp_field( 'sp_card2_subtitle', 'Face-to-face weight loss care' ) ); ?></p>
@@ -427,7 +427,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
             <?php endwhile; else : ?>
               <li class="comparison-card-feature">
                 <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
-                <span class="comparison-card-feature-text comparison-card-feature-text-bold">Monthly face-to-face appointments in <?php echo esc_html( bp_option( 'pharmacy_town', 'Denton' ) ); ?></span>
+                <span class="comparison-card-feature-text comparison-card-feature-text-bold">Monthly face-to-face appointments in <?php echo esc_html( bp_option( 'pharmacy_town', 'Wythenshawe' ) ); ?></span>
               </li>
               <li class="comparison-card-feature">
                 <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
@@ -487,7 +487,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
             </li>
             <li class="comparison-card-feature">
               <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
-              <span class="comparison-card-feature-text">Convenient <?php echo esc_html( bp_option( 'pharmacy_town', 'Denton' ) ); ?> location with parking</span>
+              <span class="comparison-card-feature-text">Convenient <?php echo esc_html( bp_option( 'pharmacy_town', 'Wythenshawe' ) ); ?> location with parking</span>
             </li>
             <li class="comparison-card-feature">
               <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
@@ -495,7 +495,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
             </li>
             <li class="comparison-card-feature">
               <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
-              <span class="comparison-card-feature-text">Support a <?php echo esc_html( bp_option( 'pharmacy_town', 'Denton' ) ); ?> independent business</span>
+              <span class="comparison-card-feature-text">Support a <?php echo esc_html( bp_option( 'pharmacy_town', 'Wythenshawe' ) ); ?> independent business</span>
             </li>
           <?php endif; ?>
         </ul>
@@ -522,7 +522,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <span class="gradient-text"><?php echo esc_html( bp_field( 'sp_evidence_title_line1', 'Real data.' ) ); ?></span>
         <span class="hero-accent-text"><?php echo esc_html( bp_field( 'sp_evidence_title_line2', 'Real results.' ) ); ?></span>
       </h2>
-      <p class="switch-evidence-subtitle"><?php echo esc_html( bp_field( 'sp_evidence_subtitle', 'Evidence-based care with measurable outcomes from hundreds of ' . bp_option( 'pharmacy_town', 'Denton' ) . ' patients' ) ); ?></p>
+      <p class="switch-evidence-subtitle"><?php echo esc_html( bp_field( 'sp_evidence_subtitle', 'Evidence-based care with measurable outcomes from hundreds of ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' patients' ) ); ?></p>
     </div>
 
     <div class="switch-evidence-grid">
@@ -546,7 +546,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <div class="switch-evidence-card">
           <div class="switch-evidence-stat-number">4.9/5</div>
           <p class="switch-evidence-stat-label">Google Reviews</p>
-          <p class="switch-evidence-stat-description">from verified <?php echo esc_html( bp_option( 'pharmacy_town', 'Denton' ) ); ?> patients on Google</p>
+          <p class="switch-evidence-stat-description">from verified <?php echo esc_html( bp_option( 'pharmacy_town', 'Wythenshawe' ) ); ?> patients on Google</p>
         </div>
         <div class="switch-evidence-card">
           <div class="switch-evidence-stat-number">10%+</div>
@@ -570,7 +570,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
 
 <!-- ============================================
      H5. BENEFITS — Feature cards grid
-     Why patients switch to Denton Pharmacy
+     Why patients switch to Bowland Pharmacy
      ============================================ -->
 <section class="switch-benefits-section switch-reveal">
   <div class="section-container">
@@ -619,7 +619,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-map-marker-alt"></i></div>
           <h3 class="switch-benefit-title">Local Expertise</h3>
-          <p class="switch-benefit-description">Trusted by the <?php echo esc_html( bp_option( 'pharmacy_town', 'Denton' ) ); ?> community with free parking and convenient access from across Greater Manchester</p>
+          <p class="switch-benefit-description">Trusted by the <?php echo esc_html( bp_option( 'pharmacy_town', 'Wythenshawe' ) ); ?> community with free parking and convenient access from across Greater Manchester</p>
         </div>
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-comments"></i></div>

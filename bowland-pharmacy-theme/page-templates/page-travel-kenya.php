@@ -273,7 +273,7 @@ get_header();
       <h2 class="kenya-cta-title"><?php echo esc_html( bp_field( 'ke_cta_title', 'Ready for your Kenya safari?' ) ); ?></h2>
       <p class="kenya-cta-description">
         <?php
-        $kenya_cta_default = 'Book your travel health consultation at our ' . bp_option( 'pharmacy_town', 'Denton' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.';
+        $kenya_cta_default = 'Book your travel health consultation at our ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.';
         echo esc_html( bp_field( 'ke_cta_description', $kenya_cta_default ) );
         ?>
       </p>

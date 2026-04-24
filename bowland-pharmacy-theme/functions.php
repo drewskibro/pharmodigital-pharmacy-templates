@@ -346,7 +346,7 @@ function bp_pharmacy_name() {
  * Helper: Get pharmacy phone
  */
 function bp_phone() {
-    return bp_option( 'pharmacy_phone', '0161 336 2548' );
+    return bp_option( 'pharmacy_phone', '0161 998 7114' );
 }
 
 /**
@@ -735,7 +735,7 @@ function bowland_pharmacy_add_consultation_closer( $content ) {
     $reviewer_gphc = bp_option( 'superintendent_gphc_number', '2208502' );
     $author_role   = bp_option( 'default_author_role', 'Lead Pharmacist' );
     $pharmacy_name = bp_pharmacy_name();
-    $pharmacy_town = bp_option( 'pharmacy_town', 'Denton' );
+    $pharmacy_town = bp_option( 'pharmacy_town', 'Wythenshawe' );
     $booking_url   = bp_booking_url();
     $phone         = bp_phone();
     $phone_link    = bp_phone_link();
@@ -1050,7 +1050,7 @@ function bp_contact_form_handler() {
     }
 
     // Build email
-    $to      = bp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
+    $to      = bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' );
     $subject_line = '[' . bp_pharmacy_name() . ' Website] ' . $subject . ' from ' . $name;
 
     $body  = "New contact form submission from " . home_url() . "\n\n";

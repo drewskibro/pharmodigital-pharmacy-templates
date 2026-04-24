@@ -16,7 +16,7 @@ $phone       = bp_phone();
 $phone_link  = bp_phone_link();
 $booking_url = bp_booking_url();
 
-$gphc_number       = bp_option( 'gphc_number', '1033447' );
+$gphc_number       = bp_option( 'gphc_number', '1089163' );
 $gphc_register_url = bp_option( 'gphc_register_url' ) ?: 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_number;
 ?>
 

@@ -9,10 +9,10 @@ get_header();
 // --- Global data used across sections ---
 $phone         = bp_phone();
 $phone_link    = bp_phone_link();
-$email         = bp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
-$addr_line_1   = bp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
-$addr_line_2   = bp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
-$addr_line_3   = bp_option( 'pharmacy_address_line_3', 'M34 3EX' );
+$email         = bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' );
+$addr_line_1   = bp_option( 'pharmacy_address_line_1', '52 Bowland Road' );
+$addr_line_2   = bp_option( 'pharmacy_address_line_2', 'Wythenshawe, Manchester' );
+$addr_line_3   = bp_option( 'pharmacy_address_line_3', 'M23 1JX' );
 $directions_url = bp_option( 'pharmacy_directions_url' );
 $hours_weekday  = bp_option( 'hours_weekday', '9:00am – 6:00pm' );
 $hours_saturday = bp_option( 'hours_saturday', '9:00am – 1:00pm' );
@@ -243,7 +243,7 @@ $parking        = bp_option( 'pharmacy_parking', 'Free customer parking availabl
       <div class="contact-cta-trust-row">
         <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'contact_cta_check_1', 'No referral needed' ) ); ?></span></div>
         <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'contact_cta_check_2', 'Expert guidance' ) ); ?></span></div>
-        <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'contact_cta_check_3', '15+ years serving ' . bp_option( 'pharmacy_town', 'Denton' ) ) ); ?></span></div>
+        <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'contact_cta_check_3', '15+ years serving ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) ) ); ?></span></div>
       </div>
     </div>
   </div>

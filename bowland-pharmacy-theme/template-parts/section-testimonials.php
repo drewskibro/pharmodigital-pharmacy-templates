@@ -4,7 +4,7 @@
  *
  * Asymmetric grid with 3 testimonial cards (1 large + 2 medium) and
  * a CTA card. Uses an ACF repeater when available, falling back to
- * hardcoded Denton Pharmacy patient testimonials.
+ * hardcoded Bowland Pharmacy patient testimonials.
  *
  * @package Bowland_Pharmacy
  */
@@ -17,14 +17,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 $badge_text        = bp_field( 'testimonials_badge_text', 'Real Transformations' );
 $title_start       = bp_field( 'testimonials_title_start', 'Real Results.' );
 $title_highlight   = bp_field( 'testimonials_title_highlight', 'Lasting Health.' );
-$description       = bp_field( 'testimonials_description', 'See how our patients across Denton have transformed their health with our personalised care.' );
-$disclaimer        = bp_field( 'testimonials_disclaimer', 'The results below are from real Denton Pharmacy patients. Individual results may vary.' );
+$description       = bp_field( 'testimonials_description', 'See how our patients across Wythenshawe have transformed their health with our personalised care.' );
+$disclaimer        = bp_field( 'testimonials_disclaimer', 'The results below are from real Bowland Pharmacy patients. Individual results may vary.' );
 $verified_label_lg = bp_field( 'testimonials_verified_label', 'Verified Patient' );
 $verified_label_sm = bp_field( 'testimonials_verified_label_short', 'Verified' );
 $transparency_label = bp_field( 'testimonials_transparency_label', 'Transparency Note:' );
 
 // --- CTA card fields ---
-$cta_title  = bp_field( 'testimonials_cta_title', 'Trusted by 10,000+ Denton Customers' );
+$cta_title  = bp_field( 'testimonials_cta_title', 'Trusted by 10,000+ Bowland Customers' );
 $cta_text   = bp_field( 'testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local healthcare you can rely on.' );
 $rating     = bp_option( 'google_rating', '4.9' );
 
@@ -49,14 +49,14 @@ $default_testimonials = array(
     array(
         'name'       => 'Georgia Porter',
         'service'    => 'Travel Vaccinations',
-        'quote'      => 'Went to Denton Pharmacy for <span class="testimonial-highlight">travel vaccinations</span> before a trip. The staff were <span class="testimonial-highlight">really informative</span> and made the whole experience quick and easy.',
+        'quote'      => 'Went to Bowland Pharmacy for <span class="testimonial-highlight">travel vaccinations</span> before a trip. The staff were <span class="testimonial-highlight">really informative</span> and made the whole experience quick and easy.',
         'highlights' => array(),
         'checklist'  => array( 'Quick Appointment', 'Informative Staff' ),
     ),
     array(
         'name'       => 'Giedrius K.',
         'service'    => 'Ear Wax Removal',
-        'quote'      => 'Had my ears checked at Denton Pharmacy. The pharmacist was <span class="testimonial-highlight">thorough and honest</span> — told me I didn\'t actually need treatment and saved me money. <span class="testimonial-highlight">Really appreciated the honesty</span>.',
+        'quote'      => 'Had my ears checked at Bowland Pharmacy. The pharmacist was <span class="testimonial-highlight">thorough and honest</span> — told me I didn\'t actually need treatment and saved me money. <span class="testimonial-highlight">Really appreciated the honesty</span>.',
         'highlights' => array(),
         'checklist'  => array( 'Thorough Check', 'Honest Advice' ),
     ),

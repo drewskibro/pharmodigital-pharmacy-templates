@@ -33,7 +33,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'hero_nhs_pills' ) ) {
 }
 
 // --- Description ---
-$description = bp_field( 'hero_description', 'Expert pharmacy services from your local Denton team. Clinically-led weight loss, travel vaccinations, and NHS care — with free delivery across Manchester.' );
+$description = bp_field( 'hero_description', 'Expert pharmacy services from your local Bowland team. Clinically-led weight loss, travel vaccinations, and NHS care — with free delivery across Manchester.' );
 
 // --- CTAs (ACF link field: array with url, title, target) ---
 $cta_primary        = bp_field( 'hero_cta_primary' );
@@ -72,7 +72,7 @@ if ( ! in_array( $hero_image_focus, $allowed_focus, true ) ) {
 // --- Google rating (global options + page overrides) ---
 $google_rating       = bp_option( 'google_rating', '4.9' );
 $google_review_url   = bp_option( 'google_review_url', '#' );
-$pharmacy_location   = bp_option( 'pharmacy_town', 'Denton' );
+$pharmacy_location   = bp_option( 'pharmacy_town', 'Wythenshawe' );
 
 // --- Rating card (page-level fields with defaults) ---
 $rating_label       = bp_field( 'hero_rating_label', 'Google Rating' );

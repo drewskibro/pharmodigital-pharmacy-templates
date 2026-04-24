@@ -35,7 +35,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       <div class="rabies-hero-line"></div>
       <span class="rabies-hero-label"><?php echo esc_html(bp_field('vaccine_hero_label', 'TRAVEL HEALTH PROTECTION')); ?></span>
 
-      <h1 class="rabies-hero-title"><?php echo esc_html(bp_field('vaccine_hero_title', 'Rabies Vaccination<br>Service in Denton')); ?></h1>
+      <h1 class="rabies-hero-title"><?php echo esc_html(bp_field('vaccine_hero_title', 'Rabies Vaccination<br>Service in Wythenshawe')); ?></h1>
 
       <p class="rabies-hero-description">
         <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect yourself against rabies with our expert travel health service. Essential for travel to high-risk areas in Asia, Africa, and South America.')); ?>
@@ -45,8 +45,8 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <a href="<?php echo esc_url(bp_field('vaccine_cta_url', '/book-appointment/')); ?>" class="cta-button rabies-btn-primary">
           <?php echo esc_html(bp_field('vaccine_cta_text', 'Book Rabies Vaccination')); ?>
         </a>
-        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01613362548')); ?>" class="cta-button rabies-btn-secondary">
-          <?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?>
+        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button rabies-btn-secondary">
+          <?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?>
         </a>
       </div>
 
@@ -127,7 +127,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
 
         <div class="rabies-protect-actions">
           <a href="<?php echo esc_url(bp_field('vaccine_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">Book Appointment</a>
-          <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta">Call 0161 336 2548</a>
+          <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta">Call 0161 998 7114</a>
         </div>
       </div>
     </div>
@@ -335,7 +335,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_details_badge', 'VACCINATION DETAILS')); ?></span>
       </div>
       <h2 class="rabies-details-title"><?php echo esc_html(bp_field('vaccine_details_title', 'What to expect at your appointment')); ?></h2>
-      <p class="rabies-details-desc"><?php echo esc_html(bp_field('vaccine_details_desc', 'Simple, straightforward vaccination process at our Denton clinic')); ?></p>
+      <p class="rabies-details-desc"><?php echo esc_html(bp_field('vaccine_details_desc', 'Simple, straightforward vaccination process at our Wythenshawe clinic')); ?></p>
     </div>
 
     <div class="rabies-details-grid">
@@ -406,11 +406,11 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       </div>
 
       <h2 class="rabies-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', 'Protect your health while travelling')); ?></h2>
-      <p class="rabies-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', 'Book your Rabies vaccination with our expert team today. Quick, convenient, and professional service in Denton.')); ?></p>
+      <p class="rabies-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', 'Book your Rabies vaccination with our expert team today. Quick, convenient, and professional service in Wythenshawe.')); ?></p>
 
       <div class="rabies-cta-actions">
         <a href="<?php echo esc_url(bp_field('vaccine_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta white-btn">Book Vaccination</a>
-        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?></a>
+        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?></a>
       </div>
     </div>
   </div>

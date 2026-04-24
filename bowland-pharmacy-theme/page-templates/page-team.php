@@ -26,7 +26,7 @@ get_header();
       </h1>
 
       <p class="team-hero-description">
-        <?php echo esc_html( bp_field( 'team_hero_description', 'We are a dedicated team of experienced clinicians committed to the health of Denton. Combining over 15 years of expertise with a modern, personal approach to care.' ) ); ?>
+        <?php echo esc_html( bp_field( 'team_hero_description', 'We are a dedicated team of experienced clinicians committed to the health of Wythenshawe. Combining over 15 years of expertise with a modern, personal approach to care.' ) ); ?>
       </p>
     </div>
   </div>
@@ -163,7 +163,7 @@ get_header();
               Verify GPhC Registration
               <i class="fas fa-external-link-alt"></i>
             </a>
-            <p class="team-member-bio">With over 15 years of experience serving the Denton community, Ahmed leads our team with dedication and expertise. As an Independent Prescriber, he specialises in travel health, medical weight loss, and ear wax removal.</p>
+            <p class="team-member-bio">With over 15 years of experience serving the Wythenshawe community, Ahmed leads our team with dedication and expertise. As an Independent Prescriber, he specialises in travel health, medical weight loss, and ear wax removal.</p>
             <div class="team-member-specialties">
               <span class="team-specialty-tag">Weight Loss</span>
               <span class="team-specialty-tag">Travel Health</span>
@@ -192,7 +192,7 @@ get_header();
               Verify GPhC Registration
               <i class="fas fa-external-link-alt"></i>
             </a>
-            <p class="team-member-bio">Elisha is a dedicated trainee pharmacy technician developing her clinical skills within our Denton team. Her enthusiasm and commitment to patient care make her a valued member of our growing pharmacy family.</p>
+            <p class="team-member-bio">Elisha is a dedicated trainee pharmacy technician developing her clinical skills within our Bowland team. Her enthusiasm and commitment to patient care make her a valued member of our growing pharmacy family.</p>
             <div class="team-member-specialties">
               <span class="team-specialty-tag">Dispensing</span>
               <span class="team-specialty-tag">Patient Support</span>
@@ -250,7 +250,7 @@ get_header();
               Verify GPhC Registration
               <i class="fas fa-external-link-alt"></i>
             </a>
-            <p class="team-member-bio">Joanne is a valued member of the Denton Pharmacy team, providing friendly and efficient support to patients and staff alike. Her warm approach ensures every patient feels welcome and well looked after.</p>
+            <p class="team-member-bio">Joanne is a valued member of the Bowland Pharmacy team, providing friendly and efficient support to patients and staff alike. Her warm approach ensures every patient feels welcome and well looked after.</p>
             <div class="team-member-specialties">
               <span class="team-specialty-tag">Patient Support</span>
               <span class="team-specialty-tag">NHS Services</span>
@@ -296,7 +296,7 @@ get_header();
         <div class="team-value-card">
           <div class="team-value-icon"><i class="fas fa-handshake"></i></div>
           <h3 class="team-value-title">Building Trust</h3>
-          <p class="team-value-description">Serving Denton for over 15 years, we've built lasting relationships based on honesty and reliability.</p>
+          <p class="team-value-description">Serving Wythenshawe for over 15 years, we've built lasting relationships based on honesty and reliability.</p>
         </div>
         <div class="team-value-card">
           <div class="team-value-icon"><i class="fas fa-lightbulb"></i></div>
@@ -321,8 +321,8 @@ get_header();
         <span class="team-cta-badge"><?php echo esc_html( bp_field( 'team_cta_badge_3', 'Patient-First Care' ) ); ?></span>
       </div>
 
-      <h2 class="team-cta-title"><?php echo esc_html( bp_field( 'team_cta_title', 'Experience the Denton Pharmacy Difference' ) ); ?></h2>
-      <p class="team-cta-description"><?php echo esc_html( bp_field( 'team_cta_description', 'Book your consultation with our experienced Denton team today. Personal care, professional expertise.' ) ); ?></p>
+      <h2 class="team-cta-title"><?php echo esc_html( bp_field( 'team_cta_title', 'Experience the Bowland Pharmacy Difference' ) ); ?></h2>
+      <p class="team-cta-description"><?php echo esc_html( bp_field( 'team_cta_description', 'Book your consultation with our experienced Bowland team today. Personal care, professional expertise.' ) ); ?></p>
 
       <div class="team-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'team_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta team-cta-button-white">
@@ -338,7 +338,7 @@ get_header();
       <div class="team-cta-trust-row">
         <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'team_cta_trust_1', 'Expert team' ) ); ?></span></div>
         <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'team_cta_trust_2', 'Same-day appointments' ) ); ?></span></div>
-        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'team_cta_trust_3', '15+ years serving Denton' ) ); ?></span></div>
+        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'team_cta_trust_3', '15+ years serving Wythenshawe' ) ); ?></span></div>
       </div>
     </div>
   </div>

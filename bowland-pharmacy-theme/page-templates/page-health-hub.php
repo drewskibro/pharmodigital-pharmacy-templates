@@ -91,7 +91,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
         <div class="rating-footer">
           <div class="rating-location">
             <i class="fas fa-map-marker-alt"></i>
-            <span><?php echo esc_html( bp_field( 'hh_social_rating_location', bp_option( 'pharmacy_town', 'Denton, UK' ) ) ); ?></span>
+            <span><?php echo esc_html( bp_field( 'hh_social_rating_location', bp_option( 'pharmacy_town', 'Wythenshawe, UK' ) ) ); ?></span>
           </div>
           <a href="<?php echo esc_url( bp_option( 'google_review_url', '#reviews' ) ); ?>" class="rating-link" target="_blank" rel="noopener noreferrer">View Reviews</a>
         </div>
@@ -100,7 +100,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
       <!-- Right: Text Content -->
       <div class="healthhub-social-proof-content">
         <p class="healthhub-social-proof-eyebrow"><?php echo esc_html( bp_field( 'hh_social_eyebrow', 'TRUSTED BY DENTON' ) ); ?></p>
-        <h2 class="healthhub-social-proof-headline"><?php echo esc_html( bp_field( 'hh_social_headline', 'Join hundreds of Denton patients who\'ve already made the switch' ) ); ?></h2>
+        <h2 class="healthhub-social-proof-headline"><?php echo esc_html( bp_field( 'hh_social_headline', 'Join hundreds of Bowland patients who\'ve already made the switch' ) ); ?></h2>
         <p class="healthhub-social-proof-subtext"><?php echo esc_html( bp_field( 'hh_social_subtext', 'Expert health advice backed by real clinical experience and outstanding patient reviews' ) ); ?></p>
       </div>
     </div>

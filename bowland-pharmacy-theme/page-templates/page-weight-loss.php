@@ -28,14 +28,14 @@ get_header();
 
         <h1 class="wl-hero-title">
           <span class="gradient-text"><?php echo esc_html( bp_field( 'wl_hero_title_line_1', 'Medical Weight Loss' ) ); ?></span>
-          <?php echo esc_html( bp_field( 'wl_hero_title_line_2', 'in Denton' ) ); ?>
+          <?php echo esc_html( bp_field( 'wl_hero_title_line_2', 'in Wythenshawe' ) ); ?>
           <?php $line3 = bp_field( 'wl_hero_title_line_3', '' ); if ( $line3 ) : ?>
           <br><span class="gradient-text"><?php echo esc_html( $line3 ); ?></span>
           <?php endif; ?>
         </h1>
 
         <p class="wl-hero-description">
-          <?php echo esc_html( bp_field( 'wl_hero_description', 'Prescription Mounjaro and Wegovy (GLP-1 treatments) with expert guidance and face-to-face support right here in Denton. No remote consultations — real care from someone who knows your name.' ) ); ?>
+          <?php echo esc_html( bp_field( 'wl_hero_description', 'Prescription Mounjaro and Wegovy (GLP-1 treatments) with expert guidance and face-to-face support right here in Wythenshawe. No remote consultations — real care from someone who knows your name.' ) ); ?>
         </p>
 
         <div class="wl-hero-actions">
@@ -59,8 +59,8 @@ get_header();
           </p>
           <div class="wl-hero-testimonial-footer">
             <div class="wl-hero-testimonial-author">
-              <p class="wl-hero-testimonial-name"><?php echo esc_html( bp_field( 'wl_hero_testimonial_name', 'Denton Patient' ) ); ?></p>
-              <p class="wl-hero-testimonial-location"><?php echo esc_html( bp_field( 'wl_hero_testimonial_location', 'Denton' ) ); ?></p>
+              <p class="wl-hero-testimonial-name"><?php echo esc_html( bp_field( 'wl_hero_testimonial_name', 'Bowland Patient' ) ); ?></p>
+              <p class="wl-hero-testimonial-location"><?php echo esc_html( bp_field( 'wl_hero_testimonial_location', 'Wythenshawe' ) ); ?></p>
             </div>
             <div class="star-row">
               <i class="fas fa-star"></i>
@@ -166,8 +166,8 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'wl_results_badge', 'REAL RESULTS' ) ); ?></span>
       </div>
-      <h2 class="wl-results-title"><?php echo esc_html( bp_field( 'wl_results_title', 'Real Mounjaro & Wegovy results in Denton' ) ); ?></h2>
-      <p class="wl-results-description"><?php echo esc_html( bp_field( 'wl_results_description', 'Denton patients using Mounjaro or Wegovy lose an average of 10-15% of their body weight in 12 months with our personalised programmes.' ) ); ?></p>
+      <h2 class="wl-results-title"><?php echo esc_html( bp_field( 'wl_results_title', 'Real Mounjaro & Wegovy results in Wythenshawe' ) ); ?></h2>
+      <p class="wl-results-description"><?php echo esc_html( bp_field( 'wl_results_description', 'Bowland patients using Mounjaro or Wegovy lose an average of 10-15% of their body weight in 12 months with our personalised programmes.' ) ); ?></p>
     </div>
 
     <div class="wl-results-grid">
@@ -193,13 +193,13 @@ get_header();
         <p class="wl-results-featured-sublabel"><?php echo esc_html( bp_field( 'wl_results_featured_sublabel', 'In 12 months' ) ); ?></p>
       </div>
 
-      <!-- Card 3: Denton Residents -->
+      <!-- Card 3: Wythenshawe Residents -->
       <div class="wl-results-card">
         <div class="wl-results-icon">
           <i class="fas fa-user-group"></i>
         </div>
         <p class="wl-results-number gradient-text"><?php echo esc_html( bp_field( 'wl_results_card3_number', '300+' ) ); ?></p>
-        <p class="wl-results-label"><?php echo esc_html( bp_field( 'wl_results_card3_label', 'Denton residents' ) ); ?></p>
+        <p class="wl-results-label"><?php echo esc_html( bp_field( 'wl_results_card3_label', 'Wythenshawe residents' ) ); ?></p>
         <p class="wl-results-sublabel"><?php echo esc_html( bp_field( 'wl_results_card3_sublabel', 'Successfully helped' ) ); ?></p>
       </div>
     </div>
@@ -221,7 +221,7 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'wl_features_badge', 'Why Choose Us' ) ); ?></span>
       </div>
-      <h2 class="wl-features-title"><?php echo esc_html( bp_field( 'wl_features_title', 'The Denton Pharmacy Difference' ) ); ?></h2>
+      <h2 class="wl-features-title"><?php echo esc_html( bp_field( 'wl_features_title', 'The Bowland Pharmacy Difference' ) ); ?></h2>
       <p class="wl-features-description"><?php echo esc_html( bp_field( 'wl_features_description', 'Real face-to-face support. Expert guidance. Proven results.' ) ); ?></p>
     </div>
 
@@ -259,7 +259,7 @@ get_header();
       <?php
       $wl_rating       = bp_option( 'google_rating', '4.9' );
       $wl_review_count = bp_option( 'google_review_count', '300+' );
-      $wl_location     = bp_option( 'pharmacy_location_label', 'Denton' );
+      $wl_location     = bp_option( 'pharmacy_location_label', 'Wythenshawe' );
       $wl_reviews_url  = bp_option( 'google_review_url', '#' );
       ?>
       <div class="wl-features-rating-strip">
@@ -352,7 +352,7 @@ get_header();
     $default_steps = array(
         array(
             'title'       => 'Initial consultation',
-            'description' => 'Meet with our expert team at our Denton pharmacy for a comprehensive health assessment. We\'ll discuss your goals, medical history, and create a personalised plan that works for you.',
+            'description' => 'Meet with our expert team at our Bowland pharmacy for a comprehensive health assessment. We\'ll discuss your goals, medical history, and create a personalised plan that works for you.',
             'icon'        => 'fas fa-calendar-check',
             'meta'        => '30-45 minutes | Private consultation',
             'meta_icon'   => 'fas fa-clock',
@@ -361,7 +361,7 @@ get_header();
         ),
         array(
             'title'       => 'Begin Mounjaro or Wegovy treatment',
-            'description' => 'If suitable, we\'ll prescribe Mounjaro, Wegovy, or other GLP-1 treatments. You\'ll receive clear instructions and guidance on what to expect from your Denton weight loss programme.',
+            'description' => 'If suitable, we\'ll prescribe Mounjaro, Wegovy, or other GLP-1 treatments. You\'ll receive clear instructions and guidance on what to expect from your Wythenshawe weight loss programme.',
             'icon'        => 'fas fa-pills',
             'meta'        => 'Same-day prescription available',
             'meta_icon'   => 'fas fa-bolt',
@@ -592,10 +592,10 @@ get_header();
         <?php echo esc_html( bp_field( 'wl_testimonials_title_start', 'Real Results.' ) ); ?>
         <span class="gradient-text"><?php echo esc_html( bp_field( 'wl_testimonials_title_highlight', 'Lasting Health.' ) ); ?></span>
       </h2>
-      <p class="wl-testimonials-description"><?php echo esc_html( bp_field( 'wl_testimonials_description', 'See how our patients across Denton have transformed their health with personalised weight loss care.' ) ); ?></p>
+      <p class="wl-testimonials-description"><?php echo esc_html( bp_field( 'wl_testimonials_description', 'See how our patients across Wythenshawe have transformed their health with personalised weight loss care.' ) ); ?></p>
       <div class="wl-testimonials-disclaimer">
         <i class="fas fa-info-circle"></i>
-        <p><strong><?php echo esc_html( bp_field( 'wl_testimonials_transparency_label', 'Transparency Note:' ) ); ?></strong> <?php echo esc_html( bp_field( 'wl_testimonials_disclaimer', 'The results below are from real Denton Pharmacy patients. Individual results may vary.' ) ); ?></p>
+        <p><strong><?php echo esc_html( bp_field( 'wl_testimonials_transparency_label', 'Transparency Note:' ) ); ?></strong> <?php echo esc_html( bp_field( 'wl_testimonials_disclaimer', 'The results below are from real Bowland Pharmacy patients. Individual results may vary.' ) ); ?></p>
       </div>
     </div>
 
@@ -739,7 +739,7 @@ get_header();
         <div class="wl-testimonial-cta-glow"></div>
         <div class="wl-testimonial-cta-body">
           <div class="wl-testimonial-cta-content">
-            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( bp_field( 'wl_testimonials_cta_title', 'Trusted by 5,000+ Denton Patients' ) ); ?></h3>
+            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( bp_field( 'wl_testimonials_cta_title', 'Trusted by 5,000+ Bowland Patients' ) ); ?></h3>
             <p class="wl-testimonial-cta-text"><?php echo esc_html( bp_field( 'wl_testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ) ); ?></p>
           </div>
           <div class="wl-testimonial-cta-rating">

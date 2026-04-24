@@ -14,10 +14,10 @@ get_header();
 <?php
 // --- Hero content ---
 $th_badge         = bp_field( 'th_hero_badge', 'TRAVEL HEALTH SERVICES' );
-$th_title_line1   = bp_field( 'th_hero_title_line1', 'Denton\'s Leading' );
+$th_title_line1   = bp_field( 'th_hero_title_line1', 'Wythenshawe\'s Leading' );
 $th_title_line2   = bp_field( 'th_hero_title_line2', 'Travel Clinic' );
 $th_title_line3   = bp_field( 'th_hero_title_line3', 'Fly Happy.' );
-$th_description   = bp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Denton travel clinic with ' . bp_option( 'superintendent_pharmacist', 'our expert team' ) . '.' );
+$th_description   = bp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Wythenshawe travel clinic with ' . bp_option( 'superintendent_pharmacist', 'our expert team' ) . '.' );
 $th_cta_text      = bp_field( 'th_hero_cta_text', 'Book Appointment' );
 $th_cta_url       = bp_field( 'th_hero_cta_url' ) ?: bp_booking_url();
 
@@ -32,14 +32,14 @@ $th_float_badge_label = bp_field( 'th_hero_float_badge_label', 'OFFICIAL' );
 
 // --- Testimonial ---
 $th_testimonial_quote  = bp_field( 'th_hero_testimonial_quote', 'The pharmacist was brilliant — explained everything clearly and made the whole family feel at ease before our trip to Kenya.' );
-$th_testimonial_author = bp_field( 'th_hero_testimonial_author', 'Denton Patient' );
+$th_testimonial_author = bp_field( 'th_hero_testimonial_author', 'Bowland Patient' );
 $th_testimonial_dest   = bp_field( 'th_hero_testimonial_destination', 'Kenya' );
 
 // --- Rating badge (pull from global options) ---
 $google_rating     = bp_option( 'google_rating', '4.9' );
 $google_review_url = bp_option( 'google_review_url', '#' );
 $google_reviews    = bp_option( 'google_review_count', '300+' );
-$pharmacy_town     = bp_option( 'pharmacy_town', 'Denton' );
+$pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
 ?>
 
 <section class="travel-hero-section">
@@ -358,7 +358,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Denton' );
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'th_why_badge', 'WHY CHOOSE US' ) ); ?></span>
       </div>
       <h2 class="travel-why-title">
-        <?php echo esc_html( bp_field( 'th_why_title_highlight', 'Why choose our' ) ); ?> <span class="travel-why-title-accent"><?php echo esc_html( bp_field( 'th_why_title_rest', 'Denton travel clinic?' ) ); ?></span>
+        <?php echo esc_html( bp_field( 'th_why_title_highlight', 'Why choose our' ) ); ?> <span class="travel-why-title-accent"><?php echo esc_html( bp_field( 'th_why_title_rest', 'Wythenshawe travel clinic?' ) ); ?></span>
       </h2>
     </div>
 
@@ -376,7 +376,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Denton' );
       <div class="travel-why-pharmacist-inner">
         <?php if ( $why_image_url ) : ?>
           <div class="travel-why-photo-wrapper">
-            <img src="<?php echo esc_url( $why_image_url ); ?>" alt="<?php echo esc_attr( bp_field( 'th_why_image_alt', $pharmacist_name . ' — Denton Pharmacy' ) ); ?>" class="travel-why-photo" />
+            <img src="<?php echo esc_url( $why_image_url ); ?>" alt="<?php echo esc_attr( bp_field( 'th_why_image_alt', $pharmacist_name . ' — Bowland Pharmacy' ) ); ?>" class="travel-why-photo" />
             <div class="travel-why-photo-ring"></div>
           </div>
         <?php endif; ?>
@@ -411,7 +411,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Denton' );
           array( 'icon' => 'fas fa-user-doctor', 'title' => 'Expert Pharmacist Consultations', 'desc' => 'Our expert pharmacists provide up-to-date travel health advice tailored to your specific itinerary and destination.' ),
           array( 'icon' => 'fas fa-calendar-check', 'title' => 'Flexible Appointments', 'desc' => 'Same-day and weekend appointments available to suit your schedule.' ),
           array( 'icon' => 'fas fa-tags', 'title' => 'Competitive Pricing', 'desc' => 'Transparent, affordable pricing for all vaccinations and antimalarials.' ),
-          array( 'icon' => 'fas fa-location-dot', 'title' => 'Convenient Location', 'desc' => 'Easy to find in Denton with parking available nearby.' ),
+          array( 'icon' => 'fas fa-location-dot', 'title' => 'Convenient Location', 'desc' => 'Easy to find in Wythenshawe with parking available nearby.' ),
         );
         foreach ( $why_cards as $i => $card ) :
         ?>
@@ -443,7 +443,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Denton' );
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'th_process_badge', 'HOW IT WORKS' ) ); ?></span>
       </div>
       <h2 class="travel-process-title">
-        <?php echo esc_html( bp_field( 'th_process_title_highlight', 'Your travel clinic' ) ); ?> <?php echo esc_html( bp_field( 'th_process_title_rest', 'Denton journey' ) ); ?>
+        <?php echo esc_html( bp_field( 'th_process_title_highlight', 'Your travel clinic' ) ); ?> <?php echo esc_html( bp_field( 'th_process_title_rest', 'Wythenshawe journey' ) ); ?>
       </h2>
     </div>
 
@@ -649,7 +649,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Denton' );
       </div>
       <h2 class="travel-cta-title"><?php echo esc_html( bp_field( 'th_cta_title', 'Ready to protect your travels?' ) ); ?></h2>
       <p class="travel-cta-description">
-        <?php echo esc_html( bp_field( 'th_cta_description', 'Don\'t let health worries spoil your adventure. Book your comprehensive travel health consultation with Denton Pharmacy today.' ) ); ?>
+        <?php echo esc_html( bp_field( 'th_cta_description', 'Don\'t let health worries spoil your adventure. Book your comprehensive travel health consultation with Bowland Pharmacy today.' ) ); ?>
       </p>
       <div class="travel-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'th_cta_primary_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta travel-cta-button-white">

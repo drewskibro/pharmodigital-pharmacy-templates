@@ -34,7 +34,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       <div class="typhoid-hero-line"></div>
       <span class="typhoid-hero-label"><?php echo esc_html(bp_field('vaccine_hero_label', 'TRAVEL HEALTH PROTECTION')); ?></span>
 
-      <h1 class="typhoid-hero-title"><?php echo esc_html(bp_field('vaccine_hero_title', 'Typhoid Vaccination Service in Denton')); ?></h1>
+      <h1 class="typhoid-hero-title"><?php echo esc_html(bp_field('vaccine_hero_title', 'Typhoid Vaccination Service in Wythenshawe')); ?></h1>
 
       <p class="typhoid-hero-description">
         <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect yourself against typhoid fever with our expert travel health service. Available as a single injection or oral capsules.')); ?>
@@ -44,8 +44,8 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <a href="<?php echo esc_url(bp_field('vaccine_cta_url', '/book-appointment/')); ?>" class="cta-button typhoid-btn-primary">
           <?php echo esc_html(bp_field('vaccine_cta_text', 'Book Typhoid Vaccination')); ?>
         </a>
-        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01613362548')); ?>" class="cta-button typhoid-btn-secondary">
-          <?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?>
+        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button typhoid-btn-secondary">
+          <?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?>
         </a>
       </div>
 
@@ -126,7 +126,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
 
         <div class="typhoid-protect-actions">
           <a href="<?php echo esc_url(bp_field('vaccine_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">Book Appointment</a>
-          <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta">Call 0161 336 2548</a>
+          <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta">Call 0161 998 7114</a>
         </div>
       </div>
     </div>
@@ -368,11 +368,11 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       </div>
 
       <h2 class="typhoid-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', 'Protect your health while travelling')); ?></h2>
-      <p class="typhoid-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', 'Book your typhoid vaccination with our expert team today. Quick, convenient, and professional service in Denton.')); ?></p>
+      <p class="typhoid-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', 'Book your typhoid vaccination with our expert team today. Quick, convenient, and professional service in Wythenshawe.')); ?></p>
 
       <div class="typhoid-cta-actions">
         <a href="<?php echo esc_url(bp_field('vaccine_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta white-btn">Book Vaccination</a>
-        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?></a>
+        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?></a>
       </div>
     </div>
   </div>

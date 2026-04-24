@@ -31,7 +31,7 @@ get_header();
         </h1>
 
         <p class="book-hero-description">
-          <?php echo esc_html(bp_field('book_hero_description', 'Choose your service below and find a time that suits you with our expert Denton team. Same-day appointments often available.')); ?>
+          <?php echo esc_html(bp_field('book_hero_description', 'Choose your service below and find a time that suits you with our expert Bowland team. Same-day appointments often available.')); ?>
         </p>
 
         <div class="book-hero-actions">
@@ -148,7 +148,7 @@ get_header();
           <div class="book-process-number">3</div>
           <div class="book-process-icon"><i class="fas fa-hospital-user"></i></div>
           <h3 class="book-process-card-title">Visit Clinic</h3>
-          <p class="book-process-card-desc">Come to our Denton clinic for your expert consultation with our friendly team.</p>
+          <p class="book-process-card-desc">Come to our Wythenshawe clinic for your expert consultation with our friendly team.</p>
         </div>
       <?php endif; ?>
     </div>
@@ -318,7 +318,7 @@ get_header();
   <div class="section-container">
     <div class="book-amelia-header">
       <h2 class="book-amelia-title"><?php echo esc_html(bp_field('book_amelia_title', 'Select Your Appointment Time')); ?></h2>
-      <p class="book-amelia-description"><?php echo esc_html(bp_field('book_amelia_description', 'Choose a convenient time with our Denton healthcare team')); ?></p>
+      <p class="book-amelia-description"><?php echo esc_html(bp_field('book_amelia_description', 'Choose a convenient time with our Bowland healthcare team')); ?></p>
     </div>
 
     <div class="book-amelia-container">
@@ -428,8 +428,8 @@ get_header();
         </div>
       <?php endwhile; else : ?>
         <div class="book-faq-item">
-          <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">01</span><span class="book-faq-question">Is there free parking at your Denton clinic?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>Yes, absolutely. We have free parking available directly outside our clinic. Our location is easily accessible from all parts of Denton and Manchester, making your visit stress-free and convenient.</p></div>
+          <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">01</span><span class="book-faq-question">Is there free parking at your Wythenshawe clinic?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
+          <div class="book-faq-answer"><p>Yes, absolutely. We have free parking available directly outside our clinic. Our location is easily accessible from all parts of Wythenshawe and Manchester, making your visit stress-free and convenient.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">02</span><span class="book-faq-question">How quickly can I start the weight loss programme?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
@@ -444,8 +444,8 @@ get_header();
           <div class="book-faq-answer"><p>Ideally, yes. We recommend booking 6-8 weeks before you travel to allow time for any vaccine courses to be completed. However, we can often accommodate last-minute appointments for urgent travel needs. We hold most vaccines in stock, including Yellow Fever.</p></div>
         </div>
         <div class="book-faq-item">
-          <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">05</span><span class="book-faq-question">Why do so many Denton patients choose you?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>We combine clinical expertise with genuine warmth. Plus, we're a local independent pharmacy that has been part of the Denton community for decades—we truly care about your health outcomes. Our patients appreciate the personal care you can't get from large chains.</p></div>
+          <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">05</span><span class="book-faq-question">Why do so many Bowland patients choose you?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
+          <div class="book-faq-answer"><p>We combine clinical expertise with genuine warmth. Plus, we're a local independent pharmacy that has been part of the Wythenshawe community for decades—we truly care about your health outcomes. Our patients appreciate the personal care you can't get from large chains.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">06</span><span class="book-faq-question">Do I need a referral from my GP?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>

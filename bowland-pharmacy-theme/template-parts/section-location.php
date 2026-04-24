@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // --- Map background layer (Google Maps iframe embed — static images retired) ---
 // Prefer a coords-centered embed so Google does NOT drop its default red pin;
 // that way our custom branded pin is the only marker on the map.
-$center_coords  = trim( (string) bp_option( 'location_center_coords', '53.4557,-2.1120' ) );
+$center_coords  = trim( (string) bp_option( 'location_center_coords', '53.393361,-2.283273' ) );
 $map_zoom       = (int) bp_option( 'location_zoom', 17 );
 $maps_embed_url = 'https://maps.google.com/maps?ll=' . rawurlencode( $center_coords ) . '&z=' . (int) $map_zoom . '&t=m&output=embed';
 

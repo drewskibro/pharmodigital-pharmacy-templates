@@ -273,7 +273,7 @@ get_header();
       <h2 class="vietnam-cta-title"><?php echo esc_html( bp_field( 'td_cta_title', 'Ready for your Vietnam adventure?' ) ); ?></h2>
       <p class="vietnam-cta-description">
         <?php
-        $viet_cta_default = 'Book your Vietnam travel health consultation at our ' . bp_option( 'pharmacy_town', 'Denton' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.';
+        $viet_cta_default = 'Book your Vietnam travel health consultation at our ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.';
         echo esc_html( bp_field( 'td_cta_description', $viet_cta_default ) );
         ?>
       </p>

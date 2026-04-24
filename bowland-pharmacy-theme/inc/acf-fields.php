@@ -312,8 +312,8 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Map Centre Coordinates (lat,lng)',
                 'name'          => 'location_center_coords',
                 'type'          => 'text',
-                'default_value' => '53.4557,-2.1120',
-                'placeholder'   => '53.4557,-2.1120',
+                'default_value' => '53.393361,-2.283273',
+                'placeholder'   => '53.393361,-2.283273',
                 'instructions'  => 'Auto-filled from the Google Maps link above. Overwrite only if you need to nudge the map centre manually.',
             ),
             array(
@@ -5370,7 +5370,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_vaccine_hero_desc', 'label' => 'Hero Description', 'name' => 'vaccine_hero_description', 'type' => 'textarea', 'rows' => 3 ),
             array( 'key' => 'field_bp_vaccine_cta_url', 'label' => 'CTA URL', 'name' => 'vaccine_cta_url', 'type' => 'url', 'default_value' => '/book-appointment/' ),
             array( 'key' => 'field_bp_vaccine_cta_text', 'label' => 'CTA Button Text', 'name' => 'vaccine_cta_text', 'type' => 'text' ),
-            array( 'key' => 'field_bp_vaccine_phone', 'label' => 'Phone (digits)', 'name' => 'vaccine_phone', 'type' => 'text', 'default_value' => '01613362548' ),
+            array( 'key' => 'field_bp_vaccine_phone', 'label' => 'Phone (digits)', 'name' => 'vaccine_phone', 'type' => 'text', 'default_value' => '01619987114' ),
             array( 'key' => 'field_bp_vaccine_phone_display', 'label' => 'Phone (display)', 'name' => 'vaccine_phone_display', 'type' => 'text', 'default_value' => 'Call 0161 998 7114' ),
             array(
                 'key'          => 'field_bp_vaccine_hero_badges',

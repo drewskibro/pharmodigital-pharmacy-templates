@@ -30,7 +30,7 @@ get_header();
         </h1>
 
         <p class="hairloss-hero-description">
-          <?php echo esc_html( bp_field( 'hl_hero_description', 'Clinically proven treatments including Finasteride and Minoxidil. Face-to-face consultations with our GPhC-registered pharmacist in ' . bp_option( 'pharmacy_town', 'Denton' ) . '.' ) ); ?>
+          <?php echo esc_html( bp_field( 'hl_hero_description', 'Clinically proven treatments including Finasteride and Minoxidil. Face-to-face consultations with our GPhC-registered pharmacist in ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . '.' ) ); ?>
         </p>
 
         <ul class="hairloss-hero-features">
@@ -204,8 +204,8 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'hl_team_badge', 'YOUR SPECIALISTS' ) ); ?></span>
       </div>
-      <h2 class="hairloss-team-title"><?php echo esc_html( bp_field( 'hl_team_title', 'Meet Your ' . bp_option( 'pharmacy_town', 'Denton' ) . ' Hair Loss Experts' ) ); ?></h2>
-      <p class="hairloss-team-description"><?php echo esc_html( bp_field( 'hl_team_description', 'Our experienced pharmacists provide personalised hair loss consultations with discretion and care. Get expert advice and ongoing support at your local ' . bp_option( 'pharmacy_town', 'Denton' ) . ' pharmacy.' ) ); ?></p>
+      <h2 class="hairloss-team-title"><?php echo esc_html( bp_field( 'hl_team_title', 'Meet Your ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' Hair Loss Experts' ) ); ?></h2>
+      <p class="hairloss-team-description"><?php echo esc_html( bp_field( 'hl_team_description', 'Our experienced pharmacists provide personalised hair loss consultations with discretion and care. Get expert advice and ongoing support at your local ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' pharmacy.' ) ); ?></p>
     </div>
 
     <div class="hairloss-team-grid">
@@ -298,7 +298,7 @@ get_header();
           <div class="number">1</div>
           <div class="icon"><i class="fas fa-calendar-check"></i></div>
           <h3>Book Consultation</h3>
-          <p>Call or book online for a private consultation at our Denton pharmacy</p>
+          <p>Call or book online for a private consultation at our Bowland pharmacy</p>
           <span class="time-badge">15-20 minutes</span>
           <div class="arrow desktop-only"><i class="fas fa-arrow-right"></i></div>
         </div>
@@ -421,7 +421,7 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'hl_testimonials_badge', 'PATIENT STORIES' ) ); ?></span>
       </div>
-      <h2 class="hairloss-testimonials-title"><?php echo esc_html( bp_field( 'hl_testimonials_title', 'Hear From Our ' . bp_option( 'pharmacy_town', 'Denton' ) . ' Patients' ) ); ?></h2>
+      <h2 class="hairloss-testimonials-title"><?php echo esc_html( bp_field( 'hl_testimonials_title', 'Hear From Our ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' Patients' ) ); ?></h2>
     </div>
 
     <div class="hairloss-testimonials-grid">
@@ -463,7 +463,7 @@ get_header();
   <div class="section-container">
     <div class="hairloss-cta-content">
       <h2 class="hairloss-cta-title"><?php echo esc_html( bp_field( 'hl_cta_title', 'Ready to Start Your Hair Regrowth Journey?' ) ); ?></h2>
-      <p class="hairloss-cta-desc"><?php echo esc_html( bp_field( 'hl_cta_description', 'Book a confidential consultation with our GPhC-registered pharmacist in ' . bp_option( 'pharmacy_town', 'Denton' ) ) ); ?></p>
+      <p class="hairloss-cta-desc"><?php echo esc_html( bp_field( 'hl_cta_description', 'Book a confidential consultation with our GPhC-registered pharmacist in ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) ) ); ?></p>
       <div class="hairloss-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'hl_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta hairloss-cta-btn-book">
           <?php echo esc_html( bp_field( 'hl_cta_button_text', 'Book Consultation' ) ); ?> <i class="fas fa-arrow-right"></i>

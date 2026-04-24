@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- Section header fields ---
-$badge_text  = bp_field( 'treatments_badge_text', 'Trusted by thousands in Denton & Manchester' );
+$badge_text  = bp_field( 'treatments_badge_text', 'Trusted by thousands in Wythenshawe & Manchester' );
 $title       = bp_field( 'treatments_title', 'Our Most Popular Treatments' );
 $description = bp_field( 'treatments_description', 'Expert-led treatments and NHS services at your local pharmacy.' );
 

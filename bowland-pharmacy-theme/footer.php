@@ -16,12 +16,12 @@ $pharmacy_name = bp_pharmacy_name();
 $logo_url      = bp_logo_url();
 $phone         = bp_phone();
 $phone_link    = bp_phone_link();
-$email         = bp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
+$email         = bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' );
 $booking_url   = bp_booking_url();
 
 // Address.
-$address_line1 = bp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
-$address_line2 = bp_option( 'pharmacy_address_line_2', 'Denton, Manchester M34 3EX' );
+$address_line1 = bp_option( 'pharmacy_address_line_1', '52 Bowland Road' );
+$address_line2 = bp_option( 'pharmacy_address_line_2', 'Wythenshawe, Manchester M23 1JX' );
 
 // Hours.
 $hours_weekday = bp_option( 'hours_weekday', 'Mon-Fri: 9am-6pm' );
@@ -34,12 +34,12 @@ $twitter_url   = bp_option( 'social_twitter', 'https://twitter.com' );
 $linkedin_url  = bp_option( 'social_linkedin', 'https://linkedin.com' );
 
 // Registration.
-$gphc_number       = bp_option( 'gphc_registration', '1033447' );
+$gphc_number       = bp_option( 'gphc_registration', '1089163' );
 $gphc_register_url = bp_option( 'gphc_register_url' ) ?: 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_number;
 $company_reg       = bp_option( 'company_registration', '14519140' );
 $established       = bp_option( 'established_year', '2009' );
 
-$tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and wellness across Denton, Manchester, and beyond.' );
+$tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and wellness across Wythenshawe, Manchester, and beyond.' );
 ?>
 
   <!-- ============================================

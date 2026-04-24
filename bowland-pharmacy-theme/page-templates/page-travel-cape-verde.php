@@ -276,7 +276,7 @@ get_header();
     <div class="capeverde-cta-content">
       <h2 class="capeverde-cta-title"><?php echo esc_html( bp_field( 'cv_cta_title', 'Ready for Cape Verde?' ) ); ?></h2>
       <p class="capeverde-cta-description">
-        <?php echo esc_html( bp_field( 'cv_cta_description', 'Book your travel health consultation at our ' . bp_option( 'pharmacy_town', 'Denton' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
+        <?php echo esc_html( bp_field( 'cv_cta_description', 'Book your travel health consultation at our ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
       </p>
       <div class="capeverde-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'cv_cta_primary_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta capeverde-cta-button-white">

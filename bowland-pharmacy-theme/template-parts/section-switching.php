@@ -23,7 +23,7 @@ $allowed_title_tags = array(
 $title = bp_field( 'switching_title', 'Frustrated with Your Current <span class="gradient-text">Weight Loss Provider?</span>' );
 
 // --- Description ---
-$description = bp_field( 'switching_description', 'Tired of waiting weeks for prescriptions? Fed up with chatbots instead of real pharmacists? Join hundreds who have switched to Denton Pharmacy for faster service, genuine support, and premium care you can trust.' );
+$description = bp_field( 'switching_description', 'Tired of waiting weeks for prescriptions? Fed up with chatbots instead of real pharmacists? Join hundreds who have switched to Bowland Pharmacy for faster service, genuine support, and premium care you can trust.' );
 
 // --- 3 Feature items (individual ACF fields per feature) ---
 $default_features = array(
@@ -40,7 +40,7 @@ $default_features = array(
     array(
         'icon'  => 'fa-comments',
         'title' => 'Face-to-Face Consultations',
-        'desc'  => 'See your pharmacist in person at our Denton pharmacy — real conversations, real care, with same-day appointments available.',
+        'desc'  => 'See your pharmacist in person at our Bowland pharmacy — real conversations, real care, with same-day appointments available.',
     ),
 );
 
@@ -82,7 +82,7 @@ for ( $i = 1; $i <= 3; $i++ ) {
 }
 
 // --- CTAs ---
-$cta_primary_text = bp_field( 'switching_cta_text', 'Switch to Denton Pharmacy' );
+$cta_primary_text = bp_field( 'switching_cta_text', 'Switch to Bowland Pharmacy' );
 $cta_primary_url  = home_url( '/switch-provider/' );
 $phone            = bp_phone();
 $phone_link       = bp_phone_link();
@@ -97,7 +97,7 @@ $switching_image_alt = $switching_image_id
 // --- Google rating (global options) ---
 $google_rating       = bp_option( 'google_rating', '4.9' );
 $google_review_count = bp_option( 'google_review_count', '300+' );
-$pharmacy_location   = bp_option( 'pharmacy_town', 'Denton' );
+$pharmacy_location   = bp_option( 'pharmacy_town', 'Wythenshawe' );
 $gphc_number         = bp_option( 'superintendent_gphc_number', '2088937' );
 ?>
 
