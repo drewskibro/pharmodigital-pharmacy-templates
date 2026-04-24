@@ -16,12 +16,12 @@ $pharmacy_name = bp_pharmacy_name();
 $logo_url      = bp_logo_url();
 $phone         = bp_phone();
 $phone_link    = bp_phone_link();
-$email         = bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' );
+$email         = bp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
 $booking_url   = bp_booking_url();
 
 // Address.
-$address_line1 = bp_option( 'pharmacy_address_line_1', '52 Bowland Road' );
-$address_line2 = bp_option( 'pharmacy_address_line_2', 'Wythenshawe, Manchester M23 1JX' );
+$address_line1 = bp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
+$address_line2 = bp_option( 'pharmacy_address_line_2', 'Denton, Manchester M34 3EX' );
 
 // Hours.
 $hours_weekday = bp_option( 'hours_weekday', 'Mon-Fri: 9am-6pm' );
@@ -34,11 +34,12 @@ $twitter_url   = bp_option( 'social_twitter', 'https://twitter.com' );
 $linkedin_url  = bp_option( 'social_linkedin', 'https://linkedin.com' );
 
 // Registration.
-$gphc_number = bp_option( 'gphc_registration', '1089163' );
-$company_reg = bp_option( 'company_registration', 'TBC' );
-$established = bp_option( 'established_year', '2009' );
+$gphc_number       = bp_option( 'gphc_registration', '1033447' );
+$gphc_register_url = bp_option( 'gphc_register_url' ) ?: 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_number;
+$company_reg       = bp_option( 'company_registration', '14519140' );
+$established       = bp_option( 'established_year', '2009' );
 
-$tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and wellness across Wythenshawe, Manchester, and beyond.' );
+$tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and wellness across Denton, Manchester, and beyond.' );
 ?>
 
   <!-- ============================================
@@ -93,6 +94,7 @@ $tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and well
             <li><a href="<?php echo esc_url( home_url( '/ear-wax-removal/' ) ); ?>" class="footer-link">Ear Wax Removal</a></li>
             <li><a href="<?php echo esc_url( home_url( '/hair-loss/' ) ); ?>" class="footer-link">Hair Loss Treatment</a></li>
             <li><a href="<?php echo esc_url( home_url( '/nhs-services/' ) ); ?>" class="footer-link">NHS Services</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/blood-testing/' ) ); ?>" class="footer-link">Blood Testing</a></li>
             <li><a href="<?php echo esc_url( home_url( '/nhs-services/' ) ); ?>" class="footer-link">Flu Vaccinations</a></li>
           </ul>
         </div>
@@ -155,7 +157,7 @@ $tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and well
 
       <!-- Certifications bar -->
       <div class="footer-certifications">
-        <div class="footer-cert-item">
+        <a href="<?php echo esc_url( $gphc_register_url ); ?>" class="footer-cert-item footer-cert-link" target="_blank" rel="noopener" title="Verify on the GPhC register">
           <div class="footer-cert-icon">
             <i class="fas fa-shield-halved"></i>
           </div>
@@ -163,7 +165,7 @@ $tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and well
             <span class="footer-cert-label">GPhC Registered</span>
             <span class="footer-cert-number"><?php echo esc_html( $gphc_number ); ?></span>
           </div>
-        </div>
+        </a>
         <div class="footer-cert-divider"></div>
         <div class="footer-cert-item">
           <div class="footer-cert-icon">
