@@ -58,7 +58,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'footer_tagline',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Your trusted local pharmacy in Denton, Manchester — providing expert healthcare, weight loss treatments, travel vaccinations, and more.',
+                'default_value' => 'Your trusted local pharmacy in Wythenshawe, Manchester — providing expert healthcare, weight loss treatments, travel vaccinations, and more.',
             ),
             array(
                 'key'           => 'field_bp_brand_trust_bar_item_1',
@@ -844,7 +844,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Location Badge Text',
                 'name'          => 'hero_badge_text',
                 'type'          => 'text',
-                'default_value' => 'Serving Denton, Manchester & Beyond',
+                'default_value' => 'Serving Wythenshawe, Manchester & Beyond',
             ),
             array(
                 'key'           => 'field_bp_hero_title',
@@ -1447,7 +1447,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Badge Text',
                 'name'          => 'treatments_badge_text',
                 'type'          => 'text',
-                'default_value' => 'Trusted by thousands in Denton & Manchester',
+                'default_value' => 'Trusted by thousands in Wythenshawe & Manchester',
             ),
             array(
                 'key'           => 'field_bp_treatments_title',
@@ -1589,7 +1589,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'pharmacist_quote',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => '"My goal is to make expert healthcare accessible to everyone in Denton — honest, professional care delivered to your door."',
+                'default_value' => '"My goal is to make expert healthcare accessible to everyone in Wythenshawe — honest, professional care delivered to your door."',
             ),
             array(
                 'key'           => 'field_bp_pharmacist_experience_years',
@@ -2094,7 +2094,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Secondary Link Text',
                 'name'          => 'revslider_placeholder_secondary_text',
                 'type'          => 'text',
-                'default_value' => 'Serving Denton, Manchester and beyond',
+                'default_value' => 'Serving Wythenshawe, Manchester and beyond',
             ),
         ),
         'location' => array(
@@ -10096,7 +10096,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_bt_cta_badge_1', 'label' => 'Badge 1', 'name' => 'bt_cta_badge_1', 'type' => 'text', 'default_value' => 'Professional Phlebotomy' ),
             array( 'key' => 'field_bp_bt_cta_badge_2', 'label' => 'Badge 2', 'name' => 'bt_cta_badge_2', 'type' => 'text', 'default_value' => 'Confidential Results' ),
             array( 'key' => 'field_bp_bt_cta_badge_3', 'label' => 'Badge 3', 'name' => 'bt_cta_badge_3', 'type' => 'text', 'default_value' => 'No Referral' ),
-            array( 'key' => 'field_bp_bt_cta_title', 'label' => 'Title', 'name' => 'bt_cta_title', 'type' => 'text', 'default_value' => 'Book Your Blood Test in Denton Today' ),
+            array( 'key' => 'field_bp_bt_cta_title', 'label' => 'Title', 'name' => 'bt_cta_title', 'type' => 'text', 'default_value' => 'Book Your Blood Test in Wythenshawe Today' ),
             array( 'key' => 'field_bp_bt_cta_desc', 'label' => 'Description', 'name' => 'bt_cta_description', 'type' => 'textarea', 'rows' => 2 ),
             array( 'key' => 'field_bp_bt_cta_primary_url', 'label' => 'CTA URL', 'name' => 'bt_cta_primary_url', 'type' => 'url' ),
             array( 'key' => 'field_bp_bt_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'bt_cta_button_text', 'type' => 'text', 'default_value' => 'Book Online' ),
