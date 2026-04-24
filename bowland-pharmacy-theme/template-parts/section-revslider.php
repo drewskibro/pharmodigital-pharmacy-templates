@@ -35,20 +35,17 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
     // Content fields
     $badge_text     = bp_field( 'revslider_placeholder_badge', 'Yellow Fever Approved' );
     $title          = bp_field( 'revslider_placeholder_title', 'Protect Your Adventures Across the Globe' );
-    $subtitle       = bp_field( 'revslider_placeholder_subtitle', 'From yellow fever to malaria prevention, get expert travel vaccinations at Bowland Pharmacy' );
+    $subtitle       = bp_field( 'revslider_placeholder_subtitle', 'From yellow fever to malaria prevention, get expert travel vaccinations at Denton Pharmacy' );
 
     // Primary CTA
     $cta_text = bp_field( 'revslider_placeholder_cta_text', 'Book Travel Clinic' );
-    $cta_url  = home_url( '/travel-health/' );
-
-    // If a booking URL is configured, prefer it for the primary CTA
-    $booking_url = bp_booking_url();
-    if ( $booking_url ) {
-        $cta_url = $booking_url;
+    $cta_url  = bp_field( 'revslider_placeholder_cta_url' );
+    if ( ! $cta_url ) {
+        $cta_url = bp_booking_url() ?: home_url( '/travel-health/' );
     }
 
     // Secondary CTA
-    $secondary_text = bp_field( 'revslider_placeholder_secondary_text', 'Serving Wythenshawe, Manchester and beyond' );
+    $secondary_text = bp_field( 'revslider_placeholder_secondary_text', 'Serving Denton, Manchester and beyond' );
     $secondary_url  = '#location';
 ?>
 

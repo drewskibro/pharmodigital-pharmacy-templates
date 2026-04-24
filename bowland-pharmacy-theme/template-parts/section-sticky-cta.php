@@ -12,9 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$phone      = bp_phone();
-$phone_link = bp_phone_link();
+$phone       = bp_phone();
+$phone_link  = bp_phone_link();
 $booking_url = bp_booking_url();
+
+$gphc_number       = bp_option( 'gphc_number', '1033447' );
+$gphc_register_url = bp_option( 'gphc_register_url' ) ?: 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_number;
 ?>
 
   <!-- ============================================
@@ -27,10 +30,10 @@ $booking_url = bp_booking_url();
         <span class="sticky-cta-subtitle"><?php echo esc_html( bp_field( 'sticky_cta_subtitle', 'Expert care, just around the corner' ) ); ?></span>
       </div>
       <div class="sticky-cta-centre">
-        <span class="sticky-cta-trust-chip">
+        <a href="<?php echo esc_url( $gphc_register_url ); ?>" class="sticky-cta-trust-chip" target="_blank" rel="noopener noreferrer" title="Verify on the GPhC register">
           <i class="fas fa-shield-halved"></i>
-          GPhC Registered
-        </span>
+          <?php echo esc_html( bp_field( 'sticky_cta_trust_text', 'GPhC Registered' ) ); ?>
+        </a>
       </div>
       <div class="sticky-cta-buttons">
         <a href="<?php echo esc_url( $booking_url ); ?>" class="sticky-cta-button sticky-cta-primary">
@@ -40,7 +43,7 @@ $booking_url = bp_booking_url();
         <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="sticky-cta-button sticky-cta-secondary">
           <i class="fas fa-phone"></i>
           <span class="desktop-only">Call: <?php echo esc_html( $phone ); ?></span>
-          <span class="mobile-only">Call Us</span>
+          <span class="mobile-only"><?php echo esc_html( bp_field( 'sticky_cta_call_text', 'Call Us' ) ); ?></span>
         </a>
       </div>
     </div>

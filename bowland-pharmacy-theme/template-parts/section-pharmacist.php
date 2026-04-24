@@ -13,14 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// --- ACF fields with Bowland-specific defaults ---
+// --- ACF fields with Denton-specific defaults ---
 $section_title  = bp_field( 'pharmacist_section_title', 'Meet Your Clinical Team' );
 $section_sub    = bp_field( 'pharmacist_section_subtitle', 'Every consultation is led by a qualified, GPhC-registered prescriber from our clinical team.' );
 $badge_text     = bp_field( 'pharmacist_badge_text', 'Your Local Experts' );
 $eyebrow_text   = bp_field( 'pharmacist_eyebrow_text', 'Led by' );
 $name           = bp_field( 'pharmacist_name', 'Ahmed Al-Liabi' );
 $role           = bp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
-$bio            = bp_field( 'pharmacist_bio', 'With over 15 years of experience, Ahmed leads our clinical team dedicated to providing personalised, accessible healthcare in Wythenshawe. As an Independent Prescriber, he oversees our service to ensure you receive safe, effective treatments without the wait.' );
+$bio            = bp_field( 'pharmacist_bio', 'With over 15 years of experience, Ahmed leads our clinical team dedicated to providing personalised, accessible healthcare in Denton. As an Independent Prescriber, he oversees our service to ensure you receive safe, effective treatments without the wait.' );
 $cta_text       = bp_field( 'pharmacist_cta_text', 'Start Your Online Consultation' );
 $cta_url        = bp_field( 'pharmacist_cta_url', bp_booking_url() );
 $phone          = bp_phone();
@@ -59,12 +59,21 @@ if ( empty( $credentials ) ) {
     $credentials = $default_credentials;
 }
 
-// --- Trust checks ---
-$trust_checks = array(
-    'Same-Day Appointments',
-    'No GP Referral Needed',
-    'Face-to-Face Consultations',
-);
+// --- Trust checks (ACF repeater with defaults) ---
+$default_trust_checks = array( 'Same-Day Appointments', 'No GP Referral Needed', 'Face-to-Face Consultations' );
+$trust_checks = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'pharmacist_trust_checks' ) ) {
+    while ( have_rows( 'pharmacist_trust_checks' ) ) {
+        the_row();
+        $text = get_sub_field( 'check_text' );
+        if ( $text ) {
+            $trust_checks[] = $text;
+        }
+    }
+}
+if ( empty( $trust_checks ) ) {
+    $trust_checks = $default_trust_checks;
+}
 ?>
 
 <section class="pharmacist-section" id="about">

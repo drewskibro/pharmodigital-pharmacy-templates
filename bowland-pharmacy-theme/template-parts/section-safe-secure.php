@@ -55,8 +55,8 @@ if ( empty( $features ) ) {
 }
 
 // --- GPhC credential data (global options) ---
-$company_registration = bp_option( 'company_registration', 'TBC' );
-$gphc_registration    = bp_option( 'gphc_registration', '1089163' );
+$company_registration = bp_option( 'company_registration', '14519140' );
+$gphc_registration    = bp_option( 'gphc_registration', '1033447' );
 $superintendent_name  = bp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
 $superintendent_gphc  = bp_option( 'superintendent_gphc_number', '2208502' );
 $gphc_verify_url      = 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_registration;
@@ -139,10 +139,10 @@ $gphc_verify_url      = 'https://www.pharmacyregulation.org/registers/pharmacy/r
                 <div class="safe-credential-footer">
                     <a href="<?php echo esc_url( $gphc_verify_url ); ?>" target="_blank" rel="noopener noreferrer" class="safe-verify-link">
                         <i class="fas fa-shield-halved"></i>
-                        Verify Our Registration
+                        <?php echo esc_html( bp_field( 'safe_verify_link_text', 'Verify Our Registration' ) ); ?>
                         <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
-                    <p class="safe-verify-note">The GPhC is the official body that regulates and inspects all pharmacies in the UK</p>
+                    <p class="safe-verify-note"><?php echo esc_html( bp_field( 'safe_verify_note', 'The GPhC is the official body that regulates and inspects all pharmacies in the UK' ) ); ?></p>
                 </div>
 
             </div>

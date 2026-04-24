@@ -23,7 +23,7 @@ $allowed_title_tags = array(
 $title = bp_field( 'switching_title', 'Frustrated with Your Current <span class="gradient-text">Weight Loss Provider?</span>' );
 
 // --- Description ---
-$description = bp_field( 'switching_description', 'Tired of waiting weeks for prescriptions? Fed up with chatbots instead of real pharmacists? Join hundreds who have switched to Bowland Pharmacy for faster service, genuine support, and premium care you can trust.' );
+$description = bp_field( 'switching_description', 'Tired of waiting weeks for prescriptions? Fed up with chatbots instead of real pharmacists? Join hundreds who have switched to Denton Pharmacy for faster service, genuine support, and premium care you can trust.' );
 
 // --- 3 Feature items (individual ACF fields per feature) ---
 $default_features = array(
@@ -35,12 +35,12 @@ $default_features = array(
     array(
         'icon'  => 'fa-user-doctor',
         'title' => 'Real Pharmacist Support',
-        'desc'  => 'Speak with Ahmed and our Wythenshawe team directly — no chatbots, no automated responses, just genuine expert care.',
+        'desc'  => 'Speak with ' . bp_option( 'superintendent_pharmacist', 'our pharmacist' ) . ' directly — no chatbots, no automated responses, just genuine expert care.',
     ),
     array(
         'icon'  => 'fa-comments',
         'title' => 'Face-to-Face Consultations',
-        'desc'  => 'See your pharmacist in person at our Wythenshawe pharmacy — real conversations, real care, with same-day appointments available.',
+        'desc'  => 'See your pharmacist in person at our Denton pharmacy — real conversations, real care, with same-day appointments available.',
     ),
 );
 
@@ -82,7 +82,7 @@ for ( $i = 1; $i <= 3; $i++ ) {
 }
 
 // --- CTAs ---
-$cta_primary_text = bp_field( 'switching_cta_text', 'Switch to Bowland Pharmacy' );
+$cta_primary_text = bp_field( 'switching_cta_text', 'Switch to Denton Pharmacy' );
 $cta_primary_url  = home_url( '/switch-provider/' );
 $phone            = bp_phone();
 $phone_link       = bp_phone_link();
@@ -95,9 +95,9 @@ $switching_image_alt = $switching_image_id
     : 'Switch to ' . bp_pharmacy_name();
 
 // --- Google rating (global options) ---
-$google_rating       = bp_option( 'google_rating', '4.7' );
-$google_review_count = bp_option( 'google_review_count', '89+' );
-$pharmacy_location   = bp_option( 'pharmacy_town', 'Wythenshawe' );
+$google_rating       = bp_option( 'google_rating', '4.9' );
+$google_review_count = bp_option( 'google_review_count', '300+' );
+$pharmacy_location   = bp_option( 'pharmacy_town', 'Denton' );
 $gphc_number         = bp_option( 'superintendent_gphc_number', '2088937' );
 ?>
 
@@ -213,7 +213,7 @@ $gphc_number         = bp_option( 'superintendent_gphc_number', '2088937' );
                         </span>
                         <span class="switching-rating-pill">
                             <i class="fas fa-map-marker-alt"></i>
-                            <?php echo esc_html( $pharmacy_location ); ?> since 2008
+                            <?php echo esc_html( $pharmacy_location ); ?> since <?php echo esc_html( bp_option( 'established_year', '2009' ) ); ?>
                         </span>
                     </div>
                 </div>

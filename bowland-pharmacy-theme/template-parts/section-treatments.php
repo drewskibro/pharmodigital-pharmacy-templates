@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- Section header fields ---
-$badge_text  = bp_field( 'treatments_badge_text', 'Trusted by thousands in Wythenshawe & Manchester' );
+$badge_text  = bp_field( 'treatments_badge_text', 'Trusted by thousands in Denton & Manchester' );
 $title       = bp_field( 'treatments_title', 'Our Most Popular Treatments' );
 $description = bp_field( 'treatments_description', 'Expert-led treatments and NHS services at your local pharmacy.' );
 
@@ -96,8 +96,9 @@ $treatments = array_slice( $treatments, 0, 5 );
                 $img_id  = ! empty( $treatment['treatment_image_id'] ) ? $treatment['treatment_image_id'] : 0;
                 $img_alt = $treatment['treatment_title'] . ' treatment at ' . bp_pharmacy_name();
                 $subtitle = ! empty( $treatment['treatment_subtitle'] ) ? $treatment['treatment_subtitle'] : '';
+                $card_slug = sanitize_html_class( basename( trim( parse_url( $treatment['treatment_url'], PHP_URL_PATH ), '/' ) ) );
             ?>
-                <a href="<?php echo esc_url( $treatment['treatment_url'] ); ?>" class="treatment-card">
+                <a href="<?php echo esc_url( $treatment['treatment_url'] ); ?>" class="treatment-card treatment-card--<?php echo $card_slug; ?>">
                     <div class="treatment-card-inner">
                         <?php if ( $img_id ) :
                             echo wp_get_attachment_image( $img_id, 'treatment-card', false, array(
@@ -106,7 +107,7 @@ $treatments = array_slice( $treatments, 0, 5 );
                                 'sizes' => '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 240px',
                             ) );
                         else : ?>
-                            <img src="<?php echo esc_url( BOWLAND_PHARMACY_URI . '/assets/images/treatment-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $img_alt ); ?>" class="treatment-card-image" />
+                            <img src="<?php echo esc_url( DENTON_PHARMACY_URI . '/assets/images/treatment-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $img_alt ); ?>" class="treatment-card-image" />
                         <?php endif; ?>
                         <div class="treatment-card-overlay"></div>
                         <div class="treatment-card-label">
