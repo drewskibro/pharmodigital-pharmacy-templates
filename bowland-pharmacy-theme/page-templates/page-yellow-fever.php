@@ -7,7 +7,9 @@
 get_header();
 ?>
 
-<!-- Breadcrumb -->
+<!-- ============================================================
+     1. BREADCRUMB + HERO
+     ============================================================ -->
 <div class="yellowfever-breadcrumb">
   <div class="section-container">
     <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
@@ -18,9 +20,6 @@ get_header();
   </div>
 </div>
 
-<!-- ============================================================
-     1. HERO
-     ============================================================ -->
 <?php
 $hero_image_id  = bp_field( 'yf_hero_image' );
 $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'full' ) : '';
@@ -34,10 +33,10 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       <div class="yellowfever-hero-line"></div>
       <span class="yellowfever-hero-label"><?php echo esc_html( bp_field( 'yf_hero_label', 'OFFICIAL YELLOW FEVER CENTRE' ) ); ?></span>
 
-      <h1 class="yellowfever-hero-title"><?php echo esc_html( bp_field( 'yf_hero_title', 'Yellow Fever Vaccination Service in Wythenshawe' ) ); ?></h1>
+      <h1 class="yellowfever-hero-title"><?php echo esc_html( bp_field( 'yf_hero_title', 'Yellow Fever Vaccination Service in Denton' ) ); ?></h1>
 
       <p class="yellowfever-hero-description">
-        <?php echo esc_html( bp_field( 'yf_hero_description', 'We are an official NHS Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Bowland Pharmacy.' ) ); ?>
+        <?php echo esc_html( bp_field( 'yf_hero_description', 'We are an official NHS Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Denton Pharmacy.' ) ); ?>
       </p>
 
       <div class="yellowfever-hero-actions">
@@ -135,7 +134,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         </div>
 
         <div class="yellowfever-cert-actions">
-          <a href="<?php echo esc_url( bp_field( 'yf_cert_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta">Book Appointment</a>
+          <a href="<?php echo esc_url( bp_field( 'yf_cert_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta"><?php echo esc_html( bp_field( 'yf_cert_cta_text', 'Book Yellow Fever Vaccination' ) ); ?></a>
           <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button secondary-cta">Call <?php echo esc_html( bp_phone() ); ?></a>
         </div>
 
@@ -311,14 +310,14 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
     <div class="yellowfever-risk-stats">
       <?php if ( have_rows( 'yf_risk_stats' ) ) : while ( have_rows( 'yf_risk_stats' ) ) : the_row(); ?>
         <div class="stat-box">
-          <span class="num"><?php echo esc_html( get_sub_field( 'number' ) ); ?></span>
+          <span class="num"><?php echo esc_html( get_sub_field( 'num' ) ); ?></span>
           <span class="label"><?php echo esc_html( get_sub_field( 'label' ) ); ?></span>
           <span class="sub"><?php echo esc_html( get_sub_field( 'sub' ) ); ?></span>
         </div>
       <?php endwhile; else : ?>
-        <div class="stat-box"><span class="num">34</span><span class="label">African Countries</span><span class="sub">At risk of Yellow Fever</span></div>
-        <div class="stat-box"><span class="num">13</span><span class="label">South American Countries</span><span class="sub">At risk of Yellow Fever</span></div>
-        <div class="stat-box"><span class="num">200,000</span><span class="label">Cases Per Year</span><span class="sub">Estimated worldwide</span></div>
+        <div class="stat-box"><span class="num">47</span><span class="label">Endemic Countries</span><span class="sub">Across 2 continents</span></div>
+        <div class="stat-box"><span class="num">34</span><span class="label">African Countries</span><span class="sub">Sub-Saharan Africa</span></div>
+        <div class="stat-box"><span class="num">13</span><span class="label">South American</span><span class="sub">Tropical regions</span></div>
       <?php endif; ?>
     </div>
 
@@ -335,8 +334,9 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
               <img src="<?php echo esc_url( $zone_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
             </div>
           <?php endif; ?>
-          <div class="yellowfever-risk-card <?php echo esc_attr( get_sub_field( 'type' ) ); ?>">
-            <div class="card-icon"><?php echo esc_html( get_sub_field( 'emoji' ) ); ?></div>
+          <?php $zone_level = get_sub_field( 'level' ) ?: get_sub_field( 'type' ); ?>
+          <div class="yellowfever-risk-card <?php echo esc_attr( $zone_level ); ?>">
+            <div class="card-icon"><i class="fas <?php echo $zone_level === 'america' ? 'fa-globe-americas' : 'fa-globe-africa'; ?>"></i></div>
             <h3><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
             <p class="desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
             <div class="country-list">
@@ -407,7 +407,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <?php echo esc_html( bp_field( 'yf_risk_footer_text', "Unsure about your destination? We'll check the latest requirements for you." ) ); ?>
       </div>
       <div class="actions">
-        <a href="<?php echo esc_url( bp_field( 'yf_risk_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button yellow-btn">Book Consultation</a>
+        <a href="<?php echo esc_url( bp_field( 'yf_risk_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button yellow-btn"><?php echo esc_html( bp_field( 'yf_risk_cta_text', 'Book Consultation' ) ); ?></a>
         <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button outline-btn">Call <?php echo esc_html( bp_phone() ); ?></a>
       </div>
     </div>
@@ -425,13 +425,13 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'yf_details_badge', 'YOUR APPOINTMENT' ) ); ?></span>
       </div>
       <h2 class="yellowfever-details-title"><?php echo esc_html( bp_field( 'yf_details_title', 'What to Expect at Your Appointment' ) ); ?></h2>
-      <p class="yellowfever-details-desc"><?php echo esc_html( bp_field( 'yf_details_desc', 'Simple, straightforward vaccination process at our Wythenshawe clinic' ) ); ?></p>
+      <p class="yellowfever-details-desc"><?php echo esc_html( bp_field( 'yf_details_desc', 'Simple, straightforward vaccination process at our Denton clinic' ) ); ?></p>
     </div>
 
     <!-- Hero Image -->
     <div class="yellowfever-details-hero-image">
       <?php
-      $details_image_id = bp_field( 'yf_details_image' );
+      $details_image_id = bp_field( 'yf_details_hero_image' );
       $details_image_url = $details_image_id ? wp_get_attachment_image_url( $details_image_id, 'large' ) : '';
       if ( ! $details_image_url ) {
           $details_image_url = 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=1200&h=600&fit=crop';
@@ -526,10 +526,10 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       </div>
 
       <h2 class="yellowfever-cta-title"><?php echo esc_html( bp_field( 'yf_cta_title', 'Get your Yellow Fever vaccination and certificate' ) ); ?></h2>
-      <p class="yellowfever-cta-desc"><?php echo esc_html( bp_field( 'yf_cta_desc', 'Book your Yellow Fever vaccination at our official centre in Wythenshawe. Certificate issued on the day.' ) ); ?></p>
+      <p class="yellowfever-cta-desc"><?php echo esc_html( bp_field( 'yf_cta_desc', 'Book your Yellow Fever vaccination at our official centre in Denton. Certificate issued on the day.' ) ); ?></p>
 
       <div class="yellowfever-cta-actions">
-        <a href="<?php echo esc_url( bp_field( 'yf_cta_primary_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta white-btn"><?php echo esc_html( bp_field( 'yf_cta_primary_text', 'Book Vaccination' ) ); ?></a>
+        <a href="<?php echo esc_url( bp_field( 'yf_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta white-btn"><?php echo esc_html( bp_field( 'yf_cta_button_text', 'Book Vaccination' ) ); ?></a>
         <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button secondary-cta outline-btn">Call <?php echo esc_html( bp_phone() ); ?></a>
       </div>
 

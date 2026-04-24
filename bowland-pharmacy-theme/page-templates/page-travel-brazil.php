@@ -142,9 +142,9 @@ get_header();
         <div class="brazil-malaria-image-card">
           <?php
           $malaria_image_id = bp_field( 'td_malaria_image' );
-          $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&h=1000&fit=crop';
+          $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : '';
           ?>
-          <img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="Brazil travel health" class="brazil-malaria-image" />
+          <?php if ( $malaria_image_url ) : ?><img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="Brazil travel health" class="brazil-malaria-image" /><?php endif; ?>
           <div class="brazil-malaria-overlay"></div>
           <div class="brazil-malaria-badge">
             <div class="brazil-malaria-badge-icon"><i class="fas fa-shield-virus"></i></div>
@@ -195,8 +195,8 @@ get_header();
         </div>
 
         <div class="brazil-malaria-actions">
-          <a href="<?php echo esc_url( bp_field( 'td_hero_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta">
-            Check Your Risk
+          <a href="<?php echo esc_url( bp_field( 'td_malaria_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( bp_field( 'td_malaria_cta_text', 'Check Your Risk' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -272,7 +272,10 @@ get_header();
     <div class="brazil-cta-content">
       <h2 class="brazil-cta-title"><?php echo esc_html( bp_field( 'td_cta_title', 'Ready for your trip to Brazil?' ) ); ?></h2>
       <p class="brazil-cta-description">
-        <?php echo esc_html( bp_field( 'td_cta_description', 'Book your Brazil travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
+        <?php
+        $braz_cta_default = 'Book your Brazil travel health consultation at our ' . bp_option( 'pharmacy_town', 'Denton' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.';
+        echo esc_html( bp_field( 'td_cta_description', $braz_cta_default ) );
+        ?>
       </p>
       <div class="brazil-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'td_cta_primary_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta brazil-cta-button-white">

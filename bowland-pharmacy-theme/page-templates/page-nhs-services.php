@@ -20,9 +20,9 @@ $badge_subtitle = bp_field( 'nhs_hero_badge_subtitle', 'Free Services for Eligib
 // Title fields (3 lines)
 $hero_title_line1 = bp_field( 'nhs_hero_title', 'Your NHS' );
 $hero_title_line2 = bp_field( 'nhs_hero_title_accent', 'Pharmacy' );
-$hero_title_line3 = bp_field( 'nhs_hero_title_line3', 'in Wythenshawe' );
+$hero_title_line3 = bp_field( 'nhs_hero_title_line3', 'in Denton' );
 
-$hero_description = bp_field( 'nhs_hero_description', 'Free NHS services for eligible patients right here in Wythenshawe. Prescriptions, Pharmacy First consultations, flu jabs, and more — all from your trusted local pharmacy.' );
+$hero_description = bp_field( 'nhs_hero_description', 'Free NHS services for eligible patients right here in Denton. Prescriptions, Pharmacy First consultations, flu jabs, and more — all from your trusted local pharmacy.' );
 $hero_cta_text    = bp_field( 'nhs_hero_cta_text', 'View NHS Services' );
 $hero_cta_url     = bp_field( 'nhs_hero_cta_url', bp_booking_url() );
 $phone            = bp_phone();
@@ -49,10 +49,10 @@ $trust_3_text = bp_field( 'nhs_hero_trust_3_text', '4.7★ Rated' );
 
 // Rating badge
 $rating_score    = bp_field( 'nhs_hero_rating_score' );
-if ( ! $rating_score ) { $rating_score = bp_option( 'google_rating', '4.7' ); }
-$rating_count    = bp_field( 'nhs_hero_rating_count', '89' );
+if ( ! $rating_score ) { $rating_score = bp_option( 'google_rating', '4.9' ); }
+$rating_count    = bp_field( 'nhs_hero_rating_count', bp_option( 'google_review_count', '300+' ) );
 $rating_location = bp_field( 'nhs_hero_rating_location' );
-if ( ! $rating_location ) { $rating_location = bp_option( 'pharmacy_location_label', 'Wythenshawe, UK' ); }
+if ( ! $rating_location ) { $rating_location = bp_option( 'pharmacy_location_label', 'Denton, UK' ); }
 
 // --- Stats fields ---
 $default_stats = array(
@@ -156,7 +156,7 @@ for ( $i = 1; $i <= 5; $i++ ) {
           </div>
           <div class="rating-footer">
             <div class="rating-location"><i class="fas fa-map-marker-alt"></i><span><?php echo esc_html( $rating_location ); ?></span></div>
-            <a href="#" class="rating-link">View Reviews</a>
+            <a href="<?php echo esc_url( bp_option( 'google_review_url', '#' ) ); ?>" class="rating-link" target="_blank" rel="noopener noreferrer">View Reviews</a>
           </div>
         </div>
       </div>

@@ -32,7 +32,7 @@ get_header();
         </h1>
 
         <p class="pharmfirst-hero-description">
-          <?php echo esc_html( bp_field( 'pf_hero_description', 'Under the NHS Pharmacy First scheme, our pharmacists at Bowland Pharmacy can assess and treat 7 common conditions — completely free. No GP appointment needed, no waiting weeks. Just walk in or book a slot and get treated the same day.' ) ); ?>
+          <?php echo esc_html( bp_field( 'pf_hero_description', 'Under the NHS Pharmacy First scheme, our pharmacists at Denton Pharmacy can assess and treat 7 common conditions — completely free. No GP appointment needed, no waiting weeks. Just walk in or book a slot and get treated the same day.' ) ); ?>
         </p>
 
         <div class="pharmfirst-hero-actions">
@@ -225,7 +225,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
         <?php endwhile; else : ?>
           <?php
           $steps = array(
-            array( 'icon' => 'fas fa-door-open', 'title' => 'Walk In or Book', 'desc' => 'Visit Bowland Pharmacy during opening hours or book a convenient slot online. No GP referral needed.' ),
+            array( 'icon' => 'fas fa-door-open', 'title' => 'Walk In or Book', 'desc' => 'Visit Denton Pharmacy during opening hours or book a convenient slot online. No GP referral needed.' ),
             array( 'icon' => 'fas fa-stethoscope', 'title' => 'Pharmacist Assessment', 'desc' => 'Our trained pharmacist will assess your symptoms in a private consultation room and determine the best treatment.' ),
             array( 'icon' => 'fas fa-pills', 'title' => 'Receive Treatment', 'desc' => 'If appropriate, you\'ll receive NHS-funded medication on the spot — completely free of charge.' ),
           );
@@ -307,7 +307,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
         <?php
         $faqs = array(
           array( 'q' => 'Is Pharmacy First really free?', 'a' => 'Yes, completely. Pharmacy First is an NHS-funded service. You won\'t be charged for the consultation or any medication supplied as part of the service.' ),
-          array( 'q' => 'Do I need to see my GP first?', 'a' => 'No. That\'s the whole point of Pharmacy First — you can come directly to Bowland Pharmacy without a GP appointment or referral.' ),
+          array( 'q' => 'Do I need to see my GP first?', 'a' => 'No. That\'s the whole point of Pharmacy First — you can come directly to Denton Pharmacy without a GP appointment or referral.' ),
           array( 'q' => 'What conditions can you treat?', 'a' => 'We can treat 7 common conditions: sinusitis, sore throat, earache, infected insect bites, impetigo, shingles, and uncomplicated urinary tract infections (UTIs) in women aged 16-64.' ),
           array( 'q' => 'Do I need to be registered with a GP?', 'a' => 'Yes, you need to be registered with a GP in England to access Pharmacy First. However, you do not need to contact your GP before visiting us.' ),
           array( 'q' => 'What if my condition can\'t be treated here?', 'a' => 'If our pharmacist determines that your condition needs further investigation or treatment beyond our scope, we\'ll refer you to the appropriate NHS service, such as your GP or urgent care.' ),
@@ -353,7 +353,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
       </div>
       <h2 class="pharmfirst-cta-title"><?php echo esc_html( bp_field( 'pf_cta_title', 'Get Free NHS Treatment Today' ) ); ?></h2>
       <p class="pharmfirst-cta-description">
-        <?php echo esc_html( bp_field( 'pf_cta_description', 'Don\'t wait weeks for a GP appointment. Visit Bowland Pharmacy for free NHS Pharmacy First treatment — walk in or book a slot online.' ) ); ?>
+        <?php echo esc_html( bp_field( 'pf_cta_description', 'Don\'t wait weeks for a GP appointment. Visit Denton Pharmacy for free NHS Pharmacy First treatment — walk in or book a slot online.' ) ); ?>
       </p>
       <div class="pharmfirst-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'pf_cta_primary_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta pharmfirst-cta-button-white">

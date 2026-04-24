@@ -9,7 +9,39 @@ get_header();
 
 <!-- ============================================
      E1. HERO SECTION — Split layout: warm cream left, image card right
+     with floating Yellow Fever badge, testimonial card, and rating badge
      ============================================ -->
+<?php
+// --- Hero content ---
+$th_badge         = bp_field( 'th_hero_badge', 'TRAVEL HEALTH SERVICES' );
+$th_title_line1   = bp_field( 'th_hero_title_line1', 'Denton\'s Leading' );
+$th_title_line2   = bp_field( 'th_hero_title_line2', 'Travel Clinic' );
+$th_title_line3   = bp_field( 'th_hero_title_line3', 'Fly Happy.' );
+$th_description   = bp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Denton travel clinic with ' . bp_option( 'superintendent_pharmacist', 'our expert team' ) . '.' );
+$th_cta_text      = bp_field( 'th_hero_cta_text', 'Book Appointment' );
+$th_cta_url       = bp_field( 'th_hero_cta_url' ) ?: bp_booking_url();
+
+// --- Hero image ---
+$th_hero_bg_id  = bp_field( 'th_hero_bg_image' );
+$th_hero_bg_url = $th_hero_bg_id ? wp_get_attachment_image_url( $th_hero_bg_id, 'full' ) : '';
+$th_hero_bg_alt = bp_field( 'th_hero_bg_alt', 'Travel health destination' );
+
+// --- Floating badge ---
+$th_float_badge_text  = bp_field( 'th_hero_float_badge_text', 'Yellow Fever Centre' );
+$th_float_badge_label = bp_field( 'th_hero_float_badge_label', 'OFFICIAL' );
+
+// --- Testimonial ---
+$th_testimonial_quote  = bp_field( 'th_hero_testimonial_quote', 'The pharmacist was brilliant — explained everything clearly and made the whole family feel at ease before our trip to Kenya.' );
+$th_testimonial_author = bp_field( 'th_hero_testimonial_author', 'Denton Patient' );
+$th_testimonial_dest   = bp_field( 'th_hero_testimonial_destination', 'Kenya' );
+
+// --- Rating badge (pull from global options) ---
+$google_rating     = bp_option( 'google_rating', '4.9' );
+$google_review_url = bp_option( 'google_review_url', '#' );
+$google_reviews    = bp_option( 'google_review_count', '300+' );
+$pharmacy_town     = bp_option( 'pharmacy_town', 'Denton' );
+?>
+
 <section class="travel-hero-section">
   <!-- Decorative blobs -->
   <div class="travel-hero-glow travel-hero-glow-1"></div>
@@ -22,21 +54,22 @@ get_header();
       <div class="travel-hero-content">
         <div class="section-badge">
           <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-          <span class="section-badge-text"><?php echo esc_html( bp_field( 'th_hero_badge', 'TRAVEL HEALTH SERVICES' ) ); ?></span>
+          <span class="section-badge-text"><?php echo esc_html( $th_badge ); ?></span>
         </div>
 
         <h1 class="travel-hero-title">
-          <?php echo esc_html( bp_field( 'th_hero_title_line1', 'Wythenshawe\'s Leading' ) ); ?><br />
-          <span class="travel-hero-title-accent"><?php echo esc_html( bp_field( 'th_hero_title_line2', 'Travel Clinic' ) ); ?></span>
+          <?php echo esc_html( $th_title_line1 ); ?><br />
+          <span class="travel-hero-title-accent"><?php echo esc_html( $th_title_line2 ); ?></span><br />
+          <span class="travel-hero-title-line3"><?php echo esc_html( $th_title_line3 ); ?></span>
         </h1>
 
         <p class="travel-hero-description">
-          <?php echo esc_html( bp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Wythenshawe travel clinic with Ahmed.' ) ); ?>
+          <?php echo esc_html( $th_description ); ?>
         </p>
 
         <div class="travel-hero-actions">
-          <a href="<?php echo esc_url( bp_field( 'th_hero_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta travel-hero-cta-primary">
-            <?php echo esc_html( bp_field( 'th_hero_cta_text', 'Book Appointment' ) ); ?>
+          <a href="<?php echo esc_url( $th_cta_url ); ?>" class="cta-button primary-cta travel-hero-cta-primary">
+            <?php echo esc_html( $th_cta_text ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
           <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button secondary-cta travel-hero-cta-secondary">
@@ -48,29 +81,82 @@ get_header();
         <!-- Trust Badges -->
         <div class="travel-hero-trust">
           <div class="travel-hero-trust-item">
-            <i class="fas fa-shield-virus"></i>
+            <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'th_trust_1_icon', 'fas fa-shield-virus' ) ) ); ?>"></i>
             <span><?php echo esc_html( bp_field( 'th_trust_1', 'Yellow Fever Centre' ) ); ?></span>
           </div>
           <div class="travel-hero-trust-item">
-            <i class="fas fa-syringe"></i>
+            <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'th_trust_2_icon', 'fas fa-syringe' ) ) ); ?>"></i>
             <span><?php echo esc_html( bp_field( 'th_trust_2', 'All Travel Vaccinations' ) ); ?></span>
           </div>
           <div class="travel-hero-trust-item">
-            <i class="fas fa-user-doctor"></i>
+            <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'th_trust_3_icon', 'fas fa-user-doctor' ) ) ); ?>"></i>
             <span><?php echo esc_html( bp_field( 'th_trust_3', 'Expert Travel Advice' ) ); ?></span>
           </div>
         </div>
       </div>
 
-      <!-- Right: Image card -->
+      <!-- Right: Image card with floating elements -->
       <div class="travel-hero-visual">
         <div class="travel-hero-visual-glow"></div>
-        <?php
-        $th_hero_bg_id  = bp_field( 'th_hero_bg_image' );
-        $th_hero_bg_url = $th_hero_bg_id ? wp_get_attachment_image_url( $th_hero_bg_id, 'full' ) : 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=900&fit=crop';
-        ?>
+
+        <!-- Floating Yellow Fever badge -->
+        <div class="travel-hero-float-badge">
+          <i class="fas fa-certificate"></i>
+          <div class="travel-hero-float-badge-content">
+            <span class="travel-hero-float-badge-label"><?php echo esc_html( $th_float_badge_label ); ?></span>
+            <span class="travel-hero-float-badge-text"><?php echo esc_html( $th_float_badge_text ); ?></span>
+          </div>
+        </div>
+
+        <!-- Image card -->
         <div class="travel-hero-image-card">
-          <img src="<?php echo esc_url( $th_hero_bg_url ); ?>" alt="<?php echo esc_attr( bp_field( 'th_hero_bg_alt', 'Travel health destination' ) ); ?>" />
+          <?php if ( $th_hero_bg_url ) : ?>
+            <img src="<?php echo esc_url( $th_hero_bg_url ); ?>" alt="<?php echo esc_attr( $th_hero_bg_alt ); ?>" />
+          <?php endif; ?>
+        </div>
+
+        <!-- Testimonial card (overlapping bottom-left) -->
+        <div class="travel-hero-testimonial">
+          <div class="travel-hero-testimonial-quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="travel-hero-testimonial-quote">"<?php echo esc_html( $th_testimonial_quote ); ?>"</p>
+          <div class="travel-hero-testimonial-footer">
+            <div class="travel-hero-testimonial-author">
+              <p class="travel-hero-testimonial-name"><?php echo esc_html( $th_testimonial_author ); ?></p>
+              <div class="star-row">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+            <?php if ( $th_testimonial_dest ) : ?>
+              <div class="travel-hero-testimonial-dest">
+                <i class="fas fa-plane"></i>
+                <span><?php echo esc_html( $th_testimonial_dest ); ?></span>
+              </div>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile testimonial (below content on small screens) -->
+      <div class="travel-hero-testimonial-mobile mobile-only">
+        <div class="travel-hero-testimonial-quote-icon">
+          <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="travel-hero-testimonial-quote">"<?php echo esc_html( $th_testimonial_quote ); ?>"</p>
+        <div class="travel-hero-testimonial-footer">
+          <div class="travel-hero-testimonial-author">
+            <p class="travel-hero-testimonial-name"><?php echo esc_html( $th_testimonial_author ); ?></p>
+            <div class="star-row">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+          </div>
+          <?php if ( $th_testimonial_dest ) : ?>
+            <div class="travel-hero-testimonial-dest">
+              <i class="fas fa-plane"></i>
+              <span><?php echo esc_html( $th_testimonial_dest ); ?></span>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
 
@@ -272,7 +358,7 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'th_why_badge', 'WHY CHOOSE US' ) ); ?></span>
       </div>
       <h2 class="travel-why-title">
-        <?php echo esc_html( bp_field( 'th_why_title_highlight', 'Why choose our' ) ); ?> <span class="travel-why-title-accent"><?php echo esc_html( bp_field( 'th_why_title_rest', 'Wythenshawe travel clinic?' ) ); ?></span>
+        <?php echo esc_html( bp_field( 'th_why_title_highlight', 'Why choose our' ) ); ?> <span class="travel-why-title-accent"><?php echo esc_html( bp_field( 'th_why_title_rest', 'Denton travel clinic?' ) ); ?></span>
       </h2>
     </div>
 
@@ -283,14 +369,14 @@ get_header();
         $why_image_id = bp_option( 'pharmacist_image' );
     }
     $why_image_url = $why_image_id ? wp_get_attachment_image_url( $why_image_id, 'medium' ) : '';
-    $pharmacist_name = bp_field( 'pharmacist_name', 'Ahmed Al-Liabi' );
+    $pharmacist_name = bp_field( 'pharmacist_name', bp_option( 'superintendent_pharmacist', 'our pharmacist' ) );
     $pharmacist_role = bp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
     ?>
     <div class="travel-why-pharmacist-strip">
       <div class="travel-why-pharmacist-inner">
         <?php if ( $why_image_url ) : ?>
           <div class="travel-why-photo-wrapper">
-            <img src="<?php echo esc_url( $why_image_url ); ?>" alt="<?php echo esc_attr( bp_field( 'th_why_image_alt', $pharmacist_name . ' — Bowland Pharmacy' ) ); ?>" class="travel-why-photo" />
+            <img src="<?php echo esc_url( $why_image_url ); ?>" alt="<?php echo esc_attr( bp_field( 'th_why_image_alt', $pharmacist_name . ' — Denton Pharmacy' ) ); ?>" class="travel-why-photo" />
             <div class="travel-why-photo-ring"></div>
           </div>
         <?php endif; ?>
@@ -322,10 +408,10 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $why_cards = array(
-          array( 'icon' => 'fas fa-user-doctor', 'title' => 'Expert Pharmacist Consultations', 'desc' => 'Ahmed and the team provide up-to-date advice tailored to your specific itinerary.' ),
+          array( 'icon' => 'fas fa-user-doctor', 'title' => 'Expert Pharmacist Consultations', 'desc' => 'Our expert pharmacists provide up-to-date travel health advice tailored to your specific itinerary and destination.' ),
           array( 'icon' => 'fas fa-calendar-check', 'title' => 'Flexible Appointments', 'desc' => 'Same-day and weekend appointments available to suit your schedule.' ),
           array( 'icon' => 'fas fa-tags', 'title' => 'Competitive Pricing', 'desc' => 'Transparent, affordable pricing for all vaccinations and antimalarials.' ),
-          array( 'icon' => 'fas fa-location-dot', 'title' => 'Convenient Location', 'desc' => 'Easy to find in Wythenshawe with parking available nearby.' ),
+          array( 'icon' => 'fas fa-location-dot', 'title' => 'Convenient Location', 'desc' => 'Easy to find in Denton with parking available nearby.' ),
         );
         foreach ( $why_cards as $i => $card ) :
         ?>
@@ -357,7 +443,7 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'th_process_badge', 'HOW IT WORKS' ) ); ?></span>
       </div>
       <h2 class="travel-process-title">
-        <?php echo esc_html( bp_field( 'th_process_title_highlight', 'Your travel clinic' ) ); ?> <?php echo esc_html( bp_field( 'th_process_title_rest', 'Wythenshawe journey' ) ); ?>
+        <?php echo esc_html( bp_field( 'th_process_title_highlight', 'Your travel clinic' ) ); ?> <?php echo esc_html( bp_field( 'th_process_title_rest', 'Denton journey' ) ); ?>
       </h2>
     </div>
 
@@ -382,10 +468,10 @@ get_header();
         <?php if ( $step_image_url ) : ?>
           <div class="travel-process-step-image">
             <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
-            <?php if ( $step_index === 2 ) : ?>
+            <?php $floating_badge = get_sub_field( 'floating_badge' ); if ( $floating_badge ) : ?>
               <div class="travel-process-step-floating-badge">
                 <i class="fas fa-user-doctor"></i>
-                <span>Expert Advice</span>
+                <span><?php echo esc_html( $floating_badge ); ?></span>
               </div>
             <?php endif; ?>
           </div>
@@ -563,7 +649,7 @@ get_header();
       </div>
       <h2 class="travel-cta-title"><?php echo esc_html( bp_field( 'th_cta_title', 'Ready to protect your travels?' ) ); ?></h2>
       <p class="travel-cta-description">
-        <?php echo esc_html( bp_field( 'th_cta_description', 'Don\'t let health worries spoil your adventure. Book your comprehensive travel health consultation with Bowland Pharmacy today.' ) ); ?>
+        <?php echo esc_html( bp_field( 'th_cta_description', 'Don\'t let health worries spoil your adventure. Book your comprehensive travel health consultation with Denton Pharmacy today.' ) ); ?>
       </p>
       <div class="travel-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'th_cta_primary_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta travel-cta-button-white">

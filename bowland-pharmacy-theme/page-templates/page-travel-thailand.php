@@ -26,7 +26,7 @@ get_header();
         </h1>
 
         <p class="thailand-hero-description">
-          <?php echo esc_html( bp_field( 'td_hero_description', 'Expert advice and vaccinations for your Thailand adventure. Get protected before you travel with Wythenshawe\'s trusted travel health specialists.' ) ); ?>
+          <?php echo esc_html( bp_field( 'td_hero_description', 'Expert advice and vaccinations for your Thailand adventure. Get protected before you travel with ' . bp_pharmacy_name() . '\'s trusted travel health specialists.' ) ); ?>
         </p>
 
         <div class="thailand-hero-actions">
@@ -195,8 +195,8 @@ get_header();
         </div>
 
         <div class="thailand-malaria-actions">
-          <a href="<?php echo esc_url( bp_field( 'td_hero_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta">
-            Check Your Risk
+          <a href="<?php echo esc_url( bp_field( 'td_malaria_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( bp_field( 'td_malaria_cta_text', 'Check Your Risk' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -272,7 +272,7 @@ get_header();
     <div class="thailand-cta-content">
       <h2 class="thailand-cta-title"><?php echo esc_html( bp_field( 'td_cta_title', 'Ready for your Thailand adventure?' ) ); ?></h2>
       <p class="thailand-cta-description">
-        <?php echo esc_html( bp_field( 'td_cta_description', 'Book your Thailand travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
+        <?php echo esc_html( bp_field( 'td_cta_description', 'Book your Thailand travel health consultation at our ' . bp_option( 'pharmacy_town', 'Denton' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
       </p>
       <div class="thailand-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'td_cta_primary_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta thailand-cta-button-white">

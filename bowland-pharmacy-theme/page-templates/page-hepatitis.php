@@ -9,17 +9,6 @@ get_header();
 $vaccine_name = bp_field('vaccine_name', 'Hepatitis A & B');
 ?>
 
-<!-- Breadcrumb -->
-<div class="hepatitis-breadcrumb">
-  <div class="section-container">
-    <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
-    <span class="separator">/</span>
-    <a href="<?php echo esc_url(bp_field('vaccine_parent_url', '/travel-health/')); ?>">Travel Health</a>
-    <span class="separator">/</span>
-    <span class="current"><?php echo esc_html($vaccine_name); ?> Vaccination</span>
-  </div>
-</div>
-
 <!-- Hero Section -->
 <?php
 $hero_image_id  = bp_field( 'vaccine_hero_image' );
@@ -29,12 +18,23 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
   <div class="hepatitis-hero-overlay"></div>
   <div class="hepatitis-hero-dots"></div>
 
+  <!-- Breadcrumb -->
+  <div class="hepatitis-breadcrumb">
+    <div class="section-container">
+      <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
+      <span class="separator">/</span>
+      <a href="<?php echo esc_url(bp_field('vaccine_parent_url', '/travel-health/')); ?>">Travel Health</a>
+      <span class="separator">/</span>
+      <span class="current"><?php echo esc_html($vaccine_name); ?> Vaccination</span>
+    </div>
+  </div>
+
   <div class="section-container">
     <div class="hepatitis-hero-content">
       <div class="hepatitis-hero-line"></div>
       <span class="hepatitis-hero-label"><?php echo esc_html(bp_field('vaccine_hero_label', 'TRAVEL HEALTH PROTECTION')); ?></span>
 
-      <h1 class="hepatitis-hero-title"><?php echo esc_html(bp_field('vaccine_hero_title', 'Hepatitis A & B Vaccination Service in Wythenshawe')); ?></h1>
+      <h1 class="hepatitis-hero-title"><?php echo esc_html(bp_field('vaccine_hero_title', 'Hepatitis A & B Vaccination Service in Denton')); ?></h1>
 
       <p class="hepatitis-hero-description">
         <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect yourself against Hepatitis A and B with our expert travel health service. Essential for travellers to areas with poor sanitation or where Hepatitis is endemic.')); ?>
@@ -44,8 +44,8 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <a href="<?php echo esc_url(bp_field('vaccine_cta_url', '/book-appointment/')); ?>" class="cta-button hepatitis-btn-primary">
           <?php echo esc_html(bp_field('vaccine_cta_text', 'Book Hepatitis Vaccination')); ?>
         </a>
-        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button hepatitis-btn-secondary">
-          <?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?>
+        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01613362548')); ?>" class="cta-button hepatitis-btn-secondary">
+          <?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?>
         </a>
       </div>
 
@@ -117,7 +117,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
 
         <div class="hepatitis-protect-actions">
           <a href="<?php echo esc_url(bp_field('vaccine_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta">Book Appointment</a>
-          <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta">Call 0161 998 7114</a>
+          <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta">Call 0161 336 2548</a>
         </div>
       </div>
     </div>
@@ -257,7 +257,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_details_badge', 'VACCINATION DETAILS')); ?></span>
       </div>
       <h2 class="hepatitis-details-title"><?php echo esc_html(bp_field('vaccine_details_title', 'What to expect at your appointment')); ?></h2>
-      <p class="hepatitis-details-desc"><?php echo esc_html(bp_field('vaccine_details_desc', 'Simple, straightforward vaccination process at our Wythenshawe clinic')); ?></p>
+      <p class="hepatitis-details-desc"><?php echo esc_html(bp_field('vaccine_details_desc', 'Simple, straightforward vaccination process at our Denton clinic')); ?></p>
     </div>
 
     <div class="hepatitis-details-grid">
@@ -391,10 +391,10 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <span class="badge">Combined Vaccines Available</span>
       </div>
       <h2 class="hepatitis-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', 'Protect your health while travelling')); ?></h2>
-      <p class="hepatitis-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', 'Book your Hepatitis vaccination with our expert team today. Quick, convenient, and professional service in Wythenshawe.')); ?></p>
+      <p class="hepatitis-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', 'Book your Hepatitis vaccination with our expert team today. Quick, convenient, and professional service in Denton.')); ?></p>
       <div class="hepatitis-cta-actions">
         <a href="<?php echo esc_url(bp_field('vaccine_cta_url', '/book-appointment/')); ?>" class="cta-button primary-cta white-btn">Book Vaccination</a>
-        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?></a>
+        <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?></a>
       </div>
     </div>
   </div>

@@ -26,7 +26,7 @@ get_header();
         </h1>
 
         <p class="kenya-hero-description">
-          <?php echo esc_html( bp_field( 'ke_hero_description', 'Expert advice and vaccinations for your Kenya safari or holiday. Yellow Fever, Malaria, and more. Get protected with Wythenshawe\'s specialists.' ) ); ?>
+          <?php echo esc_html( bp_field( 'ke_hero_description', 'Expert advice and vaccinations for your Kenya safari or holiday. Yellow Fever, Malaria, and more. Get protected with ' . bp_pharmacy_name() . '\'s specialists.' ) ); ?>
         </p>
 
         <div class="kenya-hero-actions">
@@ -142,9 +142,9 @@ get_header();
         <div class="kenya-malaria-image-card">
           <?php
           $malaria_image_id = bp_field( 'ke_malaria_image' );
-          $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&h=1000&fit=crop';
+          $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : '';
           ?>
-          <img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="Safari in Kenya" class="kenya-malaria-image" />
+          <?php if ( $malaria_image_url ) : ?><img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="Safari in Kenya" class="kenya-malaria-image" /><?php endif; ?>
           <div class="kenya-malaria-overlay"></div>
           <div class="kenya-malaria-badge">
             <div class="kenya-malaria-badge-icon"><i class="fas fa-shield-virus"></i></div>
@@ -195,8 +195,8 @@ get_header();
         </div>
 
         <div class="kenya-malaria-actions">
-          <a href="<?php echo esc_url( bp_field( 'ke_hero_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta">
-            Check Your Risk
+          <a href="<?php echo esc_url( bp_field( 'ke_malaria_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( bp_field( 'ke_malaria_cta_text', 'Check Your Risk' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -240,9 +240,9 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $tips = array(
-          array( 'icon' => 'fas fa-glass-water', 'title' => 'Food & Water', 'desc' => 'Drink bottled water only. Avoid ice and salads. Eat freshly cooked food.', 'image' => 'https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=600&h=800&fit=crop' ),
-          array( 'icon' => 'fas fa-sun', 'title' => 'Sun Safety', 'desc' => 'Equatorial sun is strong. High SPF, hat, and sunglasses are essential.', 'image' => 'https://images.unsplash.com/photo-1533619043865-1c2e2f32ff5f?w=600&h=800&fit=crop' ),
-          array( 'icon' => 'fas fa-mosquito', 'title' => 'Insects', 'desc' => 'Use 50% DEET repellent. Wear long sleeves/trousers at dawn and dusk.', 'image' => 'https://images.unsplash.com/photo-1551817958-29d0660f98de?w=600&h=800&fit=crop' ),
+          array( 'icon' => 'fas fa-glass-water', 'title' => 'Food & Water', 'desc' => 'Drink bottled water only. Avoid ice and salads. Eat freshly cooked food.', 'image' => '' ),
+          array( 'icon' => 'fas fa-sun', 'title' => 'Sun Safety', 'desc' => 'Equatorial sun is strong. High SPF, hat, and sunglasses are essential.', 'image' => '' ),
+          array( 'icon' => 'fas fa-mosquito', 'title' => 'Insects', 'desc' => 'Use 50% DEET repellent. Wear long sleeves/trousers at dawn and dusk.', 'image' => '' ),
         );
         foreach ( $tips as $tip ) :
         ?>
@@ -272,7 +272,10 @@ get_header();
     <div class="kenya-cta-content">
       <h2 class="kenya-cta-title"><?php echo esc_html( bp_field( 'ke_cta_title', 'Ready for your Kenya safari?' ) ); ?></h2>
       <p class="kenya-cta-description">
-        <?php echo esc_html( bp_field( 'ke_cta_description', 'Book your travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
+        <?php
+        $kenya_cta_default = 'Book your travel health consultation at our ' . bp_option( 'pharmacy_town', 'Denton' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.';
+        echo esc_html( bp_field( 'ke_cta_description', $kenya_cta_default ) );
+        ?>
       </p>
       <div class="kenya-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'ke_cta_primary_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta kenya-cta-button-white">

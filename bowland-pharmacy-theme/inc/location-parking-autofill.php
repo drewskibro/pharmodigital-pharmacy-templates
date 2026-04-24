@@ -11,7 +11,7 @@
  *  - Short:    https://maps.app.goo.gl/xxxx   (redirect followed)
  *  - Short:    https://goo.gl/maps/xxxx       (redirect followed)
  *
- * @package Denton_Pharmacy
+ * @package Bowland_Pharmacy
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -82,7 +82,7 @@ function bp_parse_google_maps_url( $url ) {
         'redirection' => 5,
         'timeout'     => 12,
         'sslverify'   => true,
-        'user-agent'  => 'Mozilla/5.0 (compatible; DentonPharmacy/1.0; +https://dentonpharmacy.co.uk)',
+        'user-agent'  => 'Mozilla/5.0 (compatible; BowlandPharmacy/1.0; +https://bowlandpharmacy.co.uk)',
     ) );
 
     if ( is_wp_error( $response ) ) {
@@ -152,16 +152,16 @@ function bp_autofill_pharmacy_center( $post_id ) {
     $cur_coords   = trim( (string) get_field( 'location_center_coords', $post_id ) );
 
     if ( $url === $last_url && $cur_coords !== '' ) {
-        error_log( '[bp_autofill] pharmacy skip (url unchanged, coords present)' );
+        error_log( '[dp_autofill] pharmacy skip (url unchanged, coords present)' );
         return;
     }
 
     $parsed = bp_parse_google_maps_url( $url );
-    error_log( '[bp_autofill] pharmacy parsed coords=' . $parsed['coords'] );
+    error_log( '[dp_autofill] pharmacy parsed coords=' . $parsed['coords'] );
 
     if ( ! empty( $parsed['coords'] ) ) {
         $ok = update_field( 'field_bp_location_center_coords', $parsed['coords'], 'option' );
-        error_log( '[bp_autofill] pharmacy center write: ' . var_export( $ok, true ) );
+        error_log( '[dp_autofill] pharmacy center write: ' . var_export( $ok, true ) );
         $fingerprints['__pharmacy__'] = $url;
         bp_parking_fingerprints_save( $fingerprints );
     }
@@ -173,18 +173,18 @@ function bp_autofill_parking_callouts( $post_id ) {
         return;
     }
 
-    error_log( '[bp_autofill] hook fired with post_id: ' . var_export( $post_id, true ) );
+    error_log( '[dp_autofill] hook fired with post_id: ' . var_export( $post_id, true ) );
 
     // --- Pharmacy centre coords: parse from the pharmacy Google Maps link ---
     bp_autofill_pharmacy_center( $post_id );
 
     $callouts = get_field( 'location_parking_callouts', $post_id );
     if ( ! is_array( $callouts ) ) {
-        error_log( '[bp_autofill] no callouts found for post_id ' . $post_id );
+        error_log( '[dp_autofill] no callouts found for post_id ' . $post_id );
         return;
     }
 
-    error_log( '[bp_autofill] rows: ' . count( $callouts ) );
+    error_log( '[dp_autofill] rows: ' . count( $callouts ) );
 
     $fingerprints = bp_parking_fingerprints_get();
 
@@ -194,7 +194,7 @@ function bp_autofill_parking_callouts( $post_id ) {
         $cur_label  = isset( $row['label'] ) ? trim( (string) $row['label'] ) : '';
         $cur_coords = isset( $row['coords'] ) ? trim( (string) $row['coords'] ) : '';
 
-        error_log( '[bp_autofill] row ' . $i . ' url=' . $url . ' last=' . $last_url . ' label=' . $cur_label . ' coords=' . $cur_coords );
+        error_log( '[dp_autofill] row ' . $i . ' url=' . $url . ' last=' . $last_url . ' label=' . $cur_label . ' coords=' . $cur_coords );
 
         if ( $url === '' ) {
             if ( $last_url !== '' ) {
@@ -207,12 +207,12 @@ function bp_autofill_parking_callouts( $post_id ) {
         // cleared them manually to force a refresh). Fingerprint alone isn't
         // enough because we want empty cells to always refill.
         if ( $url === $last_url && $cur_label !== '' && $cur_coords !== '' ) {
-            error_log( '[bp_autofill] row ' . $i . ' skip (url unchanged, label+coords present)' );
+            error_log( '[dp_autofill] row ' . $i . ' skip (url unchanged, label+coords present)' );
             continue;
         }
 
         $parsed = bp_parse_google_maps_url( $url );
-        error_log( '[bp_autofill] row ' . $i . ' parsed label=' . $parsed['label'] . ' coords=' . $parsed['coords'] );
+        error_log( '[dp_autofill] row ' . $i . ' parsed label=' . $parsed['label'] . ' coords=' . $parsed['coords'] );
 
         // Only record the fingerprint if we actually pulled something useful out
         // of the URL; otherwise leave it so the editor can retry on the next save.
@@ -228,7 +228,7 @@ function bp_autofill_parking_callouts( $post_id ) {
                     $parsed['label'],
                     'option'
                 );
-                error_log( '[bp_autofill] row ' . $i . ' label write: ' . var_export( $ok_label, true ) );
+                error_log( '[dp_autofill] row ' . $i . ' label write: ' . var_export( $ok_label, true ) );
             }
             if ( ! empty( $parsed['coords'] ) ) {
                 $ok_coords = update_sub_field(
@@ -236,7 +236,7 @@ function bp_autofill_parking_callouts( $post_id ) {
                     $parsed['coords'],
                     'option'
                 );
-                error_log( '[bp_autofill] row ' . $i . ' coords write: ' . var_export( $ok_coords, true ) );
+                error_log( '[dp_autofill] row ' . $i . ' coords write: ' . var_export( $ok_coords, true ) );
             }
             $fingerprints[ $i ] = $url;
         }

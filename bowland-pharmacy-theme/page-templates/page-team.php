@@ -8,7 +8,7 @@ get_header();
 ?>
 
 <!-- Hero Section -->
-<section class="team-hero-section">
+<section class="team-hero-section team-reveal">
   <div class="team-hero-bg-blob-1"></div>
   <div class="team-hero-bg-blob-2"></div>
   <div class="team-hero-dots"></div>
@@ -26,14 +26,14 @@ get_header();
       </h1>
 
       <p class="team-hero-description">
-        <?php echo esc_html( bp_field( 'team_hero_description', 'We are a dedicated team of experienced clinicians committed to the health of Wythenshawe. Combining over 15 years of expertise with a modern, personal approach to care.' ) ); ?>
+        <?php echo esc_html( bp_field( 'team_hero_description', 'We are a dedicated team of experienced clinicians committed to the health of Denton. Combining over 15 years of expertise with a modern, personal approach to care.' ) ); ?>
       </p>
     </div>
   </div>
 </section>
 
 <!-- Stats Bar -->
-<section class="team-stats-section">
+<section class="team-stats-section team-reveal">
   <div class="section-container">
     <div class="team-stats-bar">
       <?php if ( have_rows( 'team_stats' ) ) : $stat_count = 0; while ( have_rows( 'team_stats' ) ) : the_row(); $stat_count++; ?>
@@ -71,27 +71,36 @@ get_header();
 </section>
 
 <!-- Team Members Grid -->
-<section class="team-members-section">
+<section class="team-members-section team-reveal">
   <div class="section-container">
     <div class="team-grid">
       <?php if ( have_rows( 'team_members' ) ) : while ( have_rows( 'team_members' ) ) : the_row();
-        $member_image_id = get_sub_field( 'image' );
+        $member_image_id  = get_sub_field( 'image' );
         $member_image_url = $member_image_id ? wp_get_attachment_image_url( $member_image_id, 'large' ) : '';
-        $badge_text = get_sub_field( 'badge_text' );
-        $badge_type = get_sub_field( 'badge_type' );
+        $member_name      = get_sub_field( 'name' );
+        $member_gphc      = get_sub_field( 'gphc_number' );
+        $badge_text       = get_sub_field( 'badge_text' );
+        $badge_type       = get_sub_field( 'badge_type' );
+        // Extract initials from name for avatar fallback
+        $name_parts = explode( ' ', trim( $member_name ) );
+        $initials   = strtoupper( substr( $name_parts[0], 0, 1 ) . ( isset( $name_parts[1] ) ? substr( $name_parts[1], 0, 1 ) : '' ) );
       ?>
         <div class="team-member-card">
-          <?php if ( $member_image_url ) : ?>
-            <div class="team-member-image-wrapper">
-              <img src="<?php echo esc_url( $member_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'name' ) ); ?>" class="team-member-image" />
-              <div class="team-member-overlay"></div>
-              <?php if ( $badge_text ) : ?>
-                <div class="team-member-badge-<?php echo esc_attr( $badge_type ); ?>"><?php echo esc_html( $badge_text ); ?></div>
-              <?php endif; ?>
-            </div>
-          <?php endif; ?>
+          <div class="team-member-image-wrapper">
+            <?php if ( $member_image_url ) : ?>
+              <img src="<?php echo esc_url( $member_image_url ); ?>" alt="<?php echo esc_attr( $member_name ); ?>" class="team-member-image" />
+            <?php else : ?>
+              <div class="team-member-initials-circle">
+                <span class="team-member-initials"><?php echo esc_html( $initials ); ?></span>
+              </div>
+            <?php endif; ?>
+            <div class="team-member-overlay"></div>
+            <?php if ( $badge_text ) : ?>
+              <div class="team-member-badge-<?php echo esc_attr( $badge_type ); ?>"><?php echo esc_html( $badge_text ); ?></div>
+            <?php endif; ?>
+          </div>
           <div class="team-member-content">
-            <h3 class="team-member-name"><?php echo esc_html( get_sub_field( 'name' ) ); ?></h3>
+            <h3 class="team-member-name"><?php echo esc_html( $member_name ); ?></h3>
             <p class="team-member-role"><?php echo esc_html( get_sub_field( 'role' ) ); ?></p>
 
             <?php if ( have_rows( 'credentials' ) ) : ?>
@@ -100,6 +109,19 @@ get_header();
                   <span class="team-credential-badge"><?php echo esc_html( get_sub_field( 'credential' ) ); ?></span>
                 <?php endwhile; ?>
               </div>
+            <?php endif; ?>
+
+            <?php
+            $gphc_url = get_sub_field( 'gphc_url' );
+            if ( ! $gphc_url && $member_gphc ) {
+                $gphc_url = 'https://www.pharmacyregulation.org/registers/pharmacist/' . $member_gphc;
+            }
+            if ( $gphc_url ) : ?>
+              <a href="<?php echo esc_url( $gphc_url ); ?>" target="_blank" rel="noopener" class="team-gphc-verify-link">
+                <i class="fas fa-shield-halved"></i>
+                Verify GPhC Registration
+                <i class="fas fa-external-link-alt"></i>
+              </a>
             <?php endif; ?>
 
             <p class="team-member-bio"><?php echo esc_html( get_sub_field( 'bio' ) ); ?></p>
@@ -114,10 +136,18 @@ get_header();
           </div>
         </div>
       <?php endwhile; else : ?>
+        <?php
+        // Ahmed: use ACF pharmacist image → theme fallback
+        $ahmed_image_id  = bp_option( 'pharmacist_image' );
+        $ahmed_image_url = $ahmed_image_id ? wp_get_attachment_image_url( $ahmed_image_id, 'large' ) : '';
+        if ( ! $ahmed_image_url ) {
+            $ahmed_image_url = get_theme_file_uri( 'assets/images/ahmed-pharmacist.jpg' );
+        }
+        ?>
         <!-- Ahmed Al-Liabi -->
         <div class="team-member-card">
           <div class="team-member-image-wrapper">
-            <div class="team-member-image team-member-image-placeholder"></div>
+            <img src="<?php echo esc_url( $ahmed_image_url ); ?>" alt="Ahmed Al-Liabi" class="team-member-image" />
             <div class="team-member-overlay"></div>
             <div class="team-member-badge-founder">Lead Pharmacist</div>
           </div>
@@ -128,7 +158,12 @@ get_header();
               <span class="team-credential-badge">GPhC: 2208502</span>
               <span class="team-credential-badge">Independent Prescriber</span>
             </div>
-            <p class="team-member-bio">With over 15 years of experience serving the Wythenshawe community, Ahmed leads our team with dedication and expertise. As an Independent Prescriber, he specialises in travel health, medical weight loss, and ear wax removal.</p>
+            <a href="https://www.pharmacyregulation.org/registers/pharmacist/2208502" target="_blank" rel="noopener" class="team-gphc-verify-link">
+              <i class="fas fa-shield-halved"></i>
+              Verify GPhC Registration
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <p class="team-member-bio">With over 15 years of experience serving the Denton community, Ahmed leads our team with dedication and expertise. As an Independent Prescriber, he specialises in travel health, medical weight loss, and ear wax removal.</p>
             <div class="team-member-specialties">
               <span class="team-specialty-tag">Weight Loss</span>
               <span class="team-specialty-tag">Travel Health</span>
@@ -136,47 +171,90 @@ get_header();
             </div>
           </div>
         </div>
-        <!-- Jignasa Modhvadia -->
+        <!-- Elisha Mackin -->
         <div class="team-member-card">
           <div class="team-member-image-wrapper">
-            <div class="team-member-image team-member-image-placeholder"></div>
+            <div class="team-member-initials-circle">
+              <span class="team-member-initials">EM</span>
+            </div>
             <div class="team-member-overlay"></div>
-            <div class="team-member-badge-director">Director</div>
+            <div class="team-member-badge-senior">Trainee Pharmacy Technician</div>
           </div>
           <div class="team-member-content">
-            <h3 class="team-member-name">Jignasa Modhvadia</h3>
-            <p class="team-member-role">Director of Pharmacy</p>
+            <h3 class="team-member-name">Elisha Mackin</h3>
+            <p class="team-member-role">Trainee Pharmacy Technician</p>
             <div class="team-member-credentials">
-              <span class="team-credential-badge">Company Director</span>
-              <span class="team-credential-badge">Clinical Operations</span>
+              <span class="team-credential-badge">Trainee Technician</span>
+              <span class="team-credential-badge">Patient Support</span>
             </div>
-            <p class="team-member-bio">As Director of Pharmacy, Jignasa combines strategic leadership with hands-on operational management. She ensures the smooth running of our Wythenshawe clinic while maintaining the highest standards of patient care.</p>
+            <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
+              <i class="fas fa-shield-halved"></i>
+              Verify GPhC Registration
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <p class="team-member-bio">Elisha is a dedicated trainee pharmacy technician developing her clinical skills within our Denton team. Her enthusiasm and commitment to patient care make her a valued member of our growing pharmacy family.</p>
             <div class="team-member-specialties">
-              <span class="team-specialty-tag">Clinic Operations</span>
-              <span class="team-specialty-tag">Patient Care</span>
-              <span class="team-specialty-tag">Staff Development</span>
+              <span class="team-specialty-tag">Dispensing</span>
+              <span class="team-specialty-tag">Patient Support</span>
+              <span class="team-specialty-tag">NHS Services</span>
             </div>
           </div>
         </div>
-        <!-- Baljender Nagi -->
+        <!-- Paula Gaunt -->
         <div class="team-member-card">
           <div class="team-member-image-wrapper">
-            <div class="team-member-image team-member-image-placeholder"></div>
+            <div class="team-member-initials-circle">
+              <span class="team-member-initials">PG</span>
+            </div>
             <div class="team-member-overlay"></div>
-            <div class="team-member-badge-senior">Senior Pharmacist</div>
+            <div class="team-member-badge-senior">Trainee Pharmacy Technician</div>
           </div>
           <div class="team-member-content">
-            <h3 class="team-member-name">Baljender Nagi</h3>
-            <p class="team-member-role">Senior Pharmacist</p>
+            <h3 class="team-member-name">Paula Gaunt</h3>
+            <p class="team-member-role">Trainee Pharmacy Technician</p>
             <div class="team-member-credentials">
-              <span class="team-credential-badge">GPhC Registered</span>
-              <span class="team-credential-badge">Clinical Specialist</span>
+              <span class="team-credential-badge">Trainee Technician</span>
+              <span class="team-credential-badge">Patient Support</span>
             </div>
-            <p class="team-member-bio">Baljender is a highly experienced pharmacist and a senior member of our clinical team. Her extensive knowledge and friendly approach ensure the highest standard of care across all of our pharmacy services.</p>
+            <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
+              <i class="fas fa-shield-halved"></i>
+              Verify GPhC Registration
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <p class="team-member-bio">Paula brings warmth and dedication to her role as a trainee pharmacy technician. She is actively building her expertise across our pharmacy services and is committed to delivering outstanding care to every patient.</p>
             <div class="team-member-specialties">
-              <span class="team-specialty-tag">NHS Services</span>
-              <span class="team-specialty-tag">Clinical Services</span>
+              <span class="team-specialty-tag">Dispensing</span>
               <span class="team-specialty-tag">Patient Support</span>
+              <span class="team-specialty-tag">NHS Services</span>
+            </div>
+          </div>
+        </div>
+        <!-- Joanne Tabberner -->
+        <div class="team-member-card">
+          <div class="team-member-image-wrapper">
+            <div class="team-member-initials-circle">
+              <span class="team-member-initials">JT</span>
+            </div>
+            <div class="team-member-overlay"></div>
+            <div class="team-member-badge-senior">Pharmacy Assistant</div>
+          </div>
+          <div class="team-member-content">
+            <h3 class="team-member-name">Joanne Tabberner</h3>
+            <p class="team-member-role">Pharmacy Assistant</p>
+            <div class="team-member-credentials">
+              <span class="team-credential-badge">Pharmacy Assistant</span>
+              <span class="team-credential-badge">Patient Support</span>
+            </div>
+            <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
+              <i class="fas fa-shield-halved"></i>
+              Verify GPhC Registration
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+            <p class="team-member-bio">Joanne is a valued member of the Denton Pharmacy team, providing friendly and efficient support to patients and staff alike. Her warm approach ensures every patient feels welcome and well looked after.</p>
+            <div class="team-member-specialties">
+              <span class="team-specialty-tag">Patient Support</span>
+              <span class="team-specialty-tag">NHS Services</span>
+              <span class="team-specialty-tag">Dispensing</span>
             </div>
           </div>
         </div>
@@ -186,7 +264,7 @@ get_header();
 </section>
 
 <!-- Values Section -->
-<section class="team-values-section">
+<section class="team-values-section team-reveal">
   <div class="section-container">
     <div class="team-section-header">
       <div class="section-badge">
@@ -218,7 +296,7 @@ get_header();
         <div class="team-value-card">
           <div class="team-value-icon"><i class="fas fa-handshake"></i></div>
           <h3 class="team-value-title">Building Trust</h3>
-          <p class="team-value-description">Serving Wythenshawe for over 15 years, we've built lasting relationships based on honesty and reliability.</p>
+          <p class="team-value-description">Serving Denton for over 15 years, we've built lasting relationships based on honesty and reliability.</p>
         </div>
         <div class="team-value-card">
           <div class="team-value-icon"><i class="fas fa-lightbulb"></i></div>
@@ -231,7 +309,7 @@ get_header();
 </section>
 
 <!-- CTA Section -->
-<section class="team-cta-section">
+<section class="team-cta-section team-reveal">
   <div class="team-cta-blob-1"></div>
   <div class="team-cta-blob-2"></div>
 
@@ -243,8 +321,8 @@ get_header();
         <span class="team-cta-badge"><?php echo esc_html( bp_field( 'team_cta_badge_3', 'Patient-First Care' ) ); ?></span>
       </div>
 
-      <h2 class="team-cta-title"><?php echo esc_html( bp_field( 'team_cta_title', 'Experience the Bowland Pharmacy Difference' ) ); ?></h2>
-      <p class="team-cta-description"><?php echo esc_html( bp_field( 'team_cta_description', 'Book your consultation with our experienced Wythenshawe team today. Personal care, professional expertise.' ) ); ?></p>
+      <h2 class="team-cta-title"><?php echo esc_html( bp_field( 'team_cta_title', 'Experience the Denton Pharmacy Difference' ) ); ?></h2>
+      <p class="team-cta-description"><?php echo esc_html( bp_field( 'team_cta_description', 'Book your consultation with our experienced Denton team today. Personal care, professional expertise.' ) ); ?></p>
 
       <div class="team-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'team_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta team-cta-button-white">
@@ -258,9 +336,9 @@ get_header();
       </div>
 
       <div class="team-cta-trust-row">
-        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span>Expert team</span></div>
-        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span>Same-day appointments</span></div>
-        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span>15+ years serving Wythenshawe</span></div>
+        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'team_cta_trust_1', 'Expert team' ) ); ?></span></div>
+        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'team_cta_trust_2', 'Same-day appointments' ) ); ?></span></div>
+        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( bp_field( 'team_cta_trust_3', '15+ years serving Denton' ) ); ?></span></div>
       </div>
     </div>
   </div>

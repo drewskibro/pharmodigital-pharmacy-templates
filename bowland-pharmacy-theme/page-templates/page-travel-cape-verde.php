@@ -26,7 +26,7 @@ get_header();
         </h1>
 
         <p class="capeverde-hero-description">
-          <?php echo esc_html( bp_field( 'cv_hero_description', 'Expert advice and vaccinations for your Cape Verde holiday. Get protected before you travel with Wythenshawe\'s trusted travel health specialists.' ) ); ?>
+          <?php echo esc_html( bp_field( 'cv_hero_description', 'Expert advice and vaccinations for your Cape Verde holiday. Get protected before you travel with ' . bp_pharmacy_name() . '\'s trusted travel health specialists.' ) ); ?>
         </p>
 
         <div class="capeverde-hero-actions">
@@ -142,9 +142,11 @@ get_header();
         <div class="capeverde-malaria-image-card">
           <?php
           $malaria_image_id = bp_field( 'cv_malaria_image' );
-          $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : 'https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?w=800&h=1000&fit=crop';
+          $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : '';
           ?>
-          <img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="Cape Verde landscape" class="capeverde-malaria-image" />
+          <?php if ( $malaria_image_url ) : ?>
+          <img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="<?php echo esc_attr( bp_field( 'cv_malaria_image_alt', 'Cape Verde landscape' ) ); ?>" class="capeverde-malaria-image" />
+          <?php endif; ?>
           <div class="capeverde-malaria-overlay"></div>
           <div class="capeverde-malaria-badge">
             <div class="capeverde-malaria-badge-icon"><i class="fas fa-shield-virus"></i></div>
@@ -195,8 +197,8 @@ get_header();
         </div>
 
         <div class="capeverde-malaria-actions">
-          <a href="<?php echo esc_url( bp_field( 'cv_hero_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta">
-            Check Your Risk
+          <a href="<?php echo esc_url( bp_field( 'cv_malaria_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( bp_field( 'cv_malaria_cta_text', 'Check Your Risk' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -240,15 +242,17 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $tips = array(
-          array( 'icon' => 'fas fa-glass-water', 'title' => 'Food & Water', 'desc' => 'Tap water is not safe to drink. Stick to bottled water and avoid ice.', 'image' => 'https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=600&h=800&fit=crop' ),
-          array( 'icon' => 'fas fa-sun', 'title' => 'Sun & Wind', 'desc' => 'Strong winds can mask the heat. Use high SPF and stay hydrated.', 'image' => 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=800&fit=crop' ),
-          array( 'icon' => 'fas fa-mosquito', 'title' => 'Insects', 'desc' => 'Dengue and Zika are risks. Use 50% DEET repellent day and night.', 'image' => 'https://images.unsplash.com/photo-1551817958-29d0660f98de?w=600&h=800&fit=crop' ),
+          array( 'icon' => 'fas fa-glass-water', 'title' => 'Food & Water', 'desc' => 'Tap water is not safe to drink. Stick to bottled water and avoid ice.', 'image' => '' ),
+          array( 'icon' => 'fas fa-sun', 'title' => 'Sun & Wind', 'desc' => 'Strong winds can mask the heat. Use high SPF and stay hydrated.', 'image' => '' ),
+          array( 'icon' => 'fas fa-mosquito', 'title' => 'Insects', 'desc' => 'Dengue and Zika are risks. Use 50% DEET repellent day and night.', 'image' => '' ),
         );
         foreach ( $tips as $tip ) :
         ?>
           <div class="capeverde-health-card-visual">
             <div class="capeverde-health-bg">
+              <?php if ( $tip['image'] ) : ?>
               <img src="<?php echo esc_url( $tip['image'] ); ?>" alt="<?php echo esc_attr( $tip['title'] ); ?>" />
+              <?php endif; ?>
               <div class="capeverde-health-overlay"></div>
             </div>
             <div class="capeverde-health-content">
@@ -272,7 +276,7 @@ get_header();
     <div class="capeverde-cta-content">
       <h2 class="capeverde-cta-title"><?php echo esc_html( bp_field( 'cv_cta_title', 'Ready for Cape Verde?' ) ); ?></h2>
       <p class="capeverde-cta-description">
-        <?php echo esc_html( bp_field( 'cv_cta_description', 'Book your travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
+        <?php echo esc_html( bp_field( 'cv_cta_description', 'Book your travel health consultation at our ' . bp_option( 'pharmacy_town', 'Denton' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
       </p>
       <div class="capeverde-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'cv_cta_primary_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta capeverde-cta-button-white">

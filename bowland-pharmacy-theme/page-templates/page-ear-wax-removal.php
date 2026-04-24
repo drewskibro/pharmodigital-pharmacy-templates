@@ -28,11 +28,11 @@ get_header();
 
         <h1 class="earwax-hero-title">
           <span class="gradient-text"><?php echo esc_html( bp_field( 'ew_hero_title_highlight', 'Professional Ear Wax Removal' ) ); ?></span>
-          <?php echo esc_html( bp_field( 'ew_hero_title_rest', 'in Wythenshawe' ) ); ?>
+          <?php echo esc_html( bp_field( 'ew_hero_title_rest', 'in Denton' ) ); ?>
         </h1>
 
         <h2 class="earwax-hero-subtitle">
-          <?php echo esc_html( bp_field( 'ew_hero_subtitle', 'Expert microsuction by Ahmed and our specialist team at Bowland Pharmacy' ) ); ?>
+          <?php echo esc_html( bp_field( 'ew_hero_subtitle', 'Expert microsuction by Ahmed and our specialist team at Denton Pharmacy' ) ); ?>
         </h2>
 
         <p class="earwax-hero-description">
@@ -52,15 +52,15 @@ get_header();
 
         <div class="earwax-hero-trust">
           <div class="earwax-hero-trust-item">
-            <i class="fas fa-check-circle"></i>
+            <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'ew_trust_1_icon', 'fas fa-check-circle' ) ) ); ?>"></i>
             <span><?php echo esc_html( bp_field( 'ew_trust_1', 'GPhC Registered' ) ); ?></span>
           </div>
           <div class="earwax-hero-trust-item">
-            <i class="fas fa-clock"></i>
+            <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'ew_trust_2_icon', 'fas fa-clock' ) ) ); ?>"></i>
             <span><?php echo esc_html( bp_field( 'ew_trust_2', 'Same-day available' ) ); ?></span>
           </div>
           <div class="earwax-hero-trust-item">
-            <i class="fas fa-tag"></i>
+            <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'ew_trust_3_icon', 'fas fa-tag' ) ) ); ?>"></i>
             <span><?php echo esc_html( bp_field( 'ew_trust_3', '£60 both ears' ) ); ?></span>
           </div>
         </div>
@@ -74,7 +74,7 @@ get_header();
         ?>
         <div class="earwax-hero-image-card">
           <?php if ( $hero_image_url ) : ?>
-            <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( bp_field( 'ew_hero_image_alt', 'Professional ear wax removal at Bowland Pharmacy' ) ); ?>" class="earwax-hero-image" />
+            <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( bp_field( 'ew_hero_image_alt', 'Professional ear wax removal at Denton Pharmacy' ) ); ?>" class="earwax-hero-image" />
           <?php endif; ?>
           <div class="earwax-hero-overlay"></div>
           <div class="earwax-hero-price-badge">
@@ -173,8 +173,8 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'ew_team_badge', 'OUR TEAM' ) ); ?></span>
       </div>
-      <h2 class="earwax-team-title"><?php echo esc_html( bp_field( 'ew_team_title', 'Meet Your Wythenshawe Ear Care Specialists' ) ); ?></h2>
-      <p class="earwax-team-description"><?php echo esc_html( bp_field( 'ew_team_description', 'As Wythenshawe\'s dedicated ear care practice, we\'ve helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and parking nearby.' ) ); ?></p>
+      <h2 class="earwax-team-title"><?php echo esc_html( bp_field( 'ew_team_title', 'Meet Your Denton Ear Care Specialists' ) ); ?></h2>
+      <p class="earwax-team-description"><?php echo esc_html( bp_field( 'ew_team_description', 'As Denton\'s dedicated ear care practice, we\'ve helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and parking nearby.' ) ); ?></p>
     </div>
 
     <div class="earwax-team-grid">
@@ -216,7 +216,7 @@ get_header();
           array(
             'name'  => 'Ahmed Al-Liabi',
             'role'  => 'Lead Pharmacist & Founder',
-            'bio'   => 'As the founder of Bowland Pharmacy, Ahmed brings over 15 years of pharmaceutical experience. A GPhC-registered pharmacist (2208502), he is dedicated to providing expert ear care with a personal touch.',
+            'bio'   => 'As the founder of Denton Pharmacy, Ahmed brings over 15 years of pharmaceutical experience. A GPhC-registered pharmacist (2208502), he is dedicated to providing expert ear care with a personal touch.',
             'tags'  => array( 'GPhC Registered', '15+ Years Experience' ),
             'badge' => 'Lead Pharmacist',
             'badge_style' => 'green',
@@ -224,7 +224,7 @@ get_header();
           array(
             'name'  => 'Jignasa Modhvadia',
             'role'  => 'Director',
-            'bio'   => 'Jignasa combines clinical expertise with exceptional patient care. She plays a key role in delivering specialist ear care services at our Wythenshawe clinic.',
+            'bio'   => 'Jignasa combines clinical expertise with exceptional patient care. She plays a key role in delivering specialist ear care services at our Denton clinic.',
             'tags'  => array( 'Clinic Director', 'Patient Care Expert' ),
             'badge' => 'Director',
             'badge_style' => 'purple',
@@ -268,7 +268,7 @@ get_header();
 </section>
 
 <!-- ============================================
-     F5. COMPARISON TABLE — Horizontal scroll, highlighted Bowland column
+     F5. COMPARISON TABLE — Horizontal scroll, highlighted Denton column
      ============================================ -->
 <section class="earwax-comparison-section earwax-reveal">
   <div class="section-container">
@@ -278,7 +278,7 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'ew_compare_badge', 'TREATMENT COMPARISON' ) ); ?></span>
       </div>
       <h2 class="earwax-comparison-title"><?php echo esc_html( bp_field( 'ew_compare_title', 'How Our Treatment Compares' ) ); ?></h2>
-      <p class="earwax-comparison-description"><?php echo esc_html( bp_field( 'ew_compare_description', 'See why microsuction is the gold standard for ear wax removal in Wythenshawe' ) ); ?></p>
+      <p class="earwax-comparison-description"><?php echo esc_html( bp_field( 'ew_compare_description', 'See why microsuction is the gold standard for ear wax removal in Denton' ) ); ?></p>
     </div>
 
     <div class="earwax-comparison-table-wrapper">
@@ -286,7 +286,7 @@ get_header();
         <thead>
           <tr>
             <th>Feature</th>
-            <th class="highlight"><?php echo esc_html( bp_field( 'ew_compare_col_1_heading', 'Bowland Pharmacy' ) ); ?></th>
+            <th class="highlight"><?php echo esc_html( bp_field( 'ew_compare_col_1_heading', 'Denton Pharmacy' ) ); ?></th>
             <th><?php echo esc_html( bp_field( 'ew_compare_col_2_heading', 'Traditional Syringing' ) ); ?></th>
             <th><?php echo esc_html( bp_field( 'ew_compare_col_3_heading', 'At-Home Remedies' ) ); ?></th>
           </tr>
@@ -553,7 +553,7 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'ew_testimonials_badge', 'PATIENT TESTIMONIALS' ) ); ?></span>
       </div>
-      <h2 class="earwax-testimonials-title"><?php echo esc_html( bp_field( 'ew_testimonials_title', 'Hear What Our Wythenshawe Patients Say' ) ); ?></h2>
+      <h2 class="earwax-testimonials-title"><?php echo esc_html( bp_field( 'ew_testimonials_title', 'Hear What Our Denton Patients Say' ) ); ?></h2>
     </div>
 
     <div class="earwax-testimonials-grid">
@@ -591,9 +591,9 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $default_testimonials = array(
-          array( 'quote' => 'After weeks of discomfort, I finally got my ears treated at Bowland Pharmacy. The difference was immediate — I could hear clearly again! Ahmed was professional and explained everything clearly. Highly recommend!', 'author' => 'Paul F.', 'location' => 'Wythenshawe' ),
-          array( 'quote' => 'Fantastic service from start to finish. The team was so thorough and professional. The aftercare advice has helped prevent any further build-up.', 'author' => 'Georgia P.', 'location' => 'Wythenshawe' ),
-          array( 'quote' => 'Much better than the traditional syringing I had years ago. No mess, no fuss, just clear hearing again. The appointment times meant I didn\'t need to take time off work.', 'author' => 'Giedrius K.', 'location' => 'Wythenshawe' ),
+          array( 'quote' => 'After weeks of discomfort, I finally got my ears treated at Denton Pharmacy. The difference was immediate — I could hear clearly again! Ahmed was professional and explained everything clearly. Highly recommend!', 'author' => 'Paul F.', 'location' => 'Denton' ),
+          array( 'quote' => 'Fantastic service from start to finish. The team was so thorough and professional. The aftercare advice has helped prevent any further build-up.', 'author' => 'Georgia P.', 'location' => 'Denton' ),
+          array( 'quote' => 'Much better than the traditional syringing I had years ago. No mess, no fuss, just clear hearing again. The appointment times meant I didn\'t need to take time off work.', 'author' => 'Giedrius K.', 'location' => 'Denton' ),
         );
         foreach ( $default_testimonials as $testimonial ) :
           $parts = explode( ' ', trim( $testimonial['author'] ) );
@@ -639,7 +639,7 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'ew_faq_badge', 'FREQUENTLY ASKED QUESTIONS' ) ); ?></span>
       </div>
-      <h2 class="earwax-faq-title"><?php echo esc_html( bp_field( 'ew_faq_title', 'Frequently Asked Questions — Ear Wax Removal Wythenshawe' ) ); ?></h2>
+      <h2 class="earwax-faq-title"><?php echo esc_html( bp_field( 'ew_faq_title', 'Frequently Asked Questions — Ear Wax Removal Denton' ) ); ?></h2>
     </div>
 
     <div class="earwax-faq-list">
@@ -658,11 +658,11 @@ get_header();
         <?php
         $faqs = array(
           array( 'q' => 'Is the treatment uncomfortable?', 'a' => 'Most patients find microsuction very comfortable. You\'ll hear a quiet whistling sound, but the procedure is gentle and shouldn\'t cause any pain.' ),
-          array( 'q' => 'How often should I have my ears checked?', 'a' => 'Most people benefit from an annual check-up, though this varies. We\'ll advise based on your individual situation during your Wythenshawe appointment.' ),
+          array( 'q' => 'How often should I have my ears checked?', 'a' => 'Most people benefit from an annual check-up, though this varies. We\'ll advise based on your individual situation during your Denton appointment.' ),
           array( 'q' => 'Can I drive after the treatment?', 'a' => 'Yes, you can drive immediately after treatment. Most people experience instant improvement in hearing.' ),
-          array( 'q' => 'Do you treat children?', 'a' => 'Yes, we treat patients of all ages at our Wythenshawe clinic. We\'re experienced in working with children and ensure they feel comfortable throughout.' ),
+          array( 'q' => 'Do you treat children?', 'a' => 'Yes, we treat patients of all ages at our Denton clinic. We\'re experienced in working with children and ensure they feel comfortable throughout.' ),
           array( 'q' => 'What if I have a perforated eardrum?', 'a' => 'Microsuction is safe for perforated eardrums, unlike water syringing. We\'ll assess your ears during consultation.' ),
-          array( 'q' => 'Where are you located in Wythenshawe?', 'a' => 'We\'re based at 52 Bowland Road, Wythenshawe, Manchester, M23 1JX — with parking available nearby.' ),
+          array( 'q' => 'Where are you located in Denton?', 'a' => 'We\'re based at 14-16 Ashton Road, Denton, Manchester, M34 3EX — with parking available nearby.' ),
         );
         foreach ( $faqs as $i => $faq ) :
         ?>
@@ -704,7 +704,7 @@ get_header();
       </div>
       <h2 class="earwax-cta-title"><?php echo esc_html( bp_field( 'ew_cta_title', 'Ready to hear clearly again?' ) ); ?></h2>
       <p class="earwax-cta-description">
-        <?php echo esc_html( bp_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Wythenshawe clinic today. Expert microsuction treatment with guaranteed results.' ) ); ?>
+        <?php echo esc_html( bp_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Denton clinic today. Expert microsuction treatment with guaranteed results.' ) ); ?>
       </p>
       <div class="earwax-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'ew_cta_primary_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta earwax-cta-button-white">
@@ -717,9 +717,9 @@ get_header();
         </a>
       </div>
       <div class="earwax-cta-trust-checks">
-        <span class="earwax-cta-check"><i class="fas fa-check"></i> No referral needed</span>
-        <span class="earwax-cta-check"><i class="fas fa-check"></i> Expert microsuction</span>
-        <span class="earwax-cta-check"><i class="fas fa-check"></i> Same-day appointments</span>
+        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( bp_field( 'ew_cta_check_1', 'No referral needed' ) ); ?></span>
+        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( bp_field( 'ew_cta_check_2', 'Expert microsuction' ) ); ?></span>
+        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( bp_field( 'ew_cta_check_3', 'Same-day appointments' ) ); ?></span>
       </div>
     </div>
   </div>

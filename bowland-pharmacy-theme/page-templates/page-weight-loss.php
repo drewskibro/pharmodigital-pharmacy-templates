@@ -28,14 +28,14 @@ get_header();
 
         <h1 class="wl-hero-title">
           <span class="gradient-text"><?php echo esc_html( bp_field( 'wl_hero_title_line_1', 'Medical Weight Loss' ) ); ?></span>
-          <?php echo esc_html( bp_field( 'wl_hero_title_line_2', 'in Wythenshawe' ) ); ?>
+          <?php echo esc_html( bp_field( 'wl_hero_title_line_2', 'in Denton' ) ); ?>
           <?php $line3 = bp_field( 'wl_hero_title_line_3', '' ); if ( $line3 ) : ?>
           <br><span class="gradient-text"><?php echo esc_html( $line3 ); ?></span>
           <?php endif; ?>
         </h1>
 
         <p class="wl-hero-description">
-          <?php echo esc_html( bp_field( 'wl_hero_description', 'Prescription Mounjaro and Wegovy (GLP-1 treatments) with expert guidance and face-to-face support right here in Wythenshawe. No remote consultations — real care from someone who knows your name.' ) ); ?>
+          <?php echo esc_html( bp_field( 'wl_hero_description', 'Prescription Mounjaro and Wegovy (GLP-1 treatments) with expert guidance and face-to-face support right here in Denton. No remote consultations — real care from someone who knows your name.' ) ); ?>
         </p>
 
         <div class="wl-hero-actions">
@@ -59,8 +59,8 @@ get_header();
           </p>
           <div class="wl-hero-testimonial-footer">
             <div class="wl-hero-testimonial-author">
-              <p class="wl-hero-testimonial-name"><?php echo esc_html( bp_field( 'wl_hero_testimonial_name', 'Wythenshawe Patient' ) ); ?></p>
-              <p class="wl-hero-testimonial-location"><?php echo esc_html( bp_field( 'wl_hero_testimonial_location', 'Wythenshawe' ) ); ?></p>
+              <p class="wl-hero-testimonial-name"><?php echo esc_html( bp_field( 'wl_hero_testimonial_name', 'Denton Patient' ) ); ?></p>
+              <p class="wl-hero-testimonial-location"><?php echo esc_html( bp_field( 'wl_hero_testimonial_location', 'Denton' ) ); ?></p>
             </div>
             <div class="star-row">
               <i class="fas fa-star"></i>
@@ -111,7 +111,7 @@ get_header();
           <i class="fas fa-star"></i>
         </div>
         <div class="wl-stat-content">
-          <span class="wl-stat-number"><?php echo esc_html( bp_field( 'wl_stat_1_number', '4.7' ) ); ?></span>
+          <span class="wl-stat-number"><?php echo esc_html( bp_field( 'wl_stat_1_number', bp_option( 'google_rating', '4.9' ) ) ); ?></span>
           <span class="wl-stat-label"><?php echo esc_html( bp_field( 'wl_stat_1_label', 'Google Rating' ) ); ?></span>
         </div>
       </div>
@@ -123,7 +123,7 @@ get_header();
           <i class="fas fa-users"></i>
         </div>
         <div class="wl-stat-content">
-          <span class="wl-stat-number"><?php echo esc_html( bp_field( 'wl_stat_2_number', '300+' ) ); ?></span>
+          <span class="wl-stat-number"><?php echo esc_html( bp_field( 'wl_stat_2_number', bp_option( 'google_review_count', '300+' ) ) ); ?></span>
           <span class="wl-stat-label"><?php echo esc_html( bp_field( 'wl_stat_2_label', 'Patients Helped' ) ); ?></span>
         </div>
       </div>
@@ -166,8 +166,8 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'wl_results_badge', 'REAL RESULTS' ) ); ?></span>
       </div>
-      <h2 class="wl-results-title"><?php echo esc_html( bp_field( 'wl_results_title', 'Real Mounjaro & Wegovy results in Wythenshawe' ) ); ?></h2>
-      <p class="wl-results-description"><?php echo esc_html( bp_field( 'wl_results_description', 'Wythenshawe patients using Mounjaro or Wegovy lose an average of 10-15% of their body weight in 12 months with our personalised programmes.' ) ); ?></p>
+      <h2 class="wl-results-title"><?php echo esc_html( bp_field( 'wl_results_title', 'Real Mounjaro & Wegovy results in Denton' ) ); ?></h2>
+      <p class="wl-results-description"><?php echo esc_html( bp_field( 'wl_results_description', 'Denton patients using Mounjaro or Wegovy lose an average of 10-15% of their body weight in 12 months with our personalised programmes.' ) ); ?></p>
     </div>
 
     <div class="wl-results-grid">
@@ -193,13 +193,13 @@ get_header();
         <p class="wl-results-featured-sublabel"><?php echo esc_html( bp_field( 'wl_results_featured_sublabel', 'In 12 months' ) ); ?></p>
       </div>
 
-      <!-- Card 3: Wythenshawe Residents -->
+      <!-- Card 3: Denton Residents -->
       <div class="wl-results-card">
         <div class="wl-results-icon">
           <i class="fas fa-user-group"></i>
         </div>
         <p class="wl-results-number gradient-text"><?php echo esc_html( bp_field( 'wl_results_card3_number', '300+' ) ); ?></p>
-        <p class="wl-results-label"><?php echo esc_html( bp_field( 'wl_results_card3_label', 'Wythenshawe residents' ) ); ?></p>
+        <p class="wl-results-label"><?php echo esc_html( bp_field( 'wl_results_card3_label', 'Denton residents' ) ); ?></p>
         <p class="wl-results-sublabel"><?php echo esc_html( bp_field( 'wl_results_card3_sublabel', 'Successfully helped' ) ); ?></p>
       </div>
     </div>
@@ -221,7 +221,7 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'wl_features_badge', 'Why Choose Us' ) ); ?></span>
       </div>
-      <h2 class="wl-features-title"><?php echo esc_html( bp_field( 'wl_features_title', 'The Bowland Pharmacy Difference' ) ); ?></h2>
+      <h2 class="wl-features-title"><?php echo esc_html( bp_field( 'wl_features_title', 'The Denton Pharmacy Difference' ) ); ?></h2>
       <p class="wl-features-description"><?php echo esc_html( bp_field( 'wl_features_description', 'Real face-to-face support. Expert guidance. Proven results.' ) ); ?></p>
     </div>
 
@@ -257,10 +257,10 @@ get_header();
     <!-- Bottom: Rating + CTAs + credentials -->
     <div class="wl-features-bottom">
       <?php
-      $wl_rating       = bp_option( 'google_rating', '4.7' );
-      $wl_review_count = bp_option( 'google_review_count', '60+' );
-      $wl_location     = bp_option( 'pharmacy_location_label', 'Wythenshawe' );
-      $wl_reviews_url  = bp_option( 'google_reviews_url', '#' );
+      $wl_rating       = bp_option( 'google_rating', '4.9' );
+      $wl_review_count = bp_option( 'google_review_count', '300+' );
+      $wl_location     = bp_option( 'pharmacy_location_label', 'Denton' );
+      $wl_reviews_url  = bp_option( 'google_review_url', '#' );
       ?>
       <div class="wl-features-rating-strip">
         <svg class="wl-google-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
@@ -268,27 +268,50 @@ get_header();
         <div class="wl-features-rating-stars">
           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
         </div>
-        <span class="wl-features-rating-meta"><?php echo esc_html( $wl_review_count ); ?> reviews · <?php echo esc_html( $wl_location ); ?></span>
-        <a href="<?php echo esc_url( $wl_reviews_url ); ?>" class="wl-features-rating-link" target="_blank" rel="noopener">View Reviews <i class="fas fa-arrow-right"></i></a>
+        <span class="wl-features-rating-meta"><?php echo esc_html( $wl_review_count ); ?> <?php echo esc_html( bp_field( 'wl_features_reviews_label', 'reviews' ) ); ?> · <?php echo esc_html( $wl_location ); ?></span>
+        <a href="<?php echo esc_url( $wl_reviews_url ); ?>" class="wl-features-rating-link" target="_blank" rel="noopener"><?php echo esc_html( bp_field( 'wl_features_view_reviews_text', 'View Reviews' ) ); ?> <i class="fas fa-arrow-right"></i></a>
       </div>
 
       <div class="wl-features-actions">
         <a href="<?php echo esc_url( bp_field( 'wl_hero_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta">
-          Start Your Journey <i class="fas fa-arrow-right"></i>
+          <?php echo esc_html( bp_field( 'wl_features_cta_primary_text', 'Start Your Journey' ) ); ?> <i class="fas fa-arrow-right"></i>
         </a>
         <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button secondary-cta">
-          <i class="fas fa-phone"></i> Call Us
+          <i class="fas fa-phone"></i> <?php echo esc_html( bp_field( 'wl_features_cta_secondary_text', 'Call Us' ) ); ?>
         </a>
       </div>
 
       <div class="wl-features-credentials">
-        <div class="wl-features-credential"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></div>
-        <div class="wl-features-credential"><i class="fas fa-user-doctor"></i><span>Independent Prescriber</span></div>
-        <div class="wl-features-credential"><i class="fas fa-award"></i><span>30+ Years</span></div>
+        <?php
+        $wl_default_creds = array(
+            array( 'cred_icon' => 'fa-shield-halved', 'cred_text' => 'GPhC Registered' ),
+            array( 'cred_icon' => 'fa-user-doctor', 'cred_text' => 'Independent Prescriber' ),
+            array( 'cred_icon' => 'fa-award', 'cred_text' => '30+ Years' ),
+        );
+        $wl_creds = array();
+        if ( function_exists( 'have_rows' ) && have_rows( 'wl_features_credentials' ) ) {
+            while ( have_rows( 'wl_features_credentials' ) ) {
+                the_row();
+                $wl_creds[] = array(
+                    'cred_icon' => get_sub_field( 'cred_icon' ) ?: 'fa-shield-halved',
+                    'cred_text' => get_sub_field( 'cred_text' ) ?: '',
+                );
+            }
+        }
+        if ( empty( $wl_creds ) ) { $wl_creds = $wl_default_creds; }
+        foreach ( $wl_creds as $cred ) :
+        ?>
+          <div class="wl-features-credential"><i class="<?php echo esc_attr( bp_fa_class( $cred['cred_icon'] ) ); ?>"></i><span><?php echo esc_html( $cred['cred_text'] ); ?></span></div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ============================================
+     SWITCHING PROVIDER SECTION
+     ============================================ -->
+<?php get_template_part( 'template-parts/section', 'switching' ); ?>
 
 <!-- ============================================
      CTA BAR
@@ -329,7 +352,7 @@ get_header();
     $default_steps = array(
         array(
             'title'       => 'Initial consultation',
-            'description' => 'Meet with our expert team at our Wythenshawe pharmacy for a comprehensive health assessment. We\'ll discuss your goals, medical history, and create a personalised plan that works for you.',
+            'description' => 'Meet with our expert team at our Denton pharmacy for a comprehensive health assessment. We\'ll discuss your goals, medical history, and create a personalised plan that works for you.',
             'icon'        => 'fas fa-calendar-check',
             'meta'        => '30-45 minutes | Private consultation',
             'meta_icon'   => 'fas fa-clock',
@@ -338,7 +361,7 @@ get_header();
         ),
         array(
             'title'       => 'Begin Mounjaro or Wegovy treatment',
-            'description' => 'If suitable, we\'ll prescribe Mounjaro, Wegovy, or other GLP-1 treatments. You\'ll receive clear instructions and guidance on what to expect from your Wythenshawe weight loss programme.',
+            'description' => 'If suitable, we\'ll prescribe Mounjaro, Wegovy, or other GLP-1 treatments. You\'ll receive clear instructions and guidance on what to expect from your Denton weight loss programme.',
             'icon'        => 'fas fa-pills',
             'meta'        => 'Same-day prescription available',
             'meta_icon'   => 'fas fa-bolt',
@@ -569,10 +592,10 @@ get_header();
         <?php echo esc_html( bp_field( 'wl_testimonials_title_start', 'Real Results.' ) ); ?>
         <span class="gradient-text"><?php echo esc_html( bp_field( 'wl_testimonials_title_highlight', 'Lasting Health.' ) ); ?></span>
       </h2>
-      <p class="wl-testimonials-description"><?php echo esc_html( bp_field( 'wl_testimonials_description', 'See how our patients across Wythenshawe have transformed their health with personalised weight loss care.' ) ); ?></p>
+      <p class="wl-testimonials-description"><?php echo esc_html( bp_field( 'wl_testimonials_description', 'See how our patients across Denton have transformed their health with personalised weight loss care.' ) ); ?></p>
       <div class="wl-testimonials-disclaimer">
         <i class="fas fa-info-circle"></i>
-        <p><strong>Transparency Note:</strong> <?php echo esc_html( bp_field( 'wl_testimonials_disclaimer', 'The results below are from real Bowland Pharmacy patients. Individual results may vary.' ) ); ?></p>
+        <p><strong><?php echo esc_html( bp_field( 'wl_testimonials_transparency_label', 'Transparency Note:' ) ); ?></strong> <?php echo esc_html( bp_field( 'wl_testimonials_disclaimer', 'The results below are from real Denton Pharmacy patients. Individual results may vary.' ) ); ?></p>
       </div>
     </div>
 
@@ -660,7 +683,7 @@ get_header();
           <!-- Verified badge -->
           <div class="wl-testimonial-verified">
             <i class="fas fa-check-circle"></i>
-            <span><?php echo $is_large ? 'Verified Patient' : 'Verified'; ?></span>
+            <span><?php echo esc_html( $is_large ? bp_field( 'wl_testimonials_verified_label', 'Verified Patient' ) : bp_field( 'wl_testimonials_verified_label_short', 'Verified' ) ); ?></span>
           </div>
 
           <div class="wl-testimonial-card-body">
@@ -693,7 +716,7 @@ get_header();
               <div class="wl-testimonial-author-info">
                 <span class="wl-testimonial-service"><?php echo esc_html( $t['service'] ); ?></span>
                 <h4 class="wl-testimonial-author-name"><?php echo esc_html( $t['name'] ); ?></h4>
-                <p class="wl-testimonial-author-status">Verified Patient</p>
+                <p class="wl-testimonial-author-status"><?php echo esc_html( bp_field( 'wl_testimonials_verified_label', 'Verified Patient' ) ); ?></p>
               </div>
             </div>
 
@@ -716,16 +739,16 @@ get_header();
         <div class="wl-testimonial-cta-glow"></div>
         <div class="wl-testimonial-cta-body">
           <div class="wl-testimonial-cta-content">
-            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( bp_field( 'wl_testimonials_cta_title', 'Trusted by 5,000+ Wythenshawe Patients' ) ); ?></h3>
+            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( bp_field( 'wl_testimonials_cta_title', 'Trusted by 5,000+ Denton Patients' ) ); ?></h3>
             <p class="wl-testimonial-cta-text"><?php echo esc_html( bp_field( 'wl_testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ) ); ?></p>
           </div>
           <div class="wl-testimonial-cta-rating">
             <div class="wl-testimonial-cta-rating-card">
-              <span class="wl-testimonial-cta-score"><?php echo esc_html( bp_option( 'google_rating', '4.7' ) ); ?></span>
+              <span class="wl-testimonial-cta-score"><?php echo esc_html( bp_option( 'google_rating', '4.9' ) ); ?></span>
               <div class="star-row star-row-small">
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
               </div>
-              <span class="wl-testimonial-cta-label">Google Rating</span>
+              <span class="wl-testimonial-cta-label"><?php echo esc_html( bp_field( 'wl_testimonials_cta_rating_label', 'Google Rating' ) ); ?></span>
             </div>
           </div>
         </div>
@@ -746,9 +769,27 @@ get_header();
   <div class="section-container">
     <div class="wl-final-cta-content">
       <div class="wl-final-cta-badges">
-        <div class="wl-final-cta-badge"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></div>
-        <div class="wl-final-cta-badge"><i class="fas fa-user-doctor"></i><span>Independent Prescriber</span></div>
-        <div class="wl-final-cta-badge"><i class="fas fa-users"></i><span><?php echo esc_html( bp_field( 'wl_results_card3_number', '500+' ) ); ?> Patients Helped</span></div>
+        <?php
+        $wl_default_badges = array(
+            array( 'badge_icon' => 'fa-shield-halved', 'badge_text' => 'GPhC Registered' ),
+            array( 'badge_icon' => 'fa-user-doctor', 'badge_text' => 'Independent Prescriber' ),
+            array( 'badge_icon' => 'fa-users', 'badge_text' => bp_field( 'wl_results_card3_number', '500+' ) . ' Patients Helped' ),
+        );
+        $wl_cta_badges = array();
+        if ( function_exists( 'have_rows' ) && have_rows( 'wl_final_cta_badges' ) ) {
+            while ( have_rows( 'wl_final_cta_badges' ) ) {
+                the_row();
+                $wl_cta_badges[] = array(
+                    'badge_icon' => get_sub_field( 'badge_icon' ) ?: 'fa-shield-halved',
+                    'badge_text' => get_sub_field( 'badge_text' ) ?: '',
+                );
+            }
+        }
+        if ( empty( $wl_cta_badges ) ) { $wl_cta_badges = $wl_default_badges; }
+        foreach ( $wl_cta_badges as $badge ) :
+        ?>
+          <div class="wl-final-cta-badge"><i class="<?php echo esc_attr( bp_fa_class( $badge['badge_icon'] ) ); ?>"></i><span><?php echo esc_html( $badge['badge_text'] ); ?></span></div>
+        <?php endforeach; ?>
       </div>
 
       <h2 class="wl-final-cta-title"><?php echo esc_html( bp_field( 'wl_final_cta_title', 'Book your weight loss consultation' ) ); ?></h2>
@@ -756,7 +797,7 @@ get_header();
 
       <div class="wl-final-cta-actions">
         <a href="<?php echo esc_url( bp_booking_url() ); ?>" class="cta-button primary-cta wl-final-cta-button-white">
-          Book Your Consultation <i class="fas fa-arrow-right"></i>
+          <?php echo esc_html( bp_field( 'wl_final_cta_button_text', 'Book Your Consultation' ) ); ?> <i class="fas fa-arrow-right"></i>
         </a>
         <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button secondary-cta wl-final-cta-button-outlined">
           <i class="fas fa-phone"></i> <?php echo esc_html( 'Call ' . bp_phone() ); ?>
@@ -764,9 +805,21 @@ get_header();
       </div>
 
       <div class="wl-final-cta-checks">
-        <div class="wl-final-cta-check"><i class="fas fa-check"></i><span>Expert guidance</span></div>
-        <div class="wl-final-cta-check"><i class="fas fa-check"></i><span>No obligation</span></div>
-        <div class="wl-final-cta-check"><i class="fas fa-check"></i><span>Same-day appointments</span></div>
+        <?php
+        $wl_default_checks = array( 'Expert guidance', 'No obligation', 'Same-day appointments' );
+        $wl_cta_checks = array();
+        if ( function_exists( 'have_rows' ) && have_rows( 'wl_final_cta_checks' ) ) {
+            while ( have_rows( 'wl_final_cta_checks' ) ) {
+                the_row();
+                $text = get_sub_field( 'check_text' );
+                if ( $text ) { $wl_cta_checks[] = $text; }
+            }
+        }
+        if ( empty( $wl_cta_checks ) ) { $wl_cta_checks = $wl_default_checks; }
+        foreach ( $wl_cta_checks as $check ) :
+        ?>
+          <div class="wl-final-cta-check"><i class="fas fa-check"></i><span><?php echo esc_html( $check ); ?></span></div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>

@@ -32,7 +32,7 @@ get_header();
         </h1>
 
         <p class="bloodtest-hero-description">
-          <?php echo esc_html( bp_field( 'bt_hero_description', 'Comprehensive blood testing at Bowland Pharmacy, Manchester. From general health checks to specific diagnostic panels — get fast, accurate results without a GP referral. Walk in or book your appointment today.' ) ); ?>
+          <?php echo esc_html( bp_field( 'bt_hero_description', 'Comprehensive blood testing at Denton Pharmacy, Manchester. From general health checks to specific diagnostic panels — get fast, accurate results without a GP referral. Walk in or book your appointment today.' ) ); ?>
         </p>
 
         <div class="bloodtest-hero-actions">
@@ -176,7 +176,7 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $steps = array(
-          array( 'icon' => 'fas fa-calendar-check', 'title' => 'Walk In or Book', 'desc' => 'Visit Bowland Pharmacy during opening hours or book a convenient time online. No GP referral required.', 'link' => true ),
+          array( 'icon' => 'fas fa-calendar-check', 'title' => 'Walk In or Book', 'desc' => 'Visit Denton Pharmacy during opening hours or book a convenient time online. No GP referral required.', 'link' => true ),
           array( 'icon' => 'fas fa-vial', 'title' => 'Sample Collection', 'desc' => 'Our trained phlebotomist will take a small blood sample in our private consultation room. Quick and comfortable.' ),
           array( 'icon' => 'fas fa-file-medical', 'title' => 'Get Your Results', 'desc' => 'Receive your results within 2-5 working days via secure email or collect them in person at the pharmacy.' ),
         );
@@ -238,8 +238,8 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $faqs = array(
-          array( 'q' => 'What blood tests do you offer at Bowland Pharmacy?', 'a' => 'We offer a comprehensive range of blood tests including full blood count, thyroid function, liver function, kidney function, diabetes screening (HbA1c), cholesterol and lipid profiles, vitamin D, iron studies, and more. Contact us for a full list of available panels.' ),
-          array( 'q' => 'Do I need a GP referral for a blood test?', 'a' => 'No, you do not need a GP referral. You can simply walk into Bowland Pharmacy or book an appointment online. Our service is available to anyone aged 18 and over.' ),
+          array( 'q' => 'What blood tests do you offer at Denton Pharmacy?', 'a' => 'We offer a comprehensive range of blood tests including full blood count, thyroid function, liver function, kidney function, diabetes screening (HbA1c), cholesterol and lipid profiles, vitamin D, iron studies, and more. Contact us for a full list of available panels.' ),
+          array( 'q' => 'Do I need a GP referral for a blood test?', 'a' => 'No, you do not need a GP referral. You can simply walk into Denton Pharmacy or book an appointment online. Our service is available to anyone aged 18 and over.' ),
           array( 'q' => 'How much do blood tests cost?', 'a' => 'Blood tests start from £39 per panel. Prices vary depending on the specific tests required. Contact us or visit the pharmacy for a full price list and to discuss which tests are right for you.' ),
           array( 'q' => 'How long do results take?', 'a' => 'Most results are available within 2-5 working days. Results are sent securely via email or can be collected in person at the pharmacy. Our pharmacist will explain your results and advise on any next steps.' ),
           array( 'q' => 'Do I need to fast before a blood test?', 'a' => 'Some tests, such as cholesterol and glucose panels, require fasting for 8-12 hours beforehand. We will advise you when you book your appointment so you can prepare properly.' ),
@@ -285,7 +285,7 @@ get_header();
       </div>
       <h2 class="bloodtest-cta-title"><?php echo esc_html( bp_field( 'bt_cta_title', 'Book Your Blood Test in Denton Today' ) ); ?></h2>
       <p class="bloodtest-cta-description">
-        <?php echo esc_html( bp_field( 'bt_cta_description', 'Take control of your health with fast, accurate blood testing at Bowland Pharmacy. No GP referral needed — walk in or book your appointment.' ) ); ?>
+        <?php echo esc_html( bp_field( 'bt_cta_description', 'Take control of your health with fast, accurate blood testing at Denton Pharmacy. No GP referral needed — walk in or book your appointment.' ) ); ?>
       </p>
       <div class="bloodtest-cta-actions">
         <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button primary-cta bloodtest-cta-button-white">

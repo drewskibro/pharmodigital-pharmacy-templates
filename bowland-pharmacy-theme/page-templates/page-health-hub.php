@@ -27,10 +27,9 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
       </div>
 
       <h1 class="healthhub-hero-title">
-        <?php
-        $title_text = bp_field( 'hh_hero_title', 'Expert insights on weight loss, travel health, and <span class="gradient-text">living your healthiest life</span>' );
-        echo wp_kses( $title_text, array( 'span' => array( 'class' => array() ) ) );
-        ?>
+        <?php echo esc_html( bp_field( 'hh_hero_title_line1', 'Expert Insights on' ) ); ?><br />
+        <span class="healthhub-hero-title-accent"><?php echo esc_html( bp_field( 'hh_hero_title_line2', 'Weight Loss, Travel Health' ) ); ?></span><br />
+        <span class="gradient-text"><?php echo esc_html( bp_field( 'hh_hero_title_line3', 'Living Your Healthiest Life.' ) ); ?></span>
       </h1>
 
       <!-- Category Filter Pills -->
@@ -77,7 +76,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
           </div>
         </div>
         <div class="rating-score">
-          <span class="score-number"><?php echo esc_html( bp_field( 'hh_social_rating_score', bp_option( 'google_rating', '4.7' ) ) ); ?></span>
+          <span class="score-number"><?php echo esc_html( bp_field( 'hh_social_rating_score', bp_option( 'google_rating', '4.9' ) ) ); ?></span>
           <div class="rating-score-detail">
             <div class="star-row">
               <i class="fas fa-star"></i>
@@ -92,18 +91,101 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
         <div class="rating-footer">
           <div class="rating-location">
             <i class="fas fa-map-marker-alt"></i>
-            <span><?php echo esc_html( bp_field( 'hh_social_rating_location', bp_option( 'pharmacy_town', 'Wythenshawe, UK' ) ) ); ?></span>
+            <span><?php echo esc_html( bp_field( 'hh_social_rating_location', bp_option( 'pharmacy_town', 'Denton, UK' ) ) ); ?></span>
           </div>
-          <a href="#reviews" class="rating-link">View Reviews</a>
+          <a href="<?php echo esc_url( bp_option( 'google_review_url', '#reviews' ) ); ?>" class="rating-link" target="_blank" rel="noopener noreferrer">View Reviews</a>
         </div>
       </div>
 
       <!-- Right: Text Content -->
       <div class="healthhub-social-proof-content">
-        <p class="healthhub-social-proof-eyebrow"><?php echo esc_html( bp_field( 'hh_social_eyebrow', 'TRUSTED BY WYTHENSHAWE' ) ); ?></p>
-        <h2 class="healthhub-social-proof-headline"><?php echo esc_html( bp_field( 'hh_social_headline', 'Join hundreds of Wythenshawe patients who\'ve already made the switch' ) ); ?></h2>
+        <p class="healthhub-social-proof-eyebrow"><?php echo esc_html( bp_field( 'hh_social_eyebrow', 'TRUSTED BY DENTON' ) ); ?></p>
+        <h2 class="healthhub-social-proof-headline"><?php echo esc_html( bp_field( 'hh_social_headline', 'Join hundreds of Denton patients who\'ve already made the switch' ) ); ?></h2>
         <p class="healthhub-social-proof-subtext"><?php echo esc_html( bp_field( 'hh_social_subtext', 'Expert health advice backed by real clinical experience and outstanding patient reviews' ) ); ?></p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CATEGORY CARDS — "What brings you here today?"
+     ============================================ -->
+<?php
+$hh_cats_title = bp_field( 'hh_cats_title', 'What brings you here today?' );
+$hh_cats_desc  = bp_field( 'hh_cats_description', 'Start with the health topic that matters most to you right now' );
+
+$default_cats = array(
+    array(
+        'title'       => 'Weight Loss Journeys',
+        'label'       => 'WEIGHT LOSS',
+        'description' => 'GLP-1 medications, side effects management, nutrition guides, and real patient experiences',
+        'url'         => add_query_arg( 'category', 'weight-loss', get_permalink() ),
+        'image_id'    => 0,
+    ),
+    array(
+        'title'       => 'Travel Health Guides',
+        'label'       => 'TRAVEL HEALTH',
+        'description' => 'Destination-specific vaccines, malaria prevention, yellow fever requirements, and travel safety',
+        'url'         => add_query_arg( 'category', 'travel-health', get_permalink() ),
+        'image_id'    => 0,
+    ),
+    array(
+        'title'       => 'NHS & Wellness',
+        'label'       => 'WELLNESS',
+        'description' => 'Pharmacy First, prescription services, seasonal health, and staying healthy year-round',
+        'url'         => add_query_arg( 'category', 'nhs-services', get_permalink() ),
+        'image_id'    => 0,
+    ),
+);
+
+$cats = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'hh_category_cards' ) ) {
+    while ( have_rows( 'hh_category_cards' ) ) {
+        the_row();
+        $cats[] = array(
+            'title'       => get_sub_field( 'title' ) ?: '',
+            'label'       => get_sub_field( 'label' ) ?: '',
+            'description' => get_sub_field( 'description' ) ?: '',
+            'url'         => get_sub_field( 'url' ) ?: '#',
+            'image_id'    => get_sub_field( 'image' ),
+        );
+    }
+}
+if ( empty( $cats ) ) {
+    $cats = $default_cats;
+}
+?>
+
+<section class="healthhub-cats-section">
+  <div class="section-container">
+    <div class="healthhub-cats-header">
+      <h2 class="healthhub-cats-title"><?php echo esc_html( $hh_cats_title ); ?></h2>
+      <p class="healthhub-cats-description"><?php echo esc_html( $hh_cats_desc ); ?></p>
+    </div>
+
+    <div class="healthhub-cats-grid">
+      <?php foreach ( $cats as $cat ) :
+        $img_url = ! empty( $cat['image_id'] ) ? wp_get_attachment_image_url( $cat['image_id'], 'large' ) : '';
+      ?>
+        <a href="<?php echo esc_url( $cat['url'] ); ?>" class="healthhub-cat-card">
+          <div class="healthhub-cat-card-inner">
+            <?php if ( $img_url ) : ?>
+              <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $cat['title'] ); ?>" class="healthhub-cat-card-image" />
+            <?php endif; ?>
+            <div class="healthhub-cat-card-overlay"></div>
+            <div class="healthhub-cat-card-content">
+              <?php if ( ! empty( $cat['label'] ) ) : ?>
+                <span class="healthhub-cat-card-label"><?php echo esc_html( $cat['label'] ); ?></span>
+              <?php endif; ?>
+              <h3 class="healthhub-cat-card-title"><?php echo esc_html( $cat['title'] ); ?></h3>
+              <p class="healthhub-cat-card-desc"><?php echo esc_html( $cat['description'] ); ?></p>
+              <span class="healthhub-cat-card-link">
+                Explore <i class="fas fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -249,18 +331,43 @@ endif;
 </section>
 
 <!-- ============================================
-     CTA SECTION
+     CTA SECTION — Deep purple gradient (shared pattern)
      ============================================ -->
 <section class="healthhub-cta-section">
+  <div class="healthhub-cta-glow-1"></div>
+  <div class="healthhub-cta-glow-2"></div>
   <div class="healthhub-cta-dots"></div>
   <div class="section-container">
     <div class="healthhub-cta-content">
+
+      <!-- Trust badges row -->
+      <div class="healthhub-cta-badges">
+        <span class="healthhub-cta-badge"><i class="fas fa-shield-halved"></i> GPhC Registered</span>
+        <span class="healthhub-cta-badge"><i class="fas fa-calendar-check"></i> Same-Day Appointments</span>
+        <span class="healthhub-cta-badge"><i class="fas fa-square-parking"></i> Free Parking</span>
+      </div>
+
       <h2 class="healthhub-cta-title"><?php echo esc_html( bp_field( 'hh_cta_title', 'Ready to Transform Your Health?' ) ); ?></h2>
-      <p class="healthhub-cta-description"><?php echo esc_html( bp_field( 'hh_cta_description', 'Expert advice from pharmacists you can trust' ) ); ?></p>
-      <a href="<?php echo esc_url( bp_field( 'hh_cta_url', bp_booking_url() ) ); ?>" class="cta-button primary-cta healthhub-cta-button">
-        <?php echo esc_html( bp_field( 'hh_cta_text', 'Explore Our Services' ) ); ?>
-        <i class="fas fa-arrow-right"></i>
-      </a>
+      <p class="healthhub-cta-description"><?php echo esc_html( bp_field( 'hh_cta_description', 'Expert care from pharmacists you can trust. Book your consultation today.' ) ); ?></p>
+
+      <div class="healthhub-cta-actions">
+        <a href="<?php echo esc_url( bp_field( 'hh_cta_url', bp_booking_url() ) ); ?>" class="cta-button healthhub-cta-button-primary">
+          <?php echo esc_html( bp_field( 'hh_cta_text', 'Book an Appointment' ) ); ?>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button healthhub-cta-button-secondary">
+          <i class="fas fa-phone"></i>
+          Call <?php echo esc_html( bp_phone() ); ?>
+        </a>
+      </div>
+
+      <!-- Trust checks row -->
+      <div class="healthhub-cta-checks">
+        <span class="healthhub-cta-check"><i class="fas fa-check"></i> No Referral Needed</span>
+        <span class="healthhub-cta-check"><i class="fas fa-check"></i> Expert Guidance</span>
+        <span class="healthhub-cta-check"><i class="fas fa-check"></i> Open 6 Days a Week</span>
+      </div>
+
     </div>
   </div>
 </section>

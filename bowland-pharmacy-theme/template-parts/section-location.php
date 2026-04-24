@@ -5,7 +5,7 @@
  * Full-width map section with a floating info card overlay showing
  * address, opening hours, contact details, parking info, and CTAs.
  *
- * @package Denton_Pharmacy
+ * @package Bowland_Pharmacy
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -51,9 +51,9 @@ $pharmacy_image_alt = $pharmacy_image_id
     : esc_attr( bp_pharmacy_name() ) . ' storefront';
 
 // --- Details: Address ---
-$addr_line_1    = bp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
-$addr_line_2    = bp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
-$addr_line_3    = bp_option( 'pharmacy_address_line_3', 'M34 3EX' );
+$addr_line_1    = bp_option( 'pharmacy_address_line_1', '52 Bowland Road' );
+$addr_line_2    = bp_option( 'pharmacy_address_line_2', 'Wythenshawe, Manchester' );
+$addr_line_3    = bp_option( 'pharmacy_address_line_3', 'M23 1JX' );
 $directions_url = $pharmacy_directions;
 
 // --- Details: Opening Hours ---
@@ -64,7 +64,7 @@ $hours_sunday   = bp_option( 'hours_sunday', 'Closed' );
 // --- Details: Contact ---
 $phone      = bp_phone();
 $phone_link = bp_phone_link();
-$email      = bp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
+$email      = bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' );
 
 // --- Details: Parking ---
 $parking = bp_option( 'pharmacy_parking', 'Free customer parking available nearby.' );
@@ -126,7 +126,7 @@ $booking_url = bp_booking_url();
                 </span>
                 <span class="location-pin-label">
                     <span class="location-pin-label-name"><?php echo esc_html( bp_pharmacy_name() ); ?></span>
-                    <span class="location-pin-label-addr"><?php echo esc_html( bp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' ) ); ?></span>
+                    <span class="location-pin-label-addr"><?php echo esc_html( bp_option( 'pharmacy_address_line_1', '52 Bowland Road' ) ); ?></span>
                     <span class="location-pin-label-cta">
                         Get directions
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
