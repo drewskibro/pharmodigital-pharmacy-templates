@@ -91,9 +91,9 @@ function bowland_pharmacy_scripts() {
     // Navigation CSS — three-tier Bowland nav
     wp_enqueue_style(
         'bowland-nav',
-        BOWLAND_PHARMACY_URI . '/assets/css/denton-nav.css',
+        BOWLAND_PHARMACY_URI . '/assets/css/bowland-nav.css',
         array( 'bowland-globals' ),
-        filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/denton-nav.css' )
+        filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/bowland-nav.css' )
     );
 
     // Theme stylesheet (style.css - mostly metadata)
@@ -218,7 +218,7 @@ function bowland_pharmacy_scripts() {
     // Navigation JS — three-tier Bowland nav, loaded on all pages in footer
     wp_enqueue_script(
         'bowland-nav-js',
-        BOWLAND_PHARMACY_URI . '/assets/js/denton-nav.js',
+        BOWLAND_PHARMACY_URI . '/assets/js/bowland-nav.js',
         array(),
         BOWLAND_PHARMACY_VERSION,
         true
