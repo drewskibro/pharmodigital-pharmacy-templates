@@ -192,7 +192,7 @@ $rating_link_text   = bp_field( 'hero_rating_link_text', 'View Reviews' );
                     <?php if ( $hero_image_url ) : ?>
                         <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( $hero_image_alt ); ?>" style="object-position: <?php echo esc_attr( $hero_image_focus ); ?>;" />
                     <?php else : ?>
-                        <img src="<?php echo esc_url( DENTON_PHARMACY_URI . '/assets/images/hero-default.jpg' ); ?>" alt="<?php echo esc_attr( 'Pharmacy services at ' . bp_pharmacy_name() ); ?>" />
+                        <img src="<?php echo esc_url( BOWLAND_PHARMACY_URI . '/assets/images/hero-default.jpg' ); ?>" alt="<?php echo esc_attr( 'Pharmacy services at ' . bp_pharmacy_name() ); ?>" />
                     <?php endif; ?>
                     <div class="hero-overlay"></div>
                 </div>

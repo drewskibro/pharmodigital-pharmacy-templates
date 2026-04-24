@@ -107,7 +107,7 @@ $treatments = array_slice( $treatments, 0, 5 );
                                 'sizes' => '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 240px',
                             ) );
                         else : ?>
-                            <img src="<?php echo esc_url( DENTON_PHARMACY_URI . '/assets/images/treatment-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $img_alt ); ?>" class="treatment-card-image" />
+                            <img src="<?php echo esc_url( BOWLAND_PHARMACY_URI . '/assets/images/treatment-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $img_alt ); ?>" class="treatment-card-image" />
                         <?php endif; ?>
                         <div class="treatment-card-overlay"></div>
                         <div class="treatment-card-label">

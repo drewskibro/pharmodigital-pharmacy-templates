@@ -84,7 +84,7 @@ if ( empty( $author_avatar ) ) {
         <?php if ( $thumbnail_url ) : ?>
             <img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-featured-image" loading="lazy" />
         <?php else : ?>
-            <img src="<?php echo esc_url( DENTON_PHARMACY_URI . '/assets/images/blog-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-featured-image" loading="lazy" />
+            <img src="<?php echo esc_url( BOWLAND_PHARMACY_URI . '/assets/images/blog-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-featured-image" loading="lazy" />
         <?php endif; ?>
     </div>
 </a>
