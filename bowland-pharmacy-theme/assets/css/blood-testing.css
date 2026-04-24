@@ -1,0 +1,1059 @@
+/* ============================================
+   BLOOD TESTING PAGE STYLES — Bowland Pharmacy
+   Uses bloodtest- prefix
+   Pattern A Light hero with pricing trust card
+   ============================================ */
+
+
+/* ============================================
+   O1. HERO — Pattern A Light
+   ============================================ */
+.bloodtest-hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 3rem 0 40px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, var(--brand-light), var(--white));
+}
+
+@media (min-width: 1024px) {
+  .bloodtest-hero-section {
+    padding: 4rem 0;
+    min-height: 85vh;
+  }
+}
+
+.bloodtest-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(63, 115, 174, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bloodtest-hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bloodtest-hero-glow-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: rgba(63, 115, 174, 0.08);
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.bloodtest-hero-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: rgba(121, 188, 46, 0.06);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  animation: float 10s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+.bloodtest-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .bloodtest-hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Left Content */
+.bloodtest-hero-content {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .bloodtest-hero-content {
+    text-align: left;
+  }
+}
+
+.bloodtest-hero-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .bloodtest-hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bloodtest-hero-title {
+    font-size: 4rem;
+  }
+}
+
+.bloodtest-hero-description {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .bloodtest-hero-description {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .bloodtest-hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.bloodtest-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .bloodtest-hero-actions {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1023px) {
+  .bloodtest-hero-actions {
+    justify-content: center;
+  }
+}
+
+.bloodtest-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .bloodtest-hero-trust {
+    justify-content: flex-start;
+  }
+}
+
+.bloodtest-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bloodtest-hero-trust-item i {
+  color: var(--brand-primary);
+  font-size: 1.125rem;
+}
+
+.bloodtest-hero-trust-item span {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-slate);
+}
+
+/* Right Visual — Pricing Trust Card */
+.bloodtest-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bloodtest-trust-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
+  box-shadow: 0 30px 80px rgba(42, 80, 122, 0.3);
+  transform: rotate(-1.5deg);
+  transition: transform 0.5s ease;
+}
+
+.bloodtest-trust-card:hover {
+  transform: rotate(0deg);
+}
+
+.bloodtest-trust-card-glow {
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.bloodtest-trust-card-inner {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2.5rem;
+}
+
+/* Card header — icon + label */
+.bloodtest-trust-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.bloodtest-trust-card-icon {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bloodtest-trust-card-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Price block */
+.bloodtest-trust-card-price {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.bloodtest-trust-card-amount {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bloodtest-trust-card-sub {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Divider */
+.bloodtest-trust-card-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin-bottom: 1.5rem;
+}
+
+/* Trust list */
+.bloodtest-trust-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.bloodtest-trust-card-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bloodtest-trust-card-list li i {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  flex-shrink: 0;
+}
+
+/* Footer — GPhC */
+.bloodtest-trust-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.bloodtest-trust-card-footer i {
+  font-size: 0.875rem;
+}
+
+/* Floating test-count badge */
+.bloodtest-hero-float-badge {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 6rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  border: 1px solid rgba(63, 115, 174, 0.2);
+  animation: float 6s ease-in-out infinite;
+  z-index: 10;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .bloodtest-hero-float-badge {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bloodtest-hero-float-badge {
+    right: 0rem;
+  }
+}
+
+.bloodtest-hero-float-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--brand-primary);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.bloodtest-hero-float-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-slate);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+
+/* ============================================
+   O2. STATS BAR — Glassmorphic white
+   ============================================ */
+.bloodtest-stats-section {
+  position: relative;
+  z-index: 20;
+  margin-top: 0;
+  padding: 2rem 0 2rem;
+  background: transparent;
+}
+
+@media (min-width: 1024px) {
+  .bloodtest-stats-section {
+    margin-top: -2.5rem;
+    padding: 0 0 2rem;
+  }
+}
+
+.bloodtest-stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.5rem;
+  padding: 2rem 3rem;
+  box-shadow: 0 10px 40px rgba(63, 115, 174, 0.08);
+}
+
+.bloodtest-stat-divider {
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(to bottom, transparent, rgba(63, 115, 174, 0.2), transparent);
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .bloodtest-stat-divider {
+    display: block;
+  }
+}
+
+.bloodtest-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bloodtest-stat-icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--brand-primary);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bloodtest-stat-icon i {
+  font-size: 1.125rem;
+  color: var(--white);
+}
+
+.bloodtest-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.bloodtest-stat-number {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.bloodtest-stat-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+
+/* ============================================
+   O3. TESTS GRID — 8-card grid
+   ============================================ */
+.bloodtest-tests-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+}
+
+.bloodtest-tests-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.bloodtest-tests-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.bloodtest-tests-description {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.bloodtest-tests-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .bloodtest-tests-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bloodtest-tests-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.bloodtest-test-card {
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(63, 115, 174, 0.05);
+}
+
+.bloodtest-test-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.12);
+  border-color: var(--brand-primary);
+}
+
+.bloodtest-test-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.15), rgba(42, 80, 122, 0.1));
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--brand-primary);
+  font-size: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.bloodtest-test-card:hover .bloodtest-test-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+}
+
+.bloodtest-test-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.bloodtest-test-desc {
+  font-size: 0.9375rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.bloodtest-test-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 1rem;
+  background: rgba(63, 115, 174, 0.08);
+  color: var(--brand-dark);
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.bloodtest-test-tag i {
+  font-size: 0.75rem;
+}
+
+
+/* ============================================
+   O4. PROCESS — 3-step cards + Eligibility
+   ============================================ */
+.bloodtest-process-section {
+  padding: 6rem 0;
+  background: var(--white);
+}
+
+.bloodtest-process-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.bloodtest-process-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.bloodtest-process-description {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+}
+
+.bloodtest-process-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .bloodtest-process-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.bloodtest-process-card {
+  background: var(--brand-light);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.bloodtest-process-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.1);
+  border-color: var(--brand-primary);
+}
+
+.bloodtest-process-card-number {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 900;
+  line-height: 1;
+  padding-bottom: 0.1em;
+  box-shadow: 0 4px 12px rgba(63, 115, 174, 0.3);
+}
+
+.bloodtest-process-card-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.1), rgba(42, 80, 122, 0.08));
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto 1.5rem;
+  color: var(--brand-primary);
+  font-size: 1.75rem;
+  transition: all 0.4s ease;
+}
+
+.bloodtest-process-card:hover .bloodtest-process-card-icon {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.bloodtest-process-card-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.bloodtest-process-card-desc {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+.bloodtest-process-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.bloodtest-process-card-link:hover {
+  gap: 0.625rem;
+}
+
+.bloodtest-process-card-link i {
+  font-size: 0.75rem;
+}
+
+/* Eligibility Info Box */
+.bloodtest-eligibility-box {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.06), rgba(42, 80, 122, 0.04));
+  border: 1px solid rgba(63, 115, 174, 0.15);
+  border-left: 4px solid var(--brand-primary);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 4rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bloodtest-eligibility-icon {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  background: var(--brand-primary);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.25rem;
+}
+
+.bloodtest-eligibility-content {
+  flex: 1;
+}
+
+.bloodtest-eligibility-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.bloodtest-eligibility-text {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+/* ============================================
+   O5. FAQ — Numbered accordion
+   ============================================ */
+.bloodtest-faq-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.bloodtest-faq-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: rgba(63, 115, 174, 0.04);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.bloodtest-faq-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.bloodtest-faq-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin-top: 0;
+}
+
+.bloodtest-faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+.bloodtest-faq-item {
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.bloodtest-faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(63, 115, 174, 0.08);
+}
+
+.bloodtest-faq-item.active {
+  border-color: var(--brand-primary);
+  border-left: 4px solid var(--brand-primary);
+  box-shadow: 0 8px 24px rgba(63, 115, 174, 0.1);
+}
+
+.bloodtest-faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.bloodtest-faq-number {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--brand-primary);
+  opacity: 0.4;
+}
+
+.bloodtest-faq-item.active .bloodtest-faq-number {
+  opacity: 1;
+}
+
+.bloodtest-faq-text {
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.bloodtest-faq-icon {
+  color: var(--brand-primary);
+  transition: transform 0.3s ease;
+}
+
+.bloodtest-faq-item.active .bloodtest-faq-icon {
+  transform: rotate(45deg);
+}
+
+.bloodtest-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.bloodtest-faq-item.active .bloodtest-faq-answer {
+  max-height: 300px;
+  padding: 0 1.5rem 1.5rem 4rem;
+}
+
+.bloodtest-faq-answer p {
+  color: var(--text-gray);
+  line-height: 1.7;
+}
+
+
+/* ============================================
+   O6. FINAL CTA — Deep blue gradient
+   ============================================ */
+.bloodtest-cta-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary)) !important;
+  padding: 6rem 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.bloodtest-cta-glow-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.bloodtest-cta-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.bloodtest-cta-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.bloodtest-cta-content {
+  position: relative;
+  z-index: 10;
+}
+
+.bloodtest-cta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.bloodtest-cta-badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bloodtest-cta-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.bloodtest-cta-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.bloodtest-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.bloodtest-cta-button-white {
+  background: var(--white) !important;
+  color: var(--brand-dark) !important;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+}
+
+.bloodtest-cta-button-white:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  transform: scale(1.05);
+}
+
+.bloodtest-cta-button-outline {
+  background: transparent !important;
+  color: var(--white) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+}
+
+.bloodtest-cta-button-outline:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transform: scale(1.05);
+}
+
+.bloodtest-cta-trust-checks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.bloodtest-cta-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.bloodtest-cta-check i {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+.bloodtest-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.bloodtest-reveal.bloodtest-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
