@@ -3,14 +3,6 @@
    Uses hairloss- prefix
    ============================================ */
 
-/* Scoped purple variables for accent sections */
-.hairloss-stats-section,
-.hairloss-cta-section {
-  --brand-purple: #a39ee3;
-  --brand-purple-deep: #8b85d6;
-  --brand-accent: #6d68b5;
-}
-
 /* ============================================
    HERO SECTION
    ============================================ */
@@ -260,7 +252,7 @@
    ============================================ */
 .hairloss-stats-section {
   position: relative;
-  background: linear-gradient(135deg, #a39ee3, #8b85d6, #2a507a);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   padding: 2rem 0;
   overflow: hidden;
 }
@@ -1038,7 +1030,7 @@
    FINAL CTA SECTION
    ============================================ */
 .hairloss-cta-section {
-  background: linear-gradient(135deg, #a39ee3, #8b85d6, #2a507a);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   padding: 4rem 0;
   text-align: center;
 }
