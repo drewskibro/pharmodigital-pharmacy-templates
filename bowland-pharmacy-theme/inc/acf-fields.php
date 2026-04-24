@@ -165,7 +165,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Pharmacy Town (short)',
                 'name'          => 'pharmacy_town',
                 'type'          => 'text',
-                'default_value' => 'Denton',
+                'default_value' => 'Wythenshawe',
                 'instructions'  => 'Used in trust badges and location references.',
             ),
             array(
@@ -356,7 +356,7 @@ function bp_register_acf_field_groups() {
                         'label'        => '2. Name (editable)',
                         'name'         => 'label',
                         'type'         => 'text',
-                        'placeholder'  => 'e.g. Ashton Road Car Park',
+                        'placeholder'  => 'e.g. Bowland Road Car Park',
                         'instructions' => 'Auto-filled from the Google Maps link. Edit freely — whatever you type here is what shows in the popup.',
                     ),
                     array(
@@ -905,7 +905,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'hero_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Expert pharmacy services from your local Denton team. Clinically-led weight loss, travel vaccinations, and NHS care — with free delivery across Manchester.',
+                'default_value' => 'Expert pharmacy services from your local Bowland team. Clinically-led weight loss, travel vaccinations, and NHS care — with free delivery across Manchester.',
             ),
             array(
                 'key'          => 'field_bp_hero_cta_primary',
@@ -1362,7 +1362,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Bottom CTA — Visit Button Text',
                 'name'          => 'nhs_bottom_cta_text',
                 'type'          => 'text',
-                'default_value' => 'Visit Us in Denton',
+                'default_value' => 'Visit Us in Wythenshawe',
             ),
             array(
                 'key'          => 'field_bp_nhs_cta_chips',
@@ -1581,7 +1581,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'pharmacist_bio',
                 'type'          => 'textarea',
                 'rows'          => 4,
-                'default_value' => 'With over 15 years of experience, Ahmed leads our clinical team providing personalised, accessible healthcare in Denton. As an Independent Prescriber, he ensures you receive safe, effective treatments without the wait.',
+                'default_value' => 'With over 15 years of experience, Ahmed leads our clinical team providing personalised, accessible healthcare in Wythenshawe. As an Independent Prescriber, he ensures you receive safe, effective treatments without the wait.',
             ),
             array(
                 'key'           => 'field_bp_pharmacist_quote',
@@ -1907,7 +1907,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'switching_feature_2_desc',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => 'Speak with Ahmed and our Denton team directly. No chatbots, no call centres — just real, qualified healthcare professionals.',
+                'default_value' => 'Speak with Ahmed and our Bowland team directly. No chatbots, no call centres — just real, qualified healthcare professionals.',
             ),
             // Feature 3
             array(
@@ -2427,7 +2427,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'testimonials_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'See how our patients across Denton have transformed their health with our personalised care.',
+                'default_value' => 'See how our patients across Wythenshawe have transformed their health with our personalised care.',
             ),
             // Disclaimer
             array(
@@ -2467,7 +2467,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'CTA Card Title',
                 'name'          => 'testimonials_cta_title',
                 'type'          => 'text',
-                'default_value' => 'Trusted by 10,000+ Denton Customers',
+                'default_value' => 'Trusted by 10,000+ Bowland Customers',
             ),
             // CTA text
             array(
@@ -2940,12 +2940,12 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_wl_hero_title_line_1', 'label' => 'Title Line 1 (gradient)', 'name' => 'wl_hero_title_line_1', 'type' => 'text', 'default_value' => 'Lose Weight.' ),
             array( 'key' => 'field_bp_wl_hero_title_line_2', 'label' => 'Title Line 2 (accent)', 'name' => 'wl_hero_title_line_2', 'type' => 'text', 'default_value' => 'Feel Amazing.' ),
             array( 'key' => 'field_bp_wl_hero_title_line_3', 'label' => 'Title Line 3 (gradient)', 'name' => 'wl_hero_title_line_3', 'type' => 'text', 'default_value' => 'Start Today.' ),
-            array( 'key' => 'field_bp_wl_hero_description', 'label' => 'Description', 'name' => 'wl_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Prescription Mounjaro and Wegovy (GLP-1 treatments) with expert guidance and face-to-face support right here in Denton. No remote consultations — real care from someone who knows your name.' ),
+            array( 'key' => 'field_bp_wl_hero_description', 'label' => 'Description', 'name' => 'wl_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Prescription Mounjaro and Wegovy (GLP-1 treatments) with expert guidance and face-to-face support right here in Wythenshawe. No remote consultations — real care from someone who knows your name.' ),
             array( 'key' => 'field_bp_wl_hero_cta_text', 'label' => 'Primary CTA Text', 'name' => 'wl_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
             array( 'key' => 'field_bp_wl_hero_cta_url', 'label' => 'Primary CTA URL', 'name' => 'wl_hero_cta_url', 'type' => 'text', 'default_value' => '', 'instructions' => 'URL or anchor like #calculator. Leave blank for booking page.' ),
             array( 'key' => 'field_bp_wl_hero_testimonial_quote', 'label' => 'Testimonial Quote', 'name' => 'wl_hero_testimonial_quote', 'type' => 'textarea', 'rows' => 2, 'default_value' => '"Ahmed really takes the time to understand your goals. I\'ve lost 3 stone in 6 months and feel like a different person."' ),
-            array( 'key' => 'field_bp_wl_hero_testimonial_name', 'label' => 'Testimonial Author', 'name' => 'wl_hero_testimonial_name', 'type' => 'text', 'default_value' => 'Denton Patient' ),
-            array( 'key' => 'field_bp_wl_hero_testimonial_location', 'label' => 'Testimonial Location', 'name' => 'wl_hero_testimonial_location', 'type' => 'text', 'default_value' => 'Denton' ),
+            array( 'key' => 'field_bp_wl_hero_testimonial_name', 'label' => 'Testimonial Author', 'name' => 'wl_hero_testimonial_name', 'type' => 'text', 'default_value' => 'Bowland Patient' ),
+            array( 'key' => 'field_bp_wl_hero_testimonial_location', 'label' => 'Testimonial Location', 'name' => 'wl_hero_testimonial_location', 'type' => 'text', 'default_value' => 'Wythenshawe' ),
             array( 'key' => 'field_bp_wl_hero_result_badge', 'label' => 'Result Badge Text', 'name' => 'wl_hero_result_badge', 'type' => 'text', 'default_value' => 'Real Results' ),
             array(
                 'key'           => 'field_bp_wl_hero_image_1',
@@ -3019,7 +3019,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_wl_social_number', 'label' => 'Stat Number', 'name' => 'wl_social_number', 'type' => 'text', 'default_value' => '4.7' ),
             array( 'key' => 'field_bp_wl_social_label', 'label' => 'Stat Label', 'name' => 'wl_social_label', 'type' => 'text', 'default_value' => 'Google Rating' ),
             array( 'key' => 'field_bp_wl_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'wl_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY DENTON' ),
-            array( 'key' => 'field_bp_wl_social_headline', 'label' => 'Headline', 'name' => 'wl_social_headline', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join hundreds of Denton patients who\'ve already made the switch' ),
+            array( 'key' => 'field_bp_wl_social_headline', 'label' => 'Headline', 'name' => 'wl_social_headline', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join hundreds of Wythenshawe patients who\'ve already made the switch' ),
             array( 'key' => 'field_bp_wl_social_subtext', 'label' => 'Subtext', 'name' => 'wl_social_subtext', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Real people, real results. Our patients lose an average of 10-15% body weight in 12 months with Mounjaro and Wegovy treatment.' ),
         ),
         'location'              => $wl_location,
@@ -3039,8 +3039,8 @@ function bp_register_acf_field_groups() {
         'title'    => 'Weight Loss — Results Section',
         'fields'   => array(
             array( 'key' => 'field_bp_wl_results_badge', 'label' => 'Badge Text', 'name' => 'wl_results_badge', 'type' => 'text', 'default_value' => 'REAL RESULTS' ),
-            array( 'key' => 'field_bp_wl_results_title', 'label' => 'Title', 'name' => 'wl_results_title', 'type' => 'text', 'default_value' => 'Real Mounjaro & Wegovy results in Denton' ),
-            array( 'key' => 'field_bp_wl_results_description', 'label' => 'Description', 'name' => 'wl_results_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Denton patients using Mounjaro or Wegovy lose an average of 10-15% of their body weight in 12 months with our personalised programmes.' ),
+            array( 'key' => 'field_bp_wl_results_title', 'label' => 'Title', 'name' => 'wl_results_title', 'type' => 'text', 'default_value' => 'Real Mounjaro & Wegovy results in Wythenshawe' ),
+            array( 'key' => 'field_bp_wl_results_description', 'label' => 'Description', 'name' => 'wl_results_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Wythenshawe patients using Mounjaro or Wegovy lose an average of 10-15% of their body weight in 12 months with our personalised programmes.' ),
             array( 'key' => 'field_bp_wl_results_card1_number', 'label' => 'Card 1 — Number', 'name' => 'wl_results_card1_number', 'type' => 'text', 'default_value' => '4.7/5' ),
             array( 'key' => 'field_bp_wl_results_card1_label', 'label' => 'Card 1 — Label', 'name' => 'wl_results_card1_label', 'type' => 'text', 'default_value' => 'Patient satisfaction' ),
             array( 'key' => 'field_bp_wl_results_card1_sublabel', 'label' => 'Card 1 — Sublabel', 'name' => 'wl_results_card1_sublabel', 'type' => 'text', 'default_value' => 'Based on verified reviews' ),
@@ -3049,7 +3049,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_wl_results_featured_label', 'label' => 'Featured Card — Label', 'name' => 'wl_results_featured_label', 'type' => 'text', 'default_value' => 'Average weight loss' ),
             array( 'key' => 'field_bp_wl_results_featured_sublabel', 'label' => 'Featured Card — Sublabel', 'name' => 'wl_results_featured_sublabel', 'type' => 'text', 'default_value' => 'In 12 months' ),
             array( 'key' => 'field_bp_wl_results_card3_number', 'label' => 'Card 3 — Number', 'name' => 'wl_results_card3_number', 'type' => 'text', 'default_value' => '300+' ),
-            array( 'key' => 'field_bp_wl_results_card3_label', 'label' => 'Card 3 — Label', 'name' => 'wl_results_card3_label', 'type' => 'text', 'default_value' => 'Denton residents' ),
+            array( 'key' => 'field_bp_wl_results_card3_label', 'label' => 'Card 3 — Label', 'name' => 'wl_results_card3_label', 'type' => 'text', 'default_value' => 'Wythenshawe residents' ),
             array( 'key' => 'field_bp_wl_results_card3_sublabel', 'label' => 'Card 3 — Sublabel', 'name' => 'wl_results_card3_sublabel', 'type' => 'text', 'default_value' => 'Successfully helped' ),
             array( 'key' => 'field_bp_wl_results_disclaimer', 'label' => 'Disclaimer', 'name' => 'wl_results_disclaimer', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Results vary by individual. Weight loss depends on adherence to treatment, lifestyle changes, and individual metabolism.' ),
         ),
@@ -3235,12 +3235,12 @@ function bp_register_acf_field_groups() {
         'title'    => 'Weight Loss — Testimonials Section',
         'fields'   => array(
             array( 'key' => 'field_bp_wl_testimonials_badge', 'label' => 'Badge Text', 'name' => 'wl_testimonials_badge', 'type' => 'text', 'default_value' => 'SUCCESS STORIES' ),
-            array( 'key' => 'field_bp_wl_testimonials_title', 'label' => 'Title', 'name' => 'wl_testimonials_title', 'type' => 'text', 'default_value' => 'Real Denton success stories' ),
+            array( 'key' => 'field_bp_wl_testimonials_title', 'label' => 'Title', 'name' => 'wl_testimonials_title', 'type' => 'text', 'default_value' => 'Real Wythenshawe success stories' ),
             array( 'key' => 'field_bp_wl_testimonials_title_start', 'label' => 'Title Start (split)', 'name' => 'wl_testimonials_title_start', 'type' => 'text', 'default_value' => 'Real Results.' ),
             array( 'key' => 'field_bp_wl_testimonials_title_highlight', 'label' => 'Title Highlight (split)', 'name' => 'wl_testimonials_title_highlight', 'type' => 'text', 'default_value' => 'Lasting Health.' ),
             array( 'key' => 'field_bp_wl_testimonials_description', 'label' => 'Description', 'name' => 'wl_testimonials_description', 'type' => 'text', 'default_value' => 'See how our patients have transformed their lives with medical weight loss' ),
             array( 'key' => 'field_bp_wl_testimonials_disclaimer', 'label' => 'Disclaimer', 'name' => 'wl_testimonials_disclaimer', 'type' => 'text', 'default_value' => 'The results below are from real Bowland Pharmacy patients. Individual results may vary.' ),
-            array( 'key' => 'field_bp_wl_testimonials_cta_title', 'label' => 'CTA Card Title', 'name' => 'wl_testimonials_cta_title', 'type' => 'text', 'default_value' => 'Trusted by 5,000+ Denton Patients' ),
+            array( 'key' => 'field_bp_wl_testimonials_cta_title', 'label' => 'CTA Card Title', 'name' => 'wl_testimonials_cta_title', 'type' => 'text', 'default_value' => 'Trusted by 5,000+ Bowland Patients' ),
             array( 'key' => 'field_bp_wl_testimonials_cta_text', 'label' => 'CTA Card Text', 'name' => 'wl_testimonials_cta_text', 'type' => 'text', 'default_value' => 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ),
             array( 'key' => 'field_bp_wl_testimonials_cta_rating_label', 'label' => 'CTA Rating Label', 'name' => 'wl_testimonials_cta_rating_label', 'type' => 'text', 'default_value' => 'Google Rating' ),
             array( 'key' => 'field_bp_wl_testimonials_verified_label', 'label' => 'Verified Label (full)', 'name' => 'wl_testimonials_verified_label', 'type' => 'text', 'default_value' => 'Verified Patient' ),
@@ -3280,7 +3280,7 @@ function bp_register_acf_field_groups() {
         'title'    => 'Weight Loss — Final CTA Section',
         'fields'   => array(
             array( 'key' => 'field_bp_wl_final_cta_title', 'label' => 'Title', 'name' => 'wl_final_cta_title', 'type' => 'text', 'default_value' => 'Ready to start your weight loss journey?' ),
-            array( 'key' => 'field_bp_wl_final_cta_description', 'label' => 'Description', 'name' => 'wl_final_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join 500+ Denton residents who\'ve transformed their lives with medical weight loss. Book your consultation with Ahmed today.' ),
+            array( 'key' => 'field_bp_wl_final_cta_description', 'label' => 'Description', 'name' => 'wl_final_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join 500+ Wythenshawe residents who\'ve transformed their lives with medical weight loss. Book your consultation with Ahmed today.' ),
             array( 'key' => 'field_bp_wl_final_cta_button_text', 'label' => 'Primary Button Text', 'name' => 'wl_final_cta_button_text', 'type' => 'text', 'default_value' => 'Book Your Consultation' ),
             array(
                 'key'          => 'field_bp_wl_final_cta_badges',
@@ -3343,10 +3343,10 @@ function bp_register_acf_field_groups() {
         'title'    => 'Travel Health — Hero Section',
         'fields'   => array(
             array( 'key' => 'field_bp_th_hero_badge', 'label' => 'Badge Text', 'name' => 'th_hero_badge', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH SERVICES' ),
-            array( 'key' => 'field_bp_th_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'th_hero_title_line1', 'type' => 'text', 'default_value' => 'Denton\'s Leading' ),
+            array( 'key' => 'field_bp_th_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'th_hero_title_line1', 'type' => 'text', 'default_value' => 'Wythenshawe\'s Leading' ),
             array( 'key' => 'field_bp_th_hero_title_line2', 'label' => 'Title Line 2 (accent)', 'name' => 'th_hero_title_line2', 'type' => 'text', 'default_value' => 'Travel Clinic' ),
             array( 'key' => 'field_bp_th_hero_title_line3', 'label' => 'Title Line 3 (italic)', 'name' => 'th_hero_title_line3', 'type' => 'text', 'default_value' => 'Fly Happy.', 'instructions' => 'Third headline line in italic style. Leave blank to hide.' ),
-            array( 'key' => 'field_bp_th_hero_description', 'label' => 'Description', 'name' => 'th_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Expert travel vaccinations and health advice for your next adventure. Book your appointment at our Denton travel clinic with Ahmed.' ),
+            array( 'key' => 'field_bp_th_hero_description', 'label' => 'Description', 'name' => 'th_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Expert travel vaccinations and health advice for your next adventure. Book your appointment at our Wythenshawe travel clinic with Ahmed.' ),
             array( 'key' => 'field_bp_th_hero_cta_text', 'label' => 'Primary CTA Text', 'name' => 'th_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Appointment' ),
             array( 'key' => 'field_bp_th_hero_cta_url', 'label' => 'Primary CTA URL', 'name' => 'th_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page.' ),
             array(
@@ -3367,7 +3367,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_th_hero_float_badge_label', 'label' => 'Floating Badge — Label', 'name' => 'th_hero_float_badge_label', 'type' => 'text', 'default_value' => 'OFFICIAL', 'instructions' => 'Small uppercase label on the floating image badge.' ),
             array( 'key' => 'field_bp_th_hero_float_badge_text', 'label' => 'Floating Badge — Text', 'name' => 'th_hero_float_badge_text', 'type' => 'text', 'default_value' => 'Yellow Fever Centre' ),
             array( 'key' => 'field_bp_th_hero_testimonial_quote', 'label' => 'Hero Testimonial — Quote', 'name' => 'th_hero_testimonial_quote', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Ahmed was brilliant — explained everything clearly and made the whole family feel at ease before our trip to Kenya.' ),
-            array( 'key' => 'field_bp_th_hero_testimonial_author', 'label' => 'Hero Testimonial — Author', 'name' => 'th_hero_testimonial_author', 'type' => 'text', 'default_value' => 'Denton Patient' ),
+            array( 'key' => 'field_bp_th_hero_testimonial_author', 'label' => 'Hero Testimonial — Author', 'name' => 'th_hero_testimonial_author', 'type' => 'text', 'default_value' => 'Bowland Patient' ),
             array( 'key' => 'field_bp_th_hero_testimonial_dest', 'label' => 'Hero Testimonial — Destination', 'name' => 'th_hero_testimonial_destination', 'type' => 'text', 'default_value' => 'Kenya', 'instructions' => 'Destination badge (e.g. Kenya, Thailand). Leave blank to hide.' ),
         ),
         'location'              => $th_location,
@@ -3507,7 +3507,7 @@ function bp_register_acf_field_groups() {
         'fields'   => array(
             array( 'key' => 'field_bp_th_why_badge', 'label' => 'Badge Text', 'name' => 'th_why_badge', 'type' => 'text', 'default_value' => 'WHY CHOOSE US' ),
             array( 'key' => 'field_bp_th_why_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'th_why_title_highlight', 'type' => 'text', 'default_value' => 'Why choose our' ),
-            array( 'key' => 'field_bp_th_why_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_why_title_rest', 'type' => 'text', 'default_value' => 'Denton travel clinic?' ),
+            array( 'key' => 'field_bp_th_why_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_why_title_rest', 'type' => 'text', 'default_value' => 'Wythenshawe travel clinic?' ),
             array(
                 'key'           => 'field_bp_th_why_image',
                 'label'         => 'Pharmacist Image',
@@ -3554,7 +3554,7 @@ function bp_register_acf_field_groups() {
         'fields'   => array(
             array( 'key' => 'field_bp_th_process_badge', 'label' => 'Badge Text', 'name' => 'th_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
             array( 'key' => 'field_bp_th_process_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'th_process_title_highlight', 'type' => 'text', 'default_value' => 'Your travel clinic' ),
-            array( 'key' => 'field_bp_th_process_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_process_title_rest', 'type' => 'text', 'default_value' => 'Denton journey' ),
+            array( 'key' => 'field_bp_th_process_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_process_title_rest', 'type' => 'text', 'default_value' => 'Wythenshawe journey' ),
             array(
                 'key'          => 'field_bp_th_process_steps',
                 'label'        => 'Process Steps',
@@ -3828,8 +3828,8 @@ function bp_register_acf_field_groups() {
         'title'    => 'Ear Wax — Team Section',
         'fields'   => array(
             array( 'key' => 'field_bp_ew_team_badge', 'label' => 'Badge Text', 'name' => 'ew_team_badge', 'type' => 'text', 'default_value' => 'OUR TEAM' ),
-            array( 'key' => 'field_bp_ew_team_title', 'label' => 'Title', 'name' => 'ew_team_title', 'type' => 'text', 'default_value' => 'Meet Your Denton Ear Care Specialists' ),
-            array( 'key' => 'field_bp_ew_team_description', 'label' => 'Description', 'name' => 'ew_team_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'As Denton\'s dedicated ear care practice, we\'ve helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and parking nearby.' ),
+            array( 'key' => 'field_bp_ew_team_title', 'label' => 'Title', 'name' => 'ew_team_title', 'type' => 'text', 'default_value' => 'Meet Your Wythenshawe Ear Care Specialists' ),
+            array( 'key' => 'field_bp_ew_team_description', 'label' => 'Description', 'name' => 'ew_team_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'As Wythenshawe\'s dedicated ear care practice, we\'ve helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and parking nearby.' ),
             array(
                 'key'          => 'field_bp_ew_team_members',
                 'label'        => 'Team Members',
@@ -3892,7 +3892,7 @@ function bp_register_acf_field_groups() {
         'fields'   => array(
             array( 'key' => 'field_bp_ew_compare_badge', 'label' => 'Badge Text', 'name' => 'ew_compare_badge', 'type' => 'text', 'default_value' => 'TREATMENT COMPARISON' ),
             array( 'key' => 'field_bp_ew_compare_title', 'label' => 'Title', 'name' => 'ew_compare_title', 'type' => 'text', 'default_value' => 'How Our Treatment Compares' ),
-            array( 'key' => 'field_bp_ew_compare_description', 'label' => 'Description', 'name' => 'ew_compare_description', 'type' => 'text', 'default_value' => 'See why microsuction is the gold standard for ear wax removal in Denton' ),
+            array( 'key' => 'field_bp_ew_compare_description', 'label' => 'Description', 'name' => 'ew_compare_description', 'type' => 'text', 'default_value' => 'See why microsuction is the gold standard for ear wax removal in Wythenshawe' ),
             array( 'key' => 'field_bp_ew_compare_col_1_heading', 'label' => 'Column 1 Heading (Highlighted)', 'name' => 'ew_compare_col_1_heading', 'type' => 'text', 'default_value' => 'Bowland Pharmacy' ),
             array( 'key' => 'field_bp_ew_compare_col_2_heading', 'label' => 'Column 2 Heading', 'name' => 'ew_compare_col_2_heading', 'type' => 'text', 'default_value' => 'Traditional Syringing' ),
             array( 'key' => 'field_bp_ew_compare_col_3_heading', 'label' => 'Column 3 Heading', 'name' => 'ew_compare_col_3_heading', 'type' => 'text', 'default_value' => 'At-Home Remedies' ),
@@ -4013,7 +4013,7 @@ function bp_register_acf_field_groups() {
         'title'    => 'Ear Wax — Testimonials Section',
         'fields'   => array(
             array( 'key' => 'field_bp_ew_testimonials_badge', 'label' => 'Badge Text', 'name' => 'ew_testimonials_badge', 'type' => 'text', 'default_value' => 'PATIENT TESTIMONIALS' ),
-            array( 'key' => 'field_bp_ew_testimonials_title', 'label' => 'Title', 'name' => 'ew_testimonials_title', 'type' => 'text', 'default_value' => 'Hear What Our Denton Patients Say' ),
+            array( 'key' => 'field_bp_ew_testimonials_title', 'label' => 'Title', 'name' => 'ew_testimonials_title', 'type' => 'text', 'default_value' => 'Hear What Our Bowland Patients Say' ),
             array(
                 'key'          => 'field_bp_ew_testimonials',
                 'label'        => 'Testimonials',
@@ -4045,7 +4045,7 @@ function bp_register_acf_field_groups() {
         'title'    => 'Ear Wax — FAQ Section',
         'fields'   => array(
             array( 'key' => 'field_bp_ew_faq_badge', 'label' => 'Badge Text', 'name' => 'ew_faq_badge', 'type' => 'text', 'default_value' => 'FREQUENTLY ASKED QUESTIONS' ),
-            array( 'key' => 'field_bp_ew_faq_title', 'label' => 'Title', 'name' => 'ew_faq_title', 'type' => 'text', 'default_value' => 'Frequently Asked Questions — Ear Wax Removal Denton' ),
+            array( 'key' => 'field_bp_ew_faq_title', 'label' => 'Title', 'name' => 'ew_faq_title', 'type' => 'text', 'default_value' => 'Frequently Asked Questions — Ear Wax Removal Wythenshawe' ),
             array(
                 'key'          => 'field_bp_ew_faqs',
                 'label'        => 'FAQs',
@@ -4080,7 +4080,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_ew_cta_badge_2', 'label' => 'Badge 2', 'name' => 'ew_cta_badge_2', 'type' => 'text', 'default_value' => 'Same-day available' ),
             array( 'key' => 'field_bp_ew_cta_badge_3', 'label' => 'Badge 3', 'name' => 'ew_cta_badge_3', 'type' => 'text', 'default_value' => 'Free 7-day follow-up' ),
             array( 'key' => 'field_bp_ew_cta_title', 'label' => 'Title', 'name' => 'ew_cta_title', 'type' => 'text', 'default_value' => 'Ready to hear clearly again?' ),
-            array( 'key' => 'field_bp_ew_cta_description', 'label' => 'Description', 'name' => 'ew_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your ear wax removal appointment at our Denton clinic today. Expert microsuction treatment with guaranteed results.' ),
+            array( 'key' => 'field_bp_ew_cta_description', 'label' => 'Description', 'name' => 'ew_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your ear wax removal appointment at our Wythenshawe clinic today. Expert microsuction treatment with guaranteed results.' ),
             array( 'key' => 'field_bp_ew_cta_primary_url', 'label' => 'CTA URL', 'name' => 'ew_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page.' ),
             array( 'key' => 'field_bp_ew_cta_button_text', 'label' => 'Button Text', 'name' => 'ew_cta_button_text', 'type' => 'text', 'default_value' => 'Book Appointment Online' ),
             array( 'key' => 'field_bp_ew_cta_check_1', 'label' => 'Trust Check 1', 'name' => 'ew_cta_check_1', 'type' => 'text', 'default_value' => 'No referral needed' ),
@@ -4120,7 +4120,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_hairloss_hero_badge', 'label' => 'Badge Text', 'name' => 'hl_hero_badge', 'type' => 'text', 'default_value' => 'HAIR LOSS TREATMENT' ),
             array( 'key' => 'field_bp_hairloss_hero_title_line1', 'label' => 'Title — First Line', 'name' => 'hl_hero_title_line1', 'type' => 'text', 'default_value' => 'Regrow Your Confidence with' ),
             array( 'key' => 'field_bp_hairloss_hero_title_highlight', 'label' => 'Title — Highlighted', 'name' => 'hl_hero_title_highlight', 'type' => 'text', 'default_value' => 'Expert Hair Loss Treatment', 'instructions' => 'Displayed in gradient text.' ),
-            array( 'key' => 'field_bp_hairloss_hero_description', 'label' => 'Description', 'name' => 'hl_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Clinically proven treatments including Finasteride and Minoxidil. Face-to-face consultations with our GPhC-registered pharmacist in Denton.' ),
+            array( 'key' => 'field_bp_hairloss_hero_description', 'label' => 'Description', 'name' => 'hl_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Clinically proven treatments including Finasteride and Minoxidil. Face-to-face consultations with our GPhC-registered pharmacist in Wythenshawe.' ),
             array( 'key' => 'field_bp_hairloss_feature_1', 'label' => 'Feature 1', 'name' => 'hl_feature_1', 'type' => 'text', 'default_value' => 'Prescription treatments (Finasteride)' ),
             array( 'key' => 'field_bp_hairloss_feature_2', 'label' => 'Feature 2', 'name' => 'hl_feature_2', 'type' => 'text', 'default_value' => 'Over-the-counter solutions (Minoxidil)' ),
             array( 'key' => 'field_bp_hairloss_feature_3', 'label' => 'Feature 3', 'name' => 'hl_feature_3', 'type' => 'text', 'default_value' => 'Personalised treatment plans' ),
@@ -4254,8 +4254,8 @@ function bp_register_acf_field_groups() {
         'title'    => 'Hair Loss — Team / Expertise',
         'fields'   => array(
             array( 'key' => 'field_bp_hairloss_team_badge', 'label' => 'Badge Text', 'name' => 'hl_team_badge', 'type' => 'text', 'default_value' => 'YOUR SPECIALISTS' ),
-            array( 'key' => 'field_bp_hairloss_team_title', 'label' => 'Title', 'name' => 'hl_team_title', 'type' => 'text', 'default_value' => 'Meet Your Denton Hair Loss Experts' ),
-            array( 'key' => 'field_bp_hairloss_team_description', 'label' => 'Description', 'name' => 'hl_team_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Our experienced pharmacists provide personalised hair loss consultations with discretion and care. Get expert advice and ongoing support at your local Denton pharmacy.' ),
+            array( 'key' => 'field_bp_hairloss_team_title', 'label' => 'Title', 'name' => 'hl_team_title', 'type' => 'text', 'default_value' => 'Meet Your Wythenshawe Hair Loss Experts' ),
+            array( 'key' => 'field_bp_hairloss_team_description', 'label' => 'Description', 'name' => 'hl_team_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Our experienced pharmacists provide personalised hair loss consultations with discretion and care. Get expert advice and ongoing support at your local Bowland pharmacy.' ),
             array(
                 'key'          => 'field_bp_hairloss_team_members',
                 'label'        => 'Team Members',
@@ -4386,7 +4386,7 @@ function bp_register_acf_field_groups() {
         'title'    => 'Hair Loss — Testimonials Section',
         'fields'   => array(
             array( 'key' => 'field_bp_hairloss_testimonials_badge', 'label' => 'Badge Text', 'name' => 'hl_testimonials_badge', 'type' => 'text', 'default_value' => 'PATIENT STORIES' ),
-            array( 'key' => 'field_bp_hairloss_testimonials_title', 'label' => 'Title', 'name' => 'hl_testimonials_title', 'type' => 'text', 'default_value' => 'Hear From Our Denton Patients' ),
+            array( 'key' => 'field_bp_hairloss_testimonials_title', 'label' => 'Title', 'name' => 'hl_testimonials_title', 'type' => 'text', 'default_value' => 'Hear From Our Bowland Patients' ),
             array(
                 'key'          => 'field_bp_hairloss_testimonials',
                 'label'        => 'Testimonials',
@@ -4418,7 +4418,7 @@ function bp_register_acf_field_groups() {
         'title'    => 'Hair Loss — Final CTA Section',
         'fields'   => array(
             array( 'key' => 'field_bp_hairloss_cta_title', 'label' => 'Title', 'name' => 'hl_cta_title', 'type' => 'text', 'default_value' => 'Ready to Start Your Hair Regrowth Journey?' ),
-            array( 'key' => 'field_bp_hairloss_cta_description', 'label' => 'Description', 'name' => 'hl_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book a confidential consultation with our GPhC-registered pharmacist in Denton' ),
+            array( 'key' => 'field_bp_hairloss_cta_description', 'label' => 'Description', 'name' => 'hl_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book a confidential consultation with our GPhC-registered pharmacist in Wythenshawe' ),
             array( 'key' => 'field_bp_hairloss_cta_button_text', 'label' => 'Button Text', 'name' => 'hl_cta_button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
             array( 'key' => 'field_bp_hairloss_cta_url', 'label' => 'CTA URL', 'name' => 'hl_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page.' ),
         ),
@@ -4518,7 +4518,7 @@ function bp_register_acf_field_groups() {
                 'rows'          => 3,
                 'default_value' => '"Ahmed genuinely cares about your progress. The face-to-face support makes all the difference."',
             ),
-            array( 'key' => 'field_bp_switch_hero_testimonial_name', 'label' => 'Testimonial Author', 'name' => 'sp_hero_testimonial_name', 'type' => 'text', 'default_value' => 'Denton Patient' ),
+            array( 'key' => 'field_bp_switch_hero_testimonial_name', 'label' => 'Testimonial Author', 'name' => 'sp_hero_testimonial_name', 'type' => 'text', 'default_value' => 'Bowland Patient' ),
             array( 'key' => 'field_bp_switch_hero_testimonial_result', 'label' => 'Testimonial Result Badge', 'name' => 'sp_hero_testimonial_result', 'type' => 'text', 'default_value' => '3 Stone Lost' ),
         ),
         'location'              => $sp_location,
@@ -4551,7 +4551,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_switch_stat_3_label', 'label' => 'Stat 3 Label', 'name' => 'sp_stat_3_label', 'type' => 'text', 'default_value' => 'Google Rating' ),
             // Stat 4
             array( 'key' => 'field_bp_switch_stat_4_icon', 'label' => 'Stat 4 Icon', 'name' => 'sp_stat_4_icon', 'type' => 'text', 'default_value' => 'fa-location-dot' ),
-            array( 'key' => 'field_bp_switch_stat_4_number', 'label' => 'Stat 4 Number', 'name' => 'sp_stat_4_number', 'type' => 'text', 'default_value' => 'Denton' ),
+            array( 'key' => 'field_bp_switch_stat_4_number', 'label' => 'Stat 4 Number', 'name' => 'sp_stat_4_number', 'type' => 'text', 'default_value' => 'Wythenshawe' ),
             array( 'key' => 'field_bp_switch_stat_4_label', 'label' => 'Stat 4 Label', 'name' => 'sp_stat_4_label', 'type' => 'text', 'default_value' => 'Based Care' ),
         ),
         'location'              => $sp_location,
@@ -4663,7 +4663,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_switch_evidence_badge', 'label' => 'Badge Text', 'name' => 'sp_evidence_badge', 'type' => 'text', 'default_value' => 'PROVEN RESULTS' ),
             array( 'key' => 'field_bp_switch_evidence_title_line1', 'label' => 'Title Line 1 (gradient)', 'name' => 'sp_evidence_title_line1', 'type' => 'text', 'default_value' => 'Real data.' ),
             array( 'key' => 'field_bp_switch_evidence_title_line2', 'label' => 'Title Line 2 (accent)', 'name' => 'sp_evidence_title_line2', 'type' => 'text', 'default_value' => 'Real results.' ),
-            array( 'key' => 'field_bp_switch_evidence_subtitle', 'label' => 'Subtitle', 'name' => 'sp_evidence_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Evidence-based care with measurable outcomes from hundreds of Denton patients' ),
+            array( 'key' => 'field_bp_switch_evidence_subtitle', 'label' => 'Subtitle', 'name' => 'sp_evidence_subtitle', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Evidence-based care with measurable outcomes from hundreds of Wythenshawe patients' ),
             array(
                 'key'           => 'field_bp_switch_evidence_cards',
                 'label'         => 'Evidence Cards',
@@ -4859,7 +4859,7 @@ function bp_register_acf_field_groups() {
         'fields'   => array(
             array( 'key' => 'field_bp_book_hero_badge', 'label' => 'Badge Text', 'name' => 'book_hero_badge', 'type' => 'text', 'default_value' => 'ONLINE BOOKING AVAILABLE' ),
             array( 'key' => 'field_bp_book_hero_title', 'label' => 'Title (HTML allowed)', 'name' => 'book_hero_title', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book Your <br /><span class="gradient-text">Appointment</span>', 'instructions' => 'HTML allowed for line breaks and gradient text spans.' ),
-            array( 'key' => 'field_bp_book_hero_desc', 'label' => 'Description', 'name' => 'book_hero_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Choose your service below and find a time that suits you with our expert Denton team. Same-day appointments often available.' ),
+            array( 'key' => 'field_bp_book_hero_desc', 'label' => 'Description', 'name' => 'book_hero_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Choose your service below and find a time that suits you with our expert Bowland team. Same-day appointments often available.' ),
             array( 'key' => 'field_bp_book_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'book_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Now' ),
             array( 'key' => 'field_bp_book_hero_image', 'label' => 'Hero Image', 'name' => 'book_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Image for the rotated card. Falls back to pharmacist photo from options.' ),
             array( 'key' => 'field_bp_book_hero_quote', 'label' => 'Testimonial Quote', 'name' => 'book_hero_quote', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Booking was so easy and Ahmed was fantastic. I was seen on time and the advice was excellent.' ),
@@ -5033,7 +5033,7 @@ function bp_register_acf_field_groups() {
         'title'    => 'Book Appointment — Booking Widget',
         'fields'   => array(
             array( 'key' => 'field_bp_book_amelia_title', 'label' => 'Title', 'name' => 'book_amelia_title', 'type' => 'text', 'default_value' => 'Select Your Appointment Time' ),
-            array( 'key' => 'field_bp_book_amelia_desc', 'label' => 'Description', 'name' => 'book_amelia_description', 'type' => 'text', 'default_value' => 'Choose a convenient time with our Denton healthcare team' ),
+            array( 'key' => 'field_bp_book_amelia_desc', 'label' => 'Description', 'name' => 'book_amelia_description', 'type' => 'text', 'default_value' => 'Choose a convenient time with our Wythenshawe healthcare team' ),
             array( 'key' => 'field_bp_book_amelia_shortcode', 'label' => 'Amelia Shortcode', 'name' => 'book_amelia_shortcode', 'type' => 'text', 'default_value' => '[ameliabooking]', 'instructions' => 'The Amelia booking plugin shortcode to embed. e.g. [ameliabooking] or [ameliabooking category=1]' ),
         ),
         'location'              => $book_location,
@@ -5119,7 +5119,7 @@ function bp_register_acf_field_groups() {
         'title'    => 'Book Appointment — Final CTA',
         'fields'   => array(
             array( 'key' => 'field_bp_book_cta_title', 'label' => 'Title', 'name' => 'book_cta_title', 'type' => 'text', 'default_value' => 'Need Help Booking?' ),
-            array( 'key' => 'field_bp_book_cta_desc', 'label' => 'Description', 'name' => 'book_cta_description', 'type' => 'text', 'default_value' => 'Our friendly Denton team is here to answer your questions' ),
+            array( 'key' => 'field_bp_book_cta_desc', 'label' => 'Description', 'name' => 'book_cta_description', 'type' => 'text', 'default_value' => 'Our friendly Bowland team is here to answer your questions' ),
             array( 'key' => 'field_bp_book_cta_hours', 'label' => 'Hours Text', 'name' => 'book_cta_hours', 'type' => 'text', 'default_value' => 'Mon-Fri: 9am-6pm' ),
         ),
         'location'              => $book_location,
@@ -5154,7 +5154,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_team_hero_badge', 'label' => 'Badge Text', 'name' => 'team_hero_badge', 'type' => 'text', 'default_value' => 'MEET THE EXPERTS' ),
             array( 'key' => 'field_bp_team_hero_title1', 'label' => 'Title Line 1', 'name' => 'team_hero_title_line1', 'type' => 'text', 'default_value' => 'Your Health,' ),
             array( 'key' => 'field_bp_team_hero_highlight', 'label' => 'Title Highlight', 'name' => 'team_hero_title_highlight', 'type' => 'text', 'default_value' => 'Our Passion', 'instructions' => 'Displayed with gradient text effect' ),
-            array( 'key' => 'field_bp_team_hero_desc', 'label' => 'Description', 'name' => 'team_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'We are a dedicated team of experienced clinicians committed to the health of Denton. Combining over 15 years of expertise with a modern, personal approach to care.' ),
+            array( 'key' => 'field_bp_team_hero_desc', 'label' => 'Description', 'name' => 'team_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'We are a dedicated team of experienced clinicians committed to the health of Wythenshawe. Combining over 15 years of expertise with a modern, personal approach to care.' ),
         ),
         'location'              => $team_location,
         'menu_order'            => 1000,
@@ -5317,7 +5317,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_team_cta_badge2', 'label' => 'Badge 2', 'name' => 'team_cta_badge_2', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
             array( 'key' => 'field_bp_team_cta_badge3', 'label' => 'Badge 3', 'name' => 'team_cta_badge_3', 'type' => 'text', 'default_value' => 'Patient-First Care' ),
             array( 'key' => 'field_bp_team_cta_title', 'label' => 'Title', 'name' => 'team_cta_title', 'type' => 'text', 'default_value' => 'Experience the Bowland Pharmacy Difference' ),
-            array( 'key' => 'field_bp_team_cta_desc', 'label' => 'Description', 'name' => 'team_cta_description', 'type' => 'text', 'default_value' => 'Book your consultation with our experienced Denton team today. Personal care, professional expertise.' ),
+            array( 'key' => 'field_bp_team_cta_desc', 'label' => 'Description', 'name' => 'team_cta_description', 'type' => 'text', 'default_value' => 'Book your consultation with our experienced Bowland team today. Personal care, professional expertise.' ),
             array( 'key' => 'field_bp_team_cta_url', 'label' => 'CTA URL', 'name' => 'team_cta_url', 'type' => 'url', 'default_value' => '/book-appointment/' ),
             array( 'key' => 'field_bp_team_cta_btn', 'label' => 'CTA Button Text', 'name' => 'team_cta_button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
             array( 'key' => 'field_bp_team_cta_trust1', 'label' => 'Trust Item 1', 'name' => 'team_cta_trust_1', 'type' => 'text', 'default_value' => 'Expert team' ),
@@ -5719,7 +5719,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_yf_parent_url', 'label' => 'Parent Page URL', 'name' => 'yf_parent_url', 'type' => 'url', 'default_value' => '/travel-health/' ),
             array( 'key' => 'field_bp_yf_hero_image', 'label' => 'Hero Background Image', 'name' => 'yf_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
             array( 'key' => 'field_bp_yf_hero_label', 'label' => 'Hero Label', 'name' => 'yf_hero_label', 'type' => 'text', 'default_value' => 'OFFICIAL YELLOW FEVER CENTRE' ),
-            array( 'key' => 'field_bp_yf_hero_title', 'label' => 'Hero Title', 'name' => 'yf_hero_title', 'type' => 'text', 'default_value' => 'Yellow Fever Vaccination Service in Denton' ),
+            array( 'key' => 'field_bp_yf_hero_title', 'label' => 'Hero Title', 'name' => 'yf_hero_title', 'type' => 'text', 'default_value' => 'Yellow Fever Vaccination Service in Wythenshawe' ),
             array( 'key' => 'field_bp_yf_hero_desc', 'label' => 'Hero Description', 'name' => 'yf_hero_description', 'type' => 'textarea', 'rows' => 3 ),
             array( 'key' => 'field_bp_yf_hero_cta_url', 'label' => 'CTA URL', 'name' => 'yf_hero_cta_url', 'type' => 'url' ),
             array( 'key' => 'field_bp_yf_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'yf_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Yellow Fever Vaccination' ),
@@ -6129,7 +6129,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_td_hero_badge', 'label' => 'Badge Text', 'name' => 'td_hero_badge', 'type' => 'text', 'default_value' => 'THAILAND TRAVEL HEALTH' ),
             array( 'key' => 'field_bp_td_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'td_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
             array( 'key' => 'field_bp_td_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'td_hero_title_highlight', 'type' => 'text', 'default_value' => 'Thailand' ),
-            array( 'key' => 'field_bp_td_hero_description', 'label' => 'Description', 'name' => 'td_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Thailand adventure. Get protected before you travel with Denton's trusted travel health specialists." ),
+            array( 'key' => 'field_bp_td_hero_description', 'label' => 'Description', 'name' => 'td_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Thailand adventure. Get protected before you travel with Wythenshawe's trusted travel health specialists." ),
             array( 'key' => 'field_bp_td_hero_cta_text', 'label' => 'CTA Text', 'name' => 'td_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Thailand Consultation' ),
             array( 'key' => 'field_bp_td_hero_cta_url', 'label' => 'CTA URL', 'name' => 'td_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
         ),
@@ -6268,7 +6268,7 @@ function bp_register_acf_field_groups() {
         'title'      => 'Travel Destination — Final CTA',
         'fields'     => array(
             array( 'key' => 'field_bp_td_cta_title', 'label' => 'Title', 'name' => 'td_cta_title', 'type' => 'text', 'default_value' => 'Ready for your Thailand adventure?' ),
-            array( 'key' => 'field_bp_td_cta_description', 'label' => 'Description', 'name' => 'td_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your Thailand travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_bp_td_cta_description', 'label' => 'Description', 'name' => 'td_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your Thailand travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.' ),
             array( 'key' => 'field_bp_td_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'td_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Thailand Consultation' ),
             array( 'key' => 'field_bp_td_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'td_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
             array( 'key' => 'field_bp_td_cta_check_1', 'label' => 'Check 1', 'name' => 'td_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
@@ -6289,7 +6289,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_ke_hero_badge', 'label' => 'Badge Text', 'name' => 'ke_hero_badge', 'type' => 'text', 'default_value' => 'KENYA TRAVEL HEALTH' ),
             array( 'key' => 'field_bp_ke_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'ke_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
             array( 'key' => 'field_bp_ke_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'ke_hero_title_highlight', 'type' => 'text', 'default_value' => 'Kenya' ),
-            array( 'key' => 'field_bp_ke_hero_description', 'label' => 'Description', 'name' => 'ke_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Kenya safari or holiday. Yellow Fever, Malaria, and more. Get protected with Denton's specialists." ),
+            array( 'key' => 'field_bp_ke_hero_description', 'label' => 'Description', 'name' => 'ke_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Kenya safari or holiday. Yellow Fever, Malaria, and more. Get protected with Wythenshawe's specialists." ),
             array( 'key' => 'field_bp_ke_hero_cta_text', 'label' => 'CTA Text', 'name' => 'ke_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Kenya Consultation' ),
             array( 'key' => 'field_bp_ke_hero_cta_url', 'label' => 'CTA URL', 'name' => 'ke_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
         ),
@@ -6420,7 +6420,7 @@ function bp_register_acf_field_groups() {
         'title'      => 'Kenya — Final CTA',
         'fields'     => array(
             array( 'key' => 'field_bp_ke_cta_title', 'label' => 'Title', 'name' => 'ke_cta_title', 'type' => 'text', 'default_value' => 'Ready for your Kenya safari?' ),
-            array( 'key' => 'field_bp_ke_cta_description', 'label' => 'Description', 'name' => 'ke_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_bp_ke_cta_description', 'label' => 'Description', 'name' => 'ke_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.' ),
             array( 'key' => 'field_bp_ke_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'ke_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Kenya Consultation' ),
             array( 'key' => 'field_bp_ke_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'ke_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
             array( 'key' => 'field_bp_ke_cta_check_1', 'label' => 'Check 1', 'name' => 'ke_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
@@ -6441,7 +6441,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_in_hero_badge', 'label' => 'Badge Text', 'name' => 'in_hero_badge', 'type' => 'text', 'default_value' => 'INDIA TRAVEL HEALTH' ),
             array( 'key' => 'field_bp_in_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'in_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
             array( 'key' => 'field_bp_in_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'in_hero_title_highlight', 'type' => 'text', 'default_value' => 'India' ),
-            array( 'key' => 'field_bp_in_hero_description', 'label' => 'Description', 'name' => 'in_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your India journey. Get protected before you travel with Denton's trusted travel health specialists." ),
+            array( 'key' => 'field_bp_in_hero_description', 'label' => 'Description', 'name' => 'in_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your India journey. Get protected before you travel with Wythenshawe's trusted travel health specialists." ),
             array( 'key' => 'field_bp_in_hero_cta_text', 'label' => 'CTA Text', 'name' => 'in_hero_cta_text', 'type' => 'text', 'default_value' => 'Book India Consultation' ),
             array( 'key' => 'field_bp_in_hero_cta_url', 'label' => 'CTA URL', 'name' => 'in_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
         ),
@@ -6544,7 +6544,7 @@ function bp_register_acf_field_groups() {
         'title'      => 'India — Final CTA',
         'fields'     => array(
             array( 'key' => 'field_bp_in_cta_title', 'label' => 'Title', 'name' => 'in_cta_title', 'type' => 'text', 'default_value' => 'Ready for your India adventure?' ),
-            array( 'key' => 'field_bp_in_cta_description', 'label' => 'Description', 'name' => 'in_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your India travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ),
+            array( 'key' => 'field_bp_in_cta_description', 'label' => 'Description', 'name' => 'in_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your India travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.' ),
             array( 'key' => 'field_bp_in_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'in_cta_primary_text', 'type' => 'text', 'default_value' => 'Book India Consultation' ),
             array( 'key' => 'field_bp_in_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'in_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
             array( 'key' => 'field_bp_in_cta_check_1', 'label' => 'Check 1', 'name' => 'in_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
@@ -6928,7 +6928,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'td_hero_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Expert advice and vaccinations for your Thailand adventure. Get protected before you travel with Denton\'s trusted travel health specialists.',
+                'default_value' => 'Expert advice and vaccinations for your Thailand adventure. Get protected before you travel with Wythenshawe\'s trusted travel health specialists.',
             ),
             array(
                 'key'           => 'field_bp_travel_thai_hero_cta_text',
@@ -7348,7 +7348,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'td_cta_description',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => 'Book your Thailand travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.',
+                'default_value' => 'Book your Thailand travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.',
             ),
             array(
                 'key'           => 'field_bp_travel_thai_cta_primary_text',
@@ -7443,7 +7443,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'td_hero_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Expert advice and vaccinations for your Vietnam adventure. Get protected before you travel with Denton\'s trusted travel health specialists.',
+                'default_value' => 'Expert advice and vaccinations for your Vietnam adventure. Get protected before you travel with Wythenshawe\'s trusted travel health specialists.',
             ),
             array(
                 'key'           => 'field_bp_travel_viet_hero_cta_text',
@@ -7863,7 +7863,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'td_cta_description',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.',
+                'default_value' => 'Book your travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.',
             ),
             array(
                 'key'           => 'field_bp_travel_viet_cta_primary_text',
@@ -7957,7 +7957,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'ke_hero_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Expert advice and vaccinations for your Kenya safari or holiday. Yellow Fever, Malaria, and more. Get protected with Denton\'s specialists.',
+                'default_value' => 'Expert advice and vaccinations for your Kenya safari or holiday. Yellow Fever, Malaria, and more. Get protected with Wythenshawe\'s specialists.',
             ),
             array(
                 'key'           => 'field_bp_travel_ken_hero_cta_text',
@@ -8361,7 +8361,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'ke_cta_description',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.',
+                'default_value' => 'Book your travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.',
             ),
             array(
                 'key'           => 'field_bp_travel_ken_cta_primary_text',
@@ -8456,7 +8456,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'td_hero_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Expert advice and vaccinations for your Brazil trip. Yellow Fever, Dengue, and more. Get protected with Denton\'s specialists.',
+                'default_value' => 'Expert advice and vaccinations for your Brazil trip. Yellow Fever, Dengue, and more. Get protected with Wythenshawe\'s specialists.',
             ),
             array(
                 'key'           => 'field_bp_travel_braz_hero_cta_text',
@@ -8876,7 +8876,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'td_cta_description',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.',
+                'default_value' => 'Book your travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.',
             ),
             array(
                 'key'           => 'field_bp_travel_braz_cta_primary_text',
@@ -8971,7 +8971,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'cv_hero_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Expert advice and vaccinations for your Cape Verde holiday. Get protected before you travel with Denton\'s trusted travel health specialists.',
+                'default_value' => 'Expert advice and vaccinations for your Cape Verde holiday. Get protected before you travel with Wythenshawe\'s trusted travel health specialists.',
             ),
             array(
                 'key'           => 'field_bp_travel_cv_hero_cta_text',
@@ -9396,7 +9396,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'cv_cta_description',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.',
+                'default_value' => 'Book your travel health consultation at our Wythenshawe clinic. Get expert advice and all recommended vaccinations in one visit.',
             ),
             array(
                 'key'           => 'field_bp_travel_cv_cta_primary_text',
