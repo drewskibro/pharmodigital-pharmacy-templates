@@ -46,7 +46,10 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
 
     // Secondary CTA
     $secondary_text = bp_field( 'revslider_placeholder_secondary_text', 'Serving Wythenshawe, Manchester and beyond' );
-    $secondary_url  = '#location';
+    $secondary_url  = bp_field( 'revslider_placeholder_secondary_url' );
+    if ( ! $secondary_url ) {
+        $secondary_url = bp_option( 'pharmacy_directions_url', '#location' );
+    }
 ?>
 
     <section class="revslider-section">
@@ -86,7 +89,7 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
                             <?php echo esc_html( $cta_text ); ?>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="<?php echo esc_url( $secondary_url ); ?>" class="revslider-btn-secondary">
+                        <a href="<?php echo esc_url( $secondary_url ); ?>" class="revslider-btn-secondary"<?php if ( strpos( $secondary_url, 'http' ) === 0 ) : ?> target="_blank" rel="noopener"<?php endif; ?>>
                             <i class="fas fa-map-marker-alt"></i>
                             <?php echo esc_html( $secondary_text ); ?>
                         </a>

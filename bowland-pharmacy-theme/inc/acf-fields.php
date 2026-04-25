@@ -2113,6 +2113,13 @@ function bp_register_acf_field_groups() {
                 'type'          => 'text',
                 'default_value' => 'Serving Wythenshawe, Manchester and beyond',
             ),
+            array(
+                'key'          => 'field_bp_revslider_placeholder_secondary_url',
+                'label'        => 'Secondary Link URL',
+                'name'         => 'revslider_placeholder_secondary_url',
+                'type'         => 'url',
+                'instructions' => 'Where the secondary location/coverage link points to. Leave empty to use the global pharmacy_directions_url (Google Maps).',
+            ),
         ),
         'location' => array(
             array(
