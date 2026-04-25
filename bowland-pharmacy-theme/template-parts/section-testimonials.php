@@ -33,32 +33,33 @@ $allowed_highlight_tags = array(
     'span' => array( 'class' => array() ),
 );
 
-// --- Default testimonials ---
+// --- Default testimonials (fallback only — populate via ACF for production) ---
+// Real Google Reviews from Bowland Pharmacy patients.
 $default_testimonials = array(
     array(
-        'name'       => 'Paul Fegan',
-        'service'    => 'Travel Clinic',
-        'quote'      => 'Needed a <span class="testimonial-highlight">last minute vaccination</span> for a holiday. It was easy to book, and convenient to get to. The prices are <span class="testimonial-highlight">\'all-in\'</span> ... Whole process from end-to-end was <span class="testimonial-highlight">friendly, fast and efficient</span>.',
+        'name'       => 'Michelle P.',
+        'service'    => 'NHS Prescriptions',
+        'quote'      => 'I had many issues in the past with other pharmacies that got things wrong. <span class="testimonial-highlight">Using Bowland Pharmacy puts my mind at ease</span>.',
         'highlights' => array(
-            array( 'icon' => 'fa-calendar-check', 'text' => 'Easy Booking' ),
-            array( 'icon' => 'fa-car',            'text' => 'Local Service' ),
-            array( 'icon' => 'fa-tags',           'text' => 'All-in Price' ),
+            array( 'icon' => 'fa-shield-halved', 'text' => 'Trustworthy' ),
+            array( 'icon' => 'fa-user-doctor',   'text' => 'Pharmacist Care' ),
+            array( 'icon' => 'fa-heart',         'text' => 'Peace of Mind' ),
         ),
         'checklist'  => array(),
     ),
     array(
-        'name'       => 'Georgia Porter',
-        'service'    => 'Travel Vaccinations',
-        'quote'      => 'Went to Bowland Pharmacy for <span class="testimonial-highlight">travel vaccinations</span> before a trip. The staff were <span class="testimonial-highlight">really informative</span> and made the whole experience quick and easy.',
+        'name'       => 'Willie W.',
+        'service'    => 'NHS Prescriptions',
+        'quote'      => 'Just <span class="testimonial-highlight">incredible customer service</span>, amazing staff and a great way to receive prescriptions! <span class="testimonial-highlight">A pharmacy to remember</span>.',
         'highlights' => array(),
-        'checklist'  => array( 'Quick Appointment', 'Informative Staff' ),
+        'checklist'  => array( 'Incredible Service', 'Amazing Staff' ),
     ),
     array(
-        'name'       => 'Giedrius K.',
-        'service'    => 'Ear Wax Removal',
-        'quote'      => 'Had my ears checked at Bowland Pharmacy. The pharmacist was <span class="testimonial-highlight">thorough and honest</span> — told me I didn\'t actually need treatment and saved me money. <span class="testimonial-highlight">Really appreciated the honesty</span>.',
+        'name'       => 'Verified Patient',
+        'service'    => 'Bowland Pharmacy',
+        'quote'      => 'Add a real Google Review here. Edit from <span class="testimonial-highlight">wp-admin → Pages → Home Page → Testimonials</span>.',
         'highlights' => array(),
-        'checklist'  => array( 'Thorough Check', 'Honest Advice' ),
+        'checklist'  => array( 'Edit me' ),
     ),
 );
 
