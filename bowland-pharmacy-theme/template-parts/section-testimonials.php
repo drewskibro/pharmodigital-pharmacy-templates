@@ -190,11 +190,7 @@ if ( empty( $testimonials ) ) {
 
                         <!-- Quote -->
                         <blockquote class="<?php echo esc_attr( $quote_class ); ?>">
-                            <?php if ( $use_acf_content ) : ?>
-                                &ldquo;<?php echo esc_html( $testimonial['quote'] ); ?>&rdquo;
-                            <?php else : ?>
-                                &ldquo;<?php echo wp_kses( $testimonial['quote'], $allowed_highlight_tags ); ?>&rdquo;
-                            <?php endif; ?>
+                            &ldquo;<?php echo wp_kses( $testimonial['quote'], $allowed_highlight_tags ); ?>&rdquo;
                         </blockquote>
 
                         <!-- Author row -->
