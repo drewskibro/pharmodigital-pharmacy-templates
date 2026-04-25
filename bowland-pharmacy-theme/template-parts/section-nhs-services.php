@@ -24,6 +24,10 @@ $description = bp_field( 'nhs_description', 'Free NHS services for eligible pati
 $bottom_title    = bp_field( 'nhs_bottom_title', 'Your NHS services, under one roof' );
 $bottom_desc     = bp_field( 'nhs_bottom_description', 'No appointment needed for most services. Walk in or call us.' );
 $bottom_cta_text = bp_field( 'nhs_bottom_cta_text', 'Visit Us in Wythenshawe' );
+$bottom_cta_url  = bp_field( 'nhs_bottom_cta_url', '' );
+if ( ! $bottom_cta_url ) {
+    $bottom_cta_url = bp_option( 'pharmacy_directions_url', '#location' );
+}
 $phone        = bp_phone();
 $phone_link   = bp_phone_link();
 
@@ -40,12 +44,24 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cta_chips' ) ) {
         $chips[] = array(
             'chip_icon' => get_sub_field( 'chip_icon' ) ?: 'fa-shield-halved',
             'chip_text' => get_sub_field( 'chip_text' ) ?: '',
+            'chip_url'  => get_sub_field( 'chip_url' ) ?: '',
         );
     }
 }
 if ( empty( $chips ) ) {
     $chips = $default_chips;
 }
+// Auto-link the GPhC chip to the public register if no explicit URL is set
+$gphc_register_url = bp_option( 'gphc_register_url', '' );
+foreach ( $chips as &$chip_ref ) {
+    if ( empty( $chip_ref['chip_url'] ) && stripos( $chip_ref['chip_text'], 'GPhC' ) !== false && $gphc_register_url ) {
+        $chip_ref['chip_url'] = $gphc_register_url;
+    }
+    if ( ! isset( $chip_ref['chip_url'] ) ) {
+        $chip_ref['chip_url'] = '';
+    }
+}
+unset( $chip_ref );
 
 // --- Trust checks (ACF repeater with defaults) ---
 $default_bottom_checks = array( 'No referral needed', 'Same-day service', 'Open 6 days a week' );
@@ -245,11 +261,20 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                 <div class="nhs-bottom-cta-chips">
                     <?php foreach ( $chips as $chip ) :
                         $icon_class = bp_fa_class( $chip['chip_icon'] );
+                        $chip_url   = isset( $chip['chip_url'] ) ? $chip['chip_url'] : '';
+                        $is_external = $chip_url && ( strpos( $chip_url, 'http' ) === 0 ) && ( strpos( $chip_url, home_url() ) !== 0 );
                     ?>
+                        <?php if ( $chip_url ) : ?>
+                        <a class="nhs-cta-chip nhs-cta-chip--link" href="<?php echo esc_url( $chip_url ); ?>"<?php if ( $is_external ) : ?> target="_blank" rel="noopener" title="Verify on the GPhC register"<?php endif; ?>>
+                            <i class="<?php echo esc_attr( $icon_class ); ?>"></i>
+                            <?php echo esc_html( $chip['chip_text'] ); ?>
+                        </a>
+                        <?php else : ?>
                         <span class="nhs-cta-chip">
                             <i class="<?php echo esc_attr( $icon_class ); ?>"></i>
                             <?php echo esc_html( $chip['chip_text'] ); ?>
                         </span>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
 
@@ -261,7 +286,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                         <i class="fas fa-phone"></i>
                         <?php echo esc_html( 'Call ' . $phone ); ?>
                     </a>
-                    <a href="#location" class="nhs-btn-secondary">
+                    <a href="<?php echo esc_url( $bottom_cta_url ); ?>" class="nhs-btn-secondary"<?php if ( strpos( $bottom_cta_url, 'http' ) === 0 ) : ?> target="_blank" rel="noopener"<?php endif; ?>>
                         <i class="fas fa-map-marker-alt"></i>
                         <?php echo esc_html( $bottom_cta_text ); ?>
                     </a>
