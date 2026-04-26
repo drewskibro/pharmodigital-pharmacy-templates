@@ -1,8 +1,9 @@
 /* =============================================
-   Booking Confirmed — calm, on-brand confirmation
+   Booking Confirmed — warm cream + terracotta
    Mobile-first. Reuses .section-container,
-   .section-badge, .gradient-text, .pulse-dot
-   from globals.css.
+   .section-badge, .pulse-dot from globals.css
+   and the heading + terracotta system used on
+   the Book Appointment page.
    ============================================= */
 
 /* ---------- HERO ---------- */
@@ -20,17 +21,19 @@
   gap: 1.25rem;
 }
 
+/* Tick circle — terracotta to match primary CTAs */
 .confirmed-tick {
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, #C47A65, #B8694F);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.75rem;
-  box-shadow: 0 16px 32px rgba(107, 79, 160, 0.25);
+  box-shadow: 0 16px 32px rgba(196, 122, 101, 0.3),
+              0 4px 10px rgba(196, 122, 101, 0.15);
   margin-bottom: 0.5rem;
 }
 
@@ -38,13 +41,22 @@
   margin: 0 auto;
 }
 
+/* Title — deep navy with subtle dark-purple accent on one word */
 .confirmed-hero-title {
   font-family: var(--font-heading);
   font-size: 2.25rem;
   line-height: 1.15;
   font-weight: 800;
-  color: var(--brand-dark);
+  color: #2D1B4E;
+  letter-spacing: -0.02em;
   margin: 0;
+}
+
+.confirmed-hero-accent {
+  background: linear-gradient(to right, #6B4FA0, #8B6BBF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .confirmed-hero-subtitle {
@@ -53,6 +65,7 @@
   line-height: 1.6;
   color: #4a5568;
   margin: 0;
+  max-width: 600px;
 }
 
 /* ---------- WHAT HAPPENS NEXT ---------- */
@@ -63,8 +76,9 @@
 .confirmed-next-heading {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--brand-dark);
+  font-weight: 800;
+  color: #2D1B4E;
+  letter-spacing: -0.01em;
   text-align: center;
   margin: 0 0 2rem;
 }
@@ -84,22 +98,30 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  background: #fff;
-  border: 1px solid rgba(163, 158, 227, 0.2);
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(196, 122, 101, 0.15);
   border-radius: 16px;
   padding: 1.25rem;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 6px 18px rgba(196, 122, 101, 0.08),
+              0 2px 6px rgba(196, 122, 101, 0.04);
   counter-increment: confirmed-step;
-  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.confirmed-next-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(196, 122, 101, 0.12),
+              0 4px 10px rgba(196, 122, 101, 0.06);
+}
+
+/* Icon tile — soft terracotta tint, terracotta icon */
 .confirmed-next-icon {
   flex-shrink: 0;
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.18), rgba(107, 79, 160, 0.12));
-  color: var(--brand-dark);
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.16), rgba(196, 122, 101, 0.08));
+  color: #B8694F;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,13 +137,13 @@
   font-family: var(--font-heading);
   font-size: 1.0625rem;
   font-weight: 700;
-  color: var(--brand-dark);
+  color: #2D1B4E;
   margin: 0 0 0.25rem;
 }
 
 .confirmed-next-title::before {
   content: counter(confirmed-step) ". ";
-  color: var(--brand-purple);
+  color: #C47A65;
   font-weight: 800;
 }
 
@@ -142,10 +164,24 @@
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
-  background: linear-gradient(135deg, rgba(163, 158, 227, 0.12), rgba(254, 246, 244, 0.6));
-  border: 1px solid rgba(163, 158, 227, 0.25);
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(196, 122, 101, 0.18);
   border-radius: 20px;
   padding: 2rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(196, 122, 101, 0.08);
+  position: relative;
+}
+
+/* Top accent bar — same pattern as the Book Appointment quick-book card */
+.confirmed-reassure-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 4px;
+  background: linear-gradient(90deg, #C47A65, #D4907C, #C47A65);
+  border-radius: 0 0 4px 4px;
 }
 
 .confirmed-reassure-text {
@@ -156,6 +192,7 @@
   margin: 0 0 1.25rem;
 }
 
+/* Phone — deep navy text, terracotta border, terracotta icon circle */
 .confirmed-phone-link {
   display: inline-flex;
   align-items: center;
@@ -164,32 +201,34 @@
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--brand-dark);
+  color: #2D1B4E;
+  letter-spacing: -0.01em;
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
   background: #fff;
-  border: 2px solid var(--brand-purple);
-  box-shadow: 0 6px 18px rgba(107, 79, 160, 0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  border: 2px solid rgba(196, 122, 101, 0.35);
+  box-shadow: 0 6px 18px rgba(196, 122, 101, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .confirmed-phone-link:hover,
 .confirmed-phone-link:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(107, 79, 160, 0.18);
-  background: var(--brand-light);
+  border-color: #C47A65;
+  box-shadow: 0 12px 26px rgba(196, 122, 101, 0.2);
 }
 
 .confirmed-phone-icon {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  background: linear-gradient(135deg, #C47A65, #B8694F);
   color: #fff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 0.9375rem;
+  box-shadow: 0 4px 10px rgba(196, 122, 101, 0.25);
 }
 
 /* ---------- SUBTLE RETURN HOME ---------- */
@@ -210,8 +249,8 @@
 
 .confirmed-return-link:hover,
 .confirmed-return-link:focus-visible {
-  color: var(--brand-dark);
-  border-bottom-color: var(--brand-dark);
+  color: #B8694F;
+  border-bottom-color: #B8694F;
 }
 
 /* ---------- TABLET / DESKTOP ---------- */
@@ -253,5 +292,11 @@
 
   .confirmed-phone-link {
     font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .confirmed-hero-title {
+    font-size: 3.5rem;
   }
 }
