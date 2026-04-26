@@ -682,7 +682,7 @@ get_header();
     </div>
 
     <div class="earwax-booking-embed">
-      <?php echo do_shortcode( '[ameliastepbooking service=4]' ); ?>
+      <?php echo do_shortcode( '[ameliacatalogbooking service=4]' ); ?>
     </div>
   </div>
 </section>
