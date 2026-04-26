@@ -28,7 +28,7 @@ get_header();
       </div>
 
       <h1 class="confirmed-hero-title">
-        Your booking is <span class="gradient-text">confirmed</span>
+        Your booking is <span class="confirmed-hero-accent">confirmed</span>
       </h1>
 
       <p class="confirmed-hero-subtitle">
