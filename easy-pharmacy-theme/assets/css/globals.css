@@ -4234,6 +4234,7 @@ html {
   position: relative;
   background: #ffffff;
   padding-bottom: 6rem;
+  overflow: hidden;
 }
 
 /* Full-width map */
