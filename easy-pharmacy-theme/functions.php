@@ -133,6 +133,10 @@ function easy_pharmacy_scripts() {
         wp_enqueue_script( 'easy-pharmacy-book-appointment-js', EASY_PHARMACY_URI . '/assets/js/book-appointment.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
+    if ( is_page_template( 'page-templates/page-booking-confirmed.php' ) ) {
+        wp_enqueue_style( 'easy-pharmacy-booking-confirmed', EASY_PHARMACY_URI . '/assets/css/booking-confirmed.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+    }
+
     if ( is_page_template( 'page-templates/page-team.php' ) ) {
         wp_enqueue_style( 'easy-pharmacy-team', EASY_PHARMACY_URI . '/assets/css/team.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
     }

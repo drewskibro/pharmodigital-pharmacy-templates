@@ -1,0 +1,257 @@
+/* =============================================
+   Booking Confirmed — calm, on-brand confirmation
+   Mobile-first. Reuses .section-container,
+   .section-badge, .gradient-text, .pulse-dot
+   from globals.css.
+   ============================================= */
+
+/* ---------- HERO ---------- */
+.confirmed-hero-section {
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+
+.confirmed-hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.confirmed-tick {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.75rem;
+  box-shadow: 0 16px 32px rgba(107, 79, 160, 0.25);
+  margin-bottom: 0.5rem;
+}
+
+.confirmed-badge {
+  margin: 0 auto;
+}
+
+.confirmed-hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  line-height: 1.15;
+  font-weight: 800;
+  color: var(--brand-dark);
+  margin: 0;
+}
+
+.confirmed-hero-subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* ---------- WHAT HAPPENS NEXT ---------- */
+.confirmed-next-section {
+  padding: 2rem 0 3rem;
+}
+
+.confirmed-next-heading {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+.confirmed-next-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  counter-reset: confirmed-step;
+}
+
+.confirmed-next-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  border: 1px solid rgba(163, 158, 227, 0.2);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  counter-increment: confirmed-step;
+  position: relative;
+}
+
+.confirmed-next-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(163, 158, 227, 0.18), rgba(107, 79, 160, 0.12));
+  color: var(--brand-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+}
+
+.confirmed-next-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.confirmed-next-title {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin: 0 0 0.25rem;
+}
+
+.confirmed-next-title::before {
+  content: counter(confirmed-step) ". ";
+  color: var(--brand-purple);
+  font-weight: 800;
+}
+
+.confirmed-next-text {
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* ---------- REASSURANCE + PHONE ---------- */
+.confirmed-reassure-section {
+  padding: 1rem 0 3rem;
+}
+
+.confirmed-reassure-card {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(163, 158, 227, 0.12), rgba(254, 246, 244, 0.6));
+  border: 1px solid rgba(163, 158, 227, 0.25);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+}
+
+.confirmed-reassure-text {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0 0 1.25rem;
+}
+
+.confirmed-phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--brand-dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid var(--brand-purple);
+  box-shadow: 0 6px 18px rgba(107, 79, 160, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.confirmed-phone-link:hover,
+.confirmed-phone-link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(107, 79, 160, 0.18);
+  background: var(--brand-light);
+}
+
+.confirmed-phone-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-dark));
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9375rem;
+}
+
+/* ---------- SUBTLE RETURN HOME ---------- */
+.confirmed-return {
+  text-align: center;
+  padding: 0 0 4rem;
+}
+
+.confirmed-return-link {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  color: #94a3b8;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(148, 163, 184, 0.5);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.confirmed-return-link:hover,
+.confirmed-return-link:focus-visible {
+  color: var(--brand-dark);
+  border-bottom-color: var(--brand-dark);
+}
+
+/* ---------- TABLET / DESKTOP ---------- */
+@media (min-width: 768px) {
+  .confirmed-hero-section {
+    padding: 6rem 0 3rem;
+  }
+
+  .confirmed-hero-title {
+    font-size: 3rem;
+  }
+
+  .confirmed-hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .confirmed-next-heading {
+    font-size: 1.75rem;
+  }
+
+  .confirmed-next-item {
+    padding: 1.5rem 1.75rem;
+    gap: 1.25rem;
+  }
+
+  .confirmed-next-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.25rem;
+  }
+
+  .confirmed-next-title {
+    font-size: 1.125rem;
+  }
+
+  .confirmed-reassure-card {
+    padding: 2.5rem 2rem;
+  }
+
+  .confirmed-phone-link {
+    font-size: 1.75rem;
+  }
+}
