@@ -1516,3 +1516,91 @@
     font-size: 2.6rem;
   }
 }
+
+
+/* ============================================
+   BOOKING SECTION (Amelia embed)
+   Sits between Pricing (white) and Testimonials (cream),
+   so use brand-light cream for visual continuity with
+   testimonials and a soft break from the white pricing
+   block above. overflow-x: clip prevents the embedded
+   form from causing horizontal scroll on mobile.
+   ============================================ */
+.earwax-booking-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+  border-top: 1px solid rgba(196, 122, 101, 0.1);
+  scroll-margin-top: 100px; /* offset for the 80px fixed nav */
+  overflow-x: clip;
+}
+
+.earwax-booking-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.earwax-booking-header .section-badge {
+  margin: 0 auto 1.5rem;
+}
+
+.earwax-booking-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #2D1B4E;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.earwax-booking-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+/* Embed wrapper — keeps Amelia's injected markup contained */
+.earwax-booking-embed {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  background: var(--white);
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 40px rgba(196, 122, 101, 0.08);
+}
+
+/* Force every descendant of Amelia's injected DOM to behave on mobile */
+.earwax-booking-embed > * {
+  max-width: 100%;
+}
+
+.earwax-booking-embed iframe,
+.earwax-booking-embed img,
+.earwax-booking-embed video {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .earwax-booking-section {
+    padding: 7rem 0;
+  }
+
+  .earwax-booking-title {
+    font-size: 3rem;
+  }
+
+  .earwax-booking-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .earwax-booking-embed {
+    padding: 2.5rem;
+  }
+}

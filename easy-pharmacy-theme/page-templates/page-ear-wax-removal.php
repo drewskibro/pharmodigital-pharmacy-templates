@@ -38,7 +38,7 @@ get_header();
         </p>
 
         <div class="earwax-hero-actions">
-          <a href="<?php echo esc_url( ep_field( 'ew_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+          <a href="#book-now" class="cta-button primary-cta">
             <?php echo esc_html( ep_field( 'ew_hero_cta_text', 'Book Your Appointment' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
@@ -544,7 +544,7 @@ get_header();
               <?php endwhile; ?>
             </ul>
           <?php endif; ?>
-          <a href="<?php echo esc_url( ep_field( 'ew_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button <?php echo $is_featured ? 'primary-cta' : 'secondary-cta'; ?> earwax-pricing-btn-new">
+          <a href="#book-now" class="cta-button <?php echo $is_featured ? 'primary-cta' : 'secondary-cta'; ?> earwax-pricing-btn-new">
             <?php echo esc_html( get_sub_field( 'button_text' ) ?: 'Book Now' ); ?>
           </a>
           <?php if ( $is_featured ) : ?>
@@ -576,7 +576,7 @@ get_header();
             <li><i class="fas fa-check"></i> Treatment plan explanation</li>
             <li><i class="fas fa-check"></i> No-obligation quote</li>
           </ul>
-          <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button secondary-cta earwax-pricing-btn-new">Book Consultation</a>
+          <a href="#book-now" class="cta-button secondary-cta earwax-pricing-btn-new">Book Consultation</a>
         </div>
         <!-- Default: Microsuction (Featured) -->
         <div class="earwax-pricing-card-new earwax-pricing-card-featured-new">
@@ -599,7 +599,7 @@ get_header();
             <li><i class="fas fa-check"></i> <strong>Free 7-day follow-up</strong></li>
             <li><i class="fas fa-check"></i> Aftercare advice included</li>
           </ul>
-          <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button primary-cta earwax-pricing-btn-new">Book Treatment</a>
+          <a href="#book-now" class="cta-button primary-cta earwax-pricing-btn-new">Book Treatment</a>
           <div class="earwax-pricing-guarantee">
             <i class="fas fa-shield-check"></i>
             <span>Satisfaction Guaranteed</span>
@@ -626,6 +626,26 @@ get_header();
         <i class="fas fa-redo"></i>
         <span><?php echo esc_html( ep_field( 'ew_value_4', 'Free Follow-Up' ) ); ?></span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     BOOK NOW (Amelia embed — Ear Microsuction service ID 4)
+     ============================================ -->
+<section class="earwax-booking-section" id="book-now">
+  <div class="section-container">
+    <div class="earwax-booking-header">
+      <div class="section-badge">
+        <span class="pulse-dot"><span></span><span></span></span>
+        <span class="section-badge-text">BOOK YOUR APPOINTMENT</span>
+      </div>
+      <h2 class="earwax-booking-title">Book your ear wax removal</h2>
+      <p class="earwax-booking-subtitle">Same-day appointments available. Pick a time that works for you.</p>
+    </div>
+
+    <div class="earwax-booking-embed">
+      <?php echo do_shortcode( '[ameliastepbooking service=4]' ); ?>
     </div>
   </div>
 </section>
@@ -832,7 +852,7 @@ get_header();
         <?php echo esc_html( ep_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Ashford clinic today. Expert microsuction treatment with guaranteed results.' ) ); ?>
       </p>
       <div class="earwax-cta-actions">
-        <a href="<?php echo esc_url( ep_field( 'ew_hero_cta_url', ep_booking_url() ) ); ?>" class="cta-button primary-cta">
+        <a href="#book-now" class="cta-button primary-cta">
           <?php echo esc_html( ep_field( 'ew_cta_button_text', 'Book an Appointment' ) ); ?>
           <i class="fas fa-arrow-right"></i>
         </a>
