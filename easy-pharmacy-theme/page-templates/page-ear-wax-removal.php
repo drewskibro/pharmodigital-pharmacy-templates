@@ -620,52 +620,6 @@ get_header();
      ============================================ -->
 <section class="earwax-booking-section" id="book-now">
   <div class="section-container">
-    <div class="earwax-booking-header">
-      <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text">BOOK YOUR APPOINTMENT</span>
-      </div>
-      <h2 class="earwax-booking-title">Book your ear wax removal</h2>
-      <p class="earwax-booking-subtitle">Same-day appointments available. Pick a time that works for you.</p>
-    </div>
-
-    <div class="earwax-booking-summary" role="group" aria-label="Booking summary">
-      <ul class="earwax-booking-summary-list">
-        <li class="earwax-booking-summary-item">
-          <span class="earwax-booking-summary-icon" aria-hidden="true">
-            <i class="fas fa-ear-listen"></i>
-          </span>
-          <span class="earwax-booking-summary-label">Service</span>
-          <span class="earwax-booking-summary-value">Ear Microsuction</span>
-        </li>
-        <li class="earwax-booking-summary-item">
-          <span class="earwax-booking-summary-icon" aria-hidden="true">
-            <i class="fas fa-clock"></i>
-          </span>
-          <span class="earwax-booking-summary-label">Duration</span>
-          <span class="earwax-booking-summary-value">30 minutes</span>
-        </li>
-        <li class="earwax-booking-summary-item">
-          <span class="earwax-booking-summary-icon" aria-hidden="true">
-            <i class="fas fa-tag"></i>
-          </span>
-          <span class="earwax-booking-summary-label">Price</span>
-          <span class="earwax-booking-summary-value">&pound;59</span>
-        </li>
-        <li class="earwax-booking-summary-item">
-          <span class="earwax-booking-summary-icon" aria-hidden="true">
-            <i class="fas fa-map-marker-alt"></i>
-          </span>
-          <span class="earwax-booking-summary-label">Location</span>
-          <span class="earwax-booking-summary-value">Ashford clinic <span class="earwax-booking-summary-sub">Unit 11, Littleton House, Littleton Rd</span></span>
-        </li>
-      </ul>
-      <p class="earwax-booking-summary-reassure">
-        <i class="fas fa-arrow-down" aria-hidden="true"></i>
-        Pick a date and time below to book
-      </p>
-    </div>
-
     <div class="earwax-booking-embed">
       <?php echo do_shortcode( '[ameliacatalogbooking service=4]' ); ?>
     </div>
