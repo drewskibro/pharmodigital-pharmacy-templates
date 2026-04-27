@@ -25,16 +25,16 @@ get_header();
         </div>
 
         <h1 class="earwax-hero-title">
-          <span class="gradient-text"><?php echo esc_html( ep_field( 'ew_hero_title_highlight', 'Professional Ear Wax Removal' ) ); ?></span>
-          <?php echo esc_html( ep_field( 'ew_hero_title_line2', 'in Ashford' ) ); ?>
+          <span class="gradient-text"><?php echo esc_html( ep_field( 'ew_hero_title_highlight', 'Hear clearly again' ) ); ?></span>
+          <?php echo esc_html( ep_field( 'ew_hero_title_line2', '— today.' ) ); ?>
         </h1>
 
         <h2 class="earwax-hero-subtitle">
-          <?php echo esc_html( ep_field( 'ew_hero_subtitle', 'Expert microsuction by Jignasa Modhvadia and our specialist team' ) ); ?>
+          <?php echo esc_html( ep_field( 'ew_hero_subtitle', 'Same-day microsuction at our Ashford clinic. Only £25 if no wax is found.' ) ); ?>
         </h2>
 
         <p class="earwax-hero-description">
-          <?php echo esc_html( ep_field( 'ew_hero_description', 'Safe, effective ear wax removal using advanced microsuction technology. Same-day appointments available. Guaranteed results with complimentary follow-up within 7 days if needed.' ) ); ?>
+          <?php echo esc_html( ep_field( 'ew_hero_description', 'Safe, water-free ear wax removal by qualified clinicians. Most appointments take 30 minutes with immediate relief from blocked, muffled hearing. Booked at our Ashford, Chertsey, and Walton-on-Thames clinics.' ) ); ?>
         </p>
 
         <div class="earwax-hero-actions">
@@ -58,8 +58,8 @@ get_header();
             <span><?php echo esc_html( ep_field( 'ew_trust_2', 'Same-day available' ) ); ?></span>
           </div>
           <div class="earwax-hero-trust-item">
-            <i class="fas fa-tag"></i>
-            <span><?php echo esc_html( ep_field( 'ew_trust_3', 'From £20 per ear' ) ); ?></span>
+            <i class="fas fa-shield-halved"></i>
+            <span><?php echo esc_html( ep_field( 'ew_trust_3', '£25 if no wax found' ) ); ?></span>
           </div>
         </div>
       </div>
@@ -74,9 +74,9 @@ get_header();
           <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( ep_field( 'ew_hero_image_alt', 'Friendly older patient satisfied after ear wax removal treatment' ) ); ?>" class="earwax-hero-image" />
           <div class="earwax-hero-overlay"></div>
           <div class="earwax-hero-price-badge">
-            <span class="earwax-hero-price-label"><?php echo esc_html( ep_field( 'ew_price_label', 'Starting From' ) ); ?></span>
-            <span class="earwax-hero-price-amount"><?php echo esc_html( ep_field( 'ew_price_amount', '£20' ) ); ?></span>
-            <span class="earwax-hero-price-sub"><?php echo esc_html( ep_field( 'ew_price_sub', 'per ear · max £50' ) ); ?></span>
+            <span class="earwax-hero-price-label"><?php echo esc_html( ep_field( 'ew_price_label', 'Only if no wax found' ) ); ?></span>
+            <span class="earwax-hero-price-amount"><?php echo esc_html( ep_field( 'ew_price_amount', '£25' ) ); ?></span>
+            <span class="earwax-hero-price-sub"><?php echo esc_html( ep_field( 'ew_price_sub', 'Full treatment £59' ) ); ?></span>
           </div>
         </div>
 
@@ -537,6 +537,10 @@ get_header();
               <span class="earwax-pricing-per"><?php echo esc_html( $per_text ); ?></span>
             <?php endif; ?>
           </div>
+          <?php $secondary_price = get_sub_field( 'secondary_price_note' ); ?>
+          <?php if ( $secondary_price ) : ?>
+            <p class="earwax-pricing-secondary-price"><?php echo esc_html( $secondary_price ); ?></p>
+          <?php endif; ?>
           <?php if ( have_rows( 'features' ) ) : ?>
             <ul class="earwax-pricing-features">
               <?php while ( have_rows( 'features' ) ) : the_row(); ?>
@@ -558,51 +562,32 @@ get_header();
           <?php endif; ?>
         </div>
       <?php endwhile; else : ?>
-        <!-- Default: Consultation -->
-        <div class="earwax-pricing-card-new">
-          <div class="earwax-pricing-card-header">
-            <div class="earwax-pricing-icon-new">
-              <i class="fas fa-clipboard-list"></i>
-            </div>
-            <h3 class="earwax-pricing-card-title-new">Initial Consultation</h3>
-          </div>
-          <div class="earwax-pricing-price-new">
-            <span class="earwax-pricing-currency">&pound;</span>
-            <span class="earwax-pricing-amount">10</span>
-          </div>
-          <ul class="earwax-pricing-features">
-            <li><i class="fas fa-check"></i> Comprehensive ear examination</li>
-            <li><i class="fas fa-check"></i> Symptom discussion</li>
-            <li><i class="fas fa-check"></i> Treatment plan explanation</li>
-            <li><i class="fas fa-check"></i> No-obligation quote</li>
-          </ul>
-          <a href="#book-now" class="cta-button secondary-cta earwax-pricing-btn-new">Book Consultation</a>
-        </div>
-        <!-- Default: Microsuction (Featured) -->
+        <!-- Default: Risk-free pricing (Featured) -->
         <div class="earwax-pricing-card-new earwax-pricing-card-featured-new">
-          <div class="earwax-pricing-badge-new">MOST POPULAR</div>
+          <div class="earwax-pricing-badge-new">OUR PROMISE</div>
           <div class="earwax-pricing-card-header">
             <div class="earwax-pricing-icon-new">
-              <i class="fas fa-ear-listen"></i>
+              <i class="fas fa-shield-halved"></i>
             </div>
-            <h3 class="earwax-pricing-card-title-new">Microsuction Treatment</h3>
+            <h3 class="earwax-pricing-card-title-new">Risk-free pricing</h3>
           </div>
           <div class="earwax-pricing-price-new">
             <span class="earwax-pricing-currency">&pound;</span>
-            <span class="earwax-pricing-amount">20</span>
-            <span class="earwax-pricing-per">per ear</span>
+            <span class="earwax-pricing-amount">25</span>
+            <span class="earwax-pricing-per">If no wax is found</span>
           </div>
+          <p class="earwax-pricing-secondary-price">Full microsuction treatment &pound;59</p>
           <ul class="earwax-pricing-features">
             <li><i class="fas fa-check"></i> Professional microsuction</li>
-            <li><i class="fas fa-check"></i> Immediate relief</li>
-            <li><i class="fas fa-check"></i> Maximum &pound;50 for severe cases</li>
+            <li><i class="fas fa-check"></i> Immediate relief from blocked hearing</li>
+            <li><i class="fas fa-check"></i> Both ears assessed</li>
             <li><i class="fas fa-check"></i> <strong>Free 7-day follow-up</strong></li>
             <li><i class="fas fa-check"></i> Aftercare advice included</li>
           </ul>
-          <a href="#book-now" class="cta-button primary-cta earwax-pricing-btn-new">Book Treatment</a>
+          <a href="#book-now" class="cta-button primary-cta earwax-pricing-btn-new">Book Now</a>
           <div class="earwax-pricing-guarantee">
             <i class="fas fa-shield-check"></i>
-            <span>Satisfaction Guaranteed</span>
+            <span>Both ears checked &middot; Same-day available</span>
           </div>
         </div>
       <?php endif; ?>
@@ -826,6 +811,16 @@ get_header();
         <div class="earwax-faq-item">
           <button class="earwax-faq-question" onclick="toggleFAQ(this)">
             <span class="earwax-faq-number">2</span>
+            <span class="earwax-faq-text">What if I don't have wax build-up?</span>
+            <i class="fas fa-plus earwax-faq-icon"></i>
+          </button>
+          <div class="earwax-faq-answer">
+            <p>You only pay our consultation fee of &pound;25. We assess every patient's ears before any treatment begins &mdash; if microsuction isn't needed, there's no charge for the procedure. This way you can book with complete confidence.</p>
+          </div>
+        </div>
+        <div class="earwax-faq-item">
+          <button class="earwax-faq-question" onclick="toggleFAQ(this)">
+            <span class="earwax-faq-number">3</span>
             <span class="earwax-faq-text">How often should I have my ears checked?</span>
             <i class="fas fa-plus earwax-faq-icon"></i>
           </button>
@@ -835,7 +830,7 @@ get_header();
         </div>
         <div class="earwax-faq-item">
           <button class="earwax-faq-question" onclick="toggleFAQ(this)">
-            <span class="earwax-faq-number">3</span>
+            <span class="earwax-faq-number">4</span>
             <span class="earwax-faq-text">Can I drive after the treatment?</span>
             <i class="fas fa-plus earwax-faq-icon"></i>
           </button>
@@ -845,7 +840,7 @@ get_header();
         </div>
         <div class="earwax-faq-item">
           <button class="earwax-faq-question" onclick="toggleFAQ(this)">
-            <span class="earwax-faq-number">4</span>
+            <span class="earwax-faq-number">5</span>
             <span class="earwax-faq-text">Do you treat children?</span>
             <i class="fas fa-plus earwax-faq-icon"></i>
           </button>
@@ -855,7 +850,7 @@ get_header();
         </div>
         <div class="earwax-faq-item">
           <button class="earwax-faq-question" onclick="toggleFAQ(this)">
-            <span class="earwax-faq-number">5</span>
+            <span class="earwax-faq-number">6</span>
             <span class="earwax-faq-text">What if I have a perforated eardrum?</span>
             <i class="fas fa-plus earwax-faq-icon"></i>
           </button>
@@ -865,7 +860,7 @@ get_header();
         </div>
         <div class="earwax-faq-item">
           <button class="earwax-faq-question" onclick="toggleFAQ(this)">
-            <span class="earwax-faq-number">6</span>
+            <span class="earwax-faq-number">7</span>
             <span class="earwax-faq-text">Where are you located in Ashford?</span>
             <i class="fas fa-plus earwax-faq-icon"></i>
           </button>
@@ -886,7 +881,7 @@ get_header();
     <div class="earwax-cta-inner">
       <h2 class="earwax-cta-title"><?php echo esc_html( ep_field( 'ew_cta_title', 'Ready to hear clearly again?' ) ); ?></h2>
       <p class="earwax-cta-description">
-        <?php echo esc_html( ep_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Ashford clinic today. Expert microsuction treatment with guaranteed results.' ) ); ?>
+        <?php echo esc_html( ep_field( 'ew_cta_description', 'Book your microsuction appointment today. Only £25 if no wax is found — full treatment £59. Same-day appointments at our Ashford clinic.' ) ); ?>
       </p>
       <div class="earwax-cta-actions">
         <a href="#book-now" class="cta-button primary-cta">
