@@ -269,9 +269,16 @@
 .earwax-hero-price-badge {
   position: absolute;
   bottom: 2rem;
-  right: 2rem;
+  /* Center horizontally within the image card. Was right: 2rem,
+     but with long author-set amounts ("£25 (if no ear wax found)")
+     the badge expanded leftward and visually drifted off-centre. */
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  max-width: calc(100% - 2rem);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 1.5rem;
   border-radius: 1.5rem;
   box-shadow: 0 10px 40px rgba(196, 122, 101, 0.15);
@@ -281,7 +288,8 @@
 }
 
 .earwax-hero-price-badge:hover {
-  transform: translateY(-2px);
+  /* Keep horizontal centring while lifting on hover. */
+  transform: translateX(-50%) translateY(-2px);
   box-shadow: 0 15px 50px rgba(196, 122, 101, 0.22);
 }
 
