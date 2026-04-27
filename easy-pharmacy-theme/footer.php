@@ -101,7 +101,7 @@ $tagline = ep_option( 'footer_tagline', 'Your trusted partner in health and well
             <li><a href="<?php echo esc_url( home_url( '/team/' ) ); ?>" class="footer-link">Our Team</a></li>
             <li><a href="<?php echo esc_url( home_url( '/reviews/' ) ); ?>" class="footer-link">Patient Reviews</a></li>
             <li><a href="<?php echo esc_url( home_url( '/health-hub/' ) ); ?>" class="footer-link">Health Hub</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="footer-link">Contact Us</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/book-appointment/' ) ); ?>" class="footer-link">Contact Us</a></li>
           </ul>
         </div>
 
