@@ -115,12 +115,37 @@
     });
   }
 
+  function bindCardCollapse() {
+    var sections = document.querySelectorAll('.location-section');
+    sections.forEach(function (section) {
+      if (section.dataset.collapseBound === '1') { return; }
+      section.dataset.collapseBound = '1';
+
+      var collapseBtn = section.querySelector('.location-card-collapse');
+      var reopenBtn   = section.querySelector('.location-card-reopen');
+
+      function setCollapsed(collapsed) {
+        section.classList.toggle('is-collapsed', collapsed);
+        if (collapseBtn) { collapseBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true'); }
+        if (reopenBtn)   { reopenBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true'); }
+      }
+
+      if (collapseBtn) {
+        collapseBtn.addEventListener('click', function () { setCollapsed(true); });
+      }
+      if (reopenBtn) {
+        reopenBtn.addEventListener('click', function () { setCollapsed(false); });
+      }
+    });
+  }
+
   function init() {
     var roots = document.querySelectorAll('.location-map-annotations[data-center-lat]');
     roots.forEach(positionCallouts);
     bindPopupToggle();
     bindParkingListTriggers();
     bindGlobalClose();
+    bindCardCollapse();
   }
 
   if (document.readyState === 'loading') {

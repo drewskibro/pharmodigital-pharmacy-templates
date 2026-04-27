@@ -73,7 +73,7 @@ $parking = dp_option( 'pharmacy_parking', 'Free customer parking available nearb
 $booking_url = dp_booking_url();
 ?>
 
-<section class="location-section">
+<section class="location-section" id="location-section-card">
 
     <!-- Map background layer -->
     <div class="location-map-wrapper">
@@ -191,6 +191,17 @@ $booking_url = dp_booking_url();
 
     <!-- Floating info card -->
     <div class="location-card">
+
+        <!-- Collapse toggle (mobile only — hides the card to reveal the map) -->
+        <button
+            type="button"
+            class="location-card-collapse"
+            aria-controls="location-section-card"
+            aria-expanded="true"
+        >
+            <span class="location-card-collapse-text">Hide details</span>
+            <i class="fas fa-chevron-up" aria-hidden="true"></i>
+        </button>
 
         <!-- Card header -->
         <div class="location-card-header">
@@ -326,5 +337,16 @@ $booking_url = dp_booking_url();
         </div>
 
     </div>
+
+    <!-- Re-open tab (mobile only — appears when card is collapsed) -->
+    <button
+        type="button"
+        class="location-card-reopen"
+        aria-controls="location-section-card"
+        aria-expanded="false"
+    >
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+        <span>Show location details</span>
+    </button>
 
 </section>
