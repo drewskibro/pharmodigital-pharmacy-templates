@@ -301,13 +301,16 @@
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--brand-dark), var(--brand-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
+  /* Solid terracotta — matches the page's CTA + section accents.
+     Was a purple gradient that read off-brand against the warm palette. */
+  color: #C47A65;
+  /* line-height >1 so multi-line wrapping (e.g. long author-set strings
+     like "£25 (if no ear wax found)") stay readable and visually centred
+     instead of stacking too tightly. */
+  line-height: 1.15;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
+  text-wrap: balance; /* nicer line-break distribution where supported */
 }
 
 .earwax-hero-price-sub {
@@ -1552,171 +1555,10 @@
   overflow-x: clip;
 }
 
-.earwax-booking-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.earwax-booking-header .section-badge {
-  margin: 0 auto 1.5rem;
-}
-
-.earwax-booking-title {
-  font-family: var(--font-heading);
-  font-size: 2.25rem;
-  font-weight: 900;
-  color: #2D1B4E;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin: 0 0 1rem;
-}
-
-.earwax-booking-subtitle {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: var(--text-gray);
-  margin: 0;
-}
-
-/* Summary card — context band above the Amelia embed.
-   Mirrors .earwax-pricing-card-new tokens (white bg, terracotta
-   12% border, generous radius) but with horizontal layout and
-   no hover-lift, since it's informational not actionable. */
-.earwax-booking-summary {
-  max-width: 1000px;
-  margin: 0 auto 2rem;
-  background: var(--white);
-  border: 1px solid rgba(196, 122, 101, 0.12);
-  border-radius: 1.25rem;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 8px 28px rgba(196, 122, 101, 0.08);
-}
-
-.earwax-booking-summary-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-.earwax-booking-summary-item {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-  min-width: 0;
-}
-
-.earwax-booking-summary-icon {
-  flex-shrink: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.625rem;
-  background: linear-gradient(135deg, rgba(196, 122, 101, 0.16), rgba(196, 122, 101, 0.08));
-  color: #B8694F;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-}
-
-.earwax-booking-summary-label {
-  font-family: var(--font-primary);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--text-slate);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  flex-shrink: 0;
-  width: 5.5rem;
-}
-
-.earwax-booking-summary-value {
-  font-family: var(--font-primary);
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: #2D1B4E;
-  line-height: 1.3;
-  min-width: 0;
-}
-
-.earwax-booking-summary-sub {
-  display: block;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--text-gray);
-  margin-top: 0.125rem;
-}
-
-.earwax-booking-summary-reassure {
-  margin: 1.25rem 0 0;
-  padding-top: 1rem;
-  border-top: 1px dashed rgba(196, 122, 101, 0.2);
-  text-align: center;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-gray);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.earwax-booking-summary-reassure i {
-  color: #C47A65;
-  font-size: 0.75rem;
-}
-
-/* Desktop — horizontal row, label stacks above value, no fixed label width */
-@media (min-width: 768px) {
-  .earwax-booking-summary {
-    padding: 1.5rem 2rem;
-  }
-
-  .earwax-booking-summary-list {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-    align-items: center;
-  }
-
-  .earwax-booking-summary-item {
-    gap: 0.875rem;
-  }
-
-  .earwax-booking-summary-label {
-    display: block;
-    width: auto;
-    margin-bottom: 0.25rem;
-  }
-
-  .earwax-booking-summary-item > div,
-  .earwax-booking-summary-item .earwax-booking-summary-text {
-    min-width: 0;
-  }
-
-  /* Stack label above value on desktop by wrapping a flex column on the
-     right side of the icon — done via the natural source order using
-     a sibling layout: icon | (label + value). Achieved with grid below. */
-  .earwax-booking-summary-item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-      "icon label"
-      "icon value";
-    column-gap: 0.875rem;
-    row-gap: 0.125rem;
-  }
-
-  .earwax-booking-summary-icon { grid-area: icon; align-self: center; }
-  .earwax-booking-summary-label { grid-area: label; align-self: end; }
-  .earwax-booking-summary-value { grid-area: value; align-self: start; }
-}
-
-/* Embed wrapper — keeps Amelia's injected markup contained */
+/* Embed wrapper — keeps Amelia's injected markup contained.
+   The Amelia catalog card already shows service name, duration,
+   price and image natively, so no wrapper heading is needed —
+   tapping a CTA lands users directly on the catalog action. */
 .earwax-booking-embed {
   max-width: 1000px;
   margin: 0 auto;
@@ -1728,7 +1570,6 @@
   box-shadow: 0 12px 40px rgba(196, 122, 101, 0.08);
 }
 
-/* Force every descendant of Amelia's injected DOM to behave on mobile */
 .earwax-booking-embed > * {
   max-width: 100%;
 }
@@ -1743,14 +1584,6 @@
 @media (min-width: 768px) {
   .earwax-booking-section {
     padding: 7rem 0;
-  }
-
-  .earwax-booking-title {
-    font-size: 3rem;
-  }
-
-  .earwax-booking-subtitle {
-    font-size: 1.25rem;
   }
 
   .earwax-booking-embed {
