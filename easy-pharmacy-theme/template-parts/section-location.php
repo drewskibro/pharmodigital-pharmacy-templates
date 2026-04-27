@@ -52,7 +52,7 @@ $hours_sunday   = ep_option( 'hours_sunday', 'Closed' );
 
 // Contact from options
 $phone = ep_phone();
-$email = ep_option( 'pharmacy_email', 'hello@easypharmacy.co.uk' );
+$email = ep_option( 'pharmacy_email', 'bookings@theeasyclinic.co.uk' );
 
 // Parking
 $parking_info = ep_option( 'pharmacy_parking', 'Free customer parking available directly outside the pharmacy.' );

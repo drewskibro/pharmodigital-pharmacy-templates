@@ -13,7 +13,7 @@ $pharmacy_name = ep_pharmacy_name();
 $logo_url      = ep_logo_url();
 $phone         = ep_phone();
 $phone_link    = ep_phone_link();
-$email         = ep_option( 'pharmacy_email', 'hello@easypharmacy.co.uk' );
+$email         = ep_option( 'pharmacy_email', 'bookings@theeasyclinic.co.uk' );
 $booking_url   = ep_booking_url();
 
 // Address
