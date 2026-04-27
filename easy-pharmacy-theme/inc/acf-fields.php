@@ -3559,6 +3559,13 @@ function ep_register_acf_field_groups() {
                         'instructions' => 'e.g. "per ear". Leave blank if not needed.',
                     ),
                     array(
+                        'key'          => 'field_ep_ew_price_secondary_note',
+                        'label'        => 'Secondary Price Note',
+                        'name'         => 'secondary_price_note',
+                        'type'         => 'text',
+                        'instructions' => 'Smaller line below the main price, used to reference a comparison or full price. e.g. "Full microsuction treatment £59". Leave blank to hide.',
+                    ),
+                    array(
                         'key'           => 'field_ep_ew_price_button_text',
                         'label'         => 'Button Text',
                         'name'          => 'button_text',

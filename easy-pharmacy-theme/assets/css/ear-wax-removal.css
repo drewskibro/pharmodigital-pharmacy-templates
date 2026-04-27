@@ -74,6 +74,12 @@
 @media (min-width: 1024px) {
   .earwax-hero-content {
     text-align: left;
+    /* The right column (image + stacked testimonial) is taller than the
+       content column, so .earwax-hero-grid { align-items: center } would
+       vertically centre this column and leave a void above the badge.
+       Anchoring to the start matches the homepage hero's top-aligned
+       content rhythm. */
+    align-self: start;
   }
 }
 
@@ -1155,6 +1161,18 @@
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-gray);
+}
+
+/* Smaller secondary price reference (e.g. "Full microsuction treatment £59").
+   Visually subordinate to the headline £25: ~65% of the main price text size,
+   regular weight, lighter colour. Sits directly under the price block. */
+.earwax-pricing-secondary-price {
+  margin: 0.5rem 0 1.5rem;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-slate);
+  line-height: 1.4;
 }
 
 .earwax-pricing-features {
