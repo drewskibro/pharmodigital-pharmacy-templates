@@ -109,6 +109,30 @@ get_header();
   </div>
 </section>
 
+<?php
+// Location strip — used twice on this page (below hero + above booking).
+// Address + directions URL pull from Pharmacy Settings so they stay in sync
+// with the footer / contact page.
+$ew_loc_line_1 = ep_option( 'pharmacy_address_line_1', 'Unit 11 Littleton House, Littleton Road' );
+$ew_loc_line_2 = ep_option( 'pharmacy_address_line_2', 'Ashford, Surrey' );
+$ew_loc_line_3 = ep_option( 'pharmacy_address_line_3', 'TW15 1UU' );
+$ew_loc_url    = ep_option( 'pharmacy_directions_url', 'https://www.google.com/maps/dir/?api=1&destination=51.4340,-0.4668' );
+$ew_loc_strip  = '<div class="earwax-location-strip">'
+    . '<div class="section-container">'
+    . '<div class="earwax-location-strip-inner">'
+    . '<span class="earwax-location-strip-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>'
+    . '<p class="earwax-location-strip-address"><strong>Find us:</strong> '
+    . esc_html( $ew_loc_line_1 ) . ', '
+    . esc_html( $ew_loc_line_2 ) . ', '
+    . esc_html( $ew_loc_line_3 )
+    . '</p>'
+    . '<a href="' . esc_url( $ew_loc_url ) . '" class="earwax-location-strip-link" target="_blank" rel="noopener noreferrer">'
+    . 'Get directions <i class="fas fa-diamond-turn-right" aria-hidden="true"></i>'
+    . '</a>'
+    . '</div></div></div>';
+echo $ew_loc_strip; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — built from escaped parts above
+?>
+
 <!-- ============================================
      STATS BAR - Uses shared stats-section from globals.css
      ============================================ -->
@@ -505,6 +529,7 @@ get_header();
 <!-- ============================================
      BOOK NOW (Amelia embed — Ear Microsuction service ID 4)
      ============================================ -->
+<?php echo $ew_loc_strip; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped — built from escaped parts above ?>
 <section class="earwax-booking-section" id="book-now">
   <div class="section-container">
     <div class="earwax-booking-embed">
