@@ -116,7 +116,7 @@ get_header();
 $ew_loc_line_1 = ep_option( 'pharmacy_address_line_1', 'Unit 11 Littleton House, Littleton Road' );
 $ew_loc_line_2 = ep_option( 'pharmacy_address_line_2', 'Ashford, Surrey' );
 $ew_loc_line_3 = ep_option( 'pharmacy_address_line_3', 'TW15 1UU' );
-$ew_loc_url    = ep_option( 'pharmacy_directions_url', 'https://www.google.com/maps/dir/?api=1&destination=51.4340,-0.4668' );
+$ew_loc_url    = ep_option( 'pharmacy_directions_url', 'https://www.google.com/maps/dir/?api=1&destination=Unit+11+Littleton+House%2C+Littleton+Road%2C+Ashford+TW15+1UU' );
 $ew_loc_strip  = '<div class="earwax-location-strip">'
     . '<div class="section-container">'
     . '<div class="earwax-location-strip-inner">'

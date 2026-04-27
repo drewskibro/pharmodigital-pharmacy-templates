@@ -35,7 +35,7 @@ $pharmacy_image_url = $pharmacy_image_id ? wp_get_attachment_image_url( $pharmac
 $address_line_1 = ep_option( 'pharmacy_address_line_1', '123 High Street' );
 $address_line_2 = ep_option( 'pharmacy_address_line_2', 'Ashford, Surrey' );
 $address_line_3 = ep_option( 'pharmacy_address_line_3', 'TW15 1AB' );
-$directions_url = ep_option( 'pharmacy_directions_url', 'https://www.google.com/maps/dir/?api=1&destination=51.4340,-0.4668' );
+$directions_url = ep_option( 'pharmacy_directions_url', 'https://www.google.com/maps/dir/?api=1&destination=Unit+11+Littleton+House%2C+Littleton+Road%2C+Ashford+TW15+1UU' );
 
 // Google Maps embed URL – used as fallback when no static map image is set
 $maps_embed_url = ep_option( 'location_google_maps_embed', '' );

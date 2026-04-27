@@ -125,7 +125,7 @@ function ep_register_acf_field_groups() {
                 'label'         => 'Google Maps Directions URL',
                 'name'          => 'pharmacy_directions_url',
                 'type'          => 'url',
-                'default_value' => 'https://www.google.com/maps/dir/?api=1&destination=51.4340,-0.4668',
+                'default_value' => 'https://www.google.com/maps/dir/?api=1&destination=Unit+11+Littleton+House%2C+Littleton+Road%2C+Ashford+TW15+1UU',
             ),
             array(
                 'key'           => 'field_ep_pharmacy_parking',
