@@ -472,7 +472,7 @@ get_header();
       <?php endwhile; else : ?>
         <div class="malaria-faq-item">
           <button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Do I need a GP referral for malaria tablets?</span><i class="fas fa-plus icon"></i></button>
-          <div class="malaria-faq-content"><p>No. Easy Pharmacy's malaria prevention service is available without a GP referral. Dilip is a registered independent prescriber and can assess your suitability for antimalarials, issue a prescription, and supply the medication during your consultation. Book by calling 01784 255 222 or emailing hello@easypharmacy.co.uk.</p></div>
+          <div class="malaria-faq-content"><p>No. Easy Pharmacy's malaria prevention service is available without a GP referral. Dilip is a registered independent prescriber and can assess your suitability for antimalarials, issue a prescription, and supply the medication during your consultation. Book by calling 01784 255 222 or emailing bookings@theeasyclinic.co.uk.</p></div>
         </div>
         <div class="malaria-faq-item">
           <button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">When should I book my malaria consultation?</span><i class="fas fa-plus icon"></i></button>
