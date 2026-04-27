@@ -1607,6 +1607,18 @@
    address + directions from Pharmacy Settings options
    so it stays in sync with the footer/contact page.
    ============================================ */
+
+/* The shared .stats-section uses margin-top: -3rem to float
+   over the previous section (the homepage hero). On this page
+   the location strip sits between the hero and the stats, so
+   that negative margin pulls the stats up over the strip and
+   visually buries it. Reset margin-top when the strip directly
+   precedes the stats so the strip reads as a clean band right
+   under the hero. */
+.earwax-location-strip + .stats-section {
+  margin-top: 0;
+}
+
 .earwax-location-strip {
   background: var(--white);
   border-top: 1px solid rgba(196, 122, 101, 0.12);
