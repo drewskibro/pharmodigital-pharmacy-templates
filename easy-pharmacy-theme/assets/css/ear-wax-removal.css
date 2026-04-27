@@ -1598,3 +1598,97 @@
     padding: 2.5rem;
   }
 }
+
+
+/* ============================================
+   LOCATION STRIP
+   Used twice on this page — directly under the hero
+   and immediately above the booking section. Pulls
+   address + directions from Pharmacy Settings options
+   so it stays in sync with the footer/contact page.
+   ============================================ */
+.earwax-location-strip {
+  background: var(--white);
+  border-top: 1px solid rgba(196, 122, 101, 0.12);
+  border-bottom: 1px solid rgba(196, 122, 101, 0.12);
+  padding: 1rem 0;
+  overflow-x: clip;
+}
+
+.earwax-location-strip-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.earwax-location-strip-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.16), rgba(196, 122, 101, 0.08));
+  color: #B8694F;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+.earwax-location-strip-address {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #2D1B4E;
+  line-height: 1.5;
+  min-width: 0;
+}
+
+.earwax-location-strip-address strong {
+  font-weight: 700;
+  color: #C47A65;
+  margin-right: 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+.earwax-location-strip-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #B8694F;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(196, 122, 101, 0.3);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.earwax-location-strip-link:hover,
+.earwax-location-strip-link:focus-visible {
+  color: #2D1B4E;
+  border-bottom-color: #2D1B4E;
+}
+
+.earwax-location-strip-link i {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .earwax-location-strip {
+    padding: 1.25rem 0;
+  }
+
+  .earwax-location-strip-inner {
+    flex-wrap: nowrap;
+  }
+
+  .earwax-location-strip-address {
+    font-size: 1rem;
+  }
+}
