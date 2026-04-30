@@ -767,7 +767,7 @@
    ============================================ */
 .healthhub-cta-section {
   position: relative;
-  background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+  background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand-primary) 100%);
   padding: 7rem 0;
   overflow: hidden;
   text-align: center;
