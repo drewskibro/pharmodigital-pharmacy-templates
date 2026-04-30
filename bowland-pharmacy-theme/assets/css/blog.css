@@ -1,5 +1,5 @@
 /* ============================================
-   HEALTH HUB PAGE STYLES — Bowland Pharmacy
+   HEALTH HUB PAGE STYLES — Denton Pharmacy
    Uses healthhub- prefix
    ============================================ */
 
@@ -13,7 +13,9 @@
   align-items: center;
   padding: 20px 0 80px;
   overflow: hidden;
-  background: #f0f4f8;
+  background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
+  margin-top: -200px;
+  padding-top: 220px;
 }
 
 .healthhub-hero-bg-blob-1 {
@@ -22,11 +24,11 @@
   right: -10%;
   width: 800px;
   height: 800px;
-  background: rgba(121, 188, 46, 0.08);
+  background: rgba(63, 115, 174, 0.07);
   border-radius: 50%;
   filter: blur(80px);
   z-index: 0;
-  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .healthhub-hero-bg-blob-2 {
@@ -35,11 +37,11 @@
   left: -10%;
   width: 700px;
   height: 700px;
-  background: rgba(63, 115, 174, 0.08);
+  background: rgba(63, 115, 174, 0.05);
   border-radius: 50%;
   filter: blur(80px);
   z-index: 0;
-  animation: float 10s ease-in-out infinite reverse;
+  pointer-events: none;
 }
 
 /* Dots hidden — too busy on warm background */
@@ -55,41 +57,36 @@
   margin: 0 auto;
 }
 
-/* Badge: glassmorphic treatment */
-.healthhub-hero-section .section-badge {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(121, 188, 46, 0.12);
-  box-shadow: 0 8px 30px rgba(121, 188, 46, 0.10);
-}
-
 .healthhub-hero-title {
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 900;
-  color: #1e3a5f;
+  color: #1e293b;
   margin-top: 0;
   margin-bottom: 1.5rem;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 @media (min-width: 768px) {
   .healthhub-hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   .healthhub-hero-title {
-    font-size: 4.25rem;
+    font-size: 3.75rem;
   }
 }
 
-/* Ensure gradient-text shows brand gradient */
+.healthhub-hero-title-accent {
+  font-style: italic;
+  color: #1e293b;
+}
+
 .healthhub-hero-title .gradient-text {
-  background: linear-gradient(135deg, #1e3a5f, #3f73ae);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -145,26 +142,193 @@
 
 .healthhub-filter-pill.active,
 .healthhub-filter-btn.active {
-  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   color: #fff;
   border: none;
-  box-shadow: 0 4px 15px rgba(121, 188, 46, 0.35);
+  box-shadow: 0 4px 15px rgba(63, 115, 174, 0.35);
 }
 
 .healthhub-filter-pill:not(.active),
 .healthhub-filter-btn:not(.active) {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.85);
   color: #4a5568;
-  border: 1px solid rgba(121, 188, 46, 0.15);
+  border: 1px solid rgba(63, 115, 174, 0.12);
 }
 
 .healthhub-filter-pill:not(.active):hover,
 .healthhub-filter-btn:not(.active):hover {
-  border-color: rgba(121, 188, 46, 0.4);
-  color: #1e3a5f;
+  border-color: rgba(63, 115, 174, 0.3);
+  color: #111827;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(121, 188, 46, 0.12);
+  box-shadow: 0 4px 12px rgba(63, 115, 174, 0.1);
 }
+
+/* ============================================
+   CATEGORY CARDS — "What brings you here today?"
+   ============================================ */
+.healthhub-cats-section {
+  padding: 5rem 0;
+  background: var(--white);
+}
+
+.healthhub-cats-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.healthhub-cats-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .healthhub-cats-title {
+    font-size: 3rem;
+  }
+}
+
+.healthhub-cats-description {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.healthhub-cats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .healthhub-cats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .healthhub-cats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.healthhub-cat-card {
+  display: block;
+  text-decoration: none;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.healthhub-cat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.healthhub-cat-card-inner {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+}
+
+.healthhub-cat-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.healthhub-cat-card:hover .healthhub-cat-card-image {
+  transform: scale(1.08);
+}
+
+.healthhub-cat-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 100%);
+  pointer-events: none;
+}
+
+.healthhub-cat-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  z-index: 10;
+}
+
+.healthhub-cat-card-label {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.healthhub-cat-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 1024px) {
+  .healthhub-cat-card-title {
+    font-size: 1.75rem;
+  }
+}
+
+.healthhub-cat-card-desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.healthhub-cat-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.healthhub-cat-card:hover .healthhub-cat-card-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.healthhub-cat-card-link i {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.healthhub-cat-card:hover .healthhub-cat-card-link i {
+  transform: translateX(4px);
+}
+
 
 /* ============================================
    FEATURED ARTICLE
@@ -243,8 +407,8 @@
 }
 
 .healthhub-category-badge {
-  background: rgba(121, 188, 46, 0.12);
-  color: #5a9e1a;
+  background: rgba(63, 115, 174, 0.1);
+  color: var(--brand-primary);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.375rem 0.875rem;
@@ -424,7 +588,7 @@
   position: absolute;
   top: 1.25rem;
   left: 1.25rem;
-  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -432,7 +596,7 @@
   border-radius: 9999px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 12px rgba(121, 188, 46, 0.3);
+  box-shadow: 0 4px 12px rgba(63, 115, 174, 0.3);
   z-index: 10;
 }
 
@@ -586,33 +750,57 @@
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   color: #fff;
   padding: 0.75rem 2rem;
   border-radius: 9999px;
-  box-shadow: 0 4px 15px rgba(121, 188, 46, 0.3);
+  box-shadow: 0 4px 15px rgba(63, 115, 174, 0.3);
 }
 
 .healthhub-no-posts-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(121, 188, 46, 0.4);
+  box-shadow: 0 8px 25px rgba(63, 115, 174, 0.4);
 }
 
 /* ============================================
-   CTA SECTION
+   CTA SECTION — Deep purple gradient (shared pattern)
    ============================================ */
 .healthhub-cta-section {
   position: relative;
-  background: linear-gradient(135deg, #1e3a5f, #3f73ae);
-  padding: 6rem 0;
+  background: linear-gradient(135deg, #6B4FA0, #8B6BBF);
+  padding: 7rem 0;
   overflow: hidden;
   text-align: center;
+}
+
+.healthhub-cta-glow-1 {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.healthhub-cta-glow-2 {
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
 }
 
 .healthhub-cta-dots {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
   pointer-events: none;
 }
@@ -624,39 +812,117 @@
   margin: 0 auto;
 }
 
+/* Trust badges row */
+.healthhub-cta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.healthhub-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.healthhub-cta-badge i {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
 .healthhub-cta-title {
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 900;
-  color: #fff;
+  color: var(--white);
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
   .healthhub-cta-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
 .healthhub-cta-description {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
   margin-bottom: 2.5rem;
 }
 
-.healthhub-cta-button {
-  background: linear-gradient(135deg, #79bc2e, #5a9e1a);
-  color: #fff;
-  padding: 1rem 2.5rem;
-  font-size: 1.125rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  border: none;
+/* CTA buttons */
+.healthhub-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
 }
 
-.healthhub-cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+@media (min-width: 640px) {
+  .healthhub-cta-actions {
+    flex-direction: row;
+  }
+}
+
+.healthhub-cta-button-primary {
+  background: var(--white);
+  color: var(--brand-dark);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.healthhub-cta-button-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.healthhub-cta-button-secondary {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.healthhub-cta-button-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Trust checks row */
+.healthhub-cta-checks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.healthhub-cta-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.healthhub-cta-check i {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* ============================================
@@ -811,9 +1077,11 @@
    ============================================ */
 .article-hero {
   position: relative;
-  background: #f0f4f8;
+  background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
   padding: 5rem 0 4rem;
   overflow: hidden;
+  margin-top: -200px;
+  padding-top: 220px;
 }
 
 .article-hero-blob-1 {
@@ -1785,7 +2053,7 @@
    position: static override for inline use.
    ============================================ */
 .healthhub-social-proof-section {
-  background: #f0f4f8;
+  background: linear-gradient(170deg, #f5efe6 0%, #faf6f0 50%, #fdf9f3 100%);
   padding: 4rem 0;
 }
 
@@ -1860,7 +2128,7 @@
   border-radius: 1.5rem;
   overflow: hidden;
   height: 100%;
-  background: linear-gradient(135deg, #1e3a5f, #3f73ae);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   transition: all 0.4s ease;
 }
 
