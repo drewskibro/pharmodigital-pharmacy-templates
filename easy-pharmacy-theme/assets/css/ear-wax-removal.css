@@ -345,6 +345,13 @@
   transition: opacity 0.3s ease;
 }
 
+/* The price badge sits over the centre of the card and intercepts taps
+   on the play button. Since it's decorative (not a link), disabling
+   pointer events passes all clicks straight through to the facade. */
+.earwax-hero-image-card.has-video .earwax-hero-price-badge {
+  pointer-events: none;
+}
+
 @media (max-width: 639px) {
   .earwax-hero-video-play {
     width: 68px;
