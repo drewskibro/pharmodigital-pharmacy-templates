@@ -1583,7 +1583,6 @@
 }
 
 .earwax-booking-embed iframe,
-.earwax-booking-embed img,
 .earwax-booking-embed video {
   max-width: 100%;
   height: auto;
@@ -1597,6 +1596,100 @@
   .earwax-booking-embed {
     padding: 2.5rem;
   }
+}
+
+/* ============================================
+   AMELIA CALENDAR RESETS — EAR WAX PAGE
+   The global * { margin:0; padding:0 } reset strips default
+   spacing from Amelia's internal table/grid calendar. These rules
+   restore what Amelia expects without clobbering its own styles.
+   ============================================ */
+
+.earwax-booking-embed table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.earwax-booking-embed table th,
+.earwax-booking-embed table td {
+  padding: 8px 4px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.earwax-booking-embed table th {
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 13px;
+  padding-bottom: 12px;
+}
+
+.earwax-booking-embed .el-date-table,
+.earwax-booking-embed .el-calendar-table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+.earwax-booking-embed .el-date-table td,
+.earwax-booking-embed .el-calendar-table td {
+  padding: 4px !important;
+  text-align: center !important;
+  width: 14.285% !important;
+  height: auto !important;
+}
+
+.earwax-booking-embed .el-date-table th,
+.earwax-booking-embed .el-calendar-table th {
+  padding: 8px 4px !important;
+  text-align: center !important;
+  min-width: 0 !important;
+}
+
+.earwax-booking-embed .am-calendar-picker__body table,
+.earwax-booking-embed .am-date-picker table,
+.earwax-booking-embed .am-calendar-picker table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+.earwax-booking-embed .am-calendar-picker__body td,
+.earwax-booking-embed .am-calendar-picker__body th {
+  padding: 4px !important;
+  text-align: center !important;
+}
+
+.earwax-booking-embed .am-adp__week-days,
+.earwax-booking-embed .am-adp__weekdays {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  text-align: center !important;
+  gap: 0 !important;
+  margin-bottom: 4px !important;
+}
+
+.earwax-booking-embed .am-adp__days,
+.earwax-booking-embed .am-adp__body {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 0 !important;
+}
+
+.earwax-booking-embed .am-adp__days .am-adp__day,
+.earwax-booking-embed .am-adp__body .am-adp__day,
+.earwax-booking-embed .am-adp__day-cell,
+.earwax-booking-embed .am-adp__days > div,
+.earwax-booking-embed .am-adp__body > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  aspect-ratio: 1 !important;
+  padding: 2px !important;
+  text-align: center !important;
+  font-size: 14px !important;
 }
 
 
