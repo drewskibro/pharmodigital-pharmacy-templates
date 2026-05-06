@@ -730,6 +730,36 @@ All themes use Font Awesome 6.4.0 via CDN. Common icons:
 
 ---
 
+## Amelia Booking Plugin — Known Issues & Fixes
+
+The booking widget is embedded via `do_shortcode()` in `page-templates/page-book-appointment.php` and `page-templates/page-ear-wax-removal.php`. Amelia is a Vue.js app that boots by calling `/wp-admin/admin-ajax.php?action=wpamelia_api&call=/entities&types=…`. If that single request fails or its response can't render, the widget shows a spinner forever.
+
+### Symptom: calendar spins indefinitely, never loads
+
+Triage in this order — fastest fixes first:
+
+1. **Toggle "Load entities on page load"** in WP Admin → Amelia → Settings → Activation. Disable, wait for the green "Success" toast, re-enable, wait for "Success" again. This rebuilds Amelia's entity cache. **This was the actual fix on the live site (May 2026).** Try this first whenever the spinner returns — takes 30 seconds.
+
+2. **Check for email collisions.** A customer or employee record sharing an email with the WP admin user causes role conflicts and 500s on `/entities`. Search Amelia → Customers and Amelia → Employees for the admin email; change if found.
+
+3. **Deactivate → reactivate the Amelia plugin** to flush its internal cache.
+
+4. **Check for JS deferral conflicts.** WP Rocket / LiteSpeed / Autoptimize "Delay JS" or "Combine JS" can starve Amelia. Exclude `amelia_booking_script_index` and any `amelia*` JS files.
+
+5. **Server-side check (Kinsta ticket).** Ask for PHP error log entries for any `500` responses on `/wp-admin/admin-ajax.php?action=wpamelia_api`. Also have them exclude `/wp-admin/admin-ajax.php` and `/wp-json/amelia/*` from edge / CDN / server cache as a sanity step. Restart PHP + MariaDB if transient.
+
+### Theme-side rules to remember
+
+The booking widget is a Vue app — broad CSS selectors that look harmless can break it catastrophically. Hard-won rules:
+
+- **Never use `div:has(> img)` inside any `.book-amelia-container` / `.earwax-booking-embed` scope.** Amelia's top-level container has direct `<img>` children during boot; this selector clips the entire booking form to the size of the avatar rules and produces a permanent spinner.
+- **Never use broad `[class*="image"]`, `[class*="photo"]`, `[class*="avatar"]`, `[class*="thumb"]` substring matches.** They hit Amelia's internal layout containers (e.g. `am-fs__main-imagebox`) and force them to thumbnail dimensions.
+- **Never apply a blanket `img { 60px }` rule inside the Amelia scope.** It breaks Amelia's loading SVG, calendar arrows, and step icons. Target known exact class names instead: `.am-fs__service-card__image`, `.am-fs-sb__service__image`, `.am-fs__service__image`.
+- **Don't apply `height: auto` to all imgs inside the Amelia wrapper.** Amelia controls its own image heights; restrict the rule to `iframe` and `video`.
+- **Do compensate for the global reset.** `globals.css` strips default `margin`/`padding` from every element. Amelia's calendar table relies on default spacing — if you embed Amelia in a new wrapper, copy the `.book-amelia-container` table/grid resets (search `book-appointment.css` for "AMELIA CALENDAR GRID FIX") and re-scope them to the new wrapper.
+
+---
+
 ## Key Design Decisions (Universal)
 
 - **No Gutenberg on page templates** — ACF-only editing for a clean client experience
