@@ -266,6 +266,90 @@
   pointer-events: none;
 }
 
+/* ============================================
+   YOUTUBE SHORTS VIDEO FACADE (HERO)
+   Lightweight wrapper around the poster image with a play button.
+   The actual YouTube iframe is only injected on user click — this
+   keeps the page LCP-clean for Google Ads quality score.
+   ============================================ */
+
+.earwax-hero-video-facade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  background: #000;
+}
+
+.earwax-hero-video-facade .earwax-hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.earwax-hero-video-facade:hover .earwax-hero-image,
+.earwax-hero-video-facade:focus-visible .earwax-hero-image {
+  transform: scale(1.03);
+  filter: brightness(0.9);
+}
+
+.earwax-hero-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--brand-purple, #6B4FA0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.875rem;
+  padding-left: 0.375rem; /* optical centring of play triangle */
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 0 8px rgba(255, 255, 255, 0.18);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  z-index: 5;
+  pointer-events: none; /* click handled on the facade itself */
+}
+
+.earwax-hero-video-facade:hover .earwax-hero-video-play,
+.earwax-hero-video-facade:focus-visible .earwax-hero-video-play {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 12px rgba(255, 255, 255, 0.22);
+}
+
+.earwax-hero-video-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Hide the floating price badge once the video is playing so it doesn't
+   sit on top of the playback area. The testimonial card is a sibling
+   outside .earwax-hero-image-card, so it stays put. */
+.earwax-hero-image-card:has(.earwax-hero-video-facade.is-playing) .earwax-hero-price-badge,
+.earwax-hero-image-card:has(.earwax-hero-video-facade.is-playing) .earwax-hero-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 639px) {
+  .earwax-hero-video-play {
+    width: 68px;
+    height: 68px;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 6px rgba(255, 255, 255, 0.18);
+  }
+}
+
 .earwax-hero-price-badge {
   position: absolute;
   bottom: 2rem;

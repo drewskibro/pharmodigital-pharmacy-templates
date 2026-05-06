@@ -40,23 +40,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Handle mobile dropdown toggles
-  const dropdownLinks = document.querySelectorAll('.mega-menu-has-dropdown > .mega-menu-link');
-  dropdownLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      // Only prevent default on mobile
-      if (window.innerWidth < 1024) {
-        e.preventDefault();
-        const parent = this.parentElement;
-        
-        // Close other dropdowns
-        document.querySelectorAll('.mega-menu-has-dropdown').forEach(item => {
-          if (item !== parent) {
-            item.classList.remove('mobile-dropdown-open');
-          }
-        });
+  // Mobile: chevron button opens/closes the dropdown.
+  // The top-level <a> link is left alone so it navigates directly on tap.
+  const chevronBtns = document.querySelectorAll('.mega-menu-mobile-chevron');
+  chevronBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation(); // don't let the document click handler close it immediately
+      const parent = this.closest('.mega-menu-has-dropdown');
+      const isOpen = parent.classList.contains('mobile-dropdown-open');
 
-        parent.classList.toggle('mobile-dropdown-open');
+      // Close all dropdowns + reset aria
+      document.querySelectorAll('.mega-menu-has-dropdown').forEach(item => {
+        item.classList.remove('mobile-dropdown-open');
+        const ch = item.querySelector('.mega-menu-mobile-chevron');
+        if (ch) ch.setAttribute('aria-expanded', 'false');
+      });
+
+      // Open this one if it was closed
+      if (!isOpen) {
+        parent.classList.add('mobile-dropdown-open');
+        this.setAttribute('aria-expanded', 'true');
       }
     });
   });

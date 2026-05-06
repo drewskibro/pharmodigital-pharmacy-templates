@@ -2921,6 +2921,23 @@ function ep_register_acf_field_groups() {
                 'default_value' => 'Friendly older patient satisfied after ear wax removal treatment',
             ),
             array(
+                'key'           => 'field_ep_ew_hero_video_id',
+                'label'         => 'Hero Video — YouTube ID',
+                'name'          => 'ew_hero_video_id',
+                'type'          => 'text',
+                'instructions'  => 'YouTube Shorts video ID only. For https://youtube.com/shorts/dQw4w9WgXcQ enter "dQw4w9WgXcQ". Leave blank to show the static Hero Image instead.',
+            ),
+            array(
+                'key'           => 'field_ep_ew_hero_video_poster',
+                'label'         => 'Hero Video — Poster Image',
+                'name'          => 'ew_hero_video_poster',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'Custom thumbnail shown before the video plays. Strongly recommended: vertical 9:16 image (e.g. 720×1280). Falls back to the Hero Image if blank.',
+            ),
+            array(
                 'key'           => 'field_ep_ew_price_label',
                 'label'         => 'Price Badge — Label',
                 'name'          => 'ew_price_label',
