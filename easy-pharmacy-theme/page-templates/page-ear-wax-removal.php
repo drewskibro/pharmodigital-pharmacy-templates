@@ -64,14 +64,32 @@ get_header();
         </div>
       </div>
 
-      <!-- Right: Image with Testimonial -->
+      <!-- Right: Image (or YouTube Shorts video facade) with Testimonial -->
       <div class="earwax-hero-visual">
         <?php
         $hero_image_id  = ep_field( 'ew_hero_image' );
         $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'large' ) : 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=800&h=1000&fit=crop';
+        $hero_image_alt = ep_field( 'ew_hero_image_alt', 'Friendly older patient satisfied after ear wax removal treatment' );
+
+        // Optional YouTube Shorts video. When a video ID is set, the static
+        // image becomes a poster + play button; tapping play loads the iframe
+        // (facade pattern — no YouTube JS until the user interacts, so LCP
+        // and ad quality score stay clean).
+        $video_id   = ep_field( 'ew_hero_video_id' );
+        $poster_id  = ep_field( 'ew_hero_video_poster' );
+        $poster_url = $poster_id ? wp_get_attachment_image_url( $poster_id, 'large' ) : $hero_image_url;
         ?>
-        <div class="earwax-hero-image-card">
-          <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( ep_field( 'ew_hero_image_alt', 'Friendly older patient satisfied after ear wax removal treatment' ) ); ?>" class="earwax-hero-image" />
+        <div class="earwax-hero-image-card<?php echo $video_id ? ' has-video' : ''; ?>">
+          <?php if ( $video_id ) : ?>
+            <div class="earwax-hero-video-facade" data-video-id="<?php echo esc_attr( $video_id ); ?>" role="button" tabindex="0" aria-label="Play video">
+              <img src="<?php echo esc_url( $poster_url ); ?>" alt="<?php echo esc_attr( $hero_image_alt ); ?>" class="earwax-hero-image" />
+              <span class="earwax-hero-video-play" aria-hidden="true">
+                <i class="fas fa-play"></i>
+              </span>
+            </div>
+          <?php else : ?>
+            <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( $hero_image_alt ); ?>" class="earwax-hero-image" />
+          <?php endif; ?>
           <div class="earwax-hero-overlay"></div>
           <div class="earwax-hero-price-badge">
             <span class="earwax-hero-price-label"><?php echo esc_html( ep_field( 'ew_price_label', 'Only if no wax found' ) ); ?></span>
