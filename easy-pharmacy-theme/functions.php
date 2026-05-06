@@ -10,9 +10,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'EASY_PHARMACY_VERSION', filemtime( __FILE__ ) );
 define( 'EASY_PHARMACY_DIR', get_template_directory() );
 define( 'EASY_PHARMACY_URI', get_template_directory_uri() );
+// Version hash used for cache-busting CSS/JS query strings. Tied to globals.css
+// mtime so any CSS edit invalidates Kinsta edge cache + browser caches. Using
+// filemtime(__FILE__) on functions.php silently breaks cache-busting for CSS-only
+// changes — see CLAUDE.md "Deployment Pipeline" lessons learned.
+define( 'EASY_PHARMACY_VERSION', filemtime( EASY_PHARMACY_DIR . '/assets/css/globals.css' ) );
 
 /**
  * Theme Setup
