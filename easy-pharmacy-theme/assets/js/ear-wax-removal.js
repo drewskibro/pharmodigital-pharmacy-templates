@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!videoId) return;
 
       const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) +
-        '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+      iframe.src = 'https://www.youtube.com/embed/' + videoId +
+        '?autoplay=1&rel=0&playsinline=1';
       iframe.title = 'YouTube video player';
       iframe.setAttribute('frameborder', '0');
       iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
