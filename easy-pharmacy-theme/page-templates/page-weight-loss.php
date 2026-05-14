@@ -40,8 +40,8 @@ get_header();
         </p>
 
         <div class="wl-hero-actions">
-          <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '' ) ?: ep_booking_url() ); ?>" class="cta-button primary-cta">
-            <?php echo esc_html( ep_field( 'wl_hero_cta_text', 'Book Consultation' ) ); ?>
+          <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '' ) ?: '#book-weight-loss' ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( ep_field( 'wl_hero_cta_text', 'Start Losing Weight Today' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
           <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta">
@@ -137,7 +137,33 @@ get_header();
      ============================================ -->
 <section class="wl-calculator-section">
   <div class="section-container">
-    <?php echo do_shortcode( '[mounjaro_calculator]' ); ?>
+    <?php echo do_shortcode( '[mounjaro_calculator cta_url="#book-weight-loss" cta_text="Reserve My Free Consultation"]' ); ?>
+  </div>
+</section>
+
+<!-- ============================================
+     BOOK YOUR CONSULTATION (Amelia — Weight Loss service ID 1)
+     After the calculator, this is the moment of peak intent —
+     show results then immediately offer a calendar slot.
+     ============================================ -->
+<section class="wl-booking-section" id="book-weight-loss">
+  <div class="section-container">
+    <div class="wl-booking-header">
+      <div class="section-badge">
+        <span class="pulse-dot"><span></span><span></span></span>
+        <span class="section-badge-text"><?php echo esc_html( ep_field( 'wl_booking_badge', 'LIMITED SPOTS AVAILABLE' ) ); ?></span>
+      </div>
+      <h2 class="wl-booking-title"><?php echo esc_html( ep_field( 'wl_booking_title', 'Start Losing Weight' ) ); ?> <span class="gradient-text"><?php echo esc_html( ep_field( 'wl_booking_title_highlight', 'This Week' ) ); ?></span></h2>
+      <p class="wl-booking-subtitle"><?php echo esc_html( ep_field( 'wl_booking_subtitle', '30-minute face-to-face consultation. No GP referral needed. Same-day appointments available.' ) ); ?></p>
+    </div>
+    <div class="wl-booking-embed">
+      <?php echo do_shortcode( '[ameliacatalogbooking service=1]' ); ?>
+    </div>
+    <div class="wl-booking-trust">
+      <div class="wl-booking-trust-item"><i class="fas fa-shield-halved"></i><span>GPhC Registered</span></div>
+      <div class="wl-booking-trust-item"><i class="fas fa-user-doctor"></i><span>Face-to-Face Only</span></div>
+      <div class="wl-booking-trust-item"><i class="fas fa-check-circle"></i><span>No GP Referral Needed</span></div>
+    </div>
   </div>
 </section>
 
@@ -212,8 +238,8 @@ get_header();
         <h3 class="wl-cta-bar-title"><?php echo esc_html( ep_field( 'wl_cta_bar_title', 'Ready to transform your health?' ) ); ?></h3>
         <p class="wl-cta-bar-subtitle"><?php echo esc_html( ep_field( 'wl_cta_bar_subtitle', 'Book your consultation with Dilip today' ) ); ?></p>
       </div>
-      <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '' ) ?: ep_booking_url() ); ?>" class="cta-button primary-cta wl-cta-bar-button">
-        <?php echo esc_html( ep_field( 'wl_hero_cta_text', 'Book Consultation' ) ); ?>
+      <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '' ) ?: '#book-weight-loss' ); ?>" class="cta-button primary-cta wl-cta-bar-button">
+        <?php echo esc_html( ep_field( 'wl_hero_cta_text', 'Reserve My Free Consultation' ) ); ?>
         <i class="fas fa-arrow-right"></i>
       </a>
     </div>
@@ -297,7 +323,7 @@ get_header();
         <?php endif; ?>
 
         <div class="wl-features-actions">
-          <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '' ) ?: ep_booking_url() ); ?>" class="cta-button primary-cta">
+          <a href="<?php echo esc_url( ep_field( 'wl_hero_cta_url', '' ) ?: '#book-weight-loss' ); ?>" class="cta-button primary-cta">
             Start Your Journey <i class="fas fa-arrow-right"></i>
           </a>
           <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta">
@@ -339,8 +365,8 @@ get_header();
             <h2 class="revslider-title"><?php echo esc_html( ep_field( 'wl_banner_title', 'Transform Your Health with Mounjaro & Wegovy' ) ); ?></h2>
             <p class="revslider-subtitle"><?php echo esc_html( ep_field( 'wl_banner_subtitle', 'Prescription weight loss treatment with expert face-to-face support in Ashford' ) ); ?></p>
             <div class="revslider-cta">
-              <a href="<?php echo esc_url( ep_field( 'wl_banner_cta_url', '' ) ?: ep_booking_url() ); ?>" class="revslider-btn-primary">
-                <?php echo esc_html( ep_field( 'wl_banner_cta_text', 'Book Consultation' ) ); ?>
+              <a href="<?php echo esc_url( ep_field( 'wl_banner_cta_url', '' ) ?: '#book-weight-loss' ); ?>" class="revslider-btn-primary">
+                <?php echo esc_html( ep_field( 'wl_banner_cta_text', 'Reserve My Free Consultation' ) ); ?>
               </a>
               <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="revslider-btn-secondary">
                 <?php echo esc_html( 'Call ' . ep_phone() ); ?>
@@ -595,7 +621,7 @@ get_header();
       <p class="wl-final-cta-description"><?php echo esc_html( ep_field( 'wl_final_cta_description', 'Join 500+ Ashford residents who\'ve transformed their lives with medical weight loss. Book your consultation with Dilip today.' ) ); ?></p>
 
       <div class="wl-final-cta-actions">
-        <a href="<?php echo esc_url( ep_booking_url() ); ?>" class="cta-button primary-cta wl-final-cta-button-white">
+        <a href="#book-weight-loss" class="cta-button primary-cta wl-final-cta-button-white">
           Book Your Consultation <i class="fas fa-arrow-right"></i>
         </a>
         <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button secondary-cta wl-final-cta-button-outlined">
