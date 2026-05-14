@@ -75,10 +75,10 @@ $hl_support    = ep_option( 'nav_dd_hl_support' );
 
 // Defaults — used when repeaters are empty (i.e. nothing saved in ACF yet).
 $default_wl_treatments = array(
-    array( 'label' => 'Wegovy (Semaglutide)',  'icon' => 'fas fa-syringe', 'url' => '' ),
-    array( 'label' => 'Mounjaro (Tirzepatide)', 'icon' => 'fas fa-syringe', 'url' => '' ),
-    array( 'label' => 'Saxenda (Liraglutide)',  'icon' => 'fas fa-syringe', 'url' => '' ),
-    array( 'label' => 'Orlistat',               'icon' => 'fas fa-pills',   'url' => '' ),
+    array( 'label' => 'Weekly GLP-1 Injection',   'icon' => 'fas fa-syringe', 'url' => '' ),
+    array( 'label' => 'Dual-Action GLP-1',         'icon' => 'fas fa-syringe', 'url' => '' ),
+    array( 'label' => 'Daily GLP-1 Injection',     'icon' => 'fas fa-syringe', 'url' => '' ),
+    array( 'label' => 'Oral Weight Loss Capsule',  'icon' => 'fas fa-pills',   'url' => '' ),
 );
 $default_wl_support = array(
     array( 'label' => 'How It Works',    'icon' => 'fas fa-circle-info',            'url' => '' ),
