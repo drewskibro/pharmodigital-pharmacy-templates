@@ -1682,3 +1682,193 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ============================================
+   BOOKING SECTION — Amelia embed (Weight Loss service ID 1)
+   ============================================ */
+
+.wl-booking-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+  border-top: 1px solid rgba(107, 79, 160, 0.1);
+  scroll-margin-top: 100px; /* offset for the 80px fixed nav */
+  overflow-x: clip;
+}
+
+@media (min-width: 768px) {
+  .wl-booking-section {
+    padding: 7rem 0;
+  }
+}
+
+.wl-booking-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.wl-booking-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .wl-booking-title {
+    font-size: 3rem;
+  }
+}
+
+.wl-booking-subtitle {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.wl-booking-embed {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  background: var(--white);
+  border: 1px solid rgba(107, 79, 160, 0.12);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 40px rgba(107, 79, 160, 0.08);
+}
+
+@media (min-width: 768px) {
+  .wl-booking-embed {
+    padding: 2.5rem;
+  }
+}
+
+.wl-booking-embed > * {
+  max-width: 100%;
+}
+
+.wl-booking-embed iframe,
+.wl-booking-embed video {
+  max-width: 100%;
+  height: auto;
+}
+
+.wl-booking-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.wl-booking-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #2D1B4E;
+}
+
+.wl-booking-trust-item i {
+  color: #7A9E7E;
+  font-size: 1.125rem;
+}
+
+/* ============================================
+   AMELIA CALENDAR RESETS — WEIGHT LOSS PAGE
+   The global * { margin:0; padding:0 } reset strips default
+   spacing from Amelia's internal table/grid calendar. These rules
+   restore what Amelia expects without clobbering its own styles.
+   ============================================ */
+
+.wl-booking-embed table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.wl-booking-embed table th,
+.wl-booking-embed table td {
+  padding: 8px 4px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.wl-booking-embed table th {
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 13px;
+  padding-bottom: 12px;
+}
+
+.wl-booking-embed .el-date-table,
+.wl-booking-embed .el-calendar-table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+.wl-booking-embed .el-date-table td,
+.wl-booking-embed .el-calendar-table td {
+  padding: 4px !important;
+  text-align: center !important;
+  width: 14.285% !important;
+  height: auto !important;
+}
+
+.wl-booking-embed .el-date-table th,
+.wl-booking-embed .el-calendar-table th {
+  padding: 8px 4px !important;
+  text-align: center !important;
+  min-width: 0 !important;
+}
+
+.wl-booking-embed .am-calendar-picker__body table,
+.wl-booking-embed .am-date-picker table,
+.wl-booking-embed .am-calendar-picker table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+.wl-booking-embed .am-calendar-picker__body td,
+.wl-booking-embed .am-calendar-picker__body th {
+  padding: 4px !important;
+  text-align: center !important;
+}
+
+.wl-booking-embed .am-adp__week-days,
+.wl-booking-embed .am-adp__weekdays {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  text-align: center !important;
+  gap: 0 !important;
+  margin-bottom: 4px !important;
+}
+
+.wl-booking-embed .am-adp__days,
+.wl-booking-embed .am-adp__body {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 0 !important;
+}
+
+.wl-booking-embed .am-adp__days .am-adp__day,
+.wl-booking-embed .am-adp__body .am-adp__day,
+.wl-booking-embed .am-adp__day-cell,
+.wl-booking-embed .am-adp__days > div,
+.wl-booking-embed .am-adp__body > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  aspect-ratio: 1 !important;
+  padding: 2px !important;
+  text-align: center !important;
+  font-size: 14px !important;
+}
