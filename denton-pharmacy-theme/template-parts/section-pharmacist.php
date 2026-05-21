@@ -41,8 +41,8 @@ if ( empty( $trust_checks ) ) {
 
 // --- Team members (ACF repeater → defaults) ---
 $team = array();
-if ( function_exists( 'have_rows' ) && have_rows( 'team_members' ) ) {
-    while ( have_rows( 'team_members' ) ) {
+if ( function_exists( 'have_rows' ) && have_rows( 'home_team_members' ) ) {
+    while ( have_rows( 'home_team_members' ) ) {
         the_row();
         $tags = array();
         if ( have_rows( 'team_tags' ) ) {
