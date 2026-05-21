@@ -200,9 +200,13 @@
   height: 80px;
 }
 
-/* Shrink logo — mobile compact */
+/* Shrink logo — mobile compact.
+   Logo image must be smaller than the 80px compact bar to leave room for
+   the .denton-logo's translateY(-8px) optical-centering offset; otherwise
+   the top of the logo clips above the nav. 56px keeps the same ~4px top
+   breathing room the 80px logo has in the 112px default bar. */
 .denton-nav.nav-compact .denton-logo-img {
-  height: 80px;
+  height: 56px;
 }
 
 /* Desktop 1024–1279px compact */
