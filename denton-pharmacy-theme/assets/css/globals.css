@@ -2704,7 +2704,7 @@ html {
    ============================================ */
 .switching-section {
   padding: 6rem 0;
-  background: #fdf9f3;
+  background: var(--white);
   position: relative;
   overflow: hidden;
 }
@@ -2761,12 +2761,20 @@ html {
   font-weight: 900;
   font-family: var(--font-heading);
   color: #111827;
+  margin-top: 0;
   margin-bottom: 1.5rem;
   line-height: 1.15;
   letter-spacing: -0.02em;
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 768px) {
+  .switching-title {
+    font-size: 2.75rem;
+  }
+}
+
+@media (min-width: 1280px) {
   .switching-title {
     font-size: 3rem;
   }
