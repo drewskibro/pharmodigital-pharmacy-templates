@@ -79,7 +79,16 @@
 .wl-hero-mobile-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(15, 23, 42, 0.55);
+  /* Gradient darkens toward the bottom where the paragraph + CTAs sit,
+     keeping the headline area light enough to feel airy but lifting the
+     body copy off the photo for legibility. */
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.45) 0%,
+    rgba(15, 23, 42, 0.55) 35%,
+    rgba(15, 23, 42, 0.78) 70%,
+    rgba(15, 23, 42, 0.88) 100%
+  );
   pointer-events: none;
 }
 
@@ -108,14 +117,15 @@
   }
 
   .wl-hero-section--has-mobile-bg .wl-hero-description {
-    color: rgba(255, 255, 255, 0.92);
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
   }
 
-  .wl-hero-section--has-mobile-bg .section-badge {
-    background: rgba(255, 255, 255, 0.18);
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.3);
-  }
+  /* Badge intentionally falls through to the canonical .section-badge
+     style from globals.css (white pill, subtle blue border, slate text)
+     — the earlier translucent-white override left it unreadable on top
+     of the dark hero overlay because .section-badge-text re-sets its
+     own slate colour. */
 }
 
 .wl-hero-bg {
