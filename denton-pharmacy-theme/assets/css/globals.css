@@ -690,6 +690,7 @@ a.hero-nhs-pill:hover {
 .hero-mobile-image {
   margin: 1.5rem 0;
   max-width: 100%;
+  border-radius: 1rem;
   overflow: hidden;
 }
 
