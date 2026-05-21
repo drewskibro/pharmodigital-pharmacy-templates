@@ -1267,6 +1267,20 @@
   }
 }
 
+/* Mobile: even-indexed ("right") steps emit image-then-content in the HTML
+   for the alternating desktop layout. Below 1024px the grid collapses to
+   one column, which would stack two adjacent step images back-to-back
+   between odd/even steps. Force content-then-image on every step so each
+   image sits directly under its own step's title/description. */
+@media (max-width: 1023px) {
+  .wl-journey-step-right .wl-journey-step-content {
+    order: 1;
+  }
+  .wl-journey-step-right .wl-journey-step-image {
+    order: 2;
+  }
+}
+
 /* Journey section — Tab + Card Grid variant (alternate layout) */
 .wl-journey-tabs {
   display: grid;
