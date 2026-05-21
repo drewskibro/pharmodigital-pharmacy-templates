@@ -14,7 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $pharmacy_name = dp_pharmacy_name();
-$logo_url      = dp_logo_url();
+$nav_logo_id   = dp_option( 'nav_logo' );
+$logo_url      = $nav_logo_id
+    ? ( is_numeric( $nav_logo_id ) ? wp_get_attachment_image_url( $nav_logo_id, 'full' ) : $nav_logo_id )
+    : dp_logo_url();
 $phone         = dp_phone();
 $phone_link    = dp_phone_link();
 $booking_url   = dp_booking_url();
