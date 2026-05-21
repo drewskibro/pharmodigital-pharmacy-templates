@@ -692,8 +692,8 @@
 
 .denton-link-text h4 {
   color: var(--dp-text);
-  font-weight: 600;
-  font-size: 0.8125rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
   margin: 0 0 0.125rem 0;
   transition: color 0.15s ease;
 }
@@ -704,9 +704,9 @@
 
 .denton-link-text p {
   color: var(--dp-text-light);
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .denton-dropdown-footer {
