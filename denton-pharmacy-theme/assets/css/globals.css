@@ -99,6 +99,31 @@ html {
 
 
 /* ============================================
+   SERVICE-PAGE STATS BARS — mobile centring fix
+   ============================================
+   Five service pages render their hero stats with the same pattern: a
+   flex container of [icon][text] rows using flex-wrap + justify-content:
+   center. At narrow widths flex-wrap can leave items partly visible
+   per-row, anchor them against an edge, or just leave variable-width
+   pairs at slightly different x-positions across rows so the icon column
+   looks like it's drifting. Force a single centred column below 1024px
+   so each row sits centred as a single unit within the bar. Desktop is
+   untouched - each page restores its own row/grid layout at >=1024px in
+   its own CSS file. */
+@media (max-width: 1023px) {
+  .earwax-stats-bar,
+  .bloodtest-stats-bar,
+  .npres-stats-bar,
+  .pharmfirst-stats-bar,
+  .bpack-stats-bar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+/* ============================================
    UTILITY CLASSES
    ============================================ */
 .gradient-text {
