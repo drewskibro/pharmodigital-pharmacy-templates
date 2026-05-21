@@ -911,6 +911,23 @@
   color: var(--brand-primary);
 }
 
+.booking-calendar-wrapper {
+  width: 100%;
+}
+
+.booking-calendar-wrapper iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  min-height: 800px;
+}
+
+@media (max-width: 767px) {
+  .booking-calendar-wrapper iframe {
+    min-height: 600px;
+  }
+}
+
 .book-amelia-footer {
   text-align: center;
   margin-top: 2rem;
