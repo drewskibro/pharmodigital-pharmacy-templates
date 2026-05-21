@@ -2733,7 +2733,7 @@ a.hero-nhs-pill:hover {
   --sw-hairline: rgba(15, 30, 51, 0.08);
   --sw-rule: rgba(63, 115, 174, 0.22);
 
-  padding: 7rem 0 8rem;
+  padding: 4rem 0 6rem;
   background: linear-gradient(180deg, #f6f9fd 0%, #ffffff 55%, #eef3f9 100%);
   position: relative;
   overflow: hidden;
@@ -2816,7 +2816,6 @@ a.hero-nhs-pill:hover {
   align-items: start;
   position: relative;
   z-index: 10;
-  padding-top: 2rem;
 }
 
 @media (min-width: 1024px) {
@@ -2859,20 +2858,20 @@ a.hero-nhs-pill:hover {
   -webkit-text-fill-color: transparent;
   font-style: italic;
   position: relative;
-  /* WebKit clips the slanted right edge of italic glyphs (e.g. trailing "?")
-     when background-clip: text is applied. Pad + negative margin restores
-     the visual without breaking line rhythm. */
+  /* WebKit clips italic glyph overhang (the slanted top-right of "?" and the
+     descender tail) when background-clip: text is active. Generous padding
+     enlarges the painted region; matching negative margin keeps line rhythm. */
   display: inline-block;
-  padding-right: 0.12em;
-  margin-right: -0.08em;
+  padding: 0.05em 0.35em 0.15em 0;
+  margin: 0 -0.2em -0.1em 0;
 }
 
 .switching-title .gradient-text::after {
   content: '';
   position: absolute;
   left: 0;
-  right: 0;
-  bottom: -0.12em;
+  right: 0.35em;
+  bottom: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--sw-primary), transparent);
   border-radius: 2px;
@@ -2934,13 +2933,16 @@ a.hero-nhs-pill:hover {
   font-size: clamp(2.25rem, 3vw, 3rem);
   font-weight: 900;
   font-style: italic;
-  line-height: 1;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   background: linear-gradient(120deg, var(--sw-primary) 0%, var(--sw-dark) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0.22;
+  /* Pad to prevent WebKit clipping the italic glyph overhang under
+     background-clip: text. */
+  padding: 0.05em 0.25em 0.15em 0.05em;
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
@@ -3082,7 +3084,7 @@ a.hero-nhs-pill:hover {
 
 @media (max-width: 639px) {
   .switching-section {
-    padding: 5rem 0 6rem;
+    padding: 3rem 0 4.5rem;
   }
   .switching-actions {
     flex-direction: column;
