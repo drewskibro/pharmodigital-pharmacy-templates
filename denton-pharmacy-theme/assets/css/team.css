@@ -166,14 +166,19 @@
 }
 
 @media (max-width: 1023px) {
-  /* Single centred column across all sub-desktop widths so each
-     [icon][text] row sits centred as a unit. Replaces the previous
-     2-per-row wrapping (flex: 0 0 45%) which produced an off-centre
-     icon column at narrow widths. */
+  /* Shrink the bar to fit-content so its width matches the widest
+     [icon][text] row, then centre it via margin auto. align-items:
+     stretch makes every item the same width as the widest, and each
+     item's internal flex defaults to flex-start so the icons line up
+     in a column at the left edge instead of drifting with label width. */
   .team-stats-bar {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     gap: 1.5rem;
     padding: 2rem;
   }
@@ -181,9 +186,10 @@
   .team-stat-item {
     /* Reset the base flex: 1 - in a column container that would grow
        each item along the (vertical) main axis. Want each item at its
-       natural content size, centred on the cross axis. */
+       natural content size, with [icon][text] anchored to the left so
+       icons across rows share an x-position. */
     flex: 0 1 auto;
-    justify-content: center;
+    justify-content: flex-start;
     width: auto;
   }
 
