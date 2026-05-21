@@ -166,30 +166,29 @@
 }
 
 @media (max-width: 1023px) {
+  /* Single centred column across all sub-desktop widths so each
+     [icon][text] row sits centred as a unit. Replaces the previous
+     2-per-row wrapping (flex: 0 0 45%) which produced an off-centre
+     icon column at narrow widths. */
   .team-stats-bar {
-    flex-wrap: wrap;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
     padding: 2rem;
   }
 
   .team-stat-item {
-    flex: 0 0 45%;
-    justify-content: flex-start;
+    /* Reset the base flex: 1 - in a column container that would grow
+       each item along the (vertical) main axis. Want each item at its
+       natural content size, centred on the cross axis. */
+    flex: 0 1 auto;
+    justify-content: center;
+    width: auto;
   }
 
   .team-stat-divider {
     display: none;
-  }
-}
-
-@media (max-width: 639px) {
-  .team-stats-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .team-stat-item {
-    width: 100%;
   }
 }
 
