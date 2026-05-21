@@ -2733,6 +2733,8 @@ a.hero-nhs-pill:hover {
   --sw-hairline: rgba(15, 30, 51, 0.08);
   --sw-rule: rgba(63, 115, 174, 0.22);
 
+  padding: 6rem 0;
+  background: var(--white);
   position: relative;
   padding: 7rem 0 8rem;
   background:
@@ -2845,9 +2847,11 @@ a.hero-nhs-pill:hover {
   font-size: clamp(2.25rem, 4.2vw, 3.25rem);
   font-weight: 900;
   color: var(--sw-ink);
+  margin-top: 0;
   margin-bottom: 1.5rem;
   line-height: 1.08;
   letter-spacing: -0.025em;
+  overflow-wrap: break-word;
 }
 
 .switching-title .gradient-text {
