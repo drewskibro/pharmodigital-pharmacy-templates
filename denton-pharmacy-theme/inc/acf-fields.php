@@ -1673,9 +1673,9 @@ function dp_register_acf_field_groups() {
                 ),
             ),
             array(
-                'key'          => 'field_dp_team_members',
+                'key'          => 'field_dp_home_team_members',
                 'label'        => 'Team Members',
-                'name'         => 'team_members',
+                'name'         => 'home_team_members',
                 'type'         => 'repeater',
                 'layout'       => 'block',
                 'min'          => 0,
@@ -1683,12 +1683,12 @@ function dp_register_acf_field_groups() {
                 'button_label' => 'Add Team Member',
                 'instructions' => 'Add team members for the grid. Leave empty to use placeholder data.',
                 'sub_fields'   => array(
-                    array( 'key' => 'field_dp_team_photo', 'label' => 'Photo', 'name' => 'team_photo', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'thumbnail', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_team_name', 'label' => 'Name', 'name' => 'team_name', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
-                    array( 'key' => 'field_dp_team_role', 'label' => 'Role', 'name' => 'team_role', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
-                    array( 'key' => 'field_dp_team_gphc', 'label' => 'GPhC Number', 'name' => 'team_gphc', 'type' => 'text', 'instructions' => 'Optional. Leave blank if not a pharmacist.', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_ht_photo', 'label' => 'Photo', 'name' => 'team_photo', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'thumbnail', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_ht_name', 'label' => 'Name', 'name' => 'team_name', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_ht_role', 'label' => 'Role', 'name' => 'team_role', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_ht_gphc', 'label' => 'GPhC Number', 'name' => 'team_gphc', 'type' => 'text', 'instructions' => 'Optional. Leave blank if not a pharmacist.', 'wrapper' => array( 'width' => '15' ) ),
                     array(
-                        'key'          => 'field_dp_team_tags',
+                        'key'          => 'field_dp_ht_tags',
                         'label'        => 'Specialty Tags',
                         'name'         => 'team_tags',
                         'type'         => 'repeater',
@@ -1698,7 +1698,7 @@ function dp_register_acf_field_groups() {
                         'button_label' => 'Add Tag',
                         'wrapper'      => array( 'width' => '100' ),
                         'sub_fields'   => array(
-                            array( 'key' => 'field_dp_team_tag_label', 'label' => 'Tag', 'name' => 'tag_label', 'type' => 'text' ),
+                            array( 'key' => 'field_dp_ht_tag_label', 'label' => 'Tag', 'name' => 'tag_label', 'type' => 'text' ),
                         ),
                     ),
                 ),
