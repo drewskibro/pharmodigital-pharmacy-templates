@@ -2733,14 +2733,9 @@ a.hero-nhs-pill:hover {
   --sw-hairline: rgba(15, 30, 51, 0.08);
   --sw-rule: rgba(63, 115, 174, 0.22);
 
-  padding: 6rem 0;
+  padding: 7rem 0 8rem;
   background: var(--white);
   position: relative;
-  padding: 7rem 0 8rem;
-  background:
-    radial-gradient(60% 50% at 10% 0%, rgba(63, 115, 174, 0.08), transparent 60%),
-    radial-gradient(55% 45% at 100% 100%, rgba(42, 80, 122, 0.10), transparent 60%),
-    linear-gradient(180deg, #f5f8fc 0%, #eaf1f8 100%);
   overflow: hidden;
   isolation: isolate;
 }
@@ -2757,22 +2752,7 @@ a.hero-nhs-pill:hover {
   background: linear-gradient(90deg, transparent, var(--sw-rule), transparent);
 }
 
-/* Section eyebrow label (decorative, not interactive) */
-.switching-section::after {
-  content: '— Patient stories';
-  position: absolute;
-  top: 3.2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-primary);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--sw-primary);
-  z-index: 2;
-  opacity: 0.7;
-}
+/* Section eyebrow removed — replaced by section-badge in the HTML */
 
 .switching-bg {
   position: absolute;
@@ -2849,7 +2829,7 @@ a.hero-nhs-pill:hover {
   color: var(--sw-ink);
   margin-top: 0;
   margin-bottom: 1.5rem;
-  line-height: 1.08;
+  line-height: 1.15;
   letter-spacing: -0.025em;
   overflow-wrap: break-word;
 }
