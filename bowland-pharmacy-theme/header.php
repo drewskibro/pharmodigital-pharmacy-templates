@@ -50,13 +50,29 @@ $nav_th_show  = bp_option( 'nav_travel_health_show', '1' );
 $nav_th_label = bp_option( 'nav_travel_health_label', 'Travel' );
 $nav_th_url   = bp_nav_url( 'nav_travel_health_url', '/travel-health/' );
 
+$nav_bt_show  = bp_option( 'nav_blood_testing_show', '1' );
+$nav_bt_label = bp_option( 'nav_blood_testing_label', 'Blood Testing' );
+$nav_bt_url   = bp_nav_url( 'nav_blood_testing_url', '/blood-testing/' );
+
+$nav_ec_show  = bp_option( 'nav_ear_clinic_show', '1' );
+$nav_ec_label = bp_option( 'nav_ear_clinic_label', 'Ear Clinic' );
+$nav_ec_url   = bp_nav_url( 'nav_ear_clinic_url', '/ear-wax-removal/' );
+
 $nav_sv_show  = bp_option( 'nav_services_show', '1' );
-$nav_sv_label = bp_option( 'nav_services_label', 'Services' );
+$nav_sv_label = bp_option( 'nav_services_label', 'NHS Services' );
 $nav_sv_url   = bp_nav_url( 'nav_services_url', '/nhs-services/' );
+
+$nav_ps_show  = bp_option( 'nav_private_services_show', '1' );
+$nav_ps_label = bp_option( 'nav_private_services_label', 'Private Services' );
+$nav_ps_url   = bp_nav_url( 'nav_private_services_url', '/weight-loss/' );
 
 $nav_hh_show  = bp_option( 'nav_hub_show', '1' );
 $nav_hh_label = bp_option( 'nav_hub_label', 'Hub' );
 $nav_hh_url   = bp_nav_url( 'nav_hub_url', '/health-hub/' );
+
+$nav_ct_show  = bp_option( 'nav_contact_show', '1' );
+$nav_ct_label = bp_option( 'nav_contact_label', 'Contact' );
+$nav_ct_url   = bp_nav_url( 'nav_contact_url', '/contact/' );
 
 // ---------------------------------------------------------------------------
 // Dropdown sub-links — repeater rows or hardcoded defaults.
@@ -65,6 +81,7 @@ $wl_links    = bp_option( 'nav_dd_wl_links' );
 $th_services = bp_option( 'nav_dd_th_services' );
 $th_dests    = bp_option( 'nav_dd_th_destinations' );
 $sv_links    = bp_option( 'nav_dd_services_links' );
+$ps_links    = bp_option( 'nav_dd_private_services_links' );
 
 // Defaults — used when repeaters are empty (i.e. nothing saved in ACF yet).
 $default_wl_links = array(
@@ -86,10 +103,16 @@ $default_th_dests = array(
     array( 'name' => 'Cape Verde', 'flag_url' => 'https://flagcdn.com/w40/cv.png', 'url' => home_url( '/travel-cape-verde/' ) ),
 );
 $default_sv_links = array(
-    array( 'label' => 'NHS Prescriptions', 'description' => 'Fast collection & delivery service',           'icon' => 'fas fa-file-medical', 'url' => home_url( '/nhs-services/' ) ),
-    array( 'label' => 'Ear Wax Removal',   'description' => 'Professional microsuction clinic',              'icon' => 'fas fa-heart',        'url' => home_url( '/ear-wax-removal/' ) ),
-    array( 'label' => 'Pharmacy First',    'description' => 'Care for 7 common conditions',                 'icon' => 'fas fa-plus-circle',  'url' => '' ),
-    array( 'label' => 'Blood Testing',     'description' => 'Private health checks & diagnostic panels',    'icon' => 'fas fa-flask',        'url' => '' ),
+    array( 'label' => 'NHS Prescriptions', 'description' => 'Free for eligible patients, fast delivery', 'icon' => 'fas fa-file-medical',         'url' => home_url( '/nhs-prescriptions/' ) ),
+    array( 'label' => 'Pharmacy First',    'description' => '7 common conditions treated free',          'icon' => 'fas fa-hand-holding-medical', 'url' => home_url( '/pharmacy-first/' ) ),
+    array( 'label' => 'Blister Packs',     'description' => 'Pre-packed medication made simple',         'icon' => 'fas fa-pills',                'url' => home_url( '/blister-packs/' ) ),
+);
+$default_ps_links = array(
+    array( 'label' => 'Weight Loss',     'description' => 'GLP-1 treatments & clinical support',     'icon' => 'fas fa-weight-scale', 'url' => home_url( '/weight-loss/' ) ),
+    array( 'label' => 'Travel Health',   'description' => 'Vaccinations & travel advice',            'icon' => 'fas fa-plane',        'url' => home_url( '/travel-health/' ) ),
+    array( 'label' => 'Ear Wax Removal', 'description' => 'Professional microsuction clinic',         'icon' => 'fas fa-ear-listen',   'url' => home_url( '/ear-wax-removal/' ) ),
+    array( 'label' => 'Hair Loss',       'description' => 'Treatments for male & female hair loss',   'icon' => 'fas fa-user-doctor',  'url' => home_url( '/hair-loss/' ) ),
+    array( 'label' => 'Blood Testing',   'description' => 'Private health checks & diagnostic panels','icon' => 'fas fa-flask',        'url' => home_url( '/blood-testing/' ) ),
 );
 
 // Use ACF rows when available, otherwise defaults.
@@ -97,6 +120,7 @@ if ( ! is_array( $wl_links )    || empty( $wl_links ) )    { $wl_links    = $def
 if ( ! is_array( $th_services ) || empty( $th_services ) ) { $th_services = $default_th_services; }
 if ( ! is_array( $th_dests )    || empty( $th_dests ) )    { $th_dests    = $default_th_dests; }
 if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $default_sv_links; }
+if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $default_ps_links; }
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -280,7 +304,21 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
           </div>
           <?php endif; ?>
 
-          <?php // ── Services (dropdown) ───────────────────────────── ?>
+          <?php // ── Blood Testing (no dropdown) ───────────────────── ?>
+          <?php if ( $nav_bt_show ) : ?>
+          <div class="bowland-menu-item">
+            <a href="<?php echo esc_url( $nav_bt_url ); ?>" class="bowland-menu-btn"><?php echo esc_html( $nav_bt_label ); ?></a>
+          </div>
+          <?php endif; ?>
+
+          <?php // ── Ear Clinic (no dropdown) ──────────────────────── ?>
+          <?php if ( $nav_ec_show ) : ?>
+          <div class="bowland-menu-item">
+            <a href="<?php echo esc_url( $nav_ec_url ); ?>" class="bowland-menu-btn"><?php echo esc_html( $nav_ec_label ); ?></a>
+          </div>
+          <?php endif; ?>
+
+          <?php // ── NHS Services (dropdown) ───────────────────────── ?>
           <?php if ( $nav_sv_show ) : ?>
           <div class="bowland-menu-item">
             <button class="bowland-menu-btn">
@@ -289,8 +327,8 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
             </button>
             <div class="bowland-dropdown">
               <div class="bowland-dropdown-header teal">
-                <h3>Pharmacy Services</h3>
-                <p>NHS &amp; private healthcare solutions</p>
+                <h3>NHS Services</h3>
+                <p>Free care for eligible patients</p>
               </div>
               <div class="bowland-dropdown-content">
                 <?php foreach ( $sv_links as $link ) :
@@ -310,9 +348,41 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
               </div>
               <div class="bowland-dropdown-footer">
                 <a href="<?php echo esc_url( $nav_sv_url ); ?>" class="bowland-footer-link">
-                  View all pharmacy services
+                  View all NHS services
                   <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                 </a>
+              </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
+          <?php // ── Private Services (dropdown) ───────────────────── ?>
+          <?php if ( $nav_ps_show ) : ?>
+          <div class="bowland-menu-item">
+            <button class="bowland-menu-btn">
+              <?php echo esc_html( $nav_ps_label ); ?>
+              <svg class="arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </button>
+            <div class="bowland-dropdown">
+              <div class="bowland-dropdown-header">
+                <h3>Private Services</h3>
+                <p>Clinical care when you need it</p>
+              </div>
+              <div class="bowland-dropdown-content">
+                <?php foreach ( $ps_links as $link ) :
+                  $href = ! empty( $link['url'] ) ? $link['url'] : $nav_ps_url;
+                  $icon = ! empty( $link['icon'] ) ? bp_fa_class( $link['icon'] ) : 'fas fa-stethoscope';
+                ?>
+                <a href="<?php echo esc_url( $href ); ?>" class="bowland-dropdown-link">
+                  <div class="bowland-link-icon"><i class="<?php echo esc_attr( $icon ); ?>"></i></div>
+                  <div class="bowland-link-text">
+                    <h4><?php echo esc_html( $link['label'] ); ?></h4>
+                    <?php if ( ! empty( $link['description'] ) ) : ?>
+                    <p><?php echo esc_html( $link['description'] ); ?></p>
+                    <?php endif; ?>
+                  </div>
+                </a>
+                <?php endforeach; ?>
               </div>
             </div>
           </div>
@@ -322,6 +392,13 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
           <?php if ( $nav_hh_show ) : ?>
           <div class="bowland-menu-item">
             <a href="<?php echo esc_url( $nav_hh_url ); ?>" class="bowland-menu-btn"><?php echo esc_html( $nav_hh_label ); ?></a>
+          </div>
+          <?php endif; ?>
+
+          <?php // ── Contact (no dropdown) ─────────────────────────── ?>
+          <?php if ( $nav_ct_show ) : ?>
+          <div class="bowland-menu-item">
+            <a href="<?php echo esc_url( $nav_ct_url ); ?>" class="bowland-menu-btn"><?php echo esc_html( $nav_ct_label ); ?></a>
           </div>
           <?php endif; ?>
 
@@ -379,7 +456,15 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
         </div>
         <?php endif; ?>
 
-        <?php // ── Services Accordion ── ?>
+        <?php if ( $nav_bt_show ) : ?>
+        <a href="<?php echo esc_url( $nav_bt_url ); ?>" class="bowland-mobile-link"><?php echo esc_html( $nav_bt_label ); ?></a>
+        <?php endif; ?>
+
+        <?php if ( $nav_ec_show ) : ?>
+        <a href="<?php echo esc_url( $nav_ec_url ); ?>" class="bowland-mobile-link"><?php echo esc_html( $nav_ec_label ); ?></a>
+        <?php endif; ?>
+
+        <?php // ── NHS Services Accordion ── ?>
         <?php if ( $nav_sv_show ) : ?>
         <div class="bowland-mobile-accordion">
           <button class="bowland-mobile-accordion-btn">
@@ -396,8 +481,29 @@ if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $def
         </div>
         <?php endif; ?>
 
+        <?php // ── Private Services Accordion ── ?>
+        <?php if ( $nav_ps_show ) : ?>
+        <div class="bowland-mobile-accordion">
+          <button class="bowland-mobile-accordion-btn">
+            <?php echo esc_html( $nav_ps_label ); ?>
+            <svg class="bowland-mobile-accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          </button>
+          <div class="bowland-mobile-accordion-content">
+            <?php foreach ( $ps_links as $link ) :
+              $href = ! empty( $link['url'] ) ? $link['url'] : $nav_ps_url;
+            ?>
+            <a href="<?php echo esc_url( $href ); ?>" class="bowland-mobile-sub-link"><?php echo esc_html( $link['label'] ); ?></a>
+            <?php endforeach; ?>
+          </div>
+        </div>
+        <?php endif; ?>
+
         <?php if ( $nav_hh_show ) : ?>
         <a href="<?php echo esc_url( $nav_hh_url ); ?>" class="bowland-mobile-link"><?php echo esc_html( $nav_hh_label ); ?></a>
+        <?php endif; ?>
+
+        <?php if ( $nav_ct_show ) : ?>
+        <a href="<?php echo esc_url( $nav_ct_url ); ?>" class="bowland-mobile-link"><?php echo esc_html( $nav_ct_label ); ?></a>
         <?php endif; ?>
 
       </div>

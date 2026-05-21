@@ -364,7 +364,7 @@ $last_modified = get_the_modified_date( 'M j, Y' );
             </div>
           </div>
           <div class="rating-score">
-            <span class="score-number"><?php echo esc_html( dp_option( 'google_rating', '4.7' ) ); ?></span>
+            <span class="score-number"><?php echo esc_html( dp_option( 'google_rating', '4.9' ) ); ?></span>
             <div class="rating-score-detail">
               <div class="star-row">
                 <i class="fas fa-star"></i>

@@ -195,8 +195,8 @@ get_header();
         </div>
 
         <div class="vietnam-malaria-actions">
-          <a href="<?php echo esc_url( dp_field( 'td_hero_cta_url', dp_booking_url() ) ); ?>" class="cta-button primary-cta">
-            Check Your Risk
+          <a href="<?php echo esc_url( dp_field( 'td_malaria_cta_url', dp_booking_url() ) ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( dp_field( 'td_malaria_cta_text', 'Check Your Risk' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -272,7 +272,10 @@ get_header();
     <div class="vietnam-cta-content">
       <h2 class="vietnam-cta-title"><?php echo esc_html( dp_field( 'td_cta_title', 'Ready for your Vietnam adventure?' ) ); ?></h2>
       <p class="vietnam-cta-description">
-        <?php echo esc_html( dp_field( 'td_cta_description', 'Book your Vietnam travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
+        <?php
+        $viet_cta_default = 'Book your Vietnam travel health consultation at our ' . dp_option( 'pharmacy_town', 'Denton' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.';
+        echo esc_html( dp_field( 'td_cta_description', $viet_cta_default ) );
+        ?>
       </p>
       <div class="vietnam-cta-actions">
         <a href="<?php echo esc_url( dp_field( 'td_cta_primary_url', dp_booking_url() ) ); ?>" class="cta-button primary-cta vietnam-cta-button-white">

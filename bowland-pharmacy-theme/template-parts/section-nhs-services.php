@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- Section header ---
+$show_badge  = bp_field( 'nhs_show_badge', 1 );
 $badge_text  = bp_field( 'nhs_badge_text', 'NHS Services' );
 $title       = bp_field( 'nhs_title', 'Your NHS <span class="gradient-text">Community Pharmacy</span>' );
 $description = bp_field( 'nhs_description', 'Free NHS services for eligible patients. From prescriptions to health checks, we are here to support your wellbeing.' );
@@ -23,8 +24,60 @@ $description = bp_field( 'nhs_description', 'Free NHS services for eligible pati
 $bottom_title    = bp_field( 'nhs_bottom_title', 'Your NHS services, under one roof' );
 $bottom_desc     = bp_field( 'nhs_bottom_description', 'No appointment needed for most services. Walk in or call us.' );
 $bottom_cta_text = bp_field( 'nhs_bottom_cta_text', 'Visit Us in Wythenshawe' );
+$bottom_cta_url  = bp_field( 'nhs_bottom_cta_url', '' );
+if ( ! $bottom_cta_url ) {
+    $bottom_cta_url = bp_option( 'pharmacy_directions_url', '#location' );
+}
 $phone        = bp_phone();
 $phone_link   = bp_phone_link();
+
+// --- Trust chips (ACF repeater with defaults) ---
+$default_chips = array(
+    array( 'chip_icon' => 'fa-shield-halved', 'chip_text' => 'GPhC Registered' ),
+    array( 'chip_icon' => 'fa-clock',         'chip_text' => 'Walk-Ins Welcome' ),
+    array( 'chip_icon' => 'fa-hand-holding-medical', 'chip_text' => 'Free NHS Services' ),
+);
+$chips = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cta_chips' ) ) {
+    while ( have_rows( 'nhs_cta_chips' ) ) {
+        the_row();
+        $chips[] = array(
+            'chip_icon' => get_sub_field( 'chip_icon' ) ?: 'fa-shield-halved',
+            'chip_text' => get_sub_field( 'chip_text' ) ?: '',
+            'chip_url'  => get_sub_field( 'chip_url' ) ?: '',
+        );
+    }
+}
+if ( empty( $chips ) ) {
+    $chips = $default_chips;
+}
+// Auto-link the GPhC chip to the public register if no explicit URL is set
+$gphc_register_url = bp_option( 'gphc_register_url', '' );
+foreach ( $chips as &$chip_ref ) {
+    if ( empty( $chip_ref['chip_url'] ) && stripos( $chip_ref['chip_text'], 'GPhC' ) !== false && $gphc_register_url ) {
+        $chip_ref['chip_url'] = $gphc_register_url;
+    }
+    if ( ! isset( $chip_ref['chip_url'] ) ) {
+        $chip_ref['chip_url'] = '';
+    }
+}
+unset( $chip_ref );
+
+// --- Trust checks (ACF repeater with defaults) ---
+$default_bottom_checks = array( 'No referral needed', 'Same-day service', 'Open 6 days a week' );
+$bottom_checks = array();
+if ( function_exists( 'have_rows' ) && have_rows( 'nhs_bottom_checks' ) ) {
+    while ( have_rows( 'nhs_bottom_checks' ) ) {
+        the_row();
+        $text = get_sub_field( 'check_text' );
+        if ( $text ) {
+            $bottom_checks[] = $text;
+        }
+    }
+}
+if ( empty( $bottom_checks ) ) {
+    $bottom_checks = $default_bottom_checks;
+}
 
 // --- Card data from ACF repeater (pre-populated via WP-CLI or acf/load_value) ---
 $cards = array();
@@ -36,6 +89,12 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
             get_sub_field( 'card_item_2' ),
             get_sub_field( 'card_item_3' ),
         ) );
+
+        $link = get_sub_field( 'card_link' );
+        $btn_text   = ( is_array( $link ) && ! empty( $link['title'] ) )  ? $link['title']  : 'Learn More';
+        $btn_url    = ( is_array( $link ) && ! empty( $link['url'] ) )    ? $link['url']    : home_url( '/book-appointment/' );
+        $btn_target = ( is_array( $link ) && ! empty( $link['target'] ) ) ? $link['target'] : '';
+
         $cards[] = array(
             'colour' => get_sub_field( 'card_colour' ) ?: 'blue',
             'icon'   => get_sub_field( 'card_icon' )   ?: 'prescription',
@@ -43,8 +102,9 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
             'title'  => get_sub_field( 'card_title' )   ?: '',
             'desc'   => get_sub_field( 'card_desc' )    ?: '',
             'items'  => $items,
-            'btn'    => get_sub_field( 'card_btn' )     ?: 'Learn More',
-            'url'    => get_sub_field( 'card_url' )     ?: home_url( '/book-appointment/' ),
+            'btn'    => $btn_text,
+            'url'    => $btn_url,
+            'target' => $btn_target,
         );
     }
 }
@@ -60,6 +120,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
 
         <!-- Section header -->
         <div class="nhs-header">
+            <?php if ( ! empty( $show_badge ) ) : ?>
             <div class="nhs-badge">
                 <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
                     <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -67,6 +128,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                 <span><?php echo esc_html( $badge_text ); ?></span>
             </div>
             <div class="nhs-header-line"></div>
+            <?php endif; ?>
             <h2 class="nhs-title"><?php echo wp_kses( $title, array( 'span' => array( 'class' => array() ), 'br' => array() ) ); ?></h2>
             <p class="nhs-description"><?php echo esc_html( $description ); ?></p>
         </div>
@@ -126,6 +188,19 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                                     </svg>
                                     <?php
                                     break;
+                                case 'blister':
+                                    ?>
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                                        <circle cx="8" cy="9" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="12" cy="9" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="16" cy="9" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="8" cy="15" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="12" cy="15" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="16" cy="15" r="1.5" fill="currentColor"></circle>
+                                    </svg>
+                                    <?php
+                                    break;
                                 default:
                                     ?>
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
@@ -164,7 +239,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                         <?php endif; ?>
 
                         <!-- Button -->
-                        <a href="<?php echo esc_url( $card['url'] ); ?>" class="nhs-card-btn">
+                        <a href="<?php echo esc_url( $card['url'] ); ?>" class="nhs-card-btn"<?php echo ! empty( $card['target'] ) ? ' target="' . esc_attr( $card['target'] ) . '" rel="noopener"' : ''; ?>>
                             <?php echo esc_html( $card['btn'] ); ?>
                         </a>
 
@@ -184,18 +259,23 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
             <div class="nhs-bottom-cta-inner">
                 <!-- Trust chips -->
                 <div class="nhs-bottom-cta-chips">
-                    <span class="nhs-cta-chip">
-                        <i class="fas fa-shield-halved"></i>
-                        GPhC Registered
-                    </span>
-                    <span class="nhs-cta-chip">
-                        <i class="fas fa-clock"></i>
-                        Walk-Ins Welcome
-                    </span>
-                    <span class="nhs-cta-chip">
-                        <i class="fas fa-hand-holding-medical"></i>
-                        Free NHS Services
-                    </span>
+                    <?php foreach ( $chips as $chip ) :
+                        $icon_class = bp_fa_class( $chip['chip_icon'] );
+                        $chip_url   = isset( $chip['chip_url'] ) ? $chip['chip_url'] : '';
+                        $is_external = $chip_url && ( strpos( $chip_url, 'http' ) === 0 ) && ( strpos( $chip_url, home_url() ) !== 0 );
+                    ?>
+                        <?php if ( $chip_url ) : ?>
+                        <a class="nhs-cta-chip nhs-cta-chip--link" href="<?php echo esc_url( $chip_url ); ?>"<?php if ( $is_external ) : ?> target="_blank" rel="noopener" title="Verify on the GPhC register"<?php endif; ?>>
+                            <i class="<?php echo esc_attr( $icon_class ); ?>"></i>
+                            <?php echo esc_html( $chip['chip_text'] ); ?>
+                        </a>
+                        <?php else : ?>
+                        <span class="nhs-cta-chip">
+                            <i class="<?php echo esc_attr( $icon_class ); ?>"></i>
+                            <?php echo esc_html( $chip['chip_text'] ); ?>
+                        </span>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
 
                 <h3 class="nhs-bottom-cta-title"><?php echo esc_html( $bottom_title ); ?></h3>
@@ -206,7 +286,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                         <i class="fas fa-phone"></i>
                         <?php echo esc_html( 'Call ' . $phone ); ?>
                     </a>
-                    <a href="#location" class="nhs-btn-secondary">
+                    <a href="<?php echo esc_url( $bottom_cta_url ); ?>" class="nhs-btn-secondary"<?php if ( strpos( $bottom_cta_url, 'http' ) === 0 ) : ?> target="_blank" rel="noopener"<?php endif; ?>>
                         <i class="fas fa-map-marker-alt"></i>
                         <?php echo esc_html( $bottom_cta_text ); ?>
                     </a>
@@ -214,9 +294,9 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
 
                 <!-- Trust checks -->
                 <div class="nhs-bottom-cta-checks">
-                    <span><i class="fas fa-check-circle"></i> No referral needed</span>
-                    <span><i class="fas fa-check-circle"></i> Same-day service</span>
-                    <span><i class="fas fa-check-circle"></i> Open 6 days a week</span>
+                    <?php foreach ( $bottom_checks as $check ) : ?>
+                        <span><i class="fas fa-check-circle"></i> <?php echo esc_html( $check ); ?></span>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

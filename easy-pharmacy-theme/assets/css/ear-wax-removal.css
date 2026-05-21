@@ -10,7 +10,7 @@
   min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 20px 0 80px;
+  padding: 100px 0 80px; /* 80px fixed nav + 20px breathing room */
   overflow: hidden;
   background: #FDF6F3;
 }
@@ -74,6 +74,12 @@
 @media (min-width: 1024px) {
   .earwax-hero-content {
     text-align: left;
+    /* The right column (image + stacked testimonial) is taller than the
+       content column, so .earwax-hero-grid { align-items: center } would
+       vertically centre this column and leave a void above the badge.
+       Anchoring to the start matches the homepage hero's top-aligned
+       content rhythm. */
+    align-self: start;
   }
 }
 
@@ -260,12 +266,126 @@
   pointer-events: none;
 }
 
+/* ============================================
+   YOUTUBE SHORTS VIDEO FACADE (HERO)
+   Lightweight wrapper around the poster image with a play button.
+   The actual YouTube iframe is only injected on user click — this
+   keeps the page LCP-clean for Google Ads quality score.
+   ============================================ */
+
+.earwax-hero-video-facade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  background: #000;
+}
+
+.earwax-hero-video-facade .earwax-hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* YouTube Shorts posters are 9:16 with the title artwork at the top;
+     anchoring to top keeps the headline visible while the price-badge
+     overlay covers the bottom of the frame. */
+  object-position: center top;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.earwax-hero-video-facade:hover .earwax-hero-image,
+.earwax-hero-video-facade:focus-visible .earwax-hero-image {
+  transform: scale(1.03);
+  filter: brightness(0.9);
+}
+
+.earwax-hero-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--brand-purple, #6B4FA0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.875rem;
+  padding-left: 0.375rem; /* optical centring of play triangle */
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 0 8px rgba(255, 255, 255, 0.18);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  z-index: 5;
+  pointer-events: none; /* click handled on the facade itself */
+}
+
+.earwax-hero-video-facade:hover .earwax-hero-video-play,
+.earwax-hero-video-facade:focus-visible .earwax-hero-video-play {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 12px rgba(255, 255, 255, 0.22);
+}
+
+.earwax-hero-video-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Hide the floating price badge once the video is playing so it doesn't
+   sit on top of the playback area. The testimonial card is a sibling
+   outside .earwax-hero-image-card, so it stays put. */
+.earwax-hero-image-card:has(.earwax-hero-video-facade.is-playing) .earwax-hero-price-badge,
+.earwax-hero-image-card:has(.earwax-hero-video-facade.is-playing) .earwax-hero-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* The price badge sits over the centre of the card and intercepts taps
+   on the play button. Since it's decorative (not a link), disabling
+   pointer events passes all clicks straight through to the facade. */
+.earwax-hero-image-card.has-video .earwax-hero-price-badge {
+  pointer-events: none;
+}
+
+@media (max-width: 639px) {
+  .earwax-hero-video-play {
+    width: 68px;
+    height: 68px;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 6px rgba(255, 255, 255, 0.18);
+  }
+
+  /* Shorter card on small phones so the stacked layout doesn't bury content */
+  .earwax-hero-image-card {
+    height: 420px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  /* Tablet: still single-column grid but more screen height available */
+  .earwax-hero-image-card {
+    height: 520px;
+  }
+}
+
 .earwax-hero-price-badge {
   position: absolute;
   bottom: 2rem;
-  right: 2rem;
+  /* Center horizontally within the image card. Was right: 2rem,
+     but with long author-set amounts ("£25 (if no ear wax found)")
+     the badge expanded leftward and visually drifted off-centre. */
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  max-width: calc(100% - 2rem);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 1.5rem;
   border-radius: 1.5rem;
   box-shadow: 0 10px 40px rgba(196, 122, 101, 0.15);
@@ -275,7 +395,8 @@
 }
 
 .earwax-hero-price-badge:hover {
-  transform: translateY(-2px);
+  /* Keep horizontal centring while lifting on hover. */
+  transform: translateX(-50%) translateY(-2px);
   box-shadow: 0 15px 50px rgba(196, 122, 101, 0.22);
 }
 
@@ -295,13 +416,16 @@
   font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 900;
-  background: linear-gradient(135deg, var(--brand-dark), var(--brand-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
+  /* Solid terracotta — matches the page's CTA + section accents.
+     Was a purple gradient that read off-brand against the warm palette. */
+  color: #C47A65;
+  /* line-height >1 so multi-line wrapping (e.g. long author-set strings
+     like "£25 (if no ear wax found)") stay readable and visually centred
+     instead of stacking too tightly. */
+  line-height: 1.15;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
+  text-wrap: balance; /* nicer line-break distribution where supported */
 }
 
 .earwax-hero-price-sub {
@@ -1157,6 +1281,18 @@
   color: var(--text-gray);
 }
 
+/* Smaller secondary price reference (e.g. "Full microsuction treatment £59").
+   Visually subordinate to the headline £25: ~65% of the main price text size,
+   regular weight, lighter colour. Sits directly under the price block. */
+.earwax-pricing-secondary-price {
+  margin: 0.5rem 0 1.5rem;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-slate);
+  line-height: 1.4;
+}
+
 .earwax-pricing-features {
   list-style: none;
   padding: 0;
@@ -1514,5 +1650,257 @@
 
   .earwax-cta-title {
     font-size: 2.6rem;
+  }
+}
+
+
+/* ============================================
+   BOOKING SECTION (Amelia embed)
+   Sits between Pricing (white) and Testimonials (cream),
+   so use brand-light cream for visual continuity with
+   testimonials and a soft break from the white pricing
+   block above. overflow-x: clip prevents the embedded
+   form from causing horizontal scroll on mobile.
+   ============================================ */
+.earwax-booking-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+  border-top: 1px solid rgba(196, 122, 101, 0.1);
+  scroll-margin-top: 100px; /* offset for the 80px fixed nav */
+  overflow-x: clip;
+}
+
+/* Embed wrapper — keeps Amelia's injected markup contained.
+   The Amelia catalog card already shows service name, duration,
+   price and image natively, so no wrapper heading is needed —
+   tapping a CTA lands users directly on the catalog action. */
+.earwax-booking-embed {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  background: var(--white);
+  border: 1px solid rgba(196, 122, 101, 0.12);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 12px 40px rgba(196, 122, 101, 0.08);
+}
+
+.earwax-booking-embed > * {
+  max-width: 100%;
+}
+
+.earwax-booking-embed iframe,
+.earwax-booking-embed video {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .earwax-booking-section {
+    padding: 7rem 0;
+  }
+
+  .earwax-booking-embed {
+    padding: 2.5rem;
+  }
+}
+
+/* ============================================
+   AMELIA CALENDAR RESETS — EAR WAX PAGE
+   The global * { margin:0; padding:0 } reset strips default
+   spacing from Amelia's internal table/grid calendar. These rules
+   restore what Amelia expects without clobbering its own styles.
+   ============================================ */
+
+.earwax-booking-embed table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.earwax-booking-embed table th,
+.earwax-booking-embed table td {
+  padding: 8px 4px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.earwax-booking-embed table th {
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 13px;
+  padding-bottom: 12px;
+}
+
+.earwax-booking-embed .el-date-table,
+.earwax-booking-embed .el-calendar-table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+.earwax-booking-embed .el-date-table td,
+.earwax-booking-embed .el-calendar-table td {
+  padding: 4px !important;
+  text-align: center !important;
+  width: 14.285% !important;
+  height: auto !important;
+}
+
+.earwax-booking-embed .el-date-table th,
+.earwax-booking-embed .el-calendar-table th {
+  padding: 8px 4px !important;
+  text-align: center !important;
+  min-width: 0 !important;
+}
+
+.earwax-booking-embed .am-calendar-picker__body table,
+.earwax-booking-embed .am-date-picker table,
+.earwax-booking-embed .am-calendar-picker table {
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+.earwax-booking-embed .am-calendar-picker__body td,
+.earwax-booking-embed .am-calendar-picker__body th {
+  padding: 4px !important;
+  text-align: center !important;
+}
+
+.earwax-booking-embed .am-adp__week-days,
+.earwax-booking-embed .am-adp__weekdays {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  text-align: center !important;
+  gap: 0 !important;
+  margin-bottom: 4px !important;
+}
+
+.earwax-booking-embed .am-adp__days,
+.earwax-booking-embed .am-adp__body {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 0 !important;
+}
+
+.earwax-booking-embed .am-adp__days .am-adp__day,
+.earwax-booking-embed .am-adp__body .am-adp__day,
+.earwax-booking-embed .am-adp__day-cell,
+.earwax-booking-embed .am-adp__days > div,
+.earwax-booking-embed .am-adp__body > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  aspect-ratio: 1 !important;
+  padding: 2px !important;
+  text-align: center !important;
+  font-size: 14px !important;
+}
+
+
+/* ============================================
+   LOCATION STRIP
+   Used twice on this page — directly under the hero
+   and immediately above the booking section. Pulls
+   address + directions from Pharmacy Settings options
+   so it stays in sync with the footer/contact page.
+   ============================================ */
+
+/* The shared .stats-section uses margin-top: -3rem to float
+   over the previous section (the homepage hero). On this page
+   the location strip sits between the hero and the stats, so
+   that negative margin pulls the stats up over the strip and
+   visually buries it. Reset margin-top when the strip directly
+   precedes the stats so the strip reads as a clean band right
+   under the hero. */
+.earwax-location-strip + .stats-section {
+  margin-top: 0;
+}
+
+.earwax-location-strip {
+  background: var(--white);
+  border-top: 1px solid rgba(196, 122, 101, 0.12);
+  border-bottom: 1px solid rgba(196, 122, 101, 0.12);
+  padding: 1rem 0;
+  overflow-x: clip;
+}
+
+.earwax-location-strip-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.earwax-location-strip-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, rgba(196, 122, 101, 0.16), rgba(196, 122, 101, 0.08));
+  color: #B8694F;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+.earwax-location-strip-address {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #2D1B4E;
+  line-height: 1.5;
+  min-width: 0;
+}
+
+.earwax-location-strip-address strong {
+  font-weight: 700;
+  color: #C47A65;
+  margin-right: 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+.earwax-location-strip-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #B8694F;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(196, 122, 101, 0.3);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.earwax-location-strip-link:hover,
+.earwax-location-strip-link:focus-visible {
+  color: #2D1B4E;
+  border-bottom-color: #2D1B4E;
+}
+
+.earwax-location-strip-link i {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .earwax-location-strip {
+    padding: 1.25rem 0;
+  }
+
+  .earwax-location-strip-inner {
+    flex-wrap: nowrap;
+  }
+
+  .earwax-location-strip-address {
+    font-size: 1rem;
   }
 }

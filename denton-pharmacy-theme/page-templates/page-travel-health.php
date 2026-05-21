@@ -17,7 +17,7 @@ $th_badge         = dp_field( 'th_hero_badge', 'TRAVEL HEALTH SERVICES' );
 $th_title_line1   = dp_field( 'th_hero_title_line1', 'Denton\'s Leading' );
 $th_title_line2   = dp_field( 'th_hero_title_line2', 'Travel Clinic' );
 $th_title_line3   = dp_field( 'th_hero_title_line3', 'Fly Happy.' );
-$th_description   = dp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Denton travel clinic with Ahmed.' );
+$th_description   = dp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Denton travel clinic with ' . dp_option( 'superintendent_pharmacist', 'our expert team' ) . '.' );
 $th_cta_text      = dp_field( 'th_hero_cta_text', 'Book Appointment' );
 $th_cta_url       = dp_field( 'th_hero_cta_url' ) ?: dp_booking_url();
 
@@ -31,7 +31,7 @@ $th_float_badge_text  = dp_field( 'th_hero_float_badge_text', 'Yellow Fever Cent
 $th_float_badge_label = dp_field( 'th_hero_float_badge_label', 'OFFICIAL' );
 
 // --- Testimonial ---
-$th_testimonial_quote  = dp_field( 'th_hero_testimonial_quote', 'Ahmed was brilliant — explained everything clearly and made the whole family feel at ease before our trip to Kenya.' );
+$th_testimonial_quote  = dp_field( 'th_hero_testimonial_quote', 'The pharmacist was brilliant — explained everything clearly and made the whole family feel at ease before our trip to Kenya.' );
 $th_testimonial_author = dp_field( 'th_hero_testimonial_author', 'Denton Patient' );
 $th_testimonial_dest   = dp_field( 'th_hero_testimonial_destination', 'Kenya' );
 
@@ -81,15 +81,15 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         <!-- Trust Badges -->
         <div class="travel-hero-trust">
           <div class="travel-hero-trust-item">
-            <i class="fas fa-shield-virus"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'th_trust_1_icon', 'fas fa-shield-virus' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'th_trust_1', 'Yellow Fever Centre' ) ); ?></span>
           </div>
           <div class="travel-hero-trust-item">
-            <i class="fas fa-syringe"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'th_trust_2_icon', 'fas fa-syringe' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'th_trust_2', 'All Travel Vaccinations' ) ); ?></span>
           </div>
           <div class="travel-hero-trust-item">
-            <i class="fas fa-user-doctor"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'th_trust_3_icon', 'fas fa-user-doctor' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'th_trust_3', 'Expert Travel Advice' ) ); ?></span>
           </div>
         </div>
@@ -369,7 +369,7 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         $why_image_id = dp_option( 'pharmacist_image' );
     }
     $why_image_url = $why_image_id ? wp_get_attachment_image_url( $why_image_id, 'medium' ) : '';
-    $pharmacist_name = dp_field( 'pharmacist_name', 'Ahmed Al-Liabi' );
+    $pharmacist_name = dp_field( 'pharmacist_name', dp_option( 'superintendent_pharmacist', 'our pharmacist' ) );
     $pharmacist_role = dp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
     ?>
     <div class="travel-why-pharmacist-strip">
@@ -408,7 +408,7 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
       <?php endwhile; else : ?>
         <?php
         $why_cards = array(
-          array( 'icon' => 'fas fa-user-doctor', 'title' => 'Expert Pharmacist Consultations', 'desc' => 'Ahmed and the team provide up-to-date advice tailored to your specific itinerary.' ),
+          array( 'icon' => 'fas fa-user-doctor', 'title' => 'Expert Pharmacist Consultations', 'desc' => 'Our expert pharmacists provide up-to-date travel health advice tailored to your specific itinerary and destination.' ),
           array( 'icon' => 'fas fa-calendar-check', 'title' => 'Flexible Appointments', 'desc' => 'Same-day and weekend appointments available to suit your schedule.' ),
           array( 'icon' => 'fas fa-tags', 'title' => 'Competitive Pricing', 'desc' => 'Transparent, affordable pricing for all vaccinations and antimalarials.' ),
           array( 'icon' => 'fas fa-location-dot', 'title' => 'Convenient Location', 'desc' => 'Easy to find in Denton with parking available nearby.' ),
@@ -468,10 +468,10 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         <?php if ( $step_image_url ) : ?>
           <div class="travel-process-step-image">
             <img src="<?php echo esc_url( $step_image_url ); ?>" alt="<?php echo esc_attr( get_sub_field( 'title' ) ); ?>" />
-            <?php if ( $step_index === 2 ) : ?>
+            <?php $floating_badge = get_sub_field( 'floating_badge' ); if ( $floating_badge ) : ?>
               <div class="travel-process-step-floating-badge">
                 <i class="fas fa-user-doctor"></i>
-                <span>Expert Advice</span>
+                <span><?php echo esc_html( $floating_badge ); ?></span>
               </div>
             <?php endif; ?>
           </div>

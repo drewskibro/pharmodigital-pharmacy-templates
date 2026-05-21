@@ -1,6 +1,7 @@
 /* ============================================
    BASE VARIABLES
    ============================================ */
+/* cache-bust marker — touched 2026-05-06 to invalidate Amelia spinner CSS fix */
 :root {
   --brand-purple: #a39ee3;
   --brand-light: #fef6f4;
@@ -559,6 +560,11 @@ html {
   margin-left: 0.25rem;
 }
 
+/* Hidden on desktop — desktop uses hover intent, no separate button needed */
+.mega-menu-mobile-chevron {
+  display: none;
+}
+
 /* Arrow rotation handled by .dropdown-open class below, not :hover */
 
 /* Dropdown */
@@ -866,33 +872,62 @@ html {
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   }
 
+  /* Link row: link takes remaining space, chevron button sits right */
+  .mega-menu-has-dropdown {
+    flex-wrap: wrap;
+  }
+
   .mega-menu-link {
-    width: 100%;
-    justify-content: space-between;
+    flex: 1;
     padding: 1.25rem 0.5rem;
-    font-size: 1.25rem; /* Larger text */
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-dark);
-    font-family: var(--font-primary); /* Matches buttons/body for clarity */
+    font-family: var(--font-primary);
     letter-spacing: -0.01em;
   }
-  
+
   .mega-menu-link:hover,
   .mega-menu-has-dropdown.mobile-dropdown-open > .mega-menu-link {
     color: var(--brand-purple);
     background: transparent;
-    padding-left: 1rem; /* Slide effect */
+    padding-left: 1rem;
   }
 
-  .mega-menu-arrow {
-    font-size: 0.875rem !important;
-    background: rgba(163, 158, 227, 0.1);
-    width: 2rem;
-    height: 2rem;
+  /* Chevron button — visible on mobile only */
+  .mega-menu-mobile-chevron {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(163, 158, 227, 0.1);
+    border: none;
     border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    color: var(--text-dark);
+    flex-shrink: 0;
+    align-self: center;
+    transition: background 0.2s ease;
+  }
+
+  .mega-menu-mobile-chevron:hover {
+    background: rgba(163, 158, 227, 0.25);
+  }
+
+  .mega-menu-mobile-chevron .mega-menu-arrow {
+    font-size: 0.875rem !important;
+    margin-left: 0;
+  }
+
+  .mega-menu-has-dropdown.mobile-dropdown-open .mega-menu-mobile-chevron .mega-menu-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown spans full width below the link + chevron row */
+  .mega-menu-has-dropdown .mega-menu-dropdown {
+    flex-basis: 100%;
   }
 
   /* Mobile Dropdown Styling */
@@ -4234,6 +4269,7 @@ html {
   position: relative;
   background: #ffffff;
   padding-bottom: 6rem;
+  overflow: hidden;
 }
 
 /* Full-width map */

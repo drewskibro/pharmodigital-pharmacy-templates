@@ -52,15 +52,15 @@ get_header();
 
         <div class="earwax-hero-trust">
           <div class="earwax-hero-trust-item">
-            <i class="fas fa-check-circle"></i>
+            <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'ew_trust_1_icon', 'fas fa-check-circle' ) ) ); ?>"></i>
             <span><?php echo esc_html( bp_field( 'ew_trust_1', 'GPhC Registered' ) ); ?></span>
           </div>
           <div class="earwax-hero-trust-item">
-            <i class="fas fa-clock"></i>
+            <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'ew_trust_2_icon', 'fas fa-clock' ) ) ); ?>"></i>
             <span><?php echo esc_html( bp_field( 'ew_trust_2', 'Same-day available' ) ); ?></span>
           </div>
           <div class="earwax-hero-trust-item">
-            <i class="fas fa-tag"></i>
+            <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'ew_trust_3_icon', 'fas fa-tag' ) ) ); ?>"></i>
             <span><?php echo esc_html( bp_field( 'ew_trust_3', '£60 both ears' ) ); ?></span>
           </div>
         </div>
@@ -173,8 +173,8 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'ew_team_badge', 'OUR TEAM' ) ); ?></span>
       </div>
-      <h2 class="earwax-team-title"><?php echo esc_html( bp_field( 'ew_team_title', 'Meet Your Wythenshawe Ear Care Specialists' ) ); ?></h2>
-      <p class="earwax-team-description"><?php echo esc_html( bp_field( 'ew_team_description', 'As Wythenshawe\'s dedicated ear care practice, we\'ve helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and parking nearby.' ) ); ?></p>
+      <h2 class="earwax-team-title"><?php echo esc_html( bp_field( 'ew_team_title', 'Meet Your Bowland Ear Care Specialists' ) ); ?></h2>
+      <p class="earwax-team-description"><?php echo esc_html( bp_field( 'ew_team_description', 'As our dedicated ear care practice, we\'ve helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and parking nearby.' ) ); ?></p>
     </div>
 
     <div class="earwax-team-grid">
@@ -553,7 +553,7 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'ew_testimonials_badge', 'PATIENT TESTIMONIALS' ) ); ?></span>
       </div>
-      <h2 class="earwax-testimonials-title"><?php echo esc_html( bp_field( 'ew_testimonials_title', 'Hear What Our Wythenshawe Patients Say' ) ); ?></h2>
+      <h2 class="earwax-testimonials-title"><?php echo esc_html( bp_field( 'ew_testimonials_title', 'Hear What Our Bowland Patients Say' ) ); ?></h2>
     </div>
 
     <div class="earwax-testimonials-grid">
@@ -658,7 +658,7 @@ get_header();
         <?php
         $faqs = array(
           array( 'q' => 'Is the treatment uncomfortable?', 'a' => 'Most patients find microsuction very comfortable. You\'ll hear a quiet whistling sound, but the procedure is gentle and shouldn\'t cause any pain.' ),
-          array( 'q' => 'How often should I have my ears checked?', 'a' => 'Most people benefit from an annual check-up, though this varies. We\'ll advise based on your individual situation during your Wythenshawe appointment.' ),
+          array( 'q' => 'How often should I have my ears checked?', 'a' => 'Most people benefit from an annual check-up, though this varies. We\'ll advise based on your individual situation during your Bowland appointment.' ),
           array( 'q' => 'Can I drive after the treatment?', 'a' => 'Yes, you can drive immediately after treatment. Most people experience instant improvement in hearing.' ),
           array( 'q' => 'Do you treat children?', 'a' => 'Yes, we treat patients of all ages at our Wythenshawe clinic. We\'re experienced in working with children and ensure they feel comfortable throughout.' ),
           array( 'q' => 'What if I have a perforated eardrum?', 'a' => 'Microsuction is safe for perforated eardrums, unlike water syringing. We\'ll assess your ears during consultation.' ),
@@ -717,9 +717,9 @@ get_header();
         </a>
       </div>
       <div class="earwax-cta-trust-checks">
-        <span class="earwax-cta-check"><i class="fas fa-check"></i> No referral needed</span>
-        <span class="earwax-cta-check"><i class="fas fa-check"></i> Expert microsuction</span>
-        <span class="earwax-cta-check"><i class="fas fa-check"></i> Same-day appointments</span>
+        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( bp_field( 'ew_cta_check_1', 'No referral needed' ) ); ?></span>
+        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( bp_field( 'ew_cta_check_2', 'Expert microsuction' ) ); ?></span>
+        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( bp_field( 'ew_cta_check_3', 'Same-day appointments' ) ); ?></span>
       </div>
     </div>
   </div>

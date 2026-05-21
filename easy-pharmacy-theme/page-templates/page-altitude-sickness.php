@@ -686,7 +686,7 @@ get_header();
             <i class="fas fa-plus alt-faq-icon"></i>
           </button>
           <div class="alt-faq-answer">
-            <p>No. Easy Pharmacy's altitude sickness service is available to walk-in patients without a GP referral. Dilip is a registered independent prescriber and can assess your suitability for Acetazolamide, issue a prescription, and supply the medication during your consultation. Book by calling 01784 255 222 or emailing hello@easypharmacy.co.uk.</p>
+            <p>No. Easy Pharmacy's altitude sickness service is available to walk-in patients without a GP referral. Dilip is a registered independent prescriber and can assess your suitability for Acetazolamide, issue a prescription, and supply the medication during your consultation. Book by calling 01784 255 222 or emailing bookings@theeasyclinic.co.uk.</p>
           </div>
         </div>
         <div class="alt-faq-item">
@@ -786,7 +786,7 @@ get_header();
           <i class="fas fa-phone"></i>
         </a>
       </div>
-      <?php $cta_email = ep_option( 'pharmacy_email', 'hello@easypharmacy.co.uk' ); ?>
+      <?php $cta_email = ep_option( 'pharmacy_email', 'bookings@theeasyclinic.co.uk' ); ?>
       <p class="alt-cta-supporting">
         <?php echo esc_html( ep_field( 'alt_cta_supporting', 'Or email ' . $cta_email . ' to book. Same-day appointments available.' ) ); ?>
       </p>

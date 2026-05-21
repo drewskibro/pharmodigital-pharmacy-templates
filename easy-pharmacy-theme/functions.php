@@ -10,9 +10,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'EASY_PHARMACY_VERSION', filemtime( __FILE__ ) );
 define( 'EASY_PHARMACY_DIR', get_template_directory() );
 define( 'EASY_PHARMACY_URI', get_template_directory_uri() );
+// Version hash used for cache-busting CSS/JS query strings. Tied to globals.css
+// mtime so any CSS edit invalidates Kinsta edge cache + browser caches. Using
+// filemtime(__FILE__) on functions.php silently breaks cache-busting for CSS-only
+// changes — see CLAUDE.md "Deployment Pipeline" lessons learned.
+define( 'EASY_PHARMACY_VERSION', filemtime( EASY_PHARMACY_DIR . '/assets/css/globals.css' ) );
 
 /**
  * Theme Setup
@@ -131,6 +135,10 @@ function easy_pharmacy_scripts() {
     if ( is_page_template( 'page-templates/page-book-appointment.php' ) ) {
         wp_enqueue_style( 'easy-pharmacy-book-appointment', EASY_PHARMACY_URI . '/assets/css/book-appointment.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
         wp_enqueue_script( 'easy-pharmacy-book-appointment-js', EASY_PHARMACY_URI . '/assets/js/book-appointment.js', array(), EASY_PHARMACY_VERSION, true );
+    }
+
+    if ( is_page_template( 'page-templates/page-booking-confirmed.php' ) ) {
+        wp_enqueue_style( 'easy-pharmacy-booking-confirmed', EASY_PHARMACY_URI . '/assets/css/booking-confirmed.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
     }
 
     if ( is_page_template( 'page-templates/page-team.php' ) ) {

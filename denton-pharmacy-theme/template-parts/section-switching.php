@@ -95,8 +95,8 @@ $switching_image_alt = $switching_image_id
     : 'Switch to ' . dp_pharmacy_name();
 
 // --- Google rating (global options) ---
-$google_rating       = dp_option( 'google_rating', '4.7' );
-$google_review_count = dp_option( 'google_review_count', '89+' );
+$google_rating       = dp_option( 'google_rating', '4.9' );
+$google_review_count = dp_option( 'google_review_count', '300+' );
 $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
 $gphc_number         = dp_option( 'superintendent_gphc_number', '2088937' );
 ?>

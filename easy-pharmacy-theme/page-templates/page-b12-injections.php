@@ -540,7 +540,7 @@ get_header();
             </div>
             <div class="b12-location-detail">
               <i class="fas fa-envelope"></i>
-              <a href="mailto:<?php echo esc_attr( ep_option( 'pharmacy_email', 'hello@easypharmacy.co.uk' ) ); ?>"><?php echo esc_html( ep_option( 'pharmacy_email', 'hello@easypharmacy.co.uk' ) ); ?></a>
+              <a href="mailto:<?php echo esc_attr( ep_option( 'pharmacy_email', 'bookings@theeasyclinic.co.uk' ) ); ?>"><?php echo esc_html( ep_option( 'pharmacy_email', 'bookings@theeasyclinic.co.uk' ) ); ?></a>
             </div>
           </div>
           <div class="b12-location-services">
@@ -554,7 +554,7 @@ get_header();
           <a href="tel:<?php echo esc_attr( ep_phone_link() ); ?>" class="cta-button primary-cta">
             Call to Book <i class="fas fa-arrow-right"></i>
           </a>
-          <a href="mailto:<?php echo esc_attr( ep_option( 'pharmacy_email', 'hello@easypharmacy.co.uk' ) ); ?>" class="cta-button secondary-cta">
+          <a href="mailto:<?php echo esc_attr( ep_option( 'pharmacy_email', 'bookings@theeasyclinic.co.uk' ) ); ?>" class="cta-button secondary-cta">
             <i class="fas fa-envelope"></i> Email Us
           </a>
         </div>

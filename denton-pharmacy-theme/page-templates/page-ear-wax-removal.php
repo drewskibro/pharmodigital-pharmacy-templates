@@ -52,15 +52,15 @@ get_header();
 
         <div class="earwax-hero-trust">
           <div class="earwax-hero-trust-item">
-            <i class="fas fa-check-circle"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'ew_trust_1_icon', 'fas fa-check-circle' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'ew_trust_1', 'GPhC Registered' ) ); ?></span>
           </div>
           <div class="earwax-hero-trust-item">
-            <i class="fas fa-clock"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'ew_trust_2_icon', 'fas fa-clock' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'ew_trust_2', 'Same-day available' ) ); ?></span>
           </div>
           <div class="earwax-hero-trust-item">
-            <i class="fas fa-tag"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'ew_trust_3_icon', 'fas fa-tag' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'ew_trust_3', '£60 both ears' ) ); ?></span>
           </div>
         </div>
@@ -717,9 +717,9 @@ get_header();
         </a>
       </div>
       <div class="earwax-cta-trust-checks">
-        <span class="earwax-cta-check"><i class="fas fa-check"></i> No referral needed</span>
-        <span class="earwax-cta-check"><i class="fas fa-check"></i> Expert microsuction</span>
-        <span class="earwax-cta-check"><i class="fas fa-check"></i> Same-day appointments</span>
+        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'ew_cta_check_1', 'No referral needed' ) ); ?></span>
+        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'ew_cta_check_2', 'Expert microsuction' ) ); ?></span>
+        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'ew_cta_check_3', 'Same-day appointments' ) ); ?></span>
       </div>
     </div>
   </div>

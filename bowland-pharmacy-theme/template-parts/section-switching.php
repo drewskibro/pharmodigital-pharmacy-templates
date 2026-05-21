@@ -35,12 +35,12 @@ $default_features = array(
     array(
         'icon'  => 'fa-user-doctor',
         'title' => 'Real Pharmacist Support',
-        'desc'  => 'Speak with Ahmed and our Wythenshawe team directly — no chatbots, no automated responses, just genuine expert care.',
+        'desc'  => 'Speak with ' . bp_option( 'superintendent_pharmacist', 'our pharmacist' ) . ' directly — no chatbots, no automated responses, just genuine expert care.',
     ),
     array(
         'icon'  => 'fa-comments',
         'title' => 'Face-to-Face Consultations',
-        'desc'  => 'See your pharmacist in person at our Wythenshawe pharmacy — real conversations, real care, with same-day appointments available.',
+        'desc'  => 'See your pharmacist in person at our Bowland pharmacy — real conversations, real care, with same-day appointments available.',
     ),
 );
 
@@ -95,8 +95,8 @@ $switching_image_alt = $switching_image_id
     : 'Switch to ' . bp_pharmacy_name();
 
 // --- Google rating (global options) ---
-$google_rating       = bp_option( 'google_rating', '4.7' );
-$google_review_count = bp_option( 'google_review_count', '89+' );
+$google_rating       = bp_option( 'google_rating', '4.9' );
+$google_review_count = bp_option( 'google_review_count', '300+' );
 $pharmacy_location   = bp_option( 'pharmacy_town', 'Wythenshawe' );
 $gphc_number         = bp_option( 'superintendent_gphc_number', '2088937' );
 ?>
@@ -213,7 +213,7 @@ $gphc_number         = bp_option( 'superintendent_gphc_number', '2088937' );
                         </span>
                         <span class="switching-rating-pill">
                             <i class="fas fa-map-marker-alt"></i>
-                            <?php echo esc_html( $pharmacy_location ); ?> since 2008
+                            <?php echo esc_html( $pharmacy_location ); ?> since <?php echo esc_html( bp_option( 'established_year', '2009' ) ); ?>
                         </span>
                     </div>
                 </div>

@@ -75,10 +75,10 @@ $hl_support    = ep_option( 'nav_dd_hl_support' );
 
 // Defaults — used when repeaters are empty (i.e. nothing saved in ACF yet).
 $default_wl_treatments = array(
-    array( 'label' => 'Wegovy (Semaglutide)',  'icon' => 'fas fa-syringe', 'url' => '' ),
-    array( 'label' => 'Mounjaro (Tirzepatide)', 'icon' => 'fas fa-syringe', 'url' => '' ),
-    array( 'label' => 'Saxenda (Liraglutide)',  'icon' => 'fas fa-syringe', 'url' => '' ),
-    array( 'label' => 'Orlistat',               'icon' => 'fas fa-pills',   'url' => '' ),
+    array( 'label' => 'Weekly GLP-1 Injection',   'icon' => 'fas fa-syringe', 'url' => '' ),
+    array( 'label' => 'Dual-Action GLP-1',         'icon' => 'fas fa-syringe', 'url' => '' ),
+    array( 'label' => 'Daily GLP-1 Injection',     'icon' => 'fas fa-syringe', 'url' => '' ),
+    array( 'label' => 'Oral Weight Loss Capsule',  'icon' => 'fas fa-pills',   'url' => '' ),
 );
 $default_wl_support = array(
     array( 'label' => 'How It Works',    'icon' => 'fas fa-circle-info',            'url' => '' ),
@@ -172,8 +172,8 @@ if ( ! is_array( $hl_support )    || empty( $hl_support ) )    { $hl_support    
         <li class="mega-menu-item mega-menu-has-dropdown">
           <a href="<?php echo esc_url( $nav_wl_url ); ?>" class="mega-menu-link">
             <span><?php echo esc_html( $nav_wl_label ); ?></span>
-            <i class="fas fa-chevron-down mega-menu-arrow"></i>
           </a>
+          <button class="mega-menu-mobile-chevron" aria-label="Show submenu" aria-expanded="false"><i class="fas fa-chevron-down mega-menu-arrow"></i></button>
           <div class="mega-menu-dropdown">
             <div class="mega-menu-dropdown-inner">
               <div class="mega-menu-section">
@@ -206,8 +206,8 @@ if ( ! is_array( $hl_support )    || empty( $hl_support ) )    { $hl_support    
         <li class="mega-menu-item mega-menu-has-dropdown mega-menu-travel">
           <a href="<?php echo esc_url( $nav_th_url ); ?>" class="mega-menu-link">
             <span><?php echo esc_html( $nav_th_label ); ?></span>
-            <i class="fas fa-chevron-down mega-menu-arrow"></i>
           </a>
+          <button class="mega-menu-mobile-chevron" aria-label="Show submenu" aria-expanded="false"><i class="fas fa-chevron-down mega-menu-arrow"></i></button>
           <div class="mega-menu-dropdown mega-menu-dropdown-wide">
             <div class="mega-menu-dropdown-inner">
               <div class="mega-menu-section">
@@ -260,8 +260,8 @@ if ( ! is_array( $hl_support )    || empty( $hl_support ) )    { $hl_support    
         <li class="mega-menu-item mega-menu-has-dropdown">
           <a href="<?php echo esc_url( $nav_ew_url ); ?>" class="mega-menu-link">
             <span><?php echo esc_html( $nav_ew_label ); ?></span>
-            <i class="fas fa-chevron-down mega-menu-arrow"></i>
           </a>
+          <button class="mega-menu-mobile-chevron" aria-label="Show submenu" aria-expanded="false"><i class="fas fa-chevron-down mega-menu-arrow"></i></button>
           <div class="mega-menu-dropdown">
             <div class="mega-menu-dropdown-inner">
               <div class="mega-menu-section">
@@ -294,8 +294,8 @@ if ( ! is_array( $hl_support )    || empty( $hl_support ) )    { $hl_support    
         <li class="mega-menu-item mega-menu-has-dropdown">
           <a href="<?php echo esc_url( $nav_hl_url ); ?>" class="mega-menu-link">
             <span><?php echo esc_html( $nav_hl_label ); ?></span>
-            <i class="fas fa-chevron-down mega-menu-arrow"></i>
           </a>
+          <button class="mega-menu-mobile-chevron" aria-label="Show submenu" aria-expanded="false"><i class="fas fa-chevron-down mega-menu-arrow"></i></button>
           <div class="mega-menu-dropdown mega-menu-dropdown-wide">
             <div class="mega-menu-dropdown-inner">
               <div class="mega-menu-section">

@@ -26,7 +26,7 @@ get_header();
         </h1>
 
         <p class="india-hero-description">
-          <?php echo esc_html( dp_field( 'in_hero_description', 'Expert advice and vaccinations for your India journey. Get protected before you travel with Denton\'s trusted travel health specialists.' ) ); ?>
+          <?php echo esc_html( dp_field( 'in_hero_description', 'Expert advice and vaccinations for your India journey. Get protected before you travel with ' . dp_pharmacy_name() . '\'s trusted travel health specialists.' ) ); ?>
         </p>
 
         <div class="india-hero-actions">
@@ -142,9 +142,9 @@ get_header();
         <div class="india-malaria-image-card">
           <?php
           $malaria_image_id = dp_field( 'in_malaria_image' );
-          $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&h=1000&fit=crop';
+          $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : '';
           ?>
-          <img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="Traveller in India" class="india-malaria-image" />
+          <?php if ( $malaria_image_url ) : ?><img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="Traveller in India" class="india-malaria-image" /><?php endif; ?>
           <div class="india-malaria-overlay"></div>
           <div class="india-malaria-badge">
             <div class="india-malaria-badge-icon"><i class="fas fa-shield-virus"></i></div>
@@ -195,8 +195,8 @@ get_header();
         </div>
 
         <div class="india-malaria-actions">
-          <a href="<?php echo esc_url( dp_field( 'in_hero_cta_url', dp_booking_url() ) ); ?>" class="cta-button primary-cta">
-            Check Your Risk
+          <a href="<?php echo esc_url( dp_field( 'in_malaria_cta_url', dp_booking_url() ) ); ?>" class="cta-button primary-cta">
+            <?php echo esc_html( dp_field( 'in_malaria_cta_text', 'Check Your Risk' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -240,9 +240,9 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $tips = array(
-          array( 'icon' => 'fas fa-glass-water', 'title' => 'Food & Water', 'desc' => 'Drink only bottled/boiled water. Avoid ice. Eat freshly cooked food and peel your own fruit.', 'image' => 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&h=800&fit=crop' ),
-          array( 'icon' => 'fas fa-mosquito', 'title' => 'Insect Protection', 'desc' => 'Use 50% DEET repellent day and night to protect against Malaria and Dengue.', 'image' => 'https://images.unsplash.com/photo-1621451537084-482c73073a0f?w=600&h=800&fit=crop' ),
-          array( 'icon' => 'fas fa-sun', 'title' => 'Sun & Heat', 'desc' => 'Stay hydrated and use high SPF. Heat exhaustion is a risk, especially in summer months.', 'image' => 'https://images.unsplash.com/photo-1548013146-72479768bada?w=600&h=800&fit=crop' ),
+          array( 'icon' => 'fas fa-glass-water', 'title' => 'Food & Water', 'desc' => 'Drink only bottled/boiled water. Avoid ice. Eat freshly cooked food and peel your own fruit.', 'image' => '' ),
+          array( 'icon' => 'fas fa-mosquito', 'title' => 'Insect Protection', 'desc' => 'Use 50% DEET repellent day and night to protect against Malaria and Dengue.', 'image' => '' ),
+          array( 'icon' => 'fas fa-sun', 'title' => 'Sun & Heat', 'desc' => 'Stay hydrated and use high SPF. Heat exhaustion is a risk, especially in summer months.', 'image' => '' ),
         );
         foreach ( $tips as $tip ) :
         ?>
@@ -272,7 +272,10 @@ get_header();
     <div class="india-cta-content">
       <h2 class="india-cta-title"><?php echo esc_html( dp_field( 'in_cta_title', 'Ready for your India adventure?' ) ); ?></h2>
       <p class="india-cta-description">
-        <?php echo esc_html( dp_field( 'in_cta_description', 'Book your India travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ) ); ?>
+        <?php
+        $india_cta_default = 'Book your India travel health consultation at our ' . dp_option( 'pharmacy_town', 'Denton' ) . ' clinic. Get expert advice and all recommended vaccinations in one visit.';
+        echo esc_html( dp_field( 'in_cta_description', $india_cta_default ) );
+        ?>
       </p>
       <div class="india-cta-actions">
         <a href="<?php echo esc_url( dp_field( 'in_cta_primary_url', dp_booking_url() ) ); ?>" class="cta-button primary-cta india-cta-button-white">

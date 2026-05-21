@@ -19,9 +19,12 @@ $title_start       = bp_field( 'testimonials_title_start', 'Real Results.' );
 $title_highlight   = bp_field( 'testimonials_title_highlight', 'Lasting Health.' );
 $description       = bp_field( 'testimonials_description', 'See how our patients across Wythenshawe have transformed their health with our personalised care.' );
 $disclaimer        = bp_field( 'testimonials_disclaimer', 'The results below are from real Bowland Pharmacy patients. Individual results may vary.' );
+$verified_label_lg = bp_field( 'testimonials_verified_label', 'Verified Patient' );
+$verified_label_sm = bp_field( 'testimonials_verified_label_short', 'Verified' );
+$transparency_label = bp_field( 'testimonials_transparency_label', 'Transparency Note:' );
 
 // --- CTA card fields ---
-$cta_title  = bp_field( 'testimonials_cta_title', 'Trusted by 10,000+ Wythenshawe Customers' );
+$cta_title  = bp_field( 'testimonials_cta_title', 'Trusted by 10,000+ Bowland Customers' );
 $cta_text   = bp_field( 'testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local healthcare you can rely on.' );
 $rating     = bp_option( 'google_rating', '4.9' );
 
@@ -30,32 +33,33 @@ $allowed_highlight_tags = array(
     'span' => array( 'class' => array() ),
 );
 
-// --- Default testimonials ---
+// --- Default testimonials (fallback only — populate via ACF for production) ---
+// Real Google Reviews from Bowland Pharmacy patients.
 $default_testimonials = array(
     array(
-        'name'       => 'Paul Fegan',
-        'service'    => 'Travel Clinic',
-        'quote'      => 'Needed a <span class="testimonial-highlight">last minute vaccination</span> for a holiday. It was easy to book, and convenient to get to. The prices are <span class="testimonial-highlight">\'all-in\'</span> ... Whole process from end-to-end was <span class="testimonial-highlight">friendly, fast and efficient</span>.',
+        'name'       => 'Michelle P.',
+        'service'    => 'NHS Prescriptions',
+        'quote'      => 'I had many issues in the past with other pharmacies that got things wrong. <span class="testimonial-highlight">Using Bowland Pharmacy puts my mind at ease</span>.',
         'highlights' => array(
-            array( 'icon' => 'fa-calendar-check', 'text' => 'Easy Booking' ),
-            array( 'icon' => 'fa-car',            'text' => 'Local Service' ),
-            array( 'icon' => 'fa-tags',           'text' => 'All-in Price' ),
+            array( 'icon' => 'fa-shield-halved', 'text' => 'Trustworthy' ),
+            array( 'icon' => 'fa-user-doctor',   'text' => 'Pharmacist Care' ),
+            array( 'icon' => 'fa-heart',         'text' => 'Peace of Mind' ),
         ),
         'checklist'  => array(),
     ),
     array(
-        'name'       => 'Georgia Porter',
-        'service'    => 'Travel Vaccinations',
-        'quote'      => 'Went to Bowland Pharmacy for <span class="testimonial-highlight">travel vaccinations</span> before a trip. The staff were <span class="testimonial-highlight">really informative</span> and made the whole experience quick and easy.',
+        'name'       => 'Willie W.',
+        'service'    => 'NHS Prescriptions',
+        'quote'      => 'Just <span class="testimonial-highlight">incredible customer service</span>, amazing staff and a great way to receive prescriptions! <span class="testimonial-highlight">A pharmacy to remember</span>.',
         'highlights' => array(),
-        'checklist'  => array( 'Quick Appointment', 'Informative Staff' ),
+        'checklist'  => array( 'Incredible Service', 'Amazing Staff' ),
     ),
     array(
-        'name'       => 'Giedrius K.',
-        'service'    => 'Ear Wax Removal',
-        'quote'      => 'Had my ears checked at Bowland Pharmacy. The pharmacist was <span class="testimonial-highlight">thorough and honest</span> — told me I didn\'t actually need treatment and saved me money. <span class="testimonial-highlight">Really appreciated the honesty</span>.',
+        'name'       => 'Verified Patient',
+        'service'    => 'Bowland Pharmacy',
+        'quote'      => 'Add a real Google Review here. Edit from <span class="testimonial-highlight">wp-admin → Pages → Home Page → Testimonials</span>.',
         'highlights' => array(),
-        'checklist'  => array( 'Thorough Check', 'Honest Advice' ),
+        'checklist'  => array( 'Edit me' ),
     ),
 );
 
@@ -148,7 +152,7 @@ if ( empty( $testimonials ) ) {
             <p class="testimonials-description"><?php echo esc_html( $description ); ?></p>
             <div class="testimonials-disclaimer">
                 <i class="fas fa-info-circle"></i>
-                <p><strong>Transparency Note:</strong> <?php echo esc_html( $disclaimer ); ?></p>
+                <p><strong><?php echo esc_html( $transparency_label ); ?></strong> <?php echo esc_html( $disclaimer ); ?></p>
             </div>
         </div>
 
@@ -163,7 +167,7 @@ if ( empty( $testimonials ) ) {
                 $quote_class = $is_large ? 'testimonial-quote testimonial-quote-large' : 'testimonial-quote';
                 $avatar_class = $is_large ? 'testimonial-avatar testimonial-avatar-large' : 'testimonial-avatar';
                 $name_class  = $is_large ? 'testimonial-author-name testimonial-author-name-large' : 'testimonial-author-name';
-                $verified_label = $is_large ? 'Verified Patient' : 'Verified';
+                $verified_label = $is_large ? $verified_label_lg : $verified_label_sm;
             ?>
                 <div class="<?php echo esc_attr( $card_class ); ?>">
 
@@ -186,11 +190,7 @@ if ( empty( $testimonials ) ) {
 
                         <!-- Quote -->
                         <blockquote class="<?php echo esc_attr( $quote_class ); ?>">
-                            <?php if ( $use_acf_content ) : ?>
-                                &ldquo;<?php echo esc_html( $testimonial['quote'] ); ?>&rdquo;
-                            <?php else : ?>
-                                &ldquo;<?php echo wp_kses( $testimonial['quote'], $allowed_highlight_tags ); ?>&rdquo;
-                            <?php endif; ?>
+                            &ldquo;<?php echo wp_kses( $testimonial['quote'], $allowed_highlight_tags ); ?>&rdquo;
                         </blockquote>
 
                         <!-- Author row -->
@@ -201,7 +201,7 @@ if ( empty( $testimonials ) ) {
                             <div class="testimonial-author-info">
                                 <span class="testimonial-service"><?php echo esc_html( $testimonial['service'] ); ?></span>
                                 <h4 class="<?php echo esc_attr( $name_class ); ?>"><?php echo esc_html( $testimonial['name'] ); ?></h4>
-                                <p class="testimonial-author-status">Verified Patient</p>
+                                <p class="testimonial-author-status"><?php echo esc_html( $verified_label_lg ); ?></p>
                             </div>
                         </div>
 

@@ -30,7 +30,7 @@ get_header();
         </h1>
 
         <p class="hairloss-hero-description">
-          <?php echo esc_html( dp_field( 'hl_hero_description', 'Clinically proven treatments including Finasteride and Minoxidil. Face-to-face consultations with our GPhC-registered pharmacist in Denton.' ) ); ?>
+          <?php echo esc_html( dp_field( 'hl_hero_description', 'Clinically proven treatments including Finasteride and Minoxidil. Face-to-face consultations with our GPhC-registered pharmacist in ' . dp_option( 'pharmacy_town', 'Denton' ) . '.' ) ); ?>
         </p>
 
         <ul class="hairloss-hero-features">
@@ -55,13 +55,13 @@ get_header();
           $hero_image_id  = dp_field( 'hl_hero_image' );
           $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'large' ) : '';
           if ( $hero_image_url ) : ?>
-            <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'hl_hero_image_alt', 'Hair loss treatment at Denton Pharmacy' ) ); ?>" class="hairloss-hero-image" />
+            <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'hl_hero_image_alt', 'Hair loss treatment at ' . dp_pharmacy_name() ) ); ?>" class="hairloss-hero-image" />
             <div class="hairloss-hero-overlay"></div>
             <div class="hairloss-hero-caption">
               <div class="star-row">
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
               </div>
-              <p>Real results from our patients</p>
+              <p><?php echo esc_html( dp_field( 'hl_hero_caption', 'Real results from our patients' ) ); ?></p>
             </div>
           <?php endif; ?>
         </div>
@@ -113,7 +113,7 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'hl_treatments_badge', 'PRESCRIPTION & OTC' ) ); ?></span>
       </div>
       <h2 class="hairloss-treatments-title"><?php echo esc_html( dp_field( 'hl_treatments_title_line1', 'Our' ) ); ?> <span class="gradient-text"><?php echo esc_html( dp_field( 'hl_treatments_title_highlight', 'Hair Loss Treatments' ) ); ?></span></h2>
-      <p class="hairloss-treatments-desc"><?php echo esc_html( dp_field( 'hl_treatments_description', 'Clinically proven treatments prescribed and monitored by our GPhC-registered pharmacist at Denton Pharmacy.' ) ); ?></p>
+      <p class="hairloss-treatments-desc"><?php echo esc_html( dp_field( 'hl_treatments_description', 'Clinically proven treatments prescribed and monitored by our GPhC-registered pharmacist at ' . dp_pharmacy_name() . '.' ) ); ?></p>
     </div>
 
     <div class="hairloss-treatments-grid">
@@ -204,8 +204,8 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'hl_team_badge', 'YOUR SPECIALISTS' ) ); ?></span>
       </div>
-      <h2 class="hairloss-team-title"><?php echo esc_html( dp_field( 'hl_team_title', 'Meet Your Denton Hair Loss Experts' ) ); ?></h2>
-      <p class="hairloss-team-description"><?php echo esc_html( dp_field( 'hl_team_description', 'Our experienced pharmacists provide personalised hair loss consultations with discretion and care. Get expert advice and ongoing support at your local Denton pharmacy.' ) ); ?></p>
+      <h2 class="hairloss-team-title"><?php echo esc_html( dp_field( 'hl_team_title', 'Meet Your ' . dp_option( 'pharmacy_town', 'Denton' ) . ' Hair Loss Experts' ) ); ?></h2>
+      <p class="hairloss-team-description"><?php echo esc_html( dp_field( 'hl_team_description', 'Our experienced pharmacists provide personalised hair loss consultations with discretion and care. Get expert advice and ongoing support at your local ' . dp_option( 'pharmacy_town', 'Denton' ) . ' pharmacy.' ) ); ?></p>
     </div>
 
     <div class="hairloss-team-grid">
@@ -239,12 +239,12 @@ get_header();
           </div>
         </div>
       <?php endwhile; else : ?>
-        <!-- Default: Ahmed Al-Liabi -->
+        <!-- Default: Lead Pharmacist -->
         <div class="hairloss-team-card">
           <div class="hairloss-team-content">
-            <h3 class="hairloss-team-name">Ahmed Al-Liabi</h3>
+            <h3 class="hairloss-team-name"><?php echo esc_html( dp_option( 'superintendent_pharmacist', 'Our Pharmacist' ) ); ?></h3>
             <p class="hairloss-team-role">Lead Pharmacist &amp; Founder</p>
-            <p class="hairloss-team-bio">As the founder of Denton Pharmacy, Ahmed brings over 15 years of pharmaceutical experience. He provides confidential hair loss consultations, ensuring every patient receives a personalised treatment plan.</p>
+            <p class="hairloss-team-bio">As the founder of <?php echo esc_html( dp_pharmacy_name() ); ?>, our lead pharmacist brings over 15 years of pharmaceutical experience, providing confidential hair loss consultations and personalised treatment plans.</p>
             <div class="hairloss-team-tags">
               <span class="hairloss-team-tag">GPhC Registered</span>
               <span class="hairloss-team-tag">15+ Years Experience</span>
@@ -252,12 +252,12 @@ get_header();
             </div>
           </div>
         </div>
-        <!-- Default: Jignasa Modhvadia -->
+        <!-- Default: Director -->
         <div class="hairloss-team-card">
           <div class="hairloss-team-content">
-            <h3 class="hairloss-team-name">Jignasa Modhvadia</h3>
+            <h3 class="hairloss-team-name">Pharmacy Director</h3>
             <p class="hairloss-team-role">Director</p>
-            <p class="hairloss-team-bio">Jignasa combines clinical expertise with compassionate patient care, supporting hair loss treatment plans and ongoing monitoring for patients at our Denton clinic.</p>
+            <p class="hairloss-team-bio">Our director combines clinical expertise with compassionate patient care, supporting hair loss treatment plans and ongoing monitoring for patients at our <?php echo esc_html( dp_option( 'pharmacy_town', 'local' ) ); ?> clinic.</p>
             <div class="hairloss-team-tags">
               <span class="hairloss-team-tag">Clinic Director</span>
               <span class="hairloss-team-tag">Patient Care Expert</span>
@@ -328,7 +328,7 @@ get_header();
       <?php endif; ?>
     </div>
     <div class="hairloss-process-cta">
-      <a href="<?php echo esc_url( dp_field( 'hl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">Start Your Journey</a>
+      <a href="<?php echo esc_url( dp_field( 'hl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta"><?php echo esc_html( dp_field( 'hl_process_cta_text', 'Start Your Journey' ) ); ?></a>
     </div>
   </div>
 </section>
@@ -401,7 +401,7 @@ get_header();
         <div class="hairloss-faq-item">
           <button class="hairloss-faq-btn" onclick="toggleFAQ(this)">
             <span class="num">06</span>
-            <span class="text">Why choose Denton Pharmacy over online providers?</span>
+            <span class="text">Why choose <?php echo esc_html( dp_pharmacy_name() ); ?> over online providers?</span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </button>
           <div class="hairloss-faq-content"><p>Face-to-face assessment ensures treatment suitability. Ongoing local support and monitoring. Immediate access to professional advice. No waiting for postal delivery &mdash; collect same day.</p></div>
@@ -421,7 +421,7 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'hl_testimonials_badge', 'PATIENT STORIES' ) ); ?></span>
       </div>
-      <h2 class="hairloss-testimonials-title"><?php echo esc_html( dp_field( 'hl_testimonials_title', 'Hear From Our Denton Patients' ) ); ?></h2>
+      <h2 class="hairloss-testimonials-title"><?php echo esc_html( dp_field( 'hl_testimonials_title', 'Hear From Our ' . dp_option( 'pharmacy_town', 'Denton' ) . ' Patients' ) ); ?></h2>
     </div>
 
     <div class="hairloss-testimonials-grid">
@@ -438,12 +438,12 @@ get_header();
       <?php endwhile; else : ?>
         <div class="hairloss-testimonial-card">
           <div class="hairloss-testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="hairloss-testimonial-quote">After just 4 months of treatment from Denton Pharmacy, I can already see new hair growth. Ahmed explained everything clearly and made the whole process easy.</p>
+          <p class="hairloss-testimonial-quote">After just 4 months of treatment from <?php echo esc_html( dp_pharmacy_name() ); ?>, I can already see new hair growth. The pharmacist explained everything clearly and made the whole process easy.</p>
           <div class="hairloss-testimonial-author"><span class="hairloss-testimonial-name">James T.</span></div>
         </div>
         <div class="hairloss-testimonial-card">
           <div class="hairloss-testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="hairloss-testimonial-quote">I was nervous about discussing hair loss but the team at Denton Pharmacy made it completely comfortable. The consultation was thorough and private.</p>
+          <p class="hairloss-testimonial-quote">I was nervous about discussing hair loss but the team at <?php echo esc_html( dp_pharmacy_name() ); ?> made it completely comfortable. The consultation was thorough and private.</p>
           <div class="hairloss-testimonial-author"><span class="hairloss-testimonial-name">Mark R.</span></div>
         </div>
         <div class="hairloss-testimonial-card">
@@ -463,7 +463,7 @@ get_header();
   <div class="section-container">
     <div class="hairloss-cta-content">
       <h2 class="hairloss-cta-title"><?php echo esc_html( dp_field( 'hl_cta_title', 'Ready to Start Your Hair Regrowth Journey?' ) ); ?></h2>
-      <p class="hairloss-cta-desc"><?php echo esc_html( dp_field( 'hl_cta_description', 'Book a confidential consultation with our GPhC-registered pharmacist in Denton' ) ); ?></p>
+      <p class="hairloss-cta-desc"><?php echo esc_html( dp_field( 'hl_cta_description', 'Book a confidential consultation with our GPhC-registered pharmacist in ' . dp_option( 'pharmacy_town', 'Denton' ) ) ); ?></p>
       <div class="hairloss-cta-actions">
         <a href="<?php echo esc_url( dp_field( 'hl_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta hairloss-cta-btn-book">
           <?php echo esc_html( dp_field( 'hl_cta_button_text', 'Book Consultation' ) ); ?> <i class="fas fa-arrow-right"></i>

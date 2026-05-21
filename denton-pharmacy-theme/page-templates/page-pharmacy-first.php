@@ -48,15 +48,15 @@ get_header();
 
         <div class="pharmfirst-hero-trust">
           <div class="pharmfirst-hero-trust-item">
-            <i class="fas fa-check-circle"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'pf_trust_1_icon', 'fas fa-check-circle' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'pf_trust_1', 'NHS Funded' ) ); ?></span>
           </div>
           <div class="pharmfirst-hero-trust-item">
-            <i class="fas fa-calendar-check"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'pf_trust_2_icon', 'fas fa-calendar-check' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'pf_trust_2', 'No GP Appointment Needed' ) ); ?></span>
           </div>
           <div class="pharmfirst-hero-trust-item">
-            <i class="fas fa-clock"></i>
+            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'pf_trust_3_icon', 'fas fa-clock' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'pf_trust_3', 'Same-Day Treatment' ) ); ?></span>
           </div>
         </div>
@@ -88,10 +88,14 @@ get_header();
               <li><i class="fas fa-check"></i> <span><?php echo esc_html( dp_field( 'pf_trust_2', 'No GP Appointment Needed' ) ); ?></span></li>
               <li><i class="fas fa-check"></i> <span><?php echo esc_html( dp_field( 'pf_trust_3', 'Same-Day Treatment' ) ); ?></span></li>
             </ul>
-            <div class="pharmfirst-trust-card-footer">
+            <?php
+            $gphc_num = dp_option( 'gphc_registration', '1033447' );
+            $gphc_url = dp_option( 'gphc_register_url' ) ?: 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_num;
+            ?>
+            <a href="<?php echo esc_url( $gphc_url ); ?>" class="pharmfirst-trust-card-footer" target="_blank" rel="noopener" title="Verify on the GPhC register">
               <i class="fas fa-shield-halved"></i>
               <span>GPhC Registered Pharmacy</span>
-            </div>
+            </a>
           </div>
         </div>
       </div>

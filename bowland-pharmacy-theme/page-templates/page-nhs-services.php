@@ -49,8 +49,8 @@ $trust_3_text = bp_field( 'nhs_hero_trust_3_text', '4.7★ Rated' );
 
 // Rating badge
 $rating_score    = bp_field( 'nhs_hero_rating_score' );
-if ( ! $rating_score ) { $rating_score = bp_option( 'google_rating', '4.7' ); }
-$rating_count    = bp_field( 'nhs_hero_rating_count', '89' );
+if ( ! $rating_score ) { $rating_score = bp_option( 'google_rating', '4.9' ); }
+$rating_count    = bp_field( 'nhs_hero_rating_count', bp_option( 'google_review_count', '300+' ) );
 $rating_location = bp_field( 'nhs_hero_rating_location' );
 if ( ! $rating_location ) { $rating_location = bp_option( 'pharmacy_location_label', 'Wythenshawe, UK' ); }
 
@@ -156,7 +156,7 @@ for ( $i = 1; $i <= 5; $i++ ) {
           </div>
           <div class="rating-footer">
             <div class="rating-location"><i class="fas fa-map-marker-alt"></i><span><?php echo esc_html( $rating_location ); ?></span></div>
-            <a href="#" class="rating-link">View Reviews</a>
+            <a href="<?php echo esc_url( bp_option( 'google_review_url', '#' ) ); ?>" class="rating-link" target="_blank" rel="noopener noreferrer">View Reviews</a>
           </div>
         </div>
       </div>

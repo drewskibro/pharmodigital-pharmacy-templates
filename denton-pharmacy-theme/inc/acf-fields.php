@@ -257,15 +257,13 @@ function dp_register_acf_field_groups() {
         'key'      => 'group_dp_location',
         'title'    => 'Location',
         'fields'   => array(
+            // --- Pharmacy Google Maps link — the ONE field editors need to paste ---
             array(
-                'key'           => 'field_dp_location_map_image',
-                'label'         => 'Map Image',
-                'name'          => 'location_map_image',
-                'type'          => 'image',
-                'return_format' => 'id',
-                'preview_size'  => 'medium',
-                'library'       => 'all',
-                'instructions'  => 'Upload a static map image or screenshot of your location on Google Maps.',
+                'key'           => 'field_dp_location_pharmacy_maps_url',
+                'label'         => '⭐ Pharmacy Google Maps link (paste this)',
+                'name'          => 'location_pharmacy_maps_url',
+                'type'          => 'url',
+                'instructions'  => "This is the only field you need to paste.\n\nHow to get it:\n1. Open Google Maps and search the pharmacy\n2. Click the pharmacy pin (not a search result)\n3. Share → Copy link\n4. Paste it here and save\n\nOn save: the map centre coordinates auto-fill from this link, the iframe re-centres on the pharmacy, and the Directions button points to the correct place.",
             ),
             array(
                 'key'           => 'field_dp_location_store_image',
@@ -278,26 +276,128 @@ function dp_register_acf_field_groups() {
                 'instructions'  => 'Upload a photo of your pharmacy storefront.',
             ),
             array(
-                'key'           => 'field_dp_location_google_maps_embed',
-                'label'         => 'Google Maps Embed URL',
-                'name'          => 'location_google_maps_embed',
-                'type'          => 'url',
-                'instructions'  => 'Optional. Paste a Google Maps embed URL here. If left blank, a map will be generated automatically from your address. To get an embed URL: go to Google Maps → find your location → click Share → Embed a map → copy the src URL from the iframe code.',
-            ),
-            array(
-                'key'           => 'field_dp_location_directions_url',
-                'label'         => 'Google Maps Directions URL',
-                'name'          => 'pharmacy_directions_url',
-                'type'          => 'url',
-                'default_value' => 'https://www.google.com/maps/dir/?api=1&destination=53.4554,-2.1128',
-            ),
-            array(
                 'key'           => 'field_dp_location_parking',
                 'label'         => 'Parking Info',
                 'name'          => 'pharmacy_parking',
                 'type'          => 'textarea',
                 'rows'          => 2,
                 'default_value' => 'Free customer parking available nearby.',
+            ),
+
+            // --- Pharmacy label popup anchor ---
+            array(
+                'key'           => 'field_dp_location_label_anchor',
+                'label'         => 'Pharmacy label position',
+                'name'          => 'location_label_anchor',
+                'type'          => 'select',
+                'choices'       => array(
+                    'up'         => 'Above pin (centered)',
+                    'down'       => 'Below pin (centered)',
+                    'left'       => 'Left of pin (centered)',
+                    'right'      => 'Right of pin (centered)',
+                    'up-left'    => 'Up & left of pin',
+                    'up-right'   => 'Up & right of pin',
+                    'down-left'  => 'Down & left of pin',
+                    'down-right' => 'Down & right of pin',
+                ),
+                'default_value' => 'up-left',
+                'instructions'  => 'Where the pharmacy balloon sits relative to the pin. Flip it if parking markers or city labels start covering it.',
+            ),
+
+            // --- Pharmacy pin icon (overrides the default Swiss cross) ---
+            array(
+                'key'           => 'field_dp_location_pin_icon',
+                'label'         => 'Pharmacy Pin Icon',
+                'name'          => 'location_pin_icon',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'thumbnail',
+                'library'       => 'all',
+                'instructions'  => 'Optional. PNG or SVG with transparent background — renders inside the navy disc on the map. If empty, a default medical cross is used. Best: square, at least 128×128, with generous padding so it breathes inside the disc.',
+            ),
+
+            // --- Map centre coordinates (used to drop Google's default red pin) ---
+            array(
+                'key'           => 'field_dp_location_center_coords',
+                'label'         => 'Map Centre Coordinates (lat,lng)',
+                'name'          => 'location_center_coords',
+                'type'          => 'text',
+                'default_value' => '53.4557,-2.1120',
+                'placeholder'   => '53.4557,-2.1120',
+                'instructions'  => 'Auto-filled from the Google Maps link above. Overwrite only if you need to nudge the map centre manually.',
+            ),
+            array(
+                'key'           => 'field_dp_location_zoom',
+                'label'         => 'Map Zoom',
+                'name'          => 'location_zoom',
+                'type'          => 'number',
+                'min'           => 10,
+                'max'           => 20,
+                'default_value' => 17,
+                'instructions'  => '15 = neighbourhood, 17 = street, 19 = building.',
+            ),
+
+            // --- Map overlay: parking callouts (up to 2) ---
+            // Dots are geo-anchored by lat,lng via Web Mercator math in JS —
+            // no fiddly %-based positioning. Move the map centre or change
+            // the zoom and the dots follow automatically.
+            array(
+                'key'          => 'field_dp_location_parking_callouts',
+                'label'        => 'Parking Hotspots',
+                'name'         => 'location_parking_callouts',
+                'type'         => 'repeater',
+                'min'          => 0,
+                'max'          => 2,
+                'layout'       => 'block',
+                'button_label' => 'Add parking hotspot',
+                'instructions' => 'Add up to 2 nearby parking hotspots. Each dot is placed on the map from real lat,lng coordinates. Click opens Google Maps directions in a new tab.',
+                'sub_fields'   => array(
+                    array(
+                        'key'          => 'field_dp_location_callout_url',
+                        'label'        => '1. Google Maps link',
+                        'name'         => 'destination_url',
+                        'type'         => 'url',
+                        'placeholder'  => 'https://maps.app.goo.gl/...',
+                        'instructions' => "How to get this link:\n1. Open Google Maps and search the parking\n2. Click the pin of the correct place (not a search result)\n3. Click Share → Copy link\n4. Paste it here\n\nOn save, the name and coordinates auto-fill from the link. If you later paste a different link, the name and coordinates are re-fetched and overwritten. If the link stays the same, any manual edits you made stay.",
+                        'required'     => 0,
+                    ),
+                    array(
+                        'key'          => 'field_dp_location_callout_label',
+                        'label'        => '2. Name (editable)',
+                        'name'         => 'label',
+                        'type'         => 'text',
+                        'placeholder'  => 'e.g. Ashton Road Car Park',
+                        'instructions' => 'Auto-filled from the Google Maps link. Edit freely — whatever you type here is what shows in the popup.',
+                    ),
+                    array(
+                        'key'          => 'field_dp_location_callout_description',
+                        'label'        => '3. Short description',
+                        'name'         => 'description',
+                        'type'         => 'text',
+                        'placeholder'  => 'e.g. 2 min walk · Free after 6pm',
+                        'instructions' => 'Optional. Shows under the name inside the popup.',
+                    ),
+                    array(
+                        'key'          => 'field_dp_location_callout_coords',
+                        'label'        => '4. Coordinates (lat,lng)',
+                        'name'         => 'coords',
+                        'type'         => 'text',
+                        'placeholder'  => '53.4563,-2.1142',
+                        'instructions' => 'Auto-filled from the Google Maps link on save. Overwrite only if you need to nudge the dot\'s position on the map.',
+                    ),
+                    array(
+                        'key'           => 'field_dp_location_callout_anchor',
+                        'label'         => '5. Popup position',
+                        'name'          => 'anchor',
+                        'type'          => 'select',
+                        'choices'       => array(
+                            'above' => 'Above the dot',
+                            'below' => 'Below the dot',
+                        ),
+                        'default_value' => 'above',
+                        'instructions'  => 'Where the info popup appears when someone hovers or taps the marker. Pick "below" if the dot sits near the top of the map.',
+                    ),
+                ),
             ),
         ),
         'location' => array(
@@ -330,6 +430,13 @@ function dp_register_acf_field_groups() {
                 'name'          => 'gphc_registration',
                 'type'          => 'text',
                 'default_value' => '1033447',
+            ),
+            array(
+                'key'           => 'field_dp_compliance_gphc_url',
+                'label'         => 'GPhC Register URL (override)',
+                'name'          => 'gphc_register_url',
+                'type'          => 'url',
+                'instructions'  => 'Leave blank to auto-build from the pharmacy number above. Only fill in if you need to override the default.',
             ),
             array(
                 'key'           => 'field_dp_compliance_company_reg',
@@ -799,7 +906,7 @@ function dp_register_acf_field_groups() {
                 'instructions' => 'NHS accent strip pills shown above the hero headline.',
                 'sub_fields'   => array(
                     array( 'key' => 'field_dp_hero_nhs_pill_icon', 'label' => 'Icon', 'name' => 'pill_icon', 'type' => 'text', 'instructions' => 'Font Awesome class, e.g. fas fa-heart' ),
-                    array( 'key' => 'field_dp_hero_nhs_pill_text', 'label' => 'Text', 'name' => 'pill_text', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_hero_nhs_pill_link', 'label' => 'Link', 'name' => 'pill_link', 'type' => 'link', 'return_format' => 'array', 'instructions' => 'Pill label + URL + target. Leave URL blank to render as a non-clickable badge.' ),
                 ),
             ),
             array(
@@ -811,18 +918,20 @@ function dp_register_acf_field_groups() {
                 'default_value' => 'Expert pharmacy services from your local Denton team. Clinically-led weight loss, travel vaccinations, and NHS care — with free delivery across Manchester.',
             ),
             array(
-                'key'           => 'field_dp_hero_cta_primary_text',
-                'label'         => 'Primary CTA Text',
-                'name'          => 'hero_cta_primary_text',
-                'type'          => 'text',
-                'default_value' => 'Start Your Journey',
+                'key'          => 'field_dp_hero_cta_primary',
+                'label'        => 'Primary CTA',
+                'name'         => 'hero_cta_primary',
+                'type'         => 'link',
+                'instructions' => 'Text, URL and target for the primary button.',
+                'return_format' => 'array',
             ),
             array(
-                'key'           => 'field_dp_hero_cta_secondary_text',
-                'label'         => 'Secondary CTA Text',
-                'name'          => 'hero_cta_secondary_text',
-                'type'          => 'text',
-                'default_value' => 'Popular Treatments',
+                'key'          => 'field_dp_hero_cta_secondary',
+                'label'        => 'Secondary CTA',
+                'name'         => 'hero_cta_secondary',
+                'type'         => 'link',
+                'instructions' => 'Text, URL and target for the secondary button.',
+                'return_format' => 'array',
             ),
             array(
                 'key'          => 'field_dp_hero_trust_indicators',
@@ -925,7 +1034,26 @@ function dp_register_acf_field_groups() {
                 'return_format' => 'id',
                 'preview_size'  => 'medium',
                 'library'       => 'all',
-                'instructions'  => 'Upload the main hero image (right column). Recommended: at least 800x1000px.',
+                'instructions'  => 'Upload the main hero image (right column). Landscape (16:9) works best — e.g. pharmacy exterior shot.',
+            ),
+            array(
+                'key'           => 'field_dp_hero_image_focus',
+                'label'         => 'Hero Image Focus',
+                'name'          => 'hero_image_focus',
+                'type'          => 'select',
+                'choices'       => array(
+                    'center center' => 'Center (default)',
+                    'center top'    => 'Top',
+                    'center bottom' => 'Bottom',
+                    'left center'   => 'Left',
+                    'right center'  => 'Right',
+                    'left top'      => 'Top-left',
+                    'right top'     => 'Top-right',
+                    'left bottom'   => 'Bottom-left',
+                    'right bottom'  => 'Bottom-right',
+                ),
+                'default_value' => 'center center',
+                'instructions'  => 'Which part of the photo to prioritise when it gets cropped in the hero frame. Pick where the pharmacy front is most visible — e.g. "Bottom" if the sky is taking too much room.',
             ),
         ),
         'location' => array(
@@ -1100,6 +1228,16 @@ function dp_register_acf_field_groups() {
         'title'    => 'Home — NHS Services',
         'fields'   => array(
             array(
+                'key'           => 'field_dp_nhs_show_badge',
+                'label'         => 'Show Section Badge',
+                'name'          => 'nhs_show_badge',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+                'ui_on_text'    => 'Show',
+                'ui_off_text'   => 'Hide',
+            ),
+            array(
                 'key'           => 'field_dp_nhs_badge_text',
                 'label'         => 'Section Badge',
                 'name'          => 'nhs_badge_text',
@@ -1157,6 +1295,7 @@ function dp_register_acf_field_groups() {
                             'pharmacyfirst' => 'Pharmacy First',
                             'newmedicine'   => 'New Medicine',
                             'flu'           => 'Flu',
+                            'blister'       => 'Blister Pack',
                         ),
                         'default_value' => 'prescription',
                         'wrapper'       => array( 'width' => '50' ),
@@ -1204,19 +1343,12 @@ function dp_register_acf_field_groups() {
                         'wrapper' => array( 'width' => '34' ),
                     ),
                     array(
-                        'key'           => 'field_dp_nhs_card_btn',
-                        'label'         => 'Button Text',
-                        'name'          => 'card_btn',
-                        'type'          => 'text',
-                        'default_value' => 'Learn More',
-                        'wrapper'       => array( 'width' => '50' ),
-                    ),
-                    array(
-                        'key'     => 'field_dp_nhs_card_url',
-                        'label'   => 'Button URL',
-                        'name'    => 'card_url',
-                        'type'    => 'url',
-                        'wrapper' => array( 'width' => '50' ),
+                        'key'           => 'field_dp_nhs_card_link',
+                        'label'         => 'Card Button',
+                        'name'          => 'card_link',
+                        'type'          => 'link',
+                        'instructions'  => 'Text, URL and target for the card button.',
+                        'return_format' => 'array',
                     ),
                 ),
             ),
@@ -3268,8 +3400,11 @@ function dp_register_acf_field_groups() {
                 'instructions'  => 'Full-width hero background. Recommended: 1920x900px.',
             ),
             array( 'key' => 'field_dp_th_trust_1', 'label' => 'Trust Badge 1', 'name' => 'th_trust_1', 'type' => 'text', 'default_value' => 'Yellow Fever Centre' ),
+            array( 'key' => 'field_dp_th_trust_1_icon', 'label' => 'Trust Badge 1 — Icon', 'name' => 'th_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-shield-virus', 'instructions' => 'Font Awesome class, e.g. fas fa-shield-virus' ),
             array( 'key' => 'field_dp_th_trust_2', 'label' => 'Trust Badge 2', 'name' => 'th_trust_2', 'type' => 'text', 'default_value' => 'All Travel Vaccinations' ),
+            array( 'key' => 'field_dp_th_trust_2_icon', 'label' => 'Trust Badge 2 — Icon', 'name' => 'th_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'instructions' => 'Font Awesome class, e.g. fas fa-syringe' ),
             array( 'key' => 'field_dp_th_trust_3', 'label' => 'Trust Badge 3', 'name' => 'th_trust_3', 'type' => 'text', 'default_value' => 'Expert Travel Advice' ),
+            array( 'key' => 'field_dp_th_trust_3_icon', 'label' => 'Trust Badge 3 — Icon', 'name' => 'th_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-user-doctor', 'instructions' => 'Font Awesome class, e.g. fas fa-user-doctor' ),
             array( 'key' => 'field_dp_th_hero_float_badge_label', 'label' => 'Floating Badge — Label', 'name' => 'th_hero_float_badge_label', 'type' => 'text', 'default_value' => 'OFFICIAL', 'instructions' => 'Small uppercase label on the floating image badge.' ),
             array( 'key' => 'field_dp_th_hero_float_badge_text', 'label' => 'Floating Badge — Text', 'name' => 'th_hero_float_badge_text', 'type' => 'text', 'default_value' => 'Yellow Fever Centre' ),
             array( 'key' => 'field_dp_th_hero_testimonial_quote', 'label' => 'Hero Testimonial — Quote', 'name' => 'th_hero_testimonial_quote', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Ahmed was brilliant — explained everything clearly and made the whole family feel at ease before our trip to Kenya.' ),
@@ -3476,6 +3611,7 @@ function dp_register_acf_field_groups() {
                     array( 'key' => 'field_dp_th_step_icon', 'label' => 'Step Icon', 'name' => 'icon', 'type' => 'text', 'instructions' => 'Large icon. Font Awesome class, e.g. fas fa-calendar-check', 'wrapper' => array( 'width' => '30' ) ),
                     array( 'key' => 'field_dp_th_step_meta_icon', 'label' => 'Meta Icon', 'name' => 'meta_icon', 'type' => 'text', 'instructions' => 'Small icon in meta pill. Font Awesome class.', 'wrapper' => array( 'width' => '30' ) ),
                     array( 'key' => 'field_dp_th_step_meta_text', 'label' => 'Meta Text', 'name' => 'meta_text', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                    array( 'key' => 'field_dp_th_step_floating_badge', 'label' => 'Floating Badge Text', 'name' => 'floating_badge', 'type' => 'text', 'instructions' => 'Optional. Shows as an overlay badge on the step image. Leave blank to hide.', 'wrapper' => array( 'width' => '70' ) ),
                     array(
                         'key'           => 'field_dp_th_step_image',
                         'label'         => 'Step Image',
@@ -3646,8 +3782,11 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_ew_price_amount', 'label' => 'Price Badge — Amount', 'name' => 'ew_price_amount', 'type' => 'text', 'default_value' => '£40' ),
             array( 'key' => 'field_dp_ew_price_sub', 'label' => 'Price Badge — Subtext', 'name' => 'ew_price_sub', 'type' => 'text', 'default_value' => 'per ear' ),
             array( 'key' => 'field_dp_ew_trust_1', 'label' => 'Trust Item 1', 'name' => 'ew_trust_1', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
+            array( 'key' => 'field_dp_ew_trust_1_icon', 'label' => 'Trust Item 1 — Icon', 'name' => 'ew_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'instructions' => 'Font Awesome class, e.g. fas fa-check-circle' ),
             array( 'key' => 'field_dp_ew_trust_2', 'label' => 'Trust Item 2', 'name' => 'ew_trust_2', 'type' => 'text', 'default_value' => 'Same-day available' ),
+            array( 'key' => 'field_dp_ew_trust_2_icon', 'label' => 'Trust Item 2 — Icon', 'name' => 'ew_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-clock', 'instructions' => 'Font Awesome class, e.g. fas fa-clock' ),
             array( 'key' => 'field_dp_ew_trust_3', 'label' => 'Trust Item 3', 'name' => 'ew_trust_3', 'type' => 'text', 'default_value' => 'From £40 per ear' ),
+            array( 'key' => 'field_dp_ew_trust_3_icon', 'label' => 'Trust Item 3 — Icon', 'name' => 'ew_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-tag', 'instructions' => 'Font Awesome class, e.g. fas fa-tag' ),
         ),
         'location'              => $ew_location,
         'menu_order'            => 600,
@@ -3985,6 +4124,9 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_ew_cta_description', 'label' => 'Description', 'name' => 'ew_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your ear wax removal appointment at our Denton clinic today. Expert microsuction treatment with guaranteed results.' ),
             array( 'key' => 'field_dp_ew_cta_primary_url', 'label' => 'CTA URL', 'name' => 'ew_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page.' ),
             array( 'key' => 'field_dp_ew_cta_button_text', 'label' => 'Button Text', 'name' => 'ew_cta_button_text', 'type' => 'text', 'default_value' => 'Book Appointment Online' ),
+            array( 'key' => 'field_dp_ew_cta_check_1', 'label' => 'Trust Check 1', 'name' => 'ew_cta_check_1', 'type' => 'text', 'default_value' => 'No referral needed' ),
+            array( 'key' => 'field_dp_ew_cta_check_2', 'label' => 'Trust Check 2', 'name' => 'ew_cta_check_2', 'type' => 'text', 'default_value' => 'Expert microsuction' ),
+            array( 'key' => 'field_dp_ew_cta_check_3', 'label' => 'Trust Check 3', 'name' => 'ew_cta_check_3', 'type' => 'text', 'default_value' => 'Same-day appointments' ),
         ),
         'location'              => $ew_location,
         'menu_order'            => 609,
@@ -4035,7 +4177,8 @@ function dp_register_acf_field_groups() {
                 'library'       => 'all',
                 'instructions'  => 'Main hero image. Recommended: portrait, at least 800×1000px.',
             ),
-            array( 'key' => 'field_dp_hairloss_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'hl_hero_image_alt', 'type' => 'text', 'default_value' => 'Hair loss treatment at Denton Pharmacy' ),
+            array( 'key' => 'field_dp_hairloss_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'hl_hero_image_alt', 'type' => 'text', 'default_value' => 'Hair loss treatment' ),
+            array( 'key' => 'field_dp_hairloss_hero_caption', 'label' => 'Hero Image Caption', 'name' => 'hl_hero_caption', 'type' => 'text', 'default_value' => 'Real results from our patients' ),
         ),
         'location'              => $hl_location,
         'menu_order'            => 700,
@@ -4232,6 +4375,7 @@ function dp_register_acf_field_groups() {
                     array( 'key' => 'field_dp_hairloss_step_time', 'label' => 'Time Badge', 'name' => 'time_badge', 'type' => 'text', 'instructions' => 'e.g. "15-20 minutes". Leave blank to hide.' ),
                 ),
             ),
+            array( 'key' => 'field_dp_hairloss_process_cta_text', 'label' => 'CTA Button Text', 'name' => 'hl_process_cta_text', 'type' => 'text', 'default_value' => 'Start Your Journey' ),
         ),
         'location'              => $hl_location,
         'menu_order'            => 704,
@@ -4388,7 +4532,11 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_switch_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'sp_hero_cta_text', 'type' => 'text', 'default_value' => 'Start Your Switch Today' ),
             array( 'key' => 'field_dp_switch_hero_cta_url', 'label' => 'CTA Button URL', 'name' => 'sp_hero_cta_url', 'type' => 'text', 'default_value' => '#comparison' ),
             array( 'key' => 'field_dp_switch_hero_trust_1', 'label' => 'Trust Pill 1', 'name' => 'sp_hero_trust_1', 'type' => 'text', 'default_value' => 'Zero gap in treatment' ),
+            array( 'key' => 'field_dp_switch_hero_trust_1_icon', 'label' => 'Trust Pill 1 — Icon', 'name' => 'sp_hero_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-bolt', 'instructions' => 'Font Awesome class, e.g. fas fa-bolt' ),
             array( 'key' => 'field_dp_switch_hero_trust_2', 'label' => 'Trust Pill 2', 'name' => 'sp_hero_trust_2', 'type' => 'text', 'default_value' => 'Same Day Appointments' ),
+            array( 'key' => 'field_dp_switch_hero_trust_2_icon', 'label' => 'Trust Pill 2 — Icon', 'name' => 'sp_hero_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check', 'instructions' => 'Font Awesome class, e.g. fas fa-calendar-check' ),
+            array( 'key' => 'field_dp_switch_hero_trust_3', 'label' => 'Trust Pill 3', 'name' => 'sp_hero_trust_3', 'type' => 'text', 'default_value' => 'Face-to-Face Care' ),
+            array( 'key' => 'field_dp_switch_hero_trust_3_icon', 'label' => 'Trust Pill 3 — Icon', 'name' => 'sp_hero_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-user-doctor', 'instructions' => 'Font Awesome class, e.g. fas fa-user-doctor' ),
             array(
                 'key'           => 'field_dp_switch_hero_image',
                 'label'         => 'Hero Image',
@@ -4399,7 +4547,7 @@ function dp_register_acf_field_groups() {
                 'library'       => 'all',
                 'instructions'  => 'Upload a hero image. Default: stock photo of patient with pharmacist.',
             ),
-            array( 'key' => 'field_dp_switch_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'sp_hero_image_alt', 'type' => 'text', 'default_value' => 'Happy patient consulting with pharmacist at Denton Pharmacy' ),
+            array( 'key' => 'field_dp_switch_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'sp_hero_image_alt', 'type' => 'text', 'default_value' => '' ),
             array( 'key' => 'field_dp_switch_hero_price_label', 'label' => 'Price Badge Label', 'name' => 'sp_hero_price_label', 'type' => 'text', 'default_value' => 'From' ),
             array( 'key' => 'field_dp_switch_hero_price_amount', 'label' => 'Price Badge Amount', 'name' => 'sp_hero_price_amount', 'type' => 'text', 'default_value' => '£125/mo' ),
             array( 'key' => 'field_dp_switch_hero_price_note', 'label' => 'Price Badge Note', 'name' => 'sp_hero_price_note', 'type' => 'text', 'default_value' => 'All-inclusive' ),
@@ -6003,10 +6151,6 @@ function dp_register_acf_field_groups() {
         array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-india.php' ) ),
     );
 
-    $cv_location = array(
-        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-cape-verde.php' ) ),
-    );
-
     // Helper: standard field group options.
     $fg_opts = array(
         'position'              => 'normal',
@@ -6259,6 +6403,8 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_ke_malaria_badge', 'label' => 'Section Badge', 'name' => 'ke_malaria_badge', 'type' => 'text', 'default_value' => 'HIGH RISK AREA' ),
             array( 'key' => 'field_dp_ke_malaria_title', 'label' => 'Title', 'name' => 'ke_malaria_title', 'type' => 'text', 'default_value' => 'Malaria Risk in Kenya' ),
             array( 'key' => 'field_dp_ke_malaria_intro', 'label' => 'Intro Text', 'name' => 'ke_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk is high throughout most of Kenya, including safari parks. Antimalarials are usually recommended.' ),
+            array( 'key' => 'field_dp_ke_malaria_cta_text', 'label' => 'CTA Button Text', 'name' => 'ke_malaria_cta_text', 'type' => 'text', 'default_value' => 'Check Your Risk', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_dp_ke_malaria_cta_url', 'label' => 'CTA Button URL', 'name' => 'ke_malaria_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page URL.', 'wrapper' => array( 'width' => '50' ) ),
             array(
                 'key'          => 'field_dp_ke_malaria_risks',
                 'label'        => 'Risk Items',
@@ -6395,6 +6541,8 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_in_malaria_badge', 'label' => 'Section Badge', 'name' => 'in_malaria_badge', 'type' => 'text', 'default_value' => 'MOSQUITO-BORNE DISEASES' ),
             array( 'key' => 'field_dp_in_malaria_title', 'label' => 'Title', 'name' => 'in_malaria_title', 'type' => 'text', 'default_value' => 'Malaria & Dengue Risks in India' ),
             array( 'key' => 'field_dp_in_malaria_intro', 'label' => 'Intro Text', 'name' => 'in_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk varies across India. Dengue fever is also a significant risk nationwide. Our pharmacists will check your specific itinerary and advise on prevention.' ),
+            array( 'key' => 'field_dp_in_malaria_cta_text', 'label' => 'CTA Button Text', 'name' => 'in_malaria_cta_text', 'type' => 'text', 'default_value' => 'Check Your Risk', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_dp_in_malaria_cta_url', 'label' => 'CTA Button URL', 'name' => 'in_malaria_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page URL.', 'wrapper' => array( 'width' => '50' ) ),
             array(
                 'key' => 'field_dp_in_malaria_risks', 'label' => 'Risk Items', 'name' => 'in_malaria_risks', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 4, 'button_label' => 'Add Risk Item',
                 'sub_fields' => array(
@@ -6446,128 +6594,6 @@ function dp_register_acf_field_groups() {
         ),
         'location'   => $in_location,
         'menu_order' => 1540,
-    ) ) );
-
-    // -------------------------------------------------------------------------
-    // L4. Cape Verde — Hero
-    // -------------------------------------------------------------------------
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_hero',
-        'title'      => 'Cape Verde — Hero Section',
-        'fields'     => array(
-            array( 'key' => 'field_dp_cv_hero_badge', 'label' => 'Badge Text', 'name' => 'cv_hero_badge', 'type' => 'text', 'default_value' => 'CAPE VERDE TRAVEL HEALTH' ),
-            array( 'key' => 'field_dp_cv_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'cv_hero_title_line1', 'type' => 'text', 'default_value' => 'Travel Vaccinations for' ),
-            array( 'key' => 'field_dp_cv_hero_title_highlight', 'label' => 'Title Highlight (Country)', 'name' => 'cv_hero_title_highlight', 'type' => 'text', 'default_value' => 'Cape Verde' ),
-            array( 'key' => 'field_dp_cv_hero_description', 'label' => 'Description', 'name' => 'cv_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => "Expert advice and vaccinations for your Cape Verde holiday. Get protected before you travel with Denton's trusted travel health specialists." ),
-            array( 'key' => 'field_dp_cv_hero_cta_text', 'label' => 'CTA Text', 'name' => 'cv_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
-            array( 'key' => 'field_dp_cv_hero_cta_url', 'label' => 'CTA URL', 'name' => 'cv_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1600,
-    ) ) );
-
-    // L4. Cape Verde — Quick Info Bar
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_stats',
-        'title'      => 'Cape Verde — Quick Info Bar',
-        'fields'     => array(
-            array(
-                'key' => 'field_dp_cv_stats', 'label' => 'Stats', 'name' => 'cv_stats', 'type' => 'repeater', 'layout' => 'table', 'min' => 0, 'max' => 4, 'button_label' => 'Add Stat',
-                'sub_fields' => array(
-                    array( 'key' => 'field_dp_cv_stat_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_dp_cv_stat_number', 'label' => 'Number', 'name' => 'number', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_dp_cv_stat_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
-                ),
-            ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1605,
-    ) ) );
-
-    // L4. Cape Verde — Recommended Vaccinations
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_vaccines',
-        'title'      => 'Cape Verde — Recommended Vaccinations',
-        'fields'     => array(
-            array( 'key' => 'field_dp_cv_vaccines_title', 'label' => 'Title', 'name' => 'cv_vaccines_title', 'type' => 'text', 'default_value' => 'Protect yourself in Cape Verde' ),
-            array( 'key' => 'field_dp_cv_vaccines_desc', 'label' => 'Description', 'name' => 'cv_vaccines_description', 'type' => 'text', 'default_value' => 'These vaccinations are recommended for most travellers to Cape Verde' ),
-            array(
-                'key' => 'field_dp_cv_vaccinations', 'label' => 'Vaccinations', 'name' => 'cv_vaccinations', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 10, 'button_label' => 'Add Vaccination',
-                'sub_fields' => array(
-                    array( 'key' => 'field_dp_cv_vax_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-syringe', 'wrapper' => array( 'width' => '15' ) ),
-                    array( 'key' => 'field_dp_cv_vax_name', 'label' => 'Name', 'name' => 'name', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_cv_vax_badge_color', 'label' => 'Badge Colour', 'name' => 'badge_color', 'type' => 'select', 'choices' => array( 'blue' => 'Blue (Essential/Recommended)', 'gray' => 'Grey (Consider/Rural)' ), 'default_value' => 'blue', 'wrapper' => array( 'width' => '15' ) ),
-                    array( 'key' => 'field_dp_cv_vax_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'default_value' => 'Recommended', 'wrapper' => array( 'width' => '15' ) ),
-                    array( 'key' => 'field_dp_cv_vax_short', 'label' => 'Short Description', 'name' => 'short_desc', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
-                    array( 'key' => 'field_dp_cv_vax_desc', 'label' => 'Full Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
-                ),
-            ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1610,
-    ) ) );
-
-    // L4. Cape Verde — Malaria Information
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_malaria',
-        'title'      => 'Cape Verde — Malaria Information',
-        'fields'     => array(
-            array( 'key' => 'field_dp_cv_malaria_image', 'label' => 'Image', 'name' => 'cv_malaria_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
-            array( 'key' => 'field_dp_cv_malaria_badge_text', 'label' => 'Image Badge Text', 'name' => 'cv_malaria_badge_text', 'type' => 'text', 'default_value' => 'Expert Advice' ),
-            array( 'key' => 'field_dp_cv_malaria_badge', 'label' => 'Section Badge', 'name' => 'cv_malaria_badge', 'type' => 'text', 'default_value' => 'MOSQUITO RISKS' ),
-            array( 'key' => 'field_dp_cv_malaria_title', 'label' => 'Title', 'name' => 'cv_malaria_title', 'type' => 'text', 'default_value' => 'Malaria & Dengue in Cape Verde' ),
-            array( 'key' => 'field_dp_cv_malaria_intro', 'label' => 'Intro Text', 'name' => 'cv_malaria_intro', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Malaria risk is generally low but present on Santiago island. Dengue fever and Zika virus are also risks. Bite avoidance is essential.' ),
-            array(
-                'key' => 'field_dp_cv_malaria_risks', 'label' => 'Risk Items', 'name' => 'cv_malaria_risks', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 4, 'button_label' => 'Add Risk Item',
-                'sub_fields' => array(
-                    array( 'key' => 'field_dp_cv_risk_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_cv_risk_level', 'label' => 'Risk Level', 'name' => 'risk_level', 'type' => 'select', 'choices' => array( 'low-risk' => 'Low Risk (Green)', 'high-risk' => 'High Risk (Red)' ), 'default_value' => 'low-risk', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_cv_risk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
-                    array( 'key' => 'field_dp_cv_risk_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
-                ),
-            ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1620,
-    ) ) );
-
-    // L4. Cape Verde — Health Advice
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_health',
-        'title'      => 'Cape Verde — Health Advice',
-        'fields'     => array(
-            array( 'key' => 'field_dp_cv_health_badge', 'label' => 'Badge Text', 'name' => 'cv_health_badge', 'type' => 'text', 'default_value' => 'HEALTH ADVICE' ),
-            array( 'key' => 'field_dp_cv_health_title', 'label' => 'Title', 'name' => 'cv_health_title', 'type' => 'text', 'default_value' => 'Stay healthy in Cape Verde' ),
-            array( 'key' => 'field_dp_cv_health_subtitle', 'label' => 'Subtitle', 'name' => 'cv_health_subtitle', 'type' => 'text', 'default_value' => 'Essential tips for a safe trip' ),
-            array(
-                'key' => 'field_dp_cv_health_tips', 'label' => 'Health Tips', 'name' => 'cv_health_tips', 'type' => 'repeater', 'layout' => 'block', 'min' => 0, 'max' => 4, 'button_label' => 'Add Tip',
-                'sub_fields' => array(
-                    array( 'key' => 'field_dp_cv_tip_icon', 'label' => 'Icon', 'name' => 'icon', 'type' => 'text', 'default_value' => 'fas fa-glass-water', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_cv_tip_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
-                    array( 'key' => 'field_dp_cv_tip_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
-                    array( 'key' => 'field_dp_cv_tip_image', 'label' => 'Background Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'wrapper' => array( 'width' => '30' ) ),
-                ),
-            ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1630,
-    ) ) );
-
-    // L4. Cape Verde — Final CTA
-    acf_add_local_field_group( array_merge( $fg_opts, array(
-        'key'        => 'group_dp_cv_cta',
-        'title'      => 'Cape Verde — Final CTA',
-        'fields'     => array(
-            array( 'key' => 'field_dp_cv_cta_title', 'label' => 'Title', 'name' => 'cv_cta_title', 'type' => 'text', 'default_value' => 'Ready for Cape Verde?' ),
-            array( 'key' => 'field_dp_cv_cta_description', 'label' => 'Description', 'name' => 'cv_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book your travel health consultation at our Denton clinic. Get expert advice and all recommended vaccinations in one visit.' ),
-            array( 'key' => 'field_dp_cv_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'cv_cta_primary_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
-            array( 'key' => 'field_dp_cv_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'cv_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use booking page URL.' ),
-            array( 'key' => 'field_dp_cv_cta_check_1', 'label' => 'Check 1', 'name' => 'cv_cta_check_1', 'type' => 'text', 'default_value' => 'Travel Ready' ),
-            array( 'key' => 'field_dp_cv_cta_check_2', 'label' => 'Check 2', 'name' => 'cv_cta_check_2', 'type' => 'text', 'default_value' => 'Expert Advice' ),
-            array( 'key' => 'field_dp_cv_cta_check_3', 'label' => 'Check 3', 'name' => 'cv_cta_check_3', 'type' => 'text', 'default_value' => 'All Vaccines' ),
-        ),
-        'location'   => $cv_location,
-        'menu_order' => 1640,
     ) ) );
 
     // =========================================================================
@@ -7179,6 +7205,22 @@ function dp_register_acf_field_groups() {
                 'default_value' => 'While malaria risk is low in most tourist areas, Dengue fever is common nationwide. Our pharmacists will check your specific itinerary and advise on prevention.',
             ),
             array(
+                'key'          => 'field_dp_travel_thai_malaria_cta_text',
+                'label'        => 'CTA Button Text',
+                'name'         => 'td_malaria_cta_text',
+                'type'         => 'text',
+                'default_value' => 'Check Your Risk',
+                'wrapper'      => array( 'width' => '50' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_thai_malaria_cta_url',
+                'label'        => 'CTA Button URL',
+                'name'         => 'td_malaria_cta_url',
+                'type'         => 'url',
+                'instructions' => 'Leave blank to use the booking page URL.',
+                'wrapper'      => array( 'width' => '50' ),
+            ),
+            array(
                 'key'          => 'field_dp_travel_thai_malaria_risks',
                 'label'        => 'Risk Items',
                 'name'         => 'td_malaria_risks',
@@ -7676,6 +7718,22 @@ function dp_register_acf_field_groups() {
                 'type'          => 'textarea',
                 'rows'          => 3,
                 'default_value' => 'Malaria risk is low in major cities and coastal resorts but present in rural areas. Dengue fever is a risk nationwide.',
+            ),
+            array(
+                'key'          => 'field_dp_travel_viet_malaria_cta_text',
+                'label'        => 'CTA Button Text',
+                'name'         => 'td_malaria_cta_text',
+                'type'         => 'text',
+                'default_value' => 'Check Your Risk',
+                'wrapper'      => array( 'width' => '50' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_viet_malaria_cta_url',
+                'label'        => 'CTA Button URL',
+                'name'         => 'td_malaria_cta_url',
+                'type'         => 'url',
+                'instructions' => 'Leave blank to use the booking page URL.',
+                'wrapper'      => array( 'width' => '50' ),
             ),
             array(
                 'key'          => 'field_dp_travel_viet_malaria_risks',
@@ -8675,6 +8733,22 @@ function dp_register_acf_field_groups() {
                 'default_value' => 'Malaria risk is high in the Amazon basin. Dengue fever is a risk nationwide. Zika and Chikungunya are also present.',
             ),
             array(
+                'key'          => 'field_dp_travel_braz_malaria_cta_text',
+                'label'        => 'CTA Button Text',
+                'name'         => 'td_malaria_cta_text',
+                'type'         => 'text',
+                'default_value' => 'Check Your Risk',
+                'wrapper'      => array( 'width' => '50' ),
+            ),
+            array(
+                'key'          => 'field_dp_travel_braz_malaria_cta_url',
+                'label'        => 'CTA Button URL',
+                'name'         => 'td_malaria_cta_url',
+                'type'         => 'url',
+                'instructions' => 'Leave blank to use the booking page URL.',
+                'wrapper'      => array( 'width' => '50' ),
+            ),
+            array(
                 'key'          => 'field_dp_travel_braz_malaria_risks',
                 'label'        => 'Risk Items',
                 'name'         => 'td_malaria_risks',
@@ -9143,6 +9217,14 @@ function dp_register_acf_field_groups() {
                 'preview_size'  => 'medium',
             ),
             array(
+                'key'           => 'field_dp_travel_cv_malaria_image_alt',
+                'label'         => 'Image Alt Text',
+                'name'          => 'cv_malaria_image_alt',
+                'type'          => 'text',
+                'default_value' => 'Cape Verde landscape',
+                'wrapper'       => array( 'width' => '50' ),
+            ),
+            array(
                 'key'           => 'field_dp_travel_cv_malaria_badge_text',
                 'label'         => 'Image Badge Text',
                 'name'          => 'cv_malaria_badge_text',
@@ -9213,6 +9295,19 @@ function dp_register_acf_field_groups() {
                         'rows' => 2,
                     ),
                 ),
+            ),
+            array(
+                'key'           => 'field_dp_travel_cv_malaria_cta_text',
+                'label'         => 'CTA Button Text',
+                'name'          => 'cv_malaria_cta_text',
+                'type'          => 'text',
+                'default_value' => 'Check Your Risk',
+            ),
+            array(
+                'key'   => 'field_dp_travel_cv_malaria_cta_url',
+                'label' => 'CTA Button URL',
+                'name'  => 'cv_malaria_cta_url',
+                'type'  => 'url',
             ),
         ),
         'location' => array(
@@ -9422,8 +9517,11 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_pf_price_amount', 'label' => 'Price Amount', 'name' => 'pf_price_amount', 'type' => 'text', 'default_value' => 'FREE' ),
             array( 'key' => 'field_dp_pf_price_sub', 'label' => 'Price Subtext', 'name' => 'pf_price_sub', 'type' => 'text', 'default_value' => 'no charge to you' ),
             array( 'key' => 'field_dp_pf_trust_1', 'label' => 'Trust Pill 1', 'name' => 'pf_trust_1', 'type' => 'text', 'default_value' => 'NHS Funded' ),
+            array( 'key' => 'field_dp_pf_trust_1_icon', 'label' => 'Trust Pill 1 — Icon', 'name' => 'pf_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'instructions' => 'Font Awesome class, e.g. fas fa-check-circle' ),
             array( 'key' => 'field_dp_pf_trust_2', 'label' => 'Trust Pill 2', 'name' => 'pf_trust_2', 'type' => 'text', 'default_value' => 'No GP Appointment Needed' ),
+            array( 'key' => 'field_dp_pf_trust_2_icon', 'label' => 'Trust Pill 2 — Icon', 'name' => 'pf_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check', 'instructions' => 'Font Awesome class, e.g. fas fa-calendar-check' ),
             array( 'key' => 'field_dp_pf_trust_3', 'label' => 'Trust Pill 3', 'name' => 'pf_trust_3', 'type' => 'text', 'default_value' => 'Same-Day Treatment' ),
+            array( 'key' => 'field_dp_pf_trust_3_icon', 'label' => 'Trust Pill 3 — Icon', 'name' => 'pf_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-clock', 'instructions' => 'Font Awesome class, e.g. fas fa-clock' ),
         ),
         'location' => array(
             array(
@@ -9638,6 +9736,203 @@ function dp_register_acf_field_groups() {
     ) );
 
     // =========================================================================
+    // N.2 NHS PRESCRIPTIONS PAGE FIELDS
+    // All fields intentionally have NO default_value — content is seeded in DB.
+    // =========================================================================
+    $np_location = array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-nhs-prescriptions.php' ) ) );
+
+    // Hero
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_np_hero',
+        'title'  => 'NHS Prescriptions — Hero',
+        'fields' => array(
+            array( 'key' => 'field_dp_np_hero_badge', 'label' => 'Badge Text', 'name' => 'np_hero_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_title_accent', 'label' => 'Title (Gradient)', 'name' => 'np_hero_title_accent', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_title_rest', 'label' => 'Title (Rest)', 'name' => 'np_hero_title_rest', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_description', 'label' => 'Description', 'name' => 'np_hero_description', 'type' => 'textarea', 'rows' => 3 ),
+            array( 'key' => 'field_dp_np_hero_cta_primary', 'label' => 'Primary CTA', 'name' => 'np_hero_cta_primary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_np_hero_cta_secondary', 'label' => 'Secondary CTA', 'name' => 'np_hero_cta_secondary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_np_hero_trust_pills', 'label' => 'Trust Pills', 'name' => 'np_hero_trust_pills', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add Pill', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_hero_trust_pill_icon', 'label' => 'Icon (FA class)', 'name' => 'icon', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_hero_trust_pill_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+            ) ),
+            array( 'key' => 'field_dp_np_hero_card_label', 'label' => 'Info Card — Label', 'name' => 'np_hero_card_label', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_card_price', 'label' => 'Info Card — Price/Amount', 'name' => 'np_hero_card_price', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_card_sub', 'label' => 'Info Card — Sub-text', 'name' => 'np_hero_card_sub', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_hero_card_checks', 'label' => 'Info Card — Check Items', 'name' => 'np_hero_card_checks', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add Check', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_hero_card_check_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+            ) ),
+        ),
+        'location' => $np_location,
+        'menu_order' => 2400, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // Eligibility Grid
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_np_elig',
+        'title'  => 'NHS Prescriptions — Who\'s Eligible',
+        'fields' => array(
+            array( 'key' => 'field_dp_np_elig_badge', 'label' => 'Badge Text', 'name' => 'np_elig_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_elig_title', 'label' => 'Section Title', 'name' => 'np_elig_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_elig_description', 'label' => 'Description', 'name' => 'np_elig_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_np_elig_items', 'label' => 'Eligibility Items', 'name' => 'np_elig_items', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add Item', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_elig_item_icon', 'label' => 'Icon (FA class)', 'name' => 'icon', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_elig_item_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_elig_item_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+            ) ),
+        ),
+        'location' => $np_location,
+        'menu_order' => 2401, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // Process Steps
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_np_process',
+        'title'  => 'NHS Prescriptions — How It Works',
+        'fields' => array(
+            array( 'key' => 'field_dp_np_process_badge', 'label' => 'Badge Text', 'name' => 'np_process_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_process_title', 'label' => 'Section Title', 'name' => 'np_process_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_process_description', 'label' => 'Description', 'name' => 'np_process_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_np_process_steps', 'label' => 'Steps', 'name' => 'np_process_steps', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add Step', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_process_step_icon', 'label' => 'Icon (FA class)', 'name' => 'icon', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_process_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_process_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+            ) ),
+        ),
+        'location' => $np_location,
+        'menu_order' => 2402, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // FAQ
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_np_faq',
+        'title'  => 'NHS Prescriptions — FAQ',
+        'fields' => array(
+            array( 'key' => 'field_dp_np_faq_badge', 'label' => 'Badge Text', 'name' => 'np_faq_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_faq_title', 'label' => 'Section Title', 'name' => 'np_faq_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_faqs', 'label' => 'FAQs', 'name' => 'np_faqs', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add FAQ', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                array( 'key' => 'field_dp_np_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+            ) ),
+        ),
+        'location' => $np_location,
+        'menu_order' => 2403, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // Final CTA
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_np_cta',
+        'title'  => 'NHS Prescriptions — Final CTA',
+        'fields' => array(
+            array( 'key' => 'field_dp_np_cta_title', 'label' => 'Title', 'name' => 'np_cta_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_np_cta_description', 'label' => 'Description', 'name' => 'np_cta_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_np_cta_primary', 'label' => 'Primary CTA', 'name' => 'np_cta_primary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_np_cta_secondary', 'label' => 'Secondary CTA', 'name' => 'np_cta_secondary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_np_cta_badges', 'label' => 'Trust Badges', 'name' => 'np_cta_badges', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add Badge', 'sub_fields' => array(
+                array( 'key' => 'field_dp_np_cta_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+            ) ),
+        ),
+        'location' => $np_location,
+        'menu_order' => 2404, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // =========================================================================
+    // N.3 BLISTER PACKS PAGE FIELDS
+    // All fields intentionally have NO default_value — content is seeded in DB.
+    // =========================================================================
+    $bp_location = array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-blister-packs.php' ) ) );
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bp_hero',
+        'title'  => 'Blister Packs — Hero',
+        'fields' => array(
+            array( 'key' => 'field_dp_bp_hero_badge', 'label' => 'Badge Text', 'name' => 'bp_hero_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_hero_title_accent', 'label' => 'Title (Gradient)', 'name' => 'bp_hero_title_accent', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_hero_title_rest', 'label' => 'Title (Rest)', 'name' => 'bp_hero_title_rest', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_hero_description', 'label' => 'Description', 'name' => 'bp_hero_description', 'type' => 'textarea', 'rows' => 3 ),
+            array( 'key' => 'field_dp_bp_hero_cta_primary', 'label' => 'Primary CTA', 'name' => 'bp_hero_cta_primary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_bp_hero_cta_secondary', 'label' => 'Secondary CTA', 'name' => 'bp_hero_cta_secondary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_bp_hero_trust_pills', 'label' => 'Trust Pills', 'name' => 'bp_hero_trust_pills', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add Pill', 'sub_fields' => array(
+                array( 'key' => 'field_dp_bp_hero_trust_pill_icon', 'label' => 'Icon (FA class)', 'name' => 'icon', 'type' => 'text' ),
+                array( 'key' => 'field_dp_bp_hero_trust_pill_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+            ) ),
+            array( 'key' => 'field_dp_bp_hero_card_label', 'label' => 'Info Card — Label', 'name' => 'bp_hero_card_label', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_hero_card_price', 'label' => 'Info Card — Price/Amount', 'name' => 'bp_hero_card_price', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_hero_card_sub', 'label' => 'Info Card — Sub-text', 'name' => 'bp_hero_card_sub', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_hero_card_checks', 'label' => 'Info Card — Check Items', 'name' => 'bp_hero_card_checks', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add Check', 'sub_fields' => array(
+                array( 'key' => 'field_dp_bp_hero_card_check_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+            ) ),
+        ),
+        'location' => $bp_location,
+        'menu_order' => 2500, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bp_elig',
+        'title'  => 'Blister Packs — Who It\'s For',
+        'fields' => array(
+            array( 'key' => 'field_dp_bp_elig_badge', 'label' => 'Badge Text', 'name' => 'bp_elig_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_elig_title', 'label' => 'Section Title', 'name' => 'bp_elig_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_elig_description', 'label' => 'Description', 'name' => 'bp_elig_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_bp_elig_items', 'label' => 'Benefit / Eligibility Items', 'name' => 'bp_elig_items', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add Item', 'sub_fields' => array(
+                array( 'key' => 'field_dp_bp_elig_item_icon', 'label' => 'Icon (FA class)', 'name' => 'icon', 'type' => 'text' ),
+                array( 'key' => 'field_dp_bp_elig_item_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                array( 'key' => 'field_dp_bp_elig_item_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+            ) ),
+        ),
+        'location' => $bp_location,
+        'menu_order' => 2501, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bp_process',
+        'title'  => 'Blister Packs — How It Works',
+        'fields' => array(
+            array( 'key' => 'field_dp_bp_process_badge', 'label' => 'Badge Text', 'name' => 'bp_process_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_process_title', 'label' => 'Section Title', 'name' => 'bp_process_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_process_description', 'label' => 'Description', 'name' => 'bp_process_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_bp_process_steps', 'label' => 'Steps', 'name' => 'bp_process_steps', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add Step', 'sub_fields' => array(
+                array( 'key' => 'field_dp_bp_process_step_icon', 'label' => 'Icon (FA class)', 'name' => 'icon', 'type' => 'text' ),
+                array( 'key' => 'field_dp_bp_process_step_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text' ),
+                array( 'key' => 'field_dp_bp_process_step_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2 ),
+            ) ),
+        ),
+        'location' => $bp_location,
+        'menu_order' => 2502, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bp_faq',
+        'title'  => 'Blister Packs — FAQ',
+        'fields' => array(
+            array( 'key' => 'field_dp_bp_faq_badge', 'label' => 'Badge Text', 'name' => 'bp_faq_badge', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_faq_title', 'label' => 'Section Title', 'name' => 'bp_faq_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_faqs', 'label' => 'FAQs', 'name' => 'bp_faqs', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add FAQ', 'sub_fields' => array(
+                array( 'key' => 'field_dp_bp_faq_q', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                array( 'key' => 'field_dp_bp_faq_a', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+            ) ),
+        ),
+        'location' => $bp_location,
+        'menu_order' => 2503, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bp_cta',
+        'title'  => 'Blister Packs — Final CTA',
+        'fields' => array(
+            array( 'key' => 'field_dp_bp_cta_title', 'label' => 'Title', 'name' => 'bp_cta_title', 'type' => 'text' ),
+            array( 'key' => 'field_dp_bp_cta_description', 'label' => 'Description', 'name' => 'bp_cta_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_bp_cta_primary', 'label' => 'Primary CTA', 'name' => 'bp_cta_primary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_bp_cta_secondary', 'label' => 'Secondary CTA', 'name' => 'bp_cta_secondary', 'type' => 'link', 'return_format' => 'array' ),
+            array( 'key' => 'field_dp_bp_cta_badges', 'label' => 'Trust Badges', 'name' => 'bp_cta_badges', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add Badge', 'sub_fields' => array(
+                array( 'key' => 'field_dp_bp_cta_badge_text', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ),
+            ) ),
+        ),
+        'location' => $bp_location,
+        'menu_order' => 2504, 'position' => 'normal', 'style' => 'default', 'label_placement' => 'top', 'instruction_placement' => 'label', 'active' => true,
+    ) );
+
+    // =========================================================================
     // O. BLOOD TESTING PAGE FIELDS
     // =========================================================================
 
@@ -9656,8 +9951,11 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_bt_price_amount', 'label' => 'Card Amount', 'name' => 'bt_price_amount', 'type' => 'text', 'default_value' => 'FROM £39' ),
             array( 'key' => 'field_dp_bt_price_sub', 'label' => 'Card Sub-text', 'name' => 'bt_price_sub', 'type' => 'text', 'default_value' => 'per test panel' ),
             array( 'key' => 'field_dp_bt_trust_1', 'label' => 'Trust Pill 1', 'name' => 'bt_trust_1', 'type' => 'text', 'default_value' => 'Fast Results' ),
+            array( 'key' => 'field_dp_bt_trust_1_icon', 'label' => 'Trust Pill 1 — Icon', 'name' => 'bt_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'instructions' => 'Font Awesome class, e.g. fas fa-check-circle' ),
             array( 'key' => 'field_dp_bt_trust_2', 'label' => 'Trust Pill 2', 'name' => 'bt_trust_2', 'type' => 'text', 'default_value' => 'No GP Referral Needed' ),
+            array( 'key' => 'field_dp_bt_trust_2_icon', 'label' => 'Trust Pill 2 — Icon', 'name' => 'bt_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check', 'instructions' => 'Font Awesome class, e.g. fas fa-calendar-check' ),
             array( 'key' => 'field_dp_bt_trust_3', 'label' => 'Trust Pill 3', 'name' => 'bt_trust_3', 'type' => 'text', 'default_value' => 'Professional Phlebotomy' ),
+            array( 'key' => 'field_dp_bt_trust_3_icon', 'label' => 'Trust Pill 3 — Icon', 'name' => 'bt_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-clock', 'instructions' => 'Font Awesome class, e.g. fas fa-clock' ),
             array( 'key' => 'field_dp_bt_float_number', 'label' => 'Floating Badge Number', 'name' => 'bt_float_number', 'type' => 'text', 'default_value' => '20+' ),
         ),
         'location' => array(
@@ -9857,6 +10155,142 @@ function dp_register_acf_field_groups() {
             ),
         ),
         'menu_order'            => 2405,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // =========================================================================
+    // N. CONTACT PAGE FIELDS
+    // =========================================================================
+
+    // -------------------------------------------------------------------------
+    // N1. Contact Hero
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_contact_hero',
+        'title'  => 'Contact — Hero',
+        'fields' => array(
+            array( 'key' => 'field_dp_contact_hero_badge', 'label' => 'Badge Text', 'name' => 'contact_hero_badge', 'type' => 'text', 'default_value' => 'GET IN TOUCH' ),
+            array( 'key' => 'field_dp_contact_hero_title_line1', 'label' => 'Title Line 1', 'name' => 'contact_hero_title_line1', 'type' => 'text', 'default_value' => 'Contact' ),
+            array( 'key' => 'field_dp_contact_hero_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'contact_hero_title_highlight', 'type' => 'text', 'default_value' => '' ),
+            array( 'key' => 'field_dp_contact_hero_description', 'label' => 'Description', 'name' => 'contact_hero_description', 'type' => 'textarea', 'rows' => 3 ),
+            array( 'key' => 'field_dp_contact_hero_image', 'label' => 'Hero Image', 'name' => 'contact_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium', 'instructions' => 'Storefront or pharmacy photo. Falls back to Location Store Image from Pharmacy Settings.' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-contact.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2500,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // N2. Contact Form
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_contact_form',
+        'title'  => 'Contact — Form Settings',
+        'fields' => array(
+            array( 'key' => 'field_dp_contact_form_badge', 'label' => 'Section Badge', 'name' => 'contact_form_badge', 'type' => 'text', 'default_value' => 'SEND A MESSAGE' ),
+            array( 'key' => 'field_dp_contact_form_heading', 'label' => 'Form Heading', 'name' => 'contact_form_heading', 'type' => 'text', 'default_value' => 'How Can We Help?' ),
+            array( 'key' => 'field_dp_contact_form_description', 'label' => 'Form Description', 'name' => 'contact_form_description', 'type' => 'textarea', 'rows' => 2 ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-contact.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2510,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // N3. Contact FAQ
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_contact_faq',
+        'title'  => 'Contact — FAQ',
+        'fields' => array(
+            array( 'key' => 'field_dp_contact_faq_badge', 'label' => 'Section Badge', 'name' => 'contact_faq_badge', 'type' => 'text', 'default_value' => 'COMMON QUESTIONS' ),
+            array( 'key' => 'field_dp_contact_faq_title', 'label' => 'Section Title', 'name' => 'contact_faq_title', 'type' => 'text', 'default_value' => 'Frequently Asked Questions' ),
+            array(
+                'key'          => 'field_dp_contact_faqs',
+                'label'        => 'FAQs',
+                'name'         => 'contact_faqs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add FAQ',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_contact_faq_question', 'label' => 'Question', 'name' => 'question', 'type' => 'text' ),
+                    array( 'key' => 'field_dp_contact_faq_answer', 'label' => 'Answer', 'name' => 'answer', 'type' => 'textarea', 'rows' => 3 ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-contact.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2520,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // N4. Contact Final CTA
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_contact_cta',
+        'title'  => 'Contact — Final CTA',
+        'fields' => array(
+            array( 'key' => 'field_dp_contact_cta_badge_1', 'label' => 'Badge 1', 'name' => 'contact_cta_badge_1', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
+            array( 'key' => 'field_dp_contact_cta_badge_2', 'label' => 'Badge 2', 'name' => 'contact_cta_badge_2', 'type' => 'text', 'default_value' => 'Same-Day Appointments' ),
+            array( 'key' => 'field_dp_contact_cta_badge_3', 'label' => 'Badge 3', 'name' => 'contact_cta_badge_3', 'type' => 'text', 'default_value' => 'Free Parking' ),
+            array( 'key' => 'field_dp_contact_cta_title', 'label' => 'Title', 'name' => 'contact_cta_title', 'type' => 'text', 'default_value' => '' ),
+            array( 'key' => 'field_dp_contact_cta_desc', 'label' => 'Description', 'name' => 'contact_cta_description', 'type' => 'textarea', 'rows' => 2 ),
+            array( 'key' => 'field_dp_contact_cta_url', 'label' => 'CTA URL', 'name' => 'contact_cta_url', 'type' => 'url' ),
+            array( 'key' => 'field_dp_contact_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'contact_cta_button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+            array( 'key' => 'field_dp_contact_cta_check_1', 'label' => 'Trust Check 1', 'name' => 'contact_cta_check_1', 'type' => 'text', 'default_value' => 'No referral needed' ),
+            array( 'key' => 'field_dp_contact_cta_check_2', 'label' => 'Trust Check 2', 'name' => 'contact_cta_check_2', 'type' => 'text', 'default_value' => 'Expert guidance' ),
+            array( 'key' => 'field_dp_contact_cta_check_3', 'label' => 'Trust Check 3', 'name' => 'contact_cta_check_3', 'type' => 'text', 'default_value' => '15+ years serving Denton' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-contact.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2530,
         'position'              => 'normal',
         'style'                 => 'default',
         'label_placement'       => 'top',

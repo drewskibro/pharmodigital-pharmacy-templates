@@ -93,7 +93,7 @@ function bowland_pharmacy_scripts() {
         'bowland-nav',
         BOWLAND_PHARMACY_URI . '/assets/css/bowland-nav.css',
         array( 'bowland-globals' ),
-        BOWLAND_PHARMACY_VERSION
+        filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/bowland-nav.css' )
     );
 
     // Theme stylesheet (style.css - mostly metadata)
@@ -140,11 +140,32 @@ function bowland_pharmacy_scripts() {
 
     if ( is_page_template( 'page-templates/page-team.php' ) ) {
         wp_enqueue_style( 'bowland-team', BOWLAND_PHARMACY_URI . '/assets/css/team.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
+        wp_enqueue_script( 'bowland-team-js', BOWLAND_PHARMACY_URI . '/assets/js/team.js', array(), BOWLAND_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-ear-wax-removal.php' ) ) {
         wp_enqueue_style( 'bowland-ear-wax', BOWLAND_PHARMACY_URI . '/assets/css/ear-wax-removal.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/ear-wax-removal.css' ) );
         wp_enqueue_script( 'bowland-ear-wax-js', BOWLAND_PHARMACY_URI . '/assets/js/ear-wax-removal.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/ear-wax-removal.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-pharmacy-first.php' ) ) {
+        wp_enqueue_style( 'bowland-pharmacy-first', BOWLAND_PHARMACY_URI . '/assets/css/pharmacy-first.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/pharmacy-first.css' ) );
+        wp_enqueue_script( 'bowland-pharmacy-first-js', BOWLAND_PHARMACY_URI . '/assets/js/pharmacy-first.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/pharmacy-first.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-nhs-prescriptions.php' ) ) {
+        wp_enqueue_style( 'bowland-nhs-prescriptions', BOWLAND_PHARMACY_URI . '/assets/css/nhs-prescriptions.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/nhs-prescriptions.css' ) );
+        wp_enqueue_script( 'bowland-nhs-prescriptions-js', BOWLAND_PHARMACY_URI . '/assets/js/nhs-prescriptions.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/nhs-prescriptions.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-blister-packs.php' ) ) {
+        wp_enqueue_style( 'bowland-blister-packs', BOWLAND_PHARMACY_URI . '/assets/css/blister-packs.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/blister-packs.css' ) );
+        wp_enqueue_script( 'bowland-blister-packs-js', BOWLAND_PHARMACY_URI . '/assets/js/blister-packs.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/blister-packs.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-blood-testing.php' ) ) {
+        wp_enqueue_style( 'bowland-blood-testing', BOWLAND_PHARMACY_URI . '/assets/css/blood-testing.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/blood-testing.css' ) );
+        wp_enqueue_script( 'bowland-blood-testing-js', BOWLAND_PHARMACY_URI . '/assets/js/blood-testing.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/blood-testing.js' ), true );
     }
 
     if ( is_page_template( 'page-templates/page-hair-loss.php' ) ) {
@@ -155,6 +176,14 @@ function bowland_pharmacy_scripts() {
     if ( is_page_template( 'page-templates/page-switch-provider.php' ) ) {
         wp_enqueue_style( 'bowland-switch-provider', BOWLAND_PHARMACY_URI . '/assets/css/switch-provider.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
         wp_enqueue_script( 'bowland-switch-provider-js', BOWLAND_PHARMACY_URI . '/assets/js/switch-provider.js', array(), BOWLAND_PHARMACY_VERSION, true );
+    }
+
+    if ( is_page_template( 'page-templates/page-contact.php' ) ) {
+        wp_enqueue_style( 'bowland-contact', BOWLAND_PHARMACY_URI . '/assets/css/contact.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
+        wp_enqueue_script( 'bowland-contact-js', BOWLAND_PHARMACY_URI . '/assets/js/contact.js', array(), BOWLAND_PHARMACY_VERSION, true );
+        wp_localize_script( 'bowland-contact-js', 'dpContactAjax', array(
+            'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        ) );
     }
 
     // Vaccination pages
@@ -204,12 +233,12 @@ function bowland_pharmacy_scripts() {
         true
     );
 
-    // Scroll Reveal — smooth entrance animations on scroll
+    // Location map JS — geo-anchored parking callouts via Web Mercator
     wp_enqueue_script(
-        'bowland-scroll-reveal',
-        BOWLAND_PHARMACY_URI . '/assets/js/scroll-reveal.js',
+        'bowland-location-map',
+        BOWLAND_PHARMACY_URI . '/assets/js/location-map.js',
         array(),
-        filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/scroll-reveal.js' ),
+        filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/location-map.js' ),
         true
     );
 }
@@ -224,6 +253,10 @@ if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/acf-options.php' ) ) {
 
 if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/acf-fields.php' ) ) {
     require_once BOWLAND_PHARMACY_DIR . '/inc/acf-fields.php';
+}
+
+if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/location-parking-autofill.php' ) ) {
+    require_once BOWLAND_PHARMACY_DIR . '/inc/location-parking-autofill.php';
 }
 
 /**
@@ -982,3 +1015,65 @@ function bowland_pharmacy_mounjaro_calculator_shortcode( $atts ) {
     return ob_get_clean();
 }
 add_shortcode( 'mounjaro_calculator', 'bowland_pharmacy_mounjaro_calculator_shortcode' );
+
+/**
+ * Contact Form AJAX Handler
+ *
+ * Processes the contact form submission via admin-ajax.php,
+ * validates inputs, checks honeypot + nonce, and sends email via wp_mail().
+ */
+function bp_contact_form_handler() {
+    // Verify nonce
+    if ( ! isset( $_POST['bp_contact_nonce'] ) || ! wp_verify_nonce( $_POST['bp_contact_nonce'], 'bp_contact_form_nonce' ) ) {
+        wp_send_json_error( array( 'message' => 'Security check failed. Please refresh the page and try again.' ) );
+    }
+
+    // Honeypot check
+    if ( ! empty( $_POST['contact_website'] ) ) {
+        wp_send_json_error( array( 'message' => 'Spam detected.' ) );
+    }
+
+    // Sanitise inputs
+    $name    = sanitize_text_field( $_POST['contact_name'] ?? '' );
+    $email   = sanitize_email( $_POST['contact_email'] ?? '' );
+    $phone   = sanitize_text_field( $_POST['contact_phone'] ?? '' );
+    $subject = sanitize_text_field( $_POST['contact_subject'] ?? '' );
+    $message = sanitize_textarea_field( $_POST['contact_message'] ?? '' );
+
+    // Validate required fields
+    if ( empty( $name ) || empty( $email ) || empty( $subject ) || empty( $message ) ) {
+        wp_send_json_error( array( 'message' => 'Please fill in all required fields.' ) );
+    }
+
+    if ( ! is_email( $email ) ) {
+        wp_send_json_error( array( 'message' => 'Please enter a valid email address.' ) );
+    }
+
+    // Build email
+    $to      = bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' );
+    $subject_line = '[' . bp_pharmacy_name() . ' Website] ' . $subject . ' from ' . $name;
+
+    $body  = "New contact form submission from " . home_url() . "\n\n";
+    $body .= "Name: " . $name . "\n";
+    $body .= "Email: " . $email . "\n";
+    if ( $phone ) {
+        $body .= "Phone: " . $phone . "\n";
+    }
+    $body .= "Subject: " . $subject . "\n\n";
+    $body .= "Message:\n" . $message . "\n";
+
+    $headers = array(
+        'From: ' . bp_pharmacy_name() . ' <wordpress@' . wp_parse_url( home_url(), PHP_URL_HOST ) . '>',
+        'Reply-To: ' . $name . ' <' . $email . '>',
+    );
+
+    $sent = wp_mail( $to, $subject_line, $body, $headers );
+
+    if ( $sent ) {
+        wp_send_json_success( array( 'message' => 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.' ) );
+    } else {
+        wp_send_json_error( array( 'message' => 'Sorry, there was an error sending your message. Please call us on ' . bp_phone() . ' instead.' ) );
+    }
+}
+add_action( 'wp_ajax_bp_contact_form', 'bp_contact_form_handler' );
+add_action( 'wp_ajax_nopriv_bp_contact_form', 'bp_contact_form_handler' );

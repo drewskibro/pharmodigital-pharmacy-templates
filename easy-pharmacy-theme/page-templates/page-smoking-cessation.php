@@ -510,7 +510,7 @@ get_header();
             <i class="fas fa-plus sc-faq-icon"></i>
           </button>
           <div class="sc-faq-answer">
-            <p>No. Easy Pharmacy's smoking cessation service is available to walk-in patients without a GP referral. Book directly by calling 01784 255 222 or emailing hello@easypharmacy.co.uk. Same-day appointments are often available for patients in Ashford, Chertsey, and Walton-on-Thames.</p>
+            <p>No. Easy Pharmacy's smoking cessation service is available to walk-in patients without a GP referral. Book directly by calling 01784 255 222 or emailing bookings@theeasyclinic.co.uk. Same-day appointments are often available for patients in Ashford, Chertsey, and Walton-on-Thames.</p>
           </div>
         </div>
         <div class="sc-faq-item">
@@ -589,7 +589,7 @@ get_header();
         </a>
       </div>
       <p class="sc-cta-supporting">
-        <?php echo esc_html( ep_field( 'sc_cta_supporting', 'Or email hello@easypharmacy.co.uk to book your appointment. Same-day consultations available.' ) ); ?>
+        <?php echo esc_html( ep_field( 'sc_cta_supporting', 'Or email bookings@theeasyclinic.co.uk to book your appointment. Same-day consultations available.' ) ); ?>
       </p>
     </div>
   </div>
