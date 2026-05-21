@@ -2734,7 +2734,7 @@ a.hero-nhs-pill:hover {
   --sw-rule: rgba(63, 115, 174, 0.22);
 
   padding: 7rem 0 8rem;
-  background: var(--white);
+  background: linear-gradient(180deg, #f6f9fd 0%, #ffffff 55%, #eef3f9 100%);
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -2745,6 +2745,18 @@ a.hero-nhs-pill:hover {
   content: '';
   position: absolute;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(90%, 1200px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sw-rule), transparent);
+}
+
+/* Matching editorial rule at the bottom to bracket the section */
+.switching-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: min(90%, 1200px);
@@ -2768,7 +2780,7 @@ a.hero-nhs-pill:hover {
   right: -120px;
   width: 640px;
   height: 640px;
-  background: radial-gradient(circle, rgba(63, 115, 174, 0.18), transparent 65%);
+  background: radial-gradient(circle, rgba(63, 115, 174, 0.32), transparent 65%);
   border-radius: 50%;
   filter: blur(90px);
 }
@@ -2780,9 +2792,15 @@ a.hero-nhs-pill:hover {
   left: -140px;
   width: 540px;
   height: 540px;
-  background: radial-gradient(circle, rgba(42, 80, 122, 0.16), transparent 65%);
+  background: radial-gradient(circle, rgba(15, 30, 51, 0.28), transparent 65%);
   border-radius: 50%;
   filter: blur(70px);
+}
+
+/* Subtle dot-grid overlay for editorial texture */
+.switching-section > .switching-bg {
+  background-image: radial-gradient(circle, rgba(63, 115, 174, 0.06) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 /* Fine grain to avoid banding */
@@ -2841,6 +2859,12 @@ a.hero-nhs-pill:hover {
   -webkit-text-fill-color: transparent;
   font-style: italic;
   position: relative;
+  /* WebKit clips the slanted right edge of italic glyphs (e.g. trailing "?")
+     when background-clip: text is applied. Pad + negative margin restores
+     the visual without breaking line rhythm. */
+  display: inline-block;
+  padding-right: 0.12em;
+  margin-right: -0.08em;
 }
 
 .switching-title .gradient-text::after {
@@ -2887,42 +2911,50 @@ a.hero-nhs-pill:hover {
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  padding: 1.5rem 1.5rem 1.5rem 0;
+  padding: 1.75rem 1.5rem 1.75rem 4.75rem;
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--sw-hairline);
   border-radius: 0;
   box-shadow: none;
   counter-increment: sw-feature;
-  transition: background-color 0.3s ease, padding 0.3s ease;
+  transition: background-color 0.35s ease, padding 0.35s ease;
+}
+
+.switching-feature:last-child {
+  border-bottom: none;
 }
 
 .switching-feature::before {
   content: counter(sw-feature, decimal-leading-zero);
   position: absolute;
-  top: 1.55rem;
-  right: 1.25rem;
+  top: 1.35rem;
+  left: 0;
   font-family: var(--font-heading);
-  font-size: 0.8125rem;
-  font-weight: 700;
+  font-size: clamp(2.25rem, 3vw, 3rem);
+  font-weight: 900;
   font-style: italic;
-  color: var(--sw-primary);
-  opacity: 0.55;
-  letter-spacing: 0.05em;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(120deg, var(--sw-primary) 0%, var(--sw-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.22;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .switching-feature:hover {
   transform: none;
   background: linear-gradient(90deg, rgba(63, 115, 174, 0.06), transparent 80%);
-  padding-left: 1.25rem;
+  padding-left: 5rem;
   box-shadow: none;
   border-color: rgba(63, 115, 174, 0.2);
 }
 
 .switching-feature:hover::before {
   opacity: 1;
-  transform: translateX(-4px);
+  transform: translateX(-2px);
 }
 
 .switching-feature-icon {
@@ -2982,10 +3014,14 @@ a.hero-nhs-pill:hover {
   gap: 0;
   margin-bottom: 2.5rem;
   padding: 0;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  backdrop-filter: saturate(140%) blur(14px);
   border-radius: 1rem;
-  border: 1px solid var(--sw-hairline);
-  box-shadow: 0 4px 20px rgba(15, 30, 51, 0.04);
+  border: 1px solid rgba(63, 115, 174, 0.18);
+  box-shadow:
+    0 14px 32px -12px rgba(15, 30, 51, 0.18),
+    0 2px 6px rgba(15, 30, 51, 0.05);
   overflow: hidden;
 }
 
@@ -3047,9 +3083,6 @@ a.hero-nhs-pill:hover {
 @media (max-width: 639px) {
   .switching-section {
     padding: 5rem 0 6rem;
-  }
-  .switching-section::after {
-    top: 2.2rem;
   }
   .switching-actions {
     flex-direction: column;
