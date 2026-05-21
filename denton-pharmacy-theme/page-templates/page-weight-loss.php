@@ -176,7 +176,7 @@ get_header();
         <div class="star-row wl-results-stars">
           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
         </div>
-        <p class="wl-results-number gradient-text"><?php echo esc_html( dp_field( 'wl_results_card1_number', '4.7/5' ) ); ?></p>
+        <p class="wl-results-number gradient-text"><?php echo esc_html( dp_field( 'wl_results_card1_number', '4.9/5' ) ); ?></p>
         <p class="wl-results-label"><?php echo esc_html( dp_field( 'wl_results_card1_label', 'Patient satisfaction' ) ); ?></p>
         <p class="wl-results-sublabel"><?php echo esc_html( dp_field( 'wl_results_card1_sublabel', 'Based on verified reviews' ) ); ?></p>
       </div>
