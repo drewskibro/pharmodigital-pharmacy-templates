@@ -76,5 +76,14 @@ function dp_register_options_pages() {
         'parent_slug' => 'pharmacy-settings',
         'capability'  => 'edit_posts',
     ) );
+
+    // Sub page: Clinical Team.
+    acf_add_options_sub_page( array(
+        'page_title'  => 'Clinical Team',
+        'menu_title'  => 'Clinical Team',
+        'menu_slug'   => 'clinical-team',
+        'parent_slug' => 'pharmacy-settings',
+        'capability'  => 'edit_posts',
+    ) );
 }
 add_action( 'acf/init', 'dp_register_options_pages' );
