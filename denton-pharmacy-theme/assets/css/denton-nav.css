@@ -156,6 +156,38 @@
   }
 }
 
+/* Logo text (pharmacy name beside the mark) */
+.denton-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  margin-left: 0.625rem;
+}
+
+.denton-logo-name {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.denton-logo-sub {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (min-width: 1024px) {
+  .denton-logo-name {
+    font-size: 1.25rem;
+  }
+
+  .denton-logo-sub {
+    font-size: 0.875rem;
+  }
+}
+
 /* ── COMPACT NAV (on scroll) ── */
 
 /* Hide trust bar when compact */

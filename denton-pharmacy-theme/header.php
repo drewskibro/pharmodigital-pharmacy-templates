@@ -166,9 +166,13 @@ if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $def
     <div class="denton-nav-top">
       <div class="denton-container">
 
-        <!-- Logo -->
+        <!-- Logo + Pharmacy Name -->
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="denton-logo">
           <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo esc_attr( $pharmacy_name ); ?>" class="denton-logo-img" />
+          <span class="denton-logo-text">
+            <span class="denton-logo-name">Denton</span>
+            <span class="denton-logo-sub">Pharmacy</span>
+          </span>
         </a>
 
         <!-- Desktop Top Actions -->
