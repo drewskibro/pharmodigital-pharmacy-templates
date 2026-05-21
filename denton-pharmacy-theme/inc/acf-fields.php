@@ -838,6 +838,63 @@ function dp_register_acf_field_groups() {
         'instruction_placement' => 'label',
         'active'                => true,
     ) );
+
+    // -------------------------------------------------------------------------
+    // A10. Clinical Team (global, shared across all pages)
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'      => 'group_dp_options_clinical_team',
+        'title'    => 'Clinical Team',
+        'fields'   => array(
+            array(
+                'key'          => 'field_dp_pharmacy_team_members',
+                'label'        => 'Team Members',
+                'name'         => 'pharmacy_team_members',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'min'          => 0,
+                'max'          => 8,
+                'button_label' => 'Add Team Member',
+                'instructions' => 'Team members listed here are used by the "Meet Your Clinical Team" section on every page that includes it (Home, Weight Loss, etc.). Upload each member once and they will appear everywhere automatically.',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_pt_photo', 'label' => 'Photo', 'name' => 'team_photo', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'thumbnail', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_pt_name', 'label' => 'Name', 'name' => 'team_name', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_pt_role', 'label' => 'Role', 'name' => 'team_role', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
+                    array( 'key' => 'field_dp_pt_gphc', 'label' => 'GPhC Number', 'name' => 'team_gphc', 'type' => 'text', 'instructions' => 'Optional. Leave blank if not a pharmacist.', 'wrapper' => array( 'width' => '15' ) ),
+                    array(
+                        'key'          => 'field_dp_pt_tags',
+                        'label'        => 'Specialty Tags',
+                        'name'         => 'team_tags',
+                        'type'         => 'repeater',
+                        'layout'       => 'table',
+                        'min'          => 0,
+                        'max'          => 5,
+                        'button_label' => 'Add Tag',
+                        'wrapper'      => array( 'width' => '100' ),
+                        'sub_fields'   => array(
+                            array( 'key' => 'field_dp_pt_tag_label', 'label' => 'Tag', 'name' => 'tag_label', 'type' => 'text' ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'options_page',
+                    'operator' => '==',
+                    'value'    => 'clinical-team',
+                ),
+            ),
+        ),
+        'menu_order'            => 75,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // =========================================================================
     // B. HOME PAGE FIELDS
     // =========================================================================

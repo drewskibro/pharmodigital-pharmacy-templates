@@ -39,10 +39,33 @@ if ( empty( $trust_checks ) ) {
     $trust_checks = $default_trust_checks;
 }
 
-// --- Team members (ACF repeater → defaults) ---
+// --- Team members: per-page repeater → global options repeater → hardcoded defaults ---
 $team = array();
 if ( function_exists( 'have_rows' ) && have_rows( 'home_team_members' ) ) {
     while ( have_rows( 'home_team_members' ) ) {
+        the_row();
+        $tags = array();
+        if ( have_rows( 'team_tags' ) ) {
+            while ( have_rows( 'team_tags' ) ) {
+                the_row();
+                $label = get_sub_field( 'tag_label' );
+                if ( $label ) {
+                    $tags[] = $label;
+                }
+            }
+        }
+        $team[] = array(
+            'photo_id' => get_sub_field( 'team_photo' ),
+            'name'     => get_sub_field( 'team_name' ) ?: '',
+            'role'     => get_sub_field( 'team_role' ) ?: '',
+            'gphc'     => get_sub_field( 'team_gphc' ) ?: '',
+            'tags'     => $tags,
+        );
+    }
+}
+
+if ( empty( $team ) && function_exists( 'have_rows' ) && have_rows( 'pharmacy_team_members', 'option' ) ) {
+    while ( have_rows( 'pharmacy_team_members', 'option' ) ) {
         the_row();
         $tags = array();
         if ( have_rows( 'team_tags' ) ) {
