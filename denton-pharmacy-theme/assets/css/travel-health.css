@@ -467,15 +467,27 @@
   z-index: 10;
 }
 
-@media (max-width: 767px) {
+/* Below 1024px (phones + tablets): flex column, sized to fit-content so
+   the bar shrinks to the widest [icon][text] row and is centred as a
+   single unit with margin auto. align-items: stretch makes every row
+   the same width as the widest, and each row's internal flex defaults
+   to flex-start so the icons line up in a clean column at the left
+   edge instead of drifting with label length. */
+@media (max-width: 1023px) {
   .travel-stats-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     gap: 0;
   }
 
   .travel-stat-item {
-    /* Keep base justify-content: center so the icon+text pair sits
-       centred as a unit within the full-width row on phones. */
+    justify-content: flex-start;
     padding: 0.875rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
@@ -499,7 +511,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .travel-stats-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 3rem;
@@ -513,10 +525,6 @@
   justify-content: center;
 }
 
-/* Left-align the icon+text inside each cell only from the true desktop
-   breakpoint up. Below 1024px (phones + tablets) the base
-   justify-content: center keeps each [icon][text] pair centred as a unit
-   within its row / grid cell. */
 @media (min-width: 1024px) {
   .travel-stat-item {
     justify-content: flex-start;
