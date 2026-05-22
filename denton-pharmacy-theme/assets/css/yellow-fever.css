@@ -766,6 +766,19 @@
   border-radius: 9999px;
 }
 
+/* On mobile/tablet the title wraps onto multiple lines and the absolute
+   top-right badge ends up sitting on top of the heading text. Drop the
+   badge into normal flow at the start of the card so it stacks cleanly
+   above the title. .card-badge is the first child in the markup, so no
+   ordering tricks needed. */
+@media (max-width: 1023px) {
+  .yellowfever-needs-card .card-badge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+}
+
 .yellowfever-needs-card.required .card-badge {
   background: #e11d48;
   color: var(--white);
