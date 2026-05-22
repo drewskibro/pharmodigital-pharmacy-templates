@@ -370,6 +370,31 @@
   color: var(--text-gray);
 }
 
+/* Mobile / tablet (<1024px): deterministic 2x2 grid so the four stats
+   sit in evenly aligned cells instead of staircasing down the centre.
+   Each cell stacks icon above number+label and centres the contents.
+   Desktop (>=1024px) keeps the original horizontal flex row. */
+@media (max-width: 1023px) {
+  .earwax-stats-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .earwax-stat-item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .earwax-stat-content {
+    align-items: center;
+  }
+}
+
 /* ============================================
    F3. SYMPTOMS — 3-column with scale/rotate hover
    ============================================ */
