@@ -795,7 +795,7 @@
   display: flex;
   align-items: center;
   padding: 1rem 1.5rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #ffffff;
   font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
@@ -821,7 +821,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 1rem 1.5rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #ffffff;
   font-size: 0.9375rem;
   font-weight: 500;
   background: transparent;
@@ -841,7 +841,7 @@
 .denton-mobile-accordion-arrow {
   width: 1rem;
   height: 1rem;
-  opacity: 0.4;
+  opacity: 0.7;
   transition: transform 0.25s ease, opacity 0.2s ease;
   flex-shrink: 0;
 }
@@ -869,7 +869,7 @@
 .denton-mobile-sub-link {
   display: block;
   padding: 0.75rem 1.5rem 0.75rem 2.25rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.875rem;
   text-decoration: none;
   transition: all 0.15s ease;
