@@ -467,33 +467,40 @@
   z-index: 10;
 }
 
-/* Below 1024px (phones + tablets): flex column, sized to fit-content so
-   the bar shrinks to the widest [icon][text] row and is centred as a
-   single unit with margin auto. align-items: stretch makes every row
-   the same width as the widest, and each row's internal flex defaults
-   to flex-start so the icons line up in a clean column at the left
-   edge instead of drifting with label length. */
+/* Below 1024px (phones + tablets): clean 2x2 grid. Each cell stacks
+   icon above number+label, centred. Earlier fit-content + margin-auto
+   approach computed correctly on paper but with long labels the bar's
+   width approached the viewport width, leaving little slack for the
+   auto margin to centre against, so it read as left-anchored on real
+   devices. The 2x2 grid sidesteps all of that - 50% cells, deterministic
+   centring inside .section-container. */
 @media (max-width: 1023px) {
   .travel-stats-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: -moz-fit-content;
-    width: fit-content;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 0;
   }
 
   .travel-stat-item {
-    justify-content: flex-start;
-    padding: 0.875rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    border-bottom: none;
   }
 
   .travel-stat-item:last-child {
     border-bottom: none;
+  }
+
+  .travel-stat-content {
+    align-items: center;
+    text-align: center;
   }
 
   .travel-stat-icon {
