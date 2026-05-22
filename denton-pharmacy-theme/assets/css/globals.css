@@ -115,7 +115,6 @@ html {
    whole sits centred in the section. Desktop layout for each page is
    untouched - their >=1024px rules restore the row/grid layouts. */
 @media (max-width: 1023px) {
-  .earwax-stats-bar,
   .bloodtest-stats-bar,
   .npres-stats-bar,
   .pharmfirst-stats-bar,
@@ -129,7 +128,6 @@ html {
     margin-right: auto;
   }
 
-  .earwax-stat-item,
   .bloodtest-stat-item,
   .npres-stat-item,
   .pharmfirst-stat-item,
