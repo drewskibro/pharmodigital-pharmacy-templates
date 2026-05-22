@@ -447,25 +447,55 @@
   overflow: hidden;
 }
 
+/* Mobile / tablet (<1024px): deterministic 2x2 grid. Each cell stacks
+   icon above number+label, centred. Matches the travel-health pattern.
+   Desktop (>=1024px) restores the row layout below. */
 .yellowfever-stats-bar {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .yellowfever-stats-bar {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
   }
 }
 
 .yellowfever-stat-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .yellowfever-stat-item {
+    flex-direction: row;
+    text-align: left;
+    gap: 1rem;
+    padding: 0;
+  }
+}
+
+.yellowfever-stat-item .content {
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .yellowfever-stat-item .content {
+    align-items: flex-start;
+  }
 }
 
 .yellowfever-stat-item .icon {
@@ -508,7 +538,10 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-@media (min-width: 768px) {
+/* Dividers belong to the desktop row layout - the mobile/tablet 2x2
+   grid stacks items in cells, so dividers would take an extra grid
+   slot. Only render them at the desktop breakpoint. */
+@media (min-width: 1024px) {
   .yellowfever-stat-divider {
     display: block;
   }
