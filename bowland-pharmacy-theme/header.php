@@ -14,7 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $pharmacy_name = bp_pharmacy_name();
-$logo_url      = bp_logo_url();
+$nav_logo_id   = bp_option( 'nav_logo' );
+$logo_url      = $nav_logo_id
+    ? ( is_numeric( $nav_logo_id ) ? wp_get_attachment_image_url( $nav_logo_id, 'full' ) : $nav_logo_id )
+    : bp_logo_url();
 $phone         = bp_phone();
 $phone_link    = bp_phone_link();
 $booking_url   = bp_booking_url();
@@ -163,9 +166,13 @@ if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $def
     <div class="bowland-nav-top">
       <div class="bowland-container">
 
-        <!-- Logo -->
+        <!-- Logo + Pharmacy Name -->
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="bowland-logo">
           <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo esc_attr( $pharmacy_name ); ?>" class="bowland-logo-img" />
+          <span class="bowland-logo-text">
+            <span class="bowland-logo-name">Bowland</span>
+            <span class="bowland-logo-sub">Pharmacy</span>
+          </span>
         </a>
 
         <!-- Desktop Top Actions -->

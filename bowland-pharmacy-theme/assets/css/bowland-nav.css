@@ -149,6 +149,38 @@
   }
 }
 
+/* Logo text (pharmacy name beside the mark) */
+.bowland-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  margin-left: 0.625rem;
+}
+
+.bowland-logo-name {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.bowland-logo-sub {
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (min-width: 1024px) {
+  .bowland-logo-name {
+    font-size: 1.25rem;
+  }
+
+  .bowland-logo-sub {
+    font-size: 0.875rem;
+  }
+}
+
 /* ── COMPACT NAV (on scroll) ── */
 
 /* Hide trust bar when compact */
@@ -161,9 +193,10 @@
   height: 80px;
 }
 
-/* Shrink logo — mobile compact */
+/* Shrink logo — mobile compact.
+   56px keeps breathing room above the logo inside the 80px compact bar. */
 .bowland-nav.nav-compact .bowland-logo-img {
-  height: 80px;
+  height: 56px;
 }
 
 /* Desktop 1024–1279px compact */
