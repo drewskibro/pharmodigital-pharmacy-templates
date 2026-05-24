@@ -812,7 +812,7 @@
 
 .bowland-mobile-accordion.open .bowland-mobile-accordion-arrow {
   transform: rotate(180deg);
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .bowland-mobile-accordion.open .bowland-mobile-accordion-btn {
