@@ -95,12 +95,7 @@ if ( empty( $team ) && function_exists( 'have_rows' ) && have_rows( 'pharmacy_te
     }
 }
 
-// Step 3: hardcoded defaults
-if ( empty( $team ) ) {
-    $team = array(
-        array( 'photo_id' => 0, 'name' => 'Ahmed Al-Liabi', 'role' => 'Lead Pharmacist & Independent Prescriber', 'gphc' => '2088937', 'tags' => array( 'Independent Prescriber', 'Weight Loss Specialist' ) ),
-    );
-}
+// No hardcoded fallback — if no team members are saved, nothing renders.
 ?>
 
 <section class="pharmacist-section" id="about">
