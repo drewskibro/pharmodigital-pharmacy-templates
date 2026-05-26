@@ -535,6 +535,20 @@
   opacity: 0.9;
 }
 
+/* Nav dropdowns use the UI font (Instrument Sans), not the editorial heading font */
+.bowland-dropdown,
+.bowland-dropdown h1,
+.bowland-dropdown h2,
+.bowland-dropdown h3,
+.bowland-dropdown h4,
+.bowland-dropdown h5,
+.bowland-dropdown h6,
+.bowland-dropdown p,
+.bowland-dropdown a,
+.bowland-dropdown span {
+  font-family: 'Instrument Sans', sans-serif;
+}
+
 /* ── DROPDOWN ── */
 .bowland-dropdown {
   position: absolute;
