@@ -33,6 +33,21 @@
     }
 
     var centerPx = latLngToWorldPx(centerLat, centerLng, zoom);
+
+    // Geo-anchor the pharmacy pin (has data-lat/lng since it may differ from map centre).
+    var pharmacyPin = root.querySelector('.location-pin--pharmacy[data-lat][data-lng]');
+    if (pharmacyPin) {
+      var pLat = parseFloat(pharmacyPin.getAttribute('data-lat'));
+      var pLng = parseFloat(pharmacyPin.getAttribute('data-lng'));
+      if (isFinite(pLat) && isFinite(pLng)) {
+        var pp  = latLngToWorldPx(pLat, pLng, zoom);
+        var pdx = Math.round(pp.x - centerPx.x);
+        var pdy = Math.round(pp.y - centerPx.y);
+        pharmacyPin.style.setProperty('--dx', pdx + 'px');
+        pharmacyPin.style.setProperty('--dy', pdy + 'px');
+      }
+    }
+
     var callouts = root.querySelectorAll('.location-callout[data-lat][data-lng]');
 
     callouts.forEach(function (node) {
@@ -85,10 +100,14 @@
           if (n !== callout) { n.classList.remove('is-open'); }
         });
         callout.classList.add('is-open');
-        // Scroll the map wrapper into view so the popup is visible on mobile.
-        var wrap = callout.closest('.location-map-wrapper');
-        if (wrap && typeof wrap.scrollIntoView === 'function') {
-          wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Mobile only: pull the map into view so the popup is reachable.
+        // On desktop the card sits beside the map and the wrapper's
+        // translateX would trick the browser into horizontal-scrolling.
+        if (window.innerWidth < 1024) {
+          var wrap = callout.closest('.location-map-wrapper');
+          if (wrap && typeof wrap.scrollIntoView === 'function') {
+            wrap.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+          }
         }
       });
     });

@@ -13,27 +13,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- Map background layer (Google Maps iframe embed — static images retired) ---
-// Prefer a coords-centered embed so Google does NOT drop its default red pin;
-// that way our custom branded pin is the only marker on the map.
-$center_coords  = trim( (string) bp_option( 'location_center_coords', '53.393361,-2.283273' ) );
-$map_zoom       = (int) bp_option( 'location_zoom', 17 );
-$maps_embed_url = 'https://maps.google.com/maps?ll=' . rawurlencode( $center_coords ) . '&z=' . (int) $map_zoom . '&t=m&output=embed';
+// location_center_coords  = pharmacy pin position (always the pharmacy itself).
+// location_map_center_coords = iframe centre — can be offset to show nearby
+// parking spots without moving the pharmacy pin.
+$center_coords     = trim( (string) bp_option( 'location_center_coords', '53.393361,-2.283273' ) );
+$map_center_coords = trim( (string) bp_option( 'location_map_center_coords', $center_coords ) );
+$map_zoom          = (int) bp_option( 'location_zoom', 17 );
+$maps_embed_url    = 'https://maps.google.com/maps?ll=' . rawurlencode( $map_center_coords ) . '&z=' . (int) $map_zoom . '&t=m&output=embed';
 
-// Directions URL is derived from the pharmacy coordinates — no separate field.
+// Directions URL always points to the pharmacy, not the map centre.
 $pharmacy_directions = 'https://www.google.com/maps/dir/?api=1&destination=' . rawurlencode( $center_coords );
 
 // --- Map overlay: pharmacy pin + parking callouts ---
-// Pharmacy pin always sits at the map centre (50/50) by definition —
-// the map is centred on the pharmacy coordinates.
 $parking_callouts = bp_option( 'location_parking_callouts' );
 if ( ! is_array( $parking_callouts ) ) {
     $parking_callouts = array();
 }
 
-// Parse centre coords into floats for JS data attributes.
-$center_parts    = array_map( 'trim', explode( ',', $center_coords ) );
-$center_lat      = isset( $center_parts[0] ) ? (float) $center_parts[0] : 0;
-$center_lng      = isset( $center_parts[1] ) ? (float) $center_parts[1] : 0;
+// Pharmacy pin coords (geo-anchored by JS — not hardcoded to 50/50 anymore).
+$center_parts = array_map( 'trim', explode( ',', $center_coords ) );
+$center_lat   = isset( $center_parts[0] ) ? (float) $center_parts[0] : 0;
+$center_lng   = isset( $center_parts[1] ) ? (float) $center_parts[1] : 0;
+
+// Map iframe centre coords (JS uses these as the projection origin).
+$map_center_parts = array_map( 'trim', explode( ',', $map_center_coords ) );
+$map_center_lat   = isset( $map_center_parts[0] ) ? (float) $map_center_parts[0] : $center_lat;
+$map_center_lng   = isset( $map_center_parts[1] ) ? (float) $map_center_parts[1] : $center_lng;
 
 // --- Floating card header ---
 $badge_text      = bp_field( 'location_badge_text', 'Visit Us' );
@@ -94,8 +99,8 @@ $booking_url = bp_booking_url();
         <!-- Annotations: pharmacy pin + parking callouts (geo-anchored by JS) -->
         <div
             class="location-map-annotations"
-            data-center-lat="<?php echo esc_attr( $center_lat ); ?>"
-            data-center-lng="<?php echo esc_attr( $center_lng ); ?>"
+            data-center-lat="<?php echo esc_attr( $map_center_lat ); ?>"
+            data-center-lng="<?php echo esc_attr( $map_center_lng ); ?>"
             data-zoom="<?php echo esc_attr( $map_zoom ); ?>"
         >
 
@@ -106,9 +111,11 @@ $booking_url = bp_booking_url();
                 $label_anchor = 'up-left';
             }
             ?>
-            <!-- Pharmacy pin (always at map centre, since the map is centred on the pharmacy) -->
+            <!-- Pharmacy pin — geo-anchored by JS using data-lat/lng -->
             <a
                 class="location-pin location-pin--pharmacy location-pin--label-<?php echo esc_attr( $label_anchor ); ?>"
+                data-lat="<?php echo esc_attr( $center_lat ); ?>"
+                data-lng="<?php echo esc_attr( $center_lng ); ?>"
                 <?php if ( $pharmacy_directions ) : ?>href="<?php echo esc_url( $pharmacy_directions ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Get directions to <?php echo esc_attr( bp_pharmacy_name() ); ?> on Google Maps"<?php else : ?>href="#"<?php endif; ?>
             >
                 <span class="location-pin-dot">
@@ -257,16 +264,24 @@ $booking_url = bp_booking_url();
                             <span class="location-hours-day">Mon &ndash; Fri</span>
                             <span class="location-hours-time"><?php echo esc_html( $hours_weekday ); ?></span>
                         </div>
+                        <?php
+                        $sat_closed = strtolower( trim( $hours_saturday ) ) === 'closed';
+                        $sun_closed = strtolower( trim( $hours_sunday ) ) === 'closed';
+                        if ( $sat_closed && $sun_closed ) : ?>
+                        <div class="location-hours-row">
+                            <span class="location-hours-day">Sat &amp; Sun</span>
+                            <span class="location-hours-time location-hours-closed">Closed</span>
+                        </div>
+                        <?php else : ?>
                         <div class="location-hours-row">
                             <span class="location-hours-day">Saturday</span>
-                            <span class="location-hours-time"><?php echo esc_html( $hours_saturday ); ?></span>
+                            <span class="location-hours-time<?php echo $sat_closed ? ' location-hours-closed' : ''; ?>"><?php echo esc_html( $hours_saturday ); ?></span>
                         </div>
                         <div class="location-hours-row">
                             <span class="location-hours-day">Sunday</span>
-                            <span class="location-hours-time<?php echo ( strtolower( trim( $hours_sunday ) ) === 'closed' ) ? ' location-hours-closed' : ''; ?>">
-                                <?php echo esc_html( $hours_sunday ); ?>
-                            </span>
+                            <span class="location-hours-time<?php echo $sun_closed ? ' location-hours-closed' : ''; ?>"><?php echo esc_html( $hours_sunday ); ?></span>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

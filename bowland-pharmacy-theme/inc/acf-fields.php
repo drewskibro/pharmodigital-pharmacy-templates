@@ -337,10 +337,10 @@ function bp_register_acf_field_groups() {
                 'name'         => 'location_parking_callouts',
                 'type'         => 'repeater',
                 'min'          => 0,
-                'max'          => 2,
+                'max'          => 3,
                 'layout'       => 'block',
                 'button_label' => 'Add parking hotspot',
-                'instructions' => 'Add up to 2 nearby parking hotspots. Each dot is placed on the map from real lat,lng coordinates. Click opens Google Maps directions in a new tab.',
+                'instructions' => 'Add up to 3 nearby parking hotspots. Each dot is placed on the map from real lat,lng coordinates. Click opens Google Maps directions in a new tab.',
                 'sub_fields'   => array(
                     array(
                         'key'          => 'field_bp_location_callout_url',
