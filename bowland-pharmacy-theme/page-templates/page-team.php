@@ -73,192 +73,84 @@ get_header();
 <!-- Team Members Grid -->
 <section class="team-members-section team-reveal">
   <div class="section-container">
-    <div class="team-grid">
-      <?php if ( have_rows( 'team_members' ) ) : while ( have_rows( 'team_members' ) ) : the_row();
-        $member_image_id  = get_sub_field( 'image' );
-        $member_image_url = $member_image_id ? wp_get_attachment_image_url( $member_image_id, 'large' ) : '';
-        $member_name      = get_sub_field( 'name' );
-        $member_gphc      = get_sub_field( 'gphc_number' );
-        $badge_text       = get_sub_field( 'badge_text' );
-        $badge_type       = get_sub_field( 'badge_type' );
-        // Extract initials from name for avatar fallback
-        $name_parts = explode( ' ', trim( $member_name ) );
-        $initials   = strtoupper( substr( $name_parts[0], 0, 1 ) . ( isset( $name_parts[1] ) ? substr( $name_parts[1], 0, 1 ) : '' ) );
-      ?>
-        <div class="team-member-card">
-          <div class="team-member-image-wrapper">
-            <?php if ( $member_image_url ) : ?>
-              <img src="<?php echo esc_url( $member_image_url ); ?>" alt="<?php echo esc_attr( $member_name ); ?>" class="team-member-image" />
-            <?php else : ?>
-              <div class="team-member-initials-circle">
-                <span class="team-member-initials"><?php echo esc_html( $initials ); ?></span>
-              </div>
-            <?php endif; ?>
-            <div class="team-member-overlay"></div>
-            <?php if ( $badge_text ) : ?>
-              <div class="team-member-badge-<?php echo esc_attr( $badge_type ); ?>"><?php echo esc_html( $badge_text ); ?></div>
-            <?php endif; ?>
-          </div>
-          <div class="team-member-content">
-            <h3 class="team-member-name"><?php echo esc_html( $member_name ); ?></h3>
-            <p class="team-member-role"><?php echo esc_html( get_sub_field( 'role' ) ); ?></p>
+    <?php
+    // Build team array: global options → hardcoded Bowland placeholders
+    $team = array();
 
-            <?php if ( have_rows( 'credentials' ) ) : ?>
-              <div class="team-member-credentials">
-                <?php while ( have_rows( 'credentials' ) ) : the_row(); ?>
-                  <span class="team-credential-badge"><?php echo esc_html( get_sub_field( 'credential' ) ); ?></span>
-                <?php endwhile; ?>
-              </div>
-            <?php endif; ?>
-
-            <?php
-            $gphc_url = get_sub_field( 'gphc_url' );
-            if ( ! $gphc_url && $member_gphc ) {
-                $gphc_url = 'https://www.pharmacyregulation.org/registers/pharmacist/' . $member_gphc;
+    if ( function_exists( 'have_rows' ) && have_rows( 'pharmacy_team_members', 'option' ) ) {
+        while ( have_rows( 'pharmacy_team_members', 'option' ) ) {
+            the_row();
+            $tags = array();
+            if ( have_rows( 'team_tags' ) ) {
+                while ( have_rows( 'team_tags' ) ) {
+                    the_row();
+                    $label = get_sub_field( 'tag_label' );
+                    if ( $label ) {
+                        $tags[] = $label;
+                    }
+                }
             }
-            if ( $gphc_url ) : ?>
-              <a href="<?php echo esc_url( $gphc_url ); ?>" target="_blank" rel="noopener" class="team-gphc-verify-link">
-                <i class="fas fa-shield-halved"></i>
-                Verify GPhC Registration
-                <i class="fas fa-external-link-alt"></i>
-              </a>
-            <?php endif; ?>
-
-            <p class="team-member-bio"><?php echo esc_html( get_sub_field( 'bio' ) ); ?></p>
-
-            <?php if ( have_rows( 'specialties' ) ) : ?>
-              <div class="team-member-specialties">
-                <?php while ( have_rows( 'specialties' ) ) : the_row(); ?>
-                  <span class="team-specialty-tag"><?php echo esc_html( get_sub_field( 'specialty' ) ); ?></span>
-                <?php endwhile; ?>
-              </div>
-            <?php endif; ?>
-          </div>
-        </div>
-      <?php endwhile; else : ?>
-        <?php
-        // Ahmed: use ACF pharmacist image → theme fallback
-        $ahmed_image_id  = bp_option( 'pharmacist_image' );
-        $ahmed_image_url = $ahmed_image_id ? wp_get_attachment_image_url( $ahmed_image_id, 'large' ) : '';
-        if ( ! $ahmed_image_url ) {
-            $ahmed_image_url = get_theme_file_uri( 'assets/images/ahmed-pharmacist.jpg' );
+            $team[] = array(
+                'photo_id' => get_sub_field( 'team_photo' ),
+                'name'     => get_sub_field( 'team_name' ) ?: '',
+                'role'     => get_sub_field( 'team_role' ) ?: '',
+                'gphc'     => get_sub_field( 'team_gphc' ) ?: '',
+                'tags'     => $tags,
+            );
         }
-        ?>
-        <!-- Ahmed Al-Liabi -->
-        <div class="team-member-card">
-          <div class="team-member-image-wrapper">
-            <img src="<?php echo esc_url( $ahmed_image_url ); ?>" alt="Ahmed Al-Liabi" class="team-member-image" />
-            <div class="team-member-overlay"></div>
-            <div class="team-member-badge-founder">Lead Pharmacist</div>
-          </div>
-          <div class="team-member-content">
-            <h3 class="team-member-name">Ahmed Al-Liabi</h3>
-            <p class="team-member-role">Founder &amp; Lead Pharmacist</p>
-            <div class="team-member-credentials">
-              <span class="team-credential-badge">GPhC: 2208502</span>
-              <span class="team-credential-badge">Independent Prescriber</span>
+    }
+
+    // Hardcoded Bowland placeholders — Drew will supply final details
+    if ( empty( $team ) ) {
+        $team = array(
+            array( 'photo_id' => 0, 'name' => 'Ahmed Al-Liabi',   'role' => 'Lead Pharmacist & Independent Prescriber', 'gphc' => '2088937', 'tags' => array( 'Independent Prescriber', 'Weight Loss', 'Travel Health' ) ),
+            array( 'photo_id' => 0, 'name' => 'Elisha Mackin',    'role' => 'Trainee Pharmacy Technician',              'gphc' => '',        'tags' => array( 'Dispensing', 'Patient Support' ) ),
+            array( 'photo_id' => 0, 'name' => 'Paula Gaunt',      'role' => 'Trainee Pharmacy Technician',              'gphc' => '',        'tags' => array( 'Dispensing', 'NHS Services' ) ),
+            array( 'photo_id' => 0, 'name' => 'Joanne Tabberner', 'role' => 'Pharmacy Assistant',                       'gphc' => '',        'tags' => array( 'Patient Support', 'NHS Services' ) ),
+            array( 'photo_id' => 0, 'name' => 'Team Member',      'role' => 'Pharmacist',                               'gphc' => '',        'tags' => array() ),
+            array( 'photo_id' => 0, 'name' => 'Team Member',      'role' => 'Pharmacy Technician',                      'gphc' => '',        'tags' => array() ),
+        );
+    }
+    ?>
+
+    <div class="team-grid">
+      <?php foreach ( $team as $member ) :
+        $photo_url = ! empty( $member['photo_id'] ) ? wp_get_attachment_image_url( $member['photo_id'], 'medium' ) : '';
+        $initials  = '';
+        if ( empty( $photo_url ) ) {
+            $parts    = explode( ' ', trim( $member['name'] ) );
+            $initials = strtoupper( substr( $parts[0], 0, 1 ) . ( isset( $parts[1] ) ? substr( $parts[1], 0, 1 ) : '' ) );
+        }
+      ?>
+        <div class="team-card">
+            <div class="team-card-photo">
+                <?php if ( $photo_url ) : ?>
+                    <img src="<?php echo esc_url( $photo_url ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" />
+                <?php else : ?>
+                    <span class="team-card-initials"><?php echo esc_html( $initials ); ?></span>
+                <?php endif; ?>
             </div>
-            <a href="https://www.pharmacyregulation.org/registers/pharmacist/2208502" target="_blank" rel="noopener" class="team-gphc-verify-link">
-              <i class="fas fa-shield-halved"></i>
-              Verify GPhC Registration
-              <i class="fas fa-external-link-alt"></i>
+
+            <h3 class="team-card-name"><?php echo esc_html( $member['name'] ); ?></h3>
+            <p class="team-card-role"><?php echo esc_html( $member['role'] ); ?></p>
+
+            <?php if ( ! empty( $member['gphc'] ) ) : ?>
+            <a href="https://www.pharmacyregulation.org/registers/pharmacist/<?php echo esc_attr( $member['gphc'] ); ?>"
+               class="team-card-gphc" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-shield-halved"></i>
+                GPhC: <?php echo esc_html( $member['gphc'] ); ?>
             </a>
-            <p class="team-member-bio">With over 15 years of experience serving the Wythenshawe community, Ahmed leads our team with dedication and expertise. As an Independent Prescriber, he specialises in travel health, medical weight loss, and ear wax removal.</p>
-            <div class="team-member-specialties">
-              <span class="team-specialty-tag">Weight Loss</span>
-              <span class="team-specialty-tag">Travel Health</span>
-              <span class="team-specialty-tag">Ear Wax Removal</span>
+            <?php endif; ?>
+
+            <?php if ( ! empty( $member['tags'] ) ) : ?>
+            <div class="team-card-tags">
+                <?php foreach ( $member['tags'] as $tag ) : ?>
+                    <span class="team-card-tag"><?php echo esc_html( $tag ); ?></span>
+                <?php endforeach; ?>
             </div>
-          </div>
+            <?php endif; ?>
         </div>
-        <!-- Elisha Mackin -->
-        <div class="team-member-card">
-          <div class="team-member-image-wrapper">
-            <div class="team-member-initials-circle">
-              <span class="team-member-initials">EM</span>
-            </div>
-            <div class="team-member-overlay"></div>
-            <div class="team-member-badge-senior">Trainee Pharmacy Technician</div>
-          </div>
-          <div class="team-member-content">
-            <h3 class="team-member-name">Elisha Mackin</h3>
-            <p class="team-member-role">Trainee Pharmacy Technician</p>
-            <div class="team-member-credentials">
-              <span class="team-credential-badge">Trainee Technician</span>
-              <span class="team-credential-badge">Patient Support</span>
-            </div>
-            <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
-              <i class="fas fa-shield-halved"></i>
-              Verify GPhC Registration
-              <i class="fas fa-external-link-alt"></i>
-            </a>
-            <p class="team-member-bio">Elisha is a dedicated trainee pharmacy technician developing her clinical skills within our Bowland team. Her enthusiasm and commitment to patient care make her a valued member of our growing pharmacy family.</p>
-            <div class="team-member-specialties">
-              <span class="team-specialty-tag">Dispensing</span>
-              <span class="team-specialty-tag">Patient Support</span>
-              <span class="team-specialty-tag">NHS Services</span>
-            </div>
-          </div>
-        </div>
-        <!-- Paula Gaunt -->
-        <div class="team-member-card">
-          <div class="team-member-image-wrapper">
-            <div class="team-member-initials-circle">
-              <span class="team-member-initials">PG</span>
-            </div>
-            <div class="team-member-overlay"></div>
-            <div class="team-member-badge-senior">Trainee Pharmacy Technician</div>
-          </div>
-          <div class="team-member-content">
-            <h3 class="team-member-name">Paula Gaunt</h3>
-            <p class="team-member-role">Trainee Pharmacy Technician</p>
-            <div class="team-member-credentials">
-              <span class="team-credential-badge">Trainee Technician</span>
-              <span class="team-credential-badge">Patient Support</span>
-            </div>
-            <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
-              <i class="fas fa-shield-halved"></i>
-              Verify GPhC Registration
-              <i class="fas fa-external-link-alt"></i>
-            </a>
-            <p class="team-member-bio">Paula brings warmth and dedication to her role as a trainee pharmacy technician. She is actively building her expertise across our pharmacy services and is committed to delivering outstanding care to every patient.</p>
-            <div class="team-member-specialties">
-              <span class="team-specialty-tag">Dispensing</span>
-              <span class="team-specialty-tag">Patient Support</span>
-              <span class="team-specialty-tag">NHS Services</span>
-            </div>
-          </div>
-        </div>
-        <!-- Joanne Tabberner -->
-        <div class="team-member-card">
-          <div class="team-member-image-wrapper">
-            <div class="team-member-initials-circle">
-              <span class="team-member-initials">JT</span>
-            </div>
-            <div class="team-member-overlay"></div>
-            <div class="team-member-badge-senior">Pharmacy Assistant</div>
-          </div>
-          <div class="team-member-content">
-            <h3 class="team-member-name">Joanne Tabberner</h3>
-            <p class="team-member-role">Pharmacy Assistant</p>
-            <div class="team-member-credentials">
-              <span class="team-credential-badge">Pharmacy Assistant</span>
-              <span class="team-credential-badge">Patient Support</span>
-            </div>
-            <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
-              <i class="fas fa-shield-halved"></i>
-              Verify GPhC Registration
-              <i class="fas fa-external-link-alt"></i>
-            </a>
-            <p class="team-member-bio">Joanne is a valued member of the Bowland Pharmacy team, providing friendly and efficient support to patients and staff alike. Her warm approach ensures every patient feels welcome and well looked after.</p>
-            <div class="team-member-specialties">
-              <span class="team-specialty-tag">Patient Support</span>
-              <span class="team-specialty-tag">NHS Services</span>
-              <span class="team-specialty-tag">Dispensing</span>
-            </div>
-          </div>
-        </div>
-      <?php endif; ?>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
