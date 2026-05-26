@@ -2982,6 +2982,15 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_wl_hero_testimonial_location', 'label' => 'Testimonial Location', 'name' => 'wl_hero_testimonial_location', 'type' => 'text', 'default_value' => 'Wythenshawe' ),
             array( 'key' => 'field_bp_wl_hero_result_badge', 'label' => 'Result Badge Text', 'name' => 'wl_hero_result_badge', 'type' => 'text', 'default_value' => 'Real Results' ),
             array(
+                'key'           => 'field_bp_wl_hero_mobile_image',
+                'label'         => 'Hero Mobile Background Image',
+                'name'          => 'wl_hero_mobile_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Shown only on mobile (below 1024px) as a full-bleed hero background with a dark navy overlay. Recommended: 1200x1600px portrait. Leave blank to fall back to Hero Image 1; if neither is set, mobile shows the default cream gradient.',
+            ),
+            array(
                 'key'           => 'field_bp_wl_hero_image_1',
                 'label'         => 'Hero Image 1 (top left)',
                 'name'          => 'wl_hero_image_1',

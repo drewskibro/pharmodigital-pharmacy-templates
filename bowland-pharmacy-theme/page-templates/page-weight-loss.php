@@ -10,11 +10,25 @@ get_header();
 <!-- ============================================
      HERO SECTION
      ============================================ -->
-<section class="wl-hero-section">
+<?php
+$wl_hero_mobile_bg_id = bp_field( 'wl_hero_mobile_image' );
+if ( ! $wl_hero_mobile_bg_id ) {
+    $wl_hero_mobile_bg_id = bp_field( 'wl_hero_image_1' );
+}
+$wl_hero_mobile_bg_url = $wl_hero_mobile_bg_id ? wp_get_attachment_image_url( $wl_hero_mobile_bg_id, 'large' ) : '';
+$wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-hero-section--has-mobile-bg' : '' );
+?>
+<section class="<?php echo esc_attr( $wl_hero_section_class ); ?>">
   <div class="wl-hero-bg"></div>
   <div class="wl-hero-dots"></div>
   <div class="wl-hero-glow-1"></div>
   <div class="wl-hero-glow-2"></div>
+  <?php if ( $wl_hero_mobile_bg_url ) : ?>
+  <div class="wl-hero-mobile-media" aria-hidden="true">
+    <img src="<?php echo esc_url( $wl_hero_mobile_bg_url ); ?>" alt="" />
+    <div class="wl-hero-mobile-overlay"></div>
+  </div>
+  <?php endif; ?>
 
   <div class="section-container">
     <div class="wl-hero-grid">
