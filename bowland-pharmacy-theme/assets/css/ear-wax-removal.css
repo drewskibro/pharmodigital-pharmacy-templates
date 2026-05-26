@@ -1480,8 +1480,8 @@
 /* ── STATS BAR — 2x2 mobile grid ── */
 @media (max-width: 1023px) {
   .earwax-stats-section {
-    margin-top: 0;
-    padding: 1.5rem 0 2rem;
+    margin-top: 2rem;
+    padding: 0 0 2rem;
   }
   .earwax-stats-bar {
     display: grid;
