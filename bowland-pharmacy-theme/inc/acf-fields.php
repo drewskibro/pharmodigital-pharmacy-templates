@@ -53,6 +53,16 @@ function bp_register_acf_field_groups() {
                 'instructions'  => 'Upload your pharmacy logo. Recommended: SVG or PNG with transparent background, at least 200px wide.',
             ),
             array(
+                'key'           => 'field_bp_brand_nav_logo_white',
+                'label'         => 'Navigation Logo (White SVG)',
+                'name'          => 'nav_logo_white',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+                'instructions'  => 'White version of the logo for use on the dark navigation bar. Upload an SVG or PNG with transparent background. Falls back to the main Pharmacy Logo if left empty.',
+            ),
+            array(
                 'key'           => 'field_bp_brand_tagline',
                 'label'         => 'Footer Tagline',
                 'name'          => 'footer_tagline',

@@ -14,7 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $pharmacy_name = bp_pharmacy_name();
-$nav_logo_id   = bp_option( 'nav_logo' );
+$nav_logo_id   = bp_option( 'nav_logo_white' );
+if ( ! $nav_logo_id ) {
+    $nav_logo_id = bp_option( 'nav_logo' );
+}
 $logo_url      = $nav_logo_id
     ? ( is_numeric( $nav_logo_id ) ? wp_get_attachment_image_url( $nav_logo_id, 'full' ) : $nav_logo_id )
     : bp_logo_url();
