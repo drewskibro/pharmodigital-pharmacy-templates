@@ -856,7 +856,7 @@ function bp_register_acf_field_groups() {
                 'button_label' => 'Add Team Member',
                 'instructions' => 'Team members listed here are used by the "Meet Your Clinical Team" section on every page that includes it (Home, Weight Loss, etc.). Upload each member once and they will appear everywhere automatically.',
                 'sub_fields'   => array(
-                    array( 'key' => 'field_bp_pt_photo', 'label' => 'Photo', 'name' => 'team_photo', 'type' => 'image', 'required' => 1, 'return_format' => 'id', 'preview_size' => 'thumbnail', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_bp_pt_photo', 'label' => 'Photo', 'name' => 'team_photo', 'type' => 'image', 'required' => 0, 'return_format' => 'id', 'preview_size' => 'thumbnail', 'wrapper' => array( 'width' => '20' ) ),
                     array( 'key' => 'field_bp_pt_name',  'label' => 'Name',  'name' => 'team_name',  'type' => 'text', 'required' => 1, 'wrapper' => array( 'width' => '25' ) ),
                     array( 'key' => 'field_bp_pt_role',  'label' => 'Role',  'name' => 'team_role',  'type' => 'text', 'required' => 1, 'wrapper' => array( 'width' => '25' ) ),
                     array( 'key' => 'field_bp_pt_gphc',  'label' => 'GPhC Number', 'name' => 'team_gphc', 'type' => 'text', 'required' => 0, 'instructions' => 'Optional. Leave blank if not a pharmacist.', 'wrapper' => array( 'width' => '15' ) ),
