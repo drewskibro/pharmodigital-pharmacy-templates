@@ -1305,7 +1305,7 @@
    ============================================ */
 .yellowfever-cta-section {
   position: relative;
-  background: linear-gradient(to right, var(--brand-primary), var(--brand-dark), #0f172a);
+  background: #0969cd;
   padding: 6rem 0;
   overflow: hidden;
   text-align: center;
@@ -1368,7 +1368,7 @@
 
 .yellowfever-cta-actions .white-btn {
   background: #ffffff;
-  color: var(--brand-dark);
+  color: #0969cd;
 }
 
 .yellowfever-cta-actions .white-btn:hover {
