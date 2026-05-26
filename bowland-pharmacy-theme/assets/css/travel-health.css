@@ -469,18 +469,22 @@
 
 @media (max-width: 767px) {
   .travel-stats-grid {
-    grid-template-columns: 1fr;
-    gap: 0;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
 
   .travel-stat-item {
-    justify-content: flex-start;
-    padding: 0.875rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    border-bottom: none;
   }
 
-  .travel-stat-item:last-child {
-    border-bottom: none;
+  .travel-stat-content {
+    align-items: center;
   }
 
   .travel-stat-icon {

@@ -1184,3 +1184,22 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ── STATS BAR — 2x2 mobile grid ── */
+@media (max-width: 1023px) {
+  .bpack-stats-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  .bpack-stat-item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .bpack-stat-content {
+    align-items: center;
+  }
+}

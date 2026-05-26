@@ -1412,3 +1412,26 @@
 .yellowfever-cta-checks .check i {
   color: #ffffff;
 }
+
+/* ============================================
+   STATS BAR — 2x2 GRID ON MOBILE
+   ============================================ */
+@media (max-width: 767px) {
+  .yellowfever-stats-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .yellowfever-stat-item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .yellowfever-stat-item .content {
+    align-items: center;
+  }
+}
