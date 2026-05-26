@@ -24,6 +24,8 @@ $booking_url   = bp_booking_url();
 $google_rating = bp_option( 'google_rating', '4.9' );
 $google_count  = bp_option( 'google_review_count', '300+' );
 $booking_text  = bp_option( 'booking_cta_text', 'Book Consultation' );
+$patient_portal_register_url = bp_option( 'patient_register_url', 'https://app.deltera.cloud/register?uid=1767525519-9962720033-1165713653-1322157098-6129109416' );
+$patient_portal_login_url    = bp_option( 'patient_login_url', 'https://app.deltera.cloud/login' );
 $trust_item_1  = bp_option( 'trust_bar_item_1', 'GPhC Registered' );
 $trust_item_2  = bp_option( 'trust_bar_item_2', 'NHS Partner' );
 
@@ -188,6 +190,14 @@ if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $def
           <a href="<?php echo esc_url( $booking_url ); ?>" class="bowland-book-btn">
             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
             <?php echo esc_html( $booking_text ); ?>
+          </a>
+          <a href="<?php echo esc_url( $patient_portal_register_url ); ?>" class="bowland-portal-btn bowland-portal-btn--register" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            Register
+          </a>
+          <a href="<?php echo esc_url( $patient_portal_login_url ); ?>" class="bowland-portal-btn bowland-portal-btn--login" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            Log In
           </a>
           <button class="bowland-search-btn" id="bowland-search-btn" aria-label="Search">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
@@ -522,6 +532,8 @@ if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $def
           <?php echo esc_html( $phone ); ?>
         </a>
         <a href="<?php echo esc_url( home_url( '/nhs-services/' ) ); ?>" class="bowland-mobile-cta-nhs">NHS Nominate</a>
+        <a href="<?php echo esc_url( $patient_portal_register_url ); ?>" class="bowland-mobile-cta-portal" target="_blank" rel="noopener noreferrer">Register</a>
+        <a href="<?php echo esc_url( $patient_portal_login_url ); ?>" class="bowland-mobile-cta-portal" target="_blank" rel="noopener noreferrer">Log In</a>
         <a href="<?php echo esc_url( $booking_url ); ?>" class="bowland-mobile-cta-book"><?php echo esc_html( $booking_text ); ?></a>
       </div>
 
