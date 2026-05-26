@@ -2045,6 +2045,13 @@ function bp_register_acf_field_groups() {
                     'value'    => 'page-templates/page-home.php',
                 ),
             ),
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-weight-loss.php',
+                ),
+            ),
         ),
         'menu_order'            => 160,
         'position'              => 'normal',
