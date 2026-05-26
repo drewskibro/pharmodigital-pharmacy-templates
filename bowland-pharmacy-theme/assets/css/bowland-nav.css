@@ -90,10 +90,10 @@
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* Mobile: 2-col so toggle always floats right */
+/* Desktop: 3-col grid — logo | actions (centred) | empty */
 .bowland-nav-top .bowland-container {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   height: 100%;
   max-width: 1280px;
@@ -103,6 +103,7 @@
 
 .bowland-nav-top .bowland-logo {
   justify-self: start;
+  transform: translateY(-8px);
 }
 
 .bowland-nav-top .bowland-top-actions {
@@ -113,10 +114,10 @@
   justify-self: end;
 }
 
-/* Desktop: restore 3-col layout so actions sit centred */
-@media (min-width: 1024px) {
+/* Mobile: collapse to 2-col so toggle always floats right */
+@media (max-width: 1023px) {
   .bowland-nav-top .bowland-container {
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr auto;
   }
 }
 
