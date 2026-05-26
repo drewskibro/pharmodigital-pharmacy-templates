@@ -30,17 +30,17 @@ $default_features = array(
     array(
         'icon'  => 'fa-file-signature',
         'title' => 'Same-Day Prescriptions',
-        'desc'  => 'No more waiting weeks for approval. Our prescribers review and issue prescriptions within hours, not days.',
+        'desc'  => 'No waiting weeks for a decision. If you\'re clinically suitable, our prescriber can approve your treatment the same day as your consultation.',
     ),
     array(
         'icon'  => 'fa-user-doctor',
         'title' => 'Real Pharmacist Support',
-        'desc'  => 'Speak with ' . bp_option( 'superintendent_pharmacist', 'our pharmacist' ) . ' directly — no chatbots, no automated responses, just genuine expert care.',
+        'desc'  => 'Speak directly with one of our qualified pharmacists at every stage of your journey. The same familiar faces, every visit — personal care from a team that genuinely knows you.',
     ),
     array(
-        'icon'  => 'fa-comments',
-        'title' => 'Face-to-Face Consultations',
-        'desc'  => 'See your pharmacist in person at our Bowland pharmacy — real conversations, real care, with same-day appointments available.',
+        'icon'  => 'fa-box-open',
+        'title' => 'Clinically Led Care',
+        'desc'  => 'Every treatment plan is assessed and approved by one of our qualified prescribers. You\'ll only be prescribed medication that\'s clinically appropriate for you — your safety always comes first.',
     ),
 );
 
