@@ -16,7 +16,6 @@
 
   /* Nav height tokens — single source of truth for body offset & full-bleed heroes */
   --nav-height: 112px;
-  --nav-height-compact: 64px; /* nav after scroll-shrink (trust bar collapsed) */
 
   --text-dark: #1a202c;
   --text-gray: #4a5568;
