@@ -90,9 +90,10 @@
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
 }
 
+/* Mobile: 2-col so toggle always floats right */
 .bowland-nav-top .bowland-container {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto;
   align-items: center;
   height: 100%;
   max-width: 1280px;
@@ -110,6 +111,13 @@
 
 .bowland-nav-top .bowland-mobile-toggle {
   justify-self: end;
+}
+
+/* Desktop: restore 3-col layout so actions sit centred */
+@media (min-width: 1024px) {
+  .bowland-nav-top .bowland-container {
+    grid-template-columns: 1fr auto 1fr;
+  }
 }
 
 @media (min-width: 1280px) {
