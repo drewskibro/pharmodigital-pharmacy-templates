@@ -62,7 +62,7 @@ $default_trust = array(
     ),
     array(
         'icon'  => 'fa-star',
-        'value' => '4.7/5',
+        'value' => '4.9/5',
         'label' => 'Google Rating',
     ),
     array(
