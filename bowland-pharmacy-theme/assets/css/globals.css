@@ -2738,9 +2738,11 @@ a.hero-nhs-pill:hover {
   font-size: clamp(2.25rem, 4.2vw, 3.25rem);
   font-weight: 900;
   color: var(--sw-ink);
+  margin-top: 0;
   margin-bottom: 1.5rem;
   line-height: 1.08;
   letter-spacing: -0.025em;
+  overflow-wrap: break-word;
 }
 
 .switching-title .gradient-text {
@@ -2750,6 +2752,12 @@ a.hero-nhs-pill:hover {
   -webkit-text-fill-color: transparent;
   font-style: italic;
   position: relative;
+  /* WebKit clips italic glyph overhang under background-clip: text.
+     Generous padding enlarges the painted region; matching negative margin
+     keeps line rhythm. */
+  display: inline-block;
+  padding: 0.05em 0.35em 0.15em 0;
+  margin: 0 -0.2em -0.1em 0;
 }
 
 .switching-title .gradient-text::after {
