@@ -318,6 +318,15 @@ html {
   background: linear-gradient(170deg, #fdf9f3 0%, #faf6f0 50%, #f5efe6 100%);
 }
 
+/* Tighten the gap between the nav and the first row of hero pill badges
+   on mobile - 5rem felt too airy under the fixed nav. Half the base
+   value. Desktop has its own 2.5rem rule below and is untouched. */
+@media (max-width: 1023px) {
+  .hero-section {
+    padding-top: 2.5rem;
+  }
+}
+
 @media (min-width: 1024px) {
   .hero-section {
     padding-top: 2.5rem;
