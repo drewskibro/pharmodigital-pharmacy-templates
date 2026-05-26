@@ -691,6 +691,14 @@
   border-radius: 9999px;
 }
 
+@media (max-width: 1023px) {
+  .yellowfever-needs-card .card-badge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+}
+
 .yellowfever-needs-card.required .card-badge {
   background: #e11d48;
   color: var(--white);
