@@ -700,8 +700,8 @@
 
 .bowland-link-text h4 {
   color: var(--dp-text);
-  font-weight: 600;
-  font-size: 0.8125rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
   margin: 0 0 0.125rem 0;
   transition: color 0.15s ease;
 }
@@ -712,9 +712,9 @@
 
 .bowland-link-text p {
   color: var(--dp-text-light);
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .bowland-dropdown-footer {
@@ -1124,4 +1124,63 @@ body.admin-bar .bowland-nav.nav-compact .bowland-mobile-menu {
   body.admin-bar .bowland-nav.nav-compact .bowland-mobile-menu {
     top: calc(64px + 32px);
   }
+}
+
+/* ── PATIENT PORTAL BUTTONS ── */
+.bowland-portal-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.bowland-portal-btn svg {
+  flex-shrink: 0;
+}
+
+.bowland-portal-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .bowland-portal-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+.bowland-mobile-cta-portal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.9375rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.bowland-mobile-cta-portal:hover {
+  background: rgba(255, 255, 255, 0.11);
+  color: #ffffff;
 }
