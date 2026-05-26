@@ -1263,6 +1263,16 @@
   }
 }
 
+/* Mobile: reset right-step order so content always comes first */
+@media (max-width: 1023px) {
+  .wl-journey-step-right .wl-journey-step-content {
+    order: 1;
+  }
+  .wl-journey-step-right .wl-journey-step-image {
+    order: 2;
+  }
+}
+
 /* Journey section — Tab + Card Grid variant (alternate layout) */
 .wl-journey-tabs {
   display: grid;
