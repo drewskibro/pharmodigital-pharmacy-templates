@@ -1,10 +1,14 @@
 <?php
 /**
- * Template Part: Pharmacist Section — Clean Clinical Card
+ * Template Part: Meet Your Clinical Team — 6-Card Grid
  *
- * Compact two-column layout: pharmacist identity on the left (photo, name,
- * role, GPhC number), content + CTAs on the right. Trust checks and
- * credential pills sit below the main grid.
+ * Responsive team grid: 1 col mobile, 2 col tablet, 3 col desktop.
+ * Each card shows photo, name, role, optional GPhC, and specialty tags.
+ *
+ * Data fallback chain:
+ *   1. Page-level home_team_members repeater (per-page override)
+ *   2. Global options pharmacy_team_members repeater (Pharmacy Settings → Clinical Team)
+ *   3. Hardcoded defaults (Ahmed Al-Liabi + placeholder entries)
  *
  * @package Bowland_Pharmacy
  */
@@ -13,53 +17,18 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// --- ACF fields with Bowland-specific defaults ---
-$section_title  = bp_field( 'pharmacist_section_title', 'Meet Your Clinical Team' );
-$section_sub    = bp_field( 'pharmacist_section_subtitle', 'Every consultation is led by a qualified, GPhC-registered prescriber from our clinical team.' );
-$badge_text     = bp_field( 'pharmacist_badge_text', 'Your Local Experts' );
-$eyebrow_text   = bp_field( 'pharmacist_eyebrow_text', 'Led by' );
-$name           = bp_field( 'pharmacist_name', 'Ahmed Al-Liabi' );
-$role           = bp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
-$bio            = bp_field( 'pharmacist_bio', 'With over 15 years of experience, Ahmed leads our clinical team dedicated to providing personalised, accessible healthcare in Wythenshawe. As an Independent Prescriber, he oversees our service to ensure you receive safe, effective treatments without the wait.' );
-$cta_text       = bp_field( 'pharmacist_cta_text', 'Start Your Online Consultation' );
-$cta_url        = bp_field( 'pharmacist_cta_url', bp_booking_url() );
-$phone          = bp_phone();
-$phone_link     = bp_phone_link();
+// --- Section header ---
+$badge_text    = bp_field( 'pharmacist_badge_text', 'YOUR LOCAL EXPERTS' );
+$section_title = bp_field( 'pharmacist_section_title', 'Meet Your Clinical Team' );
+$section_sub   = bp_field( 'pharmacist_section_subtitle', 'Every consultation is led by a qualified, GPhC-registered prescriber from our clinical team in Wythenshawe.' );
 
-// --- GPhC number from global options ---
-$gphc_number    = bp_option( 'superintendent_gphc_number', '2088937' );
+// --- CTAs ---
+$cta_text   = bp_field( 'pharmacist_cta_text', 'Start Your Online Consultation' );
+$cta_url    = bp_field( 'pharmacist_cta_url', bp_booking_url() );
+$phone      = bp_phone();
+$phone_link = bp_phone_link();
 
-// --- Pharmacist photo (ACF image field, return format: ID) ---
-$pharmacist_image_id  = bp_field( 'pharmacist_photo' );
-$pharmacist_image_url = $pharmacist_image_id ? wp_get_attachment_image_url( $pharmacist_image_id, 'medium_large' ) : '';
-$pharmacist_image_alt = $pharmacist_image_id
-    ? get_post_meta( $pharmacist_image_id, '_wp_attachment_image_alt', true )
-    : 'Lead Pharmacist at ' . bp_pharmacy_name();
-
-// --- Default credentials ---
-$default_credentials = array(
-    array( 'credential_icon' => 'fa-shield-halved', 'credential_text' => 'GPhC Registered' ),
-    array( 'credential_icon' => 'fa-file-signature', 'credential_text' => 'Independent Prescriber' ),
-    array( 'credential_icon' => 'fa-weight-scale', 'credential_text' => 'Weight Loss Specialist' ),
-);
-
-// --- Try ACF repeater first, fall back to defaults ---
-$credentials = array();
-if ( function_exists( 'have_rows' ) && have_rows( 'pharmacist_credentials' ) ) {
-    while ( have_rows( 'pharmacist_credentials' ) ) {
-        the_row();
-        $credentials[] = array(
-            'credential_icon' => get_sub_field( 'credential_icon' ) ?: 'fa-shield-halved',
-            'credential_text' => get_sub_field( 'credential_text' ) ?: '',
-        );
-    }
-}
-
-if ( empty( $credentials ) ) {
-    $credentials = $default_credentials;
-}
-
-// --- Trust checks (ACF repeater with defaults) ---
+// --- Trust checks ---
 $default_trust_checks = array( 'Same-Day Appointments', 'No GP Referral Needed', 'Face-to-Face Consultations' );
 $trust_checks = array();
 if ( function_exists( 'have_rows' ) && have_rows( 'pharmacist_trust_checks' ) ) {
@@ -74,11 +43,68 @@ if ( function_exists( 'have_rows' ) && have_rows( 'pharmacist_trust_checks' ) ) 
 if ( empty( $trust_checks ) ) {
     $trust_checks = $default_trust_checks;
 }
+
+// --- Team members: page-level → global options → hardcoded defaults ---
+$team = array();
+
+// Step 1: page-level repeater
+if ( function_exists( 'have_rows' ) && have_rows( 'home_team_members' ) ) {
+    while ( have_rows( 'home_team_members' ) ) {
+        the_row();
+        $tags = array();
+        if ( have_rows( 'team_tags' ) ) {
+            while ( have_rows( 'team_tags' ) ) {
+                the_row();
+                $label = get_sub_field( 'tag_label' );
+                if ( $label ) {
+                    $tags[] = $label;
+                }
+            }
+        }
+        $team[] = array(
+            'photo_id' => get_sub_field( 'team_photo' ),
+            'name'     => get_sub_field( 'team_name' ) ?: '',
+            'role'     => get_sub_field( 'team_role' ) ?: '',
+            'gphc'     => get_sub_field( 'team_gphc' ) ?: '',
+            'tags'     => $tags,
+        );
+    }
+}
+
+// Step 2: global options repeater (Pharmacy Settings → Clinical Team)
+if ( empty( $team ) && function_exists( 'have_rows' ) && have_rows( 'pharmacy_team_members', 'option' ) ) {
+    while ( have_rows( 'pharmacy_team_members', 'option' ) ) {
+        the_row();
+        $tags = array();
+        if ( have_rows( 'team_tags' ) ) {
+            while ( have_rows( 'team_tags' ) ) {
+                the_row();
+                $label = get_sub_field( 'tag_label' );
+                if ( $label ) {
+                    $tags[] = $label;
+                }
+            }
+        }
+        $team[] = array(
+            'photo_id' => get_sub_field( 'team_photo' ),
+            'name'     => get_sub_field( 'team_name' ) ?: '',
+            'role'     => get_sub_field( 'team_role' ) ?: '',
+            'gphc'     => get_sub_field( 'team_gphc' ) ?: '',
+            'tags'     => $tags,
+        );
+    }
+}
+
+// Step 3: hardcoded defaults
+if ( empty( $team ) ) {
+    $team = array(
+        array( 'photo_id' => 0, 'name' => 'Ahmed Al-Liabi', 'role' => 'Lead Pharmacist & Independent Prescriber', 'gphc' => '2088937', 'tags' => array( 'Independent Prescriber', 'Weight Loss Specialist' ) ),
+    );
+}
 ?>
 
 <section class="pharmacist-section" id="about">
 
-    <!-- Decorative background glows -->
     <div class="pharmacist-bg-glow pharmacist-bg-glow-1"></div>
     <div class="pharmacist-bg-glow pharmacist-bg-glow-2"></div>
 
@@ -96,72 +122,68 @@ if ( empty( $trust_checks ) ) {
             <p class="pharmacist-section-subtitle"><?php echo esc_html( $section_sub ); ?></p>
         </div>
 
-        <div class="pharmacist-card">
-
-            <!-- Gradient accent top bar -->
-            <div class="pharmacist-card-accent"></div>
-
-            <div class="pharmacist-grid">
-
-                <!-- LEFT: Photo + identity -->
-                <div class="pharmacist-left">
-                    <?php if ( $pharmacist_image_url ) : ?>
-                    <div class="pharmacist-photo-wrapper">
-                        <img src="<?php echo esc_url( $pharmacist_image_url ); ?>" alt="<?php echo esc_attr( $pharmacist_image_alt ); ?>" class="pharmacist-photo" />
-                    </div>
+        <!-- Team grid -->
+        <div class="team-grid">
+            <?php foreach ( $team as $member ) :
+                $photo_url = ! empty( $member['photo_id'] ) ? wp_get_attachment_image_url( $member['photo_id'], 'medium' ) : '';
+                $initials  = '';
+                if ( empty( $photo_url ) ) {
+                    $parts    = explode( ' ', $member['name'] );
+                    $initials = strtoupper( substr( $parts[0], 0, 1 ) . ( isset( $parts[1] ) ? substr( $parts[1], 0, 1 ) : '' ) );
+                }
+            ?>
+            <div class="team-card">
+                <div class="team-card-photo">
+                    <?php if ( $photo_url ) : ?>
+                        <img src="<?php echo esc_url( $photo_url ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" />
+                    <?php else : ?>
+                        <span class="team-card-initials"><?php echo esc_html( $initials ); ?></span>
                     <?php endif; ?>
-
-                    <div class="pharmacist-identity">
-                        <p class="pharmacist-eyebrow"><?php echo esc_html( $eyebrow_text ); ?></p>
-                        <h2 class="pharmacist-name"><?php echo esc_html( $name ); ?></h2>
-                        <p class="pharmacist-role"><?php echo esc_html( $role ); ?></p>
-                        <p class="pharmacist-gphc">
-                            <i class="fas fa-shield-halved"></i>
-                            GPhC: <?php echo esc_html( $gphc_number ); ?>
-                        </p>
-                    </div>
                 </div>
 
-                <!-- RIGHT: Content + CTAs -->
-                <div class="pharmacist-right">
+                <h3 class="team-card-name"><?php echo esc_html( $member['name'] ); ?></h3>
+                <p class="team-card-role"><?php echo esc_html( $member['role'] ); ?></p>
 
-                    <p class="pharmacist-bio"><?php echo esc_html( $bio ); ?></p>
+                <?php if ( ! empty( $member['gphc'] ) ) : ?>
+                <a href="https://www.pharmacyregulation.org/registers/pharmacist/registrant/<?php echo esc_attr( $member['gphc'] ); ?>"
+                   class="team-card-gphc" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-shield-halved"></i>
+                    GPhC: <?php echo esc_html( $member['gphc'] ); ?>
+                </a>
+                <?php endif; ?>
 
-                    <div class="pharmacist-credentials">
-                        <?php foreach ( $credentials as $credential ) :
-                            $icon_class = bp_fa_class( $credential['credential_icon'] );
-                        ?>
-                            <div class="pharmacist-credential">
-                                <i class="<?php echo esc_attr( $icon_class ); ?>"></i>
-                                <span><?php echo esc_html( $credential['credential_text'] ); ?></span>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-
-                    <div class="pharmacist-cta">
-                        <a href="<?php echo esc_url( $cta_url ); ?>" class="cta-button primary-cta">
-                            <?php echo esc_html( $cta_text ); ?>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="cta-button secondary-cta">
-                            <i class="fas fa-phone"></i>
-                            <?php echo esc_html( 'Call ' . $phone ); ?>
-                        </a>
-                    </div>
+                <?php if ( ! empty( $member['tags'] ) ) : ?>
+                <div class="team-card-tags">
+                    <?php foreach ( $member['tags'] as $tag ) : ?>
+                        <span class="team-card-tag"><?php echo esc_html( $tag ); ?></span>
+                    <?php endforeach; ?>
                 </div>
-
+                <?php endif; ?>
             </div>
-
-            <!-- Trust checks -->
-            <div class="pharmacist-trust-checks">
-                <?php foreach ( $trust_checks as $check ) : ?>
-                    <span class="pharmacist-trust-item">
-                        <i class="fas fa-check-circle"></i>
-                        <?php echo esc_html( $check ); ?>
-                    </span>
-                <?php endforeach; ?>
-            </div>
-
+            <?php endforeach; ?>
         </div>
+
+        <!-- CTAs -->
+        <div class="pharmacist-cta">
+            <a href="<?php echo esc_url( $cta_url ); ?>" class="cta-button primary-cta">
+                <?php echo esc_html( $cta_text ); ?>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="tel:<?php echo esc_attr( $phone_link ); ?>" class="cta-button secondary-cta">
+                <i class="fas fa-phone"></i>
+                <?php echo esc_html( 'Call ' . $phone ); ?>
+            </a>
+        </div>
+
+        <!-- Trust checks -->
+        <div class="pharmacist-trust-checks">
+            <?php foreach ( $trust_checks as $check ) : ?>
+                <span class="pharmacist-trust-item">
+                    <i class="fas fa-check-circle"></i>
+                    <?php echo esc_html( $check ); ?>
+                </span>
+            <?php endforeach; ?>
+        </div>
+
     </div>
 </section>
