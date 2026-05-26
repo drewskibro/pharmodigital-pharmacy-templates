@@ -869,7 +869,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Hero Title — Line 1',
                 'name'          => 'hero_title_line_1',
                 'type'          => 'text',
-                'default_value' => 'Lose Weight.',
+                'default_value' => 'Local Pharmacy',
                 'instructions'  => 'First line of the rotating hero headline.',
             ),
             array(

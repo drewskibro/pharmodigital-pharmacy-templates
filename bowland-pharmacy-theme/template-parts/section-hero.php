@@ -113,7 +113,7 @@ $rating_link_text   = bp_field( 'hero_rating_link_text', 'View Reviews' );
 
                 <?php
                 // --- Headline: 3 lines with rotating middle ---
-                $hero_line_1 = bp_field( 'hero_title_line_1', 'Lose Weight.' );
+                $hero_line_1 = bp_field( 'hero_title_line_1', 'Local Pharmacy' );
                 $hero_line_3 = bp_field( 'hero_title_line_3', 'Get NHS Care.' );
 
                 // Rotating phrases for line 2 (ACF repeater, seeded in DB)
