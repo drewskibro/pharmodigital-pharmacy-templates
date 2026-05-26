@@ -535,7 +535,8 @@
   opacity: 0.9;
 }
 
-/* Nav dropdowns use the UI font (Instrument Sans), not the editorial heading font */
+/* Nav dropdowns use the UI font (Instrument Sans), not the editorial heading font.
+   Also reset letter-spacing and line-height so global heading styles don't leak in. */
 .bowland-dropdown,
 .bowland-dropdown h1,
 .bowland-dropdown h2,
@@ -547,6 +548,8 @@
 .bowland-dropdown a,
 .bowland-dropdown span {
   font-family: 'Instrument Sans', sans-serif;
+  letter-spacing: normal;
+  line-height: normal;
 }
 
 /* ── DROPDOWN ── */
