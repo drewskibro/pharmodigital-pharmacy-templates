@@ -9579,7 +9579,7 @@ function dp_register_acf_field_groups() {
         'title'  => 'Pharmacy First — Hero',
         'fields' => array(
             array( 'key' => 'field_dp_pf_hero_badge', 'label' => 'Badge Text', 'name' => 'pf_hero_badge', 'type' => 'text', 'default_value' => 'NHS PHARMACY FIRST SERVICE' ),
-            array( 'key' => 'field_dp_pf_hero_title_highlight', 'label' => 'Title (Gradient)', 'name' => 'pf_hero_title_highlight', 'type' => 'text', 'default_value' => 'Free NHS Treatment' ),
+            array( 'key' => 'field_dp_pf_hero_title_highlight', 'label' => 'Title (Gradient)', 'name' => 'pf_hero_title_highlight', 'type' => 'text', 'default_value' => 'Free NHS Consultation' ),
             array( 'key' => 'field_dp_pf_hero_title_rest', 'label' => 'Title (Rest)', 'name' => 'pf_hero_title_rest', 'type' => 'text', 'default_value' => 'in Denton' ),
             array( 'key' => 'field_dp_pf_hero_description', 'label' => 'Description', 'name' => 'pf_hero_description', 'type' => 'textarea', 'rows' => 3 ),
             array( 'key' => 'field_dp_pf_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'pf_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Pharmacy First Visit' ),
@@ -9588,7 +9588,7 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_pf_hero_image_alt', 'label' => 'Hero Image Alt', 'name' => 'pf_hero_image_alt', 'type' => 'text' ),
             array( 'key' => 'field_dp_pf_price_label', 'label' => 'Price Label', 'name' => 'pf_price_label', 'type' => 'text', 'default_value' => 'NHS Service' ),
             array( 'key' => 'field_dp_pf_price_amount', 'label' => 'Price Amount', 'name' => 'pf_price_amount', 'type' => 'text', 'default_value' => 'FREE' ),
-            array( 'key' => 'field_dp_pf_price_sub', 'label' => 'Price Subtext', 'name' => 'pf_price_sub', 'type' => 'text', 'default_value' => 'no charge to you' ),
+            array( 'key' => 'field_dp_pf_price_sub', 'label' => 'Price Subtext', 'name' => 'pf_price_sub', 'type' => 'text', 'default_value' => 'consultation — prescription charges may apply' ),
             array( 'key' => 'field_dp_pf_trust_1', 'label' => 'Trust Pill 1', 'name' => 'pf_trust_1', 'type' => 'text', 'default_value' => 'NHS Funded' ),
             array( 'key' => 'field_dp_pf_trust_1_icon', 'label' => 'Trust Pill 1 — Icon', 'name' => 'pf_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'instructions' => 'Font Awesome class, e.g. fas fa-check-circle' ),
             array( 'key' => 'field_dp_pf_trust_2', 'label' => 'Trust Pill 2', 'name' => 'pf_trust_2', 'type' => 'text', 'default_value' => 'No GP Appointment Needed' ),
@@ -9620,7 +9620,7 @@ function dp_register_acf_field_groups() {
         'fields' => array(
             array( 'key' => 'field_dp_pf_stat_1_icon', 'label' => 'Stat 1 Icon', 'name' => 'pf_stat_1_icon', 'type' => 'text', 'default_value' => 'fas fa-sterling-sign' ),
             array( 'key' => 'field_dp_pf_stat_1_number', 'label' => 'Stat 1 Number', 'name' => 'pf_stat_1_number', 'type' => 'text', 'default_value' => 'FREE' ),
-            array( 'key' => 'field_dp_pf_stat_1_label', 'label' => 'Stat 1 Label', 'name' => 'pf_stat_1_label', 'type' => 'text', 'default_value' => 'No Cost to You' ),
+            array( 'key' => 'field_dp_pf_stat_1_label', 'label' => 'Stat 1 Label', 'name' => 'pf_stat_1_label', 'type' => 'text', 'default_value' => 'NHS Consultation' ),
             array( 'key' => 'field_dp_pf_stat_2_icon', 'label' => 'Stat 2 Icon', 'name' => 'pf_stat_2_icon', 'type' => 'text', 'default_value' => 'fas fa-list-check' ),
             array( 'key' => 'field_dp_pf_stat_2_number', 'label' => 'Stat 2 Number', 'name' => 'pf_stat_2_number', 'type' => 'text', 'default_value' => '7' ),
             array( 'key' => 'field_dp_pf_stat_2_label', 'label' => 'Stat 2 Label', 'name' => 'pf_stat_2_label', 'type' => 'text', 'default_value' => 'Conditions Treated' ),
@@ -9654,7 +9654,7 @@ function dp_register_acf_field_groups() {
         'title'  => 'Pharmacy First — Conditions',
         'fields' => array(
             array( 'key' => 'field_dp_pf_conditions_badge', 'label' => 'Badge Text', 'name' => 'pf_conditions_badge', 'type' => 'text', 'default_value' => 'CONDITIONS WE TREAT' ),
-            array( 'key' => 'field_dp_pf_conditions_title', 'label' => 'Section Title', 'name' => 'pf_conditions_title', 'type' => 'text', 'default_value' => '7 Common Conditions Treated Free' ),
+            array( 'key' => 'field_dp_pf_conditions_title', 'label' => 'Section Title', 'name' => 'pf_conditions_title', 'type' => 'text', 'default_value' => '7 Common Conditions We Can Treat' ),
             array( 'key' => 'field_dp_pf_conditions_desc', 'label' => 'Description', 'name' => 'pf_conditions_description', 'type' => 'textarea', 'rows' => 2 ),
             array(
                 'key'          => 'field_dp_pf_conditions',
@@ -9665,9 +9665,11 @@ function dp_register_acf_field_groups() {
                 'button_label' => 'Add Condition',
                 'sub_fields'   => array(
                     array( 'key' => 'field_dp_pf_cond_icon', 'label' => 'Icon Class', 'name' => 'icon', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
-                    array( 'key' => 'field_dp_pf_cond_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '25' ) ),
-                    array( 'key' => 'field_dp_pf_cond_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '35' ) ),
-                    array( 'key' => 'field_dp_pf_cond_tag', 'label' => 'Tag (optional)', 'name' => 'tag', 'type' => 'text', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_pf_cond_title', 'label' => 'Condition Name', 'name' => 'title', 'type' => 'text', 'wrapper' => array( 'width' => '75' ) ),
+                    array( 'key' => 'field_dp_pf_cond_who', 'label' => "Who it's for (age criteria)", 'name' => 'who', 'type' => 'text', 'wrapper' => array( 'width' => '50' ) ),
+                    array( 'key' => 'field_dp_pf_cond_symptoms', 'label' => 'Key Symptoms', 'name' => 'symptoms', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '50' ) ),
+                    array( 'key' => 'field_dp_pf_cond_exclusions', 'label' => 'Exclusion Criteria (when we cannot treat)', 'name' => 'exclusions', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '50' ) ),
+                    array( 'key' => 'field_dp_pf_cond_treatment', 'label' => 'What we can provide if appropriate', 'name' => 'treatment', 'type' => 'textarea', 'rows' => 2, 'wrapper' => array( 'width' => '50' ) ),
                 ),
             ),
         ),
@@ -9694,7 +9696,7 @@ function dp_register_acf_field_groups() {
         'title'  => 'Pharmacy First — Process & Eligibility',
         'fields' => array(
             array( 'key' => 'field_dp_pf_process_badge', 'label' => 'Badge Text', 'name' => 'pf_process_badge', 'type' => 'text', 'default_value' => 'HOW IT WORKS' ),
-            array( 'key' => 'field_dp_pf_process_title', 'label' => 'Section Title', 'name' => 'pf_process_title', 'type' => 'text', 'default_value' => 'Three Simple Steps to Free Treatment' ),
+            array( 'key' => 'field_dp_pf_process_title', 'label' => 'Section Title', 'name' => 'pf_process_title', 'type' => 'text', 'default_value' => 'Three Simple Steps to Treatment' ),
             array( 'key' => 'field_dp_pf_process_desc', 'label' => 'Description', 'name' => 'pf_process_description', 'type' => 'text' ),
             array(
                 'key'           => 'field_dp_pf_process_image',
@@ -9780,15 +9782,15 @@ function dp_register_acf_field_groups() {
         'key'    => 'group_dp_pf_cta',
         'title'  => 'Pharmacy First — Final CTA',
         'fields' => array(
-            array( 'key' => 'field_dp_pf_cta_badge_1', 'label' => 'Badge 1', 'name' => 'pf_cta_badge_1', 'type' => 'text', 'default_value' => 'Free NHS Service' ),
+            array( 'key' => 'field_dp_pf_cta_badge_1', 'label' => 'Badge 1', 'name' => 'pf_cta_badge_1', 'type' => 'text', 'default_value' => 'Free NHS Consultation' ),
             array( 'key' => 'field_dp_pf_cta_badge_2', 'label' => 'Badge 2', 'name' => 'pf_cta_badge_2', 'type' => 'text', 'default_value' => 'No GP Needed' ),
             array( 'key' => 'field_dp_pf_cta_badge_3', 'label' => 'Badge 3', 'name' => 'pf_cta_badge_3', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
-            array( 'key' => 'field_dp_pf_cta_title', 'label' => 'Title', 'name' => 'pf_cta_title', 'type' => 'text', 'default_value' => 'Get Free NHS Treatment Today' ),
+            array( 'key' => 'field_dp_pf_cta_title', 'label' => 'Title', 'name' => 'pf_cta_title', 'type' => 'text', 'default_value' => 'Get Seen by an NHS Pharmacist Today' ),
             array( 'key' => 'field_dp_pf_cta_desc', 'label' => 'Description', 'name' => 'pf_cta_description', 'type' => 'textarea', 'rows' => 2 ),
             array( 'key' => 'field_dp_pf_cta_primary_url', 'label' => 'CTA URL', 'name' => 'pf_cta_primary_url', 'type' => 'url' ),
             array( 'key' => 'field_dp_pf_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'pf_cta_button_text', 'type' => 'text', 'default_value' => 'Book Pharmacy First Visit' ),
             array( 'key' => 'field_dp_pf_cta_check_1', 'label' => 'Trust Check 1', 'name' => 'pf_cta_check_1', 'type' => 'text', 'default_value' => 'No referral needed' ),
-            array( 'key' => 'field_dp_pf_cta_check_2', 'label' => 'Trust Check 2', 'name' => 'pf_cta_check_2', 'type' => 'text', 'default_value' => '7 conditions treated free' ),
+            array( 'key' => 'field_dp_pf_cta_check_2', 'label' => 'Trust Check 2', 'name' => 'pf_cta_check_2', 'type' => 'text', 'default_value' => '7 conditions assessed' ),
             array( 'key' => 'field_dp_pf_cta_check_3', 'label' => 'Trust Check 3', 'name' => 'pf_cta_check_3', 'type' => 'text', 'default_value' => 'Same-day appointments' ),
         ),
         'location' => array(
