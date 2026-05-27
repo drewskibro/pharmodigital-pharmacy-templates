@@ -28,10 +28,10 @@ $hours_weekday = bp_option( 'hours_weekday', 'Mon-Fri: 9am-6pm' );
 $hours_weekend = bp_option( 'hours_saturday', 'Sat: 9am-1pm' );
 
 // Social links.
-$facebook_url  = bp_option( 'social_facebook', 'https://facebook.com' );
-$instagram_url = bp_option( 'social_instagram', 'https://instagram.com' );
-$twitter_url   = bp_option( 'social_twitter', 'https://twitter.com' );
-$linkedin_url  = bp_option( 'social_linkedin', 'https://linkedin.com' );
+$facebook_url  = bp_option( 'social_facebook', '' );
+$instagram_url = bp_option( 'social_instagram', '' );
+$twitter_url   = bp_option( 'social_twitter', '' );
+$linkedin_url  = bp_option( 'social_linkedin', '' );
 
 // Registration.
 $gphc_number       = bp_option( 'gphc_registration', '1089163' );
