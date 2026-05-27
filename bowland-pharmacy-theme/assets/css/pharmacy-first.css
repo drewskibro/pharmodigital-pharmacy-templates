@@ -274,11 +274,11 @@
 .pharmfirst-trust-card-amount {
   display: block;
   font-family: var(--font-heading);
-  font-size: 5rem;
+  font-size: 2.25rem;
   font-weight: 900;
   color: var(--white);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
