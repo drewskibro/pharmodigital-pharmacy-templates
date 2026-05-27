@@ -36,7 +36,7 @@ get_header();
         </h2>
 
         <p class="earwax-hero-description">
-          <?php echo esc_html( bp_field( 'ew_hero_description', 'Safe, effective ear wax removal using advanced microsuction technology. Same-day appointments available with guaranteed results. Just £60 for both ears, consultation included.' ) ); ?>
+          <?php echo esc_html( bp_field( 'ew_hero_description', 'Safe, effective ear wax removal using advanced microsuction technology. Same-day appointments available with expert microsuction care. Just £60 for both ears, consultation included.' ) ); ?>
         </p>
 
         <div class="earwax-hero-actions">
@@ -704,7 +704,7 @@ get_header();
       </div>
       <h2 class="earwax-cta-title"><?php echo esc_html( bp_field( 'ew_cta_title', 'Ready to hear clearly again?' ) ); ?></h2>
       <p class="earwax-cta-description">
-        <?php echo esc_html( bp_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Wythenshawe clinic today. Expert microsuction treatment with guaranteed results.' ) ); ?>
+        <?php echo esc_html( bp_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Wythenshawe clinic today. Expert microsuction treatment from our specialist team.' ) ); ?>
       </p>
       <div class="earwax-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'ew_cta_primary_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta earwax-cta-button-white">
