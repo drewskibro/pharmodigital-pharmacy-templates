@@ -618,8 +618,8 @@ get_header();
             </div>
             <p class="earwax-testimonial-quote">"<?php echo esc_html( $testimonial['quote'] ); ?>"</p>
             <div class="earwax-testimonial-service">
-              <i class="fas fa-ear-listen"></i>
-              <span>Microsuction</span>
+              <i class="fab fa-google"></i>
+              <span>Google Review</span>
             </div>
           </div>
         <?php endforeach; ?>
