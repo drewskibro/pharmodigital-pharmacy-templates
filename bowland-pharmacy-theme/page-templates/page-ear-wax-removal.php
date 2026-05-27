@@ -591,9 +591,9 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $default_testimonials = array(
-          array( 'quote' => 'After weeks of discomfort, I finally got my ears treated at Bowland Pharmacy. The difference was immediate — I could hear clearly again! Ahmed was professional and explained everything clearly. Highly recommend!', 'author' => 'Paul F.', 'location' => 'Wythenshawe' ),
-          array( 'quote' => 'Fantastic service from start to finish. The team was so thorough and professional. The aftercare advice has helped prevent any further build-up.', 'author' => 'Georgia P.', 'location' => 'Wythenshawe' ),
-          array( 'quote' => 'Much better than the traditional syringing I had years ago. No mess, no fuss, just clear hearing again. The appointment times meant I didn\'t need to take time off work.', 'author' => 'Giedrius K.', 'location' => 'Wythenshawe' ),
+          array( 'quote' => 'Very polite pharmacist who was very kind. Very nice efficient service. Superb.', 'author' => 'Maria Ritchie', 'location' => 'Wythenshawe' ),
+          array( 'quote' => 'Professional, courteous and very efficient.', 'author' => 'Adeledjones', 'location' => 'Wythenshawe' ),
+          array( 'quote' => 'Quality friendly family based service always welcomed by name, very attentive to your needs make you feel at ease.', 'author' => 'Craig Barrett', 'location' => 'Wythenshawe' ),
         );
         foreach ( $default_testimonials as $testimonial ) :
           $parts = explode( ' ', trim( $testimonial['author'] ) );
