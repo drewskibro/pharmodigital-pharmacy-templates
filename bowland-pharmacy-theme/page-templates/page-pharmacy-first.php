@@ -9,7 +9,7 @@ get_header();
 
 <!-- ============================================
      N1. HERO SECTION — Pattern A Light
-     Badge, title, description, 2 CTAs, trust pills, image with FREE badge
+     Badge, title, description, 2 CTAs, trust pills, image with card
      ============================================ -->
 <section class="pharmfirst-hero-section">
   <div class="pharmfirst-hero-bg"></div>
@@ -27,12 +27,12 @@ get_header();
         </div>
 
         <h1 class="pharmfirst-hero-title">
-          <span class="gradient-text"><?php echo esc_html( bp_field( 'pf_hero_title_highlight', 'Free NHS Treatment' ) ); ?></span>
+          <span class="gradient-text"><?php echo esc_html( bp_field( 'pf_hero_title_highlight', 'Free NHS Consultation' ) ); ?></span>
           <?php echo esc_html( bp_field( 'pf_hero_title_rest', 'in Wythenshawe' ) ); ?>
         </h1>
 
         <p class="pharmfirst-hero-description">
-          <?php echo esc_html( bp_field( 'pf_hero_description', 'Under the NHS Pharmacy First scheme, our pharmacists at Bowland Pharmacy can assess and treat 7 common conditions — completely free. No GP appointment needed, no waiting weeks. Just walk in or book a slot and get treated the same day.' ) ); ?>
+          <?php echo esc_html( bp_field( 'pf_hero_description', 'See one of our pharmacists for assessment and treatment of 7 common conditions — no GP appointment needed and no referral required. You do not need to be registered with a GP to use this service. The consultation is free for everyone. If medication is clinically appropriate and prescribed, standard NHS prescription charges apply (currently £9.90 per item) unless you are exempt.' ) ); ?>
         </p>
 
         <div class="pharmfirst-hero-actions">
@@ -49,7 +49,7 @@ get_header();
         <div class="pharmfirst-hero-trust">
           <div class="pharmfirst-hero-trust-item">
             <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'pf_trust_1_icon', 'fas fa-check-circle' ) ) ); ?>"></i>
-            <span><?php echo esc_html( bp_field( 'pf_trust_1', 'NHS Funded' ) ); ?></span>
+            <span><?php echo esc_html( bp_field( 'pf_trust_1', 'Free consultation for all' ) ); ?></span>
           </div>
           <div class="pharmfirst-hero-trust-item">
             <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'pf_trust_2_icon', 'fas fa-calendar-check' ) ) ); ?>"></i>
@@ -79,12 +79,14 @@ get_header();
               <span class="pharmfirst-trust-card-label"><?php echo esc_html( bp_field( 'pf_price_label', 'NHS Pharmacy First' ) ); ?></span>
             </div>
             <div class="pharmfirst-trust-card-free">
-              <span class="pharmfirst-trust-card-amount"><?php echo esc_html( bp_field( 'pf_price_amount', 'FREE' ) ); ?></span>
-              <span class="pharmfirst-trust-card-sub"><?php echo esc_html( bp_field( 'pf_price_sub', 'no charge to you' ) ); ?></span>
+              <span class="pharmfirst-trust-card-amount"><?php echo esc_html( bp_field( 'pf_price_amount', 'Free Consultation' ) ); ?></span>
+              <?php $pf_price_sub = bp_field( 'pf_price_sub', '' ); if ( $pf_price_sub ) : ?>
+              <span class="pharmfirst-trust-card-sub"><?php echo esc_html( $pf_price_sub ); ?></span>
+              <?php endif; ?>
             </div>
             <div class="pharmfirst-trust-card-divider"></div>
             <ul class="pharmfirst-trust-card-list">
-              <li><i class="fas fa-check"></i> <span><?php echo esc_html( bp_field( 'pf_trust_1', 'NHS Funded' ) ); ?></span></li>
+              <li><i class="fas fa-check"></i> <span><?php echo esc_html( bp_field( 'pf_trust_1', 'Free consultation for all' ) ); ?></span></li>
               <li><i class="fas fa-check"></i> <span><?php echo esc_html( bp_field( 'pf_trust_2', 'No GP Appointment Needed' ) ); ?></span></li>
               <li><i class="fas fa-check"></i> <span><?php echo esc_html( bp_field( 'pf_trust_3', 'Same-Day Treatment' ) ); ?></span></li>
             </ul>
@@ -112,10 +114,10 @@ get_header();
     <div class="pharmfirst-stats-bar">
       <?php
       $stats = array(
-        array( 'icon' => 'pf_stat_1_icon', 'number' => 'pf_stat_1_number', 'label' => 'pf_stat_1_label', 'def_icon' => 'fas fa-sterling-sign', 'def_number' => 'FREE', 'def_label' => 'No Cost to You' ),
-        array( 'icon' => 'pf_stat_2_icon', 'number' => 'pf_stat_2_number', 'label' => 'pf_stat_2_label', 'def_icon' => 'fas fa-list-check', 'def_number' => '7', 'def_label' => 'Conditions Treated' ),
-        array( 'icon' => 'pf_stat_3_icon', 'number' => 'pf_stat_3_number', 'label' => 'pf_stat_3_label', 'def_icon' => 'fas fa-user-doctor', 'def_number' => 'No GP', 'def_label' => 'Appointment Needed' ),
-        array( 'icon' => 'pf_stat_4_icon', 'number' => 'pf_stat_4_number', 'label' => 'pf_stat_4_label', 'def_icon' => 'fas fa-clock', 'def_number' => 'Same Day', 'def_label' => 'Treatment Available' ),
+        array( 'icon' => 'pf_stat_1_icon', 'number' => 'pf_stat_1_number', 'label' => 'pf_stat_1_label', 'def_icon' => 'fas fa-circle-check', 'def_number' => 'Free Consultation', 'def_label' => 'Medication charges may apply' ),
+        array( 'icon' => 'pf_stat_2_icon', 'number' => 'pf_stat_2_number', 'label' => 'pf_stat_2_label', 'def_icon' => 'fas fa-list-check',   'def_number' => '7',                 'def_label' => 'Conditions Treated' ),
+        array( 'icon' => 'pf_stat_3_icon', 'number' => 'pf_stat_3_number', 'label' => 'pf_stat_3_label', 'def_icon' => 'fas fa-user-doctor',  'def_number' => 'No GP',             'def_label' => 'Appointment Needed' ),
+        array( 'icon' => 'pf_stat_4_icon', 'number' => 'pf_stat_4_number', 'label' => 'pf_stat_4_label', 'def_icon' => 'fas fa-clock',        'def_number' => 'Same Day',          'def_label' => 'Treatment Available' ),
       );
       foreach ( $stats as $si => $stat ) :
       ?>
@@ -144,8 +146,8 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'pf_conditions_badge', 'CONDITIONS WE TREAT' ) ); ?></span>
       </div>
-      <h2 class="pharmfirst-conditions-title"><?php echo esc_html( bp_field( 'pf_conditions_title', '7 Common Conditions Treated Free' ) ); ?></h2>
-      <p class="pharmfirst-conditions-description"><?php echo esc_html( bp_field( 'pf_conditions_description', 'Under Pharmacy First, our pharmacists can assess, diagnose, and treat these conditions — with medication supplied free of charge where clinically appropriate.' ) ); ?></p>
+      <h2 class="pharmfirst-conditions-title"><?php echo esc_html( bp_field( 'pf_conditions_title', '7 Conditions We Can Treat' ) ); ?></h2>
+      <p class="pharmfirst-conditions-description"><?php echo esc_html( bp_field( 'pf_conditions_description', 'Under Pharmacy First, our pharmacists can assess, diagnose, and treat these conditions — supplying clinically appropriate NHS medication where needed.' ) ); ?></p>
     </div>
 
     <div class="pharmfirst-conditions-grid">
@@ -161,13 +163,48 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $conditions = array(
-          array( 'icon' => 'fas fa-head-side-mask', 'title' => 'Sinusitis', 'desc' => 'Blocked or runny nose with facial pain or pressure, lasting more than 10 days or worsening after initial improvement.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-head-side-cough',  'title' => 'Sore Throat', 'desc' => 'Painful throat making it difficult to swallow. Our pharmacist can assess severity and provide appropriate treatment.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-ear-listen',      'title' => 'Earache', 'desc' => 'Pain in one or both ears, which may be sharp or dull. Common in both children and adults.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-bug',             'title' => 'Infected Insect Bite', 'desc' => 'A bite or sting that has become red, swollen, warm, or is leaking pus — signs of bacterial infection.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-hand-dots',       'title' => 'Impetigo', 'desc' => 'Highly contagious skin infection causing red sores, usually around the nose and mouth, that burst and form crusts.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-virus',           'title' => 'Shingles', 'desc' => 'Painful, blistering rash caused by the reactivation of the chickenpox virus. Early treatment reduces severity.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-person-dress',    'title' => 'Uncomplicated UTI', 'desc' => 'Burning or stinging when passing urine, needing to go more often, or cloudy/strong-smelling urine.', 'tag' => 'Women aged 16-64 only' ),
+          array(
+            'icon'  => 'fas fa-head-side-mask',
+            'title' => 'Sinusitis',
+            'desc'  => 'Blocked or runny nose with facial pain or pressure. Lasting more than 10 days, or worsening after initial improvement. Treated with a nasal corticosteroid spray.',
+            'tag'   => 'Aged 12 and over',
+          ),
+          array(
+            'icon'  => 'fas fa-head-side-cough',
+            'title' => 'Sore Throat',
+            'desc'  => 'Painful or irritated throat, often making it hard to swallow. Our pharmacist uses a clinical scoring tool (FeverPAIN) to assess whether antibiotics are appropriate.',
+            'tag'   => 'Aged 5 and over',
+          ),
+          array(
+            'icon'  => 'fas fa-ear-listen',
+            'title' => 'Earache',
+            'desc'  => 'Ear pain, with or without fever or irritability. Our pharmacist will assess and prescribe appropriate treatment where clinically indicated.',
+            'tag'   => 'Children aged 1–17 only',
+          ),
+          array(
+            'icon'  => 'fas fa-bug',
+            'title' => 'Infected Insect Bite',
+            'desc'  => 'A bite or sting showing signs of infection — redness spreading from the bite, swelling, warmth, or pus. Treated with antibiotic cream or, where needed, oral antibiotics.',
+            'tag'   => 'Aged 1 and over',
+          ),
+          array(
+            'icon'  => 'fas fa-hand-dots',
+            'title' => 'Impetigo',
+            'desc'  => 'Highly contagious bacterial skin infection causing red sores or blisters, usually around the face, that burst and leave golden-brown crusts. Treated with antibiotic cream or tablets.',
+            'tag'   => 'Aged 1 and over',
+          ),
+          array(
+            'icon'  => 'fas fa-virus',
+            'title' => 'Shingles',
+            'desc'  => 'A painful rash caused by reactivation of the chickenpox virus, typically affecting one side of the body. Antiviral treatment is most effective when started within 72 hours of the rash appearing.',
+            'tag'   => 'Aged 18 and over',
+          ),
+          array(
+            'icon'  => 'fas fa-person-dress',
+            'title' => 'Uncomplicated UTI',
+            'desc'  => 'Stinging or burning when passing urine, needing to go more frequently, or feeling an urgent need. Without fever or back pain. Treated with a short course of antibiotics.',
+            'tag'   => 'Women aged 16–64 only',
+          ),
         );
         foreach ( $conditions as $condition ) :
         ?>
@@ -203,7 +240,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'pf_process_badge', 'HOW IT WORKS' ) ); ?></span>
       </div>
-      <h2 class="pharmfirst-process-title"><?php echo esc_html( bp_field( 'pf_process_title', 'Three Simple Steps to Free Treatment' ) ); ?></h2>
+      <h2 class="pharmfirst-process-title"><?php echo esc_html( bp_field( 'pf_process_title', 'Three Simple Steps to NHS Treatment' ) ); ?></h2>
       <p class="pharmfirst-process-description"><?php echo esc_html( bp_field( 'pf_process_description', 'No referral, no red tape — just expert NHS care when you need it' ) ); ?></p>
     </div>
 
@@ -225,9 +262,9 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
         <?php endwhile; else : ?>
           <?php
           $steps = array(
-            array( 'icon' => 'fas fa-door-open', 'title' => 'Walk In or Book', 'desc' => 'Visit Bowland Pharmacy during opening hours or book a convenient slot online. No GP referral needed.' ),
-            array( 'icon' => 'fas fa-stethoscope', 'title' => 'Pharmacist Assessment', 'desc' => 'Our trained pharmacist will assess your symptoms in a private consultation room and determine the best treatment.' ),
-            array( 'icon' => 'fas fa-pills', 'title' => 'Receive Treatment', 'desc' => 'If appropriate, you\'ll receive NHS-funded medication on the spot — completely free of charge.' ),
+            array( 'icon' => 'fas fa-door-open',   'title' => 'Walk In or Book',          'desc' => 'Visit Bowland Pharmacy during opening hours or book a convenient slot online. No GP referral needed — and no GP registration required.' ),
+            array( 'icon' => 'fas fa-stethoscope', 'title' => 'Pharmacist Assessment',     'desc' => 'Our trained pharmacist will assess your symptoms in a private consultation room and determine the most appropriate course of treatment.' ),
+            array( 'icon' => 'fas fa-pills',       'title' => 'Receive Your Treatment',    'desc' => 'If clinically appropriate, you\'ll receive NHS medication on the spot. Standard NHS prescription charges apply unless you are exempt.' ),
           );
           foreach ( $steps as $i => $step ) :
           ?>
@@ -258,7 +295,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
           <i class="fas fa-hand-holding-medical"></i>
           <div class="pharmfirst-process-float-badge-content">
             <span class="pharmfirst-process-float-badge-label">NHS FUNDED</span>
-            <span class="pharmfirst-process-float-badge-text">100% Free</span>
+            <span class="pharmfirst-process-float-badge-text">Pharmacy First</span>
           </div>
         </div>
       </div>
@@ -271,8 +308,8 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
         <i class="fas fa-circle-info"></i>
       </div>
       <div class="pharmfirst-eligibility-content">
-        <h3 class="pharmfirst-eligibility-title"><?php echo esc_html( bp_field( 'pf_eligibility_title', 'Who Is Eligible?' ) ); ?></h3>
-        <p class="pharmfirst-eligibility-text"><?php echo esc_html( bp_field( 'pf_eligibility_text', 'Pharmacy First is available to anyone registered with a GP in England. Most conditions can be treated for patients of all ages. UTI treatment is available for women aged 16-64 only. If your condition requires further investigation, our pharmacist will refer you to the appropriate NHS service.' ) ); ?></p>
+        <h3 class="pharmfirst-eligibility-title"><?php echo esc_html( bp_field( 'pf_eligibility_title', 'Who Can Use This Service?' ) ); ?></h3>
+        <p class="pharmfirst-eligibility-text"><?php echo esc_html( bp_field( 'pf_eligibility_text', 'You do not need to be registered with a GP to use Pharmacy First. The service is available to everyone — simply walk in to Bowland Pharmacy. Most conditions can be treated for patients of all ages; age eligibility varies by condition. UTI treatment is available for women aged 16–64 only. Earache treatment is available for children aged 1–17 only. If your condition requires further investigation, our pharmacist will refer you to the appropriate NHS service.' ) ); ?></p>
       </div>
     </div>
   </div>
@@ -306,12 +343,30 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
       <?php endwhile; else : ?>
         <?php
         $faqs = array(
-          array( 'q' => 'Is Pharmacy First really free?', 'a' => 'Yes, completely. Pharmacy First is an NHS-funded service. You won\'t be charged for the consultation or any medication supplied as part of the service.' ),
-          array( 'q' => 'Do I need to see my GP first?', 'a' => 'No. That\'s the whole point of Pharmacy First — you can come directly to Bowland Pharmacy without a GP appointment or referral.' ),
-          array( 'q' => 'What conditions can you treat?', 'a' => 'We can treat 7 common conditions: sinusitis, sore throat, earache, infected insect bites, impetigo, shingles, and uncomplicated urinary tract infections (UTIs) in women aged 16-64.' ),
-          array( 'q' => 'Do I need to be registered with a GP?', 'a' => 'Yes, you need to be registered with a GP in England to access Pharmacy First. However, you do not need to contact your GP before visiting us.' ),
-          array( 'q' => 'What if my condition can\'t be treated here?', 'a' => 'If our pharmacist determines that your condition needs further investigation or treatment beyond our scope, we\'ll refer you to the appropriate NHS service, such as your GP or urgent care.' ),
-          array( 'q' => 'Can children use Pharmacy First?', 'a' => 'Yes, most Pharmacy First conditions can be treated for patients of all ages, including children. The only exception is UTI treatment, which is limited to women aged 16-64.' ),
+          array(
+            'q' => 'Is the consultation free?',
+            'a' => 'Yes. The consultation with our pharmacist is completely free for everyone — you do not need to be registered with a GP, and there is no charge to be seen. If medication is clinically appropriate and prescribed as part of the service, standard NHS prescription charges apply (currently £9.90 per item) unless you are exempt. Exemptions include children under 16, people over 60, those with certain medical conditions, and anyone holding a valid prepayment certificate.',
+          ),
+          array(
+            'q' => 'Do I need to see my GP first?',
+            'a' => 'No. That\'s the whole point of Pharmacy First — you can come directly to Bowland Pharmacy without a GP appointment or referral. Simply walk in during opening hours.',
+          ),
+          array(
+            'q' => 'What conditions can you treat?',
+            'a' => 'We can treat 7 common conditions: sinusitis (aged 12+), sore throat (aged 5+), earache (children aged 1–17), infected insect bites (aged 1+), impetigo (aged 1+), shingles (aged 18+), and uncomplicated urinary tract infections (UTIs) in women aged 16–64.',
+          ),
+          array(
+            'q' => 'Do I need to be registered with a GP?',
+            'a' => 'No. You do not need to be registered with a GP to use Pharmacy First at Bowland Pharmacy. The service is available to everyone — simply walk in.',
+          ),
+          array(
+            'q' => 'What if my condition can\'t be treated here?',
+            'a' => 'If our pharmacist determines that your condition needs further investigation or treatment beyond our scope, we\'ll refer you to the appropriate NHS service, such as your GP or urgent care.',
+          ),
+          array(
+            'q' => 'Can children use Pharmacy First?',
+            'a' => 'Yes, several Pharmacy First conditions can be treated in children. Earache is available for children aged 1–17. Sinusitis can be treated from age 12, sore throat from age 5, and infected insect bites and impetigo from age 1. Shingles treatment is for adults aged 18 and over, and UTI treatment is for women aged 16–64 only.',
+          ),
         );
         foreach ( $faqs as $i => $faq ) :
         ?>
@@ -342,7 +397,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
     <div class="pharmfirst-cta-content">
       <div class="pharmfirst-cta-badges">
         <div class="pharmfirst-cta-badge">
-          <span><?php echo esc_html( bp_field( 'pf_cta_badge_1', 'Free NHS Service' ) ); ?></span>
+          <span><?php echo esc_html( bp_field( 'pf_cta_badge_1', 'Free Consultation' ) ); ?></span>
         </div>
         <div class="pharmfirst-cta-badge">
           <span><?php echo esc_html( bp_field( 'pf_cta_badge_2', 'No GP Needed' ) ); ?></span>
@@ -351,9 +406,9 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
           <span><?php echo esc_html( bp_field( 'pf_cta_badge_3', 'GPhC Registered' ) ); ?></span>
         </div>
       </div>
-      <h2 class="pharmfirst-cta-title"><?php echo esc_html( bp_field( 'pf_cta_title', 'Get Free NHS Treatment Today' ) ); ?></h2>
+      <h2 class="pharmfirst-cta-title"><?php echo esc_html( bp_field( 'pf_cta_title', 'Get an NHS Consultation Today' ) ); ?></h2>
       <p class="pharmfirst-cta-description">
-        <?php echo esc_html( bp_field( 'pf_cta_description', 'Don\'t wait weeks for a GP appointment. Visit Bowland Pharmacy for free NHS Pharmacy First treatment — walk in or book a slot online.' ) ); ?>
+        <?php echo esc_html( bp_field( 'pf_cta_description', 'Don\'t wait weeks for a GP appointment. Visit Bowland Pharmacy for your NHS Pharmacy First consultation — no GP registration required, no referral needed. Walk in or book a slot online.' ) ); ?>
       </p>
       <div class="pharmfirst-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'pf_cta_primary_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta pharmfirst-cta-button-white">
@@ -367,7 +422,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
       </div>
       <div class="pharmfirst-cta-trust-checks">
         <span class="pharmfirst-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( bp_field( 'pf_cta_check_1', 'No referral needed' ) ); ?></span>
-        <span class="pharmfirst-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( bp_field( 'pf_cta_check_2', '7 conditions treated free' ) ); ?></span>
+        <span class="pharmfirst-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( bp_field( 'pf_cta_check_2', '7 conditions treated on the NHS' ) ); ?></span>
         <span class="pharmfirst-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( bp_field( 'pf_cta_check_3', 'Same-day appointments' ) ); ?></span>
       </div>
     </div>
