@@ -617,10 +617,10 @@ get_header();
               <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
             <p class="earwax-testimonial-quote">"<?php echo esc_html( $testimonial['quote'] ); ?>"</p>
-            <div class="earwax-testimonial-service">
+            <a class="earwax-testimonial-service" href="https://www.google.com/maps/search/Bowland+Pharmacy+Wythenshawe+Manchester" target="_blank" rel="noopener">
               <i class="fab fa-google"></i>
               <span>Google Review</span>
-            </div>
+            </a>
           </div>
         <?php endforeach; ?>
       <?php endif; ?>
