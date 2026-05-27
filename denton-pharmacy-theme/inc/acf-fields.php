@@ -9593,7 +9593,7 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_pf_trust_1_icon', 'label' => 'Trust Pill 1 — Icon', 'name' => 'pf_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'instructions' => 'Font Awesome class, e.g. fas fa-check-circle' ),
             array( 'key' => 'field_dp_pf_trust_2', 'label' => 'Trust Pill 2', 'name' => 'pf_trust_2', 'type' => 'text', 'default_value' => 'No GP Appointment Needed' ),
             array( 'key' => 'field_dp_pf_trust_2_icon', 'label' => 'Trust Pill 2 — Icon', 'name' => 'pf_trust_2_icon', 'type' => 'text', 'default_value' => 'fas fa-calendar-check', 'instructions' => 'Font Awesome class, e.g. fas fa-calendar-check' ),
-            array( 'key' => 'field_dp_pf_trust_3', 'label' => 'Trust Pill 3', 'name' => 'pf_trust_3', 'type' => 'text', 'default_value' => 'Same-Day Treatment' ),
+            array( 'key' => 'field_dp_pf_trust_3', 'label' => 'Trust Pill 3', 'name' => 'pf_trust_3', 'type' => 'text', 'default_value' => 'Medication charges may apply' ),
             array( 'key' => 'field_dp_pf_trust_3_icon', 'label' => 'Trust Pill 3 — Icon', 'name' => 'pf_trust_3_icon', 'type' => 'text', 'default_value' => 'fas fa-clock', 'instructions' => 'Font Awesome class, e.g. fas fa-clock' ),
         ),
         'location' => array(
