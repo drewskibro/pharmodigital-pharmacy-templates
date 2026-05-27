@@ -57,7 +57,7 @@ get_header();
           </div>
           <div class="pharmfirst-hero-trust-item">
             <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'pf_trust_3_icon', 'fas fa-clock' ) ) ); ?>"></i>
-            <span><?php echo esc_html( dp_field( 'pf_trust_3', 'Same-Day Treatment' ) ); ?></span>
+            <span><?php echo esc_html( dp_field( 'pf_trust_3', 'Medication charges may apply' ) ); ?></span>
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@ get_header();
             <ul class="pharmfirst-trust-card-list">
               <li><i class="fas fa-check"></i> <span><?php echo esc_html( dp_field( 'pf_trust_1', 'NHS Funded' ) ); ?></span></li>
               <li><i class="fas fa-check"></i> <span><?php echo esc_html( dp_field( 'pf_trust_2', 'No GP Appointment Needed' ) ); ?></span></li>
-              <li><i class="fas fa-check"></i> <span><?php echo esc_html( dp_field( 'pf_trust_3', 'Same-Day Treatment' ) ); ?></span></li>
+              <li><i class="fas fa-check"></i> <span><?php echo esc_html( dp_field( 'pf_trust_3', 'Medication charges may apply' ) ); ?></span></li>
             </ul>
             <?php
             $gphc_num = dp_option( 'gphc_registration', '1033447' );
