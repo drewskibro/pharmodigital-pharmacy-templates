@@ -698,9 +698,11 @@ get_header();
         <div class="earwax-cta-badge">
           <span><?php echo esc_html( bp_field( 'ew_cta_badge_2', 'Same-day available' ) ); ?></span>
         </div>
+        <?php $cta_badge_3 = bp_field( 'ew_cta_badge_3', 'GPhC Registered' ); if ( $cta_badge_3 ) : ?>
         <div class="earwax-cta-badge">
-          <span><?php echo esc_html( bp_field( 'ew_cta_badge_3', 'GPhC Registered' ) ); ?></span>
+          <span><?php echo esc_html( $cta_badge_3 ); ?></span>
         </div>
+        <?php endif; ?>
       </div>
       <h2 class="earwax-cta-title"><?php echo esc_html( bp_field( 'ew_cta_title', 'Ready to hear clearly again?' ) ); ?></h2>
       <p class="earwax-cta-description">
