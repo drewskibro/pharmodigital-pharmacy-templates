@@ -335,6 +335,17 @@ function bp_logo_url() {
     return get_template_directory_uri() . '/assets/images/logo.svg';
 }
 
+function bp_footer_logo_url() {
+    $footer_logo = bp_option( 'pharmacy_footer_logo' );
+    if ( $footer_logo ) {
+        if ( is_numeric( $footer_logo ) ) {
+            return wp_get_attachment_image_url( $footer_logo, 'full' );
+        }
+        return is_array( $footer_logo ) ? $footer_logo['url'] : $footer_logo;
+    }
+    return bp_logo_url();
+}
+
 /**
  * Helper: Get pharmacy name
  */

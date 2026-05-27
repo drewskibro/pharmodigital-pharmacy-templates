@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $pharmacy_name = bp_pharmacy_name();
-$logo_url      = bp_logo_url();
+$logo_url      = bp_footer_logo_url();
 $phone         = bp_phone();
 $phone_link    = bp_phone_link();
 $email         = bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' );
