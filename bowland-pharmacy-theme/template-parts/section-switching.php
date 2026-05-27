@@ -83,7 +83,7 @@ for ( $i = 1; $i <= 3; $i++ ) {
 
 // --- CTAs ---
 $cta_primary_text = bp_field( 'switching_cta_text', 'Switch to Bowland Pharmacy' );
-$cta_primary_url  = home_url( '/switch-provider/' );
+$cta_primary_url  = home_url( '/swap-weight-loss-provider/' );
 $phone            = bp_phone();
 $phone_link       = bp_phone_link();
 

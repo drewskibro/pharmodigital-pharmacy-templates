@@ -105,7 +105,7 @@ $tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and well
           <ul class="footer-links">
             <li><a href="<?php echo esc_url( home_url( '/team/' ) ); ?>" class="footer-link">About Us</a></li>
             <li><a href="<?php echo esc_url( home_url( '/team/' ) ); ?>" class="footer-link">Our Team</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/switch-provider/' ) ); ?>" class="footer-link">Switch Provider</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/swap-weight-loss-provider/' ) ); ?>" class="footer-link">Switch Provider</a></li>
             <li><a href="<?php echo esc_url( home_url( '/health-hub/' ) ); ?>" class="footer-link">Health Hub</a></li>
             <li><a href="<?php echo esc_url( $booking_url ); ?>" class="footer-link">Book Appointment</a></li>
             <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="footer-link">Contact Us</a></li>

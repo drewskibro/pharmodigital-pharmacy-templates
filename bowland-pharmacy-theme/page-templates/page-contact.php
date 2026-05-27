@@ -202,7 +202,7 @@ $parking        = bp_option( 'pharmacy_parking', 'Free customer parking availabl
             <span class="contact-faq-toggle"><i class="fas fa-plus"></i></span>
           </button>
           <div class="contact-faq-answer">
-            <p>Switching is easy and free. Simply visit us in store or call us, and we'll handle the entire transfer process with your GP. There's no paperwork for you to fill out and no gap in your medication supply. You can also <a href="<?php echo esc_url( home_url( '/switch-provider/' ) ); ?>">learn more about switching</a>.</p>
+            <p>Switching is easy and free. Simply visit us in store or call us, and we'll handle the entire transfer process with your GP. There's no paperwork for you to fill out and no gap in your medication supply. You can also <a href="<?php echo esc_url( home_url( '/swap-weight-loss-provider/' ) ); ?>">learn more about switching</a>.</p>
           </div>
         </div>
       <?php endif; ?>
