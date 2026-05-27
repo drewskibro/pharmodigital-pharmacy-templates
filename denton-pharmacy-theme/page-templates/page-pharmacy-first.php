@@ -27,12 +27,12 @@ get_header();
         </div>
 
         <h1 class="pharmfirst-hero-title">
-          <span class="gradient-text"><?php echo esc_html( dp_field( 'pf_hero_title_highlight', 'Free NHS Treatment' ) ); ?></span>
+          <span class="gradient-text"><?php echo esc_html( dp_field( 'pf_hero_title_highlight', 'Free NHS Consultation' ) ); ?></span>
           <?php echo esc_html( dp_field( 'pf_hero_title_rest', 'in Denton' ) ); ?>
         </h1>
 
         <p class="pharmfirst-hero-description">
-          <?php echo esc_html( dp_field( 'pf_hero_description', 'Under the NHS Pharmacy First scheme, our pharmacists at Denton Pharmacy can assess and treat 7 common conditions — completely free. No GP appointment needed, no waiting weeks. Just walk in or book a slot and get treated the same day.' ) ); ?>
+          <?php echo esc_html( dp_field( 'pf_hero_description', 'See one of our pharmacists for assessment and treatment of 7 common conditions — no GP appointment needed and no referral required. You do not need to be registered with a GP to use this service. The consultation is free for everyone. If medication is clinically appropriate and prescribed, standard NHS prescription charges apply (currently £9.90 per item) unless you are exempt.' ) ); ?>
         </p>
 
         <div class="pharmfirst-hero-actions">
@@ -80,7 +80,7 @@ get_header();
             </div>
             <div class="pharmfirst-trust-card-free">
               <span class="pharmfirst-trust-card-amount"><?php echo esc_html( dp_field( 'pf_price_amount', 'FREE' ) ); ?></span>
-              <span class="pharmfirst-trust-card-sub"><?php echo esc_html( dp_field( 'pf_price_sub', 'no charge to you' ) ); ?></span>
+              <span class="pharmfirst-trust-card-sub"><?php echo esc_html( dp_field( 'pf_price_sub', 'consultation — prescription charges may apply' ) ); ?></span>
             </div>
             <div class="pharmfirst-trust-card-divider"></div>
             <ul class="pharmfirst-trust-card-list">
@@ -112,7 +112,7 @@ get_header();
     <div class="pharmfirst-stats-bar">
       <?php
       $stats = array(
-        array( 'icon' => 'pf_stat_1_icon', 'number' => 'pf_stat_1_number', 'label' => 'pf_stat_1_label', 'def_icon' => 'fas fa-sterling-sign', 'def_number' => 'FREE', 'def_label' => 'No Cost to You' ),
+        array( 'icon' => 'pf_stat_1_icon', 'number' => 'pf_stat_1_number', 'label' => 'pf_stat_1_label', 'def_icon' => 'fas fa-sterling-sign', 'def_number' => 'FREE', 'def_label' => 'NHS Consultation' ),
         array( 'icon' => 'pf_stat_2_icon', 'number' => 'pf_stat_2_number', 'label' => 'pf_stat_2_label', 'def_icon' => 'fas fa-list-check', 'def_number' => '7', 'def_label' => 'Conditions Treated' ),
         array( 'icon' => 'pf_stat_3_icon', 'number' => 'pf_stat_3_number', 'label' => 'pf_stat_3_label', 'def_icon' => 'fas fa-user-doctor', 'def_number' => 'No GP', 'def_label' => 'Appointment Needed' ),
         array( 'icon' => 'pf_stat_4_icon', 'number' => 'pf_stat_4_number', 'label' => 'pf_stat_4_label', 'def_icon' => 'fas fa-clock', 'def_number' => 'Same Day', 'def_label' => 'Treatment Available' ),
@@ -144,8 +144,8 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'pf_conditions_badge', 'CONDITIONS WE TREAT' ) ); ?></span>
       </div>
-      <h2 class="pharmfirst-conditions-title"><?php echo esc_html( dp_field( 'pf_conditions_title', '7 Common Conditions Treated Free' ) ); ?></h2>
-      <p class="pharmfirst-conditions-description"><?php echo esc_html( dp_field( 'pf_conditions_description', 'Under Pharmacy First, our pharmacists can assess, diagnose, and treat these conditions — with medication supplied free of charge where clinically appropriate.' ) ); ?></p>
+      <h2 class="pharmfirst-conditions-title"><?php echo esc_html( dp_field( 'pf_conditions_title', '7 Common Conditions We Can Treat' ) ); ?></h2>
+      <p class="pharmfirst-conditions-description"><?php echo esc_html( dp_field( 'pf_conditions_description', 'Under Pharmacy First, our pharmacists can assess and treat these conditions. The consultation is free for everyone. Where medication is clinically appropriate and prescribed, standard NHS prescription charges apply (currently £9.90 per item) unless you are exempt.' ) ); ?></p>
     </div>
 
     <div class="pharmfirst-conditions-grid">
@@ -153,31 +153,100 @@ get_header();
         <div class="pharmfirst-condition-card">
           <div class="pharmfirst-condition-icon"><i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i></div>
           <h3 class="pharmfirst-condition-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-          <p class="pharmfirst-condition-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
-          <?php $tag = get_sub_field( 'tag' ); if ( $tag ) : ?>
-            <div class="pharmfirst-condition-tag"><i class="fas fa-info-circle"></i> <?php echo esc_html( $tag ); ?></div>
-          <?php endif; ?>
+          <dl class="pharmfirst-condition-details">
+            <?php if ( get_sub_field( 'who' ) ) : ?>
+              <dt class="pharmfirst-condition-label"><i class="fas fa-user-group"></i> Who it's for</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( get_sub_field( 'who' ) ); ?></dd>
+            <?php endif; ?>
+            <?php if ( get_sub_field( 'symptoms' ) ) : ?>
+              <dt class="pharmfirst-condition-label"><i class="fas fa-notes-medical"></i> Key symptoms</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( get_sub_field( 'symptoms' ) ); ?></dd>
+            <?php endif; ?>
+            <?php if ( get_sub_field( 'exclusions' ) ) : ?>
+              <dt class="pharmfirst-condition-label pharmfirst-condition-label-exclusion"><i class="fas fa-triangle-exclamation"></i> When we cannot treat</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( get_sub_field( 'exclusions' ) ); ?></dd>
+            <?php endif; ?>
+            <?php if ( get_sub_field( 'treatment' ) ) : ?>
+              <dt class="pharmfirst-condition-label pharmfirst-condition-label-treatment"><i class="fas fa-pills"></i> If appropriate</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( get_sub_field( 'treatment' ) ); ?></dd>
+            <?php endif; ?>
+          </dl>
         </div>
       <?php endwhile; else : ?>
         <?php
         $conditions = array(
-          array( 'icon' => 'fas fa-head-side-mask', 'title' => 'Sinusitis', 'desc' => 'Blocked or runny nose with facial pain or pressure, lasting more than 10 days or worsening after initial improvement.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-head-side-cough',  'title' => 'Sore Throat', 'desc' => 'Painful throat making it difficult to swallow. Our pharmacist can assess severity and provide appropriate treatment.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-ear-listen',      'title' => 'Earache', 'desc' => 'Pain in one or both ears, which may be sharp or dull. Common in both children and adults.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-bug',             'title' => 'Infected Insect Bite', 'desc' => 'A bite or sting that has become red, swollen, warm, or is leaking pus — signs of bacterial infection.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-hand-dots',       'title' => 'Impetigo', 'desc' => 'Highly contagious skin infection causing red sores, usually around the nose and mouth, that burst and form crusts.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-virus',           'title' => 'Shingles', 'desc' => 'Painful, blistering rash caused by the reactivation of the chickenpox virus. Early treatment reduces severity.', 'tag' => '' ),
-          array( 'icon' => 'fas fa-person-dress',    'title' => 'Uncomplicated UTI', 'desc' => 'Burning or stinging when passing urine, needing to go more often, or cloudy/strong-smelling urine.', 'tag' => 'Women aged 16-64 only' ),
+          array(
+            'icon'       => 'fas fa-head-side-mask',
+            'title'      => 'Sinusitis',
+            'who'        => 'Adults and children aged 12 and over',
+            'symptoms'   => 'Facial pain or pressure, blocked or runny nose, reduced sense of smell, lasting more than 10 days.',
+            'exclusions' => 'Severe symptoms, signs of complications, immunocompromised patients, or pregnancy (refer to GP).',
+            'treatment'  => 'Antibiotic therapy under PGD where clinically indicated.',
+          ),
+          array(
+            'icon'       => 'fas fa-head-side-cough',
+            'title'      => 'Sore Throat',
+            'who'        => 'Adults and children aged 5 and over',
+            'symptoms'   => 'Sore throat, pain on swallowing, fever, tonsillar exudate.',
+            'exclusions' => 'Severe or life-threatening symptoms, peritonsillar abscess, suspected epiglottitis, immunocompromised patients.',
+            'treatment'  => 'Antibiotic therapy under PGD where clinically indicated.',
+          ),
+          array(
+            'icon'       => 'fas fa-ear-listen',
+            'title'      => 'Earache (Otitis Media)',
+            'who'        => 'Children aged 1 to 17',
+            'symptoms'   => 'Ear pain, fever, irritability, reduced hearing.',
+            'exclusions' => 'Under 1 year, perforation of the eardrum, grommets in situ, recurrent episodes, immunocompromised.',
+            'treatment'  => 'Antibiotic therapy under PGD where clinically indicated.',
+          ),
+          array(
+            'icon'       => 'fas fa-bug',
+            'title'      => 'Infected Insect Bite',
+            'who'        => 'Adults and children aged 1 and over',
+            'symptoms'   => 'Redness, swelling, warmth and pain around the bite site, signs of infection.',
+            'exclusions' => 'Systemic infection, severe allergic reaction, large area of spreading redness, immunocompromised.',
+            'treatment'  => 'Antibiotic therapy under PGD where clinically indicated.',
+          ),
+          array(
+            'icon'       => 'fas fa-hand-dots',
+            'title'      => 'Impetigo',
+            'who'        => 'Adults and children aged 1 and over',
+            'symptoms'   => 'Sores, blisters and crusting — typically on the face, hands or scalp.',
+            'exclusions' => 'Widespread or severe infection, immunocompromised, recurrent episodes (refer to GP).',
+            'treatment'  => 'Antibiotic cream or oral antibiotic under PGD where clinically indicated.',
+          ),
+          array(
+            'icon'       => 'fas fa-virus',
+            'title'      => 'Shingles',
+            'who'        => 'Adults aged 18 and over',
+            'symptoms'   => 'Painful rash, blistering on one side of the body, burning or tingling sensation.',
+            'exclusions' => 'Involvement of the eye or ear, immunocompromised, pregnant, or beyond 24 hours from rash onset (too late for antivirals).',
+            'treatment'  => 'Antiviral therapy under PGD where clinically indicated.',
+          ),
+          array(
+            'icon'       => 'fas fa-person-dress',
+            'title'      => 'Urinary Tract Infection (UTI)',
+            'who'        => 'Women aged 16 to 64 (uncomplicated UTI only)',
+            'symptoms'   => 'Dysuria, frequency, urgency, suprapubic pain.',
+            'exclusions' => 'Men, pregnant women, under 16, over 64, recurrent UTIs (2+ in 6 months), catheter users, symptoms lasting more than 7 days, or fever/loin pain (refer to GP).',
+            'treatment'  => 'Antibiotic therapy under PGD where clinically indicated.',
+          ),
         );
         foreach ( $conditions as $condition ) :
         ?>
           <div class="pharmfirst-condition-card">
             <div class="pharmfirst-condition-icon"><i class="<?php echo esc_attr( $condition['icon'] ); ?>"></i></div>
             <h3 class="pharmfirst-condition-title"><?php echo esc_html( $condition['title'] ); ?></h3>
-            <p class="pharmfirst-condition-desc"><?php echo esc_html( $condition['desc'] ); ?></p>
-            <?php if ( $condition['tag'] ) : ?>
-              <div class="pharmfirst-condition-tag"><i class="fas fa-info-circle"></i> <?php echo esc_html( $condition['tag'] ); ?></div>
-            <?php endif; ?>
+            <dl class="pharmfirst-condition-details">
+              <dt class="pharmfirst-condition-label"><i class="fas fa-user-group"></i> Who it's for</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( $condition['who'] ); ?></dd>
+              <dt class="pharmfirst-condition-label"><i class="fas fa-notes-medical"></i> Key symptoms</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( $condition['symptoms'] ); ?></dd>
+              <dt class="pharmfirst-condition-label pharmfirst-condition-label-exclusion"><i class="fas fa-triangle-exclamation"></i> When we cannot treat</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( $condition['exclusions'] ); ?></dd>
+              <dt class="pharmfirst-condition-label pharmfirst-condition-label-treatment"><i class="fas fa-pills"></i> If appropriate</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( $condition['treatment'] ); ?></dd>
+            </dl>
           </div>
         <?php endforeach; ?>
       <?php endif; ?>
@@ -203,7 +272,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'pf_process_badge', 'HOW IT WORKS' ) ); ?></span>
       </div>
-      <h2 class="pharmfirst-process-title"><?php echo esc_html( dp_field( 'pf_process_title', 'Three Simple Steps to Free Treatment' ) ); ?></h2>
+      <h2 class="pharmfirst-process-title"><?php echo esc_html( dp_field( 'pf_process_title', 'Three Simple Steps to Treatment' ) ); ?></h2>
       <p class="pharmfirst-process-description"><?php echo esc_html( dp_field( 'pf_process_description', 'No referral, no red tape — just expert NHS care when you need it' ) ); ?></p>
     </div>
 
@@ -227,7 +296,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
           $steps = array(
             array( 'icon' => 'fas fa-door-open', 'title' => 'Walk In or Book', 'desc' => 'Visit Denton Pharmacy during opening hours or book a convenient slot online. No GP referral needed.' ),
             array( 'icon' => 'fas fa-stethoscope', 'title' => 'Pharmacist Assessment', 'desc' => 'Our trained pharmacist will assess your symptoms in a private consultation room and determine the best treatment.' ),
-            array( 'icon' => 'fas fa-pills', 'title' => 'Receive Treatment', 'desc' => 'If appropriate, you\'ll receive NHS-funded medication on the spot — completely free of charge.' ),
+            array( 'icon' => 'fas fa-pills', 'title' => 'Receive Treatment', 'desc' => 'If treatment is clinically appropriate, your pharmacist can supply medication on the spot. Standard NHS prescription charges apply (currently £9.90 per item) unless you are exempt.' ),
           );
           foreach ( $steps as $i => $step ) :
           ?>
@@ -258,7 +327,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
           <i class="fas fa-hand-holding-medical"></i>
           <div class="pharmfirst-process-float-badge-content">
             <span class="pharmfirst-process-float-badge-label">NHS FUNDED</span>
-            <span class="pharmfirst-process-float-badge-text">100% Free</span>
+            <span class="pharmfirst-process-float-badge-text">Free Consultation</span>
           </div>
         </div>
       </div>
@@ -272,7 +341,8 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
       </div>
       <div class="pharmfirst-eligibility-content">
         <h3 class="pharmfirst-eligibility-title"><?php echo esc_html( dp_field( 'pf_eligibility_title', 'Who Is Eligible?' ) ); ?></h3>
-        <p class="pharmfirst-eligibility-text"><?php echo esc_html( dp_field( 'pf_eligibility_text', 'Pharmacy First is available to anyone registered with a GP in England. Most conditions can be treated for patients of all ages. UTI treatment is available for women aged 16-64 only. If your condition requires further investigation, our pharmacist will refer you to the appropriate NHS service.' ) ); ?></p>
+        <p class="pharmfirst-eligibility-text"><?php echo esc_html( dp_field( 'pf_eligibility_text', 'You do not need to be registered with a GP to use this service. Simply walk in to Denton Pharmacy. Each of the 7 conditions has its own age and clinical criteria — for example, UTI treatment is available for women aged 16-64 only. If your condition requires further investigation, our pharmacist will refer you to the appropriate NHS service.' ) ); ?></p>
+        <p class="pharmfirst-eligibility-highlight"><i class="fas fa-circle-check"></i> <strong>You do not need to be registered with a GP to use this service. Simply walk in to Denton Pharmacy.</strong></p>
       </div>
     </div>
   </div>
@@ -306,12 +376,13 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
       <?php endwhile; else : ?>
         <?php
         $faqs = array(
-          array( 'q' => 'Is Pharmacy First really free?', 'a' => 'Yes, completely. Pharmacy First is an NHS-funded service. You won\'t be charged for the consultation or any medication supplied as part of the service.' ),
+          array( 'q' => 'Is Pharmacy First free?', 'a' => 'The consultation with our pharmacist is free for everyone. If medication is clinically appropriate and prescribed, standard NHS prescription charges apply (currently £9.90 per item) unless you are in an exempt group.' ),
+          array( 'q' => 'Will I have to pay for any medication?', 'a' => 'If treatment is needed and prescribed, standard NHS prescription charges apply — currently £9.90 per item. You pay nothing if you are exempt. Exempt groups include those under 16, aged 60 or over, pregnant women (and those who have had a baby in the last 12 months with a valid exemption certificate), people on certain benefits, and anyone holding a valid NHS prescription prepayment certificate (PPC).' ),
           array( 'q' => 'Do I need to see my GP first?', 'a' => 'No. That\'s the whole point of Pharmacy First — you can come directly to Denton Pharmacy without a GP appointment or referral.' ),
-          array( 'q' => 'What conditions can you treat?', 'a' => 'We can treat 7 common conditions: sinusitis, sore throat, earache, infected insect bites, impetigo, shingles, and uncomplicated urinary tract infections (UTIs) in women aged 16-64.' ),
-          array( 'q' => 'Do I need to be registered with a GP?', 'a' => 'Yes, you need to be registered with a GP in England to access Pharmacy First. However, you do not need to contact your GP before visiting us.' ),
+          array( 'q' => 'Do I need to be registered with a GP?', 'a' => 'No. You do not need to be registered with a GP to use this service. Simply walk in to Denton Pharmacy.' ),
+          array( 'q' => 'What conditions can you treat?', 'a' => 'We can treat 7 common conditions: sinusitis, sore throat, earache (otitis media), infected insect bites, impetigo, shingles, and uncomplicated urinary tract infections (UTIs). Each condition has its own age and clinical criteria — for example, UTI treatment is for women aged 16-64 only.' ),
           array( 'q' => 'What if my condition can\'t be treated here?', 'a' => 'If our pharmacist determines that your condition needs further investigation or treatment beyond our scope, we\'ll refer you to the appropriate NHS service, such as your GP or urgent care.' ),
-          array( 'q' => 'Can children use Pharmacy First?', 'a' => 'Yes, most Pharmacy First conditions can be treated for patients of all ages, including children. The only exception is UTI treatment, which is limited to women aged 16-64.' ),
+          array( 'q' => 'Can children use Pharmacy First?', 'a' => 'Yes, several conditions can be treated in children, but the age criteria vary by condition. For example, earache is for children aged 1-17, sore throat from age 5, sinusitis from age 12, and shingles for adults aged 18 and over. UTI treatment is limited to women aged 16-64.' ),
         );
         foreach ( $faqs as $i => $faq ) :
         ?>
@@ -342,7 +413,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
     <div class="pharmfirst-cta-content">
       <div class="pharmfirst-cta-badges">
         <div class="pharmfirst-cta-badge">
-          <span><?php echo esc_html( dp_field( 'pf_cta_badge_1', 'Free NHS Service' ) ); ?></span>
+          <span><?php echo esc_html( dp_field( 'pf_cta_badge_1', 'Free NHS Consultation' ) ); ?></span>
         </div>
         <div class="pharmfirst-cta-badge">
           <span><?php echo esc_html( dp_field( 'pf_cta_badge_2', 'No GP Needed' ) ); ?></span>
@@ -351,9 +422,9 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
           <span><?php echo esc_html( dp_field( 'pf_cta_badge_3', 'GPhC Registered' ) ); ?></span>
         </div>
       </div>
-      <h2 class="pharmfirst-cta-title"><?php echo esc_html( dp_field( 'pf_cta_title', 'Get Free NHS Treatment Today' ) ); ?></h2>
+      <h2 class="pharmfirst-cta-title"><?php echo esc_html( dp_field( 'pf_cta_title', 'Get Seen by an NHS Pharmacist Today' ) ); ?></h2>
       <p class="pharmfirst-cta-description">
-        <?php echo esc_html( dp_field( 'pf_cta_description', 'Don\'t wait weeks for a GP appointment. Visit Denton Pharmacy for free NHS Pharmacy First treatment — walk in or book a slot online.' ) ); ?>
+        <?php echo esc_html( dp_field( 'pf_cta_description', 'Don\'t wait weeks for a GP appointment. Visit Denton Pharmacy for a free NHS Pharmacy First consultation — walk in or book a slot online. No GP registration required. Standard NHS prescription charges apply to any medication unless you are exempt.' ) ); ?>
       </p>
       <div class="pharmfirst-cta-actions">
         <a href="<?php echo esc_url( dp_field( 'pf_cta_primary_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta pharmfirst-cta-button-white">
@@ -367,7 +438,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
       </div>
       <div class="pharmfirst-cta-trust-checks">
         <span class="pharmfirst-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'pf_cta_check_1', 'No referral needed' ) ); ?></span>
-        <span class="pharmfirst-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'pf_cta_check_2', '7 conditions treated free' ) ); ?></span>
+        <span class="pharmfirst-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'pf_cta_check_2', '7 conditions assessed' ) ); ?></span>
         <span class="pharmfirst-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'pf_cta_check_3', 'Same-day appointments' ) ); ?></span>
       </div>
     </div>
