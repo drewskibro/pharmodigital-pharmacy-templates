@@ -186,6 +186,11 @@ function denton_pharmacy_scripts() {
         ) );
     }
 
+    if ( is_page_template( 'page-templates/page-prices.php' ) ) {
+        wp_enqueue_style( 'denton-prices', DENTON_PHARMACY_URI . '/assets/css/prices.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/prices.css' ) );
+        wp_enqueue_script( 'denton-prices-js', DENTON_PHARMACY_URI . '/assets/js/prices.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/prices.js' ), true );
+    }
+
     // Vaccination pages
     if ( is_page_template( 'page-templates/page-rabies.php' ) ) {
         wp_enqueue_style( 'denton-rabies', DENTON_PHARMACY_URI . '/assets/css/rabies.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
