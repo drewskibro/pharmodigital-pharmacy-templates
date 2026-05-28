@@ -213,7 +213,7 @@ get_header();
             'who'        => 'Adults and children aged 1 and over',
             'symptoms'   => 'Sores, blisters and crusting — typically on the face, hands or scalp.',
             'exclusions' => 'Widespread or severe infection, immunocompromised, recurrent episodes (refer to GP).',
-            'treatment'  => 'Antibiotic cream or oral antibiotic under PGD where clinically indicated.',
+            'treatment'  => 'Treated with a topical treatment for localised infection, or oral antibiotics where the infection is more widespread.',
           ),
           array(
             'icon'       => 'fas fa-virus',

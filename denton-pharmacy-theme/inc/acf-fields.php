@@ -725,6 +725,32 @@ function dp_register_acf_field_groups() {
                 'allow_null' => 1,
                 'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_hh_show', 'operator' => '==', 'value' => '1' ) ) ),
             ),
+            // ── Prices ──
+            array(
+                'key'           => 'field_dp_nav_pr_show',
+                'label'         => 'Show Prices',
+                'name'          => 'nav_prices_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_dp_nav_pr_label',
+                'label'         => 'Prices Label',
+                'name'          => 'nav_prices_label',
+                'type'          => 'text',
+                'default_value' => 'Prices',
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_pr_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            array(
+                'key'        => 'field_dp_nav_pr_url',
+                'label'      => 'Prices Page',
+                'name'       => 'nav_prices_url',
+                'type'       => 'page_link',
+                'post_type'  => array( 'page' ),
+                'allow_null' => 1,
+                'conditional_logic' => array( array( array( 'field' => 'field_dp_nav_pr_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
         ),
         'location' => array(
             array(
@@ -10366,6 +10392,111 @@ function dp_register_acf_field_groups() {
             ),
         ),
         'menu_order'            => 2530,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
+    // -------------------------------------------------------------------------
+    // P. Prices Page
+    // -------------------------------------------------------------------------
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_prices',
+        'title'  => 'Prices',
+        'fields' => array(
+
+            // ── Hero ──────────────────────────────────────────────────────────
+            array( 'key' => 'field_dp_prices_hero_badge', 'label' => 'Hero Badge', 'name' => 'prices_hero_badge', 'type' => 'text', 'default_value' => 'OUR PRICING' ),
+            array( 'key' => 'field_dp_prices_hero_title', 'label' => 'Hero Title (Gradient)', 'name' => 'prices_hero_title', 'type' => 'text', 'default_value' => 'Transparent Pricing' ),
+            array( 'key' => 'field_dp_prices_hero_title_rest', 'label' => 'Hero Title (Rest)', 'name' => 'prices_hero_title_rest', 'type' => 'text', 'default_value' => 'at Denton Pharmacy' ),
+            array( 'key' => 'field_dp_prices_hero_description', 'label' => 'Hero Description', 'name' => 'prices_hero_description', 'type' => 'textarea', 'rows' => 3 ),
+
+            // ── 1. Weight Loss ────────────────────────────────────────────────
+            array(
+                'key'          => 'field_dp_prices_weight_loss',
+                'label'        => 'Weight Loss Treatments',
+                'name'         => 'prices_weight_loss',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Weight Loss Product',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_prices_wl_product_name', 'label' => 'Product Name', 'name' => 'wl_product_name', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_prices_wl_strength', 'label' => 'Strength', 'name' => 'wl_strength', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_prices_wl_price', 'label' => 'Price', 'name' => 'wl_price', 'type' => 'text', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_prices_wl_supply', 'label' => 'Supply', 'name' => 'wl_supply', 'type' => 'text', 'wrapper' => array( 'width' => '15' ), 'instructions' => 'e.g. "per month" or "28-day supply"' ),
+                    array( 'key' => 'field_dp_prices_wl_note', 'label' => 'Note (optional)', 'name' => 'wl_note', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                ),
+            ),
+
+            // ── 2. Travel Health ──────────────────────────────────────────────
+            array(
+                'key'          => 'field_dp_prices_travel',
+                'label'        => 'Travel Vaccinations',
+                'name'         => 'prices_travel',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Vaccine',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_prices_travel_vaccine_name', 'label' => 'Vaccine Name', 'name' => 'travel_vaccine_name', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_prices_travel_price_per_dose', 'label' => 'Price per Dose', 'name' => 'travel_price_per_dose', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_prices_travel_course_price', 'label' => 'Full Course Price (optional)', 'name' => 'travel_course_price', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                    array( 'key' => 'field_dp_prices_travel_notes', 'label' => 'Notes (optional)', 'name' => 'travel_notes', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                ),
+            ),
+
+            // ── 3. Private Services ───────────────────────────────────────────
+            array(
+                'key'          => 'field_dp_prices_private',
+                'label'        => 'Private Services',
+                'name'         => 'prices_private',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add Service',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_prices_private_category', 'label' => 'Category', 'name' => 'private_category', 'type' => 'text', 'wrapper' => array( 'width' => '30' ), 'instructions' => 'Rows sharing a category are grouped together in the panel.' ),
+                    array( 'key' => 'field_dp_prices_private_service_name', 'label' => 'Service Name', 'name' => 'private_service_name', 'type' => 'text', 'wrapper' => array( 'width' => '35' ) ),
+                    array( 'key' => 'field_dp_prices_private_price', 'label' => 'Price', 'name' => 'private_price', 'type' => 'text', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_prices_private_notes', 'label' => 'Notes (optional)', 'name' => 'private_notes', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
+                ),
+            ),
+
+            // ── 4. NHS Services ───────────────────────────────────────────────
+            array(
+                'key'          => 'field_dp_prices_nhs',
+                'label'        => 'NHS Services',
+                'name'         => 'prices_nhs',
+                'type'         => 'repeater',
+                'layout'       => 'block',
+                'button_label' => 'Add NHS Service',
+                'sub_fields'   => array(
+                    array( 'key' => 'field_dp_prices_nhs_service_name', 'label' => 'Service Name', 'name' => 'nhs_service_name', 'type' => 'text', 'wrapper' => array( 'width' => '40' ) ),
+                    array( 'key' => 'field_dp_prices_nhs_eligibility', 'label' => 'Eligibility', 'name' => 'nhs_eligibility', 'type' => 'text', 'wrapper' => array( 'width' => '60' ) ),
+                ),
+            ),
+
+            // ── Page-level disclaimer ─────────────────────────────────────────
+            array(
+                'key'           => 'field_dp_prices_disclaimer',
+                'label'         => 'Disclaimer',
+                'name'          => 'prices_disclaimer',
+                'type'          => 'textarea',
+                'rows'          => 4,
+                'default_value' => 'All prices shown are correct at time of publication and may be subject to change. Treatment is only available following a clinical consultation and where deemed appropriate by our pharmacist.',
+            ),
+
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-prices.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2600,
         'position'              => 'normal',
         'style'                 => 'default',
         'label_placement'       => 'top',
