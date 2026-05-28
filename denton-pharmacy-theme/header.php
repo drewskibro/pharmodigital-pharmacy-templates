@@ -75,6 +75,10 @@ $nav_hh_show  = dp_option( 'nav_hub_show', '1' );
 $nav_hh_label = dp_option( 'nav_hub_label', 'Hub' );
 $nav_hh_url   = dp_nav_url( 'nav_hub_url', '/health-hub/' );
 
+$nav_pr_show  = dp_option( 'nav_prices_show', '1' );
+$nav_pr_label = dp_option( 'nav_prices_label', 'Prices' );
+$nav_pr_url   = dp_nav_url( 'nav_prices_url', '/prices/' );
+
 $nav_ct_show  = dp_option( 'nav_contact_show', '1' );
 $nav_ct_label = dp_option( 'nav_contact_label', 'Contact' );
 $nav_ct_url   = dp_nav_url( 'nav_contact_url', '/contact/' );
@@ -412,6 +416,13 @@ if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $def
           </div>
           <?php endif; ?>
 
+          <?php // ── Prices (no dropdown) ──────────────────────────── ?>
+          <?php if ( $nav_pr_show ) : ?>
+          <div class="denton-menu-item">
+            <a href="<?php echo esc_url( $nav_pr_url ); ?>" class="denton-menu-btn"><?php echo esc_html( $nav_pr_label ); ?></a>
+          </div>
+          <?php endif; ?>
+
           <?php // ── Contact (no dropdown) ─────────────────────────── ?>
           <?php if ( $nav_ct_show ) : ?>
           <div class="denton-menu-item">
@@ -517,6 +528,10 @@ if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $def
 
         <?php if ( $nav_hh_show ) : ?>
         <a href="<?php echo esc_url( $nav_hh_url ); ?>" class="denton-mobile-link"><?php echo esc_html( $nav_hh_label ); ?></a>
+        <?php endif; ?>
+
+        <?php if ( $nav_pr_show ) : ?>
+        <a href="<?php echo esc_url( $nav_pr_url ); ?>" class="denton-mobile-link"><?php echo esc_html( $nav_pr_label ); ?></a>
         <?php endif; ?>
 
         <?php if ( $nav_ct_show ) : ?>
