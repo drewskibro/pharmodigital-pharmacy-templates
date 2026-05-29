@@ -10908,5 +10908,63 @@ function ep_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // ── Ear Wax Removal — Shepperton (location page images) ───────────────
+    $shepperton_location = array(
+        array(
+            array(
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-ear-wax-removal-shepperton.php',
+            ),
+        ),
+    );
+
+    acf_add_local_field_group( array(
+        'key'      => 'group_ep_ews_images',
+        'title'    => 'Ear Wax (Shepperton) — Images',
+        'fields'   => array(
+            array(
+                'key'           => 'field_ep_ews_hero_image',
+                'label'         => 'Hero Image',
+                'name'          => 'ews_hero_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+                'instructions'  => 'Hero visual. Falls back to a stock image if left blank.',
+            ),
+            array(
+                'key'           => 'field_ep_ews_step_1_image',
+                'label'         => 'Process Step 1 — Image (Clinical Assessment)',
+                'name'          => 'ews_step_1_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+            ),
+            array(
+                'key'           => 'field_ep_ews_step_2_image',
+                'label'         => 'Process Step 2 — Image (Microsuction Removal)',
+                'name'          => 'ews_step_2_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+            ),
+            array(
+                'key'           => 'field_ep_ews_step_3_image',
+                'label'         => 'Process Step 3 — Image (Examination & Aftercare)',
+                'name'          => 'ews_step_3_image',
+                'type'          => 'image',
+                'return_format' => 'id',
+                'preview_size'  => 'medium',
+            ),
+        ),
+        'location'              => $shepperton_location,
+        'menu_order'            => 0,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
 }
 add_action( 'acf/init', 'ep_register_acf_field_groups' );

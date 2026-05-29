@@ -150,6 +150,15 @@ function easy_pharmacy_scripts() {
         wp_enqueue_script( 'easy-pharmacy-ear-wax-js', EASY_PHARMACY_URI . '/assets/js/ear-wax-removal.js', array(), EASY_PHARMACY_VERSION, true );
     }
 
+    // Shepperton location page reuses the shared .earwax-* base styles + JS
+    // (FAQ accordion, smooth scroll) and layers its own sections on top.
+    if ( is_page_template( 'page-templates/page-ear-wax-removal-shepperton.php' ) ) {
+        wp_enqueue_style( 'easy-pharmacy-ear-wax', EASY_PHARMACY_URI . '/assets/css/ear-wax-removal.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_style( 'easy-pharmacy-ear-wax-shepperton', EASY_PHARMACY_URI . '/assets/css/ear-wax-removal-shepperton.css', array( 'easy-pharmacy-globals', 'easy-pharmacy-ear-wax' ), EASY_PHARMACY_VERSION );
+        wp_enqueue_script( 'easy-pharmacy-ear-wax-js', EASY_PHARMACY_URI . '/assets/js/ear-wax-removal.js', array(), EASY_PHARMACY_VERSION, true );
+        wp_enqueue_script( 'easy-pharmacy-ear-wax-shepperton-js', EASY_PHARMACY_URI . '/assets/js/ear-wax-removal-shepperton.js', array(), EASY_PHARMACY_VERSION, true );
+    }
+
     if ( is_page_template( 'page-templates/page-hair-loss.php' ) ) {
         wp_enqueue_style( 'easy-pharmacy-hair-loss', EASY_PHARMACY_URI . '/assets/css/hair-loss.css', array( 'easy-pharmacy-globals' ), EASY_PHARMACY_VERSION );
         wp_enqueue_script( 'easy-pharmacy-hair-loss-js', EASY_PHARMACY_URI . '/assets/js/hair-loss.js', array(), EASY_PHARMACY_VERSION, true );
@@ -585,6 +594,69 @@ function easy_pharmacy_post_schema() {
     }
 }
 add_action( 'wp_head', 'easy_pharmacy_post_schema' );
+
+/**
+ * Ear Wax Removal — Shepperton location page <head> output.
+ *
+ * Outputs the meta description, canonical URL and LocalBusiness (MedicalBusiness)
+ * schema, gated to the Shepperton template only. The meta title is handled
+ * separately via the pre_get_document_title filter below.
+ */
+function easy_pharmacy_shepperton_head() {
+    if ( ! is_page_template( 'page-templates/page-ear-wax-removal-shepperton.php' ) ) {
+        return;
+    }
+
+    $canonical   = 'https://theeasyclinic.co.uk/ear-wax-removal-shepperton/';
+    $description = 'Professional microsuction serving Shepperton, Sunbury & Spelthorne. GPhC registered clinicians. 95% success rate. Same-day appointments from £25. No GP referral needed.';
+
+    echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
+    echo '<link rel="canonical" href="' . esc_url( $canonical ) . '" />' . "\n";
+
+    $schema = array(
+        '@context'         => 'https://schema.org',
+        '@type'            => 'MedicalBusiness',
+        'name'             => 'Easy Clinic',
+        'description'      => 'GPhC registered ear wax removal clinic serving Shepperton, Sunbury-on-Thames and the Spelthorne borough',
+        'url'              => $canonical,
+        'telephone'        => '01784613239',
+        'email'            => 'bookings@theeasyclinic.co.uk',
+        'address'          => array(
+            '@type'           => 'PostalAddress',
+            'streetAddress'   => 'Unit 11, Littleton House, Littleton Road',
+            'addressLocality' => 'Surrey',
+            'postalCode'      => 'TW15 1UU',
+            'addressCountry'  => 'GB',
+        ),
+        'areaServed'       => array(
+            'Shepperton',
+            'Sunbury-on-Thames',
+            'Staines-upon-Thames',
+            'Upper Halliford',
+            'Spelthorne',
+            'Laleham',
+            'Charlton Village',
+        ),
+        'hasCredential'    => 'GPhC Registration 1091169',
+        'foundingDate'     => '2008',
+        'medicalSpecialty' => 'Ear Wax Removal - Microsuction',
+    );
+
+    echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+}
+add_action( 'wp_head', 'easy_pharmacy_shepperton_head' );
+
+/**
+ * Set the document <title> for the Shepperton location page.
+ * Only applies when no SEO plugin has already overridden the title.
+ */
+function easy_pharmacy_shepperton_title( $title ) {
+    if ( is_page_template( 'page-templates/page-ear-wax-removal-shepperton.php' ) ) {
+        return 'Ear Wax Removal Shepperton & Spelthorne | GPhC Registered Clinicians';
+    }
+    return $title;
+}
+add_filter( 'pre_get_document_title', 'easy_pharmacy_shepperton_title', 20 );
 
 /**
  * Auto-generate a Table of Contents for single blog posts.
