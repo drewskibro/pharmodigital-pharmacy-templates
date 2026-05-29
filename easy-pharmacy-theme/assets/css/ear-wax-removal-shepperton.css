@@ -596,6 +596,34 @@
   display: block;
 }
 
+/* ============================================
+   PROCESS STEP IMAGES — size constraint
+   The shared .earwax-process-step-image has no height cap, so the
+   portrait staff photos used here render full-bleed and oversized.
+   Scope a sensible max-height + aspect ratio to this page only so the
+   original /ear-wax-removal/ page is untouched.
+   ============================================ */
+.page-template-page-ear-wax-removal-shepperton .earwax-process-step-image {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-template-page-ear-wax-removal-shepperton .earwax-process-step-image img {
+  aspect-ratio: 4 / 3;
+  max-height: 360px;
+}
+
+@media (min-width: 1024px) {
+  .page-template-page-ear-wax-removal-shepperton .earwax-process-step-image {
+    max-width: none;
+  }
+  .page-template-page-ear-wax-removal-shepperton .earwax-process-step-image img {
+    aspect-ratio: 1 / 1;
+    max-height: 440px;
+  }
+}
+
 /* Final CTA trust row — allow 5 items to wrap */
 .earwax-shep-cta-trust {
   flex-wrap: wrap;
