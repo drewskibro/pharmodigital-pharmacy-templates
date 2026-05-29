@@ -76,16 +76,20 @@
   }
 }
 
+.earwax-shep-statement-body {
+  text-align: left;
+}
+
 .earwax-shep-statement-body p {
   color: rgba(255, 255, 255, 0.95);
-  font-size: 1.0625rem;
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.9;
+  margin-bottom: 1.75rem;
 }
 
 @media (min-width: 768px) {
   .earwax-shep-statement-body p {
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
   }
 }
 
@@ -131,7 +135,7 @@
 
 .earwax-shep-statement-stat-label {
   color: rgba(255, 255, 255, 0.85);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
 }
 
@@ -584,6 +588,12 @@
 
 .earwax-shep-link i {
   color: #C47A65;
+}
+
+/* Team photo placeholder when no image is uploaded */
+.earwax-team-image-placeholder {
+  background: linear-gradient(135deg, rgba(107, 79, 160, 0.12), rgba(196, 122, 101, 0.12));
+  display: block;
 }
 
 /* Final CTA trust row — allow 5 items to wrap */

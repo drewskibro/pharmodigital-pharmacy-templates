@@ -455,7 +455,15 @@ $shep_tel      = '01784613239';
     <div class="earwax-team-grid">
       <div class="earwax-team-card">
         <div class="earwax-team-image-wrapper">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=600&fit=crop" alt="Jignasa Modhvadia" class="earwax-team-image" />
+          <?php
+          $jignasa_img_id  = ep_field( 'ews_team_jignasa_image' );
+          $jignasa_img_url = $jignasa_img_id ? wp_get_attachment_image_url( $jignasa_img_id, 'medium_large' ) : '';
+          ?>
+          <?php if ( $jignasa_img_url ) : ?>
+            <img src="<?php echo esc_url( $jignasa_img_url ); ?>" alt="Jignasa Modhvadia" class="earwax-team-image" />
+          <?php else : ?>
+            <div class="earwax-team-image earwax-team-image-placeholder" aria-label="Jignasa Modhvadia"></div>
+          <?php endif; ?>
           <div class="earwax-team-badge-green">Since 2019</div>
         </div>
         <div class="earwax-team-content">
@@ -470,7 +478,15 @@ $shep_tel      = '01784613239';
       </div>
       <div class="earwax-team-card">
         <div class="earwax-team-image-wrapper">
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=600&fit=crop" alt="Baljender Nagi" class="earwax-team-image" />
+          <?php
+          $baljender_img_id  = ep_field( 'ews_team_baljender_image' );
+          $baljender_img_url = $baljender_img_id ? wp_get_attachment_image_url( $baljender_img_id, 'medium_large' ) : '';
+          ?>
+          <?php if ( $baljender_img_url ) : ?>
+            <img src="<?php echo esc_url( $baljender_img_url ); ?>" alt="Baljender Nagi" class="earwax-team-image" />
+          <?php else : ?>
+            <div class="earwax-team-image earwax-team-image-placeholder" aria-label="Baljender Nagi"></div>
+          <?php endif; ?>
           <div class="earwax-team-badge-purple">Level 3 Technician</div>
         </div>
         <div class="earwax-team-content">
@@ -525,59 +541,7 @@ $shep_tel      = '01784613239';
 </section>
 
 <!-- ============================================
-     SECTION 11: TESTIMONIALS
-     ============================================ -->
-<section class="earwax-testimonials-section">
-  <div class="section-container">
-    <div class="earwax-testimonials-header">
-      <div class="section-badge">
-        <span class="pulse-dot"><span></span><span></span></span>
-        <span class="section-badge-text">PATIENT TESTIMONIALS</span>
-      </div>
-      <h2 class="earwax-testimonials-title">Hear What Our Spelthorne Patients Say</h2>
-      <p class="earwax-testimonials-subtitle">Join the patients who've experienced immediate relief at our clinic</p>
-    </div>
-
-    <div class="earwax-testimonials-grid">
-      <div class="earwax-testimonial-card">
-        <div class="earwax-testimonial-header">
-          <div class="earwax-testimonial-avatar"><img src="https://i.pravatar.cc/150?img=47" alt="Sarah M." /></div>
-          <div class="earwax-testimonial-meta">
-            <p class="earwax-testimonial-author">Sarah M.</p>
-            <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          </div>
-        </div>
-        <p class="earwax-testimonial-quote">"After weeks of discomfort, I finally got my ears treated at Easy Clinic. The difference was immediate - I could hear clearly again! The clinician was professional and explained everything clearly. Highly recommend!"</p>
-        <div class="earwax-testimonial-footer"><i class="fas fa-check-circle"></i><span>Verified Patient</span></div>
-      </div>
-      <div class="earwax-testimonial-card">
-        <div class="earwax-testimonial-header">
-          <div class="earwax-testimonial-avatar"><img src="https://i.pravatar.cc/150?img=26" alt="Margaret T." /></div>
-          <div class="earwax-testimonial-meta">
-            <p class="earwax-testimonial-author">Margaret T.</p>
-            <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          </div>
-        </div>
-        <p class="earwax-testimonial-quote">"Fantastic service from start to finish. The team was so thorough and professional. The aftercare advice has helped prevent any further build-up."</p>
-        <div class="earwax-testimonial-footer"><i class="fas fa-check-circle"></i><span>Verified Patient</span></div>
-      </div>
-      <div class="earwax-testimonial-card">
-        <div class="earwax-testimonial-header">
-          <div class="earwax-testimonial-avatar"><img src="https://i.pravatar.cc/150?img=12" alt="John R." /></div>
-          <div class="earwax-testimonial-meta">
-            <p class="earwax-testimonial-author">John R.</p>
-            <div class="star-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          </div>
-        </div>
-        <p class="earwax-testimonial-quote">"Much better than the traditional syringing I had years ago. No mess, no fuss, just clear hearing again. The appointment times meant I didn't need to take time off work."</p>
-        <div class="earwax-testimonial-footer"><i class="fas fa-check-circle"></i><span>Verified Patient</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     SECTION 12: FAQ
+     SECTION 11: FAQ
      ============================================ -->
 <section class="earwax-faq-section">
   <div class="section-container">
@@ -626,7 +590,7 @@ $shep_tel      = '01784613239';
 </section>
 
 <!-- ============================================
-     SECTION 13: FINAL CTA
+     SECTION 12: FINAL CTA
      ============================================ -->
 <section class="earwax-cta-section">
   <div class="section-container">
