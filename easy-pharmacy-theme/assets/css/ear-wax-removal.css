@@ -1642,6 +1642,25 @@
   font-size: 0.85rem;
 }
 
+/* Cross-link to the Shepperton location page (under the final CTA). */
+.earwax-cta-area-link {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.earwax-cta-area-link a {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.earwax-cta-area-link a:hover {
+  color: #fff;
+}
+
 @media (min-width: 640px) {
   .earwax-cta-actions {
     flex-direction: row;

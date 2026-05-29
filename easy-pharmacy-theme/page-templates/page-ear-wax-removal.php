@@ -782,6 +782,9 @@ echo $ew_loc_strip; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEsc
         <span class="earwax-cta-trust-item"><i class="fas fa-clock"></i> Same-Day Appointments</span>
         <span class="earwax-cta-trust-item"><i class="fas fa-user-doctor"></i> No Referral Needed</span>
       </div>
+      <p class="earwax-cta-area-link">
+        <a href="<?php echo esc_url( home_url( '/ear-wax-removal-shepperton/' ) ); ?>">Also serving: Shepperton &amp; Spelthorne &rarr;</a>
+      </p>
     </div>
   </div>
 </section>
