@@ -11,7 +11,7 @@
   position: relative;
   overflow: hidden;
   padding: 5rem 0 4rem;
-  background: linear-gradient(180deg, var(--white) 0%, var(--brand-light) 100%);
+  background: var(--brand-light);
 }
 
 .prices-hero-glow-1,
