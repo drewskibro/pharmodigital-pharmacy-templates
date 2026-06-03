@@ -258,6 +258,39 @@ Every page should end with a **Final CTA section** that follows the established 
 
 ---
 
+## Prices Page (Tabbed Pricing)
+
+The Prices page (`page-templates/page-prices.php`) is a tabbed pricing reference, all four panels driven by ACF repeaters so the client edits prices in WP Admin without a deploy.
+
+1. **Hero** — Badge, gradient + italic title, description, "Book a Consultation" + "Call" CTAs.
+2. **Tabs nav** — Pill-style segmented control: Weight Loss / Travel Health / Private Services / NHS Services. Roving-tabindex accessibility, arrow-key navigation, `#hash` deep linking.
+3. **Weight Loss panel** — Card grid (3 cols desktop). Each card: product name, strength pill, big Playfair price, supply line, optional note. Drives off `prices_weight_loss` repeater.
+4. **Travel Health panel** — Clean table (vaccine / per dose / full course / notes). Mobile-stacks into key-value rows via `data-label`. Drives off `prices_travel` repeater.
+5. **Private Services panel** — Grouped lists keyed off the `private_category` sub-field, so flat repeater rows render as categorised sections. Drives off `prices_private` repeater.
+6. **NHS Services panel** — Green-accented card grid. Each card: "Free on NHS" tag + service name + eligibility line. Drives off `prices_nhs` repeater.
+7. **Disclaimer** — Single page-level textarea (`prices_disclaimer`) — info-icon card with brand-primary left border.
+8. **Final CTA** — Blue gradient section, "Book a Consultation" + "Call" CTAs.
+
+### ACF Field Group
+
+| Group | Code | What it controls |
+|-------|------|-----------------|
+| P | `group_[prefix]_prices` | Hero copy + 4 pricing repeaters + disclaimer |
+
+All repeater field **names** (e.g. `prices_weight_loss`, `wl_product_name`) are the same across clients. Only the field **keys** are prefixed (`field_dp_…`, `field_bp_…`). This is what makes the importer reusable across clients with zero PHP changes.
+
+### Seeding Data Without 150 Lines of PHP
+
+Rather than baking ~150 prices into PHP defaults (where they'd live in the deploy cycle, become stale code, and be redundant the moment the client edits anything in WP Admin), prices are seeded into the database via a one-shot WP-CLI importer in `[client]-pharmacy-theme/bin/`:
+
+- `prices-seed.json` — launch snapshot, grouped by tab
+- `import-prices.php` — runs via `wp eval-file`; writes the JSON into the Prices page's ACF repeaters
+- `README.md` — per-client operational notes
+
+After the initial seed the database is the source of truth and edits happen in WP Admin. The seed JSON is a launch snapshot, not the live data. See **Prices Page Seeding Workflow** for the cross-client process and gotchas.
+
+---
+
 ## Health Hub Page (Blog Listing)
 
 The Health Hub page (`page-templates/page-health-hub.php`) is the main blog listing. It uses server-side filtering and pagination:
@@ -641,6 +674,80 @@ Every client's theme auto-deploys to Kinsta when code is pushed to `main`. The w
 
 ---
 
+## Prices Page Seeding Workflow
+
+End-to-end process for launching the Prices page on a client (Denton, Bowland, future). Covers the gotchas hit during Denton's launch — read these before SSHing anywhere.
+
+### Prerequisites
+
+- The Prices page **template** and ACF field group exist in the theme (`page-templates/page-prices.php` + `group_[prefix]_prices` in `inc/acf-fields.php`).
+- The `bin/` folder is in the theme with `import-prices.php` and `prices-seed.json` populated for this client.
+- All of the above is on `main` and has deployed to **staging** via the client's GitHub Actions workflow.
+- **ACF PRO is active on staging.** The importer calls `update_field()`, which requires ACF to be loaded.
+
+### Step 1: Create the Prices page in WP Admin on staging
+
+- Title: `Prices` (slug auto-becomes `/prices/`)
+- Page Attributes → Template = **Prices**
+- Publish
+
+The page renders with hero copy and empty tabs. Expected.
+
+### Step 2: SSH into staging and run the importer
+
+From your local terminal (Mac Terminal, Windows Terminal, or PowerShell):
+
+```bash
+# Copy the "SSH terminal command" from MyKinsta → switch to Staging → Info → Primary SFTP/SSH user
+ssh [client]pharmacy@<staging-host> -p <staging-port>
+# Paste the password from MyKinsta (eye icon → copy icon). Nothing shows as you paste — that's normal.
+```
+
+Once connected:
+
+```bash
+cd ~/public
+wp eval-file wp-content/themes/[client]-pharmacy-theme/bin/import-prices.php
+```
+
+Expected output:
+
+```
+Seeded "Prices" (page ID 743):
+  weight_loss  16
+  travel       19
+  private      52
+  nhs          10
+  disclaimer   1
+Success: Prices seeded.
+```
+
+### Step 3: Preview on staging
+
+Visit the staging URL for `/prices/`. Click through all four tabs.
+
+If anything looks empty: clear Kinsta edge cache (MyKinsta → Caching → Clear cache) and hard-refresh.
+
+### Step 4: Push staging → live
+
+1. **Backup live first**: MyKinsta → switch to Live → Backups → Manual → Back up now. Name it `pre-prices-push-<date>`. Wait for completion.
+2. Switch back to Staging.
+3. Click **Push environment** (top-right of MyKinsta). Choose **Files + Database** — you need both (files for the template; database for the prices).
+4. Wait for the push (~2–5 mins).
+5. Visit live `/prices/` to verify. Clear live's edge cache if needed.
+
+### Gotchas Hit During Denton's Launch (Read These)
+
+- **PowerShell paste mangles multi-line commands.** Pasting a code block into PowerShell SSH adds bracketed-paste escape sequences (`^[[200~` / `~`) that break the shell parser, producing errors like `'\E[200~wp': command not found`. Workaround: type commands by hand, paste one line at a time, or use Windows Terminal.
+- **`wp` won't run from the SSH landing directory.** Kinsta drops you in `/www/<site_id>/`, which isn't the WP root. Always `cd ~/public` first or you'll get `This does not seem to be a WordPress installation`.
+- **WP-CLI may not list ACF in `wp plugin list` even when it's active.** On Denton staging, ACF PRO didn't appear in `wp plugin list` but `update_field()` was callable. Don't trust `wp plugin list` for ACF. Verify with `wp eval 'echo function_exists("update_field") ? "yes" : "no";'` instead.
+- **Don't seed on live before the push.** Live doesn't have ACF until staging pushes over. Even if you manually install ACF on live, the push wipes the live DB anyway. Always seed on staging, push to live.
+- **The importer refuses to overwrite by default.** If repeater rows already exist on that page, it bails with a warning. Pass `-- --force` only when you genuinely want to wipe client edits.
+- **Silent password paste in SSH.** When SSH asks for a password, nothing appears as you type or paste — no dots, no stars. People often type the password twice thinking nothing happened. Paste once, press Enter once.
+- **Live vs Staging mix-up.** The Kinsta SSH hostname includes the environment (`*-live-prod` vs `*-staging-staging`). Always check the prompt after connecting to confirm you're where you meant to be.
+
+---
+
 ## Footer Structure (Shared Layout)
 
 Dark slate background (`#0f172a`) with radial gradient overlay:
@@ -706,6 +813,18 @@ All themes use Font Awesome 6.4.0 via CDN. Common icons:
 3. Create matching CSS file
 4. Register ACF fields following the K-series pattern
 5. Update navigation dropdown with new link
+
+### Seed the Prices Page on a New Client
+
+`import-prices.php` itself doesn't change between clients — it uses ACF field **names** (which are identical across clients), not field keys.
+
+1. Copy `denton-pharmacy-theme/bin/` → `[client]-pharmacy-theme/bin/` (all three files).
+2. Open `prices-seed.json` and replace the data with the new client's prices. Keep the JSON structure identical — same top-level keys (`weight_loss`, `travel`, `private`, `nhs`, `disclaimer`), same sub-field names.
+3. Copy the `group_dp_prices` block from Denton's `inc/acf-fields.php` into the new client's `inc/acf-fields.php`. Swap the field **keys** (`field_dp_…` → `field_[newprefix]_…`) but leave the field **names** unchanged.
+4. Copy `page-templates/page-prices.php`, `assets/css/prices.css`, and `assets/js/prices.js` to the new theme.
+5. Add the conditional enqueue in the new client's `functions.php` (mirror Denton's `is_page_template( 'page-templates/page-prices.php' )` block).
+6. Surface the Prices link in the new client's navigation, following whatever nav pattern that theme uses.
+7. Commit, push, deploy to staging. Then follow **Prices Page Seeding Workflow**.
 
 ### Customise for a New Client
 
