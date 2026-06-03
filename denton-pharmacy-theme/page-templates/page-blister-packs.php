@@ -27,6 +27,14 @@ $hero_cta_s_text = ( is_array( $hero_cta_secondary ) && ! empty( $hero_cta_secon
 $hero_cta_s_url  = ( is_array( $hero_cta_secondary ) && ! empty( $hero_cta_secondary['url'] ) )   ? $hero_cta_secondary['url']   : '';
 $hero_cta_s_tgt  = ( is_array( $hero_cta_secondary ) && ! empty( $hero_cta_secondary['target'] ) ) ? $hero_cta_secondary['target'] : '';
 
+// Reroute any /book-appointment/ links (or empty URLs) to the in-page Acuity calendar.
+// Custom URLs (tel:, external, etc.) are left untouched.
+foreach ( array( 'hero_cta_p_url', 'hero_cta_s_url' ) as $bp_cta_var ) {
+    if ( $$bp_cta_var === '' || stripos( $$bp_cta_var, '/book-appointment' ) !== false ) {
+        $$bp_cta_var = '#blister-pack-calendar';
+    }
+}
+
 // Trust pills (repeater)
 $trust_pills = array();
 if ( have_rows( 'bp_hero_trust_pills' ) ) {
@@ -350,6 +358,13 @@ $cta_s_text = ( is_array( $cta_secondary ) && ! empty( $cta_secondary['title'] )
 $cta_s_url  = ( is_array( $cta_secondary ) && ! empty( $cta_secondary['url'] ) )   ? $cta_secondary['url']   : '';
 $cta_s_tgt  = ( is_array( $cta_secondary ) && ! empty( $cta_secondary['target'] ) ) ? $cta_secondary['target'] : '';
 
+// Same reroute as in the hero — any /book-appointment/ link (or empty URL) jumps to the calendar.
+foreach ( array( 'cta_p_url', 'cta_s_url' ) as $bp_cta_var ) {
+    if ( $$bp_cta_var === '' || stripos( $$bp_cta_var, '/book-appointment' ) !== false ) {
+        $$bp_cta_var = '#blister-pack-calendar';
+    }
+}
+
 $cta_badges = array();
 if ( have_rows( 'bp_cta_badges' ) ) {
     while ( have_rows( 'bp_cta_badges' ) ) {
@@ -403,5 +418,30 @@ if ( $cta_title || $cta_description || $cta_p_text ) :
     </div>
 </section>
 <?php endif; ?>
+
+<!-- Booking Calendar (Acuity) -->
+<section id="blister-pack-calendar" class="bpack-booking-section">
+  <div class="section-container">
+    <div class="bpack-booking-header">
+      <div class="section-badge">
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span class="section-badge-text">BOOK ONLINE</span>
+      </div>
+      <h2 class="bpack-booking-title">Sign Up for Blister Pack Services</h2>
+      <p class="bpack-booking-subtitle">Choose a time below to register for your blister pack subscription at Denton Pharmacy.</p>
+    </div>
+    <div class="booking-calendar-wrapper">
+      <iframe
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;appointmentType=category:Blister%20Pack%20Services&amp;ref=embedded_csp"
+        title="Schedule Appointment"></iframe>
+    </div>
+  </div>
+</section>
+<script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
 
 <?php get_footer();
