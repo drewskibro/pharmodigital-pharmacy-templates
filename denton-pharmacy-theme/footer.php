@@ -23,9 +23,10 @@ $booking_url   = dp_booking_url();
 $address_line1 = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
 $address_line2 = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester M34 3EX' );
 
-// Hours.
-$hours_weekday = dp_option( 'hours_weekday', 'Mon-Fri: 9am-6pm' );
-$hours_weekend = dp_option( 'hours_saturday', 'Sat: 9am-1pm' );
+// Hours. Day labels are added structurally below so the ACF values only need
+// to hold the times (e.g. "9am – 5:30pm" / "Closed").
+$hours_weekday = dp_option( 'hours_weekday', '9:00am – 6:00pm' );
+$hours_weekend = dp_option( 'hours_sunday', dp_option( 'hours_saturday', 'Closed' ) );
 
 // Social links.
 $facebook_url  = dp_option( 'social_facebook', 'https://facebook.com' );
@@ -146,8 +147,8 @@ $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and well
                 <i class="fas fa-clock"></i>
               </div>
               <div class="footer-contact-text">
-                <span><?php echo esc_html( $hours_weekday ); ?></span>
-                <span><?php echo esc_html( $hours_weekend ); ?></span>
+                <span>Monday &ndash; Friday: <?php echo esc_html( $hours_weekday ); ?></span>
+                <span>Saturday &amp; Sunday: <?php echo esc_html( $hours_weekend ); ?></span>
               </div>
             </li>
           </ul>
