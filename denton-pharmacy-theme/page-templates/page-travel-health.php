@@ -362,35 +362,6 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
       </h2>
     </div>
 
-    <!-- Pharmacist intro strip -->
-    <?php
-    $why_image_id  = dp_field( 'th_why_image' );
-    if ( ! $why_image_id ) {
-        $why_image_id = dp_option( 'pharmacist_image' );
-    }
-    $why_image_url = $why_image_id ? wp_get_attachment_image_url( $why_image_id, 'medium' ) : '';
-    $pharmacist_name = dp_field( 'pharmacist_name', dp_option( 'superintendent_pharmacist', 'our pharmacist' ) );
-    $pharmacist_role = dp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
-    ?>
-    <div class="travel-why-pharmacist-strip">
-      <div class="travel-why-pharmacist-inner">
-        <?php if ( $why_image_url ) : ?>
-          <div class="travel-why-photo-wrapper">
-            <img src="<?php echo esc_url( $why_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'th_why_image_alt', $pharmacist_name . ' — Denton Pharmacy' ) ); ?>" class="travel-why-photo" />
-            <div class="travel-why-photo-ring"></div>
-          </div>
-        <?php endif; ?>
-        <div class="travel-why-pharmacist-info">
-          <h3 class="travel-why-pharmacist-name"><?php echo esc_html( $pharmacist_name ); ?></h3>
-          <p class="travel-why-pharmacist-role"><?php echo esc_html( $pharmacist_role ); ?></p>
-        </div>
-        <div class="travel-why-experience-pill">
-          <span class="travel-why-experience-number"><?php echo esc_html( dp_field( 'th_why_badge_number', '15+' ) ); ?></span>
-          <span class="travel-why-experience-label"><?php echo esc_html( dp_field( 'th_why_badge_label', 'Years Experience' ) ); ?></span>
-        </div>
-      </div>
-    </div>
-
     <!-- 2x2 premium feature grid -->
     <div class="travel-why-grid">
       <?php if ( have_rows( 'th_why_cards' ) ) : $card_index = 0; while ( have_rows( 'th_why_cards' ) ) : the_row(); $card_index++; ?>
