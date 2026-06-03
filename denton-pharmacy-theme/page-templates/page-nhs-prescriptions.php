@@ -125,7 +125,7 @@ $show_hero = $hero_badge || $hero_title_accent || $hero_title_rest || $hero_desc
                         <?php if ( $card_label ) : ?>
                         <div class="npres-trust-card-header">
                             <div class="npres-trust-card-nhs-icon">
-                                <i class="fas fa-prescription"></i>
+                                <i class="fas fa-shield-halved"></i>
                             </div>
                             <span class="npres-trust-card-label"><?php echo esc_html( $card_label ); ?></span>
                         </div>
