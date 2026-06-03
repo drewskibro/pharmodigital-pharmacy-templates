@@ -638,6 +638,14 @@ CSS Grid and Flexbox prevent margin collapse. In plain block containers, adjacen
 
 **The rule:** When elements sit inside a grid/flex parent, explicitly set `margin-top: 0` on headings to prevent the browser's default top margin from stacking.
 
+### Body Cream Bleeds Through the Nav Padding
+
+`globals.css` sets `body { background-color: var(--brand-light); padding-top: var(--nav-height); }`. The nav is fixed-positioned over that padding area. If the actual rendered nav height drifts by even a few pixels from the `--nav-height` token (the ≥1280px breakpoint, which uses `200px`, is most prone), the cream body background peeks through as a thin stripe directly below the menu.
+
+**Symptom:** A visible cream stripe between the bottom of the nav and the top of the page content — only on desktop, only on pages whose hero doesn't start with `var(--brand-light)`. Looks like a horizontal seam under the menu.
+
+**The rule:** A page hero should either start with `var(--brand-light)` as its background, or use a `cream → other-colour` gradient (cream first). Don't start a hero with `var(--white)` at the top — even subtle nav-height drift will show as a seam against the cream body. Pharmacy First and the Prices page both use solid `var(--brand-light)` on their hero for exactly this reason.
+
 ---
 
 ## Deployment Pipeline (GitHub Actions → Kinsta)
