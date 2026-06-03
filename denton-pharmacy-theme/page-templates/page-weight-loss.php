@@ -53,7 +53,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         </p>
 
         <div class="wl-hero-actions">
-          <a href="<?php echo esc_url( dp_field( 'wl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">
+          <a href="<?php echo esc_url( dp_field( 'wl_hero_cta_url', '' ) ?: '#weight-loss-calendar' ); ?>" class="cta-button primary-cta">
             <?php echo esc_html( dp_field( 'wl_hero_cta_text', 'Book Consultation' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
@@ -287,7 +287,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
       </div>
 
       <div class="wl-features-actions">
-        <a href="<?php echo esc_url( dp_field( 'wl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">
+        <a href="<?php echo esc_url( dp_field( 'wl_hero_cta_url', '' ) ?: '#weight-loss-calendar' ); ?>" class="cta-button primary-cta">
           <?php echo esc_html( dp_field( 'wl_features_cta_primary_text', 'Start Your Journey' ) ); ?> <i class="fas fa-arrow-right"></i>
         </a>
         <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button secondary-cta">
@@ -338,7 +338,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <h3 class="wl-cta-bar-title"><?php echo esc_html( dp_field( 'wl_cta_bar_title', 'Ready to transform your health?' ) ); ?></h3>
         <p class="wl-cta-bar-subtitle"><?php echo esc_html( dp_field( 'wl_cta_bar_subtitle', 'Book your consultation with Ahmed today' ) ); ?></p>
       </div>
-      <a href="<?php echo esc_url( dp_field( 'wl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta wl-cta-bar-button">
+      <a href="<?php echo esc_url( dp_field( 'wl_hero_cta_url', '' ) ?: '#weight-loss-calendar' ); ?>" class="cta-button primary-cta wl-cta-bar-button">
         <?php echo esc_html( dp_field( 'wl_hero_cta_text', 'Book Consultation' ) ); ?>
         <i class="fas fa-arrow-right"></i>
       </a>
@@ -810,7 +810,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
       <p class="wl-final-cta-description"><?php echo esc_html( dp_field( 'wl_final_cta_description', 'Join 5,000+ patients who have transformed their lives with medical weight loss. Book your face-to-face consultation with Ahmed today.' ) ); ?></p>
 
       <div class="wl-final-cta-actions">
-        <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="cta-button primary-cta wl-final-cta-button-white">
+        <a href="#weight-loss-calendar" class="cta-button primary-cta wl-final-cta-button-white">
           <?php echo esc_html( dp_field( 'wl_final_cta_button_text', 'Book Your Consultation' ) ); ?> <i class="fas fa-arrow-right"></i>
         </a>
         <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button secondary-cta wl-final-cta-button-outlined">
@@ -838,6 +838,31 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
     </div>
   </div>
 </section>
+
+<!-- N13. Booking Calendar (Acuity) -->
+<section id="weight-loss-calendar" class="wl-booking-section wl-reveal">
+  <div class="section-container">
+    <div class="wl-booking-header">
+      <div class="section-badge">
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span class="section-badge-text">BOOK ONLINE</span>
+      </div>
+      <h2 class="wl-booking-title">Book Your Weight Loss Consultation</h2>
+      <p class="wl-booking-subtitle">Choose a time that suits you and book directly below.</p>
+    </div>
+    <div class="booking-calendar-wrapper">
+      <iframe
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;appointmentType=category:Weight%20Loss&amp;ref=embedded_csp"
+        title="Schedule Appointment"></iframe>
+    </div>
+  </div>
+</section>
+<script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
 
 <?php
 get_footer();
