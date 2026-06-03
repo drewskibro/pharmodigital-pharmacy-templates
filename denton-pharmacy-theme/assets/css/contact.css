@@ -196,7 +196,9 @@
 .contact-form-hero {
   position: relative;
   padding: 80px 0 5rem;
-  background: linear-gradient(to bottom, #f0f4f8, #ffffff);
+  /* Start from the cream body colour so the nav-padding strip blends in
+     seamlessly — see "Body Cream Bleeds Through the Nav Padding" in CLAUDE.md. */
+  background: linear-gradient(to bottom, var(--brand-light), #ffffff);
   overflow: hidden;
 }
 
