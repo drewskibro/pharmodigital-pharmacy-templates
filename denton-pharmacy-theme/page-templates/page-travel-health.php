@@ -19,7 +19,7 @@ $th_title_line2   = dp_field( 'th_hero_title_line2', 'Travel Clinic' );
 $th_title_line3   = dp_field( 'th_hero_title_line3', 'Fly Happy.' );
 $th_description   = dp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Denton travel clinic with ' . dp_option( 'superintendent_pharmacist', 'our expert team' ) . '.' );
 $th_cta_text      = dp_field( 'th_hero_cta_text', 'Book Appointment' );
-$th_cta_url       = dp_field( 'th_hero_cta_url' ) ?: dp_booking_url();
+$th_cta_url       = dp_field( 'th_hero_cta_url' ) ?: '#travel-health-calendar';
 
 // --- Hero image ---
 $th_hero_bg_id  = dp_field( 'th_hero_bg_image' );
@@ -652,7 +652,7 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         <?php echo esc_html( dp_field( 'th_cta_description', 'Don\'t let health worries spoil your adventure. Book your comprehensive travel health consultation with Denton Pharmacy today.' ) ); ?>
       </p>
       <div class="travel-cta-actions">
-        <a href="<?php echo esc_url( dp_field( 'th_cta_primary_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta travel-cta-button-white">
+        <a href="<?php echo esc_url( dp_field( 'th_cta_primary_url', '' ) ?: '#travel-health-calendar' ); ?>" class="cta-button primary-cta travel-cta-button-white">
           <?php echo esc_html( dp_field( 'th_cta_primary_text', 'Book Travel Health Appointment' ) ); ?>
           <i class="fas fa-arrow-right"></i>
         </a>
@@ -678,6 +678,31 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
     </div>
   </div>
 </section>
+
+<!-- Booking Calendar (Acuity) -->
+<section id="travel-health-calendar" class="travel-booking-section">
+  <div class="section-container">
+    <div class="travel-booking-header">
+      <div class="section-badge">
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span class="section-badge-text">BOOK ONLINE</span>
+      </div>
+      <h2 class="travel-booking-title">Book Your Travel Health Appointment</h2>
+      <p class="travel-booking-subtitle">Select a time below and book your travel clinic appointment directly.</p>
+    </div>
+    <div class="booking-calendar-wrapper">
+      <iframe
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;ref=embedded_csp"
+        title="Schedule Appointment"></iframe>
+    </div>
+  </div>
+</section>
+<script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
 
 <?php
 get_footer();
