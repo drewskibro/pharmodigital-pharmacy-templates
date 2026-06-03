@@ -2264,3 +2264,70 @@
 }
 
 /* (Duplicate social proof block removed — now using .wl-google-rating-badge above) */
+
+
+/* ============================================
+   N13. BOOKING CALENDAR (Acuity embed)
+   ============================================ */
+.wl-booking-section {
+  padding: 5rem 0;
+  background: var(--white);
+  scroll-margin-top: var(--nav-height);
+}
+
+@media (min-width: 1024px) {
+  .wl-booking-section {
+    padding: 6rem 0;
+  }
+}
+
+.wl-booking-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.wl-booking-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin: 0 0 0.75rem;
+  line-height: 1.15;
+}
+
+@media (min-width: 1024px) {
+  .wl-booking-title {
+    font-size: 2.5rem;
+  }
+}
+
+.wl-booking-subtitle {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.booking-calendar-wrapper {
+  position: relative;
+  width: 100%;
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(63, 115, 174, 0.08);
+}
+
+.booking-calendar-wrapper iframe {
+  display: block;
+  width: 100%;
+  min-height: 600px;
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  .booking-calendar-wrapper iframe {
+    min-height: 800px;
+  }
+}
