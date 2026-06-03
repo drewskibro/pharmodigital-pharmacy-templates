@@ -19,7 +19,10 @@ $section_sub   = dp_field( 'pharmacist_section_subtitle', 'Every patient is seen
 
 // --- CTAs ---
 $cta_text   = dp_field( 'pharmacist_cta_text', 'Start Your Online Consultation' );
-$cta_url    = dp_field( 'pharmacist_cta_url', dp_booking_url() );
+$pharm_cta_default = is_page_template( 'page-templates/page-weight-loss.php' )
+    ? '#weight-loss-calendar'
+    : dp_booking_url();
+$cta_url    = dp_field( 'pharmacist_cta_url', $pharm_cta_default );
 $phone      = dp_phone();
 $phone_link = dp_phone_link();
 
