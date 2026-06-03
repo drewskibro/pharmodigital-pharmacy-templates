@@ -106,6 +106,13 @@
   transform: translateY(-8px);
 }
 
+/* Nudge the logo left on desktop so it doesn't crowd the phone pill */
+@media (min-width: 1024px) {
+  .denton-nav-top .denton-logo {
+    margin-left: -0.75rem;
+  }
+}
+
 .denton-nav-top .denton-top-actions {
   justify-self: center;
 }
