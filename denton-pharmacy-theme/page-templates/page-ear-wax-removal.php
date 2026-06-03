@@ -40,7 +40,7 @@ get_header();
         </p>
 
         <div class="earwax-hero-actions">
-          <a href="<?php echo esc_url( dp_field( 'ew_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">
+          <a href="<?php echo esc_url( dp_field( 'ew_hero_cta_url', '' ) ?: '#ear-wax-calendar' ); ?>" class="cta-button primary-cta">
             <?php echo esc_html( dp_field( 'ew_hero_cta_text', 'Book Your Appointment' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
@@ -504,7 +504,7 @@ get_header();
               <span><?php echo esc_html( $callout ); ?></span>
             </div>
           <?php endif; ?>
-          <a href="<?php echo esc_url( dp_field( 'ew_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button <?php echo $is_featured ? 'primary-cta' : 'secondary-cta'; ?> earwax-pricing-btn">
+          <a href="<?php echo esc_url( dp_field( 'ew_hero_cta_url', '' ) ?: '#ear-wax-calendar' ); ?>" class="cta-button <?php echo $is_featured ? 'primary-cta' : 'secondary-cta'; ?> earwax-pricing-btn">
             <?php echo esc_html( get_sub_field( 'button_text' ) ?: 'Book Now' ); ?>
           </a>
         </div>
@@ -522,7 +522,7 @@ get_header();
             <i class="fas fa-check"></i>
             <span>Includes &pound;20 consultation</span>
           </div>
-          <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="cta-button primary-cta earwax-pricing-btn">Book Treatment</a>
+          <a href="#ear-wax-calendar" class="cta-button primary-cta earwax-pricing-btn">Book Treatment</a>
         </div>
         <!-- Default: Single Ear -->
         <div class="earwax-pricing-card">
@@ -536,7 +536,7 @@ get_header();
             <i class="fas fa-check"></i>
             <span>Includes consultation</span>
           </div>
-          <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="cta-button secondary-cta earwax-pricing-btn">Book Treatment</a>
+          <a href="#ear-wax-calendar" class="cta-button secondary-cta earwax-pricing-btn">Book Treatment</a>
         </div>
       <?php endif; ?>
     </div>
@@ -707,7 +707,7 @@ get_header();
         <?php echo esc_html( dp_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Denton clinic today. Expert microsuction treatment with guaranteed results.' ) ); ?>
       </p>
       <div class="earwax-cta-actions">
-        <a href="<?php echo esc_url( dp_field( 'ew_cta_primary_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta earwax-cta-button-white">
+        <a href="<?php echo esc_url( dp_field( 'ew_cta_primary_url', '' ) ?: '#ear-wax-calendar' ); ?>" class="cta-button primary-cta earwax-cta-button-white">
           <?php echo esc_html( dp_field( 'ew_cta_button_text', 'Book Appointment Online' ) ); ?>
           <i class="fas fa-arrow-right"></i>
         </a>
@@ -724,6 +724,32 @@ get_header();
     </div>
   </div>
 </section>
+
+<!-- Booking Calendar (Acuity) -->
+<section id="ear-wax-calendar" class="earwax-booking-section">
+  <div class="section-container">
+    <div class="earwax-booking-header">
+      <div class="section-badge">
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span class="section-badge-text">BOOK ONLINE</span>
+      </div>
+      <h2 class="earwax-booking-title">Book Your Ear Wax Removal Appointment</h2>
+      <p class="earwax-booking-subtitle">Choose a time below and book your microsuction appointment directly.</p>
+    </div>
+    <div class="booking-calendar-wrapper">
+      <iframe
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;appointmentType=category:Ear%20Clinic&amp;ref=embedded_csp"
+        title="Schedule Appointment"
+        allow="payment"></iframe>
+    </div>
+  </div>
+</section>
+<script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
 
 <?php
 get_footer();
