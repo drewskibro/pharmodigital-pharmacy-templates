@@ -2,6 +2,8 @@
 
 A one-off seed for the **Prices** page (`page-templates/page-prices.php`). Run it once on each environment after the page is created; from then on, edit prices in WP Admin.
 
+> **Cross-client workflow lives in the repo-root `CLAUDE.md`** under "Prices Page Seeding Workflow" — including the gotchas (PowerShell paste, live vs staging, `cd ~/public`, the WP-CLI/ACF quirk). Read that first if you've not seeded a Prices page before. This file covers the per-client operational details only.
+
 ## Files
 
 - `prices-seed.json` — the launch snapshot of all prices, grouped by tab. Edit if you ever need to re-seed an environment.
