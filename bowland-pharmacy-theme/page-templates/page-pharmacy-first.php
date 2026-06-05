@@ -155,55 +155,75 @@ get_header();
         <div class="pharmfirst-condition-card">
           <div class="pharmfirst-condition-icon"><i class="<?php echo esc_attr( bp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i></div>
           <h3 class="pharmfirst-condition-title"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-          <p class="pharmfirst-condition-desc"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
-          <?php $tag = get_sub_field( 'tag' ); if ( $tag ) : ?>
-            <div class="pharmfirst-condition-tag"><i class="fas fa-info-circle"></i> <?php echo esc_html( $tag ); ?></div>
-          <?php endif; ?>
+          <dl class="pharmfirst-condition-details">
+            <dt class="pharmfirst-condition-label"><i class="fas fa-user-group"></i> Who it's for</dt>
+            <dd class="pharmfirst-condition-value"><?php echo esc_html( get_sub_field( 'who' ) ); ?></dd>
+            <dt class="pharmfirst-condition-label"><i class="fas fa-notes-medical"></i> Key symptoms</dt>
+            <dd class="pharmfirst-condition-value"><?php echo esc_html( get_sub_field( 'symptoms' ) ); ?></dd>
+            <dt class="pharmfirst-condition-label pharmfirst-condition-label-exclusion"><i class="fas fa-triangle-exclamation"></i> When we cannot treat</dt>
+            <dd class="pharmfirst-condition-value"><?php echo esc_html( get_sub_field( 'exclusions' ) ); ?></dd>
+            <dt class="pharmfirst-condition-label pharmfirst-condition-label-treatment"><i class="fas fa-pills"></i> If appropriate</dt>
+            <dd class="pharmfirst-condition-value"><?php echo esc_html( get_sub_field( 'treatment' ) ); ?></dd>
+          </dl>
         </div>
       <?php endwhile; else : ?>
         <?php
         $conditions = array(
           array(
-            'icon'  => 'fas fa-head-side-mask',
-            'title' => 'Sinusitis',
-            'desc'  => 'Blocked or runny nose with facial pain or pressure. Lasting more than 10 days, or worsening after initial improvement. Treated with a nasal corticosteroid spray.',
-            'tag'   => 'Aged 12 and over',
+            'icon'       => 'fas fa-head-side-mask',
+            'title'      => 'Sinusitis',
+            'who'        => 'Adults and children aged 12 and over',
+            'symptoms'   => 'Facial pain or pressure, blocked or runny nose, reduced sense of smell, lasting more than 10 days.',
+            'exclusions' => 'Severe symptoms, signs of complications, immunocompromised patients, or pregnancy (refer to GP).',
+            'treatment'  => 'Antibiotic therapy under PGD where clinically indicated.',
           ),
           array(
-            'icon'  => 'fas fa-head-side-cough',
-            'title' => 'Sore Throat',
-            'desc'  => 'Painful or irritated throat, often making it hard to swallow. Our pharmacist uses a clinical scoring tool (FeverPAIN) to assess whether antibiotics are appropriate.',
-            'tag'   => 'Aged 5 and over',
+            'icon'       => 'fas fa-head-side-cough',
+            'title'      => 'Sore Throat',
+            'who'        => 'Adults and children aged 5 and over',
+            'symptoms'   => 'Sore throat, pain on swallowing, fever, tonsillar exudate.',
+            'exclusions' => 'Severe or life-threatening symptoms, peritonsillar abscess, suspected epiglottitis, immunocompromised patients.',
+            'treatment'  => 'Antibiotic therapy under PGD where clinically indicated.',
           ),
           array(
-            'icon'  => 'fas fa-ear-listen',
-            'title' => 'Earache',
-            'desc'  => 'Ear pain, with or without fever or irritability. Our pharmacist will assess and prescribe appropriate treatment where clinically indicated.',
-            'tag'   => 'Children aged 1–17 only',
+            'icon'       => 'fas fa-ear-listen',
+            'title'      => 'Earache (Otitis Media)',
+            'who'        => 'Children aged 1 to 17',
+            'symptoms'   => 'Ear pain, fever, irritability, reduced hearing.',
+            'exclusions' => 'Under 1 year, perforation of the eardrum, grommets in situ, recurrent episodes, immunocompromised.',
+            'treatment'  => 'Antibiotic therapy under PGD where clinically indicated.',
           ),
           array(
-            'icon'  => 'fas fa-bug',
-            'title' => 'Infected Insect Bite',
-            'desc'  => 'A bite or sting showing signs of infection — redness spreading from the bite, swelling, warmth, or pus. Treated with antibiotic cream or, where needed, oral antibiotics.',
-            'tag'   => 'Aged 1 and over',
+            'icon'       => 'fas fa-bug',
+            'title'      => 'Infected Insect Bite',
+            'who'        => 'Adults and children aged 1 and over',
+            'symptoms'   => 'Redness, swelling, warmth and pain around the bite site, signs of infection.',
+            'exclusions' => 'Systemic infection, severe allergic reaction, large area of spreading redness, immunocompromised.',
+            'treatment'  => 'Antibiotic therapy under PGD where clinically indicated.',
           ),
           array(
-            'icon'  => 'fas fa-hand-dots',
-            'title' => 'Impetigo',
-            'desc'  => 'Highly contagious bacterial skin infection causing red sores or blisters, usually around the face, that burst and leave golden-brown crusts. Treated with antibiotic cream or tablets.',
-            'tag'   => 'Aged 1 and over',
+            'icon'       => 'fas fa-hand-dots',
+            'title'      => 'Impetigo',
+            'who'        => 'Adults and children aged 1 and over',
+            'symptoms'   => 'Sores, blisters and crusting — typically on the face, hands or scalp.',
+            'exclusions' => 'Widespread or severe infection, immunocompromised, recurrent episodes (refer to GP).',
+            'treatment'  => 'Treated with a topical treatment for localised infection, or oral antibiotics where the infection is more widespread.',
           ),
           array(
-            'icon'  => 'fas fa-virus',
-            'title' => 'Shingles',
-            'desc'  => 'A painful rash caused by reactivation of the chickenpox virus, typically affecting one side of the body. Antiviral treatment is most effective when started within 72 hours of the rash appearing.',
-            'tag'   => 'Aged 18 and over',
+            'icon'       => 'fas fa-virus',
+            'title'      => 'Shingles',
+            'who'        => 'Adults aged 18 and over',
+            'symptoms'   => 'Painful rash, blistering on one side of the body, burning or tingling sensation.',
+            'exclusions' => 'Involvement of the eye or ear, immunocompromised, pregnant, or beyond 24 hours from rash onset (too late for antivirals).',
+            'treatment'  => 'Antiviral therapy under PGD where clinically indicated.',
           ),
           array(
-            'icon'  => 'fas fa-person-dress',
-            'title' => 'Uncomplicated UTI',
-            'desc'  => 'Stinging or burning when passing urine, needing to go more frequently, or feeling an urgent need. Without fever or back pain. Treated with a short course of antibiotics.',
-            'tag'   => 'Women aged 16–64 only',
+            'icon'       => 'fas fa-person-dress',
+            'title'      => 'Urinary Tract Infection (UTI)',
+            'who'        => 'Women aged 16 to 64 (uncomplicated UTI only)',
+            'symptoms'   => 'Dysuria, frequency, urgency, suprapubic pain.',
+            'exclusions' => 'Men, pregnant women, under 16, over 64, recurrent UTIs (2+ in 6 months), catheter users, symptoms lasting more than 7 days, or fever/loin pain (refer to GP).',
+            'treatment'  => 'Antibiotic therapy under PGD where clinically indicated.',
           ),
         );
         foreach ( $conditions as $condition ) :
@@ -211,10 +231,16 @@ get_header();
           <div class="pharmfirst-condition-card">
             <div class="pharmfirst-condition-icon"><i class="<?php echo esc_attr( $condition['icon'] ); ?>"></i></div>
             <h3 class="pharmfirst-condition-title"><?php echo esc_html( $condition['title'] ); ?></h3>
-            <p class="pharmfirst-condition-desc"><?php echo esc_html( $condition['desc'] ); ?></p>
-            <?php if ( $condition['tag'] ) : ?>
-              <div class="pharmfirst-condition-tag"><i class="fas fa-info-circle"></i> <?php echo esc_html( $condition['tag'] ); ?></div>
-            <?php endif; ?>
+            <dl class="pharmfirst-condition-details">
+              <dt class="pharmfirst-condition-label"><i class="fas fa-user-group"></i> Who it's for</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( $condition['who'] ); ?></dd>
+              <dt class="pharmfirst-condition-label"><i class="fas fa-notes-medical"></i> Key symptoms</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( $condition['symptoms'] ); ?></dd>
+              <dt class="pharmfirst-condition-label pharmfirst-condition-label-exclusion"><i class="fas fa-triangle-exclamation"></i> When we cannot treat</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( $condition['exclusions'] ); ?></dd>
+              <dt class="pharmfirst-condition-label pharmfirst-condition-label-treatment"><i class="fas fa-pills"></i> If appropriate</dt>
+              <dd class="pharmfirst-condition-value"><?php echo esc_html( $condition['treatment'] ); ?></dd>
+            </dl>
           </div>
         <?php endforeach; ?>
       <?php endif; ?>
