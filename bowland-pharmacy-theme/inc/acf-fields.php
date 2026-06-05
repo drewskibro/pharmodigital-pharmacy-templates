@@ -725,6 +725,32 @@ function bp_register_acf_field_groups() {
                 'allow_null' => 1,
                 'conditional_logic' => array( array( array( 'field' => 'field_bp_nav_hh_show', 'operator' => '==', 'value' => '1' ) ) ),
             ),
+            // ── Prices ──
+            array(
+                'key'           => 'field_bp_nav_pr_show',
+                'label'         => 'Show Prices',
+                'name'          => 'nav_prices_show',
+                'type'          => 'true_false',
+                'default_value' => 1,
+                'ui'            => 1,
+            ),
+            array(
+                'key'           => 'field_bp_nav_pr_label',
+                'label'         => 'Prices Label',
+                'name'          => 'nav_prices_label',
+                'type'          => 'text',
+                'default_value' => 'Prices',
+                'conditional_logic' => array( array( array( 'field' => 'field_bp_nav_pr_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
+            array(
+                'key'        => 'field_bp_nav_pr_url',
+                'label'      => 'Prices Page',
+                'name'       => 'nav_prices_url',
+                'type'       => 'page_link',
+                'post_type'  => array( 'page' ),
+                'allow_null' => 1,
+                'conditional_logic' => array( array( array( 'field' => 'field_bp_nav_pr_show', 'operator' => '==', 'value' => '1' ) ) ),
+            ),
         ),
         'location' => array(
             array(
