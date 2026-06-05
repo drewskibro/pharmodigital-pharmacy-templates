@@ -344,7 +344,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
 </section>
 
 <!-- ============================================
-     E5. WHY CHOOSE US — pharmacist strip + 4-card premium grid
+     E5. WHY CHOOSE US — 4-card premium grid
      ============================================ -->
 <section class="travel-why-section travel-reveal">
   <div class="section-container">
@@ -360,35 +360,6 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
       <h2 class="travel-why-title">
         <?php echo esc_html( bp_field( 'th_why_title_highlight', 'Why choose our' ) ); ?> <span class="travel-why-title-accent"><?php echo esc_html( bp_field( 'th_why_title_rest', 'Wythenshawe travel clinic?' ) ); ?></span>
       </h2>
-    </div>
-
-    <!-- Pharmacist intro strip -->
-    <?php
-    $why_image_id  = bp_field( 'th_why_image' );
-    if ( ! $why_image_id ) {
-        $why_image_id = bp_option( 'pharmacist_image' );
-    }
-    $why_image_url = $why_image_id ? wp_get_attachment_image_url( $why_image_id, 'medium' ) : '';
-    $pharmacist_name = bp_field( 'pharmacist_name', bp_option( 'superintendent_pharmacist', 'our pharmacist' ) );
-    $pharmacist_role = bp_field( 'pharmacist_role', 'Lead Pharmacist · Independent Prescriber' );
-    ?>
-    <div class="travel-why-pharmacist-strip">
-      <div class="travel-why-pharmacist-inner">
-        <?php if ( $why_image_url ) : ?>
-          <div class="travel-why-photo-wrapper">
-            <img src="<?php echo esc_url( $why_image_url ); ?>" alt="<?php echo esc_attr( bp_field( 'th_why_image_alt', $pharmacist_name . ' — Bowland Pharmacy' ) ); ?>" class="travel-why-photo" />
-            <div class="travel-why-photo-ring"></div>
-          </div>
-        <?php endif; ?>
-        <div class="travel-why-pharmacist-info">
-          <h3 class="travel-why-pharmacist-name"><?php echo esc_html( $pharmacist_name ); ?></h3>
-          <p class="travel-why-pharmacist-role"><?php echo esc_html( $pharmacist_role ); ?></p>
-        </div>
-        <div class="travel-why-experience-pill">
-          <span class="travel-why-experience-number"><?php echo esc_html( bp_field( 'th_why_badge_number', '15+' ) ); ?></span>
-          <span class="travel-why-experience-label"><?php echo esc_html( bp_field( 'th_why_badge_label', 'Years Experience' ) ); ?></span>
-        </div>
-      </div>
     </div>
 
     <!-- 2x2 premium feature grid -->
