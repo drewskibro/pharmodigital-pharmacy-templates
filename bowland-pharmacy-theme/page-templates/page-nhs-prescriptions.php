@@ -39,10 +39,8 @@ if ( have_rows( 'np_hero_trust_pills' ) ) {
     }
 }
 
-// Info card (price/eligibility summary)
+// Info card (service highlights)
 $card_label  = bp_field( 'np_hero_card_label' );
-$card_price  = bp_field( 'np_hero_card_price' );
-$card_sub    = bp_field( 'np_hero_card_sub' );
 $card_checks = array();
 if ( have_rows( 'np_hero_card_checks' ) ) {
     while ( have_rows( 'np_hero_card_checks' ) ) {
@@ -117,7 +115,7 @@ $show_hero = $hero_badge || $hero_title_accent || $hero_title_rest || $hero_desc
             </div>
 
             <!-- Right: Info card -->
-            <?php if ( $card_label || $card_price || ! empty( $card_checks ) ) : ?>
+            <?php if ( $card_label || ! empty( $card_checks ) ) : ?>
             <div class="npres-hero-visual">
                 <div class="npres-trust-card">
                     <div class="npres-trust-card-glow"></div>
@@ -125,17 +123,9 @@ $show_hero = $hero_badge || $hero_title_accent || $hero_title_rest || $hero_desc
                         <?php if ( $card_label ) : ?>
                         <div class="npres-trust-card-header">
                             <div class="npres-trust-card-nhs-icon">
-                                <i class="fas fa-prescription"></i>
+                                <i class="fas fa-shield-halved"></i>
                             </div>
                             <span class="npres-trust-card-label"><?php echo esc_html( $card_label ); ?></span>
-                        </div>
-                        <?php endif; ?>
-                        <?php if ( $card_price ) : ?>
-                        <div class="npres-trust-card-free">
-                            <span class="npres-trust-card-amount"><?php echo esc_html( $card_price ); ?></span>
-                            <?php if ( $card_sub ) : ?>
-                            <span class="npres-trust-card-sub"><?php echo esc_html( $card_sub ); ?></span>
-                            <?php endif; ?>
                         </div>
                         <?php endif; ?>
                         <?php if ( ! empty( $card_checks ) ) : ?>
