@@ -196,7 +196,7 @@
 .contact-form-hero {
   position: relative;
   padding: 80px 0 5rem;
-  background: linear-gradient(to bottom, #f0f4f8, #ffffff);
+  background: linear-gradient(to bottom, var(--brand-light), #ffffff);
   overflow: hidden;
 }
 
