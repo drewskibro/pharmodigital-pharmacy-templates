@@ -1,0 +1,800 @@
+/* ============================================
+   PRICES PAGE
+   Prefix: .prices-
+   Palette: Denton blue/green — no purple
+   ============================================ */
+
+/* ============================================
+   N1. HERO
+   ============================================ */
+.prices-hero-section {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 4rem;
+  background: var(--brand-light);
+}
+
+.prices-hero-glow-1,
+.prices-hero-glow-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.prices-hero-glow-1 {
+  top: -120px;
+  left: -120px;
+  width: 360px;
+  height: 360px;
+  background: rgba(63, 115, 174, 0.18);
+}
+
+.prices-hero-glow-2 {
+  bottom: -160px;
+  right: -100px;
+  width: 320px;
+  height: 320px;
+  background: rgba(121, 188, 46, 0.15);
+}
+
+.prices-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.prices-hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text-dark);
+  margin: 0 0 1.25rem;
+}
+
+.prices-hero-title .gradient-text {
+  display: inline;
+}
+
+.prices-hero-title-rest {
+  display: block;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--text-gray);
+  font-size: 0.85em;
+  margin-top: 0.25em;
+}
+
+.prices-hero-description {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+}
+
+.prices-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .prices-hero-actions {
+    flex-direction: row;
+  }
+  .prices-hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .prices-hero-section {
+    padding: 6rem 0 5rem;
+  }
+  .prices-hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+
+/* ============================================
+   N2. TABS
+   ============================================ */
+.prices-tabs-section {
+  padding: 2rem 0 5rem;
+  background: var(--brand-light);
+}
+
+@media (min-width: 1024px) {
+  .prices-tabs-section {
+    padding: 3rem 0 6rem;
+  }
+}
+
+.prices-tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding: 0.5rem;
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.12);
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(42, 80, 122, 0.06);
+}
+
+.prices-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.625rem;
+  background: transparent;
+  border: none;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-slate);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex: 1 1 calc(50% - 0.5rem);
+  justify-content: center;
+  min-height: 44px;
+}
+
+.prices-tab i {
+  font-size: 0.9375rem;
+  color: var(--brand-primary);
+  transition: color 0.25s ease;
+}
+
+.prices-tab:hover {
+  background: rgba(63, 115, 174, 0.06);
+  color: var(--brand-dark);
+}
+
+.prices-tab:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+.prices-tab.is-active {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+  box-shadow: 0 8px 20px rgba(63, 115, 174, 0.25);
+}
+
+.prices-tab.is-active i {
+  color: var(--white);
+}
+
+@media (min-width: 768px) {
+  .prices-tab {
+    flex: 0 1 auto;
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Panels */
+.prices-tab-panel[hidden] {
+  display: none;
+}
+
+.prices-tab-panel {
+  animation: pricesFadeIn 0.35s ease-out;
+}
+
+@keyframes pricesFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.prices-panel-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
+.prices-panel-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+}
+
+.prices-panel-subtitle {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .prices-panel-title {
+    font-size: 2.5rem;
+  }
+}
+
+.prices-empty {
+  text-align: center;
+  color: var(--text-slate);
+  font-size: 1rem;
+  padding: 3rem 1rem;
+  background: var(--white);
+  border-radius: 1rem;
+  border: 1px dashed rgba(63, 115, 174, 0.2);
+  margin: 0;
+}
+
+
+/* ============================================
+   Weight Loss cards
+   ============================================ */
+.prices-wl-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .prices-wl-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .prices-wl-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.prices-wl-card {
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 16px rgba(63, 115, 174, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.prices-wl-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-primary);
+  box-shadow: 0 16px 40px rgba(63, 115, 174, 0.12);
+}
+
+.prices-wl-card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.prices-wl-card-name {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.prices-wl-card-strength {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(63, 115, 174, 0.1);
+  color: var(--brand-dark);
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.prices-wl-card-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(63, 115, 174, 0.08);
+}
+
+.prices-wl-card-price-amount {
+  font-family: var(--font-heading);
+  font-size: 1.875rem;
+  font-weight: 900;
+  color: var(--brand-dark);
+  line-height: 1;
+}
+
+.prices-wl-card-price-supply {
+  font-size: 0.875rem;
+  color: var(--text-slate);
+  font-weight: 500;
+}
+
+.prices-wl-card-note {
+  font-size: 0.8125rem;
+  color: var(--text-slate);
+  line-height: 1.5;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.prices-wl-card-note i {
+  color: var(--brand-primary);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+
+/* ============================================
+   Travel table
+   ============================================ */
+.prices-table-wrap {
+  background: var(--white);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  box-shadow: 0 4px 16px rgba(63, 115, 174, 0.05);
+  overflow: hidden;
+}
+
+.prices-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.prices-table thead {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+}
+
+.prices-table th {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.prices-table th.prices-table-num {
+  text-align: right;
+}
+
+.prices-table td {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(63, 115, 174, 0.08);
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+
+.prices-table td.prices-table-num {
+  text-align: right;
+  font-weight: 700;
+  color: var(--brand-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.prices-table td.prices-table-note {
+  color: var(--text-slate);
+  font-size: 0.875rem;
+}
+
+.prices-table tbody tr:nth-child(even) {
+  background: rgba(63, 115, 174, 0.025);
+}
+
+.prices-table tbody tr:hover {
+  background: rgba(63, 115, 174, 0.05);
+}
+
+.prices-dash {
+  color: var(--text-slate);
+  opacity: 0.5;
+}
+
+/* Mobile: stack table rows as cards */
+@media (max-width: 767px) {
+  .prices-table thead {
+    display: none;
+  }
+  .prices-table,
+  .prices-table tbody,
+  .prices-table tr,
+  .prices-table td {
+    display: block;
+    width: 100%;
+  }
+  .prices-table tr {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid rgba(63, 115, 174, 0.08);
+  }
+  .prices-table tr:first-child {
+    border-top: none;
+  }
+  .prices-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.25rem 0;
+    border: none;
+    text-align: left;
+  }
+  .prices-table td.prices-table-num {
+    text-align: right;
+  }
+  .prices-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-slate);
+    flex-shrink: 0;
+  }
+  .prices-table td.prices-table-note:empty {
+    display: none;
+  }
+}
+
+
+/* ============================================
+   Private services — grouped lists
+   ============================================ */
+.prices-private-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.prices-private-group {
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.1);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: 0 4px 16px rgba(63, 115, 174, 0.05);
+}
+
+@media (min-width: 768px) {
+  .prices-private-group {
+    padding: 2rem 2.25rem;
+  }
+}
+
+.prices-private-group-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--brand-dark);
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 2px solid rgba(63, 115, 174, 0.15);
+  line-height: 1.2;
+}
+
+.prices-private-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.prices-private-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px dashed rgba(63, 115, 174, 0.12);
+}
+
+.prices-private-row:last-child {
+  border-bottom: none;
+}
+
+.prices-private-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.prices-private-row-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.prices-private-row-note {
+  font-size: 0.8125rem;
+  color: var(--text-slate);
+  line-height: 1.5;
+}
+
+.prices-private-row-price {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--brand-dark);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* ============================================
+   NHS cards
+   ============================================ */
+.prices-nhs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .prices-nhs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .prices-nhs-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.prices-nhs-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid rgba(121, 188, 46, 0.18);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: 0 4px 16px rgba(63, 115, 174, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.prices-nhs-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-secondary);
+  box-shadow: 0 16px 40px rgba(121, 188, 46, 0.18);
+}
+
+.prices-nhs-card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: rgba(121, 188, 46, 0.12);
+  color: #3f7311;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.875rem;
+}
+
+.prices-nhs-card-tag i {
+  font-size: 0.75rem;
+  color: var(--brand-secondary);
+}
+
+.prices-nhs-card-name {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 0.625rem;
+  line-height: 1.2;
+}
+
+.prices-nhs-card-eligibility {
+  font-size: 0.9375rem;
+  color: var(--text-gray);
+  line-height: 1.55;
+  margin: 0;
+}
+
+
+/* ============================================
+   N3. DISCLAIMER
+   ============================================ */
+.prices-disclaimer-section {
+  padding: 0 0 5rem;
+  background: var(--brand-light);
+}
+
+@media (min-width: 1024px) {
+  .prices-disclaimer-section {
+    padding-bottom: 6rem;
+  }
+}
+
+.prices-disclaimer-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid rgba(63, 115, 174, 0.12);
+  border-left: 4px solid var(--brand-primary);
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 4px 16px rgba(63, 115, 174, 0.05);
+}
+
+@media (min-width: 768px) {
+  .prices-disclaimer-card {
+    padding: 1.75rem 2rem;
+  }
+}
+
+.prices-disclaimer-icon {
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgba(63, 115, 174, 0.1);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+}
+
+.prices-disclaimer-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.prices-disclaimer-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 0.375rem;
+}
+
+.prices-disclaimer-text {
+  font-size: 0.9375rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ============================================
+   N4. FINAL CTA — blue gradient (no purple)
+   ============================================ */
+.prices-cta-section {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
+  color: var(--white);
+}
+
+@media (min-width: 1024px) {
+  .prices-cta-section {
+    padding: 6rem 0;
+  }
+}
+
+.prices-cta-glow-1,
+.prices-cta-glow-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.prices-cta-glow-1 {
+  top: -100px;
+  left: -100px;
+  width: 320px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.prices-cta-glow-2 {
+  bottom: -140px;
+  right: -80px;
+  width: 360px;
+  height: 360px;
+  background: rgba(121, 188, 46, 0.18);
+}
+
+.prices-cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.prices-cta-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--white);
+  margin: 0 0 1rem;
+  line-height: 1.15;
+}
+
+@media (min-width: 1024px) {
+  .prices-cta-title {
+    font-size: 3rem;
+  }
+}
+
+.prices-cta-description {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.6;
+  margin: 0 auto 2rem;
+  max-width: 560px;
+}
+
+.prices-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .prices-cta-actions {
+    flex-direction: row;
+  }
+}
+
+.prices-cta-button-white {
+  background: var(--white);
+  color: var(--brand-dark);
+}
+
+.prices-cta-button-white::before {
+  display: none;
+}
+
+.prices-cta-button-white:hover {
+  background: var(--white);
+  color: var(--brand-dark);
+  transform: scale(1.05);
+}
+
+.prices-cta-button-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+}
+
+.prices-cta-button-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+  color: var(--white);
+}

@@ -178,6 +178,11 @@ function bowland_pharmacy_scripts() {
         wp_enqueue_script( 'bowland-switch-provider-js', BOWLAND_PHARMACY_URI . '/assets/js/switch-provider.js', array(), BOWLAND_PHARMACY_VERSION, true );
     }
 
+    if ( is_page_template( 'page-templates/page-prices.php' ) ) {
+        wp_enqueue_style( 'bowland-prices', BOWLAND_PHARMACY_URI . '/assets/css/prices.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/prices.css' ) );
+        wp_enqueue_script( 'bowland-prices-js', BOWLAND_PHARMACY_URI . '/assets/js/prices.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/prices.js' ), true );
+    }
+
     if ( is_page_template( 'page-templates/page-contact.php' ) ) {
         wp_enqueue_style( 'bowland-contact', BOWLAND_PHARMACY_URI . '/assets/css/contact.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
         wp_enqueue_script( 'bowland-contact-js', BOWLAND_PHARMACY_URI . '/assets/js/contact.js', array(), BOWLAND_PHARMACY_VERSION, true );
