@@ -493,11 +493,6 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
 </section>
 
 <!-- ============================================
-     PHARMACIST SECTION
-     ============================================ -->
-<?php get_template_part( 'template-parts/section', 'pharmacist' ); ?>
-
-<!-- ============================================
      FAQ SECTION
      ============================================ -->
 <section class="wl-faq-section wl-reveal">
