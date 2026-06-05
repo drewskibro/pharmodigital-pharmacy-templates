@@ -36,7 +36,7 @@ get_header();
         </p>
 
         <div class="bloodtest-hero-actions">
-          <a href="<?php echo esc_url( bp_field( 'bt_hero_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta">
+          <a href="<?php echo esc_url( bp_field( 'bt_hero_cta_url', '' ) ?: '#blood-testing-calendar' ); ?>" class="cta-button primary-cta">
             <?php echo esc_html( bp_field( 'bt_hero_cta_text', 'Book Blood Test' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
@@ -190,7 +190,7 @@ get_header();
             <h3 class="bloodtest-process-card-title"><?php echo esc_html( $step['title'] ); ?></h3>
             <p class="bloodtest-process-card-desc"><?php echo esc_html( $step['desc'] ); ?></p>
             <?php if ( ! empty( $step['link'] ) ) : ?>
-              <a href="<?php echo esc_url( bp_booking_url() ); ?>" class="bloodtest-process-card-link">Book a slot <i class="fas fa-arrow-right"></i></a>
+              <a href="#blood-testing-calendar" class="bloodtest-process-card-link">Book a slot <i class="fas fa-arrow-right"></i></a>
             <?php endif; ?>
           </div>
         <?php endforeach; ?>
@@ -292,7 +292,7 @@ get_header();
           <i class="fas fa-phone"></i>
           Call <?php echo esc_html( bp_phone() ); ?>
         </a>
-        <a href="<?php echo esc_url( bp_field( 'bt_cta_primary_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button secondary-cta bloodtest-cta-button-outline">
+        <a href="<?php echo esc_url( bp_field( 'bt_cta_primary_url', '' ) ?: '#blood-testing-calendar' ); ?>" class="cta-button secondary-cta bloodtest-cta-button-outline">
           <?php echo esc_html( bp_field( 'bt_cta_button_text', 'Book Online' ) ); ?>
           <i class="fas fa-arrow-right"></i>
         </a>
@@ -305,6 +305,32 @@ get_header();
     </div>
   </div>
 </section>
+
+<!-- Booking Calendar (Acuity) -->
+<section id="blood-testing-calendar" class="bloodtest-booking-section">
+  <div class="section-container">
+    <div class="bloodtest-booking-header">
+      <div class="section-badge">
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span class="section-badge-text">BOOK ONLINE</span>
+      </div>
+      <h2 class="bloodtest-booking-title">Book Your Blood Test Appointment</h2>
+      <p class="bloodtest-booking-subtitle">Choose a time below and book your blood test directly at <?php echo esc_html( bp_pharmacy_name() ); ?>.</p>
+    </div>
+    <div class="booking-calendar-wrapper">
+      <iframe
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;ref=embedded_csp"
+        title="Schedule Appointment"
+        allow="payment"></iframe>
+    </div>
+  </div>
+</section>
+<script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
 
 <?php
 get_footer();

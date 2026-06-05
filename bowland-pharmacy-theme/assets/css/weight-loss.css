@@ -2244,3 +2244,47 @@
 }
 
 /* (Duplicate social proof block removed — now using .wl-google-rating-badge above) */
+
+
+/* ============================================
+   BOOKING CALENDAR
+   ============================================ */
+.wl-booking-section {
+  padding: 5rem 0;
+  background: var(--white);
+  scroll-margin-top: var(--nav-height);
+}
+
+@media (min-width: 1024px) {
+  .wl-booking-section {
+    padding: 6rem 0;
+  }
+}
+
+.wl-booking-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.wl-booking-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin: 0 0 0.75rem;
+  line-height: 1.15;
+}
+
+@media (min-width: 1024px) {
+  .wl-booking-title {
+    font-size: 2.5rem;
+  }
+}
+
+.wl-booking-subtitle {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0;
+}

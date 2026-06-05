@@ -1203,3 +1203,47 @@
     align-items: center;
   }
 }
+
+
+/* ============================================
+   BOOKING CALENDAR
+   ============================================ */
+.bpack-booking-section {
+  padding: 5rem 0;
+  background: var(--white);
+  scroll-margin-top: var(--nav-height);
+}
+
+@media (min-width: 1024px) {
+  .bpack-booking-section {
+    padding: 6rem 0;
+  }
+}
+
+.bpack-booking-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.bpack-booking-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  margin: 0 0 0.75rem;
+  line-height: 1.15;
+}
+
+@media (min-width: 1024px) {
+  .bpack-booking-title {
+    font-size: 2.5rem;
+  }
+}
+
+.bpack-booking-subtitle {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0;
+}
