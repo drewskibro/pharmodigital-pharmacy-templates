@@ -115,9 +115,10 @@ $default_th_dests = array(
     array( 'name' => 'Cape Verde', 'flag_url' => 'https://flagcdn.com/w40/cv.png', 'url' => home_url( '/travel-cape-verde/' ) ),
 );
 $default_sv_links = array(
-    array( 'label' => 'NHS Prescriptions', 'description' => 'Free for eligible patients, fast delivery', 'icon' => 'fas fa-file-medical',         'url' => home_url( '/nhs-prescriptions/' ) ),
-    array( 'label' => 'Pharmacy First',    'description' => '7 common conditions treated free',          'icon' => 'fas fa-hand-holding-medical', 'url' => home_url( '/pharmacy-first/' ) ),
-    array( 'label' => 'Blister Packs',     'description' => 'Pre-packed medication made simple',         'icon' => 'fas fa-pills',                'url' => home_url( '/blister-packs/' ) ),
+    array( 'label' => 'NHS Prescriptions',   'description' => 'Free for eligible patients, fast delivery', 'icon' => 'fas fa-file-medical',         'url' => home_url( '/nhs-prescriptions/' ) ),
+    array( 'label' => 'Register with Us',    'description' => 'Sign up for free prescription management',  'icon' => 'fas fa-user-plus',            'url' => home_url( '/nominate-bowland-pharmacy/' ) ),
+    array( 'label' => 'Pharmacy First',      'description' => '7 common conditions treated free',          'icon' => 'fas fa-hand-holding-medical', 'url' => home_url( '/pharmacy-first/' ) ),
+    array( 'label' => 'Blister Packs',       'description' => 'Pre-packed medication made simple',         'icon' => 'fas fa-pills',                'url' => home_url( '/blister-packs/' ) ),
 );
 $default_ps_links = array(
     array( 'label' => 'Weight Loss',     'description' => 'GLP-1 treatments & clinical support',     'icon' => 'fas fa-weight-scale', 'url' => home_url( '/weight-loss/' ) ),
@@ -190,7 +191,7 @@ if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $def
             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
             <?php echo esc_html( $phone ); ?>
           </a>
-          <a href="<?php echo esc_url( home_url( '/nhs-services/' ) ); ?>" class="bowland-top-link bowland-top-link--nhs">
+          <a href="<?php echo esc_url( home_url( '/nominate-bowland-pharmacy/' ) ); ?>" class="bowland-top-link bowland-top-link--nhs">
             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
             NHS Nominate
           </a>
@@ -549,7 +550,7 @@ if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $def
           <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
           <?php echo esc_html( $phone ); ?>
         </a>
-        <a href="<?php echo esc_url( home_url( '/nhs-services/' ) ); ?>" class="bowland-mobile-cta-nhs">NHS Nominate</a>
+        <a href="<?php echo esc_url( home_url( '/nominate-bowland-pharmacy/' ) ); ?>" class="bowland-mobile-cta-nhs">NHS Nominate</a>
         <a href="<?php echo esc_url( $patient_portal_register_url ); ?>" class="bowland-mobile-cta-portal" target="_blank" rel="noopener noreferrer">Register</a>
         <a href="<?php echo esc_url( $patient_portal_login_url ); ?>" class="bowland-mobile-cta-portal" target="_blank" rel="noopener noreferrer">Log In</a>
         <a href="<?php echo esc_url( $booking_url ); ?>" class="bowland-mobile-cta-book"><?php echo esc_html( $booking_text ); ?></a>
