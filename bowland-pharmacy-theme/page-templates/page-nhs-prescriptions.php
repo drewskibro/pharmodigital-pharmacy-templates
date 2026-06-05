@@ -130,6 +130,12 @@ $show_hero = $hero_badge || $hero_title_accent || $hero_title_rest || $hero_desc
                         <?php endif; ?>
                         <?php if ( ! empty( $card_checks ) ) : ?>
                         <div class="npres-trust-card-divider"></div>
+                        <div class="npres-trust-card-highlights-header">
+                            <div class="npres-trust-card-highlights-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="npres-trust-card-highlights-label">Service Highlights</span>
+                        </div>
                         <ul class="npres-trust-card-list">
                             <?php foreach ( $card_checks as $check ) : ?>
                             <li><i class="fas fa-check"></i> <span><?php echo esc_html( $check ); ?></span></li>

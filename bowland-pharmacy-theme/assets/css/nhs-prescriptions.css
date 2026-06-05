@@ -265,36 +265,42 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* FREE block */
-.npres-trust-card-free {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.npres-trust-card-amount {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 5rem;
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.npres-trust-card-sub {
-  display: block;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
-}
-
 /* Divider */
 .npres-trust-card-divider {
   height: 1px;
   background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
   margin-bottom: 1.5rem;
+}
+
+/* Service highlights sub-header */
+.npres-trust-card-highlights-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.npres-trust-card-highlights-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.npres-trust-card-highlights-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Trust list */
