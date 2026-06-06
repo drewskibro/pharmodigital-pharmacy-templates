@@ -40,7 +40,7 @@ get_header();
         </ul>
 
         <div class="hairloss-hero-actions">
-          <a href="<?php echo esc_url( bp_field( 'hl_hero_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta">
+          <a href="<?php echo esc_url( bp_field( 'hl_hero_cta_url', '' ) ?: '#hair-loss-calendar' ); ?>" class="cta-button primary-cta">
             <?php echo esc_html( bp_field( 'hl_hero_cta_text', 'Book Consultation' ) ); ?> <i class="fas fa-arrow-right"></i>
           </a>
           <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button secondary-cta">
@@ -145,7 +145,7 @@ get_header();
             <div class="detail"><span class="label">Duration</span><span class="value"><?php echo esc_html( get_sub_field( 'duration' ) ); ?></span></div>
             <div class="detail"><span class="label">Price</span><span class="value"><?php echo esc_html( get_sub_field( 'price' ) ); ?></span></div>
           </div>
-          <a href="<?php echo esc_url( bp_field( 'hl_hero_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button <?php echo $is_featured ? 'primary-cta' : 'secondary-cta'; ?> hairloss-treatment-btn"><?php echo esc_html( get_sub_field( 'button_text' ) ?: 'Book Now' ); ?></a>
+          <a href="<?php echo esc_url( bp_field( 'hl_hero_cta_url', '' ) ?: '#hair-loss-calendar' ); ?>" class="cta-button <?php echo $is_featured ? 'primary-cta' : 'secondary-cta'; ?> hairloss-treatment-btn"><?php echo esc_html( get_sub_field( 'button_text' ) ?: 'Book Now' ); ?></a>
         </div>
       <?php endwhile; else : ?>
         <!-- Default: Finasteride -->
@@ -167,7 +167,7 @@ get_header();
             <div class="detail"><span class="label">Duration</span><span class="value">Ongoing (daily tablet)</span></div>
             <div class="detail"><span class="label">Price</span><span class="value">&pound;25/month</span></div>
           </div>
-          <a href="<?php echo esc_url( bp_booking_url() ); ?>" class="cta-button primary-cta hairloss-treatment-btn">Book Consultation</a>
+          <a href="#hair-loss-calendar" class="cta-button primary-cta hairloss-treatment-btn">Book Consultation</a>
         </div>
         <!-- Default: Minoxidil -->
         <div class="hairloss-treatment-card">
@@ -187,7 +187,7 @@ get_header();
             <div class="detail"><span class="label">Duration</span><span class="value">Ongoing (twice daily)</span></div>
             <div class="detail"><span class="label">Price</span><span class="value">&pound;15-30/month</span></div>
           </div>
-          <a href="<?php echo esc_url( bp_booking_url() ); ?>" class="cta-button secondary-cta hairloss-treatment-btn">Visit In-Store</a>
+          <a href="#hair-loss-calendar" class="cta-button secondary-cta hairloss-treatment-btn">Visit In-Store</a>
         </div>
       <?php endif; ?>
     </div>
@@ -253,7 +253,7 @@ get_header();
       <?php endif; ?>
     </div>
     <div class="hairloss-process-cta">
-      <a href="<?php echo esc_url( bp_field( 'hl_hero_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta"><?php echo esc_html( bp_field( 'hl_process_cta_text', 'Start Your Journey' ) ); ?></a>
+      <a href="<?php echo esc_url( bp_field( 'hl_hero_cta_url', '' ) ?: '#hair-loss-calendar' ); ?>" class="cta-button primary-cta"><?php echo esc_html( bp_field( 'hl_process_cta_text', 'Start Your Journey' ) ); ?></a>
     </div>
   </div>
 </section>
@@ -390,7 +390,7 @@ get_header();
       <h2 class="hairloss-cta-title"><?php echo esc_html( bp_field( 'hl_cta_title', 'Ready to Start Your Hair Regrowth Journey?' ) ); ?></h2>
       <p class="hairloss-cta-desc"><?php echo esc_html( bp_field( 'hl_cta_description', 'Book a confidential consultation with our GPhC-registered pharmacist in ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) ) ); ?></p>
       <div class="hairloss-cta-actions">
-        <a href="<?php echo esc_url( bp_field( 'hl_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta hairloss-cta-btn-book">
+        <a href="<?php echo esc_url( bp_field( 'hl_cta_url', '' ) ?: '#hair-loss-calendar' ); ?>" class="cta-button primary-cta hairloss-cta-btn-book">
           <?php echo esc_html( bp_field( 'hl_cta_button_text', 'Book Consultation' ) ); ?> <i class="fas fa-arrow-right"></i>
         </a>
         <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button hairloss-cta-btn">
@@ -400,6 +400,32 @@ get_header();
     </div>
   </div>
 </section>
+
+<!-- Booking Calendar (Acuity) -->
+<section id="hair-loss-calendar" class="hairloss-booking-section">
+  <div class="section-container">
+    <div class="hairloss-booking-header">
+      <div class="section-badge">
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span class="section-badge-text">BOOK ONLINE</span>
+      </div>
+      <h2 class="hairloss-booking-title">Book Your Hair Loss Consultation</h2>
+      <p class="hairloss-booking-subtitle">Choose a time below for a confidential consultation at <?php echo esc_html( bp_pharmacy_name() ); ?>.</p>
+    </div>
+    <div class="booking-calendar-wrapper">
+      <iframe
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;ref=embedded_csp"
+        title="Schedule Appointment"
+        allow="payment"></iframe>
+    </div>
+  </div>
+</section>
+<script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
 
 <?php
 get_footer();
