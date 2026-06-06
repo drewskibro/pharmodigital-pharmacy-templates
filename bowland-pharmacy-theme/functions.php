@@ -1210,7 +1210,7 @@ function bp_npreg_form_handler() {
     $to           = bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' );
     $subject_line = '[' . bp_pharmacy_name() . '] New NHS Prescription Registration from ' . $name;
 
-    $body  = "New NHS prescription registration via " . home_url( '/nhs-prescriptions/register/' ) . "\n";
+    $body  = "New NHS prescription registration via " . home_url( '/nominate-bowland-pharmacy/' ) . "\n";
     $body .= str_repeat( '=', 60 ) . "\n\n";
 
     $body .= "PERSONAL DETAILS\n" . str_repeat( '-', 60 ) . "\n";
