@@ -324,7 +324,7 @@ get_header();
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
-        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;ref=embedded_csp"
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;appointmentType=category:Blood%20Testing&amp;ref=embedded_csp"
         title="Schedule Appointment"
         allow="payment"></iframe>
     </div>
