@@ -1138,7 +1138,6 @@ function dp_npreg_form_handler() {
         'GP practice name'                     => $gp_practice,
         'Prescription exemption'               => $exemption,
         'Prescription collection preference'   => $collection,
-        'Prescription order management'        => $order_management,
         'Medication list'                      => $medication,
     );
     foreach ( $required as $field_label => $value ) {
@@ -1157,6 +1156,10 @@ function dp_npreg_form_handler() {
 
     if ( ! $scr_consent ) {
         wp_send_json_error( array( 'message' => 'Please tick the Summary Care Record consent box to continue.' ) );
+    }
+
+    if ( empty( $order_management ) ) {
+        wp_send_json_error( array( 'message' => 'Please confirm you understand you will need to order your own repeat prescriptions.' ) );
     }
 
     // Human-readable exemption / collection / order labels for the email body
@@ -1181,8 +1184,7 @@ function dp_npreg_form_handler() {
         'delivery' => 'Patient would like home delivery',
     );
     $order_labels = array(
-        'self'     => 'Patient will order their own repeat prescriptions',
-        'pharmacy' => 'Patient would like the pharmacy to manage repeats',
+        'acknowledged' => 'Acknowledged — patient will order their own repeat prescriptions (NHS app or surgery)',
     );
     $referral_labels = array(
         'social'  => 'Social Media (Facebook / Instagram)',
@@ -1199,7 +1201,7 @@ function dp_npreg_form_handler() {
     $to           = dp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
     $subject_line = '[' . dp_pharmacy_name() . '] New NHS Prescription Registration from ' . $name;
 
-    $body  = "New NHS prescription registration via " . home_url( '/nhs-prescriptions/register/' ) . "\n";
+    $body  = "New NHS prescription registration via " . home_url( '/nominate-denton-pharmacy/' ) . "\n";
     $body .= str_repeat( '=', 60 ) . "\n\n";
 
     $body .= "PERSONAL DETAILS\n" . str_repeat( '-', 60 ) . "\n";
