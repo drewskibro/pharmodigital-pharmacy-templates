@@ -97,8 +97,8 @@ $ps_links    = bp_option( 'nav_dd_private_services_links' );
 
 // Defaults — used when repeaters are empty (i.e. nothing saved in ACF yet).
 $default_wl_links = array(
-    array( 'label' => 'GLP-1 Treatments',  'description' => 'Prescription medications like Wegovy & Mounjaro', 'icon' => 'fas fa-check-circle', 'url' => '' ),
-    array( 'label' => 'Personal Support',   'description' => 'Weekly check-ins with our expert pharmacist',     'icon' => 'fas fa-user',         'url' => '' ),
+    array( 'label' => 'Weight Loss Treatments', 'description' => 'Prescription medications & ongoing clinical support', 'icon' => 'fas fa-check-circle', 'url' => home_url( '/weight-loss/' ) ),
+    array( 'label' => 'Switching Provider',     'description' => 'Already on treatment? Switch your care to us',     'icon' => 'fas fa-user',         'url' => home_url( '/swap-weight-loss-provider/' ) ),
     array( 'label' => 'Free Consultation',  'description' => 'Book your no-obligation assessment today',        'icon' => 'fas fa-calendar',     'url' => $booking_url ),
 );
 $default_th_services = array(
