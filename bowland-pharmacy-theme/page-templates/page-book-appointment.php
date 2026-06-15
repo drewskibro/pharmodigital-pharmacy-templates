@@ -322,10 +322,14 @@ get_header();
     </div>
 
     <div class="book-amelia-container">
-      <?php
-      $amelia_shortcode = bp_field('book_amelia_shortcode', '[ameliabooking]');
-      echo do_shortcode($amelia_shortcode);
-      ?>
+      <div class="booking-calendar-wrapper">
+        <iframe
+          src="https://app.acuityscheduling.com/schedule.php?owner=29286426&calendarID=10903457&ref=embedded_csp"
+          title="Schedule Appointment"
+          width="100%"
+          frameborder="0">
+        </iframe>
+      </div>
     </div>
 
     <div class="book-amelia-footer">
