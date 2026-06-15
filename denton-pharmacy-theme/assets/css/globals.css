@@ -601,6 +601,7 @@ a.hero-nhs-pill:hover {
 @media (min-width: 640px) {
   .hero-actions {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 

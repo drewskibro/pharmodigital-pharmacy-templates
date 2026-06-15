@@ -155,6 +155,14 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                         <?php echo esc_html( $cta_secondary_text ); ?>
                         <i class="fas fa-plane"></i>
                     </a>
+                    <a href="<?php echo esc_url( home_url( '/ear-wax-removal/' ) ); ?>" class="cta-button secondary-cta">
+                        <?php echo esc_html( dp_field( 'hero_cta_ear_text', 'Ear Clinic' ) ); ?>
+                        <i class="fas fa-ear-listen"></i>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/blood-testing/' ) ); ?>" class="cta-button secondary-cta">
+                        <?php echo esc_html( dp_field( 'hero_cta_blood_text', 'Blood Testing' ) ); ?>
+                        <i class="fas fa-droplet"></i>
+                    </a>
                 </div>
 
                 <!-- Trust indicators -->
