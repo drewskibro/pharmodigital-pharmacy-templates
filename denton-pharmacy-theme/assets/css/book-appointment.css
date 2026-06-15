@@ -923,6 +923,16 @@
 }
 
 @media (max-width: 767px) {
+  .book-amelia-container {
+    padding: 1.25rem 0;
+    border-radius: 1.25rem;
+  }
+
+  .booking-calendar-wrapper {
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
   .booking-calendar-wrapper iframe {
     min-height: 600px;
   }

@@ -890,6 +890,18 @@
   z-index: 10;
 }
 
+@media (max-width: 767px) {
+  .book-amelia-container {
+    padding: 1.25rem 0;
+    border-radius: 1.25rem;
+  }
+
+  .booking-calendar-wrapper {
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+}
+
 .book-amelia-placeholder {
   text-align: center;
   color: rgba(63, 115, 174, 0.5);
