@@ -198,19 +198,15 @@ $referral_options = array(
           </div>
 
           <div class="npreg-field">
-            <span class="npreg-radio-label">Who will order your prescriptions? <span class="npreg-req" aria-hidden="true">*</span></span>
-            <div class="npreg-radio-group">
-              <label class="npreg-radio">
-                <input type="radio" name="npreg_order_management" value="self" required />
-                <span class="npreg-radio-marker"></span>
-                <span class="npreg-radio-text">I will order my own repeat prescriptions</span>
-              </label>
-              <label class="npreg-radio">
-                <input type="radio" name="npreg_order_management" value="pharmacy" required />
-                <span class="npreg-radio-marker"></span>
-                <span class="npreg-radio-text">I would like the pharmacy to manage my repeats</span>
-              </label>
-            </div>
+            <span class="npreg-radio-label">Repeat prescriptions <span class="npreg-req" aria-hidden="true">*</span></span>
+            <label class="npreg-checkbox">
+              <input type="checkbox" id="npreg-order-ack" name="npreg_order_management" value="acknowledged" required />
+              <span class="npreg-checkbox-marker"></span>
+              <span class="npreg-checkbox-text">
+                I understand I will need to order my own repeat prescriptions through the NHS app or the surgery directly.
+                <span class="npreg-req" aria-hidden="true">*</span>
+              </span>
+            </label>
           </div>
 
           <div class="npreg-field">

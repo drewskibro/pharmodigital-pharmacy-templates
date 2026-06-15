@@ -1149,7 +1149,6 @@ function bp_npreg_form_handler() {
         'GP practice name'                     => $gp_practice,
         'Prescription exemption'               => $exemption,
         'Prescription collection preference'   => $collection,
-        'Prescription order management'        => $order_management,
         'Medication list'                      => $medication,
     );
     foreach ( $required as $field_label => $value ) {
@@ -1168,6 +1167,10 @@ function bp_npreg_form_handler() {
 
     if ( ! $scr_consent ) {
         wp_send_json_error( array( 'message' => 'Please tick the Summary Care Record consent box to continue.' ) );
+    }
+
+    if ( empty( $order_management ) ) {
+        wp_send_json_error( array( 'message' => 'Please confirm you understand you will need to order your own repeat prescriptions.' ) );
     }
 
     // Human-readable exemption / collection / order labels for the email body
@@ -1192,8 +1195,7 @@ function bp_npreg_form_handler() {
         'delivery' => 'Patient would like home delivery',
     );
     $order_labels = array(
-        'self'     => 'Patient will order their own repeat prescriptions',
-        'pharmacy' => 'Patient would like the pharmacy to manage repeats',
+        'acknowledged' => 'Acknowledged — patient will order their own repeat prescriptions (NHS app or surgery)',
     );
     $referral_labels = array(
         'social'  => 'Social Media (Facebook / Instagram)',
