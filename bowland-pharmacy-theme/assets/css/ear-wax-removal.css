@@ -670,7 +670,31 @@
 .earwax-comparison-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 800px;
+  min-width: 600px;
+}
+
+.earwax-comparison-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(63, 115, 174, 0.07);
+  border-left: 4px solid var(--brand-primary, #3f73ae);
+  border-radius: 0.75rem;
+}
+
+.earwax-comparison-note svg {
+  flex-shrink: 0;
+  color: var(--brand-primary, #3f73ae);
+  margin-top: 0.15rem;
+}
+
+.earwax-comparison-note p {
+  margin: 0;
+  color: var(--text-dark, #1f2937);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .earwax-comparison-table th,

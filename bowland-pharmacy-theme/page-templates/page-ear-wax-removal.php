@@ -287,7 +287,6 @@ get_header();
           <tr>
             <th>Feature</th>
             <th class="highlight"><?php echo esc_html( bp_field( 'ew_compare_col_1_heading', 'Bowland Pharmacy' ) ); ?></th>
-            <th><?php echo esc_html( bp_field( 'ew_compare_col_2_heading', 'Traditional Syringing' ) ); ?></th>
             <th><?php echo esc_html( bp_field( 'ew_compare_col_3_heading', 'At-Home Remedies' ) ); ?></th>
           </tr>
         </thead>
@@ -296,61 +295,57 @@ get_header();
             <tr>
               <td><?php echo esc_html( get_sub_field( 'feature' ) ); ?></td>
               <td class="highlight"><?php echo esc_html( get_sub_field( 'microsuction' ) ); ?></td>
-              <td><?php echo esc_html( get_sub_field( 'syringing' ) ); ?></td>
               <td><?php echo esc_html( get_sub_field( 'home_remedies' ) ); ?></td>
             </tr>
           <?php endwhile; else : ?>
             <tr>
               <td>Treatment Time</td>
               <td class="highlight">Up to 30 minutes</td>
-              <td>30+ minutes</td>
               <td>Days or weeks</td>
             </tr>
             <tr>
               <td>Water Spillage</td>
               <td class="highlight">None</td>
-              <td>Moderate</td>
-              <td>Drips and Leaks</td>
+              <td>Low</td>
             </tr>
             <tr>
               <td>Mess</td>
               <td class="highlight">None</td>
-              <td>Yes</td>
-              <td>Yes</td>
+              <td>Low</td>
             </tr>
             <tr>
               <td>Risk Level</td>
               <td class="highlight">Very low</td>
-              <td>Moderate</td>
               <td>Varies</td>
             </tr>
             <tr>
               <td>Success Rate</td>
               <td class="highlight">95%+</td>
-              <td>70-80%</td>
               <td>Under 50%</td>
             </tr>
             <tr>
               <td>Immediate Results</td>
               <td class="highlight">Yes</td>
-              <td>Sometimes</td>
               <td>Rarely</td>
             </tr>
             <tr>
               <td>Expert Oversight</td>
               <td class="highlight">Throughout</td>
-              <td>Limited</td>
               <td>None</td>
             </tr>
             <tr>
               <td>Safe for Perforated Eardrums</td>
               <td class="highlight">Yes</td>
               <td>No</td>
-              <td>Varies</td>
             </tr>
           <?php endif; ?>
         </tbody>
       </table>
+    </div>
+
+    <div class="earwax-comparison-note">
+      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      <p><?php echo esc_html( bp_field( 'ew_compare_note', 'Before your appointment: please use olive oil drops in the affected ear for 1 week before booking to help soften the wax.' ) ); ?></p>
     </div>
   </div>
 </section>
