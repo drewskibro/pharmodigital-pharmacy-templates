@@ -17,13 +17,13 @@ get_header();
 $hero_badge        = dp_field( 'covid_hero_badge', 'NHS & PRIVATE COVID VACCINATION' );
 $hero_title_accent = dp_field( 'covid_hero_title_accent', 'COVID Vaccination' );
 $hero_title_rest   = dp_field( 'covid_hero_title_rest', 'when you need it' );
-$hero_description  = dp_field( 'covid_hero_description', 'NHS COVID-19 vaccinations for eligible patients in line with the latest NHS guidance, plus private Pfizer vaccinations available by appointment or walk-in.' );
+$hero_description  = dp_field( 'covid_hero_description', 'NHS COVID-19 vaccinations for eligible patients in line with the latest NHS guidance, plus private vaccinations available by appointment or walk-in.' );
 $private_price     = dp_field( 'covid_private_price', '£75' );
 
 $trust_pills = array(
     array( 'icon' => 'fa-check-circle', 'text' => 'NHS & private' ),
     array( 'icon' => 'fa-calendar',     'text' => 'Walk-in or book' ),
-    array( 'icon' => 'fa-syringe',      'text' => 'Pfizer available' ),
+    array( 'icon' => 'fa-syringe',      'text' => 'Private jabs available' ),
 );
 
 $card_label  = 'NHS & Private';
@@ -31,32 +31,32 @@ $card_price  = 'Free';
 $card_sub    = 'on the NHS (if eligible)';
 $card_checks = array(
     'Free on the NHS if eligible',
-    'Private Pfizer from ' . $private_price,
+    'Private jabs from ' . $private_price,
     'Offered from 1 October each year',
 );
 
 $elig_items = array(
     array( 'icon' => 'fa-shield-halved', 'title' => 'Eligible on the NHS', 'desc' => 'If you qualify under current NHS guidance, your COVID jab is free.' ),
-    array( 'icon' => 'fa-syringe',       'title' => 'Private Pfizer',      'desc' => 'Not eligible on the NHS? Have a private Pfizer vaccination from ' . $private_price . ' per dose.' ),
+    array( 'icon' => 'fa-syringe',       'title' => 'Private vaccination', 'desc' => 'Not eligible on the NHS? Have a private COVID vaccination from ' . $private_price . ' per dose.' ),
     array( 'icon' => 'fa-calendar-days', 'title' => 'Seasonal programme',  'desc' => 'Offered alongside flu jabs from 1 October each year.' ),
     array( 'icon' => 'fa-walking',       'title' => 'Walk-in or book',     'desc' => 'Appointments or walk-ins available — whatever suits you.' ),
 );
 
 $proc_steps = array(
-    array( 'icon' => 'fa-clipboard-check', 'title' => 'Check eligibility', 'desc' => 'See if you qualify for a free NHS jab, or choose private Pfizer.' ),
+    array( 'icon' => 'fa-clipboard-check', 'title' => 'Check eligibility', 'desc' => 'See if you qualify for a free NHS jab, or choose a private one.' ),
     array( 'icon' => 'fa-calendar-check',  'title' => 'Book or walk in',   'desc' => 'Book a slot below, or pop in from 1 October.' ),
     array( 'icon' => 'fa-syringe',         'title' => 'Get vaccinated',    'desc' => 'A quick jab from our pharmacist in our private consultation room.' ),
 );
 
 $faqs = array(
-    array( 'q' => 'Is the COVID jab free?', 'a' => 'It is free on the NHS for eligible patients, in line with current NHS guidance. Private Pfizer vaccinations are also available.' ),
-    array( 'q' => 'How much is a private COVID jab?', 'a' => 'A private Pfizer COVID-19 vaccination is ' . $private_price . ' per dose. Prices may vary depending on stock and availability.' ),
+    array( 'q' => 'Is the COVID jab free?', 'a' => 'It is free on the NHS for eligible patients, in line with current NHS guidance. Private vaccinations are also available.' ),
+    array( 'q' => 'How much is a private COVID jab?', 'a' => 'A private COVID-19 vaccination is ' . $private_price . ' per dose. Prices may vary depending on stock and availability.' ),
     array( 'q' => 'Do I need an appointment?', 'a' => 'You can book a slot or come as a walk-in. We offer COVID and flu vaccinations from 1 October each year, in line with NHS guidance.' ),
     array( 'q' => 'How do I check NHS eligibility?', 'a' => 'Please see the latest NHS guidance on the NHS website for who can get a free COVID-19 vaccination.' ),
     array( 'q' => 'What about flu vaccination?', 'a' => 'We also offer flu vaccinations. See our Flu Vaccination page for details.' ),
 );
 
-$cta_badges = array( 'NHS & private', 'Pfizer', 'Walk-in welcome' );
+$cta_badges = array( 'NHS & private', 'Walk-in welcome', 'Same-day available' );
 ?>
 
 <!-- HERO -->
@@ -144,7 +144,7 @@ $cta_badges = array( 'NHS & private', 'Pfizer', 'Walk-in welcome' );
                 <span class="section-badge-text">YOUR OPTIONS</span>
             </div>
             <h2 class="bpack-conditions-title">NHS or private — your choice</h2>
-            <p class="bpack-conditions-description">Free on the NHS if you're eligible, or a private Pfizer jab if you're not.</p>
+            <p class="bpack-conditions-description">Free on the NHS if you're eligible, or a private jab if you're not.</p>
         </div>
 
         <div class="bpack-conditions-grid">
