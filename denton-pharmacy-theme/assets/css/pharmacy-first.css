@@ -580,6 +580,8 @@
   padding: 2rem;
   transition: all 0.4s ease;
   box-shadow: 0 4px 20px rgba(63, 115, 174, 0.05);
+  display: flex;
+  flex-direction: column;
 }
 
 .pharmfirst-condition-card:hover {
@@ -617,7 +619,7 @@
 }
 
 .pharmfirst-condition-details {
-  margin: 0;
+  margin: 0 0 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -658,6 +660,39 @@
   font-size: 0.9375rem;
   color: var(--text-gray);
   line-height: 1.55;
+}
+
+.pharmfirst-condition-book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  align-self: stretch;
+  margin-top: auto;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.pharmfirst-condition-book i {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.pharmfirst-condition-book:hover {
+  box-shadow: 0 10px 24px rgba(63, 115, 174, 0.3);
+  transform: translateY(-2px);
+}
+
+.pharmfirst-condition-book:hover i {
+  transform: translateX(3px);
 }
 
 
@@ -1251,4 +1286,41 @@
 .pharmfirst-reveal.pharmfirst-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ============================================
+   N7. BOOKING — Acuity NHS Services iframe
+   ============================================ */
+.pharmfirst-booking-section {
+  padding: 6rem 0;
+  background: linear-gradient(180deg, var(--brand-light, #eef4fb) 0%, var(--white) 100%);
+}
+
+.pharmfirst-booking-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+}
+
+.pharmfirst-booking-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  margin: 1rem 0 0.75rem;
+}
+
+.pharmfirst-booking-subtitle {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pharmfirst-booking-section {
+    padding: 4rem 0;
+  }
+  .pharmfirst-booking-title {
+    font-size: 1.875rem;
+  }
 }
