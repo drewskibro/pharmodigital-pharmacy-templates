@@ -1621,6 +1621,8 @@ a.hero-nhs-pill:hover {
   transition: all 0.3s ease;
 }
 
+.nhs-card-btn-secondary { margin-top: 0.625rem; }
+
 .nhs-card-blue .nhs-card-btn { border-color: #005EB8; color: #005EB8; }
 .nhs-card-blue .nhs-card-btn:hover { background: #005EB8; color: var(--white); box-shadow: 0 8px 24px rgba(0, 94, 184, 0.25); }
 
