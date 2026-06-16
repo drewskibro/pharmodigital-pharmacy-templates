@@ -148,11 +148,9 @@ get_header();
       <p class="pharmfirst-conditions-description"><?php echo esc_html( dp_field( 'pf_conditions_description', 'Under Pharmacy First, our pharmacists can assess and treat these conditions. The consultation is free for everyone. Where medication is clinically appropriate and prescribed, standard NHS prescription charges apply (currently £9.90 per item) unless you are exempt.' ) ); ?></p>
     </div>
 
-    <?php $pf_acuity = 'https://app.acuityscheduling.com/schedule.php?owner=29286426'; ?>
     <div class="pharmfirst-conditions-grid">
       <?php if ( have_rows( 'pf_conditions' ) ) : while ( have_rows( 'pf_conditions' ) ) : the_row();
-        $pf_type   = get_sub_field( 'acuity_type_id' );
-        $pf_book   = $pf_type ? $pf_acuity . '&appointmentType=' . rawurlencode( $pf_type ) : dp_booking_url();
+        $pf_type = get_sub_field( 'acuity_type_id' );
       ?>
         <div class="pharmfirst-condition-card">
           <div class="pharmfirst-condition-icon"><i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i></div>
@@ -175,7 +173,7 @@ get_header();
               <dd class="pharmfirst-condition-value"><?php echo esc_html( get_sub_field( 'treatment' ) ); ?></dd>
             <?php endif; ?>
           </dl>
-          <a href="<?php echo esc_url( $pf_book ); ?>" class="pharmfirst-condition-book">BOOK NOW <i class="fas fa-arrow-right"></i></a>
+          <a href="#pharmfirst-book" class="pharmfirst-condition-book"<?php echo $pf_type ? ' data-acuity-type="' . esc_attr( $pf_type ) . '"' : ''; ?>>BOOK NOW <i class="fas fa-arrow-right"></i></a>
         </div>
       <?php endwhile; else : ?>
         <?php
@@ -259,8 +257,7 @@ get_header();
               <dt class="pharmfirst-condition-label pharmfirst-condition-label-treatment"><i class="fas fa-pills"></i> If appropriate</dt>
               <dd class="pharmfirst-condition-value"><?php echo esc_html( $condition['treatment'] ); ?></dd>
             </dl>
-            <?php $pf_book = ! empty( $condition['type_id'] ) ? $pf_acuity . '&appointmentType=' . rawurlencode( $condition['type_id'] ) : dp_booking_url(); ?>
-            <a href="<?php echo esc_url( $pf_book ); ?>" class="pharmfirst-condition-book">BOOK NOW <i class="fas fa-arrow-right"></i></a>
+            <a href="#pharmfirst-book" class="pharmfirst-condition-book"<?php echo ! empty( $condition['type_id'] ) ? ' data-acuity-type="' . esc_attr( $condition['type_id'] ) . '"' : ''; ?>>BOOK NOW <i class="fas fa-arrow-right"></i></a>
           </div>
         <?php endforeach; ?>
       <?php endif; ?>
@@ -479,6 +476,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
+        id="pharmfirst-acuity-frame"
         src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;appointmentType[]=57847838&amp;appointmentType[]=57847823&amp;appointmentType[]=57847814&amp;appointmentType[]=57847828&amp;appointmentType[]=57847834&amp;appointmentType[]=57847837&amp;appointmentType[]=57847843&amp;ref=embedded_csp"
         title="Schedule Appointment"></iframe>
     </div>
