@@ -474,7 +474,17 @@
     width: 100%;
   }
   .prices-table td:first-child {
+    display: block;
     width: 100%;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--brand-dark);
+    padding: 0 0 0.6rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(63, 115, 174, 0.12);
+  }
+  .prices-table td:first-child::before {
+    display: none;
   }
   .prices-table tr.prices-table-group th {
     display: block;
