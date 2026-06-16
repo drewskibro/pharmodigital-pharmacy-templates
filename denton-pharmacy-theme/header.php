@@ -115,6 +115,7 @@ $default_sv_links = array(
     array( 'label' => 'NHS Prescriptions',   'description' => 'Free for eligible patients, fast delivery', 'icon' => 'fas fa-file-medical',         'url' => home_url( '/nhs-prescriptions/' ) ),
     array( 'label' => 'Register with Us',    'description' => 'Sign up for free prescription management',  'icon' => 'fas fa-user-plus',            'url' => home_url( '/nominate-denton-pharmacy/' ) ),
     array( 'label' => 'Pharmacy First',      'description' => '7 common conditions treated free',          'icon' => 'fas fa-hand-holding-medical', 'url' => home_url( '/pharmacy-first/' ) ),
+    array( 'label' => 'Contraception',       'description' => 'Start or continue the pill, no GP needed',  'icon' => 'fas fa-heart',                'url' => home_url( '/contraception/' ) ),
     array( 'label' => 'Blister Packs',       'description' => 'Pre-packed medication made simple',         'icon' => 'fas fa-pills',                'url' => home_url( '/blister-packs/' ) ),
 );
 $default_ps_links = array(
