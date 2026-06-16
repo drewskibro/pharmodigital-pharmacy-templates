@@ -193,7 +193,7 @@ $proc_steps = array(
 $faqs = array(
     array( 'q' => 'Is the service free?', 'a' => 'Yes. The NHS Pharmacy Contraception Service is free for eligible patients.' ),
     array( 'q' => 'Do I need a GP appointment?', 'a' => 'No. You can start or continue your contraceptive pill directly with our pharmacist — no GP appointment or referral needed.' ),
-    array( 'q' => 'What contraception can you provide?', 'a' => 'Following a consultation, we can supply oral contraceptive pills — both the combined pill and the progestogen-only (mini) pill.' ),
+    array( 'q' => 'What contraception can you provide?', 'a' => 'Following a consultation, we can start or repeat oral contraceptive pills — both the combined pill and the progestogen-only (mini) pill. We also provide emergency hormonal contraception (the morning-after pill).' ),
     array( 'q' => 'Is it confidential?', 'a' => 'Completely. Your consultation takes place privately in our consultation room.' ),
     array( 'q' => 'What age do I need to be?', 'a' => 'The service is available to anyone aged 16 and over.' ),
 );
@@ -273,7 +273,7 @@ $cta_badges = array( 'Free on the NHS', 'No GP needed', 'Confidential' );
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
-        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;ref=embedded_csp"
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;appointmentType[]=56219953&amp;appointmentType[]=58202762&amp;appointmentType[]=56219983&amp;ref=embedded_csp"
         title="Schedule Appointment"></iframe>
     </div>
   </div>
