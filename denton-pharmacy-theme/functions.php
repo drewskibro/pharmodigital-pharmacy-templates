@@ -158,7 +158,7 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-nhs-prescriptions-js', DENTON_PHARMACY_URI . '/assets/js/nhs-prescriptions.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/nhs-prescriptions.js' ), true );
     }
 
-    if ( is_page_template( array( 'page-templates/page-blister-packs.php', 'page-templates/page-contraception.php' ) ) ) {
+    if ( is_page_template( array( 'page-templates/page-blister-packs.php', 'page-templates/page-contraception.php', 'page-templates/page-flu-vaccination.php', 'page-templates/page-covid-vaccination.php' ) ) ) {
         wp_enqueue_style( 'denton-blister-packs', DENTON_PHARMACY_URI . '/assets/css/blister-packs.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/blister-packs.css' ) );
         wp_enqueue_script( 'denton-blister-packs-js', DENTON_PHARMACY_URI . '/assets/js/blister-packs.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/blister-packs.js' ), true );
     }
