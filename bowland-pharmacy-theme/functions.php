@@ -158,7 +158,7 @@ function bowland_pharmacy_scripts() {
         wp_enqueue_script( 'bowland-nhs-prescriptions-js', BOWLAND_PHARMACY_URI . '/assets/js/nhs-prescriptions.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/nhs-prescriptions.js' ), true );
     }
 
-    if ( is_page_template( 'page-templates/page-blister-packs.php' ) ) {
+    if ( is_page_template( array( 'page-templates/page-blister-packs.php', 'page-templates/page-contraception.php' ) ) ) {
         wp_enqueue_style( 'bowland-blister-packs', BOWLAND_PHARMACY_URI . '/assets/css/blister-packs.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/blister-packs.css' ) );
         wp_enqueue_script( 'bowland-blister-packs-js', BOWLAND_PHARMACY_URI . '/assets/js/blister-packs.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/blister-packs.js' ), true );
     }
