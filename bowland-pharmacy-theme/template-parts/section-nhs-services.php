@@ -245,10 +245,20 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                             </ul>
                         <?php endif; ?>
 
-                        <!-- Button -->
+                        <!-- Button(s) -->
                         <a href="<?php echo esc_url( $card['url'] ); ?>" class="nhs-card-btn"<?php echo ! empty( $card['target'] ) ? ' target="' . esc_attr( $card['target'] ) . '" rel="noopener"' : ''; ?>>
                             <?php echo esc_html( $card['btn'] ); ?>
                         </a>
+                        <?php
+                        $nhs_pid    = get_queried_object_id();
+                        $link2_url  = $nhs_pid ? get_post_meta( $nhs_pid, "nhs_cards_{$index}_card_link2_url", true ) : '';
+                        $link2_text = $nhs_pid ? get_post_meta( $nhs_pid, "nhs_cards_{$index}_card_link2_text", true ) : '';
+                        if ( $link2_url && $link2_text ) :
+                        ?>
+                        <a href="<?php echo esc_url( $link2_url ); ?>" class="nhs-card-btn nhs-card-btn-secondary">
+                            <?php echo esc_html( $link2_text ); ?>
+                        </a>
+                        <?php endif; ?>
 
                     </div>
                 </div>
