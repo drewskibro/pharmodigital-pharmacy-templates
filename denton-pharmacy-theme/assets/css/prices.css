@@ -404,7 +404,7 @@
 }
 
 .prices-table th.prices-table-num {
-  text-align: right;
+  text-align: left;
 }
 
 .prices-table tr.prices-table-group th {
@@ -437,7 +437,7 @@
 }
 
 .prices-table td.prices-table-num {
-  text-align: right;
+  text-align: left;
   font-weight: 700;
   color: var(--brand-dark);
   font-variant-numeric: tabular-nums;
