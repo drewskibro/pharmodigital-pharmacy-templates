@@ -14,8 +14,8 @@ $hero_description = bp_field( 'prices_hero_description', 'Clear, upfront pricing
 $disclaimer       = bp_field( 'prices_disclaimer', 'All prices shown are correct at time of publication and may be subject to change. Treatment is only available following a clinical consultation and where deemed appropriate by our pharmacist.' );
 
 $book_url         = home_url( '/book-appointment/' );
-$phone            = dp_phone();
-$phone_link       = dp_phone_link();
+$phone            = bp_phone();
+$phone_link       = bp_phone_link();
 ?>
 
 <!-- ============================================
