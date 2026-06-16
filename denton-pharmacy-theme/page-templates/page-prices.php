@@ -287,7 +287,7 @@ $phone_link       = dp_phone_link();
       if ( have_rows( 'prices_private' ) ) :
         while ( have_rows( 'prices_private' ) ) : the_row();
           $pv_category = get_sub_field( 'private_category' );
-          if ( strcasecmp( (string) $pv_category, 'Ear Wax Removal' ) === 0 ) { continue; }
+          if ( in_array( strtolower( (string) $pv_category ), array( 'ear wax removal', 'blood testing' ), true ) ) { continue; }
           $cat_key     = $pv_category ?: 'Other Services';
           if ( ! isset( $private_groups[ $cat_key ] ) ) {
             $private_groups[ $cat_key ] = array();

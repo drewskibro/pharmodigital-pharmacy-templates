@@ -359,6 +359,33 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9375rem;
+  table-layout: fixed;
+}
+
+/* First column always widest; remaining columns split the rest equally,
+   so tabs with the same column count line up exactly. */
+.prices-table th:first-child,
+.prices-table td:first-child {
+  width: 40%;
+}
+
+.prices-viewall-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--brand-primary, #3f73ae);
+  color: var(--white, #fff);
+  padding: 0.875rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.prices-viewall-btn:hover {
+  background: var(--brand-dark, #2a507a);
+  transform: translateY(-1px);
 }
 
 .prices-table thead {
@@ -377,7 +404,29 @@
 }
 
 .prices-table th.prices-table-num {
-  text-align: right;
+  text-align: left;
+}
+
+.prices-table tr.prices-table-group th {
+  background: var(--brand-light, #faf7f2);
+  color: var(--brand-dark, #2a507a);
+  text-align: left;
+  font-size: 0.8125rem;
+  border-top: 1px solid rgba(63, 115, 174, 0.12);
+}
+
+.prices-free-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  color: var(--brand-secondary, #59a623);
+  font-weight: 700;
+}
+
+.prices-blood-viewall {
+  margin-top: 1.5rem;
+  text-align: center;
 }
 
 .prices-table td {
@@ -388,7 +437,7 @@
 }
 
 .prices-table td.prices-table-num {
-  text-align: right;
+  text-align: left;
   font-weight: 700;
   color: var(--brand-dark);
   font-variant-numeric: tabular-nums;
@@ -423,6 +472,24 @@
   .prices-table td {
     display: block;
     width: 100%;
+  }
+  .prices-table td:first-child {
+    display: block;
+    width: 100%;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--brand-dark);
+    padding: 0 0 0.6rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(63, 115, 174, 0.12);
+  }
+  .prices-table td:first-child::before {
+    display: none;
+  }
+  .prices-table tr.prices-table-group th {
+    display: block;
+    width: 100%;
+    text-align: left;
   }
   .prices-table tr {
     padding: 1rem 1.25rem;

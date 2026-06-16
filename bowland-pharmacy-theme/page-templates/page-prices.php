@@ -8,14 +8,14 @@ get_header();
 
 $hero_badge       = bp_field( 'prices_hero_badge', 'OUR PRICING' );
 $hero_title       = bp_field( 'prices_hero_title', 'Transparent Pricing' );
-$hero_title_rest  = bp_field( 'prices_hero_title_rest', 'at Bowland Pharmacy' );
+$hero_title_rest  = bp_field( 'prices_hero_title_rest', 'at Denton Pharmacy' );
 $hero_description = bp_field( 'prices_hero_description', 'Clear, upfront pricing across our weight loss treatments, travel vaccinations, private services and NHS care. No hidden fees, no surprises.' );
 
 $disclaimer       = bp_field( 'prices_disclaimer', 'All prices shown are correct at time of publication and may be subject to change. Treatment is only available following a clinical consultation and where deemed appropriate by our pharmacist.' );
 
 $book_url         = home_url( '/book-appointment/' );
-$phone            = bp_phone();
-$phone_link       = bp_phone_link();
+$phone            = dp_phone();
+$phone_link       = dp_phone_link();
 ?>
 
 <!-- ============================================
@@ -77,9 +77,17 @@ $phone_link       = bp_phone_link();
         <i class="fas fa-plane-departure" aria-hidden="true"></i>
         <span>Travel Health</span>
       </button>
+      <button class="prices-tab" role="tab" aria-selected="false" aria-controls="prices-panel-blood" id="prices-tab-blood" data-tab="blood" tabindex="-1" type="button">
+        <i class="fas fa-vial" aria-hidden="true"></i>
+        <span>Blood Testing</span>
+      </button>
+      <button class="prices-tab" role="tab" aria-selected="false" aria-controls="prices-panel-ear" id="prices-tab-ear" data-tab="ear" tabindex="-1" type="button">
+        <i class="fas fa-ear-listen" aria-hidden="true"></i>
+        <span>Ear Clinic</span>
+      </button>
       <button class="prices-tab" role="tab" aria-selected="false" aria-controls="prices-panel-private" id="prices-tab-private" data-tab="private" tabindex="-1" type="button">
         <i class="fas fa-user-doctor" aria-hidden="true"></i>
-        <span>Private Services</span>
+        <span>Other Private Services</span>
       </button>
       <button class="prices-tab" role="tab" aria-selected="false" aria-controls="prices-panel-nhs" id="prices-tab-nhs" data-tab="nhs" tabindex="-1" type="button">
         <i class="fas fa-hand-holding-medical" aria-hidden="true"></i>
@@ -95,36 +103,34 @@ $phone_link       = bp_phone_link();
       </div>
 
       <?php if ( have_rows( 'prices_weight_loss' ) ) : ?>
-        <div class="prices-wl-grid">
-          <?php while ( have_rows( 'prices_weight_loss' ) ) : the_row();
-            $wl_name     = get_sub_field( 'wl_product_name' );
-            $wl_strength = get_sub_field( 'wl_strength' );
-            $wl_price    = get_sub_field( 'wl_price' );
-            $wl_supply   = get_sub_field( 'wl_supply' );
-            $wl_note     = get_sub_field( 'wl_note' );
-          ?>
-            <article class="prices-wl-card">
-              <header class="prices-wl-card-head">
-                <?php if ( $wl_name ) : ?>
-                  <h3 class="prices-wl-card-name"><?php echo esc_html( $wl_name ); ?></h3>
-                <?php endif; ?>
-                <?php if ( $wl_strength ) : ?>
-                  <span class="prices-wl-card-strength"><?php echo esc_html( $wl_strength ); ?></span>
-                <?php endif; ?>
-              </header>
-              <?php if ( $wl_price ) : ?>
-                <div class="prices-wl-card-price">
-                  <span class="prices-wl-card-price-amount"><?php echo esc_html( $wl_price ); ?></span>
-                  <?php if ( $wl_supply ) : ?>
-                    <span class="prices-wl-card-price-supply"><?php echo esc_html( $wl_supply ); ?></span>
-                  <?php endif; ?>
-                </div>
-              <?php endif; ?>
-              <?php if ( $wl_note ) : ?>
-                <p class="prices-wl-card-note"><i class="fas fa-circle-info"></i> <?php echo esc_html( $wl_note ); ?></p>
-              <?php endif; ?>
-            </article>
-          <?php endwhile; ?>
+        <div class="prices-table-wrap">
+          <table class="prices-table">
+            <thead>
+              <tr>
+                <th scope="col">Treatment</th>
+                <th scope="col">Strength</th>
+                <th scope="col" class="prices-table-num">Price</th>
+                <th scope="col" class="prices-table-note">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php while ( have_rows( 'prices_weight_loss' ) ) : the_row();
+                $wl_name     = get_sub_field( 'wl_product_name' );
+                $wl_strength = get_sub_field( 'wl_strength' );
+                $wl_price    = get_sub_field( 'wl_price' );
+                $wl_supply   = get_sub_field( 'wl_supply' );
+                $wl_note     = get_sub_field( 'wl_note' );
+                $wl_notes    = trim( implode( ' — ', array_filter( array( $wl_supply, $wl_note ) ) ) );
+              ?>
+                <tr>
+                  <td data-label="Treatment"><?php echo esc_html( $wl_name ); ?></td>
+                  <td data-label="Strength"><?php echo $wl_strength ? esc_html( $wl_strength ) : '<span class="prices-dash">—</span>'; ?></td>
+                  <td data-label="Price" class="prices-table-num"><?php echo $wl_price ? esc_html( $wl_price ) : '<span class="prices-dash">—</span>'; ?></td>
+                  <td data-label="Notes" class="prices-table-note"><?php echo $wl_notes ? esc_html( $wl_notes ) : ''; ?></td>
+                </tr>
+              <?php endwhile; ?>
+            </tbody>
+          </table>
         </div>
       <?php else : ?>
         <p class="prices-empty">Weight loss pricing will appear here once added.</p>
@@ -171,10 +177,107 @@ $phone_link       = bp_phone_link();
       <?php endif; ?>
     </div>
 
+    <!-- Panel: Blood Testing -->
+    <div class="prices-tab-panel" role="tabpanel" id="prices-panel-blood" aria-labelledby="prices-tab-blood" data-panel="blood" hidden>
+      <div class="prices-panel-header">
+        <h2 class="prices-panel-title">Blood Testing</h2>
+        <p class="prices-panel-subtitle">Our most requested blood test panels — browse 400+ tests on our Blood Testing page.</p>
+      </div>
+
+      <?php
+      $bt_featured = new WP_Query( array(
+        'post_type'      => 'blood_test',
+        'posts_per_page' => 30,
+        'meta_key'       => 'tsbt_featured',
+        'meta_value'     => '1',
+        'orderby'        => 'title',
+        'order'          => 'ASC',
+        'no_found_rows'  => true,
+      ) );
+      ?>
+      <?php if ( $bt_featured->have_posts() ) : ?>
+        <div class="prices-table-wrap">
+          <table class="prices-table">
+            <thead>
+              <tr>
+                <th scope="col">Test</th>
+                <th scope="col" class="prices-table-num">Price</th>
+                <th scope="col" class="prices-table-note">Turnaround</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php while ( $bt_featured->have_posts() ) : $bt_featured->the_post();
+                $bt_price = get_post_meta( get_the_ID(), 'tsbt_retail', true );
+                $bt_turn  = get_post_meta( get_the_ID(), 'tsbt_turnaround', true );
+              ?>
+                <tr>
+                  <td data-label="Test"><?php echo esc_html( get_the_title() ); ?></td>
+                  <td data-label="Price" class="prices-table-num"><?php echo $bt_price ? esc_html( $bt_price ) : '<span class="prices-dash">—</span>'; ?></td>
+                  <td data-label="Turnaround" class="prices-table-note"><?php echo $bt_turn ? esc_html( $bt_turn ) : ''; ?></td>
+                </tr>
+              <?php endwhile; wp_reset_postdata(); ?>
+            </tbody>
+          </table>
+        </div>
+        <div class="prices-blood-viewall">
+          <a href="<?php echo esc_url( home_url( '/blood-testing/' ) ); ?>" class="prices-viewall-btn">View all blood tests <i class="fas fa-arrow-right"></i></a>
+        </div>
+      <?php else : ?>
+        <p class="prices-empty">Most requested tests will appear here. <a href="<?php echo esc_url( home_url( '/blood-testing/' ) ); ?>">View all blood tests</a>.</p>
+      <?php endif; ?>
+    </div>
+
+    <!-- Panel: Ear Clinic -->
+    <div class="prices-tab-panel" role="tabpanel" id="prices-panel-ear" aria-labelledby="prices-tab-ear" data-panel="ear" hidden>
+      <div class="prices-panel-header">
+        <h2 class="prices-panel-title">Ear Clinic</h2>
+        <p class="prices-panel-subtitle">Microsuction ear wax removal by our trained pharmacist.</p>
+      </div>
+
+      <?php
+      $ear_items = array();
+      if ( have_rows( 'prices_private' ) ) :
+        while ( have_rows( 'prices_private' ) ) : the_row();
+          if ( strcasecmp( (string) get_sub_field( 'private_category' ), 'Ear Wax Removal' ) === 0 ) {
+            $ear_items[] = array(
+              'name'  => get_sub_field( 'private_service_name' ),
+              'price' => get_sub_field( 'private_price' ),
+              'note'  => get_sub_field( 'private_notes' ),
+            );
+          }
+        endwhile;
+      endif;
+      ?>
+      <?php if ( ! empty( $ear_items ) ) : ?>
+        <div class="prices-table-wrap">
+          <table class="prices-table">
+            <thead>
+              <tr>
+                <th scope="col">Service</th>
+                <th scope="col" class="prices-table-num">Price</th>
+                <th scope="col" class="prices-table-note">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ( $ear_items as $item ) : ?>
+                <tr>
+                  <td data-label="Service"><?php echo esc_html( $item['name'] ); ?></td>
+                  <td data-label="Price" class="prices-table-num"><?php echo $item['price'] ? esc_html( $item['price'] ) : '<span class="prices-dash">—</span>'; ?></td>
+                  <td data-label="Notes" class="prices-table-note"><?php echo $item['note'] ? esc_html( $item['note'] ) : ''; ?></td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
+      <?php else : ?>
+        <p class="prices-empty">Ear clinic pricing will appear here once added.</p>
+      <?php endif; ?>
+    </div>
+
     <!-- Panel: Private Services -->
     <div class="prices-tab-panel" role="tabpanel" id="prices-panel-private" aria-labelledby="prices-tab-private" data-panel="private" hidden>
       <div class="prices-panel-header">
-        <h2 class="prices-panel-title">Private Services</h2>
+        <h2 class="prices-panel-title">Other Private Services</h2>
         <p class="prices-panel-subtitle">Self-funded healthcare services with no waiting list.</p>
       </div>
 
@@ -184,6 +287,7 @@ $phone_link       = bp_phone_link();
       if ( have_rows( 'prices_private' ) ) :
         while ( have_rows( 'prices_private' ) ) : the_row();
           $pv_category = get_sub_field( 'private_category' );
+          if ( in_array( strtolower( (string) $pv_category ), array( 'ear wax removal', 'blood testing' ), true ) ) { continue; }
           $cat_key     = $pv_category ?: 'Other Services';
           if ( ! isset( $private_groups[ $cat_key ] ) ) {
             $private_groups[ $cat_key ] = array();
@@ -199,27 +303,28 @@ $phone_link       = bp_phone_link();
       ?>
 
       <?php if ( ! empty( $private_order ) ) : ?>
-        <div class="prices-private-groups">
-          <?php foreach ( $private_order as $category ) : ?>
-            <section class="prices-private-group">
-              <h3 class="prices-private-group-title"><?php echo esc_html( $category ); ?></h3>
-              <ul class="prices-private-list">
+        <div class="prices-table-wrap">
+          <table class="prices-table">
+            <thead>
+              <tr>
+                <th scope="col">Service</th>
+                <th scope="col" class="prices-table-num">Price</th>
+                <th scope="col" class="prices-table-note">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ( $private_order as $category ) : ?>
+                <tr class="prices-table-group"><th colspan="3" scope="colgroup"><?php echo esc_html( $category ); ?></th></tr>
                 <?php foreach ( $private_groups[ $category ] as $item ) : ?>
-                  <li class="prices-private-row">
-                    <div class="prices-private-row-text">
-                      <span class="prices-private-row-name"><?php echo esc_html( $item['name'] ); ?></span>
-                      <?php if ( $item['note'] ) : ?>
-                        <span class="prices-private-row-note"><?php echo esc_html( $item['note'] ); ?></span>
-                      <?php endif; ?>
-                    </div>
-                    <?php if ( $item['price'] ) : ?>
-                      <span class="prices-private-row-price"><?php echo esc_html( $item['price'] ); ?></span>
-                    <?php endif; ?>
-                  </li>
+                  <tr>
+                    <td data-label="Service"><?php echo esc_html( $item['name'] ); ?></td>
+                    <td data-label="Price" class="prices-table-num"><?php echo $item['price'] ? esc_html( $item['price'] ) : '<span class="prices-dash">—</span>'; ?></td>
+                    <td data-label="Notes" class="prices-table-note"><?php echo $item['note'] ? esc_html( $item['note'] ) : ''; ?></td>
+                  </tr>
                 <?php endforeach; ?>
-              </ul>
-            </section>
-          <?php endforeach; ?>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
         </div>
       <?php else : ?>
         <p class="prices-empty">Private service pricing will appear here once added.</p>
@@ -234,19 +339,28 @@ $phone_link       = bp_phone_link();
       </div>
 
       <?php if ( have_rows( 'prices_nhs' ) ) : ?>
-        <div class="prices-nhs-grid">
-          <?php while ( have_rows( 'prices_nhs' ) ) : the_row();
-            $nhs_name        = get_sub_field( 'nhs_service_name' );
-            $nhs_eligibility = get_sub_field( 'nhs_eligibility' );
-          ?>
-            <article class="prices-nhs-card">
-              <span class="prices-nhs-card-tag"><i class="fas fa-check-circle"></i> Free on NHS</span>
-              <h3 class="prices-nhs-card-name"><?php echo esc_html( $nhs_name ); ?></h3>
-              <?php if ( $nhs_eligibility ) : ?>
-                <p class="prices-nhs-card-eligibility"><?php echo esc_html( $nhs_eligibility ); ?></p>
-              <?php endif; ?>
-            </article>
-          <?php endwhile; ?>
+        <div class="prices-table-wrap">
+          <table class="prices-table">
+            <thead>
+              <tr>
+                <th scope="col">Service</th>
+                <th scope="col" class="prices-table-num">Cost</th>
+                <th scope="col" class="prices-table-note">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php while ( have_rows( 'prices_nhs' ) ) : the_row();
+                $nhs_name        = get_sub_field( 'nhs_service_name' );
+                $nhs_eligibility = get_sub_field( 'nhs_eligibility' );
+              ?>
+                <tr>
+                  <td data-label="Service"><?php echo esc_html( $nhs_name ); ?></td>
+                  <td data-label="Cost" class="prices-table-num"><span class="prices-free-tag"><i class="fas fa-check-circle"></i> Free on NHS</span></td>
+                  <td data-label="Notes" class="prices-table-note"><?php echo $nhs_eligibility ? esc_html( $nhs_eligibility ) : ''; ?></td>
+                </tr>
+              <?php endwhile; ?>
+            </tbody>
+          </table>
         </div>
       <?php else : ?>
         <p class="prices-empty">NHS services will appear here once added.</p>
