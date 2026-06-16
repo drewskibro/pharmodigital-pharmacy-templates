@@ -7,7 +7,6 @@
  * Reuses the bpack-* markup/CSS from the Blister Packs template.
  *
  * Clinical copy sourced from the live site — review before launch.
- * Private Pfizer price (£75) is a default — confirm before launch.
  *
  * @package Denton_Pharmacy
  */
@@ -18,7 +17,6 @@ $hero_badge        = dp_field( 'covid_hero_badge', 'NHS & PRIVATE COVID VACCINAT
 $hero_title_accent = dp_field( 'covid_hero_title_accent', 'COVID Vaccination' );
 $hero_title_rest   = dp_field( 'covid_hero_title_rest', 'when you need it' );
 $hero_description  = dp_field( 'covid_hero_description', 'NHS COVID-19 vaccinations for eligible patients in line with the latest NHS guidance, plus private vaccinations available by appointment or walk-in.' );
-$private_price     = dp_field( 'covid_private_price', '£75' );
 
 $trust_pills = array(
     array( 'icon' => 'fa-check-circle', 'text' => 'NHS & private' ),
@@ -31,13 +29,13 @@ $card_price  = 'Free';
 $card_sub    = 'on the NHS (if eligible)';
 $card_checks = array(
     'Free on the NHS if eligible',
-    'Private jabs from ' . $private_price,
+    'Private jabs also available',
     'Offered from 1 October each year',
 );
 
 $elig_items = array(
     array( 'icon' => 'fa-shield-halved', 'title' => 'Eligible on the NHS', 'desc' => 'If you qualify under current NHS guidance, your COVID jab is free.' ),
-    array( 'icon' => 'fa-syringe',       'title' => 'Private vaccination', 'desc' => 'Not eligible on the NHS? Have a private COVID vaccination from ' . $private_price . ' per dose.' ),
+    array( 'icon' => 'fa-syringe',       'title' => 'Private vaccination', 'desc' => 'Not eligible on the NHS? A private COVID vaccination is also available.' ),
     array( 'icon' => 'fa-calendar-days', 'title' => 'Seasonal programme',  'desc' => 'Offered alongside flu jabs from 1 October each year.' ),
     array( 'icon' => 'fa-walking',       'title' => 'Walk-in or book',     'desc' => 'Appointments or walk-ins available — whatever suits you.' ),
 );
@@ -50,7 +48,7 @@ $proc_steps = array(
 
 $faqs = array(
     array( 'q' => 'Is the COVID jab free?', 'a' => 'It is free on the NHS for eligible patients, in line with current NHS guidance. Private vaccinations are also available.' ),
-    array( 'q' => 'How much is a private COVID jab?', 'a' => 'A private COVID-19 vaccination is ' . $private_price . ' per dose. Prices may vary depending on stock and availability.' ),
+    array( 'q' => 'Is there a private option?', 'a' => 'Yes — if you are not eligible on the NHS, a private COVID-19 vaccination is available. Pricing varies with stock and availability, so please ask our team for the current price.' ),
     array( 'q' => 'Do I need an appointment?', 'a' => 'You can book a slot or come as a walk-in. We offer COVID and flu vaccinations from 1 October each year, in line with NHS guidance.' ),
     array( 'q' => 'How do I check NHS eligibility?', 'a' => 'Please see the latest NHS guidance on the NHS website for who can get a free COVID-19 vaccination.' ),
     array( 'q' => 'What about flu vaccination?', 'a' => 'We also offer flu vaccinations. See our Flu Vaccination page for details.' ),
