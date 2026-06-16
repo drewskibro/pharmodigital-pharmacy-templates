@@ -380,6 +380,28 @@
   text-align: right;
 }
 
+.prices-table tr.prices-table-group th {
+  background: var(--brand-light, #faf7f2);
+  color: var(--brand-dark, #2a507a);
+  text-align: left;
+  font-size: 0.8125rem;
+  border-top: 1px solid rgba(63, 115, 174, 0.12);
+}
+
+.prices-free-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  color: var(--brand-secondary, #59a623);
+  font-weight: 700;
+}
+
+.prices-blood-viewall {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
 .prices-table td {
   padding: 1rem 1.25rem;
   border-top: 1px solid rgba(63, 115, 174, 0.08);
