@@ -122,6 +122,7 @@ $card_checks = array(
 $elig_items = array(
     array( 'icon' => 'fa-pills',        'title' => 'Starting the pill',     'desc' => 'Begin a new oral contraceptive pill after a consultation with our pharmacist.' ),
     array( 'icon' => 'fa-rotate',       'title' => 'Continuing your pill',   'desc' => 'Get an ongoing supply of the contraceptive pill you already take.' ),
+    array( 'icon' => 'fa-clock',        'title' => 'Morning-after pill',     'desc' => 'Emergency hormonal contraception, available the same day if you need it.' ),
     array( 'icon' => 'fa-user-check',   'title' => 'Aged 16 or over',        'desc' => 'The NHS Pharmacy Contraception Service is available to anyone aged 16 and above.' ),
     array( 'icon' => 'fa-comments',     'title' => 'Want a private chat',    'desc' => 'Discuss your contraception options confidentially, with no referral needed.' ),
 );
