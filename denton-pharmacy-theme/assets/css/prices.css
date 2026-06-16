@@ -359,6 +359,33 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9375rem;
+  table-layout: fixed;
+}
+
+/* First column always widest; remaining columns split the rest equally,
+   so tabs with the same column count line up exactly. */
+.prices-table th:first-child,
+.prices-table td:first-child {
+  width: 40%;
+}
+
+.prices-viewall-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--brand-primary, #3f73ae);
+  color: var(--white, #fff);
+  padding: 0.875rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.prices-viewall-btn:hover {
+  background: var(--brand-dark, #2a507a);
+  transform: translateY(-1px);
 }
 
 .prices-table thead {
@@ -445,6 +472,14 @@
   .prices-table td {
     display: block;
     width: 100%;
+  }
+  .prices-table td:first-child {
+    width: 100%;
+  }
+  .prices-table tr.prices-table-group th {
+    display: block;
+    width: 100%;
+    text-align: left;
   }
   .prices-table tr {
     padding: 1rem 1.25rem;

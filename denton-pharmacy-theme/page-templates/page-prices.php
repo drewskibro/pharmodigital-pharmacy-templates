@@ -220,7 +220,7 @@ $phone_link       = dp_phone_link();
           </table>
         </div>
         <div class="prices-blood-viewall">
-          <a href="<?php echo esc_url( home_url( '/blood-testing/' ) ); ?>" class="cta-button secondary-cta prices-cta-button-outline">View all blood tests <i class="fas fa-arrow-right"></i></a>
+          <a href="<?php echo esc_url( home_url( '/blood-testing/' ) ); ?>" class="prices-viewall-btn">View all blood tests <i class="fas fa-arrow-right"></i></a>
         </div>
       <?php else : ?>
         <p class="prices-empty">Most requested tests will appear here. <a href="<?php echo esc_url( home_url( '/blood-testing/' ) ); ?>">View all blood tests</a>.</p>
