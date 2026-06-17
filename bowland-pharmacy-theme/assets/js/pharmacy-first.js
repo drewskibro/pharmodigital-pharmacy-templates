@@ -52,14 +52,22 @@ function togglePharmFirstFAQ(button) {
   var section = document.getElementById('pharmfirst-book');
   if (!frame || !section) return;
 
-  var base = 'https://app.acuityscheduling.com/schedule.php?owner=29286426';
+  // Keep the pharmacy location locked: inherit owner + calendarID from the iframe.
+  var defaultSrc = frame.src;
+  function acuityBase() {
+    var owner = (defaultSrc.match(/owner=(\d+)/) || [])[1] || '29286426';
+    var cal = (defaultSrc.match(/calendarID=(\d+)/) || [])[1];
+    var url = 'https://app.acuityscheduling.com/schedule.php?owner=' + owner;
+    if (cal) { url += '&calendarID=' + cal; }
+    return url;
+  }
 
   document.querySelectorAll('.pharmfirst-condition-book[data-acuity-type]').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       var type = btn.getAttribute('data-acuity-type');
       if (type) {
-        frame.src = base + '&appointmentType=' + encodeURIComponent(type) + '&ref=embedded_csp';
+        frame.src = acuityBase() + '&appointmentType=' + encodeURIComponent(type) + '&ref=embedded_csp';
       }
       section.scrollIntoView({ behavior: 'smooth' });
     });

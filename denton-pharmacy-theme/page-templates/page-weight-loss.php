@@ -852,7 +852,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
-        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;appointmentType=category:Weight%20Loss&amp;ref=embedded_csp"
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;appointmentType=category:Weight%20Loss&amp;ref=embedded_csp"
         title="Schedule Appointment"></iframe>
     </div>
   </div>

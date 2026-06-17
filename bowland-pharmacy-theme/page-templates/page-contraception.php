@@ -274,7 +274,7 @@ $cta_badges = array( 'Free on the NHS', 'No GP needed', 'Confidential' );
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
-        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;appointmentType[]=56219953&amp;appointmentType[]=58202762&amp;appointmentType[]=56219983&amp;ref=embedded_csp"
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=8436365&amp;appointmentType[]=56219953&amp;appointmentType[]=58202762&amp;appointmentType[]=56219983&amp;ref=embedded_csp"
         title="Schedule Appointment"></iframe>
     </div>
   </div>

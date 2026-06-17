@@ -740,7 +740,7 @@ get_header();
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
-        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;appointmentType=category:Ear%20Clinic&amp;ref=embedded_csp"
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=8436365&amp;appointmentType=category:Ear%20Clinic&amp;ref=embedded_csp"
         title="Schedule Appointment"
         allow="payment"></iframe>
     </div>

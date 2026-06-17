@@ -260,7 +260,7 @@ $cta_badges = array( 'Free if eligible', 'Walk-in welcome', 'NHS & private' );
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
-        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;appointmentType[]=60972607&amp;appointmentType[]=60972591&amp;ref=embedded_csp"
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;appointmentType[]=60972607&amp;appointmentType[]=60972591&amp;ref=embedded_csp"
         title="Schedule Appointment"></iframe>
     </div>
   </div>

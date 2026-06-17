@@ -131,6 +131,60 @@ get_header();
 </section>
 
 <!-- ============================================
+     O2.5 MOST REQUESTED TESTS — editable featured panel
+     ============================================ -->
+<?php
+$bt_mr_ids = function_exists( 'get_field' ) ? get_field( 'bt_most_requested' ) : array();
+if ( ! empty( $bt_mr_ids ) ) :
+?>
+<section class="bt-featured-section bloodtest-reveal">
+  <div class="section-container">
+    <div class="bt-featured-header">
+      <div class="section-badge">
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+        <span class="section-badge-text"><?php echo esc_html( bp_field( 'bt_mr_badge', 'MOST REQUESTED' ) ); ?></span>
+      </div>
+      <h2 class="bt-featured-title"><?php echo esc_html( bp_field( 'bt_mr_title', 'Most Requested Tests' ) ); ?></h2>
+      <p class="bt-featured-description"><?php echo esc_html( bp_field( 'bt_mr_description', 'Our most popular blood test panels — book any of these directly below.' ) ); ?></p>
+    </div>
+
+    <div class="bt-featured-grid">
+      <?php foreach ( (array) $bt_mr_ids as $bt_mr ) :
+        $bt_pid = is_object( $bt_mr ) ? $bt_mr->ID : (int) $bt_mr;
+        if ( ! $bt_pid ) { continue; }
+        $bt_code = get_post_meta( $bt_pid, 'tsbt_code', true );
+        $bt_name = get_the_title( $bt_pid );
+        $bt_retail = get_post_meta( $bt_pid, 'tsbt_retail', true );
+        $bt_turn = get_post_meta( $bt_pid, 'tsbt_turnaround', true );
+        $bt_tests = get_post_meta( $bt_pid, 'tsbt_tests', true );
+        $bt_acuity = get_post_meta( $bt_pid, 'bt_acuity_type_id', true );
+      ?>
+        <article class="bt-featured-card">
+          <span class="bt-featured-ribbon"><i class="fas fa-star"></i> Most Requested</span>
+          <div class="bt-featured-card-head">
+            <?php if ( $bt_code ) : ?><span class="bt-featured-code"><?php echo esc_html( $bt_code ); ?></span><?php endif; ?>
+            <h3 class="bt-featured-name"><?php echo esc_html( $bt_name ); ?></h3>
+          </div>
+          <div class="bt-featured-meta">
+            <?php if ( $bt_retail ) : ?>
+              <div class="bt-featured-price"><span class="bt-featured-price-amount"><?php echo esc_html( $bt_retail ); ?></span></div>
+            <?php endif; ?>
+            <?php if ( $bt_turn ) : ?>
+              <div class="bt-featured-turn"><i class="fas fa-clock"></i> <?php echo esc_html( $bt_turn ); ?></div>
+            <?php endif; ?>
+          </div>
+          <?php if ( $bt_tests ) : ?>
+            <details class="bt-featured-tests"><summary>What's included</summary><p><?php echo esc_html( $bt_tests ); ?></p></details>
+          <?php endif; ?>
+          <a href="#blood-testing-calendar" class="bt-featured-btn" data-test-name="<?php echo esc_attr( $bt_name ); ?>"<?php echo $bt_acuity ? ' data-acuity-type="' . esc_attr( $bt_acuity ) . '"' : ''; ?>>Book this test <i class="fas fa-arrow-right"></i></a>
+        </article>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
+<!-- ============================================
      O3. TESTS GRID — Available blood test panels
      ============================================ -->
 <section class="bloodtest-tests-section">
@@ -321,10 +375,12 @@ get_header();
       </div>
       <h2 class="bloodtest-booking-title">Book Your Blood Test Appointment</h2>
       <p class="bloodtest-booking-subtitle">Choose a time below and book your blood test directly at <?php echo esc_html( bp_pharmacy_name() ); ?>.</p>
+      <button type="button" id="bt-booking-selected" class="bt-booking-selected" hidden></button>
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
-        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;appointmentType=category:Blood%20Testing&amp;ref=embedded_csp"
+        id="bt-acuity-frame"
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=8436365&amp;appointmentType=category:Blood%20Testing&amp;ref=embedded_csp"
         title="Schedule Appointment"
         allow="payment"></iframe>
     </div>
