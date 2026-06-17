@@ -17,12 +17,34 @@
       }
     });
   }, {
-    threshold: 0.15,
+    threshold: 0,
     rootMargin: '0px 0px -60px 0px'
   });
 
   reveals.forEach(function (el) {
     observer.observe(el);
+  });
+})();
+
+// ============================================
+// MOST REQUESTED "Book this test" — continuity note + scroll to calendar
+// ============================================
+(function () {
+  var note = document.getElementById('bt-booking-selected');
+  var target = document.getElementById('blood-testing-calendar');
+  var buttons = document.querySelectorAll('.bt-featured-btn[data-test-name]');
+  if (!buttons.length || !target) return;
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var name = btn.getAttribute('data-test-name');
+      if (note && name) {
+        note.textContent = 'Selected: ' + name;
+        note.hidden = false;
+      }
+      target.scrollIntoView({ behavior: 'smooth' });
+    });
   });
 })();
 

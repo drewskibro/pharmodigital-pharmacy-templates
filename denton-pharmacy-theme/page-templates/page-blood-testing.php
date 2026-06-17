@@ -175,7 +175,7 @@ if ( ! empty( $bt_mr_ids ) ) :
           <?php if ( $bt_tests ) : ?>
             <details class="bt-featured-tests"><summary>What's included</summary><p><?php echo esc_html( $bt_tests ); ?></p></details>
           <?php endif; ?>
-          <a href="#blood-testing-calendar" class="bt-featured-btn">Book this test <i class="fas fa-arrow-right"></i></a>
+          <a href="#blood-testing-calendar" class="bt-featured-btn" data-test-name="<?php echo esc_attr( $bt_name ); ?>">Book this test <i class="fas fa-arrow-right"></i></a>
         </article>
       <?php endforeach; ?>
     </div>
@@ -374,6 +374,7 @@ if ( ! empty( $bt_mr_ids ) ) :
       </div>
       <h2 class="bloodtest-booking-title">Book Your Blood Test Appointment</h2>
       <p class="bloodtest-booking-subtitle">Choose a time below and book your blood test directly at <?php echo esc_html( dp_pharmacy_name() ); ?>.</p>
+      <p id="bt-booking-selected" class="bt-booking-selected" hidden></p>
     </div>
     <div class="booking-calendar-wrapper">
       <iframe

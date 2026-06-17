@@ -1275,3 +1275,25 @@
   .bt-featured-section { padding: 3.5rem 0 1.5rem; }
   .bt-featured-title { font-size: 1.75rem; }
 }
+
+/* Continuity note above the booking calendar (set by JS when a featured test is picked) */
+.bt-booking-selected {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem auto 0;
+  padding: 0.6rem 1.1rem;
+  background: rgba(63, 115, 174, 0.1);
+  color: var(--brand-dark);
+  border: 1px solid rgba(63, 115, 174, 0.25);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.bt-booking-selected::before {
+  content: "\f0a4";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: var(--brand-primary);
+}
