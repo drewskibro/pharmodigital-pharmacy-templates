@@ -39,8 +39,10 @@ if ( have_rows( 'np_hero_trust_pills' ) ) {
     }
 }
 
-// Info card (service highlights)
+// Info card (price/eligibility summary)
 $card_label  = bp_field( 'np_hero_card_label' );
+$card_price  = bp_field( 'np_hero_card_price' );
+$card_sub    = bp_field( 'np_hero_card_sub' );
 $card_checks = array();
 if ( have_rows( 'np_hero_card_checks' ) ) {
     while ( have_rows( 'np_hero_card_checks' ) ) {
@@ -114,7 +116,7 @@ $show_hero = $hero_badge || $hero_title_accent || $hero_title_rest || $hero_desc
                 <?php endif; ?>
             </div>
 
-            <!-- Right: Info card -->
+            <!-- Right: Service highlights card -->
             <?php if ( $card_label || ! empty( $card_checks ) ) : ?>
             <div class="npres-hero-visual">
                 <div class="npres-trust-card">
@@ -123,19 +125,13 @@ $show_hero = $hero_badge || $hero_title_accent || $hero_title_rest || $hero_desc
                         <?php if ( $card_label ) : ?>
                         <div class="npres-trust-card-header">
                             <div class="npres-trust-card-nhs-icon">
-                                <i class="fas fa-shield-halved"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                             <span class="npres-trust-card-label"><?php echo esc_html( $card_label ); ?></span>
                         </div>
                         <?php endif; ?>
                         <?php if ( ! empty( $card_checks ) ) : ?>
                         <div class="npres-trust-card-divider"></div>
-                        <div class="npres-trust-card-highlights-header">
-                            <div class="npres-trust-card-highlights-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="npres-trust-card-highlights-label">Service Highlights</span>
-                        </div>
                         <ul class="npres-trust-card-list">
                             <?php foreach ( $card_checks as $check ) : ?>
                             <li><i class="fas fa-check"></i> <span><?php echo esc_html( $check ); ?></span></li>
@@ -156,6 +152,67 @@ $show_hero = $hero_badge || $hero_title_accent || $hero_title_rest || $hero_desc
             <?php endif; ?>
 
         </div>
+    </div>
+</section>
+<?php endif; ?>
+
+
+<?php
+// --- Process Steps (moved to top per item 19) ---
+$proc_badge = bp_field( 'np_process_badge' );
+$proc_title = bp_field( 'np_process_title' );
+$proc_desc  = bp_field( 'np_process_description' );
+
+$proc_steps = array();
+if ( have_rows( 'np_process_steps' ) ) {
+    while ( have_rows( 'np_process_steps' ) ) {
+        the_row();
+        $proc_steps[] = array(
+            'icon'  => get_sub_field( 'icon' ),
+            'title' => get_sub_field( 'title' ),
+            'desc'  => get_sub_field( 'description' ),
+        );
+    }
+}
+
+if ( $proc_title || ! empty( $proc_steps ) ) :
+?>
+<!-- PROCESS -->
+<section class="npres-process-section npres-reveal">
+    <div class="section-container">
+        <div class="npres-process-header">
+            <?php if ( $proc_badge ) : ?>
+            <div class="section-badge">
+                <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <span class="section-badge-text"><?php echo esc_html( $proc_badge ); ?></span>
+            </div>
+            <?php endif; ?>
+            <?php if ( $proc_title ) : ?>
+            <h2 class="npres-process-title"><?php echo esc_html( $proc_title ); ?></h2>
+            <?php endif; ?>
+            <?php if ( $proc_desc ) : ?>
+            <p class="npres-process-description"><?php echo esc_html( $proc_desc ); ?></p>
+            <?php endif; ?>
+        </div>
+
+        <?php if ( ! empty( $proc_steps ) ) : ?>
+        <div class="npres-process-steps">
+            <?php foreach ( $proc_steps as $i => $step ) : if ( ! $step['title'] ) continue; ?>
+            <div class="npres-process-card">
+                <div class="npres-process-card-number"><?php echo esc_html( $i + 1 ); ?></div>
+                <div class="npres-process-card-icon">
+                    <i class="<?php echo esc_attr( bp_fa_class( $step['icon'] ?: 'fa-check' ) ); ?>"></i>
+                </div>
+                <div class="npres-process-card-body">
+                    <h3 class="npres-process-card-title"><?php echo esc_html( $step['title'] ); ?></h3>
+                    <?php if ( $step['desc'] ) : ?>
+                    <p class="npres-process-card-desc"><?php echo esc_html( $step['desc'] ); ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
     </div>
 </section>
 <?php endif; ?>
@@ -208,67 +265,6 @@ if ( $elig_title || ! empty( $elig_items ) ) :
                 <?php if ( $item['desc'] ) : ?>
                 <p class="npres-condition-desc"><?php echo esc_html( $item['desc'] ); ?></p>
                 <?php endif; ?>
-            </div>
-            <?php endforeach; ?>
-        </div>
-        <?php endif; ?>
-    </div>
-</section>
-<?php endif; ?>
-
-
-<?php
-// --- Process Steps ---
-$proc_badge = bp_field( 'np_process_badge' );
-$proc_title = bp_field( 'np_process_title' );
-$proc_desc  = bp_field( 'np_process_description' );
-
-$proc_steps = array();
-if ( have_rows( 'np_process_steps' ) ) {
-    while ( have_rows( 'np_process_steps' ) ) {
-        the_row();
-        $proc_steps[] = array(
-            'icon'  => get_sub_field( 'icon' ),
-            'title' => get_sub_field( 'title' ),
-            'desc'  => get_sub_field( 'description' ),
-        );
-    }
-}
-
-if ( $proc_title || ! empty( $proc_steps ) ) :
-?>
-<!-- PROCESS -->
-<section class="npres-process-section npres-reveal">
-    <div class="section-container">
-        <div class="npres-process-header">
-            <?php if ( $proc_badge ) : ?>
-            <div class="section-badge">
-                <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                <span class="section-badge-text"><?php echo esc_html( $proc_badge ); ?></span>
-            </div>
-            <?php endif; ?>
-            <?php if ( $proc_title ) : ?>
-            <h2 class="npres-process-title"><?php echo esc_html( $proc_title ); ?></h2>
-            <?php endif; ?>
-            <?php if ( $proc_desc ) : ?>
-            <p class="npres-process-description"><?php echo esc_html( $proc_desc ); ?></p>
-            <?php endif; ?>
-        </div>
-
-        <?php if ( ! empty( $proc_steps ) ) : ?>
-        <div class="npres-process-steps">
-            <?php foreach ( $proc_steps as $i => $step ) : if ( ! $step['title'] ) continue; ?>
-            <div class="npres-process-card">
-                <div class="npres-process-card-number"><?php echo esc_html( $i + 1 ); ?></div>
-                <div class="npres-process-card-icon">
-                    <i class="<?php echo esc_attr( bp_fa_class( $step['icon'] ?: 'fa-check' ) ); ?>"></i>
-                </div>
-                <div class="npres-process-card-body">
-                    <h3 class="npres-process-card-title"><?php echo esc_html( $step['title'] ); ?></h3>
-                    <?php if ( $step['desc'] ) : ?>
-                    <p class="npres-process-card-desc"><?php echo esc_html( $step['desc'] ); ?></p>
-                    <?php endif; ?>
-                </div>
             </div>
             <?php endforeach; ?>
         </div>
