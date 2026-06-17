@@ -36,7 +36,16 @@
   var buttons = document.querySelectorAll('.bt-featured-btn[data-test-name]');
   if (!buttons.length || !target) return;
 
-  var base = 'https://app.acuityscheduling.com/schedule.php?owner=29286426';
+  // Build the base URL from the iframe's own owner + calendarID so the
+  // pharmacy location stays locked to this site (no location picker).
+  function acuityBase() {
+    var src = frame ? frame.src : '';
+    var owner = (src.match(/owner=(\d+)/) || [])[1] || '29286426';
+    var cal = (src.match(/calendarID=(\d+)/) || [])[1];
+    var url = 'https://app.acuityscheduling.com/schedule.php?owner=' + owner;
+    if (cal) { url += '&calendarID=' + cal; }
+    return url;
+  }
 
   buttons.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
@@ -44,7 +53,7 @@
       var name = btn.getAttribute('data-test-name');
       var type = btn.getAttribute('data-acuity-type');
       if (frame && type) {
-        frame.src = base + '&appointmentType=' + encodeURIComponent(type) + '&ref=embedded_csp';
+        frame.src = acuityBase() + '&appointmentType=' + encodeURIComponent(type) + '&ref=embedded_csp';
       }
       if (note && name) {
         note.textContent = 'Selected: ' + name;
