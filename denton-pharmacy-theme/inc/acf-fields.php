@@ -10076,6 +10076,33 @@ function dp_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // ── O2.5 Most Requested Tests (editable featured panel) ──────────────────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bt_most_requested',
+        'title'  => 'Blood Testing — Most Requested',
+        'fields' => array(
+            array( 'key' => 'field_dp_bt_mr_badge', 'label' => 'Badge Text', 'name' => 'bt_mr_badge', 'type' => 'text', 'default_value' => 'MOST REQUESTED' ),
+            array( 'key' => 'field_dp_bt_mr_title', 'label' => 'Section Title', 'name' => 'bt_mr_title', 'type' => 'text', 'default_value' => 'Most Requested Tests' ),
+            array( 'key' => 'field_dp_bt_mr_description', 'label' => 'Section Description', 'name' => 'bt_mr_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Our most popular blood test panels — book any of these directly below.' ),
+            array( 'key' => 'field_dp_bt_most_requested', 'label' => 'Featured Tests', 'name' => 'bt_most_requested', 'type' => 'relationship', 'post_type' => array( 'blood_test' ), 'filters' => array( 'search' ), 'return_format' => 'id', 'instructions' => 'Pick and order the tests to feature at the top of the page. Drag to reorder. Leave empty to hide the section.' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'page_template',
+                    'operator' => '==',
+                    'value'    => 'page-templates/page-blood-testing.php',
+                ),
+            ),
+        ),
+        'menu_order'            => 2402,
+        'position'              => 'normal',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // ── O2. Stats Bar ────────────────────────────────────────────────────────
     acf_add_local_field_group( array(
         'key'    => 'group_dp_bt_stats',
