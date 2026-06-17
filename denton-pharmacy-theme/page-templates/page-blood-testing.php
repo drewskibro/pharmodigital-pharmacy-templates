@@ -157,6 +157,7 @@ if ( ! empty( $bt_mr_ids ) ) :
         $bt_retail = get_post_meta( $bt_pid, 'tsbt_retail', true );
         $bt_turn = get_post_meta( $bt_pid, 'tsbt_turnaround', true );
         $bt_tests = get_post_meta( $bt_pid, 'tsbt_tests', true );
+        $bt_acuity = get_post_meta( $bt_pid, 'bt_acuity_type_id', true );
       ?>
         <article class="bt-featured-card">
           <span class="bt-featured-ribbon"><i class="fas fa-star"></i> Most Requested</span>
@@ -175,7 +176,7 @@ if ( ! empty( $bt_mr_ids ) ) :
           <?php if ( $bt_tests ) : ?>
             <details class="bt-featured-tests"><summary>What's included</summary><p><?php echo esc_html( $bt_tests ); ?></p></details>
           <?php endif; ?>
-          <a href="#blood-testing-calendar" class="bt-featured-btn" data-test-name="<?php echo esc_attr( $bt_name ); ?>">Book this test <i class="fas fa-arrow-right"></i></a>
+          <a href="#blood-testing-calendar" class="bt-featured-btn" data-test-name="<?php echo esc_attr( $bt_name ); ?>"<?php echo $bt_acuity ? ' data-acuity-type="' . esc_attr( $bt_acuity ) . '"' : ''; ?>>Book this test <i class="fas fa-arrow-right"></i></a>
         </article>
       <?php endforeach; ?>
     </div>
@@ -378,6 +379,7 @@ if ( ! empty( $bt_mr_ids ) ) :
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
+        id="bt-acuity-frame"
         src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;appointmentType=category:Blood%20Testing&amp;ref=embedded_csp"
         title="Schedule Appointment"></iframe>
     </div>

@@ -32,13 +32,20 @@
 (function () {
   var note = document.getElementById('bt-booking-selected');
   var target = document.getElementById('blood-testing-calendar');
+  var frame = document.getElementById('bt-acuity-frame');
   var buttons = document.querySelectorAll('.bt-featured-btn[data-test-name]');
   if (!buttons.length || !target) return;
+
+  var base = 'https://app.acuityscheduling.com/schedule.php?owner=29286426';
 
   buttons.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       var name = btn.getAttribute('data-test-name');
+      var type = btn.getAttribute('data-acuity-type');
+      if (frame && type) {
+        frame.src = base + '&appointmentType=' + encodeURIComponent(type) + '&ref=embedded_csp';
+      }
       if (note && name) {
         note.textContent = 'Selected: ' + name;
         note.hidden = false;

@@ -10103,6 +10103,30 @@ function dp_register_acf_field_groups() {
         'active'                => true,
     ) );
 
+    // ── Blood test → Acuity appointment type (for featured-card deep-link) ────
+    acf_add_local_field_group( array(
+        'key'    => 'group_dp_bt_acuity_type',
+        'title'  => 'Blood Test — Online Booking',
+        'fields' => array(
+            array( 'key' => 'field_dp_bt_acuity_type_id', 'label' => 'Acuity Appointment Type ID', 'name' => 'bt_acuity_type_id', 'type' => 'text', 'instructions' => 'Optional. Acuity appointmentType ID for this test. When set, the "Book this test" button on the Most Requested panel opens the calendar pre-selected to this appointment. Leave empty to fall back to the full blood-testing calendar.' ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'blood_test',
+                ),
+            ),
+        ),
+        'menu_order'            => 5,
+        'position'              => 'side',
+        'style'                 => 'default',
+        'label_placement'       => 'top',
+        'instruction_placement' => 'label',
+        'active'                => true,
+    ) );
+
     // ── O2. Stats Bar ────────────────────────────────────────────────────────
     acf_add_local_field_group( array(
         'key'    => 'group_dp_bt_stats',
