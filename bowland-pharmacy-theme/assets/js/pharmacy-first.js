@@ -17,7 +17,7 @@
       }
     });
   }, {
-    threshold: 0.15,
+    threshold: 0,
     rootMargin: '0px 0px -60px 0px'
   });
 
@@ -43,3 +43,25 @@ function togglePharmFirstFAQ(button) {
     item.classList.add('active');
   }
 }
+
+// ============================================
+// CONDITION "BOOK NOW" — preselect type in the in-page Acuity calendar
+// ============================================
+(function () {
+  var frame = document.getElementById('pharmfirst-acuity-frame');
+  var section = document.getElementById('pharmfirst-book');
+  if (!frame || !section) return;
+
+  var base = 'https://app.acuityscheduling.com/schedule.php?owner=29286426';
+
+  document.querySelectorAll('.pharmfirst-condition-book[data-acuity-type]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var type = btn.getAttribute('data-acuity-type');
+      if (type) {
+        frame.src = base + '&appointmentType=' + encodeURIComponent(type) + '&ref=embedded_csp';
+      }
+      section.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+})();
