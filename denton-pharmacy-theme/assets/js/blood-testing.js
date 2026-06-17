@@ -36,15 +36,28 @@
   var buttons = document.querySelectorAll('.bt-featured-btn[data-test-name]');
   if (!buttons.length || !target) return;
 
+  // Remember the iframe's original src (full categorised list, locked location)
+  // so the user can return to it after picking a specific test.
+  var defaultSrc = frame ? frame.src : '';
+
   // Build the base URL from the iframe's own owner + calendarID so the
   // pharmacy location stays locked to this site (no location picker).
   function acuityBase() {
-    var src = frame ? frame.src : '';
-    var owner = (src.match(/owner=(\d+)/) || [])[1] || '29286426';
-    var cal = (src.match(/calendarID=(\d+)/) || [])[1];
+    var owner = (defaultSrc.match(/owner=(\d+)/) || [])[1] || '29286426';
+    var cal = (defaultSrc.match(/calendarID=(\d+)/) || [])[1];
     var url = 'https://app.acuityscheduling.com/schedule.php?owner=' + owner;
     if (cal) { url += '&calendarID=' + cal; }
     return url;
+  }
+
+  function resetToAll() {
+    if (frame && defaultSrc) { frame.src = defaultSrc; }
+    if (note) { note.hidden = true; note.innerHTML = ''; }
+  }
+
+  // Clicking the chip returns to the full list.
+  if (note) {
+    note.addEventListener('click', resetToAll);
   }
 
   buttons.forEach(function (btn) {
@@ -56,7 +69,12 @@
         frame.src = acuityBase() + '&appointmentType=' + encodeURIComponent(type) + '&ref=embedded_csp';
       }
       if (note && name) {
-        note.textContent = 'Selected: ' + name;
+        note.innerHTML = '';
+        note.appendChild(document.createTextNode('Selected: ' + name));
+        var clear = document.createElement('span');
+        clear.className = 'bt-booking-clear';
+        clear.textContent = '✕ show all';
+        note.appendChild(clear);
         note.hidden = false;
       }
       target.scrollIntoView({ behavior: 'smooth' });

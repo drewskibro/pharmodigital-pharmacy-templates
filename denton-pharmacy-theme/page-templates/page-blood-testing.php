@@ -375,7 +375,7 @@ if ( ! empty( $bt_mr_ids ) ) :
       </div>
       <h2 class="bloodtest-booking-title">Book Your Blood Test Appointment</h2>
       <p class="bloodtest-booking-subtitle">Choose a time below and book your blood test directly at <?php echo esc_html( dp_pharmacy_name() ); ?>.</p>
-      <p id="bt-booking-selected" class="bt-booking-selected" hidden></p>
+      <button type="button" id="bt-booking-selected" class="bt-booking-selected" hidden></button>
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
