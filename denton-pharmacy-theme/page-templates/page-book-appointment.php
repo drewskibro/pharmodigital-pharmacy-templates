@@ -108,49 +108,31 @@ get_header();
 </section>
 
 <!-- ============================================
-     HOW IT WORKS SECTION
+     BOOKING SECTION (Acuity) — top of page, first thing patient sees
      ============================================ -->
-<section class="book-process-section">
+<section class="book-amelia-section" id="booking-widget">
+  <div class="book-amelia-blob-1"></div>
+  <div class="book-amelia-blob-2"></div>
+
   <div class="section-container">
-    <div class="book-process-header">
-      <h2 class="book-process-title"><?php echo esc_html(dp_field('book_process_title', 'How It Works')); ?></h2>
+    <div class="book-amelia-header">
+      <h2 class="book-amelia-title"><?php echo esc_html(dp_field('book_amelia_title', 'Select Your Appointment Time')); ?></h2>
+      <p class="book-amelia-description"><?php echo esc_html(dp_field('book_amelia_description', 'Choose a convenient time with our Denton healthcare team')); ?></p>
     </div>
 
-    <div class="book-process-grid">
-      <?php if (have_rows('book_process_steps')) : $step_num = 0; while (have_rows('book_process_steps')) : the_row(); $step_num++; ?>
-        <div class="book-process-card">
-          <div class="book-process-number"><?php echo esc_html($step_num); ?></div>
-          <div class="book-process-icon">
-            <i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i>
-          </div>
-          <h3 class="book-process-card-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
-          <p class="book-process-card-desc"><?php echo esc_html(get_sub_field('description')); ?></p>
-          <?php if ($step_num < 3) : ?>
-            <div class="book-process-arrow desktop-only"><i class="fas fa-chevron-right"></i></div>
-          <?php endif; ?>
-        </div>
-      <?php endwhile; else : ?>
-        <div class="book-process-card">
-          <div class="book-process-number">1</div>
-          <div class="book-process-icon"><i class="fas fa-hand-pointer"></i></div>
-          <h3 class="book-process-card-title">Choose Service</h3>
-          <p class="book-process-card-desc">Select the specific health service you need from our comprehensive options below.</p>
-          <div class="book-process-arrow desktop-only"><i class="fas fa-chevron-right"></i></div>
-        </div>
-        <div class="book-process-card">
-          <div class="book-process-number">2</div>
-          <div class="book-process-icon"><i class="fas fa-calendar-check"></i></div>
-          <h3 class="book-process-card-title">Select Time</h3>
-          <p class="book-process-card-desc">Pick a convenient date and time slot that fits your schedule perfectly.</p>
-          <div class="book-process-arrow desktop-only"><i class="fas fa-chevron-right"></i></div>
-        </div>
-        <div class="book-process-card">
-          <div class="book-process-number">3</div>
-          <div class="book-process-icon"><i class="fas fa-hospital-user"></i></div>
-          <h3 class="book-process-card-title">Visit Clinic</h3>
-          <p class="book-process-card-desc">Come to our Denton clinic for your expert consultation with our friendly team.</p>
-        </div>
-      <?php endif; ?>
+    <div class="book-amelia-container">
+      <div class="booking-calendar-wrapper">
+        <iframe
+          src="https://app.acuityscheduling.com/schedule.php?owner=29286426&calendarID=10903457&ref=embedded_csp"
+          title="Schedule Appointment"
+          width="100%"
+          frameborder="0">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="book-amelia-footer">
+      <p>Can't find a suitable time? Call us on <a href="tel:<?php echo esc_attr(dp_phone_link()); ?>"><?php echo esc_html(dp_phone()); ?></a></p>
     </div>
   </div>
 </section>
@@ -197,7 +179,6 @@ get_header();
         $badge_text   = get_sub_field('badge_text');
         $icon_color   = get_sub_field('icon_color');
         $icon_class   = $icon_color ? ' ' . $icon_color : '';
-        $refund_text  = get_sub_field('refund_text');
       ?>
         <div class="book-service-card<?php echo $badge_text ? ' featured' : ''; ?>">
           <?php if ($badge_text) : ?>
@@ -208,13 +189,6 @@ get_header();
           </div>
           <h3 class="book-service-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
           <p class="book-service-desc"><?php echo esc_html(get_sub_field('description')); ?></p>
-          <div class="book-service-price-row">
-            <span class="book-service-price"><?php echo esc_html(get_sub_field('price')); ?></span>
-            <span class="book-service-price-label"><?php echo esc_html(get_sub_field('price_label')); ?></span>
-          </div>
-          <?php if ($refund_text) : ?>
-            <div class="book-service-refund-badge"><?php echo esc_html($refund_text); ?></div>
-          <?php endif; ?>
           <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">
             <?php echo esc_html(get_sub_field('button_text') ?: 'Book Consultation'); ?>
             <i class="fas fa-arrow-right"></i>
@@ -229,7 +203,6 @@ get_header();
           </div>
           <h3 class="book-service-title">Medical Weight Loss</h3>
           <p class="book-service-desc">Clinically proven GLP-1 treatments with weekly pharmacist support. Wegovy, Mounjaro, and more.</p>
-          <div class="book-service-price-row"><span class="book-service-price">From &pound;179</span><span class="book-service-price-label">/ month</span></div>
           <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
         </div>
         <!-- Travel Health -->
@@ -239,7 +212,6 @@ get_header();
           </div>
           <h3 class="book-service-title">Travel Vaccinations</h3>
           <p class="book-service-desc">Official Yellow Fever Centre. Hepatitis, Typhoid, Rabies, and destination-specific advice.</p>
-          <div class="book-service-price-row"><span class="book-service-price">From &pound;35</span><span class="book-service-price-label">/ vaccine</span></div>
           <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
         </div>
         <!-- Ear Wax Removal -->
@@ -249,7 +221,6 @@ get_header();
           </div>
           <h3 class="book-service-title">Ear Wax Removal</h3>
           <p class="book-service-desc">Professional microsuction ear cleaning by experienced healthcare professionals.</p>
-          <div class="book-service-price-row"><span class="book-service-price">&pound;20</span><span class="book-service-price-label">/ per ear</span></div>
           <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
         </div>
       <?php endif; ?>
@@ -276,7 +247,6 @@ get_header();
             <div class="book-service-icon-small">
               <i class="<?php echo esc_attr(get_sub_field('icon')); ?>"></i>
             </div>
-            <div class="book-service-price-badge"><?php echo esc_html(get_sub_field('price')); ?></div>
           </div>
           <h3 class="book-service-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
           <p class="book-service-desc"><?php echo esc_html(get_sub_field('description')); ?></p>
@@ -286,54 +256,24 @@ get_header();
         </div>
       <?php endwhile; else : ?>
         <div class="book-service-card">
-          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-syringe"></i></div><div class="book-service-price-badge">&pound;15</div></div>
+          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-syringe"></i></div></div>
           <h3 class="book-service-title">Flu Vaccination</h3>
           <p class="book-service-desc">Essential seasonal flu protection for you and your family. Available for both private and NHS patients.</p>
           <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">Book Flu Jab</button>
         </div>
         <div class="book-service-card">
-          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-shield-virus"></i></div><div class="book-service-price-badge">&pound;45</div></div>
+          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-shield-virus"></i></div></div>
           <h3 class="book-service-title">COVID Booster</h3>
           <p class="book-service-desc">Private COVID-19 booster vaccinations for ongoing protection. No NHS eligibility required.</p>
           <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">Book Booster</button>
         </div>
         <div class="book-service-card">
-          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-notes-medical"></i></div><div class="book-service-price-badge">VARIES</div></div>
+          <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-notes-medical"></i></div></div>
           <h3 class="book-service-title">Private Services</h3>
           <p class="book-service-desc">Chickenpox, shingles, Hepatitis B, B12 injections, and general health consultations.</p>
           <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">Book Service</button>
         </div>
       <?php endif; ?>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     AMELIA BOOKING SECTION
-     ============================================ -->
-<section class="book-amelia-section" id="booking-widget">
-  <div class="book-amelia-blob-1"></div>
-  <div class="book-amelia-blob-2"></div>
-
-  <div class="section-container">
-    <div class="book-amelia-header">
-      <h2 class="book-amelia-title"><?php echo esc_html(dp_field('book_amelia_title', 'Select Your Appointment Time')); ?></h2>
-      <p class="book-amelia-description"><?php echo esc_html(dp_field('book_amelia_description', 'Choose a convenient time with our Denton healthcare team')); ?></p>
-    </div>
-
-    <div class="book-amelia-container">
-      <div class="booking-calendar-wrapper">
-        <iframe
-          src="https://app.acuityscheduling.com/schedule.php?owner=29286426&calendarID=10903457&ref=embedded_csp"
-          title="Schedule Appointment"
-          width="100%"
-          frameborder="0">
-        </iframe>
-      </div>
-    </div>
-
-    <div class="book-amelia-footer">
-      <p>Can't find a suitable time? Call us on <a href="tel:<?php echo esc_attr(dp_phone_link()); ?>"><?php echo esc_html(dp_phone()); ?></a></p>
     </div>
   </div>
 </section>
