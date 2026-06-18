@@ -26,7 +26,9 @@ $bottom_desc     = bp_field( 'nhs_bottom_description', 'No appointment needed fo
 $bottom_cta_text = bp_field( 'nhs_bottom_cta_text', 'Visit Us in Wythenshawe' );
 $bottom_cta_url  = bp_field( 'nhs_bottom_cta_url', '' );
 if ( ! $bottom_cta_url ) {
-    $bottom_cta_url = bp_option( 'pharmacy_directions_url', '#location' );
+    // B-03: the "Visit Us" button scrolls to the location section on this page
+    // instead of opening an external map.
+    $bottom_cta_url = '#location-section-card';
 }
 $phone        = bp_phone();
 $phone_link   = bp_phone_link();
