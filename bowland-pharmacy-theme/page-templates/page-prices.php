@@ -144,7 +144,27 @@ $phone_link       = bp_phone_link();
         <p class="prices-panel-subtitle">Vaccines and antimalarials for safe travel, administered by our trained pharmacist.</p>
       </div>
 
-      <?php if ( have_rows( 'prices_travel' ) ) : ?>
+      <?php
+      // Split travel rows into vaccines and antimalarials (item 22).
+      $tv_vaccines = array();
+      $tv_malaria  = array();
+      if ( have_rows( 'prices_travel' ) ) {
+          while ( have_rows( 'prices_travel' ) ) { the_row();
+              $row = array(
+                  'name'    => get_sub_field( 'travel_vaccine_name' ),
+                  'perdose' => get_sub_field( 'travel_price_per_dose' ),
+                  'course'  => get_sub_field( 'travel_course_price' ),
+                  'note'    => get_sub_field( 'travel_notes' ),
+              );
+              if ( get_sub_field( 'travel_category' ) === 'antimalarial' ) {
+                  $tv_malaria[] = $row;
+              } else {
+                  $tv_vaccines[] = $row;
+              }
+          }
+      }
+      ?>
+      <?php if ( $tv_vaccines ) : ?>
         <div class="prices-table-wrap">
           <table class="prices-table">
             <thead>
@@ -156,23 +176,49 @@ $phone_link       = bp_phone_link();
               </tr>
             </thead>
             <tbody>
-              <?php while ( have_rows( 'prices_travel' ) ) : the_row();
-                $tv_name    = get_sub_field( 'travel_vaccine_name' );
-                $tv_perdose = get_sub_field( 'travel_price_per_dose' );
-                $tv_course  = get_sub_field( 'travel_course_price' );
-                $tv_note    = get_sub_field( 'travel_notes' );
-              ?>
+              <?php foreach ( $tv_vaccines as $tv ) : ?>
                 <tr>
-                  <td data-label="Vaccine"><strong><?php echo esc_html( $tv_name ); ?></strong></td>
-                  <td data-label="Per dose" class="prices-table-num"><?php echo $tv_perdose ? esc_html( $tv_perdose ) : '<span class="prices-dash">—</span>'; ?></td>
-                  <td data-label="Full course" class="prices-table-num"><?php echo $tv_course ? esc_html( $tv_course ) : '<span class="prices-dash">—</span>'; ?></td>
-                  <td data-label="Notes" class="prices-table-note"><?php echo $tv_note ? esc_html( $tv_note ) : ''; ?></td>
+                  <td data-label="Vaccine"><strong><?php echo esc_html( $tv['name'] ); ?></strong></td>
+                  <td data-label="Per dose" class="prices-table-num"><?php echo $tv['perdose'] ? esc_html( $tv['perdose'] ) : '<span class="prices-dash">—</span>'; ?></td>
+                  <td data-label="Full course" class="prices-table-num"><?php echo $tv['course'] ? esc_html( $tv['course'] ) : '<span class="prices-dash">—</span>'; ?></td>
+                  <td data-label="Notes" class="prices-table-note"><?php echo $tv['note'] ? esc_html( $tv['note'] ) : ''; ?></td>
                 </tr>
-              <?php endwhile; ?>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
-      <?php else : ?>
+      <?php endif; ?>
+
+      <?php if ( $tv_malaria ) : ?>
+        <div class="prices-subsection prices-subsection--malaria">
+          <div class="prices-panel-header">
+            <h3 class="prices-panel-title">Malaria Treatment</h3>
+            <p class="prices-panel-subtitle">Antimalarial tablets — the right option depends on your destination. We'll advise at your consultation.</p>
+          </div>
+          <div class="prices-table-wrap">
+            <table class="prices-table">
+              <thead>
+                <tr>
+                  <th scope="col">Medication</th>
+                  <th scope="col" class="prices-table-num">Price</th>
+                  <th scope="col">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ( $tv_malaria as $tv ) : ?>
+                  <tr>
+                    <td data-label="Medication"><strong><?php echo esc_html( $tv['name'] ); ?></strong></td>
+                    <td data-label="Price" class="prices-table-num"><?php echo $tv['perdose'] ? esc_html( $tv['perdose'] ) : '<span class="prices-dash">—</span>'; ?></td>
+                    <td data-label="Notes" class="prices-table-note"><?php echo $tv['note'] ? esc_html( $tv['note'] ) : ''; ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <?php endif; ?>
+
+      <?php if ( ! $tv_vaccines && ! $tv_malaria ) : ?>
         <p class="prices-empty">Travel pricing will appear here once added.</p>
       <?php endif; ?>
     </div>
