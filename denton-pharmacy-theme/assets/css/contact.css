@@ -792,7 +792,7 @@ body {
 /* ============================================
    Item 24 — Compact homepage-style map (contact column)
    ============================================ */
-.location-compact { display: flex; flex-direction: column; height: 100%; }
+.location-compact { display: flex; flex-direction: column; height: 100%; position: relative; }
 
 .location-compact .location-map-wrapper.location-compact-map {
   position: relative;
@@ -914,17 +914,28 @@ body {
 
 .location-compact-card .location-parking-directions:hover { text-decoration: underline; }
 
-/* Bottom bar layout — full width, hours + parking side by side, clears the pin */
+/* Info bar — mobile-first: flows BELOW the map (not overlaid). */
 .location-compact-card.location-compact-bar {
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: static;
   max-width: none;
-  border-radius: 1rem 1rem 0 0;
+  margin-top: 0.85rem;
+  border-radius: 1.25rem;
   display: flex;
   align-items: stretch;
   gap: 1.25rem;
   padding: 0.85rem 1.1rem;
+}
+
+/* Desktop: overlay the bottom of the map, full width. */
+@media (min-width: 601px) {
+  .location-compact-card.location-compact-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 0;
+    border-radius: 1rem 1rem 0 0;
+  }
 }
 
 .location-compact-col--hours { flex: 0 0 auto; }

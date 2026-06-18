@@ -123,64 +123,65 @@ $pin_icon_url = $pin_icon_id ? wp_get_attachment_image_url( $pin_icon_id, 'mediu
             <?php endforeach; ?>
         </div>
 
-        <!-- Bottom bar (homepage card style) — opening hours + parking -->
-        <div class="location-compact-card location-compact-bar">
-            <div class="location-compact-col location-compact-col--hours">
-            <div class="location-compact-card-header">
-                <div class="location-detail-icon"><i class="fas fa-clock"></i></div>
-                <span class="location-compact-card-label">Opening Hours</span>
-            </div>
-            <div class="location-hours">
-                <div class="location-hours-row">
-                    <span class="location-hours-day">Mon &ndash; Fri</span>
-                    <span class="location-hours-time"><?php echo esc_html( $hours_weekday ); ?></span>
-                </div>
-                <?php
-                $sat_closed = strtolower( trim( $hours_saturday ) ) === 'closed';
-                $sun_closed = strtolower( trim( $hours_sunday ) ) === 'closed';
-                if ( $sat_closed && $sun_closed ) : ?>
-                <div class="location-hours-row">
-                    <span class="location-hours-day">Sat &amp; Sun</span>
-                    <span class="location-hours-time location-hours-closed">Closed</span>
-                </div>
-                <?php else : ?>
-                <div class="location-hours-row">
-                    <span class="location-hours-day">Saturday</span>
-                    <span class="location-hours-time<?php echo $sat_closed ? ' location-hours-closed' : ''; ?>"><?php echo esc_html( $hours_saturday ); ?></span>
-                </div>
-                <div class="location-hours-row">
-                    <span class="location-hours-day">Sunday</span>
-                    <span class="location-hours-time<?php echo $sun_closed ? ' location-hours-closed' : ''; ?>"><?php echo esc_html( $hours_sunday ); ?></span>
-                </div>
-                <?php endif; ?>
-            </div>
-            </div>
+    </div><!-- /.location-compact-map -->
 
-            <?php if ( ! empty( $parking_callouts ) ) : ?>
-            <div class="location-compact-col location-compact-col--parking">
-            <div class="location-compact-card-header">
-                <div class="location-detail-icon"><i class="fas fa-square-parking"></i></div>
-                <span class="location-compact-card-label">Parking</span>
+    <!-- Info bar (homepage card style) — opening hours + parking.
+         Overlays the map bottom on desktop; flows below the map on mobile. -->
+    <div class="location-compact-card location-compact-bar">
+        <div class="location-compact-col location-compact-col--hours">
+        <div class="location-compact-card-header">
+            <div class="location-detail-icon"><i class="fas fa-clock"></i></div>
+            <span class="location-compact-card-label">Opening Hours</span>
+        </div>
+        <div class="location-hours">
+            <div class="location-hours-row">
+                <span class="location-hours-day">Mon &ndash; Fri</span>
+                <span class="location-hours-time"><?php echo esc_html( $hours_weekday ); ?></span>
             </div>
-            <ul class="location-parking-list location-compact-parking">
-                <?php foreach ( $parking_callouts as $i => $callout ) :
-                    $p_label  = isset( $callout['label'] ) ? $callout['label'] : '';
-                    $p_coords = isset( $callout['coords'] ) ? trim( (string) $callout['coords'] ) : '';
-                    if ( $p_label === '' || $p_coords === '' ) { continue; }
-                ?>
-                    <li class="location-parking-item">
-                        <span class="location-parking-name"><?php echo esc_html( $p_label ); ?></span>
-                        <button type="button" class="location-parking-directions" data-parking-trigger="<?php echo esc_attr( $i ); ?>">
-                            <i class="fas fa-diamond-turn-right"></i>
-                            Directions
-                        </button>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
+            <?php
+            $sat_closed = strtolower( trim( $hours_saturday ) ) === 'closed';
+            $sun_closed = strtolower( trim( $hours_sunday ) ) === 'closed';
+            if ( $sat_closed && $sun_closed ) : ?>
+            <div class="location-hours-row">
+                <span class="location-hours-day">Sat &amp; Sun</span>
+                <span class="location-hours-time location-hours-closed">Closed</span>
+            </div>
+            <?php else : ?>
+            <div class="location-hours-row">
+                <span class="location-hours-day">Saturday</span>
+                <span class="location-hours-time<?php echo $sat_closed ? ' location-hours-closed' : ''; ?>"><?php echo esc_html( $hours_saturday ); ?></span>
+            </div>
+            <div class="location-hours-row">
+                <span class="location-hours-day">Sunday</span>
+                <span class="location-hours-time<?php echo $sun_closed ? ' location-hours-closed' : ''; ?>"><?php echo esc_html( $hours_sunday ); ?></span>
             </div>
             <?php endif; ?>
         </div>
+        </div>
 
+        <?php if ( ! empty( $parking_callouts ) ) : ?>
+        <div class="location-compact-col location-compact-col--parking">
+        <div class="location-compact-card-header">
+            <div class="location-detail-icon"><i class="fas fa-square-parking"></i></div>
+            <span class="location-compact-card-label">Parking</span>
+        </div>
+        <ul class="location-parking-list location-compact-parking">
+            <?php foreach ( $parking_callouts as $i => $callout ) :
+                $p_label  = isset( $callout['label'] ) ? $callout['label'] : '';
+                $p_coords = isset( $callout['coords'] ) ? trim( (string) $callout['coords'] ) : '';
+                if ( $p_label === '' || $p_coords === '' ) { continue; }
+            ?>
+                <li class="location-parking-item">
+                    <span class="location-parking-name"><?php echo esc_html( $p_label ); ?></span>
+                    <button type="button" class="location-parking-directions" data-parking-trigger="<?php echo esc_attr( $i ); ?>">
+                        <i class="fas fa-diamond-turn-right"></i>
+                        Directions
+                    </button>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        </div>
+        <?php endif; ?>
     </div>
 
 </div>
