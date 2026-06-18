@@ -926,15 +926,16 @@ body {
   padding: 0.85rem 1.1rem;
 }
 
-/* Desktop: overlay the bottom of the map, full width. */
+/* Desktop: float the card near the bottom of the map, inset from the edges
+   so all four corners stay rounded (matching the form card on the left). */
 @media (min-width: 601px) {
   .location-compact-card.location-compact-bar {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 0.85rem;
     margin-top: 0;
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 1rem;
   }
 }
 

@@ -4363,6 +4363,48 @@ a.hero-nhs-pill:hover {
   border-radius: 3px 0 0 0;
 }
 
+/* "Below, shifted right/left" — card body offsets sideways so it clears
+   whatever sits next to the dot (e.g. the pharmacy label balloon). The beak
+   stays anchored over the dot. */
+.location-callout--below-right .location-callout-card,
+.location-callout--below-left .location-callout-card {
+  bottom: auto;
+  top: calc(100% + 20px);
+}
+.location-callout--below-right .location-callout-card {
+  transform: translateX(-26px) translateY(-6px);
+}
+.location-callout--below-left .location-callout-card {
+  transform: translateX(calc(-100% + 26px)) translateY(-6px);
+}
+.location-callout--below-right:hover .location-callout-card,
+.location-callout--below-right:focus-within .location-callout-card,
+.location-callout--below-right.is-open .location-callout-card {
+  transform: translateX(-26px) translateY(0);
+}
+.location-callout--below-left:hover .location-callout-card,
+.location-callout--below-left:focus-within .location-callout-card,
+.location-callout--below-left.is-open .location-callout-card {
+  transform: translateX(calc(-100% + 26px)) translateY(0);
+}
+.location-callout--below-right .location-callout-card::after,
+.location-callout--below-left .location-callout-card::after {
+  top: 0;
+  border: none;
+  border-left: 1px solid rgba(63, 115, 174, 0.16);
+  border-top: 1px solid rgba(63, 115, 174, 0.16);
+  border-radius: 3px 0 0 0;
+}
+.location-callout--below-right .location-callout-card::after {
+  left: 26px;
+  transform: translate(-50%, -46%) rotate(45deg);
+}
+.location-callout--below-left .location-callout-card::after {
+  left: auto;
+  right: 26px;
+  transform: translate(50%, -46%) rotate(45deg);
+}
+
 /* Reveal triggers: desktop hover, desktop focus-within, any .is-open (JS tap) */
 .location-callout:hover .location-callout-card,
 .location-callout:focus-within .location-callout-card,
