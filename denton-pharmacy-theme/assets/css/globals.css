@@ -4246,20 +4246,19 @@ a.hero-nhs-pill:hover {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 22px;
-  height: 22px;
-  background: #fff;
-  border: 1.5px solid var(--brand-primary, #3f73ae);
+  width: 32px;
+  height: 32px;
+  background: var(--brand-primary, #3f73ae);
+  border: 2px solid #fff;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 0 0 2px #fff,
-    0 0 0 2.5px rgba(63, 115, 174, 0.18),
-    0 6px 14px -4px rgba(15, 42, 80, 0.3),
-    0 1px 4px rgba(15, 42, 80, 0.14);
+    0 0 0 3px rgba(63, 115, 174, 0.28),
+    0 8px 18px -4px rgba(15, 42, 80, 0.45),
+    0 2px 6px rgba(15, 42, 80, 0.2);
   cursor: pointer;
   padding: 0;
   transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
@@ -4271,8 +4270,8 @@ a.hero-nhs-pill:hover {
   content: "P";
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 700;
-  font-size: 0.7rem;
-  color: var(--brand-primary, #3f73ae);
+  font-size: 1rem;
+  color: #fff;
   line-height: 1;
   letter-spacing: -0.02em;
   position: relative;
@@ -4337,10 +4336,9 @@ a.hero-nhs-pill:hover {
 .location-callout.is-open .location-callout-dot {
   transform: translate(-50%, -50%) scale(1.12);
   box-shadow:
-    0 0 0 3px #fff,
-    0 0 0 4px rgba(63, 115, 174, 0.4),
-    0 14px 26px -8px rgba(15, 42, 80, 0.5),
-    0 3px 8px rgba(15, 42, 80, 0.2);
+    0 0 0 4px rgba(63, 115, 174, 0.45),
+    0 16px 30px -8px rgba(15, 42, 80, 0.55),
+    0 3px 8px rgba(15, 42, 80, 0.24);
 }
 
 /* Retired — popup architecture replaces the connector line entirely. */
@@ -4526,8 +4524,8 @@ a.hero-nhs-pill:hover {
     background: linear-gradient(to bottom, transparent 55%, rgba(17, 24, 39, 0.18) 100%);
   }
   .location-pin { width: 52px; height: 52px; }
-  .location-callout-dot { width: 20px; height: 20px; }
-  .location-callout-dot::before { font-size: 0.625rem; }
+  .location-callout-dot { width: 28px; height: 28px; }
+  .location-callout-dot::before { font-size: 0.875rem; }
   .location-callout-card { min-width: 200px; max-width: 220px; }
 }
 
