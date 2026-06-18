@@ -96,10 +96,6 @@ $pin_icon_url = $pin_icon_id ? wp_get_attachment_image_url( $pin_icon_id, 'mediu
                 $c_desc   = isset( $callout['description'] ) ? $callout['description'] : '';
                 $c_coords = isset( $callout['coords'] ) ? trim( (string) $callout['coords'] ) : '';
                 $anchor   = isset( $callout['anchor'] ) ? $callout['anchor'] : 'above';
-                // On this compact map the pin label is forced up, so a "below"
-                // popup would overlap it — shift those to the right. Home map
-                // (section-location.php) keeps the saved anchor untouched.
-                if ( $anchor === 'below' ) { $anchor = 'below-right'; }
                 $c_url    = isset( $callout['destination_url'] ) ? $callout['destination_url'] : '';
                 if ( $c_label === '' || $c_coords === '' ) { continue; }
                 $coord_parts = array_map( 'trim', explode( ',', $c_coords ) );

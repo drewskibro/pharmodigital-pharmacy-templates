@@ -4403,52 +4403,6 @@ a.hero-nhs-pill:hover {
   border-radius: 3px 0 0 0;
 }
 
-/* Side-opening popups — the card sits to the right (below-right) or left
-   (below-left) of the dot, vertically centred, with the beak on the inner
-   edge. Used where a marker sits right next to the pharmacy label (e.g. the
-   compact contact map) so the popup clears it entirely. */
-.location-callout--below-right .location-callout-card,
-.location-callout--below-left .location-callout-card {
-  bottom: auto;
-  /* Drop far enough to clear a pin label sitting directly above the dot. */
-  top: calc(100% + 64px);
-}
-.location-callout--below-right .location-callout-card {
-  left: calc(50% + 6px);
-  right: auto;
-  transform: translateX(0) translateY(-6px);
-}
-.location-callout--below-left .location-callout-card {
-  left: auto;
-  right: calc(50% + 6px);
-  transform: translateX(0) translateY(-6px);
-}
-.location-callout--below-right:hover .location-callout-card,
-.location-callout--below-right:focus-within .location-callout-card,
-.location-callout--below-right.is-open .location-callout-card,
-.location-callout--below-left:hover .location-callout-card,
-.location-callout--below-left:focus-within .location-callout-card,
-.location-callout--below-left.is-open .location-callout-card {
-  transform: translateX(0) translateY(0);
-}
-.location-callout--below-right .location-callout-card::after,
-.location-callout--below-left .location-callout-card::after {
-  top: 0;
-  border: none;
-  border-top: 1px solid rgba(63, 115, 174, 0.16);
-  border-left: 1px solid rgba(63, 115, 174, 0.16);
-  border-radius: 3px 0 0 0;
-}
-.location-callout--below-right .location-callout-card::after {
-  left: 16px;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-.location-callout--below-left .location-callout-card::after {
-  left: auto;
-  right: 16px;
-  transform: translate(50%, -50%) rotate(45deg);
-}
-
 /* Reveal triggers: desktop hover, desktop focus-within, any .is-open (JS tap) */
 .location-callout:hover .location-callout-card,
 .location-callout:focus-within .location-callout-card,
