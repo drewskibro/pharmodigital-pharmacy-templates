@@ -204,6 +204,17 @@
   margin: 0 auto 2.5rem;
 }
 
+/* Secondary section within a tab panel (e.g. Malaria Treatment under Travel). */
+.prices-subsection {
+  margin-top: 3rem;
+}
+.prices-subsection .prices-panel-header {
+  margin-bottom: 1.5rem;
+}
+.prices-subsection .prices-panel-title {
+  font-size: 1.5rem;
+}
+
 .prices-panel-title {
   font-family: var(--font-heading);
   font-size: 2rem;

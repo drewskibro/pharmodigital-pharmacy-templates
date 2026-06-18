@@ -10490,10 +10490,11 @@ function dp_register_acf_field_groups() {
                 'layout'       => 'block',
                 'button_label' => 'Add Vaccine',
                 'sub_fields'   => array(
-                    array( 'key' => 'field_dp_prices_travel_vaccine_name', 'label' => 'Vaccine Name', 'name' => 'travel_vaccine_name', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
-                    array( 'key' => 'field_dp_prices_travel_price_per_dose', 'label' => 'Price per Dose', 'name' => 'travel_price_per_dose', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_prices_travel_course_price', 'label' => 'Full Course Price (optional)', 'name' => 'travel_course_price', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
-                    array( 'key' => 'field_dp_prices_travel_notes', 'label' => 'Notes (optional)', 'name' => 'travel_notes', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_prices_travel_category', 'label' => 'Category', 'name' => 'travel_category', 'type' => 'select', 'choices' => array( 'vaccine' => 'Vaccine', 'antimalarial' => 'Antimalarial (Malaria Treatment)' ), 'default_value' => 'vaccine', 'wrapper' => array( 'width' => '20' ), 'instructions' => 'Antimalarials show in the separate "Malaria Treatment" section.' ),
+                    array( 'key' => 'field_dp_prices_travel_vaccine_name', 'label' => 'Name', 'name' => 'travel_vaccine_name', 'type' => 'text', 'wrapper' => array( 'width' => '30' ) ),
+                    array( 'key' => 'field_dp_prices_travel_price_per_dose', 'label' => 'Price per Dose', 'name' => 'travel_price_per_dose', 'type' => 'text', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_prices_travel_course_price', 'label' => 'Full Course Price (optional)', 'name' => 'travel_course_price', 'type' => 'text', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_dp_prices_travel_notes', 'label' => 'Notes (optional)', 'name' => 'travel_notes', 'type' => 'text', 'wrapper' => array( 'width' => '20' ) ),
                 ),
             ),
 
