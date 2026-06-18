@@ -44,12 +44,9 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
         $cta_url = bp_booking_url() ?: home_url( '/travel-health/' );
     }
 
-    // Secondary CTA
-    $secondary_text = bp_field( 'revslider_placeholder_secondary_text', 'Serving Wythenshawe, Manchester and beyond' );
-    $secondary_url  = bp_field( 'revslider_placeholder_secondary_url' );
-    if ( ! $secondary_url ) {
-        $secondary_url = bp_option( 'pharmacy_directions_url', '#location' );
-    }
+    // Secondary CTA — scrolls to the location section (item 10).
+    $secondary_text = bp_field( 'revslider_placeholder_secondary_text', 'Located in Wythenshawe' );
+    $secondary_url  = '#location-section-card';
 ?>
 
     <section class="revslider-section">
