@@ -36,11 +36,8 @@ $map_center_parts = array_map( 'trim', explode( ',', $map_center_coords ) );
 $map_center_lat   = isset( $map_center_parts[0] ) ? (float) $map_center_parts[0] : $center_lat;
 $map_center_lng   = isset( $map_center_parts[1] ) ? (float) $map_center_parts[1] : $center_lng;
 
-$label_anchor = dp_option( 'location_label_anchor', 'up-left' );
-$allowed_anchors = array( 'up', 'down', 'left', 'right', 'up-left', 'up-right', 'down-left', 'down-right' );
-if ( ! in_array( $label_anchor, $allowed_anchors, true ) ) {
-    $label_anchor = 'up-left';
-}
+// Force the pin label above the dot so it clears the bottom info bar.
+$label_anchor = 'up';
 
 $addr_line_1 = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
 
