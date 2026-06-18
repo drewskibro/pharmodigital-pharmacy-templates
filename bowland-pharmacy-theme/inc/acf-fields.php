@@ -5110,7 +5110,7 @@ function bp_register_acf_field_groups() {
                     array( 'key' => 'field_bp_book_ps_price', 'label' => 'Price', 'name' => 'price', 'type' => 'text', 'instructions' => 'e.g. £125' ),
                     array( 'key' => 'field_bp_book_ps_price_label', 'label' => 'Price Label', 'name' => 'price_label', 'type' => 'text', 'instructions' => 'e.g. / month starting price' ),
                     array( 'key' => 'field_bp_book_ps_refund', 'label' => 'Refund Badge Text', 'name' => 'refund_text', 'type' => 'text', 'instructions' => 'Leave blank to hide. e.g. Refundable with 2+ vaccines' ),
-                    array( 'key' => 'field_bp_book_ps_btn', 'label' => 'Button Text', 'name' => 'button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+                    array( 'key' => 'field_bp_book_ps_btn_link', 'label' => 'Button', 'name' => 'button_link', 'type' => 'link', 'return_format' => 'array', 'instructions' => 'The card button: set the link text and the page it points to. Leave blank to scroll to the booking form on this page (button reads "Book Consultation").' ),
                 ),
             ),
         ),
