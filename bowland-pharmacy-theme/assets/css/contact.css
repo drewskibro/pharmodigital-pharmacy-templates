@@ -779,3 +779,177 @@
   font-size: 1.25rem;
   color: var(--white);
 }
+/* ============================================
+   Item 24 — Compact homepage-style map (contact column)
+   ============================================ */
+.location-compact { display: flex; flex-direction: column; height: 100%; position: relative; }
+
+.location-compact .location-map-wrapper.location-compact-map {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 420px;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transform: none;
+  box-shadow: 0 10px 30px rgba(63, 115, 174, 0.12);
+}
+
+@media (min-width: 1024px) {
+  .location-compact .location-map-wrapper.location-compact-map { transform: none; }
+}
+
+.location-compact-map .location-map-embed { min-height: 0; height: 100%; }
+
+.location-compact-map .location-map-overlay {
+  background: linear-gradient(to bottom, transparent 55%, rgba(17, 24, 39, 0.14) 100%);
+}
+
+/* Floating hours card (homepage style) inside the compact map */
+.location-compact-card {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 3;
+  max-width: calc(100% - 2rem);
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(63, 115, 174, 0.15);
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.18);
+  padding: 0.85rem 1rem;
+}
+
+.location-compact-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.location-compact-card-header .location-detail-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  background: rgba(63, 115, 174, 0.1);
+  color: var(--brand-primary);
+  flex: 0 0 auto;
+}
+
+.location-compact-card-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.location-compact-card .location-hours-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+  padding: 0.15rem 0;
+}
+
+.location-compact-card .location-hours-day { color: var(--text-gray, #6b7280); }
+.location-compact-card .location-hours-time { font-weight: 700; color: var(--text-dark, #111827); }
+.location-compact-card .location-hours-closed { color: #dc2626; }
+
+.location-compact-card-divider {
+  height: 1px;
+  background: rgba(63, 115, 174, 0.12);
+  margin: 0.6rem 0;
+}
+
+.location-compact-card .location-compact-parking {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.location-compact-card .location-parking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  line-height: 1.25;
+}
+
+.location-compact-card .location-parking-name { color: var(--text-dark, #111827); font-weight: 600; }
+
+.location-compact-card .location-parking-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  white-space: nowrap;
+}
+
+.location-compact-card .location-parking-directions:hover { text-decoration: underline; }
+
+/* Info bar — mobile-first: flows BELOW the map (not overlaid). */
+.location-compact-card.location-compact-bar {
+  position: static;
+  max-width: none;
+  margin-top: 0.85rem;
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  padding: 0.85rem 1.1rem;
+}
+
+/* Desktop: overlay the bottom of the map, full width. */
+@media (min-width: 601px) {
+  .location-compact-card.location-compact-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 0;
+    border-radius: 1rem 1rem 0 0;
+  }
+}
+
+.location-compact-col--hours { flex: 0 0 auto; }
+
+.location-compact-col--parking {
+  flex: 1 1 auto;
+  min-width: 0;
+  border-left: 1px solid rgba(63, 115, 174, 0.12);
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .location-compact-card.location-compact-bar {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .location-compact-col--parking {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(63, 115, 174, 0.12);
+    padding-top: 0.6rem;
+  }
+}
+
+/* Item 24 — keep the pharmacy pin balloon visible on the compact map,
+   including mobile (globals hides .location-pin-label below 1024px). */
+.location-compact-map .location-pin-label { display: flex; }

@@ -106,33 +106,9 @@ $parking        = bp_option( 'pharmacy_parking', 'Free customer parking availabl
         </form>
       </div>
 
-      <!-- Map -->
+      <!-- Map — compact homepage-style map (pin + parking + hours), no photo -->
       <div class="contact-map-wrapper">
-        <?php
-        $maps_embed_url = bp_option( 'location_google_maps_embed' );
-        if ( ! $maps_embed_url ) {
-            $full_address   = $addr_line_1 . ', ' . $addr_line_2 . ', ' . $addr_line_3;
-            $maps_embed_url = 'https://maps.google.com/maps?q=' . rawurlencode( $full_address ) . '&t=&z=15&ie=UTF8&iwloc=&output=embed';
-        }
-        ?>
-        <iframe
-          class="contact-map-iframe"
-          src="<?php echo esc_url( $maps_embed_url ); ?>"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="<?php echo esc_attr( bp_pharmacy_name() . ' location map' ); ?>"
-        ></iframe>
-        <div class="contact-map-info">
-          <div class="contact-map-info-item">
-            <i class="fas fa-square-parking"></i>
-            <span><?php echo esc_html( $parking ); ?></span>
-          </div>
-          <a href="<?php echo esc_url( $directions_url ? $directions_url : 'https://maps.google.com/?q=' . rawurlencode( $addr_line_1 . ', ' . $addr_line_2 . ', ' . $addr_line_3 ) ); ?>" target="_blank" rel="noopener noreferrer" class="contact-map-directions">
-            <i class="fas fa-diamond-turn-right"></i>
-            Get Directions
-          </a>
-        </div>
+        <?php get_template_part( 'template-parts/section-location', 'compact' ); ?>
       </div>
     </div>
   </div>
