@@ -4256,7 +4256,8 @@ a.hero-nhs-pill:hover {
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 0 0 3px rgba(63, 115, 174, 0.28),
+    0 0 0 6px rgba(63, 115, 174, 0.22),
+    0 0 0 9px rgba(63, 115, 174, 0.12),
     0 8px 18px -4px rgba(15, 42, 80, 0.45),
     0 2px 6px rgba(15, 42, 80, 0.2);
   cursor: pointer;
@@ -4283,8 +4284,8 @@ a.hero-nhs-pill:hover {
 .location-callout-dot::after {
   content: "";
   position: absolute;
-  inset: -2px;
-  border: 1.5px solid var(--brand-primary, #3f73ae);
+  inset: -3px;
+  border: 2.5px solid var(--brand-primary, #3f73ae);
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
@@ -4307,7 +4308,7 @@ a.hero-nhs-pill:hover {
   width: 22px;
   height: 22px;
   margin: -13px 0 0 -13px;
-  border: 1.5px solid var(--brand-primary, #3f73ae);
+  border: 2.5px solid var(--brand-primary, #3f73ae);
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
@@ -4318,9 +4319,9 @@ a.hero-nhs-pill:hover {
 }
 
 @keyframes location-parking-pulse {
-  0%   { transform: scale(0.95); opacity: 0.55; border-width: 1.5px; }
-  60%  { opacity: 0.25; }
-  100% { transform: scale(2.3);  opacity: 0;    border-width: 0.5px; }
+  0%   { transform: scale(0.9); opacity: 0.85; border-width: 2.5px; }
+  60%  { opacity: 0.4; }
+  100% { transform: scale(2.6);  opacity: 0;    border-width: 0.5px; }
 }
 
 @media (max-width: 1023px) {
