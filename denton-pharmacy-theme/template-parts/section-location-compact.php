@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $center_coords     = trim( (string) dp_option( 'location_center_coords', '53.4557,-2.1120' ) );
 $map_center_coords = trim( (string) dp_option( 'location_map_center_coords', $center_coords ) );
-$map_zoom          = (int) dp_option( 'location_zoom', 17 );
+$map_zoom          = (int) dp_option( 'location_zoom', 17 ) - 1; // one step out for the compact map
 $maps_embed_url    = 'https://maps.google.com/maps?ll=' . rawurlencode( $map_center_coords ) . '&z=' . (int) $map_zoom . '&t=m&output=embed';
 $pharmacy_directions = 'https://www.google.com/maps/dir/?api=1&destination=' . rawurlencode( $center_coords );
 
