@@ -179,8 +179,10 @@ get_header();
         $badge_text   = get_sub_field('badge_text');
         $icon_color   = get_sub_field('icon_color');
         $icon_class   = $icon_color ? ' ' . $icon_color : '';
-        $button_url   = trim((string) get_sub_field('button_url'));
-        $button_label = get_sub_field('button_text') ?: 'Book Consultation';
+        $button_link   = get_sub_field('button_link');
+        $button_url    = is_array($button_link) && ! empty($button_link['url']) ? $button_link['url'] : '';
+        $button_target = is_array($button_link) && ! empty($button_link['target']) ? $button_link['target'] : '';
+        $button_label  = is_array($button_link) && ! empty($button_link['title']) ? $button_link['title'] : 'Book Consultation';
       ?>
         <div class="book-service-card<?php echo $badge_text ? ' featured' : ''; ?>">
           <?php if ($badge_text) : ?>
@@ -192,7 +194,7 @@ get_header();
           <h3 class="book-service-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
           <p class="book-service-desc"><?php echo esc_html(get_sub_field('description')); ?></p>
           <?php if ($button_url) : ?>
-          <a href="<?php echo esc_url($button_url); ?>" class="cta-button primary-cta book-service-btn">
+          <a href="<?php echo esc_url($button_url); ?>" class="cta-button primary-cta book-service-btn"<?php echo $button_target ? ' target="' . esc_attr($button_target) . '" rel="noopener"' : ''; ?>>
             <?php echo esc_html($button_label); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
