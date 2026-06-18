@@ -3,9 +3,12 @@
  * Template Part: Location Section — Compact
  *
  * Column-friendly version of the homepage map for the Contact page.
+ * Faithful to the brief: "map matching homepage style but smaller —
+ * showing pharmacy pin, parking locations and opening hours."
+ *
  * Reuses the same data + pin/callout markup so location-map.js geo-anchors
- * the pharmacy pin and parking callouts here too. No floating overlay card,
- * no storefront photo — map on top, details stacked below.
+ * the pharmacy pin and parking callouts here too. Keeps the homepage
+ * floating-card style, but the card holds ONLY the opening hours.
  *
  * @package Denton_Pharmacy
  */
@@ -40,16 +43,10 @@ if ( ! in_array( $label_anchor, $allowed_anchors, true ) ) {
 }
 
 $addr_line_1 = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
-$addr_line_2 = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
-$addr_line_3 = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
 
 $hours_weekday  = dp_option( 'hours_weekday', '9:00am – 6:00pm' );
 $hours_saturday = dp_option( 'hours_saturday', '9:00am – 1:00pm' );
 $hours_sunday   = dp_option( 'hours_sunday', 'Closed' );
-
-$phone      = dp_phone();
-$phone_link = dp_phone_link();
-$parking    = dp_option( 'pharmacy_parking', 'Free customer parking available nearby.' );
 
 $pin_icon_id  = dp_option( 'location_pin_icon' );
 $pin_icon_url = $pin_icon_id ? wp_get_attachment_image_url( $pin_icon_id, 'medium' ) : '';
@@ -57,7 +54,7 @@ $pin_icon_url = $pin_icon_id ? wp_get_attachment_image_url( $pin_icon_id, 'mediu
 
 <div class="location-compact">
 
-    <!-- Map with geo-anchored pharmacy pin + parking callouts -->
+    <!-- Map with geo-anchored pharmacy pin + parking callouts, floating hours card -->
     <div class="location-map-wrapper location-compact-map">
         <iframe
             class="location-map-embed"
@@ -128,75 +125,35 @@ $pin_icon_url = $pin_icon_id ? wp_get_attachment_image_url( $pin_icon_id, 'mediu
                 </div>
             <?php endforeach; ?>
         </div>
-    </div>
 
-    <!-- Stacked details (no photo, no overlay card) -->
-    <div class="location-compact-details">
-
-        <div class="location-detail">
-            <div class="location-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="location-detail-text">
-                <span class="location-detail-label">Address</span>
-                <span class="location-detail-value"><?php echo esc_html( $addr_line_1 ); ?></span>
-                <span class="location-detail-value"><?php echo esc_html( $addr_line_2 ); ?></span>
-                <span class="location-detail-value"><?php echo esc_html( $addr_line_3 ); ?></span>
-                <a href="<?php echo esc_url( $pharmacy_directions ); ?>" class="location-directions-link" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-diamond-turn-right"></i> Get Directions
-                </a>
+        <!-- Floating card (homepage style) — opening hours only -->
+        <div class="location-compact-card">
+            <div class="location-compact-card-header">
+                <div class="location-detail-icon"><i class="fas fa-clock"></i></div>
+                <span class="location-compact-card-label">Opening Hours</span>
             </div>
-        </div>
-
-        <div class="location-detail">
-            <div class="location-detail-icon"><i class="fas fa-clock"></i></div>
-            <div class="location-detail-text">
-                <span class="location-detail-label">Opening Hours</span>
-                <div class="location-hours">
-                    <div class="location-hours-row">
-                        <span class="location-hours-day">Mon &ndash; Fri</span>
-                        <span class="location-hours-time"><?php echo esc_html( $hours_weekday ); ?></span>
-                    </div>
-                    <?php
-                    $sat_closed = strtolower( trim( $hours_saturday ) ) === 'closed';
-                    $sun_closed = strtolower( trim( $hours_sunday ) ) === 'closed';
-                    if ( $sat_closed && $sun_closed ) : ?>
-                    <div class="location-hours-row">
-                        <span class="location-hours-day">Sat &amp; Sun</span>
-                        <span class="location-hours-time location-hours-closed">Closed</span>
-                    </div>
-                    <?php else : ?>
-                    <div class="location-hours-row">
-                        <span class="location-hours-day">Saturday</span>
-                        <span class="location-hours-time<?php echo $sat_closed ? ' location-hours-closed' : ''; ?>"><?php echo esc_html( $hours_saturday ); ?></span>
-                    </div>
-                    <div class="location-hours-row">
-                        <span class="location-hours-day">Sunday</span>
-                        <span class="location-hours-time<?php echo $sun_closed ? ' location-hours-closed' : ''; ?>"><?php echo esc_html( $hours_sunday ); ?></span>
-                    </div>
-                    <?php endif; ?>
+            <div class="location-hours">
+                <div class="location-hours-row">
+                    <span class="location-hours-day">Mon &ndash; Fri</span>
+                    <span class="location-hours-time"><?php echo esc_html( $hours_weekday ); ?></span>
                 </div>
-            </div>
-        </div>
-
-        <div class="location-detail">
-            <div class="location-detail-icon"><i class="fas fa-square-parking"></i></div>
-            <div class="location-detail-text">
-                <span class="location-detail-label">Parking</span>
-                <span class="location-detail-value"><?php echo esc_html( $parking ); ?></span>
-                <?php if ( ! empty( $parking_callouts ) ) : ?>
-                    <ul class="location-parking-list">
-                        <?php foreach ( $parking_callouts as $i => $callout ) :
-                            $p_label  = isset( $callout['label'] ) ? $callout['label'] : '';
-                            $p_coords = isset( $callout['coords'] ) ? trim( (string) $callout['coords'] ) : '';
-                            if ( $p_label === '' || $p_coords === '' ) { continue; }
-                        ?>
-                            <li class="location-parking-item">
-                                <span class="location-parking-name"><?php echo esc_html( $p_label ); ?></span>
-                                <button type="button" class="location-parking-directions" data-parking-trigger="<?php echo esc_attr( $i ); ?>">
-                                    <i class="fas fa-diamond-turn-right"></i> Get Directions
-                                </button>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+                <?php
+                $sat_closed = strtolower( trim( $hours_saturday ) ) === 'closed';
+                $sun_closed = strtolower( trim( $hours_sunday ) ) === 'closed';
+                if ( $sat_closed && $sun_closed ) : ?>
+                <div class="location-hours-row">
+                    <span class="location-hours-day">Sat &amp; Sun</span>
+                    <span class="location-hours-time location-hours-closed">Closed</span>
+                </div>
+                <?php else : ?>
+                <div class="location-hours-row">
+                    <span class="location-hours-day">Saturday</span>
+                    <span class="location-hours-time<?php echo $sat_closed ? ' location-hours-closed' : ''; ?>"><?php echo esc_html( $hours_saturday ); ?></span>
+                </div>
+                <div class="location-hours-row">
+                    <span class="location-hours-day">Sunday</span>
+                    <span class="location-hours-time<?php echo $sun_closed ? ' location-hours-closed' : ''; ?>"><?php echo esc_html( $hours_sunday ); ?></span>
+                </div>
                 <?php endif; ?>
             </div>
         </div>
