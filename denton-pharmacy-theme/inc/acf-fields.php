@@ -5118,6 +5118,7 @@ function dp_register_acf_field_groups() {
                     array( 'key' => 'field_dp_book_ps_price_label', 'label' => 'Price Label', 'name' => 'price_label', 'type' => 'text', 'instructions' => 'e.g. / month starting price' ),
                     array( 'key' => 'field_dp_book_ps_refund', 'label' => 'Refund Badge Text', 'name' => 'refund_text', 'type' => 'text', 'instructions' => 'Leave blank to hide. e.g. Refundable with 2+ vaccines' ),
                     array( 'key' => 'field_dp_book_ps_btn', 'label' => 'Button Text', 'name' => 'button_text', 'type' => 'text', 'default_value' => 'Book Consultation' ),
+                    array( 'key' => 'field_dp_book_ps_btn_url', 'label' => 'Button Link', 'name' => 'button_url', 'type' => 'text', 'instructions' => 'Optional. Link this card to a service page (e.g. /weight-loss/). Leave blank to scroll to the booking form on this page instead.' ),
                 ),
             ),
         ),
