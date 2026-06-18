@@ -913,3 +913,38 @@ body {
 }
 
 .location-compact-card .location-parking-directions:hover { text-decoration: underline; }
+
+/* Bottom bar layout — full width, hours + parking side by side, clears the pin */
+.location-compact-card.location-compact-bar {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: none;
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  padding: 0.85rem 1.1rem;
+}
+
+.location-compact-col--hours { flex: 0 0 auto; }
+
+.location-compact-col--parking {
+  flex: 1 1 auto;
+  min-width: 0;
+  border-left: 1px solid rgba(63, 115, 174, 0.12);
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .location-compact-card.location-compact-bar {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .location-compact-col--parking {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(63, 115, 174, 0.12);
+    padding-top: 0.6rem;
+  }
+}

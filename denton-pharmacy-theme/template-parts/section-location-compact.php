@@ -126,8 +126,9 @@ $pin_icon_url = $pin_icon_id ? wp_get_attachment_image_url( $pin_icon_id, 'mediu
             <?php endforeach; ?>
         </div>
 
-        <!-- Floating card (homepage style) — opening hours only -->
-        <div class="location-compact-card">
+        <!-- Bottom bar (homepage card style) — opening hours + parking -->
+        <div class="location-compact-card location-compact-bar">
+            <div class="location-compact-col location-compact-col--hours">
             <div class="location-compact-card-header">
                 <div class="location-detail-icon"><i class="fas fa-clock"></i></div>
                 <span class="location-compact-card-label">Opening Hours</span>
@@ -156,9 +157,10 @@ $pin_icon_url = $pin_icon_id ? wp_get_attachment_image_url( $pin_icon_id, 'mediu
                 </div>
                 <?php endif; ?>
             </div>
+            </div>
 
             <?php if ( ! empty( $parking_callouts ) ) : ?>
-            <div class="location-compact-card-divider"></div>
+            <div class="location-compact-col location-compact-col--parking">
             <div class="location-compact-card-header">
                 <div class="location-detail-icon"><i class="fas fa-square-parking"></i></div>
                 <span class="location-compact-card-label">Parking</span>
@@ -178,6 +180,7 @@ $pin_icon_url = $pin_icon_id ? wp_get_attachment_image_url( $pin_icon_id, 'mediu
                     </li>
                 <?php endforeach; ?>
             </ul>
+            </div>
             <?php endif; ?>
         </div>
 
