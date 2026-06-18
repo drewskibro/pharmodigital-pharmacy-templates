@@ -959,3 +959,7 @@ body {
     padding-top: 0.6rem;
   }
 }
+
+/* Item 24 — keep the pharmacy pin balloon visible on the compact map,
+   including mobile (globals hides .location-pin-label below 1024px). */
+.location-compact-map .location-pin-label { display: flex; }
