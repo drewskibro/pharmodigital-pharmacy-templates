@@ -45,8 +45,8 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
     }
 
     // Secondary CTA
-    $secondary_text = dp_field( 'revslider_placeholder_secondary_text', 'Serving Denton, Manchester and beyond' );
-    $secondary_url  = '#location';
+    $secondary_text = dp_field( 'revslider_placeholder_secondary_text', 'Located in Denton, Manchester and beyond' );
+    $secondary_url  = '#location-section-card';
 ?>
 
     <section class="revslider-section">

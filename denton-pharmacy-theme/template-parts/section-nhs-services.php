@@ -278,7 +278,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
                         <i class="fas fa-phone"></i>
                         <?php echo esc_html( 'Call ' . $phone ); ?>
                     </a>
-                    <a href="#location" class="nhs-btn-secondary">
+                    <a href="#location-section-card" class="nhs-btn-secondary">
                         <i class="fas fa-map-marker-alt"></i>
                         <?php echo esc_html( $bottom_cta_text ); ?>
                     </a>
