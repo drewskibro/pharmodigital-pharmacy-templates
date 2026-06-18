@@ -156,6 +156,29 @@ $pin_icon_url = $pin_icon_id ? wp_get_attachment_image_url( $pin_icon_id, 'mediu
                 </div>
                 <?php endif; ?>
             </div>
+
+            <?php if ( ! empty( $parking_callouts ) ) : ?>
+            <div class="location-compact-card-divider"></div>
+            <div class="location-compact-card-header">
+                <div class="location-detail-icon"><i class="fas fa-square-parking"></i></div>
+                <span class="location-compact-card-label">Parking</span>
+            </div>
+            <ul class="location-parking-list location-compact-parking">
+                <?php foreach ( $parking_callouts as $i => $callout ) :
+                    $p_label  = isset( $callout['label'] ) ? $callout['label'] : '';
+                    $p_coords = isset( $callout['coords'] ) ? trim( (string) $callout['coords'] ) : '';
+                    if ( $p_label === '' || $p_coords === '' ) { continue; }
+                ?>
+                    <li class="location-parking-item">
+                        <span class="location-parking-name"><?php echo esc_html( $p_label ); ?></span>
+                        <button type="button" class="location-parking-directions" data-parking-trigger="<?php echo esc_attr( $i ); ?>">
+                            <i class="fas fa-diamond-turn-right"></i>
+                            Directions
+                        </button>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
         </div>
 
     </div>
