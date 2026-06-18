@@ -4370,7 +4370,8 @@ a.hero-nhs-pill:hover {
 .location-callout--below-right .location-callout-card,
 .location-callout--below-left .location-callout-card {
   bottom: auto;
-  top: calc(100% + 16px);
+  /* Drop far enough to clear a pin label sitting directly above the dot. */
+  top: calc(100% + 64px);
 }
 .location-callout--below-right .location-callout-card {
   left: calc(50% + 6px);
