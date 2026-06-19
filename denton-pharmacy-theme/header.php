@@ -133,6 +133,7 @@ $default_ps_links = array(
     array( 'label' => 'MMR Vaccination',           'description' => 'Measles, mumps & rubella — all ages', 'icon' => 'fas fa-shield-virus', 'url' => home_url( '/mmr-vaccination/' ) ),
     array( 'label' => 'Hepatitis B (Occupational)', 'description' => 'For workers exposed to blood & fluids', 'icon' => 'fas fa-shield-virus', 'url' => home_url( '/hepatitis-b-occupational/' ) ),
     array( 'label' => 'HPV Vaccination',           'description' => 'Gardasil 9 — cancer protection, ages 9–45', 'icon' => 'fas fa-shield-virus', 'url' => home_url( '/hpv-vaccination/' ) ),
+    array( 'label' => 'Corporate Vaccinations',    'description' => 'Workplace programmes for your team', 'icon' => 'fas fa-briefcase-medical', 'url' => home_url( '/corporate-vaccinations/' ) ),
 );
 
 // Use ACF rows when available, otherwise defaults.
