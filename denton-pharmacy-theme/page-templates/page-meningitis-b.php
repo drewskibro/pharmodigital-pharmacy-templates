@@ -37,7 +37,7 @@ $vaccine_name = dp_field('vaccine_name', 'Meningitis B');
         </h1>
 
         <p class="meningitis-b-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect against meningitis B with our private vaccination service in Denton, Manchester. The Bexsero vaccine guards against a serious, fast-moving infection — for babies, children, teenagers and adults who want cover.')); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect against meningitis B with our private vaccination service in Denton, Manchester. Bexsero is the only licensed UK MenB vaccine — ideal for students and teenagers, and for children or adults who missed their NHS doses.')); ?>
         </p>
 
         <div class="meningitis-b-hero-actions">
@@ -60,8 +60,8 @@ $vaccine_name = dp_field('vaccine_name', 'Meningitis B');
 
       <div class="meningitis-b-hero-visual">
         <div class="meningitis-b-hero-float-badge">
-          <span class="meningitis-b-hero-float-number"><?php echo esc_html(dp_field('vaccine_float_number', '2')); ?></span>
-          <span class="meningitis-b-hero-float-label"><?php echo esc_html(dp_field('vaccine_float_label', 'dose course')); ?></span>
+          <span class="meningitis-b-hero-float-number"><?php echo esc_html(dp_field('vaccine_float_number', '1')); ?></span>
+          <span class="meningitis-b-hero-float-label"><?php echo esc_html(dp_field('vaccine_float_label', 'single dose')); ?></span>
         </div>
         <div class="meningitis-b-trust-card">
           <div class="meningitis-b-trust-card-glow"></div>
@@ -140,7 +140,7 @@ $vaccine_name = dp_field('vaccine_name', 'Meningitis B');
           </li>
           <li class="meningitis-b-protect-feature">
             <div class="icon"><i class="fas fa-syringe"></i></div>
-            <div class="text"><strong>Number of Doses Varies</strong><p>The schedule depends on age. Our pharmacist will confirm how many doses you or your child need.</p></div>
+            <div class="text"><strong>Single Dose for Most</strong><p>Given as one injection into the upper arm for adults and older children. Babies follow a different schedule — our pharmacist will advise.</p></div>
           </li>
         </ul>
 
@@ -195,7 +195,7 @@ $vaccine_name = dp_field('vaccine_name', 'Meningitis B');
       <div class="meningitis-b-about-cards-grid">
         <div class="meningitis-b-info-card"><div class="icon"><i class="fas fa-bacterium"></i></div><h3>Bacterial Infection</h3><p>Meningitis B is caused by meningococcal group B bacteria, which can inflame the lining of the brain and cause blood poisoning.</p></div>
         <div class="meningitis-b-info-card"><div class="icon"><i class="fas fa-bolt"></i></div><h3>Develops Quickly</h3><p>Symptoms can appear and worsen within hours. Early treatment is vital, which is why prevention matters.</p></div>
-        <div class="meningitis-b-info-card"><div class="icon"><i class="fas fa-baby"></i></div><h3>Highest Risk in Babies</h3><p>Babies and young children are most at risk, with a second peak in teenagers and young adults.</p></div>
+        <div class="meningitis-b-info-card"><div class="icon"><i class="fas fa-baby"></i></div><h3>Highest Risk: Under-5s &amp; Teens</h3><p>Most common in children under 5, with a second peak in teenagers and young adults aged 15&ndash;24, especially students.</p></div>
         <div class="meningitis-b-info-card"><div class="icon"><i class="fas fa-triangle-exclamation"></i></div><h3>Serious Outcomes</h3><p>It can be life-threatening, and some survivors are left with hearing loss, scarring or other long-term effects.</p></div>
       </div>
     </div>
@@ -331,7 +331,7 @@ $vaccine_name = dp_field('vaccine_name', 'Meningitis B');
     </div>
 
     <div class="meningitis-b-faq-list">
-      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses are needed?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>It depends on age. Babies usually need more doses than older children and adults. Our pharmacist will confirm the right schedule at your appointment.</p></div></div>
+      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses are needed?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>For adults and older children it's usually a single dose. Babies need more doses on a set schedule — our pharmacist will confirm what's right for you at your appointment.</p></div></div>
       <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">From what age can it be given?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>The Bexsero vaccine can be given from 2 months of age, and there's no upper age limit, so older children, teenagers and adults can have it too.</p></div></div>
       <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is this the same as the MenACWY vaccine?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>No. Bexsero protects against meningococcal group B. MenACWY protects against four different groups (A, C, W and Y). Many people choose to have both for broader cover.</p></div></div>
       <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>Usually mild — a sore leg or arm, and a short-lived fever which is common in babies. Serious reactions are very rare.</p></div></div>
