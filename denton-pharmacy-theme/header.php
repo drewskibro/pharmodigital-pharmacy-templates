@@ -129,6 +129,7 @@ $default_ps_links = array(
     array( 'label' => 'Chickenpox Vaccination', 'description' => 'Two-dose course for children & adults', 'icon' => 'fas fa-shield-virus', 'url' => home_url( '/chickenpox-vaccination/' ) ),
     array( 'label' => 'Shingles Vaccination',   'description' => 'Shingrix for adults, especially 50+',   'icon' => 'fas fa-shield-virus', 'url' => home_url( '/shingles-vaccination/' ) ),
     array( 'label' => 'Meningitis B Vaccination', 'description' => 'Bexsero — babies, teens & adults', 'icon' => 'fas fa-shield-virus', 'url' => home_url( '/meningitis-b-vaccination/' ) ),
+    array( 'label' => 'Meningitis ACWY Vaccination', 'description' => 'Hajj, Umrah, students & travellers', 'icon' => 'fas fa-shield-virus', 'url' => home_url( '/meningitis-acwy-vaccination/' ) ),
 );
 
 // Use ACF rows when available, otherwise defaults.

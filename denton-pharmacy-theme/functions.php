@@ -221,6 +221,11 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-meningitis-b-js', DENTON_PHARMACY_URI . '/assets/js/meningitis-b.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/meningitis-b.js' ), true );
     }
 
+    if ( is_page_template( 'page-templates/page-meningitis-acwy.php' ) ) {
+        wp_enqueue_style( 'denton-meningitis-acwy', DENTON_PHARMACY_URI . '/assets/css/meningitis-acwy.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/meningitis-acwy.css' ) );
+        wp_enqueue_script( 'denton-meningitis-acwy-js', DENTON_PHARMACY_URI . '/assets/js/meningitis-acwy.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/meningitis-acwy.js' ), true );
+    }
+
     if ( is_page_template( 'page-templates/page-hepatitis.php' ) ) {
         wp_enqueue_style( 'denton-hepatitis', DENTON_PHARMACY_URI . '/assets/css/hepatitis.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
         wp_enqueue_script( 'denton-hepatitis-js', DENTON_PHARMACY_URI . '/assets/js/hepatitis.js', array(), DENTON_PHARMACY_VERSION, true );
