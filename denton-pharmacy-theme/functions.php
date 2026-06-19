@@ -241,6 +241,11 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-hpv-js', DENTON_PHARMACY_URI . '/assets/js/hpv.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/hpv.js' ), true );
     }
 
+    if ( is_page_template( 'page-templates/page-corporate.php' ) ) {
+        wp_enqueue_style( 'denton-corporate', DENTON_PHARMACY_URI . '/assets/css/corporate.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/corporate.css' ) );
+        wp_enqueue_script( 'denton-corporate-js', DENTON_PHARMACY_URI . '/assets/js/corporate.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/corporate.js' ), true );
+    }
+
     if ( is_page_template( 'page-templates/page-hepatitis.php' ) ) {
         wp_enqueue_style( 'denton-hepatitis', DENTON_PHARMACY_URI . '/assets/css/hepatitis.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
         wp_enqueue_script( 'denton-hepatitis-js', DENTON_PHARMACY_URI . '/assets/js/hepatitis.js', array(), DENTON_PHARMACY_VERSION, true );
