@@ -112,7 +112,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
         <div class="chickenpox-protect-image-card">
           <?php
           $protect_image_id = dp_field('vaccine_protect_image');
-          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&h=1000&fit=crop';
+          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1691139600731-7232eaa980c3?w=900&h=1000&fit=crop';
           if ($protect_image_url) : ?>
             <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_protect_image_alt', 'Pharmacist giving a chickenpox vaccination in Denton')); ?>" class="chickenpox-protect-image" />
           <?php endif; ?>
@@ -209,9 +209,9 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
         <div class="chickenpox-about-image-card">
           <?php
           $about_image_id = dp_field('vaccine_about_image');
-          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&h=900&fit=crop';
+          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1516890896652-41ca1a35787c?w=900&h=900&fit=crop';
           if ($about_image_url) : ?>
-            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_about_image_alt', 'Child with chickenpox rash')); ?>" />
+            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_about_image_alt', 'Children playing — chickenpox is a common childhood infection')); ?>" />
           <?php endif; ?>
         </div>
       </div>
