@@ -127,6 +127,7 @@ $default_ps_links = array(
     array( 'label' => 'Hair Loss',       'description' => 'Treatments for male & female hair loss',   'icon' => 'fas fa-user-doctor',  'url' => home_url( '/hair-loss/' ) ),
     array( 'label' => 'Blood Testing',   'description' => 'Private health checks & diagnostic panels','icon' => 'fas fa-flask',        'url' => home_url( '/blood-testing/' ) ),
     array( 'label' => 'Chickenpox Vaccination', 'description' => 'Two-dose course for children & adults', 'icon' => 'fas fa-shield-virus', 'url' => home_url( '/chickenpox-vaccination/' ) ),
+    array( 'label' => 'Shingles Vaccination',   'description' => 'Shingrix for adults, especially 50+',   'icon' => 'fas fa-shield-virus', 'url' => home_url( '/shingles-vaccination/' ) ),
 );
 
 // Use ACF rows when available, otherwise defaults.
