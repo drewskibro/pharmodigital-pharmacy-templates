@@ -112,7 +112,7 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
         <div class="shingles-protect-image-card">
           <?php
           $protect_image_id = dp_field('vaccine_protect_image');
-          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&h=1000&fit=crop';
+          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=900&h=1000&fit=crop';
           if ($protect_image_url) : ?>
             <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_protect_image_alt', 'Pharmacist giving a shingles vaccination in Denton')); ?>" class="shingles-protect-image" />
           <?php endif; ?>
@@ -188,7 +188,7 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
         <div class="shingles-about-image-card">
           <?php
           $about_image_id = dp_field('vaccine_about_image');
-          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&h=900&fit=crop';
+          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1586498024141-1940debde48d?w=900&h=900&fit=crop';
           if ($about_image_url) : ?>
             <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_about_image_alt', 'Older adult considering shingles vaccination')); ?>" />
           <?php endif; ?>
