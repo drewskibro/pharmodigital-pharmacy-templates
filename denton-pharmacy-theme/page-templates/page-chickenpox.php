@@ -39,7 +39,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
         </h1>
 
         <p class="chickenpox-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect your family against chickenpox with our private vaccination service in Denton, Manchester. A safe, effective two-dose course for children and adults who have not had chickenpox before.')); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect your family against chickenpox with our private vaccination service in Denton, Manchester. A safe, two-dose course that is around 98% effective — for children from 12 months and for adults who have never had chickenpox.')); ?>
         </p>
 
         <div class="chickenpox-hero-actions">
@@ -126,11 +126,11 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
       <div class="chickenpox-protect-content">
         <div class="chickenpox-protect-badge-box">
           <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Over 90% Effective After Two Doses')); ?></span>
+          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Around 98% Effective After Two Doses')); ?></span>
         </div>
 
         <h3 class="chickenpox-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Safe, Proven Protection')); ?></h3>
-        <p class="chickenpox-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'Chickenpox (varicella) is very common and very contagious. For most children it is mild, but it can be far more serious for adults, pregnant women, newborns and anyone with a weakened immune system. The vaccine is a live, well-established jab that gives strong, long-lasting protection after a full two-dose course.')); ?></p>
+        <p class="chickenpox-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'Chickenpox (varicella) is a highly contagious viral infection. For most children it is mild, but it can be far more serious for adults, pregnant women, newborns and anyone with a weakened immune system, occasionally leading to complications such as pneumonia or encephalitis. The vaccine is a well-established jab that is around 98% effective after a full two-dose course.')); ?></p>
 
         <ul class="chickenpox-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -182,7 +182,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
       <?php endwhile; else : ?>
         <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">2 Doses</span><span class="label">Full Course</span></div></div>
         <div class="chickenpox-stat-divider"></div>
-        <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">90%+</span><span class="label">Effective</span></div></div>
+        <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">~98%</span><span class="label">Effective</span></div></div>
         <div class="chickenpox-stat-divider"></div>
         <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-child-reaching"></i></div><div class="content"><span class="number">1 Year+</span><span class="label">Suitable Age</span></div></div>
         <div class="chickenpox-stat-divider"></div>
@@ -387,7 +387,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
       <?php endwhile; else : ?>
         <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses does my child need?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>A full course is two doses, given 4 to 8 weeks apart. Both doses are included in our price and give the best, longest-lasting protection.</p></div></div>
         <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">At what age can the vaccine be given?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>From 1 year of age. There's no upper age limit, so adults who never had chickenpox as children can have it too.</p></div></div>
-        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">What if we're not sure whether we've had chickenpox?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>That's fine — many adults aren't sure. The vaccine is safe to have even if you've had chickenpox before, and our pharmacist can talk it through with you at your appointment.</p></div></div>
+        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">What if we're not sure whether we've had chickenpox?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>That's fine — many adults aren't sure. If you've had chickenpox you likely have natural immunity, and a blood test can confirm it. The vaccine is also safe to have even if you've had chickenpox before. Our pharmacist can talk it through at your appointment.</p></div></div>
         <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>Side effects are usually mild — a sore arm, and occasionally a few spots or a mild fever a week or two after the jab. Serious reactions are very rare.</p></div></div>
         <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Who should not have the vaccine?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>It's a live vaccine, so it isn't suitable during pregnancy or for people with significantly weakened immune systems. We'll check suitability before vaccinating.</p></div></div>
       <?php endif; ?>
