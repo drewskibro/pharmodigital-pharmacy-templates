@@ -14,55 +14,83 @@ $prefix = 'chickenpox';
 $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
 ?>
 
-<!-- Hero Section -->
-<?php
-$hero_image_id  = dp_field( 'vaccine_hero_image' );
-$hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'full' ) : '';
-?>
-<section class="chickenpox-hero-section"<?php if ( $hero_image_url ) : ?> style="background-image: url('<?php echo esc_url( $hero_image_url ); ?>');"<?php endif; ?>>
-  <div class="chickenpox-hero-overlay"></div>
+<!-- ============================================
+     HERO SECTION — Pattern A Light
+     Badge, title (location in H1), description, 2 CTAs, trust pills, pricing card
+     ============================================ -->
+<section class="chickenpox-hero-section">
+  <div class="chickenpox-hero-bg"></div>
   <div class="chickenpox-hero-dots"></div>
-
-  <!-- Breadcrumb -->
-  <div class="chickenpox-breadcrumb">
-    <div class="section-container">
-      <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
-      <span class="separator">/</span>
-      <a href="<?php echo esc_url(dp_field('vaccine_parent_url', '/prices/')); ?>">Private Services</a>
-      <span class="separator">/</span>
-      <span class="current"><?php echo esc_html($vaccine_name); ?> Vaccination</span>
-    </div>
-  </div>
-
+  <div class="chickenpox-hero-glow-1"></div>
+  <div class="chickenpox-hero-glow-2"></div>
   <div class="section-container">
-    <div class="chickenpox-hero-content">
-      <div class="chickenpox-hero-line"></div>
-      <span class="chickenpox-hero-label"><?php echo esc_html(dp_field('vaccine_hero_label', 'PRIVATE VACCINATION SERVICE')); ?></span>
+    <div class="chickenpox-hero-grid">
 
-      <h1 class="chickenpox-hero-title"><?php echo wp_kses_post(dp_field('vaccine_hero_title', 'Chickenpox Vaccination<br>in Denton, Manchester')); ?></h1>
+      <!-- Left: Content -->
+      <div class="chickenpox-hero-content">
+        <div class="section-badge">
+          <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          <span class="section-badge-text"><?php echo esc_html(dp_field('vaccine_hero_label', 'PRIVATE VACCINATION SERVICE')); ?></span>
+        </div>
 
-      <p class="chickenpox-hero-description">
-        <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect your family against chickenpox with our private vaccination service in Denton. A safe, effective two-dose course for children and adults who have not had chickenpox before.')); ?>
-      </p>
+        <h1 class="chickenpox-hero-title">
+          <span class="gradient-text"><?php echo esc_html(dp_field('vaccine_hero_title_highlight', 'Chickenpox Vaccination')); ?></span>
+          <?php echo esc_html(dp_field('vaccine_hero_title_rest', 'in Denton, Manchester')); ?>
+        </h1>
 
-      <div class="chickenpox-hero-actions">
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button chickenpox-btn-primary">
-          <?php echo esc_html(dp_field('vaccine_cta_text', 'Book Chickenpox Vaccination')); ?>
-        </a>
-        <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button chickenpox-btn-secondary">
-          <?php echo esc_html(dp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?>
-        </a>
+        <p class="chickenpox-hero-description">
+          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect your family against chickenpox with our private vaccination service in Denton, Manchester. A safe, effective two-dose course for children and adults who have not had chickenpox before.')); ?>
+        </p>
+
+        <div class="chickenpox-hero-actions">
+          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">
+            <?php echo esc_html(dp_field('vaccine_cta_text', 'Book Chickenpox Vaccination')); ?>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta">
+            <i class="fas fa-phone"></i>
+            <?php echo esc_html(dp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?>
+          </a>
+        </div>
+
+        <div class="chickenpox-hero-trust">
+          <div class="chickenpox-hero-trust-item"><i class="fas fa-child-reaching"></i><span>Children &amp; Adults</span></div>
+          <div class="chickenpox-hero-trust-item"><i class="fas fa-syringe"></i><span>Two-Dose Course</span></div>
+          <div class="chickenpox-hero-trust-item"><i class="fas fa-user-doctor"></i><span>No GP Referral Needed</span></div>
+        </div>
       </div>
 
-      <div class="chickenpox-hero-badges">
-        <?php if (have_rows('vaccine_hero_badges')) : while (have_rows('vaccine_hero_badges')) : the_row(); ?>
-          <div class="chickenpox-hero-badge"><?php echo esc_html(get_sub_field('text')); ?></div>
-        <?php endwhile; else : ?>
-          <div class="chickenpox-hero-badge">Children &amp; Adults</div>
-          <div class="chickenpox-hero-badge">Two-Dose Course</div>
-          <div class="chickenpox-hero-badge">Same Day Appointments</div>
-        <?php endif; ?>
+      <!-- Right: Pricing trust card + floating badge -->
+      <div class="chickenpox-hero-visual">
+        <div class="chickenpox-hero-float-badge">
+          <span class="chickenpox-hero-float-number"><?php echo esc_html(dp_field('vaccine_float_number', '2')); ?></span>
+          <span class="chickenpox-hero-float-label"><?php echo esc_html(dp_field('vaccine_float_label', 'dose course')); ?></span>
+        </div>
+        <div class="chickenpox-trust-card">
+          <div class="chickenpox-trust-card-glow"></div>
+          <div class="chickenpox-trust-card-inner">
+            <div class="chickenpox-trust-card-header">
+              <div class="chickenpox-trust-card-icon"><i class="fas fa-shield-virus"></i></div>
+              <span class="chickenpox-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Chickenpox Vaccine')); ?></span>
+            </div>
+            <div class="chickenpox-trust-card-price">
+              <span class="chickenpox-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£59')); ?></span>
+              <span class="chickenpox-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', '2-dose course')); ?></span>
+            </div>
+            <div class="chickenpox-trust-card-divider"></div>
+            <ul class="chickenpox-trust-card-list">
+              <li><i class="fas fa-check"></i> <span>Both doses included</span></li>
+              <li><i class="fas fa-check"></i> <span>Children &amp; adults</span></li>
+              <li><i class="fas fa-check"></i> <span>Same-day appointments</span></li>
+            </ul>
+            <div class="chickenpox-trust-card-footer">
+              <i class="fas fa-shield-halved"></i>
+              <span>GPhC Registered Pharmacy</span>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -84,7 +112,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <div class="chickenpox-protect-image-card">
           <?php
           $protect_image_id = dp_field('vaccine_protect_image');
-          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : '';
+          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&h=1000&fit=crop';
           if ($protect_image_url) : ?>
             <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_protect_image_alt', 'Pharmacist giving a chickenpox vaccination in Denton')); ?>" class="chickenpox-protect-image" />
           <?php endif; ?>
@@ -181,7 +209,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <div class="chickenpox-about-image-card">
           <?php
           $about_image_id = dp_field('vaccine_about_image');
-          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : '';
+          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&h=900&fit=crop';
           if ($about_image_url) : ?>
             <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_about_image_alt', 'Child with chickenpox rash')); ?>" />
           <?php endif; ?>
@@ -225,39 +253,45 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
     </div>
 
     <div class="chickenpox-needs-grid">
-      <?php if (have_rows('vaccine_needs_cards')) : while (have_rows('vaccine_needs_cards')) : the_row(); ?>
-        <div class="chickenpox-needs-card <?php echo esc_attr(get_sub_field('type')); ?>">
-          <div class="card-badge"><?php echo esc_html(get_sub_field('badge')); ?></div>
-          <h3><?php echo esc_html(get_sub_field('title')); ?></h3>
-          <p><?php echo esc_html(get_sub_field('description')); ?></p>
-          <ul class="check-list">
-            <?php if (have_rows('items')) : while (have_rows('items')) : the_row(); ?>
-              <li><i class="fas fa-check"></i> <?php echo esc_html(get_sub_field('text')); ?></li>
-            <?php endwhile; endif; ?>
+
+      <!-- Recommended (green) — Home NHS card model -->
+      <div class="nhs-card nhs-card-green">
+        <div class="nhs-card-topbar"></div>
+        <div class="nhs-card-content">
+          <div class="nhs-card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <span class="nhs-card-badge">Recommended For</span>
+          <h3 class="nhs-card-title">Children &amp; Families</h3>
+          <p class="nhs-card-desc">A good choice for healthy children from 1 year old and for parents who would rather avoid chickenpox altogether.</p>
+          <ul class="nhs-card-list">
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Children aged 1 year and over</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Siblings of newborns</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Families planning travel</span></li>
           </ul>
+          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
-      <?php endwhile; else : ?>
-        <div class="chickenpox-needs-card recommended">
-          <div class="card-badge">RECOMMENDED FOR</div>
-          <h3>Children &amp; Families</h3>
-          <p>A good choice for healthy children from 1 year old and for parents who would rather avoid chickenpox altogether.</p>
-          <ul class="check-list">
-            <li><i class="fas fa-check"></i> Children aged 1 year and over</li>
-            <li><i class="fas fa-check"></i> Siblings of newborns</li>
-            <li><i class="fas fa-check"></i> Families planning travel</li>
+      </div>
+
+      <!-- Especially useful (orange) — Home NHS card model -->
+      <div class="nhs-card nhs-card-orange">
+        <div class="nhs-card-topbar"></div>
+        <div class="nhs-card-content">
+          <div class="nhs-card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <span class="nhs-card-badge">Especially Useful</span>
+          <h3 class="nhs-card-title">Adults &amp; At-Risk Contacts</h3>
+          <p class="nhs-card-desc">Particularly worth considering if you have never had chickenpox and are around vulnerable people.</p>
+          <ul class="nhs-card-list">
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Adults who never had it as a child</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Healthcare &amp; childcare workers</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>People living with at-risk relatives</span></li>
           </ul>
+          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
-        <div class="chickenpox-needs-card consider">
-          <div class="card-badge">ESPECIALLY USEFUL</div>
-          <h3>Adults &amp; At-Risk Contacts</h3>
-          <p>Particularly worth considering if you have never had chickenpox and are around vulnerable people.</p>
-          <ul class="check-list">
-            <li><i class="fas fa-check"></i> Adults who never had it as a child</li>
-            <li><i class="fas fa-check"></i> Healthcare &amp; childcare workers</li>
-            <li><i class="fas fa-check"></i> People living with at-risk relatives</li>
-          </ul>
-        </div>
-      <?php endif; ?>
+      </div>
+
     </div>
   </div>
 </section>
