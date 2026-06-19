@@ -231,6 +231,11 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-mmr-js', DENTON_PHARMACY_URI . '/assets/js/mmr.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/mmr.js' ), true );
     }
 
+    if ( is_page_template( 'page-templates/page-hepatitis-b-occupational.php' ) ) {
+        wp_enqueue_style( 'denton-hepb-occ', DENTON_PHARMACY_URI . '/assets/css/hepatitis-b-occupational.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/hepatitis-b-occupational.css' ) );
+        wp_enqueue_script( 'denton-hepb-occ-js', DENTON_PHARMACY_URI . '/assets/js/hepatitis-b-occupational.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/hepatitis-b-occupational.js' ), true );
+    }
+
     if ( is_page_template( 'page-templates/page-hepatitis.php' ) ) {
         wp_enqueue_style( 'denton-hepatitis', DENTON_PHARMACY_URI . '/assets/css/hepatitis.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
         wp_enqueue_script( 'denton-hepatitis-js', DENTON_PHARMACY_URI . '/assets/js/hepatitis.js', array(), DENTON_PHARMACY_VERSION, true );
