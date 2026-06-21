@@ -1214,3 +1214,35 @@ body.admin-bar .denton-nav.nav-compact .denton-mobile-menu {
   background: rgba(255, 255, 255, 0.11);
   color: #ffffff;
 }
+
+/* Private Services mega-menu sits near the right edge — anchor the wide panel
+   to the right so the 44rem panel doesn't overflow off-screen. */
+.denton-ps-menu .denton-dropdown.wide {
+  left: auto;
+  right: 0;
+}
+
+/* Compact "Vaccinations" column (name only) — tighter rows */
+.denton-dropdown-link--compact {
+  align-items: center;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+.denton-dropdown-link--compact .denton-link-icon {
+  width: 1.65rem;
+  height: 1.65rem;
+}
+.denton-dropdown-link--compact .denton-link-icon i {
+  font-size: 0.7rem;
+}
+
+/* Mobile accordion: subheading before the vaccinations list
+   (aligned with sub-links, light text for contrast on the blue drawer) */
+.denton-mobile-sub-heading {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  padding: 1rem 1.5rem 0.35rem 2.25rem;
+}
