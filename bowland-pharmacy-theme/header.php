@@ -131,12 +131,26 @@ $default_ps_links = array(
     array( 'label' => 'Blood Testing',   'description' => 'Private health checks & diagnostic panels','icon' => 'fas fa-flask',        'url' => home_url( '/blood-testing/' ) ),
 );
 
+// Private vaccinations — shown as the second column of the Private Services mega-menu.
+$ps_vaccines = bp_option( 'nav_dd_private_services_vaccines' );
+$default_ps_vaccines = array(
+    array( 'label' => 'Chickenpox',             'icon' => 'fas fa-shield-virus', 'url' => home_url( '/chickenpox-vaccination/' ) ),
+    array( 'label' => 'Shingles',               'icon' => 'fas fa-shield-virus', 'url' => home_url( '/shingles-vaccination/' ) ),
+    array( 'label' => 'Meningitis B',           'icon' => 'fas fa-shield-virus', 'url' => home_url( '/meningitis-b-vaccination/' ) ),
+    array( 'label' => 'Meningitis ACWY',        'icon' => 'fas fa-shield-virus', 'url' => home_url( '/meningitis-acwy-vaccination/' ) ),
+    array( 'label' => 'MMR',                    'icon' => 'fas fa-shield-virus', 'url' => home_url( '/mmr-vaccination/' ) ),
+    array( 'label' => 'Hepatitis B (Occupational)', 'icon' => 'fas fa-shield-virus', 'url' => home_url( '/hepatitis-b-occupational/' ) ),
+    array( 'label' => 'HPV',                    'icon' => 'fas fa-shield-virus', 'url' => home_url( '/hpv-vaccination/' ) ),
+    array( 'label' => 'Corporate Vaccinations', 'icon' => 'fas fa-briefcase-medical', 'url' => home_url( '/corporate-vaccinations/' ) ),
+);
+
 // Use ACF rows when available, otherwise defaults.
 if ( ! is_array( $wl_links )    || empty( $wl_links ) )    { $wl_links    = $default_wl_links; }
 if ( ! is_array( $th_services ) || empty( $th_services ) ) { $th_services = $default_th_services; }
 if ( ! is_array( $th_dests )    || empty( $th_dests ) )    { $th_dests    = $default_th_dests; }
 if ( ! is_array( $sv_links )    || empty( $sv_links ) )    { $sv_links    = $default_sv_links; }
 if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $default_ps_links; }
+if ( ! is_array( $ps_vaccines ) || empty( $ps_vaccines ) ) { $ps_vaccines = $default_ps_vaccines; }
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -384,33 +398,56 @@ if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $def
           </div>
           <?php endif; ?>
 
-          <?php // ── Private Services (dropdown) ───────────────────── ?>
+          <?php // ── Private Services (wide 2-column dropdown) ─────── ?>
           <?php if ( $nav_ps_show ) : ?>
-          <div class="bowland-menu-item">
+          <div class="bowland-menu-item bowland-ps-menu">
             <button class="bowland-menu-btn">
               <?php echo esc_html( $nav_ps_label ); ?>
               <svg class="arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
             </button>
-            <div class="bowland-dropdown">
+            <div class="bowland-dropdown wide">
               <div class="bowland-dropdown-header">
                 <h3>Private Services</h3>
                 <p>Clinical care when you need it</p>
               </div>
-              <div class="bowland-dropdown-content">
-                <?php foreach ( $ps_links as $link ) :
-                  $href = ! empty( $link['url'] ) ? $link['url'] : $nav_ps_url;
-                  $icon = ! empty( $link['icon'] ) ? bp_fa_class( $link['icon'] ) : 'fas fa-stethoscope';
-                ?>
-                <a href="<?php echo esc_url( $href ); ?>" class="bowland-dropdown-link">
-                  <div class="bowland-link-icon"><i class="<?php echo esc_attr( $icon ); ?>"></i></div>
-                  <div class="bowland-link-text">
-                    <h4><?php echo esc_html( $link['label'] ); ?></h4>
-                    <?php if ( ! empty( $link['description'] ) ) : ?>
-                    <p><?php echo esc_html( $link['description'] ); ?></p>
-                    <?php endif; ?>
-                  </div>
+              <div class="bowland-dropdown-row">
+                <div class="bowland-dropdown-col">
+                  <div class="bowland-menu-section-title">Services</div>
+                  <?php foreach ( $ps_links as $link ) :
+                    $href = ! empty( $link['url'] ) ? $link['url'] : $nav_ps_url;
+                    $icon = ! empty( $link['icon'] ) ? bp_fa_class( $link['icon'] ) : 'fas fa-stethoscope';
+                  ?>
+                  <a href="<?php echo esc_url( $href ); ?>" class="bowland-dropdown-link">
+                    <div class="bowland-link-icon"><i class="<?php echo esc_attr( $icon ); ?>"></i></div>
+                    <div class="bowland-link-text">
+                      <h4><?php echo esc_html( $link['label'] ); ?></h4>
+                      <?php if ( ! empty( $link['description'] ) ) : ?>
+                      <p><?php echo esc_html( $link['description'] ); ?></p>
+                      <?php endif; ?>
+                    </div>
+                  </a>
+                  <?php endforeach; ?>
+                </div>
+                <div class="bowland-dropdown-col bg-gray">
+                  <div class="bowland-menu-section-title">Vaccinations</div>
+                  <?php foreach ( $ps_vaccines as $vax ) :
+                    $href = ! empty( $vax['url'] ) ? $vax['url'] : $nav_ps_url;
+                    $icon = ! empty( $vax['icon'] ) ? bp_fa_class( $vax['icon'] ) : 'fas fa-shield-virus';
+                  ?>
+                  <a href="<?php echo esc_url( $href ); ?>" class="bowland-dropdown-link bowland-dropdown-link--compact">
+                    <div class="bowland-link-icon"><i class="<?php echo esc_attr( $icon ); ?>"></i></div>
+                    <div class="bowland-link-text">
+                      <h4><?php echo esc_html( $vax['label'] ); ?></h4>
+                    </div>
+                  </a>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+              <div class="bowland-dropdown-footer">
+                <a href="<?php echo esc_url( $nav_pr_url ); ?>" class="bowland-footer-link">
+                  View all prices
+                  <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
                 </a>
-                <?php endforeach; ?>
               </div>
             </div>
           </div>
@@ -528,6 +565,12 @@ if ( ! is_array( $ps_links )    || empty( $ps_links ) )    { $ps_links    = $def
               $href = ! empty( $link['url'] ) ? $link['url'] : $nav_ps_url;
             ?>
             <a href="<?php echo esc_url( $href ); ?>" class="bowland-mobile-sub-link"><?php echo esc_html( $link['label'] ); ?></a>
+            <?php endforeach; ?>
+            <div class="bowland-mobile-sub-heading">Vaccinations</div>
+            <?php foreach ( $ps_vaccines as $vax ) :
+              $href = ! empty( $vax['url'] ) ? $vax['url'] : $nav_ps_url;
+            ?>
+            <a href="<?php echo esc_url( $href ); ?>" class="bowland-mobile-sub-link"><?php echo esc_html( $vax['label'] ); ?></a>
             <?php endforeach; ?>
           </div>
         </div>
