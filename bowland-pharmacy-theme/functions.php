@@ -228,6 +228,47 @@ function bowland_pharmacy_scripts() {
         }
     }
 
+    // Private vaccinations (private vaccine page programme)
+    if ( is_page_template( 'page-templates/page-chickenpox.php' ) ) {
+        wp_enqueue_style( 'bowland-chickenpox', BOWLAND_PHARMACY_URI . '/assets/css/chickenpox.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/chickenpox.css' ) );
+        wp_enqueue_script( 'bowland-chickenpox-js', BOWLAND_PHARMACY_URI . '/assets/js/chickenpox.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/chickenpox.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-shingles.php' ) ) {
+        wp_enqueue_style( 'bowland-shingles', BOWLAND_PHARMACY_URI . '/assets/css/shingles.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/shingles.css' ) );
+        wp_enqueue_script( 'bowland-shingles-js', BOWLAND_PHARMACY_URI . '/assets/js/shingles.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/shingles.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-meningitis-b.php' ) ) {
+        wp_enqueue_style( 'bowland-meningitis-b', BOWLAND_PHARMACY_URI . '/assets/css/meningitis-b.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/meningitis-b.css' ) );
+        wp_enqueue_script( 'bowland-meningitis-b-js', BOWLAND_PHARMACY_URI . '/assets/js/meningitis-b.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/meningitis-b.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-meningitis-acwy.php' ) ) {
+        wp_enqueue_style( 'bowland-meningitis-acwy', BOWLAND_PHARMACY_URI . '/assets/css/meningitis-acwy.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/meningitis-acwy.css' ) );
+        wp_enqueue_script( 'bowland-meningitis-acwy-js', BOWLAND_PHARMACY_URI . '/assets/js/meningitis-acwy.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/meningitis-acwy.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-mmr.php' ) ) {
+        wp_enqueue_style( 'bowland-mmr', BOWLAND_PHARMACY_URI . '/assets/css/mmr.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/mmr.css' ) );
+        wp_enqueue_script( 'bowland-mmr-js', BOWLAND_PHARMACY_URI . '/assets/js/mmr.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/mmr.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-hepatitis-b-occupational.php' ) ) {
+        wp_enqueue_style( 'bowland-hepb-occ', BOWLAND_PHARMACY_URI . '/assets/css/hepatitis-b-occupational.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/hepatitis-b-occupational.css' ) );
+        wp_enqueue_script( 'bowland-hepb-occ-js', BOWLAND_PHARMACY_URI . '/assets/js/hepatitis-b-occupational.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/hepatitis-b-occupational.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-hpv.php' ) ) {
+        wp_enqueue_style( 'bowland-hpv', BOWLAND_PHARMACY_URI . '/assets/css/hpv.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/hpv.css' ) );
+        wp_enqueue_script( 'bowland-hpv-js', BOWLAND_PHARMACY_URI . '/assets/js/hpv.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/hpv.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-corporate.php' ) ) {
+        wp_enqueue_style( 'bowland-corporate', BOWLAND_PHARMACY_URI . '/assets/css/corporate.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/corporate.css' ) );
+        wp_enqueue_script( 'bowland-corporate-js', BOWLAND_PHARMACY_URI . '/assets/js/corporate.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/corporate.js' ), true );
+    }
+
     // Navigation JS — three-tier Bowland nav, loaded on all pages in footer
     wp_enqueue_script(
         'bowland-nav-js',

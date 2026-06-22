@@ -1202,3 +1202,36 @@ body.admin-bar .bowland-nav.nav-compact .bowland-mobile-menu {
   background: rgba(255, 255, 255, 0.11);
   color: #ffffff;
 }
+
+/* ── Private Services mega-menu (2-column) ─────────────────────────── */
+/* Private Services sits near the right edge — anchor the wide panel right
+   so the panel doesn't overflow off-screen. */
+.bowland-ps-menu .bowland-dropdown.wide {
+  left: auto;
+  right: 0;
+}
+
+/* Compact "Vaccinations" column (name only) — tighter rows */
+.bowland-dropdown-link--compact {
+  align-items: center;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+.bowland-dropdown-link--compact .bowland-link-icon {
+  width: 1.65rem;
+  height: 1.65rem;
+}
+.bowland-dropdown-link--compact .bowland-link-icon i {
+  font-size: 0.7rem;
+}
+
+/* Mobile accordion: subheading before the vaccinations list
+   (aligned with sub-links, light text for contrast on the drawer) */
+.bowland-mobile-sub-heading {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  padding: 1rem 1.5rem 0.35rem 2.25rem;
+}
