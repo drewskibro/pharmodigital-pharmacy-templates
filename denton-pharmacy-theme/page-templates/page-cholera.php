@@ -205,9 +205,9 @@ $vaccine_name = dp_field('vaccine_name', 'Cholera');
         <div class="cholera-about-image-card">
           <?php
           $about_image_id = dp_field('vaccine_about_image');
-          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&h=900&fit=crop';
+          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=900&h=900&fit=crop';
           if ($about_image_url) : ?>
-            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_about_image_alt', 'Traveller preparing for a trip abroad')); ?>" />
+            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_about_image_alt', 'Map pins marking higher-risk cholera regions across Southeast Asia')); ?>" />
           <?php endif; ?>
         </div>
       </div>
