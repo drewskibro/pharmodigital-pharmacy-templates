@@ -216,6 +216,11 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-chikungunya-js', DENTON_PHARMACY_URI . '/assets/js/chikungunya.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/chikungunya.js' ), true );
     }
 
+    if ( is_page_template( 'page-templates/page-dengue.php' ) ) {
+        wp_enqueue_style( 'denton-dengue', DENTON_PHARMACY_URI . '/assets/css/dengue.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/dengue.css' ) );
+        wp_enqueue_script( 'denton-dengue-js', DENTON_PHARMACY_URI . '/assets/js/dengue.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/dengue.js' ), true );
+    }
+
     if ( is_page_template( 'page-templates/page-cholera.php' ) ) {
         wp_enqueue_style( 'denton-cholera', DENTON_PHARMACY_URI . '/assets/css/cholera.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/cholera.css' ) );
         wp_enqueue_script( 'denton-cholera-js', DENTON_PHARMACY_URI . '/assets/js/cholera.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/cholera.js' ), true );
