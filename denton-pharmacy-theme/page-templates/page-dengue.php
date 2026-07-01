@@ -112,7 +112,7 @@ $vaccine_name = dp_field('vaccine_name', 'Dengue Fever');
         <div class="dengue-protect-image-card">
           <?php
           $protect_image_id = dp_field('vaccine_protect_image');
-          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1632988142547-80a567cb36f0?w=900&h=1000&fit=crop';
+          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1691935443689-6f1133a29ce5?w=900&h=1000&fit=crop';
           if ($protect_image_url) : ?>
             <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_protect_image_alt', 'The dengue fever vaccine is given as an injection')); ?>" class="dengue-protect-image" />
           <?php endif; ?>

@@ -201,8 +201,8 @@ function denton_pharmacy_scripts() {
 
     // Vaccination pages
     if ( is_page_template( 'page-templates/page-rabies.php' ) ) {
-        wp_enqueue_style( 'denton-rabies', DENTON_PHARMACY_URI . '/assets/css/rabies.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
-        wp_enqueue_script( 'denton-rabies-js', DENTON_PHARMACY_URI . '/assets/js/rabies.js', array(), DENTON_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-rabies', DENTON_PHARMACY_URI . '/assets/css/rabies.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/rabies.css' ) );
+        wp_enqueue_script( 'denton-rabies-js', DENTON_PHARMACY_URI . '/assets/js/rabies.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/rabies.js' ), true );
     }
 
     // Private vaccinations (travel vaccine page programme)

@@ -1,8 +1,18 @@
 // ============================================
-// RABIES VACCINATION PAGE JAVASCRIPT
+// CHICKENPOX VACCINATION PAGE JAVASCRIPT
 // ============================================
 
 // Nav logic is handled by denton-nav.js
+
+// ============================================
+// SCROLL TO BOOKING (Acuity embed)
+// ============================================
+function scrollToBooking() {
+  const booking = document.getElementById('booking-widget');
+  if (booking) {
+    booking.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 
 // ============================================
 // FAQ ACCORDION
