@@ -205,9 +205,9 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
         <div class="hepatitisb-about-image-card">
           <?php
           $about_image_id = dp_field('vaccine_about_image');
-          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1736944288317-46b0d5d57688?w=900&h=900&fit=crop';
+          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1771797629089-7691ddf45680?w=900&h=900&fit=crop';
           if ($about_image_url) : ?>
-            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_about_image_alt', 'Street scene in Southeast Asia — a region where hepatitis B is more common')); ?>" />
+            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_about_image_alt', 'World map — hepatitis B is more common across several travel regions')); ?>" />
           <?php endif; ?>
         </div>
       </div>
