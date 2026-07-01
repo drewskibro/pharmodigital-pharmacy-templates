@@ -112,7 +112,7 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
         <div class="dtp-protect-image-card">
           <?php
           $protect_image_id = dp_field('vaccine_protect_image');
-          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1632988142547-80a567cb36f0?w=900&h=1000&fit=crop';
+          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1576765608622-067973a79f53?w=900&h=1000&fit=crop';
           if ($protect_image_url) : ?>
             <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_protect_image_alt', 'The DTP booster is given as a single injection')); ?>" class="dtp-protect-image" />
           <?php endif; ?>
@@ -148,7 +148,7 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
             </li>
             <li class="dtp-protect-feature">
               <div class="icon"><i class="fas fa-passport"></i></div>
-              <div class="text"><strong>Certificates Available</strong><p>Some countries ask for proof of polio vaccination at the border — we can provide a certificate.</p></div>
+              <div class="text"><strong>Well Tolerated</strong><p>Side effects are usually mild and settle within a day or two — most people just have a sore arm.</p></div>
             </li>
           <?php endif; ?>
         </ul>
@@ -230,8 +230,8 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
 
     <div class="dtp-about-callout">
       <div class="badge"><?php echo esc_html(dp_field('vaccine_callout_badge', 'GOOD TO KNOW')); ?></div>
-      <h3><?php echo esc_html(dp_field('vaccine_callout_title', 'Some Borders Ask for Proof')); ?></h3>
-      <p><?php echo esc_html(dp_field('vaccine_callout_text', "Countries including Pakistan, Afghanistan and Nigeria may require proof of polio vaccination to enter or leave. We can issue a vaccination certificate at your appointment if you need one.")); ?></p>
+      <h3><?php echo esc_html(dp_field('vaccine_callout_title', 'Immunity Fades Over Time')); ?></h3>
+      <p><?php echo esc_html(dp_field('vaccine_callout_text', "Childhood DTP vaccination doesn't last forever — protection gradually wanes, which is why a booster is recommended roughly every 10 years, especially before travel to higher-risk regions.")); ?></p>
     </div>
   </div>
 </section>
@@ -277,11 +277,11 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           </div>
           <span class="nhs-card-badge">Especially Useful</span>
-          <h3 class="nhs-card-title">Travellers to Polio-Risk Countries</h3>
-          <p class="nhs-card-desc">If you're visiting Pakistan, Afghanistan, Nigeria or similar destinations, you may need proof of polio vaccination.</p>
+          <h3 class="nhs-card-title">Travellers to Higher-Risk Regions</h3>
+          <p class="nhs-card-desc">Worth prioritising if you're heading to South Asia, sub-Saharan Africa, the Middle East, Eastern Europe or Central Asia.</p>
           <ul class="nhs-card-list">
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>South Asia, sub-Saharan Africa &amp; Middle East</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Need a vaccination certificate</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Longer or more remote itineraries</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Booking alongside other travel jabs</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
@@ -315,7 +315,7 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
         <ul class="dtp-pricing-includes">
           <li><i class="fas fa-check"></i> One combined injection</li>
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
-          <li><i class="fas fa-check"></i> Vaccination certificate on request</li>
+          <li><i class="fas fa-check"></i> Can be combined with other travel vaccines</li>
           <li><i class="fas fa-check"></i> Can be given alongside other travel jabs</li>
         </ul>
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
@@ -350,7 +350,7 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
         <div class="dtp-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>Single Injection</h3><p>One jab, given in the upper arm — most people feel only a brief scratch.</p></div>
         <div class="dtp-detail-card"><div class="icon"><i class="fas fa-clock"></i></div><h3>Under 20 Minutes</h3><p>A quick appointment, and can be combined with other travel vaccines on the same visit.</p></div>
         <div class="dtp-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Usually mild — soreness at the injection site, a slight fever or headache for a day or two.</p></div>
-        <div class="dtp-detail-card"><div class="icon"><i class="fas fa-passport"></i></div><h3>Certificate If Needed</h3><p>We can issue a vaccination certificate for countries that require proof at the border.</p></div>
+        <div class="dtp-detail-card"><div class="icon"><i class="fas fa-user-group"></i></div><h3>Combine With Other Jabs</h3><p>Happy to give this alongside other travel vaccines at the same visit, where suitable.</p></div>
         <div class="dtp-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>NHS or Private</h3><p>Eligible patients may get this free on the NHS — otherwise we offer it privately with no referral needed.</p></div>
       <?php endif; ?>
     </div>
@@ -384,7 +384,7 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
         <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How do I know if I need a booster?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>If it's been more than 10 years since your last DTP dose — for most adults that's their last school-age vaccination — it's worth having a booster before travelling. Our pharmacist can talk through your history with you.</p></div></div>
         <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How soon before travel should I have it?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>We recommend 2 to 4 weeks before departure, though it can still be worth having closer to your trip if needed.</p></div></div>
         <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Can I have this alongside other travel vaccines?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Yes — DTP is often given at the same appointment as other travel vaccines such as Hepatitis A or Typhoid, saving you a return visit.</p></div></div>
-        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Do I need proof of polio vaccination?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Some countries, including Pakistan, Afghanistan and Nigeria, ask travellers for proof of polio vaccination when entering or leaving. We can provide a certificate at your appointment if you need one.</p></div></div>
+        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Which destinations is this most relevant for?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>It's particularly worth topping up before travel to South Asia, sub-Saharan Africa, the Middle East, Eastern Europe or Central Asia, where standards of routine immunisation can vary.</p></div></div>
         <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Most people just get some soreness, redness or swelling at the injection site, and occasionally a mild fever, headache or muscle aches for a day or two.</p></div></div>
       <?php endif; ?>
     </div>
