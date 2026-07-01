@@ -230,8 +230,8 @@ $vaccine_name = dp_field('vaccine_name', 'Pneumonia');
 
     <div class="pneumonia-about-callout">
       <div class="badge"><?php echo esc_html(dp_field('vaccine_callout_badge', 'GOOD TO KNOW')); ?></div>
-      <h3><?php echo esc_html(dp_field('vaccine_callout_title', 'NHS or Private, Depending on Your Circumstances')); ?></h3>
-      <p><?php echo esc_html(dp_field('vaccine_callout_text', "The NHS offers this vaccine free to adults 65+, children under 2, and those with certain chronic conditions. If you don't meet those criteria but would still like protection, we offer it privately with no referral needed.")); ?></p>
+      <h3><?php echo esc_html(dp_field('vaccine_callout_title', 'A Private Alternative, No Referral Needed')); ?></h3>
+      <p><?php echo esc_html(dp_field('vaccine_callout_text', "If you'd like the pneumococcal vaccine and would rather not wait or go through your GP, we offer it privately here — quick, convenient, and with no referral needed.")); ?></p>
     </div>
   </div>
 </section>
@@ -322,7 +322,7 @@ $vaccine_name = dp_field('vaccine_name', 'Pneumonia');
       </div>
     </div>
 
-    <p class="pneumonia-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Free on the NHS for adults 65+, children under 2, and those with qualifying chronic conditions. This private service is for anyone outside those groups who would like the vaccine.')); ?></p>
+    <p class="pneumonia-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'This is a private vaccination service — please ask our team about eligibility criteria if you\'d like to check other routes to accessing this vaccine.')); ?></p>
   </div>
 </section>
 
@@ -346,12 +346,12 @@ $vaccine_name = dp_field('vaccine_name', 'Pneumonia');
           <p><?php echo esc_html(get_sub_field('description')); ?></p>
         </div>
       <?php endwhile; else : ?>
-        <div class="pneumonia-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We confirm the vaccine is suitable for you and check whether you qualify for it on the NHS first.</p></div>
+        <div class="pneumonia-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We confirm the vaccine is suitable for you before going ahead.</p></div>
         <div class="pneumonia-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>Single Injection</h3><p>Given in the upper arm — most people feel only a brief scratch.</p></div>
         <div class="pneumonia-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>Combine With Flu Jab</h3><p>Happy to give both vaccines at the same appointment if you're due your flu jab too.</p></div>
         <div class="pneumonia-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Usually mild — soreness at the injection site, a slight fever, tiredness or headache for a day or two.</p></div>
         <div class="pneumonia-detail-card"><div class="icon"><i class="fas fa-user-clock"></i></div><h3>Suitable for Most Adults</h3><p>Especially relevant from 65, or with certain chronic health conditions — we'll advise on suitability.</p></div>
-        <div class="pneumonia-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>NHS or Private</h3><p>Free on the NHS if you're eligible; otherwise we offer it privately with no referral needed.</p></div>
+        <div class="pneumonia-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>We offer this vaccine privately with no referral needed.</p></div>
       <?php endif; ?>
     </div>
   </div>
@@ -381,7 +381,7 @@ $vaccine_name = dp_field('vaccine_name', 'Pneumonia');
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="pneumonia-faq-item"><button class="pneumonia-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Am I eligible for this free on the NHS?</span><i class="fas fa-plus icon"></i></button><div class="pneumonia-faq-content"><p>The NHS offers it free to adults 65 and over, children under 2, and people with certain chronic health conditions. We can check your eligibility, and offer it privately if you don't qualify but would still like protection.</p></div></div>
+        <div class="pneumonia-faq-item"><button class="pneumonia-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is this available on the NHS instead?</span><i class="fas fa-plus icon"></i></button><div class="pneumonia-faq-content"><p>Some people may be able to access this vaccine through the NHS depending on their circumstances. Speak to your GP practice about that route, or book with us here for a straightforward private appointment with no referral needed.</p></div></div>
         <div class="pneumonia-faq-item"><button class="pneumonia-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Do I need more than one dose?</span><i class="fas fa-plus icon"></i></button><div class="pneumonia-faq-content"><p>Most adults only need a single dose. Some people at higher risk may be advised to have a second dose — your pharmacist can talk this through with you.</p></div></div>
         <div class="pneumonia-faq-item"><button class="pneumonia-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Can I have this with my flu vaccination?</span><i class="fas fa-plus icon"></i></button><div class="pneumonia-faq-content"><p>Yes — the pneumonia and flu vaccines can be given at the same appointment, in different arms if you prefer.</p></div></div>
         <div class="pneumonia-faq-item"><button class="pneumonia-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">How long does protection last?</span><i class="fas fa-plus icon"></i></button><div class="pneumonia-faq-content"><p>Protection can last for many years after a single dose, though your pharmacist can advise if a repeat dose is ever recommended for your circumstances.</p></div></div>
