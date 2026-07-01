@@ -112,14 +112,10 @@ $vaccine_name = dp_field('vaccine_name', 'Cholera');
         <div class="cholera-protect-image-card">
           <?php
           $protect_image_id = dp_field('vaccine_protect_image');
-          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=900&h=1000&fit=crop';
+          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1643114451704-8f44b1d1a681?w=900&h=1000&fit=crop';
           if ($protect_image_url) : ?>
-            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_protect_image_alt', 'Pharmacist preparing a travel vaccination consultation in Denton')); ?>" class="cholera-protect-image" />
+            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_protect_image_alt', 'The cholera vaccine is taken orally, mixed with water')); ?>" class="cholera-protect-image" />
           <?php endif; ?>
-          <div class="cholera-protect-name-tag">
-            <span class="name"><?php echo esc_html(dp_field('vaccine_protect_nametag_name', 'Denton Pharmacy')); ?></span>
-            <span class="role"><?php echo esc_html(dp_field('vaccine_protect_nametag_role', 'Travel Vaccination Clinic')); ?></span>
-          </div>
         </div>
       </div>
 
