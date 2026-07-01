@@ -74,7 +74,7 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
               <span class="dtp-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'DTP Vaccine (Revaxis)')); ?></span>
             </div>
             <div class="dtp-trust-card-price">
-              <span class="dtp-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£45')); ?></span>
+              <span class="dtp-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£30')); ?></span>
               <span class="dtp-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'single dose')); ?></span>
             </div>
             <div class="dtp-trust-card-divider"></div>
@@ -309,7 +309,7 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
         <div class="dtp-pricing-ribbon">Single Booster</div>
         <h3 class="dtp-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'DTP Vaccine (Revaxis)')); ?></h3>
         <div class="dtp-pricing-amount">
-          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£45')); ?></span>
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£30')); ?></span>
           <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'single dose')); ?></span>
         </div>
         <ul class="dtp-pricing-includes">

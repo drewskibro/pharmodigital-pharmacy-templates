@@ -74,7 +74,7 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
               <span class="rabies-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Rabies Vaccine')); ?></span>
             </div>
             <div class="rabies-trust-card-price">
-              <span class="rabies-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£79')); ?></span>
+              <span class="rabies-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£70')); ?></span>
               <span class="rabies-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
             </div>
             <div class="rabies-trust-card-divider"></div>
@@ -309,7 +309,7 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
         <div class="rabies-pricing-ribbon">Per Dose</div>
         <h3 class="rabies-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Rabies Vaccine')); ?></h3>
         <div class="rabies-pricing-amount">
-          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£79')); ?></span>
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£70')); ?></span>
           <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
         <ul class="rabies-pricing-includes">

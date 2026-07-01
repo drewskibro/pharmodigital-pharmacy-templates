@@ -74,8 +74,8 @@ $vaccine_name = dp_field('vaccine_name', 'Cholera');
               <span class="cholera-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Cholera Vaccine')); ?></span>
             </div>
             <div class="cholera-trust-card-price">
-              <span class="cholera-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£49')); ?></span>
-              <span class="cholera-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', '2-dose course')); ?></span>
+              <span class="cholera-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£35')); ?></span>
+              <span class="cholera-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
             </div>
             <div class="cholera-trust-card-divider"></div>
             <ul class="cholera-trust-card-list">
@@ -309,8 +309,8 @@ $vaccine_name = dp_field('vaccine_name', 'Cholera');
         <div class="cholera-pricing-ribbon">Full Course</div>
         <h3 class="cholera-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Cholera Vaccine')); ?></h3>
         <div class="cholera-pricing-amount">
-          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£49')); ?></span>
-          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', '2-dose course')); ?></span>
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£35')); ?></span>
+          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
         <ul class="cholera-pricing-includes">
           <li><i class="fas fa-check"></i> Both doses of the vaccine</li>

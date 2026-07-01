@@ -74,7 +74,7 @@ $vaccine_name = dp_field('vaccine_name', 'Japanese Encephalitis');
               <span class="japaneseencephalitis-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'JE Vaccine (Ixiaro)')); ?></span>
             </div>
             <div class="japaneseencephalitis-trust-card-price">
-              <span class="japaneseencephalitis-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£99')); ?></span>
+              <span class="japaneseencephalitis-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£90')); ?></span>
               <span class="japaneseencephalitis-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
             </div>
             <div class="japaneseencephalitis-trust-card-divider"></div>
@@ -309,7 +309,7 @@ $vaccine_name = dp_field('vaccine_name', 'Japanese Encephalitis');
         <div class="japaneseencephalitis-pricing-ribbon">Per Dose</div>
         <h3 class="japaneseencephalitis-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'JE Vaccine (Ixiaro)')); ?></h3>
         <div class="japaneseencephalitis-pricing-amount">
-          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£99')); ?></span>
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£90')); ?></span>
           <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
         <ul class="japaneseencephalitis-pricing-includes">

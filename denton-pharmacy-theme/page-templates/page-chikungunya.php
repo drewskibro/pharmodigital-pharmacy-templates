@@ -74,7 +74,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chikungunya');
               <span class="chikungunya-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Chikungunya Vaccine')); ?></span>
             </div>
             <div class="chikungunya-trust-card-price">
-              <span class="chikungunya-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£109')); ?></span>
+              <span class="chikungunya-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£175')); ?></span>
               <span class="chikungunya-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'single dose')); ?></span>
             </div>
             <div class="chikungunya-trust-card-divider"></div>
@@ -309,7 +309,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chikungunya');
         <div class="chikungunya-pricing-ribbon">Single Dose</div>
         <h3 class="chikungunya-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Chikungunya Vaccine')); ?></h3>
         <div class="chikungunya-pricing-amount">
-          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£109')); ?></span>
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£175')); ?></span>
           <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'single dose')); ?></span>
         </div>
         <ul class="chikungunya-pricing-includes">

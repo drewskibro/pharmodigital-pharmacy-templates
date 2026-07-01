@@ -74,8 +74,8 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
               <span class="hepatitisb-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Hepatitis B Vaccine')); ?></span>
             </div>
             <div class="hepatitisb-trust-card-price">
-              <span class="hepatitisb-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£55')); ?></span>
-              <span class="hepatitisb-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
+              <span class="hepatitisb-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£30–£35')); ?></span>
+              <span class="hepatitisb-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose (child–adult)')); ?></span>
             </div>
             <div class="hepatitisb-trust-card-divider"></div>
             <ul class="hepatitisb-trust-card-list">
@@ -309,8 +309,8 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
         <div class="hepatitisb-pricing-ribbon">Per Dose</div>
         <h3 class="hepatitisb-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Hepatitis B Vaccine')); ?></h3>
         <div class="hepatitisb-pricing-amount">
-          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£55')); ?></span>
-          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£30–£35')); ?></span>
+          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose (child–adult)')); ?></span>
         </div>
         <ul class="hepatitisb-pricing-includes">
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
@@ -322,7 +322,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
       </div>
     </div>
 
-    <p class="hepatitisb-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Price shown is per dose. The standard course is 3 doses over 6 months; an accelerated schedule is available if you\'re travelling sooner — ask our team.')); ?></p>
+    <p class="hepatitisb-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Child: £30 per dose. Adult: £35 per dose. The standard course is 3 doses over 6 months; an accelerated schedule is available if you\'re travelling sooner — ask our team.')); ?></p>
   </div>
 </section>
 

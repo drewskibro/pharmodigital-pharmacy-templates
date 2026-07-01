@@ -75,8 +75,8 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
               <span class="malaria-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Malaria Prevention Consultation')); ?></span>
             </div>
             <div class="malaria-trust-card-price">
-              <span class="malaria-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', 'From £25')); ?></span>
-              <span class="malaria-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'consultation, plus tablets')); ?></span>
+              <span class="malaria-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', 'Contact Us')); ?></span>
+              <span class="malaria-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'for pricing')); ?></span>
             </div>
             <div class="malaria-trust-card-divider"></div>
             <ul class="malaria-trust-card-list">
@@ -310,8 +310,8 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
         <div class="malaria-pricing-ribbon">Consultation</div>
         <h3 class="malaria-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Malaria Prevention Consultation')); ?></h3>
         <div class="malaria-pricing-amount">
-          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', 'From £25')); ?></span>
-          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'plus tablets')); ?></span>
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', 'Contact Us')); ?></span>
+          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'for pricing')); ?></span>
         </div>
         <ul class="malaria-pricing-includes">
           <li><i class="fas fa-check"></i> 15-minute pharmacist consultation</li>

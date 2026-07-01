@@ -74,7 +74,7 @@ $vaccine_name = dp_field('vaccine_name', 'Pneumonia');
               <span class="pneumonia-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Pneumococcal Vaccine')); ?></span>
             </div>
             <div class="pneumonia-trust-card-price">
-              <span class="pneumonia-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£55')); ?></span>
+              <span class="pneumonia-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£30')); ?></span>
               <span class="pneumonia-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'single dose')); ?></span>
             </div>
             <div class="pneumonia-trust-card-divider"></div>
@@ -309,7 +309,7 @@ $vaccine_name = dp_field('vaccine_name', 'Pneumonia');
         <div class="pneumonia-pricing-ribbon">Single Dose</div>
         <h3 class="pneumonia-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Pneumococcal Vaccine')); ?></h3>
         <div class="pneumonia-pricing-amount">
-          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£55')); ?></span>
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£30')); ?></span>
           <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'single dose')); ?></span>
         </div>
         <ul class="pneumonia-pricing-includes">

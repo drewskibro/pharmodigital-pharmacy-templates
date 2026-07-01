@@ -74,7 +74,7 @@ $vaccine_name = dp_field('vaccine_name', 'Dengue Fever');
               <span class="dengue-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Dengue Vaccine (Qdenga)')); ?></span>
             </div>
             <div class="dengue-trust-card-price">
-              <span class="dengue-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£95')); ?></span>
+              <span class="dengue-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£100')); ?></span>
               <span class="dengue-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
             </div>
             <div class="dengue-trust-card-divider"></div>
@@ -309,7 +309,7 @@ $vaccine_name = dp_field('vaccine_name', 'Dengue Fever');
         <div class="dengue-pricing-ribbon">Per Dose</div>
         <h3 class="dengue-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Dengue Vaccine (Qdenga)')); ?></h3>
         <div class="dengue-pricing-amount">
-          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£95')); ?></span>
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£100')); ?></span>
           <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
         <ul class="dengue-pricing-includes">

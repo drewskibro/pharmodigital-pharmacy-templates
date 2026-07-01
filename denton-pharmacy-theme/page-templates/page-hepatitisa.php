@@ -74,8 +74,8 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis A');
               <span class="hepatitisa-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Hepatitis A Vaccine')); ?></span>
             </div>
             <div class="hepatitisa-trust-card-price">
-              <span class="hepatitisa-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£65')); ?></span>
-              <span class="hepatitisa-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
+              <span class="hepatitisa-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£35–£40')); ?></span>
+              <span class="hepatitisa-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose (child–adult)')); ?></span>
             </div>
             <div class="hepatitisa-trust-card-divider"></div>
             <ul class="hepatitisa-trust-card-list">
@@ -309,8 +309,8 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis A');
         <div class="hepatitisa-pricing-ribbon">Per Dose</div>
         <h3 class="hepatitisa-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Hepatitis A Vaccine')); ?></h3>
         <div class="hepatitisa-pricing-amount">
-          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£65')); ?></span>
-          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£35–£40')); ?></span>
+          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose (child–adult)')); ?></span>
         </div>
         <ul class="hepatitisa-pricing-includes">
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
@@ -322,7 +322,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis A');
       </div>
     </div>
 
-    <p class="hepatitisa-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Price shown is per dose. The full course is two doses, 6 to 12 months apart. A combined Hepatitis A &amp; B option is also available — ask our team.')); ?></p>
+    <p class="hepatitisa-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Child (under 16): £35 per dose. Adult: £40 per dose. The full course is two doses, 6 to 12 months apart. A combined Hepatitis A &amp; B option is also available — ask our team.')); ?></p>
   </div>
 </section>
 
