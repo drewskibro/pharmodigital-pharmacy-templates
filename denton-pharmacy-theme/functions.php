@@ -226,6 +226,11 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-dtp-js', DENTON_PHARMACY_URI . '/assets/js/dtp.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/dtp.js' ), true );
     }
 
+    if ( is_page_template( 'page-templates/page-hepatitisa.php' ) ) {
+        wp_enqueue_style( 'denton-hepatitisa', DENTON_PHARMACY_URI . '/assets/css/hepatitisa.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/hepatitisa.css' ) );
+        wp_enqueue_script( 'denton-hepatitisa-js', DENTON_PHARMACY_URI . '/assets/js/hepatitisa.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/hepatitisa.js' ), true );
+    }
+
     if ( is_page_template( 'page-templates/page-cholera.php' ) ) {
         wp_enqueue_style( 'denton-cholera', DENTON_PHARMACY_URI . '/assets/css/cholera.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/cholera.css' ) );
         wp_enqueue_script( 'denton-cholera-js', DENTON_PHARMACY_URI . '/assets/js/cholera.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/cholera.js' ), true );
