@@ -236,6 +236,11 @@ function denton_pharmacy_scripts() {
         wp_enqueue_script( 'denton-hepatitisb-js', DENTON_PHARMACY_URI . '/assets/js/hepatitisb.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/hepatitisb.js' ), true );
     }
 
+    if ( is_page_template( 'page-templates/page-japaneseencephalitis.php' ) ) {
+        wp_enqueue_style( 'denton-japaneseencephalitis', DENTON_PHARMACY_URI . '/assets/css/japaneseencephalitis.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/japaneseencephalitis.css' ) );
+        wp_enqueue_script( 'denton-japaneseencephalitis-js', DENTON_PHARMACY_URI . '/assets/js/japaneseencephalitis.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/japaneseencephalitis.js' ), true );
+    }
+
     if ( is_page_template( 'page-templates/page-cholera.php' ) ) {
         wp_enqueue_style( 'denton-cholera', DENTON_PHARMACY_URI . '/assets/css/cholera.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/cholera.css' ) );
         wp_enqueue_script( 'denton-cholera-js', DENTON_PHARMACY_URI . '/assets/js/cholera.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/cholera.js' ), true );
