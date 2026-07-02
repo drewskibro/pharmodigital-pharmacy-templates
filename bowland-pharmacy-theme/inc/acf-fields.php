@@ -3619,6 +3619,7 @@ function bp_register_acf_field_groups() {
                         'wrapper'       => array( 'width' => '15' ),
                     ),
                     array( 'key' => 'field_bp_th_vax_badge', 'label' => 'Badge Text', 'name' => 'badge', 'type' => 'text', 'instructions' => 'Optional, e.g. "Official Centre".', 'wrapper' => array( 'width' => '15' ) ),
+                    array( 'key' => 'field_bp_th_vax_link', 'label' => 'Link URL', 'name' => 'link', 'type' => 'url', 'instructions' => 'Optional. If set, the card links to this page.', 'wrapper' => array( 'width' => '100' ) ),
                 ),
             ),
         ),

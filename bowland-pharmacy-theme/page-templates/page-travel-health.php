@@ -278,8 +278,10 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
       <?php if ( have_rows( 'th_vaccinations' ) ) : while ( have_rows( 'th_vaccinations' ) ) : the_row();
         $is_featured = get_sub_field( 'is_featured' );
         $card_class  = $is_featured ? 'travel-vaccine-card travel-vaccine-card-yellow' : 'travel-vaccine-card';
+        $card_link   = get_sub_field( 'link' );
+        $card_tag    = $card_link ? 'a' : 'div';
       ?>
-        <div class="<?php echo esc_attr( $card_class ); ?>">
+        <<?php echo $card_tag; ?> class="<?php echo esc_attr( $card_class ); ?>"<?php if ( $card_link ) : ?> href="<?php echo esc_url( $card_link ); ?>"<?php endif; ?>>
           <div class="travel-vaccine-icon">
             <i class="<?php echo esc_attr( bp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
           </div>
@@ -287,7 +289,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
           <?php $badge = get_sub_field( 'badge' ); if ( $badge ) : ?>
             <span class="travel-vaccine-badge"><?php echo esc_html( $badge ); ?></span>
           <?php endif; ?>
-        </div>
+        </<?php echo $card_tag; ?>>
       <?php endwhile; else : ?>
         <div class="travel-vaccine-card travel-vaccine-card-yellow">
           <div class="travel-vaccine-icon"><i class="fas fa-shield-virus"></i></div>

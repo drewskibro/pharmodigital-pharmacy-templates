@@ -832,6 +832,8 @@
   gap: 0.625rem;
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px -5px rgba(63, 115, 174, 0.08);
+  text-decoration: none;
+  color: inherit;
 }
 
 @media (min-width: 768px) {
