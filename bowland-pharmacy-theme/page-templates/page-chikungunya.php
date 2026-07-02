@@ -39,7 +39,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         </h1>
 
         <p class="chikungunya-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', "Protect yourself before travelling with our chikungunya vaccination service in Wythenshawe, Manchester. A single injection recommended for trips to Africa, Asia, the Indian Ocean islands, and Central and South America.")); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', "Heading somewhere mosquitoes carry more than an itchy bite? Our Wythenshawe pharmacy offers the chikungunya vaccine as a single injection — worth having before trips to Africa, Asia, the Indian Ocean islands, or Central and South America.")); ?>
         </p>
 
         <div class="chikungunya-hero-actions">
@@ -103,8 +103,8 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_protect_badge', 'WHY VACCINATE')); ?></span>
       </div>
-      <h2 class="chikungunya-protect-title"><?php echo esc_html(bp_field('vaccine_protect_title', 'The Chikungunya Vaccine')); ?></h2>
-      <p class="chikungunya-protect-desc"><?php echo esc_html(bp_field('vaccine_protect_desc', 'A single-dose vaccine for travellers heading to mosquito-borne risk areas')); ?></p>
+      <h2 class="chikungunya-protect-title"><?php echo esc_html(bp_field('vaccine_protect_title', 'About the Chikungunya Vaccine')); ?></h2>
+      <p class="chikungunya-protect-desc"><?php echo esc_html(bp_field('vaccine_protect_desc', 'One jab covers you for destinations where this mosquito-borne virus is common')); ?></p>
     </div>
 
     <div class="chikungunya-protect-grid">
@@ -112,9 +112,9 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         <div class="chikungunya-protect-image-card">
           <?php
           $protect_image_id = bp_field('vaccine_protect_image');
-          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1632988142547-80a567cb36f0?w=900&h=1000&fit=crop';
+          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1576765974497-b41831d52f83?w=900&h=1000&fit=crop';
           if ($protect_image_url) : ?>
-            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_protect_image_alt', 'The chikungunya vaccine is given as a single injection')); ?>" class="chikungunya-protect-image" />
+            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_protect_image_alt', 'A pharmacist giving the chikungunya vaccine as a single upper-arm injection')); ?>" class="chikungunya-protect-image" />
           <?php endif; ?>
         </div>
       </div>
@@ -125,8 +125,8 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
           <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'One Injection, Around 2 Years of Protection')); ?></span>
         </div>
 
-        <h3 class="chikungunya-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Straightforward Protection Before You Travel')); ?></h3>
-        <p class="chikungunya-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Chikungunya is a mosquito-borne virus that causes sudden high fever, severe joint pain, muscle aches and a rash, with joint pain sometimes lasting weeks or months. Two vaccines are currently used in the UK — Ixchiq and Vimkunya — both given as a single injection. Ideally have it at least 2 to 4 weeks before you fly, so protection has time to build up.")); ?></p>
+        <h3 class="chikungunya-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'One Jab, Minimal Fuss')); ?></h3>
+        <p class="chikungunya-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Caught by a mosquito bite, chikungunya brings on sudden high fever and joint pain severe enough to stop you in your tracks — and the joint pain can drag on for weeks or months after everything else clears up. The UK currently offers two vaccines, Ixchiq and Vimkunya, both single injections. Book it in 2 to 4 weeks before you fly if you can, to give your protection time to kick in.")); ?></p>
 
         <ul class="chikungunya-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -140,15 +140,15 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
           <?php endwhile; else : ?>
             <li class="chikungunya-protect-feature">
               <div class="icon"><i class="fas fa-syringe"></i></div>
-              <div class="text"><strong>Single Injection</strong><p>Just one dose is needed — no follow-up appointment required for most travellers.</p></div>
+              <div class="text"><strong>One and Done</strong><p>A single dose covers you — no second appointment to remember.</p></div>
             </li>
             <li class="chikungunya-protect-feature">
               <div class="icon"><i class="fas fa-calendar-week"></i></div>
-              <div class="text"><strong>Book 2–4 Weeks Ahead</strong><p>Have it at least 2 to 4 weeks before departure so your protection has time to build.</p></div>
+              <div class="text"><strong>Give It a Few Weeks</strong><p>Aim for 2–4 weeks before departure so immunity has time to build properly.</p></div>
             </li>
             <li class="chikungunya-protect-feature">
               <div class="icon"><i class="fas fa-earth-africa"></i></div>
-              <div class="text"><strong>Relevant Worldwide</strong><p>Chikungunya risk spans Africa, Asia, the Indian Ocean islands, and Central and South America.</p></div>
+              <div class="text"><strong>Not Just One Region</strong><p>Cases turn up across Africa, Asia, the Indian Ocean islands, and Central and South America.</p></div>
             </li>
           <?php endif; ?>
         </ul>
@@ -196,8 +196,8 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_about_badge', 'KNOW THE FACTS')); ?></span>
       </div>
-      <h2 class="chikungunya-about-title"><?php echo esc_html(bp_field('vaccine_about_title', 'What is Chikungunya?')); ?></h2>
-      <p class="chikungunya-about-desc"><?php echo esc_html(bp_field('vaccine_about_desc', 'A mosquito-borne virus found across many popular travel destinations')); ?></p>
+      <h2 class="chikungunya-about-title"><?php echo esc_html(bp_field('vaccine_about_title', 'What Chikungunya Actually Is')); ?></h2>
+      <p class="chikungunya-about-desc"><?php echo esc_html(bp_field('vaccine_about_desc', 'A daytime-mosquito virus that turns up in a lot of popular holiday spots')); ?></p>
     </div>
 
     <div class="chikungunya-about-content-grid">
@@ -205,9 +205,9 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         <div class="chikungunya-about-image-card">
           <?php
           $about_image_id = bp_field('vaccine_about_image');
-          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1707943768453-7850f916ebde?w=900&h=900&fit=crop';
+          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1635496471665-4e67e0e87399?w=900&h=900&fit=crop';
           if ($about_image_url) : ?>
-            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_about_image_alt', 'Mosquito biting skin — chikungunya spreads through mosquito bites')); ?>" />
+            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_about_image_alt', 'Close-up of the mosquito species that spreads chikungunya')); ?>" />
           <?php endif; ?>
         </div>
       </div>
@@ -220,18 +220,18 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
             <p><?php echo esc_html(get_sub_field('description')); ?></p>
           </div>
         <?php endwhile; else : ?>
-          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-mosquito"></i></div><h3>Mosquito-Borne Virus</h3><p>Spread by daytime-biting mosquitoes, with symptoms usually starting 3 to 7 days after a bite.</p></div>
-          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-temperature-high"></i></div><h3>Sudden, Severe Symptoms</h3><p>High fever and severe joint pain are typical, along with muscle aches, headache, fatigue and a rash.</p></div>
-          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-earth-africa"></i></div><h3>Found Widely</h3><p>Present across Africa, Asia, the Indian Ocean islands, and Central and South America, including the Caribbean.</p></div>
-          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-shield-virus"></i></div><h3>Preventable</h3><p>A single vaccine dose gives strong protection ahead of higher-risk travel.</p></div>
+          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-mosquito"></i></div><h3>Bite-First Infection</h3><p>Passed on by mosquitoes that bite during the day — symptoms show up 3 to 7 days later.</p></div>
+          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-temperature-high"></i></div><h3>Comes On Fast</h3><p>Expect a sharp fever and joint pain that can be disabling, plus muscle aches, headache, fatigue and a rash.</p></div>
+          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-earth-africa"></i></div><h3>Broad Geography</h3><p>Cases are reported across Africa, Asia, the Indian Ocean islands, Central and South America, and the Caribbean.</p></div>
+          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-shield-virus"></i></div><h3>One Jab Covers It</h3><p>A single vaccine dose is enough for solid protection before you head out.</p></div>
         <?php endif; ?>
       </div>
     </div>
 
     <div class="chikungunya-about-callout">
       <div class="badge"><?php echo esc_html(bp_field('vaccine_callout_badge', 'GOOD TO KNOW')); ?></div>
-      <h3><?php echo esc_html(bp_field('vaccine_callout_title', 'Joint Pain Can Linger')); ?></h3>
-      <p><?php echo esc_html(bp_field('vaccine_callout_text', "Unlike many mosquito-borne illnesses, chikungunya's joint pain can persist for weeks or even months after the initial infection has passed — one of the reasons it's worth vaccinating against before higher-risk travel.")); ?></p>
+      <h3><?php echo esc_html(bp_field('vaccine_callout_title', 'The Joint Pain Outlasts the Fever')); ?></h3>
+      <p><?php echo esc_html(bp_field('vaccine_callout_text', "The fever usually settles within a week, but chikungunya's joint pain has a habit of sticking around for weeks or months afterwards. That lingering effect is a big part of why it's worth vaccinating against before higher-risk trips.")); ?></p>
     </div>
   </div>
 </section>
@@ -244,8 +244,8 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_needs_badge', 'WHO IS IT FOR')); ?></span>
       </div>
-      <h2 class="chikungunya-needs-title"><?php echo esc_html(bp_field('vaccine_needs_title', 'Do you need this vaccine?')); ?></h2>
-      <p class="chikungunya-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Recommended for travellers heading to mosquito-borne risk areas')); ?></p>
+      <h2 class="chikungunya-needs-title"><?php echo esc_html(bp_field('vaccine_needs_title', 'Should You Get Vaccinated?')); ?></h2>
+      <p class="chikungunya-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', "Worth a chat with us if either of these sounds like you")); ?></p>
     </div>
 
     <div class="chikungunya-needs-grid">
@@ -258,12 +258,12 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
           <span class="nhs-card-badge">Recommended For</span>
-          <h3 class="nhs-card-title">Travellers to Higher-Risk Regions</h3>
-          <p class="nhs-card-desc">Worth considering if you're heading to Africa, Asia, the Indian Ocean islands, or Central and South America.</p>
+          <h3 class="nhs-card-title">Anyone Heading to a Risk Region</h3>
+          <p class="nhs-card-desc">If your route takes in Africa, Asia, the Indian Ocean islands, or Central or South America, this is worth having.</p>
           <ul class="nhs-card-list">
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travel to endemic countries</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Longer or repeat trips</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Outdoor or rural itineraries</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Longer trips or repeat visits</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Time spent outdoors or rurally</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
@@ -277,12 +277,12 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           </div>
           <span class="nhs-card-badge">Especially Useful</span>
-          <h3 class="nhs-card-title">Older Travellers &amp; Those With Health Conditions</h3>
-          <p class="nhs-card-desc">Chikungunya can hit harder in older adults and people with existing health conditions, so vaccination is often worth prioritising.</p>
+          <h3 class="nhs-card-title">Over-60s &amp; Anyone With Existing Conditions</h3>
+          <p class="nhs-card-desc">Chikungunya tends to hit harder in older adults and people already managing a health condition, so it's often worth prioritising.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travellers aged 60+</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Existing joint or health conditions</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Extended stays in affected regions</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travellers aged 60 and over</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Existing joint or other health conditions</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Longer postings in affected regions</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
@@ -300,8 +300,8 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_pricing_badge', 'TRANSPARENT PRICING')); ?></span>
       </div>
-      <h2 class="chikungunya-pricing-title"><?php echo esc_html(bp_field('vaccine_pricing_title', 'Chikungunya Vaccination Pricing')); ?></h2>
-      <p class="chikungunya-pricing-desc"><?php echo esc_html(bp_field('vaccine_pricing_desc', 'One simple price for the full dose — no hidden extras')); ?></p>
+      <h2 class="chikungunya-pricing-title"><?php echo esc_html(bp_field('vaccine_pricing_title', 'Pricing')); ?></h2>
+      <p class="chikungunya-pricing-desc"><?php echo esc_html(bp_field('vaccine_pricing_desc', 'One dose, one price, nothing extra to budget for')); ?></p>
     </div>
 
     <div class="chikungunya-pricing-grid">
@@ -314,15 +314,15 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         </div>
         <ul class="chikungunya-pricing-includes">
           <li><i class="fas fa-check"></i> One injection</li>
-          <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
-          <li><i class="fas fa-check"></i> Travel risk assessment &amp; advice</li>
+          <li><i class="fas fa-check"></i> Given by our pharmacist</li>
+          <li><i class="fas fa-check"></i> Advice tailored to your trip</li>
           <li><i class="fas fa-check"></i> Suitable for most adults</li>
         </ul>
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
       </div>
     </div>
 
-    <p class="chikungunya-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', 'Price is for a single dose. Pregnant or breastfeeding travellers, and those under 12, need an individual risk assessment — ask our team.')); ?></p>
+    <p class="chikungunya-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "Covers a single dose. If you're pregnant, breastfeeding, or under 12, we'll need to do an individual risk assessment first — just ask when you book.")); ?></p>
   </div>
 </section>
 
@@ -334,8 +334,8 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_details_badge', 'WHAT TO EXPECT')); ?></span>
       </div>
-      <h2 class="chikungunya-details-title"><?php echo esc_html(bp_field('vaccine_details_title', 'What to expect at your appointment')); ?></h2>
-      <p class="chikungunya-details-desc"><?php echo esc_html(bp_field('vaccine_details_desc', 'A simple, friendly visit to our Bowland clinic')); ?></p>
+      <h2 class="chikungunya-details-title"><?php echo esc_html(bp_field('vaccine_details_title', 'What Happens at the Appointment')); ?></h2>
+      <p class="chikungunya-details-desc"><?php echo esc_html(bp_field('vaccine_details_desc', 'Quick, straightforward, done at our Wythenshawe pharmacy')); ?></p>
     </div>
 
     <div class="chikungunya-details-grid">
@@ -346,12 +346,12 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
           <p><?php echo esc_html(get_sub_field('description')); ?></p>
         </div>
       <?php endwhile; else : ?>
-        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Travel Risk Check</h3><p>We talk through your itinerary and confirm the vaccine is suitable for your trip.</p></div>
-        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>Single Injection</h3><p>Just one dose, given in the upper arm — most people feel only a brief scratch.</p></div>
-        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-clock"></i></div><h3>Book Ahead</h3><p>Ideally have it 2 to 4 weeks before you travel, to give protection time to build.</p></div>
-        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Usually mild — a sore arm, headache, tiredness or a slight fever for a day or two.</p></div>
-        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-user-check"></i></div><h3>Suitable from Age 12</h3><p>Given to most adults and children from 12 years old, with individual assessment where needed.</p></div>
-        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Not available on the NHS for travel purposes, so we offer it privately with no referral needed.</p></div>
+        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>We Check Your Trip</h3><p>A quick chat about your itinerary confirms whether the vaccine fits your travel plans.</p></div>
+        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>One Quick Jab</h3><p>Given in the upper arm — over before you've had time to think about it.</p></div>
+        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-clock"></i></div><h3>Timing Matters</h3><p>Book in 2–4 weeks ahead of travel where you can, for the best protection by the time you fly.</p></div>
+        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side Effects Are Usually Minor</h3><p>A sore arm, mild headache, tiredness or a slight fever for a day or two is typical.</p></div>
+        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-user-check"></i></div><h3>From Age 12</h3><p>Offered to most adults and children from 12, with individual assessment for anyone outside that.</p></div>
+        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private, No GP Needed</h3><p>It's not an NHS service for travel purposes, so book with us directly — no referral required.</p></div>
       <?php endif; ?>
     </div>
   </div>
@@ -381,11 +381,11 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses do I need?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>Just one. Both vaccines currently used in the UK — Ixchiq and Vimkunya — are given as a single injection, with no follow-up dose needed for most travellers.</p></div></div>
-        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How long before I travel should I get it?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>Ideally at least 2 to 4 weeks before departure, so your body has time to build protection. It can still be worth having closer to travel if that's not possible.</p></div></div>
-        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Do I need this vaccine for my trip?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>It depends on your destination and itinerary. Chikungunya is found across Africa, Asia, the Indian Ocean islands, and Central and South America. Our pharmacist can advise based on where you're travelling and for how long.</p></div></div>
-        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Does the vaccine protect against dengue or Zika too?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>No — the chikungunya vaccine only protects against chikungunya. Dengue, Zika and yellow fever need separate protection measures, which we can also advise on.</p></div></div>
-        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>Most people just get a sore arm, mild headache, tiredness or a slight fever for a day or so. Serious reactions are uncommon and monitored through the UK's Yellow Card scheme.</p></div></div>
+        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is it just the one dose?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>Yes. Both vaccines available in the UK right now — Ixchiq and Vimkunya — are single injections, with no follow-up needed for most people.</p></div></div>
+        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How far ahead should I book?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>2 to 4 weeks before you fly is ideal, giving your immune system time to respond. If you're booking later than that, it's still worth having — just come and see us.</p></div></div>
+        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is this actually relevant to where I'm going?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>Depends on the destination. Chikungunya turns up across Africa, Asia, the Indian Ocean islands, and Central and South America — tell our pharmacist your route and length of stay and they'll give you a clear answer.</p></div></div>
+        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Will this also cover dengue or Zika?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>No, it's chikungunya-specific. Dengue, Zika and yellow fever each need their own precautions — ask us and we'll talk you through what applies to your trip.</p></div></div>
+        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What side effects come up?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>Typically a sore arm, mild headache, tiredness or a slight temperature for a day or so. Anything more serious is rare and tracked through the UK's Yellow Card scheme.</p></div></div>
       <?php endif; ?>
     </div>
   </div>
@@ -444,8 +444,8 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
         <?php endif; ?>
       </div>
 
-      <h2 class="chikungunya-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', 'Protect yourself before you travel')); ?></h2>
-      <p class="chikungunya-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', 'Book your chikungunya vaccination with our friendly team in Bowland today. Quick, convenient and professional.')); ?></p>
+      <h2 class="chikungunya-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', 'Get Covered Before You Fly')); ?></h2>
+      <p class="chikungunya-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book your chikungunya vaccine with our Wythenshawe team — one appointment and it's sorted.")); ?></p>
 
       <div class="chikungunya-cta-actions">
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Vaccination</a>
