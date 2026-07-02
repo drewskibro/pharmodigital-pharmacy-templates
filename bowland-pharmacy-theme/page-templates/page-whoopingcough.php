@@ -112,9 +112,9 @@ $vaccine_name = bp_field('vaccine_name', 'Whooping Cough');
         <div class="whoopingcough-protect-image-card">
           <?php
           $protect_image_id = bp_field('vaccine_protect_image');
-          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1632053651899-3389100579fb?w=900&h=1000&fit=crop';
+          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1691139600923-8fba078704b0?w=900&h=1000&fit=crop';
           if ($protect_image_url) : ?>
-            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_protect_image_alt', 'A pharmacist consulting a pregnant patient — the whooping cough vaccine is recommended in every pregnancy')); ?>" class="whoopingcough-protect-image" />
+            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_protect_image_alt', 'A pregnant patient receiving the whooping cough vaccine in the upper arm')); ?>" class="whoopingcough-protect-image" />
           <?php endif; ?>
         </div>
       </div>
