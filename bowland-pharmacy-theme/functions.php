@@ -269,6 +269,26 @@ function bowland_pharmacy_scripts() {
         wp_enqueue_script( 'bowland-corporate-js', BOWLAND_PHARMACY_URI . '/assets/js/corporate.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/corporate.js' ), true );
     }
 
+    if ( is_page_template( 'page-templates/page-cholera.php' ) ) {
+        wp_enqueue_style( 'bowland-cholera', BOWLAND_PHARMACY_URI . '/assets/css/cholera.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/cholera.css' ) );
+        wp_enqueue_script( 'bowland-cholera-js', BOWLAND_PHARMACY_URI . '/assets/js/cholera.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/cholera.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-chikungunya.php' ) ) {
+        wp_enqueue_style( 'bowland-chikungunya', BOWLAND_PHARMACY_URI . '/assets/css/chikungunya.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/chikungunya.css' ) );
+        wp_enqueue_script( 'bowland-chikungunya-js', BOWLAND_PHARMACY_URI . '/assets/js/chikungunya.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/chikungunya.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-dengue.php' ) ) {
+        wp_enqueue_style( 'bowland-dengue', BOWLAND_PHARMACY_URI . '/assets/css/dengue.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/dengue.css' ) );
+        wp_enqueue_script( 'bowland-dengue-js', BOWLAND_PHARMACY_URI . '/assets/js/dengue.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/dengue.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-dtp.php' ) ) {
+        wp_enqueue_style( 'bowland-dtp', BOWLAND_PHARMACY_URI . '/assets/css/dtp.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/dtp.css' ) );
+        wp_enqueue_script( 'bowland-dtp-js', BOWLAND_PHARMACY_URI . '/assets/js/dtp.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/dtp.js' ), true );
+    }
+
     // Navigation JS — three-tier Bowland nav, loaded on all pages in footer
     wp_enqueue_script(
         'bowland-nav-js',

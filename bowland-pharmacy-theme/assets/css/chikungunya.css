@@ -1,0 +1,1628 @@
+/* ============================================
+   CHICKENPOX PAGE STYLES
+   Uses chikungunya- prefix
+   ============================================ */
+
+
+/* ============================================
+   O1. HERO — Pattern A Light
+   ============================================ */
+.chikungunya-hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 3rem 0 40px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, var(--brand-light), var(--white));
+}
+
+@media (min-width: 1024px) {
+  .chikungunya-hero-section {
+    padding: 4rem 0;
+    min-height: 85vh;
+  }
+}
+
+.chikungunya-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(63, 115, 174, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.chikungunya-hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.chikungunya-hero-glow-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: rgba(63, 115, 174, 0.08);
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.chikungunya-hero-glow-2 {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: rgba(121, 188, 46, 0.06);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  animation: float 10s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+.chikungunya-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .chikungunya-hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Left Content */
+.chikungunya-hero-content {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .chikungunya-hero-content {
+    text-align: left;
+  }
+}
+
+.chikungunya-hero-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .chikungunya-hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chikungunya-hero-title {
+    font-size: 4rem;
+  }
+}
+
+.chikungunya-hero-description {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .chikungunya-hero-description {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .chikungunya-hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.chikungunya-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .chikungunya-hero-actions {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1023px) {
+  .chikungunya-hero-actions {
+    justify-content: center;
+  }
+}
+
+.chikungunya-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .chikungunya-hero-trust {
+    justify-content: flex-start;
+  }
+}
+
+.chikungunya-hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chikungunya-hero-trust-item i {
+  color: var(--brand-primary);
+  font-size: 1.125rem;
+}
+
+.chikungunya-hero-trust-item span {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-slate);
+}
+
+/* Right Visual — Pricing Trust Card */
+.chikungunya-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chikungunya-trust-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
+  box-shadow: 0 30px 80px rgba(42, 80, 122, 0.3);
+  transform: rotate(-1.5deg);
+  transition: transform 0.5s ease;
+}
+
+.chikungunya-trust-card:hover {
+  transform: rotate(0deg);
+}
+
+.chikungunya-trust-card-glow {
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.chikungunya-trust-card-inner {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2.5rem;
+}
+
+/* Card header — icon + label */
+.chikungunya-trust-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.chikungunya-trust-card-icon {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.chikungunya-trust-card-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Price block */
+.chikungunya-trust-card-price {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.chikungunya-trust-card-amount {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.chikungunya-trust-card-sub {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Divider */
+.chikungunya-trust-card-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin-bottom: 1.5rem;
+}
+
+/* Trust list */
+.chikungunya-trust-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.chikungunya-trust-card-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.chikungunya-trust-card-list li i {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  flex-shrink: 0;
+}
+
+/* Footer — GPhC */
+.chikungunya-trust-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.chikungunya-trust-card-footer i {
+  font-size: 0.875rem;
+}
+
+/* Floating test-count badge */
+.chikungunya-hero-float-badge {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 6rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  border: 1px solid rgba(63, 115, 174, 0.2);
+  animation: float 6s ease-in-out infinite;
+  z-index: 10;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .chikungunya-hero-float-badge {
+    display: block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .chikungunya-hero-float-badge {
+    right: 0rem;
+  }
+}
+
+.chikungunya-hero-float-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--brand-primary);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.chikungunya-hero-float-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-slate);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+
+/* ============================================
+   PROTECTION SECTION
+   ============================================ */
+.chikungunya-protect-section {
+  padding: 6rem 0;
+  background: var(--white);
+}
+
+.chikungunya-protect-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.chikungunya-protect-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.chikungunya-protect-desc {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+}
+
+.chikungunya-protect-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .chikungunya-protect-grid {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+.chikungunya-protect-image-wrapper {
+  position: relative;
+}
+
+.chikungunya-protect-image-card {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(63, 115, 174, 0.12);
+  border: 4px solid var(--white);
+}
+
+.chikungunya-protect-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chikungunya-protect-name-tag {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.chikungunya-protect-name-tag .name {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #0f172a;
+  font-family: var(--font-heading);
+}
+
+.chikungunya-protect-name-tag .role {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-gray);
+  font-weight: 600;
+}
+
+.chikungunya-protect-badge-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(63, 115, 174, 0.08);
+  color: var(--brand-dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(63, 115, 174, 0.2);
+}
+
+.chikungunya-protect-badge-box i {
+  font-size: 1rem;
+}
+
+.chikungunya-protect-subtitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.chikungunya-protect-text {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.chikungunya-protect-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .chikungunya-protect-features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.chikungunya-protect-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.chikungunya-protect-feature .icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(63, 115, 174, 0.25);
+}
+
+.chikungunya-protect-feature .text strong {
+  display: block;
+  font-size: 1rem;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.chikungunya-protect-feature .text p {
+  font-size: 0.9375rem;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+.chikungunya-protect-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .chikungunya-protect-actions {
+    flex-direction: row;
+  }
+}
+
+/* ============================================
+   STATS BAR
+   ============================================ */
+.chikungunya-stats-section {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.chikungunya-stats-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .chikungunya-stats-bar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.chikungunya-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chikungunya-stat-item .icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+.chikungunya-stat-item .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.chikungunya-stat-item .number {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+}
+
+.chikungunya-stat-item .label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chikungunya-stat-divider {
+  display: none;
+  width: 1px;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 768px) {
+  .chikungunya-stat-divider {
+    display: block;
+  }
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.chikungunya-about-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+}
+
+.chikungunya-about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.chikungunya-about-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.chikungunya-about-desc {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+}
+
+/* Enhanced Grid Layout */
+.chikungunya-about-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .chikungunya-about-content-grid {
+    grid-template-columns: 40% 1fr;
+    gap: 4rem;
+  }
+}
+
+.chikungunya-about-image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.chikungunya-about-image-card {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(63, 115, 174, 0.12);
+  aspect-ratio: 3/4;
+}
+
+.chikungunya-about-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.chikungunya-about-image-card:hover img {
+  transform: scale(1.05);
+}
+
+.chikungunya-about-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .chikungunya-about-cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.chikungunya-info-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(63, 115, 174, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.chikungunya-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(63, 115, 174, 0.1);
+}
+
+.chikungunya-info-card .icon {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(63, 115, 174, 0.25);
+}
+
+.chikungunya-info-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.chikungunya-info-card p {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+.chikungunya-about-callout {
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.07), rgba(121, 188, 46, 0.05));
+  border: 2px solid rgba(63, 115, 174, 0.15);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chikungunya-about-callout .badge {
+  display: inline-block;
+  background: var(--brand-primary);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.chikungunya-about-callout h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--brand-dark);
+  margin-bottom: 1rem;
+}
+
+.chikungunya-about-callout p {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* ============================================
+   WHO NEEDS VACCINATION
+   ============================================ */
+.chikungunya-needs-section {
+  padding: 6rem 0;
+  background: var(--white);
+}
+
+.chikungunya-needs-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.chikungunya-needs-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.chikungunya-needs-desc {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+}
+
+.chikungunya-needs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .chikungunya-needs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.chikungunya-needs-card {
+  padding: 2.5rem;
+  border-radius: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.chikungunya-needs-card.recommended {
+  background: #f0fdf4;
+  border: 2px solid #bbf7d0;
+}
+
+.chikungunya-needs-card.consider {
+  background: #fffbeb;
+  border: 2px solid #fcd34d;
+}
+
+.chikungunya-needs-card .card-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.chikungunya-needs-card.recommended .card-badge {
+  background: #16a34a;
+  color: var(--white);
+}
+
+.chikungunya-needs-card.consider .card-badge {
+  background: #f59f00;
+  color: var(--white);
+}
+
+.chikungunya-needs-card h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.chikungunya-needs-card.recommended h3 { color: #14532d; }
+.chikungunya-needs-card.consider h3 { color: #92400e; }
+
+.chikungunya-needs-card p {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.chikungunya-needs-card.recommended p { color: #14532d; }
+.chikungunya-needs-card.consider p { color: #78350f; }
+
+.chikungunya-needs-card .check-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chikungunya-needs-card .check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.chikungunya-needs-card.recommended .check-list li { color: #14532d; }
+.chikungunya-needs-card.consider .check-list li { color: #92400e; }
+
+.chikungunya-needs-card .check-list i {
+  margin-top: 0.25rem;
+}
+
+/* ============================================
+   RISK ZONES
+   ============================================ */
+.chikungunya-risk-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+}
+
+.chikungunya-risk-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.chikungunya-risk-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.chikungunya-risk-desc {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chikungunya-risk-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .chikungunya-risk-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Destination Images */
+.chikungunya-destination-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 2rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 15px 40px rgba(63, 115, 174, 0.1);
+}
+
+.chikungunya-destination-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.chikungunya-destination-image:hover img {
+  transform: scale(1.05);
+}
+
+.chikungunya-risk-card {
+  background: var(--white);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(63, 115, 174, 0.12);
+}
+
+.chikungunya-risk-card.high {
+  border-top: 6px solid #e11d48;
+}
+
+.chikungunya-risk-card.moderate {
+  border-top: 6px solid #f59f00;
+}
+
+.chikungunya-risk-card .card-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.chikungunya-risk-card.high .card-icon {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.chikungunya-risk-card.moderate .card-icon {
+  background: #fffbeb;
+  color: #f59f00;
+}
+
+.chikungunya-risk-card h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.chikungunya-risk-card .desc {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.chikungunya-risk-card .country-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.chikungunya-risk-card .country-list span {
+  background: #f3f4f6;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.chikungunya-risk-footer {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.chikungunya-risk-footer .info-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, rgba(63, 115, 174, 0.08), rgba(63, 115, 174, 0.04));
+  color: var(--brand-dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  border: 1px solid rgba(63, 115, 174, 0.2);
+}
+
+.chikungunya-risk-footer .info-badge i {
+  color: var(--brand-primary);
+}
+
+.chikungunya-risk-footer .actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   DETAILS SECTION
+   ============================================ */
+.chikungunya-details-section {
+  padding: 6rem 0;
+  background: var(--white);
+}
+
+.chikungunya-details-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.chikungunya-details-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.chikungunya-details-desc {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+}
+
+.chikungunya-details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .chikungunya-details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .chikungunya-details-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.chikungunya-detail-card {
+  background: #f9fafb;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.chikungunya-detail-card:hover {
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-color: rgba(63, 115, 174, 0.25);
+  transform: translateY(-4px);
+}
+
+.chikungunya-detail-card .icon {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.chikungunya-detail-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.chikungunya-detail-card p {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+.chikungunya-faq-section {
+  padding: 6rem 0;
+  background: var(--brand-light);
+}
+
+.chikungunya-faq-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.chikungunya-faq-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.chikungunya-faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chikungunya-faq-item {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 2px solid #e5e7eb;
+  transition: all 0.4s ease;
+}
+
+.chikungunya-faq-item:hover {
+  border-color: rgba(63, 115, 174, 0.3);
+  box-shadow: 0 20px 50px rgba(63, 115, 174, 0.12);
+  transform: translateY(-2px);
+}
+
+.chikungunya-faq-item.travel-faq-active {
+  box-shadow: 0 8px 20px rgba(63, 115, 174, 0.1);
+  border-color: var(--brand-primary);
+  background: var(--white);
+}
+
+.chikungunya-faq-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.chikungunya-faq-btn .num {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(63, 115, 174, 0.3);
+}
+
+.chikungunya-faq-btn .text {
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.chikungunya-faq-btn .icon {
+  color: var(--brand-primary);
+  transition: transform 0.3s ease;
+  font-size: 1.25rem;
+}
+
+.chikungunya-faq-item.travel-faq-active .icon {
+  transform: rotate(45deg);
+}
+
+.chikungunya-faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.chikungunya-faq-item.travel-faq-active .chikungunya-faq-content {
+  max-height: 300px;
+  padding: 0 2rem 2rem 5.5rem;
+}
+
+.chikungunya-faq-content p {
+  font-size: 1.0625rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .chikungunya-faq-btn {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .chikungunya-faq-item.travel-faq-active .chikungunya-faq-content {
+    padding: 0 1.25rem 1.5rem 1.25rem;
+  }
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.chikungunya-cta-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
+  padding: 6rem 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.chikungunya-cta-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.chikungunya-cta-content {
+  position: relative;
+  z-index: 10;
+}
+
+.chikungunya-cta-badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.chikungunya-cta-badges .badge {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.chikungunya-cta-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.chikungunya-cta-desc {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.chikungunya-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.chikungunya-cta-actions .white-btn {
+  background: #ffffff;
+  color: var(--brand-dark);
+}
+
+.chikungunya-cta-actions .white-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.chikungunya-cta-actions .outline-btn {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.chikungunya-cta-actions .outline-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+}
+
+/* ============================================
+   PRICING SECTION
+   ============================================ */
+.chikungunya-pricing-section {
+  padding: 5rem 0;
+  background: var(--brand-light);
+}
+
+.chikungunya-pricing-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+}
+
+.chikungunya-pricing-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  color: var(--text-dark);
+  margin: 1rem 0 0.75rem;
+}
+
+.chikungunya-pricing-desc {
+  color: var(--text-gray);
+  font-size: 1.0625rem;
+}
+
+.chikungunya-pricing-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.chikungunya-pricing-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow-xl);
+  text-align: center;
+  border: 1px solid rgba(63, 115, 174, 0.12);
+}
+
+.chikungunya-pricing-card.featured {
+  border: 2px solid var(--brand-primary);
+}
+
+.chikungunya-pricing-ribbon {
+  position: absolute;
+  top: -0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+  color: var(--white);
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.4rem 1.25rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.chikungunya-pricing-name {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.chikungunya-pricing-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.chikungunya-pricing-amount .price {
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #054a91, #085db5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.chikungunya-pricing-amount .per {
+  color: var(--text-slate);
+  font-size: 0.95rem;
+}
+
+.chikungunya-pricing-includes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  text-align: left;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.chikungunya-pricing-includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--text-gray);
+  font-size: 0.95rem;
+}
+
+.chikungunya-pricing-includes li i {
+  color: var(--brand-secondary);
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.chikungunya-pricing-card .cta-button {
+  width: 100%;
+  justify-content: center;
+}
+
+.chikungunya-pricing-note {
+  text-align: center;
+  max-width: 640px;
+  margin: 2rem auto 0;
+  color: var(--text-slate);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ============================================
+   BOOKING SECTION (Acuity embed)
+   ============================================ */
+.chikungunya-booking-section {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+  background: linear-gradient(180deg, var(--white) 0%, var(--brand-light) 100%);
+}
+
+.chikungunya-booking-blob-1,
+.chikungunya-booking-blob-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.chikungunya-booking-blob-1 {
+  width: 320px;
+  height: 320px;
+  background: rgba(63, 115, 174, 0.1);
+  top: -80px;
+  left: -80px;
+}
+
+.chikungunya-booking-blob-2 {
+  width: 280px;
+  height: 280px;
+  background: rgba(121, 188, 46, 0.1);
+  bottom: -80px;
+  right: -60px;
+}
+
+.chikungunya-booking-section .section-container {
+  position: relative;
+  z-index: 1;
+}
+
+.chikungunya-booking-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 2.5rem;
+}
+
+.chikungunya-booking-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.chikungunya-booking-desc {
+  color: var(--text-gray);
+  font-size: 1.0625rem;
+}
+
+.chikungunya-booking-embed {
+  background: var(--white);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-xl);
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.chikungunya-booking-embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 800px;
+  border: 0;
+  border-radius: 1rem;
+}
+
+.chikungunya-booking-placeholder {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  color: var(--text-gray);
+}
+
+.chikungunya-booking-placeholder i {
+  font-size: 2.5rem;
+  color: var(--brand-primary);
+  margin-bottom: 1rem;
+}
+
+.chikungunya-booking-placeholder p {
+  font-size: 1.05rem;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.chikungunya-booking-placeholder a,
+.chikungunya-booking-footer a {
+  color: var(--brand-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.chikungunya-booking-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-slate);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .chikungunya-pricing-title,
+  .chikungunya-booking-title { font-size: 1.75rem; }
+  .chikungunya-booking-embed iframe { min-height: 720px; }
+}
+
+/* "Who is it for" cards — float the icon to the top-right of the card
+   (scoped to this section so the Home NHS cards are unaffected) */
+.chikungunya-needs-grid .nhs-card-content {
+  position: relative;
+}
+.chikungunya-needs-grid .nhs-card-icon {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  margin-bottom: 0;
+}
+.chikungunya-needs-grid .nhs-card-badge {
+  margin-top: 0.25rem;
+}
