@@ -205,9 +205,9 @@ $vaccine_name = bp_field('vaccine_name', 'Dengue Fever');
         <div class="dengue-about-image-card">
           <?php
           $about_image_id = bp_field('vaccine_about_image');
-          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1781354771751-8f904c125bf4?w=900&h=900&fit=crop';
+          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1752000571177-a6479e80a1e7?w=900&h=900&fit=crop';
           if ($about_image_url) : ?>
-            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_about_image_alt', 'A tropical city alleyway — dengue-carrying mosquitoes thrive in urban areas too')); ?>" />
+            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_about_image_alt', 'An Aedes mosquito biting skin — the species that spreads dengue')); ?>" />
           <?php endif; ?>
         </div>
       </div>
