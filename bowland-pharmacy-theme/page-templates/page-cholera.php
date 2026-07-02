@@ -39,7 +39,7 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
         </h1>
 
         <p class="cholera-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', "Protect yourself before travelling with our oral cholera vaccination service in Wythenshawe, Manchester. A simple drink-based course recommended for travel to areas with poor sanitation across South Asia, Sub-Saharan Africa and Central America.")); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', "Heading somewhere with limited access to clean water or sanitation? Our Wythenshawe pharmacy offers a straightforward oral cholera vaccine — no needles, just a short drink-based course before you fly.")); ?>
         </p>
 
         <div class="cholera-hero-actions">
@@ -103,8 +103,8 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_protect_badge', 'WHY VACCINATE')); ?></span>
       </div>
-      <h2 class="cholera-protect-title"><?php echo esc_html(bp_field('vaccine_protect_title', 'The Cholera Vaccine')); ?></h2>
-      <p class="cholera-protect-desc"><?php echo esc_html(bp_field('vaccine_protect_desc', 'A drink-based vaccine for travellers heading to higher-risk destinations')); ?></p>
+      <h2 class="cholera-protect-title"><?php echo esc_html(bp_field('vaccine_protect_title', 'Why Get Vaccinated Against Cholera')); ?></h2>
+      <p class="cholera-protect-desc"><?php echo esc_html(bp_field('vaccine_protect_desc', 'A quick, drink-based course for anyone heading somewhere higher-risk')); ?></p>
     </div>
 
     <div class="cholera-protect-grid">
@@ -112,9 +112,9 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
         <div class="cholera-protect-image-card">
           <?php
           $protect_image_id = bp_field('vaccine_protect_image');
-          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1643114451704-8f44b1d1a681?w=900&h=1000&fit=crop';
+          $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1732901379250-03be48f04241?w=900&h=1000&fit=crop';
           if ($protect_image_url) : ?>
-            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_protect_image_alt', 'The cholera vaccine is taken orally, mixed with water')); ?>" class="cholera-protect-image" />
+            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_protect_image_alt', 'The cholera vaccine sachet is mixed with water and taken orally')); ?>" class="cholera-protect-image" />
           <?php endif; ?>
         </div>
       </div>
@@ -125,8 +125,8 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
           <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'Oral Course — No Needles Involved')); ?></span>
         </div>
 
-        <h3 class="cholera-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Simple Protection for Higher-Risk Travel')); ?></h3>
-        <p class="cholera-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Cholera is a bacterial infection spread through contaminated food and water, causing severe diarrhoea and dehydration. It's rare for tourists staying in good hotels, but a real consideration for anyone travelling to areas with poor sanitation, staying in local accommodation, or working in humanitarian and healthcare settings. The vaccine is a drink you take at the pharmacy rather than an injection, given as a short course.")); ?></p>
+        <h3 class="cholera-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'No Needles — Just a Short Drink-Based Course')); ?></h3>
+        <p class="cholera-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Cholera spreads through contaminated food and water, and can cause severe diarrhoea and dehydration fast. Most holidaymakers staying in well-run hotels have little to worry about — but if your trip involves basic accommodation, rural areas, or aid and healthcare work, it's worth having cover. Rather than an injection, the vaccine comes as a sachet you mix with water and drink at the pharmacy.")); ?></p>
 
         <ul class="cholera-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -140,15 +140,15 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
           <?php endwhile; else : ?>
             <li class="cholera-protect-feature">
               <div class="icon"><i class="fas fa-glass-water"></i></div>
-              <div class="text"><strong>Taken Orally</strong><p>A sachet mixed with water and drunk at the pharmacy — no injection required.</p></div>
+              <div class="text"><strong>Sachet, Not Syringe</strong><p>Mixed with a little water and drunk on the spot — nothing to inject.</p></div>
             </li>
             <li class="cholera-protect-feature">
               <div class="icon"><i class="fas fa-calendar-week"></i></div>
-              <div class="text"><strong>Two Doses, 1–6 Weeks Apart</strong><p>Complete both doses at least a week before you travel for full protection.</p></div>
+              <div class="text"><strong>Two Doses, Spaced Out</strong><p>Second dose comes 1–6 weeks after the first — plan to finish at least a week before you fly.</p></div>
             </li>
             <li class="cholera-protect-feature">
               <div class="icon"><i class="fas fa-shield-heart"></i></div>
-              <div class="text"><strong>Bonus Protection</strong><p>Also gives around 3 months' cover against ETEC, the most common cause of travellers' diarrhoea.</p></div>
+              <div class="text"><strong>Extra Cover Included</strong><p>Roughly 3 months of protection against ETEC, a leading cause of travellers' diarrhoea, comes as standard.</p></div>
             </li>
           <?php endif; ?>
         </ul>
@@ -196,8 +196,8 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_about_badge', 'KNOW THE FACTS')); ?></span>
       </div>
-      <h2 class="cholera-about-title"><?php echo esc_html(bp_field('vaccine_about_title', 'What is Cholera?')); ?></h2>
-      <p class="cholera-about-desc"><?php echo esc_html(bp_field('vaccine_about_desc', 'An infection linked to contaminated food and water in areas with poor sanitation')); ?></p>
+      <h2 class="cholera-about-title"><?php echo esc_html(bp_field('vaccine_about_title', 'Understanding Cholera')); ?></h2>
+      <p class="cholera-about-desc"><?php echo esc_html(bp_field('vaccine_about_desc', 'A waterborne illness that tracks closely with sanitation infrastructure')); ?></p>
     </div>
 
     <div class="cholera-about-content-grid">
@@ -205,9 +205,9 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
         <div class="cholera-about-image-card">
           <?php
           $about_image_id = bp_field('vaccine_about_image');
-          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=900&h=900&fit=crop';
+          $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1780504863172-22655ab910ae?w=900&h=900&fit=crop';
           if ($about_image_url) : ?>
-            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_about_image_alt', 'Map pins marking higher-risk cholera regions across Southeast Asia')); ?>" />
+            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_about_image_alt', 'Washing hands under an outdoor tap — cholera risk tracks with water and sanitation access')); ?>" />
           <?php endif; ?>
         </div>
       </div>
@@ -220,18 +220,18 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
             <p><?php echo esc_html(get_sub_field('description')); ?></p>
           </div>
         <?php endwhile; else : ?>
-          <div class="cholera-info-card"><div class="icon"><i class="fas fa-bacterium"></i></div><h3>Bacterial Infection</h3><p>Caused by Vibrio cholerae bacteria, usually picked up from contaminated water or food.</p></div>
-          <div class="cholera-info-card"><div class="icon"><i class="fas fa-earth-africa"></i></div><h3>Higher-Risk Regions</h3><p>More common across South Asia, Sub-Saharan Africa, Haiti and parts of Central America.</p></div>
-          <div class="cholera-info-card"><div class="icon"><i class="fas fa-house-flag"></i></div><h3>Linked to Sanitation</h3><p>Risk rises when travelling off the beaten track, staying in local accommodation, or in disaster relief settings.</p></div>
-          <div class="cholera-info-card"><div class="icon"><i class="fas fa-glass-water"></i></div><h3>Preventable</h3><p>An oral vaccine course gives strong protection and is quick to arrange before you travel.</p></div>
+          <div class="cholera-info-card"><div class="icon"><i class="fas fa-bacterium"></i></div><h3>Vibrio Cholerae</h3><p>The bacteria behind cholera spreads through water and food that's come into contact with contaminated sewage.</p></div>
+          <div class="cholera-info-card"><div class="icon"><i class="fas fa-earth-africa"></i></div><h3>Where It's Found</h3><p>South Asia, Sub-Saharan Africa, Haiti and pockets of Central America see the most cases each year.</p></div>
+          <div class="cholera-info-card"><div class="icon"><i class="fas fa-house-flag"></i></div><h3>Follows Infrastructure</h3><p>Outbreaks cluster wherever clean water and proper sewage systems are lacking — disaster zones included.</p></div>
+          <div class="cholera-info-card"><div class="icon"><i class="fas fa-glass-water"></i></div><h3>Easy to Prevent</h3><p>A short oral course at the pharmacy is all it takes to be covered before you go.</p></div>
         <?php endif; ?>
       </div>
     </div>
 
     <div class="cholera-about-callout">
       <div class="badge"><?php echo esc_html(bp_field('vaccine_callout_badge', 'GOOD TO KNOW')); ?></div>
-      <h3><?php echo esc_html(bp_field('vaccine_callout_title', 'Not Just for Cholera')); ?></h3>
-      <p><?php echo esc_html(bp_field('vaccine_callout_text', "The cholera vaccine also provides several months of protection against ETEC, the bacteria behind most cases of travellers' diarrhoea — useful cover on top of the cholera protection itself.")); ?></p>
+      <h3><?php echo esc_html(bp_field('vaccine_callout_title', 'A Two-For-One Vaccine')); ?></h3>
+      <p><?php echo esc_html(bp_field('vaccine_callout_text', "On top of cholera protection, the vaccine covers you against ETEC for a few months too — the bacteria behind most everyday cases of travellers' diarrhoea.")); ?></p>
     </div>
   </div>
 </section>
@@ -244,8 +244,8 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_needs_badge', 'WHO IS IT FOR')); ?></span>
       </div>
-      <h2 class="cholera-needs-title"><?php echo esc_html(bp_field('vaccine_needs_title', 'Do you need this vaccine?')); ?></h2>
-      <p class="cholera-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Recommended for travellers heading somewhere higher-risk')); ?></p>
+      <h2 class="cholera-needs-title"><?php echo esc_html(bp_field('vaccine_needs_title', 'Is This Vaccine Right for You?')); ?></h2>
+      <p class="cholera-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Worth a look if your trip involves anything off the tourist trail')); ?></p>
     </div>
 
     <div class="cholera-needs-grid">
@@ -258,12 +258,12 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
           <span class="nhs-card-badge">Recommended For</span>
-          <h3 class="nhs-card-title">Backpackers &amp; Off-the-Beaten-Track Travel</h3>
-          <p class="nhs-card-desc">Ideal if you're staying in local accommodation, travelling rurally, or visiting areas with limited access to clean water.</p>
+          <h3 class="nhs-card-title">Backpackers &amp; Rural Travellers</h3>
+          <p class="nhs-card-desc">If you're bypassing hotels for guesthouses, hostels or homestays, or heading somewhere water access isn't guaranteed, this is for you.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travel to South Asia or Sub-Saharan Africa</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Basic or rural accommodation</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Longer or backpacking-style trips</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Trips through South Asia or Sub-Saharan Africa</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Guesthouses, hostels or homestays</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Extended or backpacking itineraries</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
@@ -278,11 +278,11 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
           </div>
           <span class="nhs-card-badge">Especially Useful</span>
           <h3 class="nhs-card-title">Aid &amp; Healthcare Workers</h3>
-          <p class="nhs-card-desc">Particularly worth considering for humanitarian, disaster relief or healthcare work in cholera-affected regions.</p>
+          <p class="nhs-card-desc">If your work takes you into disaster response or clinical settings in a cholera-affected country, this is a sensible precaution.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Humanitarian &amp; disaster relief work</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Healthcare roles in endemic areas</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Extended stays in higher-risk countries</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Disaster relief and humanitarian postings</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Clinical or healthcare work abroad</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Longer postings in higher-risk countries</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
@@ -300,8 +300,8 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_pricing_badge', 'TRANSPARENT PRICING')); ?></span>
       </div>
-      <h2 class="cholera-pricing-title"><?php echo esc_html(bp_field('vaccine_pricing_title', 'Cholera Vaccination Pricing')); ?></h2>
-      <p class="cholera-pricing-desc"><?php echo esc_html(bp_field('vaccine_pricing_desc', 'One simple price for the full course — no hidden extras')); ?></p>
+      <h2 class="cholera-pricing-title"><?php echo esc_html(bp_field('vaccine_pricing_title', 'What It Costs')); ?></h2>
+      <p class="cholera-pricing-desc"><?php echo esc_html(bp_field('vaccine_pricing_desc', 'One flat rate for the whole course, nothing else to pay')); ?></p>
     </div>
 
     <div class="cholera-pricing-grid">
@@ -314,15 +314,15 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
         </div>
         <ul class="cholera-pricing-includes">
           <li><i class="fas fa-check"></i> Both doses of the vaccine</li>
-          <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
-          <li><i class="fas fa-check"></i> Travel health advice for your destination</li>
-          <li><i class="fas fa-check"></i> Suitable for adults and children 2+</li>
+          <li><i class="fas fa-check"></i> Given by our pharmacist</li>
+          <li><i class="fas fa-check"></i> Travel advice specific to your destination</li>
+          <li><i class="fas fa-check"></i> Suitable from age 2 upwards</li>
         </ul>
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
       </div>
     </div>
 
-    <p class="cholera-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', 'Price is for the standard 2-dose adult course, taken 1–6 weeks apart and completed at least a week before travel. Children aged 2–6 need a 3-dose course — ask our team for pricing.')); ?></p>
+    <p class="cholera-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', 'Quoted price covers the standard 2-dose adult course, given 1–6 weeks apart and finished at least a week before you fly. If your child needs the 3-dose course (ages 2–6), just ask the team for pricing.')); ?></p>
   </div>
 </section>
 
@@ -334,8 +334,8 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_details_badge', 'WHAT TO EXPECT')); ?></span>
       </div>
-      <h2 class="cholera-details-title"><?php echo esc_html(bp_field('vaccine_details_title', 'What to expect at your appointment')); ?></h2>
-      <p class="cholera-details-desc"><?php echo esc_html(bp_field('vaccine_details_desc', 'A simple, friendly visit to our Bowland clinic')); ?></p>
+      <h2 class="cholera-details-title"><?php echo esc_html(bp_field('vaccine_details_title', 'How the Appointment Works')); ?></h2>
+      <p class="cholera-details-desc"><?php echo esc_html(bp_field('vaccine_details_desc', 'A quick visit to our Wythenshawe pharmacy — no fuss, no needles')); ?></p>
     </div>
 
     <div class="cholera-details-grid">
@@ -346,12 +346,12 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
           <p><?php echo esc_html(get_sub_field('description')); ?></p>
         </div>
       <?php endwhile; else : ?>
-        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Travel Risk Check</h3><p>We talk through your itinerary and confirm the cholera vaccine is right for your trip.</p></div>
-        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-glass-water"></i></div><h3>First Dose</h3><p>You drink the sachet mixed with water at the pharmacy — no needles involved.</p></div>
-        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Second Dose</h3><p>We book your second dose 1 to 6 weeks later, at least a week before you fly.</p></div>
-        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Usually well tolerated — occasional mild stomach upset, nausea or a low fever.</p></div>
-        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Suitable from Age 2</h3><p>Given to adults and children from 2 years old, with dosing adjusted by age.</p></div>
-        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Not available on the NHS for travel purposes, so we offer it privately with no referral needed.</p></div>
+        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Itinerary Chat</h3><p>We go through where you're headed and confirm cholera cover makes sense for your trip.</p></div>
+        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-glass-water"></i></div><h3>Dose One, There and Then</h3><p>Mix the sachet with water and drink it in the pharmacy — done in minutes.</p></div>
+        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Dose Two, A Few Weeks Later</h3><p>We'll get your second appointment booked 1–6 weeks out, timed to land before departure.</p></div>
+        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side Effects Are Usually Minor</h3><p>Some people get a mild upset stomach, nausea, or a slight temperature — nothing serious.</p></div>
+        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>From Age 2 Up</h3><p>We vaccinate both adults and children from age 2, adjusting the dose accordingly.</p></div>
+        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private, No Referral</h3><p>Travel cholera vaccination isn't an NHS service — book directly with us, no GP letter needed.</p></div>
       <?php endif; ?>
     </div>
   </div>
@@ -381,11 +381,11 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="cholera-faq-item"><button class="cholera-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is the cholera vaccine an injection?</span><i class="fas fa-plus icon"></i></button><div class="cholera-faq-content"><p>No — it's an oral vaccine. You drink a sachet mixed with a small amount of water at the pharmacy, so there are no needles involved.</p></div></div>
-        <div class="cholera-faq-item"><button class="cholera-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How soon before travel do I need it?</span><i class="fas fa-plus icon"></i></button><div class="cholera-faq-content"><p>Complete both doses at least one week before you fly. Doses are given 1 to 6 weeks apart, so it's best to start the course as early as you can.</p></div></div>
-        <div class="cholera-faq-item"><button class="cholera-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Do I actually need this for my trip?</span><i class="fas fa-plus icon"></i></button><div class="cholera-faq-content"><p>It depends on your itinerary. It's generally recommended for travel to South Asia, Sub-Saharan Africa, Haiti and parts of Central America, particularly if you're staying in local accommodation or areas with limited sanitation. Short stays in good hotels carry much lower risk — our pharmacist can advise based on your trip.</p></div></div>
-        <div class="cholera-faq-item"><button class="cholera-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Does it protect against anything else?</span><i class="fas fa-plus icon"></i></button><div class="cholera-faq-content"><p>Yes — it also gives around 3 months of protection against ETEC, the bacteria responsible for most cases of travellers' diarrhoea.</p></div></div>
-        <div class="cholera-faq-item"><button class="cholera-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="cholera-faq-content"><p>Side effects are uncommon and usually mild — some people notice slight stomach cramps, nausea or a low-grade fever. Serious reactions are rare.</p></div></div>
+        <div class="cholera-faq-item"><button class="cholera-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Will I need an injection?</span><i class="fas fa-plus icon"></i></button><div class="cholera-faq-content"><p>No — it's a drink, not a jab. You mix a sachet with a small amount of water and take it in the pharmacy.</p></div></div>
+        <div class="cholera-faq-item"><button class="cholera-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">When should I start the course?</span><i class="fas fa-plus icon"></i></button><div class="cholera-faq-content"><p>As early as you can. The two doses are spaced 1 to 6 weeks apart, and you need to finish at least a week before you travel.</p></div></div>
+        <div class="cholera-faq-item"><button class="cholera-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is it actually necessary for my trip?</span><i class="fas fa-plus icon"></i></button><div class="cholera-faq-content"><p>Depends where you're going and how. It's generally advised for South Asia, Sub-Saharan Africa, Haiti and parts of Central America — especially outside tourist hotels. A week in a resort carries much lower risk; ask us and we'll give you a straight answer based on your actual itinerary.</p></div></div>
+        <div class="cholera-faq-item"><button class="cholera-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Does it cover anything besides cholera?</span><i class="fas fa-plus icon"></i></button><div class="cholera-faq-content"><p>It does — you also get around 3 months' protection against ETEC, one of the main causes of traveller's diarrhoea, at no extra cost.</p></div></div>
+        <div class="cholera-faq-item"><button class="cholera-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What side effects should I expect?</span><i class="fas fa-plus icon"></i></button><div class="cholera-faq-content"><p>Most people feel nothing at all. A minority get mild stomach cramps, nausea or a slightly raised temperature for a day or so — anything more serious is rare.</p></div></div>
       <?php endif; ?>
     </div>
   </div>
@@ -444,8 +444,8 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
         <?php endif; ?>
       </div>
 
-      <h2 class="cholera-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', 'Protect yourself before you travel')); ?></h2>
-      <p class="cholera-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', 'Book your cholera vaccination with our friendly team in Bowland today. Quick, convenient and professional.')); ?></p>
+      <h2 class="cholera-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', 'Sort Your Cholera Cover Before You Go')); ?></h2>
+      <p class="cholera-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book with our Wythenshawe team and it's one less thing to think about before your trip.")); ?></p>
 
       <div class="cholera-cta-actions">
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Vaccination</a>
