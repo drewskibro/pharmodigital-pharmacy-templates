@@ -322,7 +322,7 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
       </div>
     </div>
 
-    <p class="dtp-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Some patients may be eligible for this booster free on the NHS — ask our team and we\'ll check for you before booking privately.')); ?></p>
+    <p class="dtp-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', "This booster is sometimes available free on the NHS depending on your circumstances — worth asking your GP about that route first if it applies to you.")); ?></p>
   </div>
 </section>
 
@@ -351,7 +351,7 @@ $vaccine_name = dp_field('vaccine_name', 'DTP');
         <div class="dtp-detail-card"><div class="icon"><i class="fas fa-clock"></i></div><h3>Under 20 Minutes</h3><p>A quick appointment, and can be combined with other travel vaccines on the same visit.</p></div>
         <div class="dtp-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Usually mild — soreness at the injection site, a slight fever or headache for a day or two.</p></div>
         <div class="dtp-detail-card"><div class="icon"><i class="fas fa-user-group"></i></div><h3>Combine With Other Jabs</h3><p>Happy to give this alongside other travel vaccines at the same visit, where suitable.</p></div>
-        <div class="dtp-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>NHS or Private</h3><p>Eligible patients may get this free on the NHS — otherwise we offer it privately with no referral needed.</p></div>
+        <div class="dtp-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>NHS or Private</h3><p>This may be free on the NHS depending on your circumstances — otherwise book with us privately, no referral needed.</p></div>
       <?php endif; ?>
     </div>
   </div>
