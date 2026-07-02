@@ -289,6 +289,31 @@ function bowland_pharmacy_scripts() {
         wp_enqueue_script( 'bowland-hepatitisb-js', BOWLAND_PHARMACY_URI . '/assets/js/hepatitisb.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/hepatitisb.js' ), true );
     }
 
+    if ( is_page_template( 'page-templates/page-japaneseencephalitis.php' ) ) {
+        wp_enqueue_style( 'bowland-japaneseencephalitis', BOWLAND_PHARMACY_URI . '/assets/css/japaneseencephalitis.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/japaneseencephalitis.css' ) );
+        wp_enqueue_script( 'bowland-japaneseencephalitis-js', BOWLAND_PHARMACY_URI . '/assets/js/japaneseencephalitis.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/japaneseencephalitis.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-malaria.php' ) ) {
+        wp_enqueue_style( 'bowland-malaria', BOWLAND_PHARMACY_URI . '/assets/css/malaria.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/malaria.css' ) );
+        wp_enqueue_script( 'bowland-malaria-js', BOWLAND_PHARMACY_URI . '/assets/js/malaria.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/malaria.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-pneumonia.php' ) ) {
+        wp_enqueue_style( 'bowland-pneumonia', BOWLAND_PHARMACY_URI . '/assets/css/pneumonia.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/pneumonia.css' ) );
+        wp_enqueue_script( 'bowland-pneumonia-js', BOWLAND_PHARMACY_URI . '/assets/js/pneumonia.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/pneumonia.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-tbe.php' ) ) {
+        wp_enqueue_style( 'bowland-tbe', BOWLAND_PHARMACY_URI . '/assets/css/tbe.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/tbe.css' ) );
+        wp_enqueue_script( 'bowland-tbe-js', BOWLAND_PHARMACY_URI . '/assets/js/tbe.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/tbe.js' ), true );
+    }
+
+    if ( is_page_template( 'page-templates/page-whoopingcough.php' ) ) {
+        wp_enqueue_style( 'bowland-whoopingcough', BOWLAND_PHARMACY_URI . '/assets/css/whoopingcough.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/whoopingcough.css' ) );
+        wp_enqueue_script( 'bowland-whoopingcough-js', BOWLAND_PHARMACY_URI . '/assets/js/whoopingcough.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/whoopingcough.js' ), true );
+    }
+
     // Navigation JS — three-tier Bowland nav, loaded on all pages in footer
     wp_enqueue_script(
         'bowland-nav-js',
