@@ -201,8 +201,8 @@ function bowland_pharmacy_scripts() {
 
     // Vaccination pages
     if ( is_page_template( 'page-templates/page-rabies.php' ) ) {
-        wp_enqueue_style( 'bowland-rabies', BOWLAND_PHARMACY_URI . '/assets/css/rabies.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
-        wp_enqueue_script( 'bowland-rabies-js', BOWLAND_PHARMACY_URI . '/assets/js/rabies.js', array(), BOWLAND_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'bowland-rabies', BOWLAND_PHARMACY_URI . '/assets/css/rabies.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/rabies.css' ) );
+        wp_enqueue_script( 'bowland-rabies-js', BOWLAND_PHARMACY_URI . '/assets/js/rabies.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/rabies.js' ), true );
     }
 
     if ( is_page_template( 'page-templates/page-yellow-fever.php' ) ) {
