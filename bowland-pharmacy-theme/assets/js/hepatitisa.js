@@ -1,8 +1,8 @@
 // ============================================
-// HEPATITIS B OCCUPATIONAL VACCINATION PAGE JAVASCRIPT
+// CHICKENPOX VACCINATION PAGE JAVASCRIPT
 // ============================================
 
-// Nav logic is handled by denton-nav.js
+// Nav logic is handled by bowland-nav.js
 
 // ============================================
 // SCROLL TO BOOKING (Acuity embed)
@@ -15,14 +15,30 @@ function scrollToBooking() {
 }
 
 // ============================================
+// AGE TOGGLE (Adult / Child booking calendar)
+// ============================================
+function switchBookingAge(button) {
+  document.querySelectorAll('.hepatitisa-toggle-btn').forEach(function (btn) {
+    btn.classList.remove('active');
+  });
+  button.classList.add('active');
+
+  var iframe = document.getElementById('hepatitisa-acuity-iframe');
+  var url = button.getAttribute('data-url');
+  if (iframe && url) {
+    iframe.src = url;
+  }
+}
+
+// ============================================
 // FAQ ACCORDION
 // ============================================
 function toggleFAQ(button) {
-  const item = button.closest('.hepb-occ-faq-item');
+  const item = button.closest('.hepatitisa-faq-item');
   const isActive = item.classList.contains('travel-faq-active');
 
   // Close all FAQs
-  document.querySelectorAll('.hepb-occ-faq-item').forEach(faq => {
+  document.querySelectorAll('.hepatitisa-faq-item').forEach(faq => {
     faq.classList.remove('travel-faq-active');
   });
 

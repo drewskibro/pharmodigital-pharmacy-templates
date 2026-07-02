@@ -1,13 +1,13 @@
 /* ============================================
-   HEPATITIS B OCCUPATIONAL PAGE STYLES
-   Uses hepb-occ- prefix
+   CHICKENPOX PAGE STYLES
+   Uses hepatitisb- prefix
    ============================================ */
 
 
 /* ============================================
    O1. HERO — Pattern A Light
    ============================================ */
-.hepb-occ-hero-section {
+.hepatitisb-hero-section {
   position: relative;
   display: flex;
   align-items: center;
@@ -17,13 +17,13 @@
 }
 
 @media (min-width: 1024px) {
-  .hepb-occ-hero-section {
+  .hepatitisb-hero-section {
     padding: 4rem 0;
     min-height: 85vh;
   }
 }
 
-.hepb-occ-hero-bg {
+.hepatitisb-hero-bg {
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgba(63, 115, 174, 0.05) 1px, transparent 1px);
@@ -32,7 +32,7 @@
   pointer-events: none;
 }
 
-.hepb-occ-hero-dots {
+.hepatitisb-hero-dots {
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
@@ -41,7 +41,7 @@
   pointer-events: none;
 }
 
-.hepb-occ-hero-glow-1 {
+.hepatitisb-hero-glow-1 {
   position: absolute;
   top: -10%;
   right: -5%;
@@ -55,7 +55,7 @@
   pointer-events: none;
 }
 
-.hepb-occ-hero-glow-2 {
+.hepatitisb-hero-glow-2 {
   position: absolute;
   bottom: -10%;
   left: -5%;
@@ -69,7 +69,7 @@
   pointer-events: none;
 }
 
-.hepb-occ-hero-grid {
+.hepatitisb-hero-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 4rem;
@@ -79,23 +79,23 @@
 }
 
 @media (min-width: 1024px) {
-  .hepb-occ-hero-grid {
+  .hepatitisb-hero-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 /* Left Content */
-.hepb-occ-hero-content {
+.hepatitisb-hero-content {
   text-align: center;
 }
 
 @media (min-width: 1024px) {
-  .hepb-occ-hero-content {
+  .hepatitisb-hero-content {
     text-align: left;
   }
 }
 
-.hepb-occ-hero-title {
+.hepatitisb-hero-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #0f172a;
@@ -106,18 +106,18 @@
 }
 
 @media (min-width: 768px) {
-  .hepb-occ-hero-title {
+  .hepatitisb-hero-title {
     font-size: 3.5rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .hepb-occ-hero-title {
+  .hepatitisb-hero-title {
     font-size: 4rem;
   }
 }
 
-.hepb-occ-hero-description {
+.hepatitisb-hero-description {
   font-size: 1.0625rem;
   color: var(--text-gray);
   line-height: 1.7;
@@ -127,19 +127,19 @@
 }
 
 @media (min-width: 768px) {
-  .hepb-occ-hero-description {
+  .hepatitisb-hero-description {
     font-size: 1.125rem;
   }
 }
 
 @media (max-width: 1023px) {
-  .hepb-occ-hero-description {
+  .hepatitisb-hero-description {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-.hepb-occ-hero-actions {
+.hepatitisb-hero-actions {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -147,18 +147,18 @@
 }
 
 @media (min-width: 640px) {
-  .hepb-occ-hero-actions {
+  .hepatitisb-hero-actions {
     flex-direction: row;
   }
 }
 
 @media (max-width: 1023px) {
-  .hepb-occ-hero-actions {
+  .hepatitisb-hero-actions {
     justify-content: center;
   }
 }
 
-.hepb-occ-hero-trust {
+.hepatitisb-hero-trust {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -167,37 +167,37 @@
 }
 
 @media (min-width: 1024px) {
-  .hepb-occ-hero-trust {
+  .hepatitisb-hero-trust {
     justify-content: flex-start;
   }
 }
 
-.hepb-occ-hero-trust-item {
+.hepatitisb-hero-trust-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.hepb-occ-hero-trust-item i {
+.hepatitisb-hero-trust-item i {
   color: var(--brand-primary);
   font-size: 1.125rem;
 }
 
-.hepb-occ-hero-trust-item span {
+.hepatitisb-hero-trust-item span {
   font-size: 0.9375rem;
   font-weight: 600;
   color: var(--text-slate);
 }
 
 /* Right Visual — Pricing Trust Card */
-.hepb-occ-hero-visual {
+.hepatitisb-hero-visual {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hepb-occ-trust-card {
+.hepatitisb-trust-card {
   position: relative;
   width: 100%;
   max-width: 420px;
@@ -209,11 +209,11 @@
   transition: transform 0.5s ease;
 }
 
-.hepb-occ-trust-card:hover {
+.hepatitisb-trust-card:hover {
   transform: rotate(0deg);
 }
 
-.hepb-occ-trust-card-glow {
+.hepatitisb-trust-card-glow {
   position: absolute;
   top: -30%;
   right: -20%;
@@ -225,21 +225,21 @@
   pointer-events: none;
 }
 
-.hepb-occ-trust-card-inner {
+.hepatitisb-trust-card-inner {
   position: relative;
   z-index: 2;
   padding: 3rem 2.5rem;
 }
 
 /* Card header — icon + label */
-.hepb-occ-trust-card-header {
+.hepatitisb-trust-card-header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 2.5rem;
 }
 
-.hepb-occ-trust-card-icon {
+.hepatitisb-trust-card-icon {
   width: 3rem;
   height: 3rem;
   background: rgba(255, 255, 255, 0.15);
@@ -254,7 +254,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.hepb-occ-trust-card-label {
+.hepatitisb-trust-card-label {
   font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -263,12 +263,12 @@
 }
 
 /* Price block */
-.hepb-occ-trust-card-price {
+.hepatitisb-trust-card-price {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.hepb-occ-trust-card-amount {
+.hepatitisb-trust-card-amount {
   display: block;
   font-family: var(--font-heading);
   font-size: 4rem;
@@ -280,7 +280,7 @@
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.hepb-occ-trust-card-sub {
+.hepatitisb-trust-card-sub {
   display: block;
   font-size: 1.125rem;
   font-weight: 600;
@@ -288,14 +288,14 @@
 }
 
 /* Divider */
-.hepb-occ-trust-card-divider {
+.hepatitisb-trust-card-divider {
   height: 1px;
   background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
   margin-bottom: 1.5rem;
 }
 
 /* Trust list */
-.hepb-occ-trust-card-list {
+.hepatitisb-trust-card-list {
   list-style: none;
   padding: 0;
   margin: 0 0 2rem;
@@ -304,7 +304,7 @@
   gap: 0.875rem;
 }
 
-.hepb-occ-trust-card-list li {
+.hepatitisb-trust-card-list li {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -313,7 +313,7 @@
   font-weight: 600;
 }
 
-.hepb-occ-trust-card-list li i {
+.hepatitisb-trust-card-list li i {
   width: 1.5rem;
   height: 1.5rem;
   background: rgba(255, 255, 255, 0.15);
@@ -326,7 +326,7 @@
 }
 
 /* Footer — GPhC */
-.hepb-occ-trust-card-footer {
+.hepatitisb-trust-card-footer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -342,12 +342,12 @@
   font-weight: 600;
 }
 
-.hepb-occ-trust-card-footer i {
+.hepatitisb-trust-card-footer i {
   font-size: 0.875rem;
 }
 
 /* Floating test-count badge */
-.hepb-occ-hero-float-badge {
+.hepatitisb-hero-float-badge {
   position: absolute;
   right: 0.5rem;
   bottom: 6rem;
@@ -365,18 +365,18 @@
 }
 
 @media (min-width: 1024px) {
-  .hepb-occ-hero-float-badge {
+  .hepatitisb-hero-float-badge {
     display: block;
   }
 }
 
 @media (min-width: 1280px) {
-  .hepb-occ-hero-float-badge {
+  .hepatitisb-hero-float-badge {
     right: 0rem;
   }
 }
 
-.hepb-occ-hero-float-number {
+.hepatitisb-hero-float-number {
   display: block;
   font-family: var(--font-heading);
   font-size: 3rem;
@@ -386,7 +386,7 @@
   margin-bottom: 0.25rem;
 }
 
-.hepb-occ-hero-float-label {
+.hepatitisb-hero-float-label {
   display: block;
   font-size: 0.75rem;
   font-weight: 700;
@@ -400,29 +400,29 @@
 /* ============================================
    PROTECTION SECTION
    ============================================ */
-.hepb-occ-protect-section {
+.hepatitisb-protect-section {
   padding: 6rem 0;
   background: var(--white);
 }
 
-.hepb-occ-protect-header {
+.hepatitisb-protect-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hepb-occ-protect-title {
+.hepatitisb-protect-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #0f172a;
   margin-bottom: 1rem;
 }
 
-.hepb-occ-protect-desc {
+.hepatitisb-protect-desc {
   font-size: 1.125rem;
   color: var(--text-gray);
 }
 
-.hepb-occ-protect-grid {
+.hepatitisb-protect-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 4rem;
@@ -430,16 +430,16 @@
 }
 
 @media (min-width: 1024px) {
-  .hepb-occ-protect-grid {
+  .hepatitisb-protect-grid {
     grid-template-columns: 5fr 7fr;
   }
 }
 
-.hepb-occ-protect-image-wrapper {
+.hepatitisb-protect-image-wrapper {
   position: relative;
 }
 
-.hepb-occ-protect-image-card {
+.hepatitisb-protect-image-card {
   position: relative;
   border-radius: 2rem;
   overflow: hidden;
@@ -447,13 +447,13 @@
   border: 4px solid var(--white);
 }
 
-.hepb-occ-protect-image {
+.hepatitisb-protect-image {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.hepb-occ-protect-name-tag {
+.hepatitisb-protect-name-tag {
   position: absolute;
   bottom: 2rem;
   left: 2rem;
@@ -465,7 +465,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.hepb-occ-protect-name-tag .name {
+.hepatitisb-protect-name-tag .name {
   display: block;
   font-size: 1.125rem;
   font-weight: 800;
@@ -473,14 +473,14 @@
   font-family: var(--font-heading);
 }
 
-.hepb-occ-protect-name-tag .role {
+.hepatitisb-protect-name-tag .role {
   display: block;
   font-size: 0.875rem;
   color: var(--text-gray);
   font-weight: 600;
 }
 
-.hepb-occ-protect-badge-box {
+.hepatitisb-protect-badge-box {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -494,11 +494,11 @@
   border: 1px solid rgba(63, 115, 174, 0.2);
 }
 
-.hepb-occ-protect-badge-box i {
+.hepatitisb-protect-badge-box i {
   font-size: 1rem;
 }
 
-.hepb-occ-protect-subtitle {
+.hepatitisb-protect-subtitle {
   font-size: 1.75rem;
   font-weight: 800;
   color: #0f172a;
@@ -506,14 +506,14 @@
   line-height: 1.3;
 }
 
-.hepb-occ-protect-text {
+.hepatitisb-protect-text {
   font-size: 1.125rem;
   color: var(--text-gray);
   line-height: 1.7;
   margin-bottom: 2rem;
 }
 
-.hepb-occ-protect-features {
+.hepatitisb-protect-features {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -521,18 +521,18 @@
 }
 
 @media (min-width: 768px) {
-  .hepb-occ-protect-features {
+  .hepatitisb-protect-features {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.hepb-occ-protect-feature {
+.hepatitisb-protect-feature {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
 }
 
-.hepb-occ-protect-feature .icon {
+.hepatitisb-protect-feature .icon {
   width: 2.5rem;
   height: 2.5rem;
   background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
@@ -545,20 +545,20 @@
   box-shadow: 0 4px 10px rgba(63, 115, 174, 0.25);
 }
 
-.hepb-occ-protect-feature .text strong {
+.hepatitisb-protect-feature .text strong {
   display: block;
   font-size: 1rem;
   color: #0f172a;
   margin-bottom: 0.25rem;
 }
 
-.hepb-occ-protect-feature .text p {
+.hepatitisb-protect-feature .text p {
   font-size: 0.9375rem;
   color: var(--text-gray);
   line-height: 1.5;
 }
 
-.hepb-occ-protect-actions {
+.hepatitisb-protect-actions {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -566,7 +566,7 @@
 }
 
 @media (min-width: 640px) {
-  .hepb-occ-protect-actions {
+  .hepatitisb-protect-actions {
     flex-direction: row;
   }
 }
@@ -574,14 +574,14 @@
 /* ============================================
    STATS BAR
    ============================================ */
-.hepb-occ-stats-section {
+.hepatitisb-stats-section {
   background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
   padding: 3rem 0;
   position: relative;
   overflow: hidden;
 }
 
-.hepb-occ-stats-bar {
+.hepatitisb-stats-bar {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -590,19 +590,19 @@
 }
 
 @media (min-width: 768px) {
-  .hepb-occ-stats-bar {
+  .hepatitisb-stats-bar {
     flex-direction: row;
     justify-content: space-between;
   }
 }
 
-.hepb-occ-stat-item {
+.hepatitisb-stat-item {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.hepb-occ-stat-item .icon {
+.hepatitisb-stat-item .icon {
   width: 3.5rem;
   height: 3.5rem;
   background: rgba(255, 255, 255, 0.2);
@@ -614,12 +614,12 @@
   font-size: 1.5rem;
 }
 
-.hepb-occ-stat-item .content {
+.hepatitisb-stat-item .content {
   display: flex;
   flex-direction: column;
 }
 
-.hepb-occ-stat-item .number {
+.hepatitisb-stat-item .number {
   font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 900;
@@ -627,7 +627,7 @@
   line-height: 1;
 }
 
-.hepb-occ-stat-item .label {
+.hepatitisb-stat-item .label {
   font-size: 0.875rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
@@ -635,7 +635,7 @@
   letter-spacing: 0.05em;
 }
 
-.hepb-occ-stat-divider {
+.hepatitisb-stat-divider {
   display: none;
   width: 1px;
   height: 3rem;
@@ -643,7 +643,7 @@
 }
 
 @media (min-width: 768px) {
-  .hepb-occ-stat-divider {
+  .hepatitisb-stat-divider {
     display: block;
   }
 }
@@ -651,30 +651,30 @@
 /* ============================================
    ABOUT SECTION
    ============================================ */
-.hepb-occ-about-section {
+.hepatitisb-about-section {
   padding: 6rem 0;
   background: var(--brand-light);
 }
 
-.hepb-occ-about-header {
+.hepatitisb-about-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hepb-occ-about-title {
+.hepatitisb-about-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #0f172a;
   margin-bottom: 1rem;
 }
 
-.hepb-occ-about-desc {
+.hepatitisb-about-desc {
   font-size: 1.125rem;
   color: var(--text-gray);
 }
 
 /* Enhanced Grid Layout */
-.hepb-occ-about-content-grid {
+.hepatitisb-about-content-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
@@ -684,18 +684,18 @@
 }
 
 @media (min-width: 1024px) {
-  .hepb-occ-about-content-grid {
+  .hepatitisb-about-content-grid {
     grid-template-columns: 40% 1fr;
     gap: 4rem;
   }
 }
 
-.hepb-occ-about-image-wrapper {
+.hepatitisb-about-image-wrapper {
   position: relative;
   width: 100%;
 }
 
-.hepb-occ-about-image-card {
+.hepatitisb-about-image-card {
   position: relative;
   border-radius: 2rem;
   overflow: hidden;
@@ -703,30 +703,30 @@
   aspect-ratio: 3/4;
 }
 
-.hepb-occ-about-image-card img {
+.hepatitisb-about-image-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.7s ease;
 }
 
-.hepb-occ-about-image-card:hover img {
+.hepatitisb-about-image-card:hover img {
   transform: scale(1.05);
 }
 
-.hepb-occ-about-cards-grid {
+.hepatitisb-about-cards-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
 @media (min-width: 768px) {
-  .hepb-occ-about-cards-grid {
+  .hepatitisb-about-cards-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.hepb-occ-info-card {
+.hepatitisb-info-card {
   background: var(--white);
   padding: 2rem;
   border-radius: 1.5rem;
@@ -735,12 +735,12 @@
   transition: transform 0.3s ease;
 }
 
-.hepb-occ-info-card:hover {
+.hepatitisb-info-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(63, 115, 174, 0.1);
 }
 
-.hepb-occ-info-card .icon {
+.hepatitisb-info-card .icon {
   width: 3rem;
   height: 3rem;
   background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
@@ -754,20 +754,20 @@
   box-shadow: 0 4px 10px rgba(63, 115, 174, 0.25);
 }
 
-.hepb-occ-info-card h3 {
+.hepatitisb-info-card h3 {
   font-size: 1.25rem;
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 0.75rem;
 }
 
-.hepb-occ-info-card p {
+.hepatitisb-info-card p {
   font-size: 1rem;
   color: var(--text-gray);
   line-height: 1.6;
 }
 
-.hepb-occ-about-callout {
+.hepatitisb-about-callout {
   background: linear-gradient(135deg, rgba(63, 115, 174, 0.07), rgba(121, 188, 46, 0.05));
   border: 2px solid rgba(63, 115, 174, 0.15);
   border-radius: 1.5rem;
@@ -777,7 +777,7 @@
   margin: 0 auto;
 }
 
-.hepb-occ-about-callout .badge {
+.hepatitisb-about-callout .badge {
   display: inline-block;
   background: var(--brand-primary);
   color: var(--white);
@@ -789,14 +789,14 @@
   letter-spacing: 0.05em;
 }
 
-.hepb-occ-about-callout h3 {
+.hepatitisb-about-callout h3 {
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--brand-dark);
   margin-bottom: 1rem;
 }
 
-.hepb-occ-about-callout p {
+.hepatitisb-about-callout p {
   font-size: 1.125rem;
   color: var(--text-gray);
   line-height: 1.6;
@@ -805,29 +805,29 @@
 /* ============================================
    WHO NEEDS VACCINATION
    ============================================ */
-.hepb-occ-needs-section {
+.hepatitisb-needs-section {
   padding: 6rem 0;
   background: var(--white);
 }
 
-.hepb-occ-needs-header {
+.hepatitisb-needs-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hepb-occ-needs-title {
+.hepatitisb-needs-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #0f172a;
   margin-bottom: 1rem;
 }
 
-.hepb-occ-needs-desc {
+.hepatitisb-needs-desc {
   font-size: 1.125rem;
   color: var(--text-gray);
 }
 
-.hepb-occ-needs-grid {
+.hepatitisb-needs-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -835,29 +835,29 @@
 }
 
 @media (min-width: 768px) {
-  .hepb-occ-needs-grid {
+  .hepatitisb-needs-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.hepb-occ-needs-card {
+.hepatitisb-needs-card {
   padding: 2.5rem;
   border-radius: 2rem;
   position: relative;
   overflow: hidden;
 }
 
-.hepb-occ-needs-card.recommended {
+.hepatitisb-needs-card.recommended {
   background: #f0fdf4;
   border: 2px solid #bbf7d0;
 }
 
-.hepb-occ-needs-card.consider {
+.hepatitisb-needs-card.consider {
   background: #fffbeb;
   border: 2px solid #fcd34d;
 }
 
-.hepb-occ-needs-card .card-badge {
+.hepatitisb-needs-card .card-badge {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
@@ -867,35 +867,35 @@
   border-radius: 9999px;
 }
 
-.hepb-occ-needs-card.recommended .card-badge {
+.hepatitisb-needs-card.recommended .card-badge {
   background: #16a34a;
   color: var(--white);
 }
 
-.hepb-occ-needs-card.consider .card-badge {
+.hepatitisb-needs-card.consider .card-badge {
   background: #f59f00;
   color: var(--white);
 }
 
-.hepb-occ-needs-card h3 {
+.hepatitisb-needs-card h3 {
   font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
 }
 
-.hepb-occ-needs-card.recommended h3 { color: #14532d; }
-.hepb-occ-needs-card.consider h3 { color: #92400e; }
+.hepatitisb-needs-card.recommended h3 { color: #14532d; }
+.hepatitisb-needs-card.consider h3 { color: #92400e; }
 
-.hepb-occ-needs-card p {
+.hepatitisb-needs-card p {
   font-size: 1.0625rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-.hepb-occ-needs-card.recommended p { color: #14532d; }
-.hepb-occ-needs-card.consider p { color: #78350f; }
+.hepatitisb-needs-card.recommended p { color: #14532d; }
+.hepatitisb-needs-card.consider p { color: #78350f; }
 
-.hepb-occ-needs-card .check-list {
+.hepatitisb-needs-card .check-list {
   list-style: none;
   padding: 0;
   display: flex;
@@ -903,48 +903,48 @@
   gap: 0.75rem;
 }
 
-.hepb-occ-needs-card .check-list li {
+.hepatitisb-needs-card .check-list li {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
   font-weight: 600;
 }
 
-.hepb-occ-needs-card.recommended .check-list li { color: #14532d; }
-.hepb-occ-needs-card.consider .check-list li { color: #92400e; }
+.hepatitisb-needs-card.recommended .check-list li { color: #14532d; }
+.hepatitisb-needs-card.consider .check-list li { color: #92400e; }
 
-.hepb-occ-needs-card .check-list i {
+.hepatitisb-needs-card .check-list i {
   margin-top: 0.25rem;
 }
 
 /* ============================================
    RISK ZONES
    ============================================ */
-.hepb-occ-risk-section {
+.hepatitisb-risk-section {
   padding: 6rem 0;
   background: var(--brand-light);
 }
 
-.hepb-occ-risk-header {
+.hepatitisb-risk-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hepb-occ-risk-title {
+.hepatitisb-risk-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #0f172a;
   margin-bottom: 1rem;
 }
 
-.hepb-occ-risk-desc {
+.hepatitisb-risk-desc {
   font-size: 1.125rem;
   color: var(--text-gray);
   max-width: 800px;
   margin: 0 auto;
 }
 
-.hepb-occ-risk-grid {
+.hepatitisb-risk-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -952,13 +952,13 @@
 }
 
 @media (min-width: 1024px) {
-  .hepb-occ-risk-grid {
+  .hepatitisb-risk-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 /* Destination Images */
-.hepb-occ-destination-image {
+.hepatitisb-destination-image {
   position: relative;
   width: 100%;
   height: 300px;
@@ -968,18 +968,18 @@
   box-shadow: 0 15px 40px rgba(63, 115, 174, 0.1);
 }
 
-.hepb-occ-destination-image img {
+.hepatitisb-destination-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.7s ease;
 }
 
-.hepb-occ-destination-image:hover img {
+.hepatitisb-destination-image:hover img {
   transform: scale(1.05);
 }
 
-.hepb-occ-risk-card {
+.hepatitisb-risk-card {
   background: var(--white);
   border-radius: 2rem;
   padding: 2.5rem;
@@ -987,15 +987,15 @@
   border: 1px solid rgba(63, 115, 174, 0.12);
 }
 
-.hepb-occ-risk-card.high {
+.hepatitisb-risk-card.high {
   border-top: 6px solid #e11d48;
 }
 
-.hepb-occ-risk-card.moderate {
+.hepatitisb-risk-card.moderate {
   border-top: 6px solid #f59f00;
 }
 
-.hepb-occ-risk-card .card-icon {
+.hepatitisb-risk-card .card-icon {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -1006,38 +1006,38 @@
   margin-bottom: 1.5rem;
 }
 
-.hepb-occ-risk-card.high .card-icon {
+.hepatitisb-risk-card.high .card-icon {
   background: #fff1f2;
   color: #e11d48;
 }
 
-.hepb-occ-risk-card.moderate .card-icon {
+.hepatitisb-risk-card.moderate .card-icon {
   background: #fffbeb;
   color: #f59f00;
 }
 
-.hepb-occ-risk-card h3 {
+.hepatitisb-risk-card h3 {
   font-size: 1.75rem;
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 1rem;
 }
 
-.hepb-occ-risk-card .desc {
+.hepatitisb-risk-card .desc {
   font-size: 1.0625rem;
   color: var(--text-gray);
   margin-bottom: 2rem;
   line-height: 1.6;
 }
 
-.hepb-occ-risk-card .country-list {
+.hepatitisb-risk-card .country-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
 
-.hepb-occ-risk-card .country-list span {
+.hepatitisb-risk-card .country-list span {
   background: #f3f4f6;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -1046,12 +1046,12 @@
   color: #374151;
 }
 
-.hepb-occ-risk-footer {
+.hepatitisb-risk-footer {
   text-align: center;
   margin-top: 4rem;
 }
 
-.hepb-occ-risk-footer .info-badge {
+.hepatitisb-risk-footer .info-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -1064,11 +1064,11 @@
   border: 1px solid rgba(63, 115, 174, 0.2);
 }
 
-.hepb-occ-risk-footer .info-badge i {
+.hepatitisb-risk-footer .info-badge i {
   color: var(--brand-primary);
 }
 
-.hepb-occ-risk-footer .actions {
+.hepatitisb-risk-footer .actions {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
@@ -1078,47 +1078,47 @@
 /* ============================================
    DETAILS SECTION
    ============================================ */
-.hepb-occ-details-section {
+.hepatitisb-details-section {
   padding: 6rem 0;
   background: var(--white);
 }
 
-.hepb-occ-details-header {
+.hepatitisb-details-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hepb-occ-details-title {
+.hepatitisb-details-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #0f172a;
   margin-bottom: 1rem;
 }
 
-.hepb-occ-details-desc {
+.hepatitisb-details-desc {
   font-size: 1.125rem;
   color: var(--text-gray);
 }
 
-.hepb-occ-details-grid {
+.hepatitisb-details-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
 @media (min-width: 768px) {
-  .hepb-occ-details-grid {
+  .hepatitisb-details-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .hepb-occ-details-grid {
+  .hepatitisb-details-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.hepb-occ-detail-card {
+.hepatitisb-detail-card {
   background: #f9fafb;
   padding: 2rem;
   border-radius: 1.5rem;
@@ -1126,14 +1126,14 @@
   transition: all 0.3s ease;
 }
 
-.hepb-occ-detail-card:hover {
+.hepatitisb-detail-card:hover {
   background: var(--white);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   border-color: rgba(63, 115, 174, 0.25);
   transform: translateY(-4px);
 }
 
-.hepb-occ-detail-card .icon {
+.hepatitisb-detail-card .icon {
   width: 3rem;
   height: 3rem;
   background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
@@ -1146,14 +1146,14 @@
   margin-bottom: 1.5rem;
 }
 
-.hepb-occ-detail-card h3 {
+.hepatitisb-detail-card h3 {
   font-size: 1.25rem;
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 0.75rem;
 }
 
-.hepb-occ-detail-card p {
+.hepatitisb-detail-card p {
   font-size: 1rem;
   color: var(--text-gray);
   line-height: 1.6;
@@ -1162,24 +1162,24 @@
 /* ============================================
    FAQ SECTION
    ============================================ */
-.hepb-occ-faq-section {
+.hepatitisb-faq-section {
   padding: 6rem 0;
   background: var(--brand-light);
 }
 
-.hepb-occ-faq-header {
+.hepatitisb-faq-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.hepb-occ-faq-title {
+.hepatitisb-faq-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #0f172a;
   margin-bottom: 1rem;
 }
 
-.hepb-occ-faq-list {
+.hepatitisb-faq-list {
   max-width: 800px;
   margin: 0 auto;
   display: flex;
@@ -1187,7 +1187,7 @@
   gap: 1rem;
 }
 
-.hepb-occ-faq-item {
+.hepatitisb-faq-item {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -1197,19 +1197,19 @@
   transition: all 0.4s ease;
 }
 
-.hepb-occ-faq-item:hover {
+.hepatitisb-faq-item:hover {
   border-color: rgba(63, 115, 174, 0.3);
   box-shadow: 0 20px 50px rgba(63, 115, 174, 0.12);
   transform: translateY(-2px);
 }
 
-.hepb-occ-faq-item.travel-faq-active {
+.hepatitisb-faq-item.travel-faq-active {
   box-shadow: 0 8px 20px rgba(63, 115, 174, 0.1);
   border-color: var(--brand-primary);
   background: var(--white);
 }
 
-.hepb-occ-faq-btn {
+.hepatitisb-faq-btn {
   width: 100%;
   display: flex;
   align-items: center;
@@ -1221,7 +1221,7 @@
   text-align: left;
 }
 
-.hepb-occ-faq-btn .num {
+.hepatitisb-faq-btn .num {
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 900;
@@ -1237,47 +1237,47 @@
   box-shadow: 0 4px 10px rgba(63, 115, 174, 0.3);
 }
 
-.hepb-occ-faq-btn .text {
+.hepatitisb-faq-btn .text {
   flex: 1;
   font-size: 1.125rem;
   font-weight: 700;
   color: #0f172a;
 }
 
-.hepb-occ-faq-btn .icon {
+.hepatitisb-faq-btn .icon {
   color: var(--brand-primary);
   transition: transform 0.3s ease;
   font-size: 1.25rem;
 }
 
-.hepb-occ-faq-item.travel-faq-active .icon {
+.hepatitisb-faq-item.travel-faq-active .icon {
   transform: rotate(45deg);
 }
 
-.hepb-occ-faq-content {
+.hepatitisb-faq-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
-.hepb-occ-faq-item.travel-faq-active .hepb-occ-faq-content {
+.hepatitisb-faq-item.travel-faq-active .hepatitisb-faq-content {
   max-height: 300px;
   padding: 0 2rem 2rem 5.5rem;
 }
 
-.hepb-occ-faq-content p {
+.hepatitisb-faq-content p {
   font-size: 1.0625rem;
   color: var(--text-gray);
   line-height: 1.7;
 }
 
 @media (max-width: 640px) {
-  .hepb-occ-faq-btn {
+  .hepatitisb-faq-btn {
     padding: 1.25rem;
     gap: 1rem;
   }
 
-  .hepb-occ-faq-item.travel-faq-active .hepb-occ-faq-content {
+  .hepatitisb-faq-item.travel-faq-active .hepatitisb-faq-content {
     padding: 0 1.25rem 1.5rem 1.25rem;
   }
 }
@@ -1285,7 +1285,7 @@
 /* ============================================
    CTA SECTION
    ============================================ */
-.hepb-occ-cta-section {
+.hepatitisb-cta-section {
   position: relative;
   background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
   padding: 6rem 0;
@@ -1293,7 +1293,7 @@
   text-align: center;
 }
 
-.hepb-occ-cta-bg {
+.hepatitisb-cta-bg {
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
@@ -1301,12 +1301,12 @@
   pointer-events: none;
 }
 
-.hepb-occ-cta-content {
+.hepatitisb-cta-content {
   position: relative;
   z-index: 10;
 }
 
-.hepb-occ-cta-badges {
+.hepatitisb-cta-badges {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -1314,7 +1314,7 @@
   flex-wrap: wrap;
 }
 
-.hepb-occ-cta-badges .badge {
+.hepatitisb-cta-badges .badge {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -1326,14 +1326,14 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.hepb-occ-cta-title {
+.hepatitisb-cta-title {
   font-size: 3rem;
   font-weight: 900;
   color: var(--white);
   margin-bottom: 1.5rem;
 }
 
-.hepb-occ-cta-desc {
+.hepatitisb-cta-desc {
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.95);
   max-width: 700px;
@@ -1341,29 +1341,29 @@
   line-height: 1.6;
 }
 
-.hepb-occ-cta-actions {
+.hepatitisb-cta-actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 3rem;
 }
 
-.hepb-occ-cta-actions .white-btn {
+.hepatitisb-cta-actions .white-btn {
   background: #ffffff;
   color: var(--brand-dark);
 }
 
-.hepb-occ-cta-actions .white-btn:hover {
+.hepatitisb-cta-actions .white-btn:hover {
   background: rgba(255, 255, 255, 0.9);
 }
 
-.hepb-occ-cta-actions .outline-btn {
+.hepatitisb-cta-actions .outline-btn {
   background: transparent;
   color: var(--white);
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-.hepb-occ-cta-actions .outline-btn:hover {
+.hepatitisb-cta-actions .outline-btn:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: var(--white);
 }
@@ -1371,35 +1371,35 @@
 /* ============================================
    PRICING SECTION
    ============================================ */
-.hepb-occ-pricing-section {
+.hepatitisb-pricing-section {
   padding: 5rem 0;
   background: var(--brand-light);
 }
 
-.hepb-occ-pricing-header {
+.hepatitisb-pricing-header {
   text-align: center;
   max-width: 640px;
   margin: 0 auto 3rem;
 }
 
-.hepb-occ-pricing-title {
+.hepatitisb-pricing-title {
   font-family: var(--font-heading);
   font-size: 2.25rem;
   color: var(--text-dark);
   margin: 1rem 0 0.75rem;
 }
 
-.hepb-occ-pricing-desc {
+.hepatitisb-pricing-desc {
   color: var(--text-gray);
   font-size: 1.0625rem;
 }
 
-.hepb-occ-pricing-grid {
+.hepatitisb-pricing-grid {
   display: flex;
   justify-content: center;
 }
 
-.hepb-occ-pricing-card {
+.hepatitisb-pricing-card {
   position: relative;
   background: var(--white);
   border-radius: 1.5rem;
@@ -1411,11 +1411,11 @@
   border: 1px solid rgba(63, 115, 174, 0.12);
 }
 
-.hepb-occ-pricing-card.featured {
+.hepatitisb-pricing-card.featured {
   border: 2px solid var(--brand-primary);
 }
 
-.hepb-occ-pricing-ribbon {
+.hepatitisb-pricing-ribbon {
   position: absolute;
   top: -0.85rem;
   left: 50%;
@@ -1432,14 +1432,14 @@
   white-space: nowrap;
 }
 
-.hepb-occ-pricing-name {
+.hepatitisb-pricing-name {
   font-family: var(--font-heading);
   font-size: 1.375rem;
   color: var(--text-dark);
   margin-bottom: 0.75rem;
 }
 
-.hepb-occ-pricing-amount {
+.hepatitisb-pricing-amount {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1447,7 +1447,7 @@
   margin-bottom: 1.5rem;
 }
 
-.hepb-occ-pricing-amount .price {
+.hepatitisb-pricing-amount .price {
   font-family: var(--font-heading);
   font-size: 3.25rem;
   font-weight: 800;
@@ -1458,12 +1458,12 @@
   -webkit-text-fill-color: transparent;
 }
 
-.hepb-occ-pricing-amount .per {
+.hepatitisb-pricing-amount .per {
   color: var(--text-slate);
   font-size: 0.95rem;
 }
 
-.hepb-occ-pricing-includes {
+.hepatitisb-pricing-includes {
   list-style: none;
   padding: 0;
   margin: 0 0 1.75rem;
@@ -1472,7 +1472,7 @@
   gap: 0.65rem;
 }
 
-.hepb-occ-pricing-includes li {
+.hepatitisb-pricing-includes li {
   display: flex;
   align-items: flex-start;
   gap: 0.6rem;
@@ -1480,18 +1480,18 @@
   font-size: 0.95rem;
 }
 
-.hepb-occ-pricing-includes li i {
+.hepatitisb-pricing-includes li i {
   color: var(--brand-secondary);
   margin-top: 0.2rem;
   flex-shrink: 0;
 }
 
-.hepb-occ-pricing-card .cta-button {
+.hepatitisb-pricing-card .cta-button {
   width: 100%;
   justify-content: center;
 }
 
-.hepb-occ-pricing-note {
+.hepatitisb-pricing-note {
   text-align: center;
   max-width: 640px;
   margin: 2rem auto 0;
@@ -1503,15 +1503,15 @@
 /* ============================================
    BOOKING SECTION (Acuity embed)
    ============================================ */
-.hepb-occ-booking-section {
+.hepatitisb-booking-section {
   position: relative;
   overflow: hidden;
   padding: 5rem 0;
   background: linear-gradient(180deg, var(--white) 0%, var(--brand-light) 100%);
 }
 
-.hepb-occ-booking-blob-1,
-.hepb-occ-booking-blob-2 {
+.hepatitisb-booking-blob-1,
+.hepatitisb-booking-blob-2 {
   position: absolute;
   border-radius: 50%;
   filter: blur(70px);
@@ -1519,7 +1519,7 @@
   z-index: 0;
 }
 
-.hepb-occ-booking-blob-1 {
+.hepatitisb-booking-blob-1 {
   width: 320px;
   height: 320px;
   background: rgba(63, 115, 174, 0.1);
@@ -1527,7 +1527,7 @@
   left: -80px;
 }
 
-.hepb-occ-booking-blob-2 {
+.hepatitisb-booking-blob-2 {
   width: 280px;
   height: 280px;
   background: rgba(121, 188, 46, 0.1);
@@ -1535,30 +1535,55 @@
   right: -60px;
 }
 
-.hepb-occ-booking-section .section-container {
+.hepatitisb-booking-section .section-container {
   position: relative;
   z-index: 1;
 }
 
-.hepb-occ-booking-header {
+.hepatitisb-booking-header {
   text-align: center;
   max-width: 640px;
   margin: 0 auto 2.5rem;
 }
 
-.hepb-occ-booking-title {
+.hepatitisb-booking-title {
   font-family: var(--font-heading);
   font-size: 2.25rem;
   color: var(--text-dark);
   margin-bottom: 0.75rem;
 }
 
-.hepb-occ-booking-desc {
+.hepatitisb-booking-desc {
   color: var(--text-gray);
   font-size: 1.0625rem;
 }
 
-.hepb-occ-booking-embed {
+.hepatitisb-booking-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.hepatitisb-toggle-btn {
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding: 0.65rem 1.5rem;
+  border-radius: 9999px;
+  border: 2px solid var(--brand-primary, #3f73ae);
+  background: var(--white);
+  color: var(--brand-primary, #3f73ae);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hepatitisb-toggle-btn.active {
+  background: var(--brand-primary, #3f73ae);
+  color: var(--white);
+}
+
+.hepatitisb-booking-embed {
   background: var(--white);
   border-radius: 1.5rem;
   box-shadow: var(--shadow-xl);
@@ -1566,7 +1591,7 @@
   overflow: hidden;
 }
 
-.hepb-occ-booking-embed iframe {
+.hepatitisb-booking-embed iframe {
   display: block;
   width: 100%;
   min-height: 800px;
@@ -1574,32 +1599,32 @@
   border-radius: 1rem;
 }
 
-.hepb-occ-booking-placeholder {
+.hepatitisb-booking-placeholder {
   text-align: center;
   padding: 4rem 1.5rem;
   color: var(--text-gray);
 }
 
-.hepb-occ-booking-placeholder i {
+.hepatitisb-booking-placeholder i {
   font-size: 2.5rem;
   color: var(--brand-primary);
   margin-bottom: 1rem;
 }
 
-.hepb-occ-booking-placeholder p {
+.hepatitisb-booking-placeholder p {
   font-size: 1.05rem;
   max-width: 460px;
   margin: 0 auto;
 }
 
-.hepb-occ-booking-placeholder a,
-.hepb-occ-booking-footer a {
+.hepatitisb-booking-placeholder a,
+.hepatitisb-booking-footer a {
   color: var(--brand-primary);
   font-weight: 600;
   text-decoration: none;
 }
 
-.hepb-occ-booking-footer {
+.hepatitisb-booking-footer {
   text-align: center;
   margin-top: 1.5rem;
   color: var(--text-slate);
@@ -1607,33 +1632,22 @@
 }
 
 @media (max-width: 640px) {
-  .hepb-occ-pricing-title,
-  .hepb-occ-booking-title { font-size: 1.75rem; }
-  .hepb-occ-booking-embed iframe { min-height: 720px; }
+  .hepatitisb-pricing-title,
+  .hepatitisb-booking-title { font-size: 1.75rem; }
+  .hepatitisb-booking-embed iframe { min-height: 720px; }
 }
 
 /* "Who is it for" cards — float the icon to the top-right of the card
    (scoped to this section so the Home NHS cards are unaffected) */
-.hepb-occ-needs-grid .nhs-card-content {
+.hepatitisb-needs-grid .nhs-card-content {
   position: relative;
 }
-.hepb-occ-needs-grid .nhs-card-icon {
+.hepatitisb-needs-grid .nhs-card-icon {
   position: absolute;
   top: 2rem;
   right: 2rem;
   margin-bottom: 0;
 }
-.hepb-occ-needs-grid .nhs-card-badge {
+.hepatitisb-needs-grid .nhs-card-badge {
   margin-top: 0.25rem;
-}
-
-/* Two-column pricing (adult / child) */
-.hepb-occ-pricing-grid--two {
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  align-items: stretch;
-}
-.hepb-occ-pricing-grid--two .hepb-occ-pricing-card {
-  max-width: 380px;
-  flex: 1 1 320px;
 }
