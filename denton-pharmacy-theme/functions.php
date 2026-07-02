@@ -307,8 +307,8 @@ function denton_pharmacy_scripts() {
     }
 
     if ( is_page_template( 'page-templates/page-typhoid.php' ) ) {
-        wp_enqueue_style( 'denton-typhoid', DENTON_PHARMACY_URI . '/assets/css/typhoid.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
-        wp_enqueue_script( 'denton-typhoid-js', DENTON_PHARMACY_URI . '/assets/js/typhoid.js', array(), DENTON_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'denton-typhoid', DENTON_PHARMACY_URI . '/assets/css/typhoid.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/typhoid.css' ) );
+        wp_enqueue_script( 'denton-typhoid-js', DENTON_PHARMACY_URI . '/assets/js/typhoid.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/typhoid.js' ), true );
     }
 
     // Travel destination pages
