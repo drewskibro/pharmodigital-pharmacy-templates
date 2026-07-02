@@ -211,8 +211,8 @@ function bowland_pharmacy_scripts() {
     }
 
     if ( is_page_template( 'page-templates/page-typhoid.php' ) ) {
-        wp_enqueue_style( 'bowland-typhoid', BOWLAND_PHARMACY_URI . '/assets/css/typhoid.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
-        wp_enqueue_script( 'bowland-typhoid-js', BOWLAND_PHARMACY_URI . '/assets/js/typhoid.js', array(), BOWLAND_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'bowland-typhoid', BOWLAND_PHARMACY_URI . '/assets/css/typhoid.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/typhoid.css' ) );
+        wp_enqueue_script( 'bowland-typhoid-js', BOWLAND_PHARMACY_URI . '/assets/js/typhoid.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/typhoid.js' ), true );
     }
 
     // Travel destination pages
