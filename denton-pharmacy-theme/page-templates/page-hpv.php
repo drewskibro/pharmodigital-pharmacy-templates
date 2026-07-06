@@ -137,7 +137,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
           </li>
           <li class="hpv-protect-feature">
             <div class="icon"><i class="fas fa-clock"></i></div>
-            <div class="text"><strong>Long-Lasting</strong><p>Proven protection for at least 10 years, with no booster currently recommended.</p></div>
+            <div class="text"><strong>Long-Lasting</strong><p>Protection demonstrated for over 12 years in clinical follow-up, with no booster currently recommended.</p></div>
           </li>
         </ul>
 
@@ -158,7 +158,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
       <div class="hpv-stat-divider"></div>
       <div class="hpv-stat-item"><div class="icon"><i class="fas fa-venus-mars"></i></div><div class="content"><span class="number">9–45</span><span class="label">Suitable Ages</span></div></div>
       <div class="hpv-stat-divider"></div>
-      <div class="hpv-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">10+ Years</span><span class="label">Protection</span></div></div>
+      <div class="hpv-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">12+ Years</span><span class="label">Protection</span></div></div>
       <div class="hpv-stat-divider"></div>
       <div class="hpv-stat-item"><div class="icon"><i class="fas fa-clock"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Appointments</span></div></div>
     </div>
@@ -289,7 +289,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
       </div>
     </div>
 
-    <p class="hpv-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Pricing depends on age and the number of doses needed. Please contact us on 0161 336 2548 for current HPV vaccination pricing.')); ?></p>
+    <p class="hpv-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Pricing depends on age and the number of doses needed. Please contact us on 0161 336 2548 for current HPV vaccination pricing. Note: the NHS HPV vaccination programme covers eligible young people up to age 25 via school or GP. If you are over 25, or missed out and are no longer eligible on the NHS, our private service is available with no referral needed.')); ?></p>
   </div>
 </section>
 
@@ -331,7 +331,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
       <div class="hpv-faq-item"><button class="hpv-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">When is the best time to have it?</span><i class="fas fa-plus icon"></i></button><div class="hpv-faq-content"><p>Before any exposure to HPV, ideally in the early teens. That said, it still offers benefits for people up to age 45.</p></div></div>
       <div class="hpv-faq-item"><button class="hpv-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Do boys need it too?</span><i class="fas fa-plus icon"></i></button><div class="hpv-faq-content"><p>Yes. HPV affects all genders, so both boys and girls should be vaccinated for the best protection.</p></div></div>
       <div class="hpv-faq-item"><button class="hpv-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">How many doses are needed?</span><i class="fas fa-plus icon"></i></button><div class="hpv-faq-content"><p>It depends on age at the first dose — usually 2 doses for younger ages and 3 for older ages. We'll confirm your schedule.</p></div></div>
-      <div class="hpv-faq-item"><button class="hpv-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">How long does protection last?</span><i class="fas fa-plus icon"></i></button><div class="hpv-faq-content"><p>Protection is proven for at least 10 years and is likely to last longer. No booster is currently recommended.</p></div></div>
+      <div class="hpv-faq-item"><button class="hpv-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">How long does protection last?</span><i class="fas fa-plus icon"></i></button><div class="hpv-faq-content"><p>Protection has been demonstrated for over 12 years in clinical follow-up studies and is likely to be long-lasting. No booster is currently recommended.</p></div></div>
       <div class="hpv-faq-item"><button class="hpv-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">How much does it cost?</span><i class="fas fa-plus icon"></i></button><div class="hpv-faq-content"><p>Cost depends on your age and the number of doses needed. Please contact us on 0161 336 2548 for current pricing.</p></div></div>
     </div>
   </div>
