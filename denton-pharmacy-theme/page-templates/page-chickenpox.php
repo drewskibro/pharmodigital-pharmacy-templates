@@ -75,11 +75,11 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
             </div>
             <div class="chickenpox-trust-card-price">
               <span class="chickenpox-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£59')); ?></span>
-              <span class="chickenpox-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', '2-dose course')); ?></span>
+              <span class="chickenpox-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
             </div>
             <div class="chickenpox-trust-card-divider"></div>
             <ul class="chickenpox-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Both doses included</span></li>
+              <li><i class="fas fa-check"></i> <span>Priced per dose</span></li>
               <li><i class="fas fa-check"></i> <span>Children &amp; adults</span></li>
               <li><i class="fas fa-check"></i> <span>Same-day appointments</span></li>
             </ul>
@@ -305,19 +305,19 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
         <span class="section-badge-text"><?php echo esc_html(dp_field('vaccine_pricing_badge', 'TRANSPARENT PRICING')); ?></span>
       </div>
       <h2 class="chickenpox-pricing-title"><?php echo esc_html(dp_field('vaccine_pricing_title', 'Chickenpox Vaccination Pricing')); ?></h2>
-      <p class="chickenpox-pricing-desc"><?php echo esc_html(dp_field('vaccine_pricing_desc', 'One simple price for the full course — no hidden extras')); ?></p>
+      <p class="chickenpox-pricing-desc"><?php echo esc_html(dp_field('vaccine_pricing_desc', 'One simple price per dose — no hidden extras')); ?></p>
     </div>
 
     <div class="chickenpox-pricing-grid">
       <div class="chickenpox-pricing-card featured">
-        <div class="chickenpox-pricing-ribbon">Full Course</div>
+        <div class="chickenpox-pricing-ribbon">Per Dose</div>
         <h3 class="chickenpox-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Chickenpox Vaccine')); ?></h3>
         <div class="chickenpox-pricing-amount">
           <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£59')); ?></span>
-          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', '2-dose course')); ?></span>
+          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
         <ul class="chickenpox-pricing-includes">
-          <li><i class="fas fa-check"></i> Both doses of the vaccine</li>
+          <li><i class="fas fa-check"></i> One dose of the vaccine</li>
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
           <li><i class="fas fa-check"></i> Suitability check &amp; advice</li>
           <li><i class="fas fa-check"></i> Suitable for children &amp; adults</li>
@@ -326,7 +326,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
       </div>
     </div>
 
-    <p class="chickenpox-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Price is for the full two-dose course. Doses are given 4 to 8 weeks apart. Please ask our team if you have any questions about suitability.')); ?></p>
+    <p class="chickenpox-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Price shown is per dose. A full course is two doses, given 4 to 8 weeks apart. Please ask our team if you have any questions about suitability.')); ?></p>
   </div>
 </section>
 
@@ -385,7 +385,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses does my child need?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>A full course is two doses, given 4 to 8 weeks apart. Both doses are included in our price and give the best, longest-lasting protection.</p></div></div>
+        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses does my child need?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>A full course is two doses, given 4 to 8 weeks apart. Each dose is priced individually, and together they give the best, longest-lasting protection.</p></div></div>
         <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">At what age can the vaccine be given?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>From 1 year of age. There's no upper age limit, so adults who never had chickenpox as children can have it too.</p></div></div>
         <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">What if we're not sure whether we've had chickenpox?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>That's fine — many adults aren't sure. If you've had chickenpox you likely have natural immunity, and a blood test can confirm it. The vaccine is also safe to have even if you've had chickenpox before. Our pharmacist can talk it through at your appointment.</p></div></div>
         <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>Side effects are usually mild — a sore arm, and occasionally a few spots or a mild fever a week or two after the jab. Serious reactions are very rare.</p></div></div>
