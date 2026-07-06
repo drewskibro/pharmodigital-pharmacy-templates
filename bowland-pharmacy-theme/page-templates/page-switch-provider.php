@@ -129,26 +129,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         </div>
       </div>
 
-      <!-- Mobile testimonial -->
-      <div class="switch-hero-testimonial-mobile mobile-only">
-        <div class="switch-hero-quote-icon">
-          <i class="fas fa-quote-left"></i>
-        </div>
-        <p class="switch-hero-quote-text">"<?php echo esc_html( $sp_testi_quote ); ?>"</p>
-        <div class="switch-hero-quote-footer">
-          <div class="switch-hero-author">
-            <span class="switch-hero-name"><?php echo esc_html( $sp_testi_name ); ?></span>
-            <div class="star-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-          <div class="switch-hero-result-badge">
-            <i class="fas fa-weight-scale"></i>
-            <span><?php echo esc_html( $sp_testi_result ); ?></span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
