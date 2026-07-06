@@ -129,26 +129,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         </div>
       </div>
 
-      <!-- Mobile testimonial -->
-      <div class="switch-hero-testimonial-mobile mobile-only">
-        <div class="switch-hero-quote-icon">
-          <i class="fas fa-quote-left"></i>
-        </div>
-        <p class="switch-hero-quote-text">"<?php echo esc_html( $sp_testi_quote ); ?>"</p>
-        <div class="switch-hero-quote-footer">
-          <div class="switch-hero-author">
-            <span class="switch-hero-name"><?php echo esc_html( $sp_testi_name ); ?></span>
-            <div class="star-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-          <div class="switch-hero-result-badge">
-            <i class="fas fa-weight-scale"></i>
-            <span><?php echo esc_html( $sp_testi_result ); ?></span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -281,7 +261,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
                 <span><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
               </li>
             <?php endwhile; else : ?>
-              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with <?php echo esc_html( bp_option( 'superintendent_pharmacist', 'our pharmacist' ) ); ?></span></li>
+              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with our pharmacy team</span></li>
               <li><i class="fas fa-check-circle"></i><span>Medication included in your monthly plan</span></li>
               <li><i class="fas fa-check-circle"></i><span>Blood pressure, weight, and health monitoring</span></li>
               <li><i class="fas fa-check-circle"></i><span>Direct phone and email access between appointments</span></li>
@@ -310,7 +290,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
               </div>
               <div class="process-included-price-feature">
                 <i class="fas fa-user-doctor"></i>
-                <span>Face-to-face with <?php echo esc_html( bp_option( 'superintendent_pharmacist', 'our pharmacist' ) ); ?></span>
+                <span>Face-to-face care</span>
               </div>
               <div class="process-included-price-feature">
                 <i class="fas fa-pills"></i>
@@ -599,7 +579,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-user-doctor"></i></div>
           <h3 class="switch-benefit-title">Face-to-Face Care</h3>
-          <p class="switch-benefit-description">Monthly in-person consultations with <?php echo esc_html( bp_option( 'superintendent_pharmacist', 'our pharmacist' ) ); ?>, your dedicated pharmacist who knows your history</p>
+          <p class="switch-benefit-description">Monthly in-person consultations with our pharmacy team, who get to know you and your history</p>
         </div>
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-shield-halved"></i></div>

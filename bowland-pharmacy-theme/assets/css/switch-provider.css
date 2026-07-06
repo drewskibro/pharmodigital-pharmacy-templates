@@ -22,6 +22,24 @@
   padding: 2rem 0 6rem;
   overflow: hidden;
   background: #0f172a;
+  /* Pull dark hero up under the fixed nav so the cream body background
+     doesn't show as a seam above the hero (matches --nav-height tokens). */
+  margin-top: -112px;
+  padding-top: calc(112px + 2rem);
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .switch-hero-section {
+    margin-top: -188px;
+    padding-top: calc(188px + 2rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  .switch-hero-section {
+    margin-top: -200px;
+    padding-top: calc(200px + 2rem);
+  }
 }
 
 .switch-hero-gradient {
@@ -1983,6 +2001,96 @@
 
 .button-title {
   display: block;
+}
+
+/* Two-column grid: checklist (left) + price card (right) */
+.process-included-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .process-included-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+  }
+}
+
+/* Right: price + value summary card (white to sit on the blue included box) */
+.process-included-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-included-price-card {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px solid rgba(63, 115, 174, 0.15);
+  box-shadow: 0 12px 40px rgba(63, 115, 174, 0.12);
+  width: 100%;
+  max-width: 320px;
+}
+
+.process-included-price-from {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-slate);
+  margin-bottom: 0.25rem;
+}
+
+.process-included-price-amount {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--brand-primary);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.process-included-price-note {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.process-included-price-divider {
+  height: 1px;
+  background: rgba(63, 115, 174, 0.12);
+  margin: 1.5rem 0;
+}
+
+.process-included-price-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  text-align: left;
+}
+
+.process-included-price-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.process-included-price-feature i {
+  color: var(--brand-primary);
+  font-size: 0.875rem;
+  width: 1.25rem;
+  text-align: center;
 }
 
 
