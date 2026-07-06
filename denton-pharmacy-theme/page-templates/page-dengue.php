@@ -322,7 +322,7 @@ $vaccine_name = dp_field('vaccine_name', 'Dengue Fever');
       </div>
     </div>
 
-    <p class="dengue-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Price shown is per dose. Qdenga is given as a course — we will confirm your full schedule and total cost at your first appointment. Not recommended during pregnancy.')); ?></p>
+    <p class="dengue-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Price shown is per dose. Qdenga is given as a course — we will confirm your full schedule and total cost at your first appointment. Not recommended if you are pregnant, breastfeeding, or immunocompromised. Please mention this when booking so we can advise on the most appropriate option for you.')); ?></p>
   </div>
 </section>
 

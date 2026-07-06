@@ -39,7 +39,7 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
         </h1>
 
         <p class="shingles-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect yourself against shingles with our private vaccination service in Denton, Manchester. A single-dose vaccination, recommended for adults from the age of 50, that reduces the risk of shingles and the painful nerve problems it can cause.')); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect yourself against shingles with our private vaccination service in Denton, Manchester. A two-dose vaccination course, recommended for adults from the age of 50, that reduces the risk of shingles and the painful nerve problems it can cause.')); ?>
         </p>
 
         <div class="shingles-hero-actions">
@@ -55,7 +55,7 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
 
         <div class="shingles-hero-trust">
           <div class="shingles-hero-trust-item"><i class="fas fa-user-shield"></i><span>Recommended 50+</span></div>
-          <div class="shingles-hero-trust-item"><i class="fas fa-syringe"></i><span>Single Dose</span></div>
+          <div class="shingles-hero-trust-item"><i class="fas fa-syringe"></i><span>Two-Dose Course</span></div>
           <div class="shingles-hero-trust-item"><i class="fas fa-user-doctor"></i><span>No GP Referral Needed</span></div>
         </div>
       </div>
@@ -63,8 +63,8 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
       <!-- Right: Pricing trust card + floating badge -->
       <div class="shingles-hero-visual">
         <div class="shingles-hero-float-badge">
-          <span class="shingles-hero-float-number"><?php echo esc_html(dp_field('vaccine_float_number', '1')); ?></span>
-          <span class="shingles-hero-float-label"><?php echo esc_html(dp_field('vaccine_float_label', 'single dose')); ?></span>
+          <span class="shingles-hero-float-number"><?php echo esc_html(dp_field('vaccine_float_number', '2')); ?></span>
+          <span class="shingles-hero-float-label"><?php echo esc_html(dp_field('vaccine_float_label', 'dose course')); ?></span>
         </div>
         <div class="shingles-trust-card">
           <div class="shingles-trust-card-glow"></div>
@@ -80,7 +80,7 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
             <div class="shingles-trust-card-divider"></div>
             <ul class="shingles-trust-card-list">
               <li><i class="fas fa-check"></i> <span>Shingrix vaccine &amp; administration</span></li>
-              <li><i class="fas fa-check"></i> <span>Single dose — no follow-up needed</span></li>
+              <li><i class="fas fa-check"></i> <span>Two-dose course for full protection</span></li>
               <li><i class="fas fa-check"></i> <span>Suitability check &amp; advice</span></li>
             </ul>
             <div class="shingles-trust-card-footer">
@@ -129,13 +129,13 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
           <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Reduces Risk, Severity & Nerve Pain')); ?></span>
         </div>
 
-        <h3 class="shingles-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'A Single Dose Against Shingles')); ?></h3>
-        <p class="shingles-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'Shingles (herpes zoster) is caused by the same virus as chickenpox. It stays dormant in the nervous system and can reactivate years later as immunity weakens — causing a painful, blistering rash on one side of the body, often with lasting nerve pain (postherpetic neuralgia). A single-dose vaccination reduces the risk of shingles and the chance of long-term nerve pain.')); ?></p>
+        <h3 class="shingles-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'A Two-Dose Course Against Shingles')); ?></h3>
+        <p class="shingles-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'Shingles (herpes zoster) is caused by the same virus as chickenpox. It stays dormant in the nervous system and can reactivate years later as immunity weakens — causing a painful, blistering rash on one side of the body, often with lasting nerve pain (postherpetic neuralgia). A two-dose vaccination course reduces the risk of shingles and the chance of long-term nerve pain.')); ?></p>
 
         <ul class="shingles-protect-features">
           <li class="shingles-protect-feature">
             <div class="icon"><i class="fas fa-syringe"></i></div>
-            <div class="text"><strong>Single Dose</strong><p>Given as one injection into the upper arm — no follow-up shots or course to complete.</p></div>
+            <div class="text"><strong>Two-Dose Course</strong><p>Given as two injections 8 weeks to 6 months apart for full protection.</p></div>
           </li>
           <li class="shingles-protect-feature">
             <div class="icon"><i class="fas fa-shield-halved"></i></div>
@@ -160,7 +160,7 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
 <section class="shingles-stats-section">
   <div class="section-container">
     <div class="shingles-stats-bar">
-      <div class="shingles-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">1 Dose</span><span class="label">Single Visit</span></div></div>
+      <div class="shingles-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">2 Doses</span><span class="label">Full Course</span></div></div>
       <div class="shingles-stat-divider"></div>
       <div class="shingles-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">Years</span><span class="label">Of Protection</span></div></div>
       <div class="shingles-stat-divider"></div>
@@ -238,7 +238,7 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
           <ul class="nhs-card-list">
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Adults aged 50 and over</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Anyone who has had chickenpox</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Not yet eligible on the NHS</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Private service ideal for adults aged 50–64 wanting protection before NHS eligibility</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
@@ -257,12 +257,17 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
           <ul class="nhs-card-list">
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Weakened immune system</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Had shingles before</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Want protection before turning 50</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Immunosuppressed adults who want a convenient private appointment</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
+    </div>
+
+    <div class="shingles-about-callout">
+      <div class="badge">NHS Eligibility</div>
+      <p>The shingles vaccine is available free on the NHS for adults turning 65 or 70, adults aged 70–79 who have not yet been vaccinated, and all severely immunosuppressed adults aged 18 and over. Our private service is ideal for adults aged 50–64 who want protection sooner, or anyone who prefers the convenience of a same-day appointment at our Denton clinic.</p>
     </div>
   </div>
 </section>
@@ -291,7 +296,6 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
           <li><i class="fas fa-check"></i> Shingrix vaccine</li>
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
           <li><i class="fas fa-check"></i> Suitability check &amp; advice</li>
-          <li><i class="fas fa-check"></i> Single dose — no follow-up needed</li>
         </ul>
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
       </div>
@@ -316,7 +320,7 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
     <div class="shingles-details-grid">
       <div class="shingles-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We confirm you're suitable for Shingrix and answer any questions before we start.</p></div>
       <div class="shingles-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>The injection takes just a moment and is given in the upper arm.</p></div>
-      <div class="shingles-detail-card"><div class="icon"><i class="fas fa-calendar-check"></i></div><h3>One Visit</h3><p>Shingles vaccination is a single dose, so there's no follow-up appointment to remember.</p></div>
+      <div class="shingles-detail-card"><div class="icon"><i class="fas fa-calendar-check"></i></div><h3>Two Visits</h3><p>The second dose is given 8 weeks to 6 months after the first to complete the course.</p></div>
       <div class="shingles-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>A sore arm, tiredness or aches for a day or two are common and pass quickly.</p></div>
       <div class="shingles-detail-card"><div class="icon"><i class="fas fa-user-shield"></i></div><h3>Recommended 50+</h3><p>Most suitable for adults from 50, and for at-risk adults from 18. We'll advise on timing.</p></div>
       <div class="shingles-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>For those outside NHS eligibility, or who want it sooner — no referral needed.</p></div>
@@ -336,7 +340,7 @@ $vaccine_name = dp_field('vaccine_name', 'Shingles');
     </div>
 
     <div class="shingles-faq-list">
-      <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses do I need?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>Shingles vaccination is given as a single dose — no follow-up shots are needed. Protection lasts for several years.</p></div></div>
+      <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses do I need?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>Shingrix is given as a two-dose course — the second dose is given 8 weeks to 6 months after the first. Protection lasts for several years.</p></div></div>
       <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Who should have the shingles vaccine?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>It's recommended for adults from age 50, and for at-risk adults from 18 (for example, those with a weakened immune system). We can check your suitability at your appointment.</p></div></div>
       <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">I've had shingles before — can I still be vaccinated?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>Yes. You can have shingles more than once, so vaccination is recommended even if you've had it before. We'd usually wait until the episode has fully settled.</p></div></div>
       <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>Side effects are usually mild and short-lived — a sore arm, tiredness, headache or aches for a day or two. Serious reactions are very rare.</p></div></div>
