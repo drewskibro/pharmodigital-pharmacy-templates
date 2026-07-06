@@ -887,7 +887,7 @@ function denton_pharmacy_add_consultation_closer( $content ) {
     $closer .= '    <div class="article-closer-pharmacist">';
     $closer .= '      ' . $avatar_html;
     $closer .= '      <div class="article-closer-pharmacist-info">';
-    $closer .= '        <span class="article-closer-pharmacist-label">Your consultation with</span>';
+    $closer .= '        <span class="article-closer-pharmacist-label">Clinically reviewed by</span>';
     $closer .= '        <span class="article-closer-pharmacist-name">' . esc_html( $reviewer_name ) . '</span>';
     $closer .= '        <span class="article-closer-pharmacist-role">' . esc_html( $author_role ) . ' &middot; Independent Prescriber</span>';
     $closer .= '        ' . $gphc_html;
@@ -898,7 +898,7 @@ function denton_pharmacy_add_consultation_closer( $content ) {
     $closer .= '      <p class="article-closer-description">Book your consultation with ' . esc_html( $pharmacy_name ) . ' in ' . esc_html( $pharmacy_town ) . '. Same-day and next-day appointments usually available.</p>';
     $closer .= '      <div class="article-closer-buttons">';
     $closer .= '        <a href="' . esc_url( $booking_url ) . '" class="cta-button primary-cta article-closer-book">';
-    $closer .= '          Book with ' . esc_html( $first_name );
+    $closer .= '          Book a Consultation';
     $closer .= '          <i class="fas fa-arrow-right"></i>';
     $closer .= '        </a>';
     $closer .= '        <a href="tel:' . esc_attr( $phone_link ) . '" class="article-closer-phone">';
