@@ -75,7 +75,7 @@ $vaccine_name = bp_field('vaccine_name', 'Shingles');
             </div>
             <div class="shingles-trust-card-price">
               <span class="shingles-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '£199')); ?></span>
-              <span class="shingles-trust-card-sub"><?php echo esc_html(bp_field('vaccine_price_unit', 'two-dose course')); ?></span>
+              <span class="shingles-trust-card-sub"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
             </div>
             <div class="shingles-trust-card-divider"></div>
             <ul class="shingles-trust-card-list">
@@ -273,12 +273,6 @@ $vaccine_name = bp_field('vaccine_name', 'Shingles');
 </section>
 
 <!-- Pricing Section -->
-<!-- TODO (DO NOT PUBLISH until confirmed with Drew): Shingrix is a two-dose course.
-     Confirm whether £199 is PER DOSE or for the FULL two-dose course before go-live.
-     If per dose, update the price unit / note / pricing-desc to say "per dose" and make
-     clear the full course is 2 × £199. Currently the price unit reads "two-dose course"
-     and the note still says "£199 for a single dose" — these must be reconciled once
-     pricing is confirmed. -->
 <section class="shingles-pricing-section" id="pricing">
   <div class="section-container">
     <div class="shingles-pricing-header">
@@ -296,7 +290,7 @@ $vaccine_name = bp_field('vaccine_name', 'Shingles');
         <h3 class="shingles-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'Shingrix Vaccine')); ?></h3>
         <div class="shingles-pricing-amount">
           <span class="price"><?php echo esc_html(bp_field('vaccine_price_amount', '£199')); ?></span>
-          <span class="per"><?php echo esc_html(bp_field('vaccine_price_unit', 'two-dose course')); ?></span>
+          <span class="per"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
         <ul class="shingles-pricing-includes">
           <li><i class="fas fa-check"></i> Shingrix vaccine</li>
@@ -307,7 +301,7 @@ $vaccine_name = bp_field('vaccine_name', 'Shingles');
       </div>
     </div>
 
-    <p class="shingles-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', 'Price is £199 for a single dose. The full two-dose course is required for maximum protection. Doses are given 8 weeks to 6 months apart. No booster is currently recommended after completing the course. Please ask our team if you have any questions about suitability.')); ?></p>
+    <p class="shingles-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', 'Price is £199 per dose, so the full two-dose course is £398. Both doses are required for maximum protection and are given 8 weeks to 6 months apart. No booster is currently recommended after completing the course. Please ask our team if you have any questions about suitability.')); ?></p>
   </div>
 </section>
 
