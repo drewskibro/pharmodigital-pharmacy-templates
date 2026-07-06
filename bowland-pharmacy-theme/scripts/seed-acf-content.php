@@ -182,8 +182,6 @@ if ( $th ) {
         [ 'icon' => 'fa-solid fa-lungs',         'name' => 'Pneumonia',               'is_featured' => 0, 'badge' => '' ],
         [ 'icon' => 'fa-solid fa-droplet',       'name' => 'Chickenpox',              'is_featured' => 0, 'badge' => '' ],
         [ 'icon' => 'fa-solid fa-shield-virus', 'name' => 'Shingles',                'is_featured' => 0, 'badge' => '' ],
-        [ 'icon' => 'fa-solid fa-virus-covid',   'name' => 'COVID-19',                'is_featured' => 0, 'badge' => '' ],
-        [ 'icon' => 'fa-solid fa-virus',         'name' => 'Flu (Seasonal)',          'is_featured' => 0, 'badge' => '' ],
         [ 'icon' => 'fa-solid fa-mosquito-net',  'name' => 'Malaria Prevention',      'is_featured' => 0, 'badge' => 'Advice & Rx' ],
     ], $th );
 

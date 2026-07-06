@@ -39,7 +39,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chickenpox');
         </h1>
 
         <p class="chickenpox-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect your family against chickenpox with our private vaccination service in Wythenshawe, Manchester. A safe, two-dose course that is around 98% effective — for children from 12 months and for adults who have never had chickenpox.')); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect your family against chickenpox with our private vaccination service in Wythenshawe, Manchester. A safe, two-dose course that is around 90% effective — for children from 12 months and for adults who have never had chickenpox.')); ?>
         </p>
 
         <div class="chickenpox-hero-actions">
@@ -126,11 +126,11 @@ $vaccine_name = bp_field('vaccine_name', 'Chickenpox');
       <div class="chickenpox-protect-content">
         <div class="chickenpox-protect-badge-box">
           <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'Around 98% Effective After Two Doses')); ?></span>
+          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'Around 90% Effective After Two Doses')); ?></span>
         </div>
 
         <h3 class="chickenpox-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Safe, Proven Protection')); ?></h3>
-        <p class="chickenpox-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', 'Chickenpox (varicella) is a highly contagious viral infection. For most children it is mild, but it can be far more serious for adults, pregnant women, newborns and anyone with a weakened immune system, occasionally leading to complications such as pneumonia or encephalitis. The vaccine is a well-established jab that is around 98% effective after a full two-dose course.')); ?></p>
+        <p class="chickenpox-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', 'Chickenpox (varicella) is a highly contagious viral infection. For most children it is mild, but it can be far more serious for adults, pregnant women, newborns and anyone with a weakened immune system, occasionally leading to complications such as pneumonia or encephalitis. The vaccine is a well-established jab that is around 90% effective after a full two-dose course.')); ?></p>
 
         <ul class="chickenpox-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -152,7 +152,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chickenpox');
             </li>
             <li class="chickenpox-protect-feature">
               <div class="icon"><i class="fas fa-briefcase-medical"></i></div>
-              <div class="text"><strong>Not Routine on the NHS</strong><p>Chickenpox vaccination isn't part of the standard NHS schedule, so we offer it privately for those who want it.</p></div>
+              <div class="text"><strong>Also Available on the NHS</strong><p>Chickenpox vaccination is now offered on the NHS for children born on or after 1 July 2024 via the MMRV vaccine. If your child is older, or you are an adult who has never had chickenpox, we offer the private vaccination with no GP referral needed.</p></div>
             </li>
           <?php endif; ?>
         </ul>
@@ -182,7 +182,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chickenpox');
       <?php endwhile; else : ?>
         <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">2 Doses</span><span class="label">Full Course</span></div></div>
         <div class="chickenpox-stat-divider"></div>
-        <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">~98%</span><span class="label">Effective</span></div></div>
+        <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">~90%</span><span class="label">Effective</span></div></div>
         <div class="chickenpox-stat-divider"></div>
         <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-child-reaching"></i></div><div class="content"><span class="number">1 Year+</span><span class="label">Suitable Age</span></div></div>
         <div class="chickenpox-stat-divider"></div>
