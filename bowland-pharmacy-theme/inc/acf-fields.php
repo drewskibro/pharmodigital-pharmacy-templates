@@ -3151,7 +3151,7 @@ function bp_register_acf_field_groups() {
         'fields'   => array(
             array( 'key' => 'field_bp_wl_social_number', 'label' => 'Stat Number', 'name' => 'wl_social_number', 'type' => 'text', 'default_value' => '4.9' ),
             array( 'key' => 'field_bp_wl_social_label', 'label' => 'Stat Label', 'name' => 'wl_social_label', 'type' => 'text', 'default_value' => 'Google Rating' ),
-            array( 'key' => 'field_bp_wl_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'wl_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY DENTON' ),
+            array( 'key' => 'field_bp_wl_social_eyebrow', 'label' => 'Eyebrow Text', 'name' => 'wl_social_eyebrow', 'type' => 'text', 'default_value' => 'TRUSTED BY WYTHENSHAWE' ),
             array( 'key' => 'field_bp_wl_social_headline', 'label' => 'Headline', 'name' => 'wl_social_headline', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join hundreds of Wythenshawe patients who\'ve already made the switch' ),
             array( 'key' => 'field_bp_wl_social_subtext', 'label' => 'Subtext', 'name' => 'wl_social_subtext', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Real people, real results. Our patients lose an average of 10-15% body weight in 12 months with Mounjaro and Wegovy treatment.' ),
         ),
@@ -4591,7 +4591,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Badge Text',
                 'name'          => 'sp_hero_badge',
                 'type'          => 'text',
-                'default_value' => 'SWITCH TO DENTON PHARMACY',
+                'default_value' => 'SWITCH TO BOWLAND PHARMACY',
             ),
             array(
                 'key'           => 'field_bp_switch_hero_title_line1',
@@ -4705,7 +4705,7 @@ function bp_register_acf_field_groups() {
         'title'    => 'Switch Provider — Comparison Section',
         'fields'   => array(
             // Header
-            array( 'key' => 'field_bp_switch_compare_badge', 'label' => 'Section Badge', 'name' => 'sp_compare_badge', 'type' => 'text', 'default_value' => 'THE DENTON PHARMACY DIFFERENCE' ),
+            array( 'key' => 'field_bp_switch_compare_badge', 'label' => 'Section Badge', 'name' => 'sp_compare_badge', 'type' => 'text', 'default_value' => 'THE BOWLAND PHARMACY DIFFERENCE' ),
             array( 'key' => 'field_bp_switch_compare_title', 'label' => 'Section Title', 'name' => 'sp_compare_title', 'type' => 'text', 'default_value' => 'Compare Your Options' ),
             array( 'key' => 'field_bp_switch_compare_description', 'label' => 'Section Description', 'name' => 'sp_compare_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'See the difference face-to-face care makes for your weight loss journey' ),
             // Card 1: Problem
@@ -4735,7 +4735,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_switch_card2_tab', 'label' => 'Card 2: Bowland Pharmacy', 'type' => 'tab' ),
             array( 'key' => 'field_bp_switch_card2_recommended', 'label' => 'Recommended Badge', 'name' => 'sp_card2_recommended', 'type' => 'text', 'default_value' => 'RECOMMENDED' ),
             array( 'key' => 'field_bp_switch_card2_icon', 'label' => 'Icon Class', 'name' => 'sp_card2_icon', 'type' => 'text', 'default_value' => 'fas fa-heart-pulse' ),
-            array( 'key' => 'field_bp_switch_card2_badge', 'label' => 'Badge', 'name' => 'sp_card2_badge', 'type' => 'text', 'default_value' => 'DENTON BASED' ),
+            array( 'key' => 'field_bp_switch_card2_badge', 'label' => 'Badge', 'name' => 'sp_card2_badge', 'type' => 'text', 'default_value' => 'WYTHENSHAWE BASED' ),
             array( 'key' => 'field_bp_switch_card2_title', 'label' => 'Title', 'name' => 'sp_card2_title', 'type' => 'text', 'default_value' => 'Bowland Pharmacy' ),
             array( 'key' => 'field_bp_switch_card2_subtitle', 'label' => 'Subtitle', 'name' => 'sp_card2_subtitle', 'type' => 'text', 'default_value' => 'Face-to-face weight loss care' ),
             array( 'key' => 'field_bp_switch_card2_price', 'label' => 'Price', 'name' => 'sp_card2_price', 'type' => 'text', 'default_value' => 'From £125' ),

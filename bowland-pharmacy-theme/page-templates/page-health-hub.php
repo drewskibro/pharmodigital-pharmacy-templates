@@ -99,7 +99,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 
       <!-- Right: Text Content -->
       <div class="healthhub-social-proof-content">
-        <p class="healthhub-social-proof-eyebrow"><?php echo esc_html( bp_field( 'hh_social_eyebrow', 'TRUSTED BY DENTON' ) ); ?></p>
+        <p class="healthhub-social-proof-eyebrow">TRUSTED BY WYTHENSHAWE</p>
         <h2 class="healthhub-social-proof-headline"><?php echo esc_html( bp_field( 'hh_social_headline', 'Join hundreds of Bowland patients who\'ve already made the switch' ) ); ?></h2>
         <p class="healthhub-social-proof-subtext"><?php echo esc_html( bp_field( 'hh_social_subtext', 'Expert health advice backed by real clinical experience and outstanding patient reviews' ) ); ?></p>
       </div>
