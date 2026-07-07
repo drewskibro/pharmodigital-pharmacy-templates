@@ -186,7 +186,7 @@ function bowland_pharmacy_scripts() {
     if ( is_page_template( 'page-templates/page-contact.php' ) ) {
         wp_enqueue_style( 'bowland-contact', BOWLAND_PHARMACY_URI . '/assets/css/contact.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
         wp_enqueue_script( 'bowland-contact-js', BOWLAND_PHARMACY_URI . '/assets/js/contact.js', array(), BOWLAND_PHARMACY_VERSION, true );
-        wp_localize_script( 'bowland-contact-js', 'dpContactAjax', array(
+        wp_localize_script( 'bowland-contact-js', 'bpContactAjax', array(
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
         ) );
     }
