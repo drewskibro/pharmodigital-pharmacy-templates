@@ -15,6 +15,24 @@
   padding: 80px 0 100px;
   overflow: hidden;
   background: linear-gradient(to bottom, #f0f4f8, #ffffff);
+  /* Pull the hero up under the fixed nav so the cream body background
+     doesn't show as a seam above it (matches the --nav-height tokens). */
+  margin-top: -112px;
+  padding-top: calc(112px + 80px);
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .team-hero-section {
+    margin-top: -188px;
+    padding-top: calc(188px + 80px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .team-hero-section {
+    margin-top: -200px;
+    padding-top: calc(200px + 80px);
+  }
 }
 
 .team-hero-bg-blob-1 {
