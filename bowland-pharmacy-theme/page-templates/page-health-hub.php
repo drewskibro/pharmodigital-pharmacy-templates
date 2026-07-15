@@ -136,6 +136,13 @@ $default_cats = array(
         'url'         => add_query_arg( 'category', 'nhs-services', get_permalink() ),
         'image_id'    => 0,
     ),
+    array(
+        'title'       => 'Blood Tests & Health Checks',
+        'label'       => 'BLOOD TESTING',
+        'description' => 'Cholesterol, vitamin D, thyroid, iron and anaemia tests, plus full health MOT panels — fast results, no GP referral.',
+        'url'         => add_query_arg( 'category', 'blood-testing', get_permalink() ),
+        'image_id'    => 0,
+    ),
 );
 
 $cats = array();
