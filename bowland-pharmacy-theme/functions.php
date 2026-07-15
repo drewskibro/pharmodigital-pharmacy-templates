@@ -206,7 +206,7 @@ function bowland_pharmacy_scripts() {
     }
 
     if ( is_page_template( 'page-templates/page-yellow-fever.php' ) ) {
-        wp_enqueue_style( 'bowland-yellow-fever', BOWLAND_PHARMACY_URI . '/assets/css/yellow-fever.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
+        wp_enqueue_style( 'bowland-yellow-fever', BOWLAND_PHARMACY_URI . '/assets/css/yellow-fever.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/yellow-fever.css' ) );
         wp_enqueue_script( 'bowland-yellow-fever-js', BOWLAND_PHARMACY_URI . '/assets/js/yellow-fever.js', array(), BOWLAND_PHARMACY_VERSION, true );
     }
 
