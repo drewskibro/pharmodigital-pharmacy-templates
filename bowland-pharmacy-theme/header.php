@@ -103,7 +103,7 @@ $default_wl_links = array(
 );
 $default_th_services = array(
     array( 'label' => 'All Vaccinations',    'description' => 'Hepatitis, Typhoid, Rabies, Japanese Encephalitis', 'icon' => 'fas fa-shield-virus',    'url' => '' ),
-    array( 'label' => 'Yellow Fever Centre', 'description' => 'Official certificates for Africa & South America',  'icon' => 'fas fa-sun',             'url' => home_url( '/yellow-fever/' ) ),
+    array( 'label' => 'Yellow Fever Centre', 'description' => 'Official certificates for Africa & South America',  'icon' => 'fas fa-sun',             'url' => 'https://bowlandpharmacy.co.uk/yellow-fever-manchester/' ),
     array( 'label' => 'Travel Advice',       'description' => 'Destination-specific health recommendations',        'icon' => 'fas fa-clipboard-check', 'url' => '' ),
 );
 $default_th_dests = array(
