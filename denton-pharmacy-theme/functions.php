@@ -186,7 +186,7 @@ function denton_pharmacy_scripts() {
         ) );
     }
 
-    if ( is_page_template( 'page-templates/page-privacy-policy.php' ) ) {
+    if ( is_page_template( array( 'page-templates/page-privacy-policy.php', 'page-templates/page-cookie-policy.php', 'page-templates/page-terms-conditions.php' ) ) ) {
         wp_enqueue_style( 'denton-legal', DENTON_PHARMACY_URI . '/assets/css/legal.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/legal.css' ) );
     }
 
