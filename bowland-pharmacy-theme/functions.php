@@ -191,7 +191,7 @@ function bowland_pharmacy_scripts() {
         ) );
     }
 
-    if ( is_page_template( 'page-templates/page-privacy-policy.php' ) ) {
+    if ( is_page_template( array( 'page-templates/page-privacy-policy.php', 'page-templates/page-cookie-policy.php', 'page-templates/page-terms-conditions.php' ) ) ) {
         wp_enqueue_style( 'bowland-legal', BOWLAND_PHARMACY_URI . '/assets/css/legal.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/legal.css' ) );
     }
 
