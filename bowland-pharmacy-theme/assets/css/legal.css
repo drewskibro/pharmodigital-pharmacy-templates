@@ -1,0 +1,163 @@
+/* ============================================================
+   LEGAL PAGES — Privacy Policy, Terms & Conditions, Cookie Policy
+   Prefix: .legal-
+   Reusable across all long-form legal / policy pages.
+   ============================================================ */
+
+/* --- Hero ---------------------------------------------------
+   Solid cream (var(--brand-light)) background so it matches the
+   body and never shows the "cream strip under the nav" seam. --- */
+.legal-hero {
+  background-color: var(--brand-light);
+  padding: 70px 0 50px;
+  text-align: center;
+}
+
+.legal-hero-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.legal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(63, 115, 174, 0.1);
+  color: var(--brand-dark);
+  font-family: var(--font-accent, 'Syne', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.legal-badge i {
+  color: var(--brand-primary);
+}
+
+.legal-hero h1 {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--brand-dark);
+  margin: 0 0 14px;
+  line-height: 1.15;
+}
+
+.legal-hero-updated {
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .legal-hero { padding: 90px 0 60px; }
+  .legal-hero h1 { font-size: 3rem; }
+}
+
+/* --- Body --------------------------------------------------- */
+.legal-body {
+  background: #ffffff;
+  padding: 50px 0 80px;
+}
+
+.legal-content {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px;
+  font-family: var(--font-primary);
+  color: #374151;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.legal-content p {
+  margin: 0 0 1.25rem;
+}
+
+.legal-content h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin: 2.5rem 0 1rem;
+  padding-left: 16px;
+  border-left: 4px solid var(--brand-primary);
+  line-height: 1.25;
+}
+
+.legal-content h2:first-child {
+  margin-top: 0;
+}
+
+.legal-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin: 1.75rem 0 0.75rem;
+}
+
+.legal-content ul {
+  margin: 0 0 1.5rem;
+  padding-left: 1.4rem;
+  list-style: none;
+}
+
+.legal-content ul li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.legal-content ul li::before {
+  content: "\f00c"; /* fa-check */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: var(--brand-secondary);
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-size: 0.8rem;
+}
+
+.legal-content a {
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+  word-break: break-word;
+}
+
+.legal-content a:hover {
+  color: var(--brand-dark);
+}
+
+.legal-content strong {
+  color: var(--brand-dark);
+  font-weight: 700;
+}
+
+/* --- Contact call-out card at the foot of the policy -------- */
+.legal-contact-card {
+  margin-top: 2.5rem;
+  background: var(--brand-light);
+  border: 1px solid rgba(42, 80, 122, 0.12);
+  border-radius: 16px;
+  padding: 28px 32px;
+}
+
+.legal-contact-card h2 {
+  margin-top: 0;
+  border-left: none;
+  padding-left: 0;
+}
+
+.legal-contact-card p {
+  margin-bottom: 0.5rem;
+}

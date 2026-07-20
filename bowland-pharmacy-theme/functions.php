@@ -191,6 +191,10 @@ function bowland_pharmacy_scripts() {
         ) );
     }
 
+    if ( is_page_template( 'page-templates/page-privacy-policy.php' ) ) {
+        wp_enqueue_style( 'bowland-legal', BOWLAND_PHARMACY_URI . '/assets/css/legal.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/legal.css' ) );
+    }
+
     if ( is_page_template( 'page-templates/page-nhs-prescriptions-register.php' ) ) {
         wp_enqueue_style( 'bowland-npreg', BOWLAND_PHARMACY_URI . '/assets/css/nhs-prescriptions-register.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/nhs-prescriptions-register.css' ) );
         wp_enqueue_script( 'bowland-npreg-js', BOWLAND_PHARMACY_URI . '/assets/js/nhs-prescriptions-register.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/nhs-prescriptions-register.js' ), true );

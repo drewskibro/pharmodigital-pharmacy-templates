@@ -186,6 +186,10 @@ function denton_pharmacy_scripts() {
         ) );
     }
 
+    if ( is_page_template( 'page-templates/page-privacy-policy.php' ) ) {
+        wp_enqueue_style( 'denton-legal', DENTON_PHARMACY_URI . '/assets/css/legal.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/legal.css' ) );
+    }
+
     if ( is_page_template( 'page-templates/page-nhs-prescriptions-register.php' ) ) {
         wp_enqueue_style( 'denton-npreg', DENTON_PHARMACY_URI . '/assets/css/nhs-prescriptions-register.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/nhs-prescriptions-register.css' ) );
         wp_enqueue_script( 'denton-npreg-js', DENTON_PHARMACY_URI . '/assets/js/nhs-prescriptions-register.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/nhs-prescriptions-register.js' ), true );
