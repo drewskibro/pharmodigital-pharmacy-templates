@@ -8,7 +8,7 @@ get_header();
 
 $hero_badge       = bp_field( 'prices_hero_badge', 'OUR PRICING' );
 $hero_title       = bp_field( 'prices_hero_title', 'Transparent Pricing' );
-$hero_title_rest  = bp_field( 'prices_hero_title_rest', 'at Denton Pharmacy' );
+$hero_title_rest  = bp_field( 'prices_hero_title_rest', 'at ' . bp_pharmacy_name() );
 $hero_description = bp_field( 'prices_hero_description', 'Clear, upfront pricing across our weight loss treatments, travel vaccinations, private services and NHS care. No hidden fees, no surprises.' );
 
 $disclaimer       = bp_field( 'prices_disclaimer', 'All prices shown are correct at time of publication and may be subject to change. Treatment is only available following a clinical consultation and where deemed appropriate by our pharmacist.' );
