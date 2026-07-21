@@ -375,7 +375,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         </div>
       </div>
 
-      <!-- CARD 2: DENTON PHARMACY (FEATURED) -->
+      <!-- CARD 2: BOWLAND PHARMACY (FEATURED) -->
       <div class="comparison-card comparison-card-featured">
         <div class="comparison-card-glow-purple"></div>
         <div class="comparison-card-glow-bottom"></div>

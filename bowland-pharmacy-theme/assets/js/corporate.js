@@ -2,7 +2,7 @@
 // CORPORATE VACCINATION PAGE JAVASCRIPT
 // ============================================
 
-// Nav logic is handled by denton-nav.js
+// Nav logic is handled by bowland-nav.js
 
 // ============================================
 // SCROLL TO BOOKING (Acuity embed)
