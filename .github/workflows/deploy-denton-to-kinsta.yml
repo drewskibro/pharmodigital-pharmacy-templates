@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'denton-pharmacy-theme/**'
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -34,7 +35,17 @@ jobs:
           password: ${{ secrets.DENTON_KINSTA_SSH_PASSWORD }}
           port: ${{ secrets.DENTON_KINSTA_SSH_PORT }}
           script: |
-            echo "Checking deployed theme..."
-            ls -la ~/public/wp-content/themes/denton-pharmacy-theme/style.css
-            head -7 ~/public/wp-content/themes/denton-pharmacy-theme/style.css
+            echo "=== Resolved theme path ==="
+            cd ~/public/wp-content/themes/denton-pharmacy-theme && pwd -P
+            echo ""
+            echo "=== Legal templates present in deployed theme? ==="
+            ls -la page-templates/ | grep -iE 'privacy|cookie|terms' || echo "!!! NO LEGAL TEMPLATES FOUND"
+            echo ""
+            echo "=== style.css mtime (was this folder just written?) ==="
+            ls -la style.css
+            echo ""
+            echo "=== Which environment/site is this? (URL tells us live vs staging) ==="
+            cd ~/public
+            (wp option get home 2>/dev/null && wp option get siteurl 2>/dev/null) || echo "wp-cli not on PATH"
+            echo "hostname: $(hostname)"
             echo "Deploy complete!"
