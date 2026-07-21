@@ -110,6 +110,7 @@ $tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and well
             <li><a href="<?php echo esc_url( home_url( '/health-hub/' ) ); ?>" class="footer-link">Health Hub</a></li>
             <li><a href="<?php echo esc_url( $booking_url ); ?>" class="footer-link">Book Appointment</a></li>
             <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="footer-link">Contact Us</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="footer-link">Privacy Policy</a></li>
           </ul>
         </div>
 
