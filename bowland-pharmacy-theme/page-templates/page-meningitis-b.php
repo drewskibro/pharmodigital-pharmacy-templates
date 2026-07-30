@@ -79,7 +79,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
               <div class="meningitis-b-trust-price-sep"></div>
               <div class="meningitis-b-trust-price-col">
                 <span class="meningitis-b-trust-price-tag"><?php echo esc_html(bp_field('vaccine_hero_private_tag', 'Private')); ?></span>
-                <span class="meningitis-b-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '£100')); ?></span>
+                <span class="meningitis-b-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '£125')); ?></span>
                 <span class="meningitis-b-trust-card-sub"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
               </div>
             </div>
@@ -158,7 +158,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
         <h3 class="meningitis-b-pathway-title"><?php echo esc_html( bp_field( 'vaccine_private_title', 'Private MenB vaccination' ) ); ?></h3>
 
         <div class="meningitis-b-pathway-price">
-          <span class="meningitis-b-pathway-price-amount"><?php echo esc_html( bp_field( 'vaccine_price_amount', '£100' ) ); ?></span>
+          <span class="meningitis-b-pathway-price-amount"><?php echo esc_html( bp_field( 'vaccine_price_amount', '£125' ) ); ?></span>
           <span class="meningitis-b-pathway-price-unit"><?php echo esc_html( bp_field( 'vaccine_price_unit', 'per dose' ) ); ?></span>
         </div>
 
@@ -369,7 +369,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
         <div class="meningitis-b-pricing-ribbon">Bexsero</div>
         <h3 class="meningitis-b-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'Bexsero Vaccine')); ?></h3>
         <div class="meningitis-b-pricing-amount">
-          <span class="price"><?php echo esc_html(bp_field('vaccine_price_amount', '£100')); ?></span>
+          <span class="price"><?php echo esc_html(bp_field('vaccine_price_amount', '£125')); ?></span>
           <span class="per"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
         <ul class="meningitis-b-pricing-includes">

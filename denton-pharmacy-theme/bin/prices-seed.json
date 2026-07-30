@@ -84,7 +84,7 @@
     { "private_category": "Other Private Services", "private_service_name": "Chicken Pox Vaccination", "private_price": "£59", "private_notes": "2 doses" },
     { "private_category": "Other Private Services", "private_service_name": "Hepatitis B (Occupational)", "private_price": "£35 adult / £30 child", "private_notes": "" },
     { "private_category": "Other Private Services", "private_service_name": "MMR Vaccine", "private_price": "£25 per dose", "private_notes": "Full course £50" },
-    { "private_category": "Other Private Services", "private_service_name": "Meningitis B", "private_price": "£100", "private_notes": "" },
+    { "private_category": "Other Private Services", "private_service_name": "Meningitis B", "private_price": "£125", "private_notes": "" },
     { "private_category": "Other Private Services", "private_service_name": "Pneumonia Vaccination", "private_price": "£30", "private_notes": "" },
     { "private_category": "Other Private Services", "private_service_name": "RSV Vaccine", "private_price": "£230", "private_notes": "" },
     { "private_category": "Other Private Services", "private_service_name": "Whooping Cough", "private_price": "£49", "private_notes": "" },
