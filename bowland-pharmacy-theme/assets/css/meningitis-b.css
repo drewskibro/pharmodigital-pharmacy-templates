@@ -268,6 +268,99 @@
   margin-bottom: 2rem;
 }
 
+/* Dual pricing (NHS / private) in the hero trust card, so the £100 private
+   price is never the only figure an eligible patient sees above the fold. */
+.meningitis-b-trust-card-prices {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.meningitis-b-trust-price-col {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+}
+
+.meningitis-b-trust-price-sep {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.25), transparent);
+  flex-shrink: 0;
+}
+
+.meningitis-b-trust-price-tag {
+  display: inline-block;
+  font-family: var(--font-accent);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.15rem;
+}
+
+/* NHS side is highlighted — it is the option we want eligible patients to take */
+.meningitis-b-trust-price-tag--nhs {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--white);
+  color: #005EB8;
+}
+
+/* Two figures share the row, so scale down from the single-price size */
+.meningitis-b-trust-card-prices .meningitis-b-trust-card-amount {
+  font-size: 2.75rem;
+  margin-bottom: 0.15rem;
+}
+
+.meningitis-b-trust-card-prices .meningitis-b-trust-card-sub {
+  font-size: 0.875rem;
+}
+
+@media (max-width: 400px) {
+  .meningitis-b-trust-card-prices .meningitis-b-trust-card-amount {
+    font-size: 2.25rem;
+  }
+}
+
+/* Inline link down to the eligibility criteria */
+.meningitis-b-trust-card-eligibility {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.22s ease;
+}
+
+.meningitis-b-trust-card-eligibility:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: var(--white);
+}
+
+.meningitis-b-trust-card-eligibility i {
+  flex-shrink: 0;
+}
+
 .meningitis-b-trust-card-amount {
   display: block;
   font-family: var(--font-heading);
