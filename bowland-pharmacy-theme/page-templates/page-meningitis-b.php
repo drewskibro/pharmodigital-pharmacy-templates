@@ -70,16 +70,29 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
               <div class="meningitis-b-trust-card-icon"><i class="fas fa-shield-virus"></i></div>
               <span class="meningitis-b-trust-card-label"><?php echo esc_html(bp_field('vaccine_price_name', 'Bexsero Vaccine')); ?></span>
             </div>
-            <div class="meningitis-b-trust-card-price">
-              <span class="meningitis-b-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '£100')); ?></span>
-              <span class="meningitis-b-trust-card-sub"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
+            <div class="meningitis-b-trust-card-prices">
+              <div class="meningitis-b-trust-price-col">
+                <span class="meningitis-b-trust-price-tag meningitis-b-trust-price-tag--nhs"><?php echo esc_html(bp_field('vaccine_hero_nhs_tag', 'NHS')); ?></span>
+                <span class="meningitis-b-trust-card-amount"><?php echo esc_html(bp_field('vaccine_hero_nhs_amount', 'Free')); ?></span>
+                <span class="meningitis-b-trust-card-sub"><?php echo esc_html(bp_field('vaccine_hero_nhs_unit', 'if eligible')); ?></span>
+              </div>
+              <div class="meningitis-b-trust-price-sep"></div>
+              <div class="meningitis-b-trust-price-col">
+                <span class="meningitis-b-trust-price-tag"><?php echo esc_html(bp_field('vaccine_hero_private_tag', 'Private')); ?></span>
+                <span class="meningitis-b-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '£100')); ?></span>
+                <span class="meningitis-b-trust-card-sub"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
+              </div>
             </div>
             <div class="meningitis-b-trust-card-divider"></div>
             <ul class="meningitis-b-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Bexsero vaccine &amp; administration</span></li>
-              <li><i class="fas fa-check"></i> <span>Suitable from 2 months of age</span></li>
-              <li><i class="fas fa-check"></i> <span>Suitability check &amp; advice</span></li>
+              <li><i class="fas fa-check"></i> <span>Free on the NHS for eligible students &amp; teens</span></li>
+              <li><i class="fas fa-check"></i> <span>Private option for all ages, from 2 months</span></li>
+              <li><i class="fas fa-check"></i> <span>Suitability check &amp; advice included</span></li>
             </ul>
+            <a href="#pathways" class="meningitis-b-trust-card-eligibility">
+              <i class="fas fa-circle-info"></i>
+              <span><?php echo esc_html(bp_field('vaccine_hero_eligibility_link', 'Check if you qualify for free NHS vaccination')); ?></span>
+            </a>
             <div class="meningitis-b-trust-card-footer">
               <i class="fas fa-shield-halved"></i>
               <span>GPhC Registered Pharmacy</span>
