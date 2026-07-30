@@ -398,6 +398,265 @@
 
 
 /* ============================================
+   NHS vs PRIVATE PATHWAYS
+   Two-card comparison so eligible patients are routed to the free NHS
+   service rather than paying privately. NHS card uses official NHS blue.
+   ============================================ */
+.meningitis-b-pathways-section {
+  padding: 5rem 0;
+  background: var(--brand-light);
+}
+
+.meningitis-b-pathways-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+}
+
+.meningitis-b-pathways-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  color: var(--text-dark);
+  margin: 1rem 0 0.75rem;
+  line-height: 1.2;
+}
+
+.meningitis-b-pathways-desc {
+  color: var(--text-gray);
+  font-size: 1.0625rem;
+  margin: 0;
+}
+
+.meningitis-b-pathways-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .meningitis-b-pathways-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.meningitis-b-pathway-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: 1.5rem;
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-xl);
+  border: 2px solid rgba(63, 115, 174, 0.15);
+}
+
+@media (min-width: 768px) {
+  .meningitis-b-pathway-card {
+    padding: 2.5rem 2.25rem;
+  }
+}
+
+.meningitis-b-pathway-card--nhs {
+  border-color: #005EB8;
+}
+
+.meningitis-b-pathway-card--private {
+  border-color: var(--brand-primary);
+}
+
+/* Badge */
+.meningitis-b-pathway-badge {
+  align-self: flex-start;
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+.meningitis-b-pathway-badge--nhs {
+  background: #005EB8;
+}
+
+.meningitis-b-pathway-badge--private {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+}
+
+.meningitis-b-pathway-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 1rem;
+  line-height: 1.25;
+}
+
+.meningitis-b-pathway-lead {
+  color: var(--text-gray);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.meningitis-b-pathway-lead strong {
+  color: var(--text-dark);
+}
+
+/* Private price figure */
+.meningitis-b-pathway-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.meningitis-b-pathway-price-amount {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #054a91, #085db5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.meningitis-b-pathway-price-unit {
+  color: var(--text-slate);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Criteria / benefit lists */
+.meningitis-b-pathway-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.meningitis-b-pathway-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--text-gray);
+  font-size: 0.9875rem;
+  line-height: 1.6;
+}
+
+.meningitis-b-pathway-list li strong {
+  color: var(--text-dark);
+}
+
+.meningitis-b-pathway-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  top: 0.6rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #005EB8;
+}
+
+/* Private card uses ticks rather than bullets */
+.meningitis-b-pathway-list--check li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.8rem;
+  background: none;
+  color: var(--brand-secondary);
+  left: 0;
+  top: 0.15rem;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+}
+
+.meningitis-b-pathway-fineprint {
+  color: var(--text-slate);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+/* "Already vaccinated?" callout */
+.meningitis-b-pathway-callout {
+  background: rgba(0, 94, 184, 0.06);
+  border-left: 4px solid #005EB8;
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.meningitis-b-pathway-callout strong {
+  color: var(--text-dark);
+}
+
+/* Buttons — pinned to the card foot so both cards' CTAs align */
+.meningitis-b-pathway-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 1.75rem;
+  border-radius: 999px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--white);
+  transition: all 0.22s ease;
+  text-align: center;
+}
+
+.meningitis-b-pathway-btn--nhs {
+  background: #005EB8;
+}
+
+.meningitis-b-pathway-btn--nhs:hover {
+  background: #004a93;
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 94, 184, 0.3);
+}
+
+.meningitis-b-pathway-btn--private {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-dark));
+}
+
+.meningitis-b-pathway-btn--private:hover {
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(63, 115, 174, 0.35);
+}
+
+/* Warning under the NHS CTA */
+.meningitis-b-pathway-warning {
+  margin: 1rem 0 0;
+  color: #b45309;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .meningitis-b-pathways-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* ============================================
    PROTECTION SECTION
    ============================================ */
 .meningitis-b-protect-section {
