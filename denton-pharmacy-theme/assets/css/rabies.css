@@ -656,6 +656,19 @@
   justify-content: center;
 }
 
+/* Mobile: stack as a centred block, but stretch each row to a shared width so
+   every icon starts at the same left edge. Without this, each item is centred
+   individually and the icons shift with each label's width. */
+@media (max-width: 767px) {
+  .rabies-stats-bar {
+    align-items: stretch;
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1.5rem;
+  }
+}
+
 @media (min-width: 768px) {
   .rabies-stats-bar {
     flex-direction: row;
@@ -667,6 +680,16 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+@media (max-width: 767px) {
+  .rabies-stat-item {
+    justify-content: flex-start;
+  }
+
+  .rabies-stat-item .icon {
+    flex-shrink: 0;
+  }
 }
 
 .rabies-stat-item .icon {
