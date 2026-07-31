@@ -5708,8 +5708,9 @@ a.footer-cert-link:hover {
 }
 
 .footer-copyright {
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .footer-bottom-right {
@@ -5720,17 +5721,31 @@ a.footer-cert-link:hover {
   justify-content: center;
 }
 
+/* Footer legal links. #64748b previously used here sat at 3.75:1 against the
+   #0f172a footer, below the 4.5:1 WCAG AA minimum, which read as thin and
+   washed out. #94a3b8 gives 6.96:1 and carries a slightly heavier weight so
+   the links stay legible without shouting. */
 .footer-legal-link {
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
 }
 
-.footer-legal-link:hover {
+.footer-legal-link:hover,
+.footer-legal-link:focus-visible {
   color: var(--white);
+  text-decoration: underline;
 }
 
+/* Decorative separator only — kept deliberately subordinate to the links */
 .footer-legal-divider {
-  color: #334155;
+  color: #64748b;
+  font-size: 0.75rem;
+  user-select: none;
 }
 
 
