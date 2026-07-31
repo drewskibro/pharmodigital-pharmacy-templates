@@ -143,6 +143,40 @@
   font-weight: 700;
 }
 
+/* --- Prominent notice box (used at the top of the Returns Policy) --- */
+.legal-notice {
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  border-left: 4px solid #ea580c;
+  border-radius: 0 0.75rem 0.75rem 0;
+  padding: 1.25rem 1.5rem;
+  margin: 0 0 2.5rem;
+}
+
+.legal-notice-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-accent, 'Syne', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a3412;
+  margin-bottom: 0.5rem;
+}
+
+.legal-notice-heading i {
+  flex-shrink: 0;
+  color: #ea580c;
+}
+
+.legal-notice p {
+  margin: 0;
+  color: #7c2d12;
+  font-weight: 600;
+}
+
 /* --- Contact call-out card at the foot of the policy -------- */
 .legal-contact-card {
   margin-top: 2.5rem;

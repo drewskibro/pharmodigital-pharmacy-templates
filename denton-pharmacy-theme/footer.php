@@ -198,7 +198,7 @@ $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and well
         <div class="footer-bottom-right">
           <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="footer-legal-link">Privacy Policy</a>
           <span class="footer-legal-divider">&bull;</span>
-          <a href="<?php echo esc_url( home_url( '/terms-conditions/' ) ); ?>" class="footer-legal-link">Terms &amp; Conditions</a>
+          <a href="<?php echo esc_url( home_url( '/returns-policy/' ) ); ?>" class="footer-legal-link">Returns Policy</a>
           <span class="footer-legal-divider">&bull;</span>
           <a href="<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>" class="footer-legal-link">Cookie Policy</a>
         </div>

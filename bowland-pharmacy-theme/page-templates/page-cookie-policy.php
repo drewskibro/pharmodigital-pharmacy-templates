@@ -49,8 +49,19 @@ $last_updated  = 'July 2026';
     <h3>Functional Cookies</h3>
     <p>These cookies allow the website to remember choices you make (such as your preferences) to provide enhanced, more personal features. The information these cookies collect may be anonymised, and they cannot track your browsing activity on other websites.</p>
 
+    <h3>Booking System Cookies</h3>
+    <p>Our online appointment booking system uses cookies to manage your session and make sure your booking is processed correctly.</p>
+
     <h2>Third-Party Cookies</h2>
-    <p>Some cookies are placed by third-party services that appear on our pages, such as our analytics providers and our online booking and patient registration system. We do not control the setting of these cookies, so we recommend you review the relevant third party's own cookie and privacy policies for more information.</p>
+    <p>Alongside our own cookies, the following third-party services may set cookies when you use our website:</p>
+    <ul>
+      <li><strong>Google Analytics</strong> &mdash; website analytics and performance measurement</li>
+      <li><strong>Microsoft Clarity</strong> &mdash; understanding how visitors navigate and use the site</li>
+      <li><strong>Acuity Scheduling</strong> &mdash; our online appointment booking system</li>
+    </ul>
+    <p>We do not control the setting of these cookies, so we recommend you review each provider's own cookie and privacy policies for more information.</p>
+    <p>Our website is designed, developed and managed by Gildhart (PharmoDigital Ltd). For more information about our digital partner, visit <a href="https://gildhart.com/" target="_blank" rel="noopener noreferrer">gildhart.com</a>.</p>
+
 
     <h2>Managing Cookies</h2>
     <p>You can control and manage cookies in various ways. Most web browsers allow you to refuse or accept cookies, delete existing cookies, and set preferences for certain websites. Please note that if you disable or delete cookies, some parts of our website may not function correctly.</p>
@@ -61,6 +72,7 @@ $last_updated  = 'July 2026';
       <li><a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
       <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
     </ul>
+    <p>You can opt out of Google Analytics specifically by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.</p>
     <p>You can also find general information about cookies and how to manage them at <a href="https://www.aboutcookies.org" target="_blank" rel="noopener noreferrer">aboutcookies.org</a>.</p>
 
     <h2>Changes to this Cookie Policy</h2>
