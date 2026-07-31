@@ -519,8 +519,6 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
           array( 'name' => 'Vietnam', 'image' => 'https://images.unsplash.com/photo-1528127269322-539801943592?w=400&h=500&fit=crop', 'url' => '/travel-vietnam/' ),
           array( 'name' => 'Brazil', 'image' => 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=400&h=500&fit=crop', 'url' => '/travel-brazil/' ),
           array( 'name' => 'Cape Verde', 'image' => 'https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?w=400&h=500&fit=crop', 'url' => '/travel-cape-verde/' ),
-          array( 'name' => 'South Africa', 'image' => 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=500&fit=crop', 'url' => '#' ),
-          array( 'name' => 'Costa Rica', 'image' => 'https://images.unsplash.com/photo-1518182170546-0766bc6f9213?w=400&h=500&fit=crop&q=80', 'url' => '#' ),
         );
         foreach ( $destinations as $dest ) :
         ?>
