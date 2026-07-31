@@ -110,6 +110,7 @@ $tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and well
             <li><a href="<?php echo esc_url( home_url( '/health-hub/' ) ); ?>" class="footer-link">Health Hub</a></li>
             <li><a href="<?php echo esc_url( $booking_url ); ?>" class="footer-link">Book Appointment</a></li>
             <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="footer-link">Contact Us</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="footer-link">Privacy Policy</a></li>
           </ul>
         </div>
 
@@ -197,7 +198,7 @@ $tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and well
         <div class="footer-bottom-right">
           <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="footer-legal-link">Privacy Policy</a>
           <span class="footer-legal-divider">&bull;</span>
-          <a href="<?php echo esc_url( home_url( '/terms-conditions/' ) ); ?>" class="footer-legal-link">Terms &amp; Conditions</a>
+          <a href="<?php echo esc_url( home_url( '/returns-policy/' ) ); ?>" class="footer-legal-link">Returns Policy</a>
           <span class="footer-legal-divider">&bull;</span>
           <a href="<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>" class="footer-legal-link">Cookie Policy</a>
         </div>

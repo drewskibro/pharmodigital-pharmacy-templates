@@ -28,7 +28,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
       <div class="meningitis-b-hero-content">
         <div class="section-badge">
           <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-          <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_hero_label', 'PRIVATE VACCINATION SERVICE')); ?></span>
+          <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_hero_label', 'NHS &amp; PRIVATE VACCINATION')); ?></span>
         </div>
 
         <h1 class="meningitis-b-hero-title">
@@ -37,7 +37,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
         </h1>
 
         <p class="meningitis-b-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect against meningitis B with our private vaccination service in Wythenshawe, Manchester. Bexsero is the only licensed UK MenB vaccine — ideal for students and teenagers, and for children or adults who missed their NHS doses.')); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect against meningitis B in Wythenshawe, Manchester with Bexsero, the only licensed UK MenB vaccine. Some students and teenagers qualify for the vaccination free on the NHS — check the criteria below before booking. If you are not eligible, you can book privately with us.')); ?>
         </p>
 
         <div class="meningitis-b-hero-actions">
@@ -52,7 +52,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
         </div>
 
         <div class="meningitis-b-hero-trust">
-          <div class="meningitis-b-hero-trust-item"><i class="fas fa-baby"></i><span>Babies to Adults</span></div>
+          <div class="meningitis-b-hero-trust-item"><i class="fas fa-baby"></i><span>Free on NHS if Eligible</span></div>
           <div class="meningitis-b-hero-trust-item"><i class="fas fa-syringe"></i><span>Bexsero Vaccine</span></div>
           <div class="meningitis-b-hero-trust-item"><i class="fas fa-user-doctor"></i><span>No GP Referral Needed</span></div>
         </div>
@@ -70,22 +70,112 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
               <div class="meningitis-b-trust-card-icon"><i class="fas fa-shield-virus"></i></div>
               <span class="meningitis-b-trust-card-label"><?php echo esc_html(bp_field('vaccine_price_name', 'Bexsero Vaccine')); ?></span>
             </div>
-            <div class="meningitis-b-trust-card-price">
-              <span class="meningitis-b-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '£100')); ?></span>
-              <span class="meningitis-b-trust-card-sub"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
+            <div class="meningitis-b-trust-card-prices">
+              <div class="meningitis-b-trust-price-col">
+                <span class="meningitis-b-trust-price-tag meningitis-b-trust-price-tag--nhs"><?php echo esc_html(bp_field('vaccine_hero_nhs_tag', 'NHS')); ?></span>
+                <span class="meningitis-b-trust-card-amount"><?php echo esc_html(bp_field('vaccine_hero_nhs_amount', 'Free')); ?></span>
+                <span class="meningitis-b-trust-card-sub"><?php echo esc_html(bp_field('vaccine_hero_nhs_unit', 'if eligible')); ?></span>
+              </div>
+              <div class="meningitis-b-trust-price-sep"></div>
+              <div class="meningitis-b-trust-price-col">
+                <span class="meningitis-b-trust-price-tag"><?php echo esc_html(bp_field('vaccine_hero_private_tag', 'Private')); ?></span>
+                <span class="meningitis-b-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '£125')); ?></span>
+                <span class="meningitis-b-trust-card-sub"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
+              </div>
             </div>
             <div class="meningitis-b-trust-card-divider"></div>
             <ul class="meningitis-b-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Bexsero vaccine &amp; administration</span></li>
-              <li><i class="fas fa-check"></i> <span>Suitable from 2 months of age</span></li>
-              <li><i class="fas fa-check"></i> <span>Suitability check &amp; advice</span></li>
+              <li><i class="fas fa-check"></i> <span>Free on the NHS for eligible students &amp; teens</span></li>
+              <li><i class="fas fa-check"></i> <span>Private option for all ages, from 2 months</span></li>
+              <li><i class="fas fa-check"></i> <span>Suitability check &amp; advice included</span></li>
             </ul>
+            <a href="#pathways" class="meningitis-b-trust-card-eligibility">
+              <i class="fas fa-circle-info"></i>
+              <span><?php echo esc_html(bp_field('vaccine_hero_eligibility_link', 'Check if you qualify for free NHS vaccination')); ?></span>
+            </a>
             <div class="meningitis-b-trust-card-footer">
               <i class="fas fa-shield-halved"></i>
               <span>GPhC Registered Pharmacy</span>
             </div>
           </div>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     NHS vs PRIVATE PATHWAYS
+     Sits directly after the hero so anyone entitled to the free NHS
+     vaccination sees that before reaching a private booking CTA.
+     ============================================ -->
+<?php
+$nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-services/vaccination-and-booking-services/book-a-menb-vaccination-appointment/' );
+?>
+<section class="meningitis-b-pathways-section" id="pathways">
+  <div class="section-container">
+    <div class="meningitis-b-pathways-header">
+      <div class="section-badge">
+        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        <span class="section-badge-text"><?php echo esc_html( bp_field( 'vaccine_pathways_badge', 'NHS OR PRIVATE' ) ); ?></span>
+      </div>
+      <h2 class="meningitis-b-pathways-title"><?php echo esc_html( bp_field( 'vaccine_pathways_title', 'Two ways to get the MenB vaccine' ) ); ?></h2>
+      <p class="meningitis-b-pathways-desc"><?php echo esc_html( bp_field( 'vaccine_pathways_desc', 'Check whether you qualify for the free NHS vaccination before booking privately' ) ); ?></p>
+    </div>
+
+    <div class="meningitis-b-pathways-grid">
+
+      <!-- NHS pathway -->
+      <div class="meningitis-b-pathway-card meningitis-b-pathway-card--nhs">
+        <span class="meningitis-b-pathway-badge meningitis-b-pathway-badge--nhs"><?php echo esc_html( bp_field( 'vaccine_nhs_badge', 'NHS — FREE' ) ); ?></span>
+        <h3 class="meningitis-b-pathway-title"><?php echo esc_html( bp_field( 'vaccine_nhs_title', 'Free NHS MenB vaccination' ) ); ?></h3>
+        <p class="meningitis-b-pathway-lead"><?php echo wp_kses_post( bp_field( 'vaccine_nhs_lead', '<strong>You must be eligible.</strong> The NHS service is available if you are:' ) ); ?></p>
+
+        <ul class="meningitis-b-pathway-list">
+          <li><?php echo wp_kses_post( bp_field( 'vaccine_nhs_criteria_1', 'Born between <strong>1 September 2007</strong> and <strong>31 August 2008</strong>; or' ) ); ?></li>
+          <li><?php echo wp_kses_post( bp_field( 'vaccine_nhs_criteria_2', 'Born on or after <strong>21 July 2001</strong> and starting undergraduate higher education in autumn 2026; or' ) ); ?></li>
+          <li><?php echo wp_kses_post( bp_field( 'vaccine_nhs_criteria_3', 'Born on or after <strong>21 July 2001</strong> and entering eligible further education for the first time in autumn 2026 while living in college accommodation or halls of residence.' ) ); ?></li>
+        </ul>
+
+        <p class="meningitis-b-pathway-fineprint"><?php echo esc_html( bp_field( 'vaccine_nhs_fineprint', 'International students and students from Scotland, Wales, Northern Ireland, the Channel Islands and the Isle of Man are included. You may need evidence of your university or college offer.' ) ); ?></p>
+
+        <div class="meningitis-b-pathway-callout">
+          <?php echo wp_kses_post( bp_field( 'vaccine_nhs_callout', '<strong>Already vaccinated?</strong> You are not eligible under this offer if you completed a qualifying MenB vaccination course within the last 5 years.' ) ); ?>
+        </div>
+
+        <a href="<?php echo esc_url( $nhs_booking_url ); ?>" class="meningitis-b-pathway-btn meningitis-b-pathway-btn--nhs" target="_blank" rel="noopener noreferrer">
+          <?php echo esc_html( bp_field( 'vaccine_nhs_btn_text', 'Book through the NHS website' ) ); ?>
+          <i class="fas fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <p class="meningitis-b-pathway-warning"><?php echo esc_html( bp_field( 'vaccine_nhs_warning', 'All NHS MenB appointments must be arranged through the NHS website. Please do not use our private booking calendar for an NHS appointment.' ) ); ?></p>
+      </div>
+
+      <!-- Private pathway -->
+      <div class="meningitis-b-pathway-card meningitis-b-pathway-card--private">
+        <span class="meningitis-b-pathway-badge meningitis-b-pathway-badge--private"><?php echo esc_html( bp_field( 'vaccine_private_badge', 'PRIVATE' ) ); ?></span>
+        <h3 class="meningitis-b-pathway-title"><?php echo esc_html( bp_field( 'vaccine_private_title', 'Private MenB vaccination' ) ); ?></h3>
+
+        <div class="meningitis-b-pathway-price">
+          <span class="meningitis-b-pathway-price-amount"><?php echo esc_html( bp_field( 'vaccine_price_amount', '£125' ) ); ?></span>
+          <span class="meningitis-b-pathway-price-unit"><?php echo esc_html( bp_field( 'vaccine_price_unit', 'per dose' ) ); ?></span>
+        </div>
+
+        <p class="meningitis-b-pathway-lead"><?php echo wp_kses_post( bp_field( 'vaccine_private_lead', "<strong>Open to everyone.</strong> Book with us if you don't meet the NHS criteria above, or you'd simply rather be seen here:" ) ); ?></p>
+
+        <ul class="meningitis-b-pathway-list meningitis-b-pathway-list--check">
+          <li><?php echo esc_html( bp_field( 'vaccine_private_point_1', 'Babies from 2 months, children, teenagers and adults' ) ); ?></li>
+          <li><?php echo esc_html( bp_field( 'vaccine_private_point_2', 'Anyone who missed their NHS doses, or was vaccinated over 5 years ago' ) ); ?></li>
+          <li><?php echo esc_html( bp_field( 'vaccine_private_point_3', 'Bexsero vaccine, administration and a suitability check included' ) ); ?></li>
+        </ul>
+
+        <p class="meningitis-b-pathway-fineprint"><?php echo esc_html( bp_field( 'vaccine_private_fineprint', 'The number of doses needed depends on age — our pharmacist will confirm the right schedule for you or your child.' ) ); ?></p>
+
+        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="meningitis-b-pathway-btn meningitis-b-pathway-btn--private">
+          <?php echo esc_html( bp_field( 'vaccine_private_btn_text', 'Book privately with us' ) ); ?>
+          <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
 
     </div>
@@ -271,7 +361,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_pricing_badge', 'TRANSPARENT PRICING')); ?></span>
       </div>
       <h2 class="meningitis-b-pricing-title"><?php echo esc_html(bp_field('vaccine_pricing_title', 'Meningitis B Vaccination Pricing')); ?></h2>
-      <p class="meningitis-b-pricing-desc"><?php echo esc_html(bp_field('vaccine_pricing_desc', 'Clear pricing per dose — no hidden extras')); ?></p>
+      <p class="meningitis-b-pricing-desc"><?php echo esc_html(bp_field('vaccine_pricing_desc', 'Private pricing per dose — no hidden extras. If you meet the NHS criteria, the vaccination is free.')); ?></p>
     </div>
 
     <div class="meningitis-b-pricing-grid">
@@ -279,7 +369,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
         <div class="meningitis-b-pricing-ribbon">Bexsero</div>
         <h3 class="meningitis-b-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'Bexsero Vaccine')); ?></h3>
         <div class="meningitis-b-pricing-amount">
-          <span class="price"><?php echo esc_html(bp_field('vaccine_price_amount', '£100')); ?></span>
+          <span class="price"><?php echo esc_html(bp_field('vaccine_price_amount', '£125')); ?></span>
           <span class="per"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
         <ul class="meningitis-b-pricing-includes">
@@ -292,7 +382,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
       </div>
     </div>
 
-    <p class="meningitis-b-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', 'Price is £100 per dose. The number of doses needed depends on age, so our pharmacist will confirm the right schedule for you or your child.')); ?></p>
+    <p class="meningitis-b-pricing-note"><?php echo wp_kses_post(bp_field('vaccine_price_note', 'This is our private price per dose. Eligible students and teenagers can get the MenB vaccination free on the NHS — see <a href="#pathways">the NHS criteria above</a>. The number of doses needed depends on age, so our pharmacist will confirm the right schedule for you or your child.')); ?></p>
   </div>
 </section>
 

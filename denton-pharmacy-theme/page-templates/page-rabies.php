@@ -39,7 +39,7 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
         </h1>
 
         <p class="rabies-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', "Protect yourself before travelling with our rabies pre-exposure vaccination service in Denton, Manchester. A three-dose course for travellers to South Asia, Southeast Asia, sub-Saharan Africa and other rabies-endemic regions.")); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', "Protect yourself before travelling with our rabies pre-exposure vaccination service in Denton, Manchester. Choose the standard three-dose course, or an accelerated schedule that completes in just one week if you're travelling soon.")); ?>
         </p>
 
         <div class="rabies-hero-actions">
@@ -54,7 +54,7 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
         </div>
 
         <div class="rabies-hero-trust">
-          <div class="rabies-hero-trust-item"><i class="fas fa-syringe"></i><span>3-Dose Course</span></div>
+          <div class="rabies-hero-trust-item"><i class="fas fa-syringe"></i><span>Standard or Accelerated</span></div>
           <div class="rabies-hero-trust-item"><i class="fas fa-child-reaching"></i><span>Suitable for Children</span></div>
           <div class="rabies-hero-trust-item"><i class="fas fa-user-doctor"></i><span>No GP Referral Needed</span></div>
         </div>
@@ -73,13 +73,24 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
               <div class="rabies-trust-card-icon"><i class="fas fa-syringe"></i></div>
               <span class="rabies-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Rabies Vaccine')); ?></span>
             </div>
-            <div class="rabies-trust-card-price">
-              <span class="rabies-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£70')); ?></span>
-              <span class="rabies-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
+            <div class="rabies-trust-card-prices">
+              <div class="rabies-trust-price-col">
+                <span class="rabies-trust-price-tag"><?php echo esc_html(dp_field('vaccine_price_std_label', 'Standard')); ?></span>
+                <span class="rabies-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£70')); ?></span>
+                <span class="rabies-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
+                <span class="rabies-trust-price-days"><?php echo esc_html(dp_field('vaccine_schedule_std_short', 'Days 0, 7, 21–28')); ?></span>
+              </div>
+              <div class="rabies-trust-price-sep"></div>
+              <div class="rabies-trust-price-col">
+                <span class="rabies-trust-price-tag rabies-trust-price-tag--accel"><?php echo esc_html(dp_field('vaccine_price_accel_label', 'Accelerated')); ?></span>
+                <span class="rabies-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_accel_amount', '£85')); ?></span>
+                <span class="rabies-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
+                <span class="rabies-trust-price-days"><?php echo esc_html(dp_field('vaccine_schedule_accel_short', 'Days 0, 3, 7')); ?></span>
+              </div>
             </div>
             <div class="rabies-trust-card-divider"></div>
             <ul class="rabies-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Days 0, 7 and 21–28</span></li>
+              <li><i class="fas fa-check"></i> <span>Three doses either way — pick the schedule that fits your travel dates</span></li>
               <li><i class="fas fa-check"></i> <span>Around 2–3 years' protection</span></li>
               <li><i class="fas fa-check"></i> <span>Simplifies post-bite treatment</span></li>
             </ul>
@@ -122,11 +133,11 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
       <div class="rabies-protect-content">
         <div class="rabies-protect-badge-box">
           <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Three Doses, Simpler Treatment if Bitten')); ?></span>
+          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Two Schedules — Standard or Accelerated')); ?></span>
         </div>
 
         <h3 class="rabies-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Pre-Exposure Protection Matters')); ?></h3>
-        <p class="rabies-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', "Rabies attacks the central nervous system and is almost always fatal once symptoms appear, spread through bites, scratches or saliva from infected animals — dogs are responsible for around 99% of human cases worldwide. Pre-exposure vaccination is a three-dose course (days 0, 7, and 21 or 28), giving around 2 to 3 years' protection. It doesn't remove the need for medical care if you're bitten, but it simplifies the treatment you'd need and buys valuable time in areas where care may be harder to reach.")); ?></p>
+        <p class="rabies-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', "Rabies attacks the central nervous system and is almost always fatal once symptoms appear, spread through bites, scratches or saliva from infected animals — dogs are responsible for around 99% of human cases worldwide. Pre-exposure vaccination is a three-dose course, giving around 2 to 3 years' protection. We offer two schedules: the standard course on days 0, 7 and 21–28, or an accelerated course on days 0, 3 and 7 that completes within a week if you're travelling at short notice. It doesn't remove the need for medical care if you're bitten, but it simplifies the treatment you'd need and buys valuable time in areas where care may be harder to reach.")); ?></p>
 
         <ul class="rabies-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -140,7 +151,7 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
           <?php endwhile; else : ?>
             <li class="rabies-protect-feature">
               <div class="icon"><i class="fas fa-syringe"></i></div>
-              <div class="text"><strong>Three-Dose Course</strong><p>Given on days 0, 7 and 21–28 — plan to book at least 4 weeks before you travel.</p></div>
+              <div class="text"><strong>Two Schedules to Choose From</strong><p><strong>Standard</strong> — 3 doses on days 0, 7 and 21–28 (£70 per dose). <strong>Accelerated</strong> — 3 doses on days 0, 3 and 7 (£85 per dose), completing within a week if you're travelling soon.</p></div>
             </li>
             <li class="rabies-protect-feature">
               <div class="icon"><i class="fas fa-hand-holding-medical"></i></div>
@@ -176,11 +187,11 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="rabies-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">3 Doses</span><span class="label">Days 0, 7, 21–28</span></div></div>
+        <div class="rabies-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">3 Doses</span><span class="label">Standard or Accelerated</span></div></div>
         <div class="rabies-stat-divider"></div>
         <div class="rabies-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">2–3 Years</span><span class="label">Protection</span></div></div>
         <div class="rabies-stat-divider"></div>
-        <div class="rabies-stat-item"><div class="icon"><i class="fas fa-clock"></i></div><div class="content"><span class="number">4 Weeks</span><span class="label">Before Travel</span></div></div>
+        <div class="rabies-stat-item"><div class="icon"><i class="fas fa-clock"></i></div><div class="content"><span class="number">From 1 Week</span><span class="label">Accelerated Course</span></div></div>
         <div class="rabies-stat-divider"></div>
         <div class="rabies-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">First Dose</span></div></div>
       <?php endif; ?>
@@ -301,28 +312,56 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
         <span class="section-badge-text"><?php echo esc_html(dp_field('vaccine_pricing_badge', 'TRANSPARENT PRICING')); ?></span>
       </div>
       <h2 class="rabies-pricing-title"><?php echo esc_html(dp_field('vaccine_pricing_title', 'Rabies Vaccination Pricing')); ?></h2>
-      <p class="rabies-pricing-desc"><?php echo esc_html(dp_field('vaccine_pricing_desc', 'Priced per dose — we will confirm your full course cost at your first appointment')); ?></p>
+      <p class="rabies-pricing-desc"><?php echo esc_html(dp_field('vaccine_pricing_desc', 'Two schedules to choose from, both priced per dose — we will confirm your full course cost at your first appointment')); ?></p>
     </div>
 
-    <div class="rabies-pricing-grid">
-      <div class="rabies-pricing-card featured">
-        <div class="rabies-pricing-ribbon">Per Dose</div>
-        <h3 class="rabies-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Rabies Vaccine')); ?></h3>
+    <div class="rabies-pricing-grid rabies-pricing-grid--dual">
+
+      <!-- Standard schedule -->
+      <div class="rabies-pricing-card">
+        <div class="rabies-pricing-ribbon"><?php echo esc_html(dp_field('vaccine_price_std_ribbon', 'Standard Course')); ?></div>
+        <h3 class="rabies-pricing-name"><?php echo esc_html(dp_field('vaccine_price_std_name', 'Standard Schedule')); ?></h3>
         <div class="rabies-pricing-amount">
           <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£70')); ?></span>
           <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
+        </div>
+        <div class="rabies-pricing-schedule">
+          <i class="fas fa-calendar-days"></i>
+          <span><?php echo esc_html(dp_field('vaccine_schedule_std', '3 doses — days 0, 7 and 21–28')); ?></span>
         </div>
         <ul class="rabies-pricing-includes">
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
           <li><i class="fas fa-check"></i> Travel risk assessment &amp; advice</li>
           <li><i class="fas fa-check"></i> Full course scheduling support</li>
-          <li><i class="fas fa-check"></i> Suitable for adults &amp; children</li>
+          <li><i class="fas fa-check"></i> Best if you have 4+ weeks before travel</li>
         </ul>
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
+        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Standard Course</a>
       </div>
+
+      <!-- Accelerated schedule -->
+      <div class="rabies-pricing-card rabies-pricing-card--accel">
+        <div class="rabies-pricing-ribbon rabies-pricing-ribbon--accel"><?php echo esc_html(dp_field('vaccine_price_accel_ribbon', 'Travelling Soon')); ?></div>
+        <h3 class="rabies-pricing-name"><?php echo esc_html(dp_field('vaccine_price_accel_name', 'Accelerated Schedule')); ?></h3>
+        <div class="rabies-pricing-amount">
+          <span class="price"><?php echo esc_html(dp_field('vaccine_price_accel_amount', '£85')); ?></span>
+          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
+        </div>
+        <div class="rabies-pricing-schedule rabies-pricing-schedule--accel">
+          <i class="fas fa-bolt"></i>
+          <span><?php echo esc_html(dp_field('vaccine_schedule_accel', '3 doses — days 0, 3 and 7')); ?></span>
+        </div>
+        <ul class="rabies-pricing-includes">
+          <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
+          <li><i class="fas fa-check"></i> Travel risk assessment &amp; advice</li>
+          <li><i class="fas fa-check"></i> Complete course within one week</li>
+          <li><i class="fas fa-check"></i> Ideal for short-notice travel</li>
+        </ul>
+        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Accelerated Course</a>
+      </div>
+
     </div>
 
-    <p class="rabies-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Price shown is per dose. The full course is 3 doses given over 21–28 days — not available on the NHS for travel purposes.')); ?></p>
+    <p class="rabies-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Prices shown are per dose, and both schedules are a 3-dose course. The standard course runs over 21–28 days; the accelerated course completes within one week. Rabies vaccination is not available on the NHS for travel purposes. Our pharmacist will confirm which schedule is right for you at your first appointment.')); ?></p>
   </div>
 </section>
 
@@ -348,7 +387,7 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
       <?php endwhile; else : ?>
         <div class="rabies-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Travel Risk Check</h3><p>We talk through your itinerary and confirm the course timing works for your trip.</p></div>
         <div class="rabies-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>Given the same day at your first appointment, in the upper arm.</p></div>
-        <div class="rabies-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Course Scheduling</h3><p>We book your remaining doses on days 7 and 21–28 to complete the course before you travel.</p></div>
+        <div class="rabies-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Course Scheduling</h3><p>We book your remaining doses to suit your schedule — days 7 and 21–28 on the standard course, or days 3 and 7 on the accelerated course.</p></div>
         <div class="rabies-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Usually mild — soreness at the injection site, headache, nausea, muscle aches or a slight fever.</p></div>
         <div class="rabies-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Suitable for Children</h3><p>Children can be vaccinated too — worth considering given their higher bite risk.</p></div>
         <div class="rabies-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Not available on the NHS for travel purposes, so we offer it privately with no referral needed.</p></div>
@@ -382,9 +421,9 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
         </div>
       <?php endwhile; else : ?>
         <div class="rabies-faq-item"><button class="rabies-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Does vaccination mean I don't need treatment if I'm bitten?</span><i class="fas fa-plus icon"></i></button><div class="rabies-faq-content"><p>No — you'll still need medical attention if bitten or scratched, even after the pre-exposure course. What changes is the treatment: vaccinated people typically need just 2 more doses and no immunoglobulin, rather than 5 doses plus immunoglobulin.</p></div></div>
-        <div class="rabies-faq-item"><button class="rabies-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How soon before travel should I start the course?</span><i class="fas fa-plus icon"></i></button><div class="rabies-faq-content"><p>Book at least 4 weeks before you travel, so you have time to complete all three doses (given on days 0, 7 and 21–28).</p></div></div>
+        <div class="rabies-faq-item"><button class="rabies-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How soon before travel should I start the course?</span><i class="fas fa-plus icon"></i></button><div class="rabies-faq-content"><p>Ideally book at least 4 weeks ahead so you can complete the standard course (days 0, 7 and 21–28). If you're travelling sooner than that, our accelerated course (days 0, 3 and 7) completes within a week — so it's still worth getting in touch even at short notice.</p></div></div>
         <div class="rabies-faq-item"><button class="rabies-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">What should I do if I'm bitten or scratched abroad?</span><i class="fas fa-plus icon"></i></button><div class="rabies-faq-content"><p>Wash the wound immediately with soap and water for at least 15 minutes, apply antiseptic, and get medical attention as soon as you can — this matters whether or not you've been vaccinated.</p></div></div>
-        <div class="rabies-faq-item"><button class="rabies-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Is there a faster schedule if I'm short on time?</span><i class="fas fa-plus icon"></i></button><div class="rabies-faq-content"><p>A 2-dose accelerated schedule may be possible in limited circumstances — contact us to discuss your travel dates and we'll advise what's suitable.</p></div></div>
+        <div class="rabies-faq-item"><button class="rabies-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Is there a faster schedule if I'm short on time?</span><i class="fas fa-plus icon"></i></button><div class="rabies-faq-content"><p>Yes. We offer an accelerated three-dose course given on days 0, 3 and 7 at £85 per dose, which completes within a week — compared with the standard course on days 0, 7 and 21–28 at £70 per dose. Tell us your travel dates and our pharmacist will confirm which schedule is right for you.</p></div></div>
         <div class="rabies-faq-item"><button class="rabies-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="rabies-faq-content"><p>Side effects are usually mild — soreness at the injection site, headache, nausea, muscle aches or a slight fever. Serious reactions are rare.</p></div></div>
       <?php endif; ?>
     </div>
