@@ -2031,7 +2031,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'switching_feature_2_desc',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => 'Speak with Ahmed and our Denton team directly. No chatbots, no call centres — just real, qualified healthcare professionals.',
+                'default_value' => 'Speak with Ahmed and our Denton team directly whenever you need clinical or personal support. The website assistant only provides general information and booking routes.',
             ),
             // Feature 3
             array(

@@ -23,7 +23,7 @@ $allowed_title_tags = array(
 $title = bp_field( 'switching_title', 'Frustrated with Your Current <span class="gradient-text">Weight Loss Provider?</span>' );
 
 // --- Description ---
-$description = bp_field( 'switching_description', 'Tired of waiting weeks for prescriptions? Fed up with chatbots instead of real pharmacists? Join hundreds who have switched to Bowland Pharmacy for faster service, genuine support, and premium care you can trust.' );
+$description = bp_field( 'switching_description', 'Tired of waiting weeks for prescriptions? Join hundreds who have switched to Bowland Pharmacy for faster service, direct access to qualified professionals, and personal care you can trust.' );
 
 // --- 3 Feature items (individual ACF fields per feature) ---
 $default_features = array(

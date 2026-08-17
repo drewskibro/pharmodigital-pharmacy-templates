@@ -16,7 +16,7 @@ $addr_line_1   = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
 $addr_line_2   = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
 $addr_line_3   = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
 $full_address  = trim( $addr_line_1 . ', ' . $addr_line_2 . ' ' . $addr_line_3 );
-$last_updated  = 'July 2026';
+$last_updated  = 'August 2026';
 ?>
 
 <!-- ============================================
@@ -82,6 +82,12 @@ $last_updated  = 'July 2026';
       <li>Comply with legal and regulatory obligations</li>
     </ul>
 
+    <h2>Claude AI Website Assistant</h2>
+    <p>Our optional website assistant provides general information about our opening hours, location, services, booking routes and travel-health guidance. It is not a healthcare professional, cannot access your pharmacy records or bookings, and must not be used for diagnosis, personalised medical advice or emergencies.</p>
+    <p>Please do not enter your name, contact details, date of birth, NHS number, medical history, symptoms or medicines into the assistant. Common direct identifiers are automatically removed before a question is sent to Claude, and clinical or emergency wording is redirected to an appropriate human or NHS route. Automated safeguards cannot identify every possible disclosure.</p>
+    <p>The redacted question is sent securely through Supabase to Anthropic's Claude API to generate a reply. We do not store the question or Claude's reply. We retain only limited operational statistics, such as the website used, a random browser-session identifier, broad topic, response outcome, destination country where relevant and token counts, for up to 30 days. A separate secret-keyed representation of the network address is used only to prevent abuse and is deleted after 2 days.</p>
+    <p>Under Anthropic's standard commercial API terms, API inputs and outputs may be retained by Anthropic for up to 30 days for safety and service operation. Anthropic states that commercial API data is not used to train its models unless the customer explicitly opts in. You can avoid this processing by closing the assistant and contacting us directly.</p>
+
     <h2>Legal Basis for Processing</h2>
     <p>We process your personal information on one or more of the following lawful bases:</p>
     <ul>
@@ -101,6 +107,8 @@ $last_updated  = 'July 2026';
       <li>Kinsta — website hosting (<a href="https://kinsta.com" target="_blank" rel="noopener noreferrer">kinsta.com</a>)</li>
       <li>Gildhart — digital marketing, website design and management (<a href="https://gildhart.com/" target="_blank" rel="noopener noreferrer">gildhart.com</a>)</li>
       <li>Website analytics provider(s) — Google Analytics / Microsoft Clarity</li>
+      <li>Supabase — secure infrastructure, short-lived abuse prevention and limited assistant usage statistics (<a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">supabase.com/privacy</a>)</li>
+      <li>Anthropic — Claude AI processing for the optional website assistant (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer">anthropic.com/legal/privacy</a>)</li>
     </ul>
     <p>We may also disclose personal information where required by law or where necessary to protect the rights, property, safety or security of <?php echo esc_html( $pharmacy_name ); ?>, our patients, staff or the wider public.</p>
 
@@ -114,6 +122,7 @@ $last_updated  = 'July 2026';
 
     <h2>Data Retention</h2>
     <p>We retain personal information only for as long as necessary to fulfil the purposes for which it was collected or to comply with legal, regulatory and professional obligations.</p>
+    <p>For the AI website assistant, questions and replies are not stored by us. Limited usage statistics, including a random browser-session identifier, are deleted after 30 days. Secret-keyed network abuse-prevention identifiers are deleted after 2 days. Anthropic's standard API retention is described above.</p>
 
     <h2>Your Rights</h2>
     <p>Under UK GDPR, you have the right to:</p>
