@@ -48,4 +48,28 @@ jobs:
             cd ~/public
             (wp option get home 2>/dev/null && wp option get siteurl 2>/dev/null) || echo "wp-cli not on PATH"
             echo "hostname: $(hostname)"
+            echo ""
+            echo "=== Purging Kinsta caches ==="
+            wp kinsta cache purge --all
             echo "Deploy complete!"
+
+      - name: Verify public assistant embed
+        shell: bash
+        run: |
+          set -euo pipefail
+          verify_page() {
+            local url="$1"
+            for attempt in 1 2 3 4 5; do
+              if curl -fsS "$url" -o "$RUNNER_TEMP/denton-page.html" \
+                && grep -Fq 'functions/v1/pharmacy_chat_widget' "$RUNNER_TEMP/denton-page.html"; then
+                return 0
+              fi
+              sleep 2
+            done
+            echo "Assistant embed missing from $url" >&2
+            return 1
+          }
+          verify_page "https://dentonpharmacy.co.uk/"
+          verify_page "https://dentonpharmacy.co.uk/travel-clinic-manchester/"
+          verify_page "https://dentonpharmacy.co.uk/contact/"
+          verify_page "https://dentonpharmacy.co.uk/privacy-policy/"

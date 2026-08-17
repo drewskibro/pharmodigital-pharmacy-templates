@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'bowland-pharmacy-theme/**'
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -37,4 +38,29 @@ jobs:
             echo "Checking deployed theme..."
             ls -la ~/public/wp-content/themes/bowland-pharmacy-theme/style.css
             head -7 ~/public/wp-content/themes/bowland-pharmacy-theme/style.css
+            echo ""
+            echo "=== Purging Kinsta caches ==="
+            cd ~/public
+            wp kinsta cache purge --all
             echo "Deploy complete!"
+
+      - name: Verify public assistant embed
+        shell: bash
+        run: |
+          set -euo pipefail
+          verify_page() {
+            local url="$1"
+            for attempt in 1 2 3 4 5; do
+              if curl -fsS "$url" -o "$RUNNER_TEMP/bowland-page.html" \
+                && grep -Fq 'functions/v1/pharmacy_chat_widget' "$RUNNER_TEMP/bowland-page.html"; then
+                return 0
+              fi
+              sleep 2
+            done
+            echo "Assistant embed missing from $url" >&2
+            return 1
+          }
+          verify_page "https://bowlandpharmacy.co.uk/"
+          verify_page "https://bowlandpharmacy.co.uk/travel-clinic/"
+          verify_page "https://bowlandpharmacy.co.uk/contact/"
+          verify_page "https://bowlandpharmacy.co.uk/privacy-policy/"
