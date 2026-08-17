@@ -351,7 +351,7 @@ function bowland_pharmacy_scripts() {
         'bowland-pharmacy-ai-assistant',
         'https://tlfyevjyogfinulsmljv.supabase.co/functions/v1/pharmacy_chat_widget',
         array(),
-        '2.0.1',
+        '2.0.1.1',
         true
     );
 }
@@ -368,7 +368,7 @@ function bowland_pharmacy_ai_assistant_script_tag( $tag, $handle, $src ) {
     return sprintf(
         '<script src="%1$s" integrity="%2$s" crossorigin="anonymous" defer></script>' . "\n",
         esc_url( $src ),
-        esc_attr( 'sha384-thyVbz3ndDZMIXcCA8bnL56psKBX89Pn0VATCCzp2h4hmNfr7zIQl4Ilu/xUSWIQ sha384-coeQm2lsz+UXRybMsA9pNN383MgUloPO/PjWMkVYDm97QqzcLpfEAA4tXmma+550' )
+        esc_attr( 'sha384-thyVbz3ndDZMIXcCA8bnL56psKBX89Pn0VATCCzp2h4hmNfr7zIQl4Ilu/xUSWIQ' )
     );
 }
 add_filter( 'script_loader_tag', 'bowland_pharmacy_ai_assistant_script_tag', 10, 3 );
