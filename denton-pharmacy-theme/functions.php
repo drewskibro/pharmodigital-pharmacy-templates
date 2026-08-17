@@ -361,7 +361,7 @@ function denton_pharmacy_scripts() {
         'denton-pharmacy-ai-assistant',
         'https://tlfyevjyogfinulsmljv.supabase.co/functions/v1/pharmacy_chat_widget',
         array(),
-        '2.0.0',
+        '2.0.1',
         true
     );
 }
@@ -378,7 +378,7 @@ function denton_pharmacy_ai_assistant_script_tag( $tag, $handle, $src ) {
     return sprintf(
         '<script src="%1$s" integrity="%2$s" crossorigin="anonymous" defer></script>' . "\n",
         esc_url( $src ),
-        esc_attr( 'sha384-coeQm2lsz+UXRybMsA9pNN383MgUloPO/PjWMkVYDm97QqzcLpfEAA4tXmma+550' )
+        esc_attr( 'sha384-9YcuYw8wVlgR1WObELDQhGzrshQNupnYXitNZeXvE8M56pm6QgHMP1NEISJQxU0+ sha384-coeQm2lsz+UXRybMsA9pNN383MgUloPO/PjWMkVYDm97QqzcLpfEAA4tXmma+550' )
     );
 }
 add_filter( 'script_loader_tag', 'denton_pharmacy_ai_assistant_script_tag', 10, 3 );
