@@ -354,8 +354,34 @@ function denton_pharmacy_scripts() {
         filemtime( DENTON_PHARMACY_DIR . '/assets/js/location-map.js' ),
         true
     );
+
+    // Optional public assistant. The exact audited bundle is pinned below with
+    // Subresource Integrity, so a changed remote script is refused by browsers.
+    wp_enqueue_script(
+        'denton-pharmacy-ai-assistant',
+        'https://tlfyevjyogfinulsmljv.supabase.co/functions/v1/pharmacy_chat_widget',
+        array(),
+        '2.0.0',
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'denton_pharmacy_scripts' );
+
+/**
+ * Pin the external assistant bundle and load it without blocking the page.
+ */
+function denton_pharmacy_ai_assistant_script_tag( $tag, $handle, $src ) {
+    if ( 'denton-pharmacy-ai-assistant' !== $handle ) {
+        return $tag;
+    }
+
+    return sprintf(
+        '<script src="%1$s" integrity="%2$s" crossorigin="anonymous" defer></script>' . "\n",
+        esc_url( $src ),
+        esc_attr( 'sha384-coeQm2lsz+UXRybMsA9pNN383MgUloPO/PjWMkVYDm97QqzcLpfEAA4tXmma+550' )
+    );
+}
+add_filter( 'script_loader_tag', 'denton_pharmacy_ai_assistant_script_tag', 10, 3 );
 
 /**
  * ACF Includes
