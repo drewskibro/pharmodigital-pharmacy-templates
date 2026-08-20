@@ -39,8 +39,11 @@ jobs:
             ls -la ~/public/wp-content/themes/bowland-pharmacy-theme/style.css
             head -7 ~/public/wp-content/themes/bowland-pharmacy-theme/style.css
             echo ""
-            echo "=== Purging Kinsta caches ==="
+            echo "Updating Foundayo prices..."
             cd ~/public
+            wp eval-file wp-content/themes/bowland-pharmacy-theme/bin/update-foundayo-prices.php
+            echo ""
+            echo "=== Purging Kinsta caches ==="
             wp kinsta cache purge --all
             echo "Deploy complete!"
 
@@ -64,3 +67,17 @@ jobs:
           verify_page "https://bowlandpharmacy.co.uk/travel-clinic/"
           verify_page "https://bowlandpharmacy.co.uk/contact/"
           verify_page "https://bowlandpharmacy.co.uk/privacy-policy/"
+
+          curl -fsS "https://bowlandpharmacy.co.uk/prices/?verify=foundayo" \
+            -o "$RUNNER_TEMP/bowland-prices.html"
+          for expected in \
+            'Foundayo Tablets' \
+            '0.8mg' '£99' \
+            '2.5mg' '£119' \
+            '5.5mg' '£129' \
+            '9mg' '£159' \
+            '14.5mg' '£189' \
+            '17.2mg' '£199'; do
+            grep -Fq "$expected" "$RUNNER_TEMP/bowland-prices.html"
+          done
+          test "$(grep -Fo 'Foundayo Tablets' "$RUNNER_TEMP/bowland-prices.html" | wc -l | tr -d ' ')" -eq 6
