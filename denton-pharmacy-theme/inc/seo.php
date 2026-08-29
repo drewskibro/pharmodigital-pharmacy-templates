@@ -297,3 +297,54 @@ function denton_pharmacy_output_local_business_schema() {
     echo '<script type="application/ld+json">' . denton_pharmacy_encode_schema( $schema ) . '</script>' . "\n";
 }
 add_action( 'wp_head', 'denton_pharmacy_output_local_business_schema', 30 );
+
+/**
+ * Resolve the default WordPress sample page once for redirect and sitemap use.
+ */
+function denton_pharmacy_sample_page_id() {
+    $sample_page = get_page_by_path( 'sample-page', OBJECT, 'page' );
+    return $sample_page instanceof WP_Post ? (int) $sample_page->ID : 0;
+}
+
+/**
+ * Redirect the indexed default sample page to the pharmacy homepage.
+ */
+function denton_pharmacy_redirect_sample_page() {
+    if ( is_page( 'sample-page' ) ) {
+        wp_safe_redirect( home_url( '/' ), 301, 'Denton Pharmacy' );
+        exit;
+    }
+}
+add_action( 'template_redirect', 'denton_pharmacy_redirect_sample_page', 1 );
+
+/**
+ * Exclude the sample page from the WordPress core sitemap.
+ */
+function denton_pharmacy_exclude_sample_page_from_core_sitemap( $args, $post_type ) {
+    if ( 'page' !== $post_type ) {
+        return $args;
+    }
+
+    $sample_page_id = denton_pharmacy_sample_page_id();
+    if ( $sample_page_id ) {
+        $excluded = isset( $args['post__not_in'] ) ? (array) $args['post__not_in'] : array();
+        $excluded[] = $sample_page_id;
+        $args['post__not_in'] = array_values( array_unique( array_map( 'intval', $excluded ) ) );
+    }
+
+    return $args;
+}
+add_filter( 'wp_sitemaps_posts_query_args', 'denton_pharmacy_exclude_sample_page_from_core_sitemap', 10, 2 );
+
+/**
+ * Exclude the sample page from Yoast's sitemap.
+ */
+function denton_pharmacy_exclude_sample_page_from_yoast_sitemap( $excluded_ids ) {
+    $sample_page_id = denton_pharmacy_sample_page_id();
+    if ( $sample_page_id ) {
+        $excluded_ids[] = $sample_page_id;
+    }
+
+    return array_values( array_unique( array_map( 'intval', $excluded_ids ) ) );
+}
+add_filter( 'wpseo_exclude_from_sitemap_by_post_ids', 'denton_pharmacy_exclude_sample_page_from_yoast_sitemap' );
