@@ -63,7 +63,7 @@ $directions_url = $pharmacy_directions;
 
 // --- Details: Opening Hours ---
 $hours_weekday  = bp_option( 'hours_weekday', '9:00am – 6:00pm' );
-$hours_saturday = bp_option( 'hours_saturday', '9:00am – 1:00pm' );
+$hours_saturday = bp_option( 'hours_saturday', 'Closed' );
 $hours_sunday   = bp_option( 'hours_sunday', 'Closed' );
 
 // --- Details: Contact ---

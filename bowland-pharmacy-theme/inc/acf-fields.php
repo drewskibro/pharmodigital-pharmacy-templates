@@ -223,7 +223,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Saturday Hours',
                 'name'          => 'hours_saturday',
                 'type'          => 'text',
-                'default_value' => '9:00am – 1:00pm',
+                'default_value' => 'Closed',
             ),
             array(
                 'key'           => 'field_bp_hours_sunday',
@@ -1510,7 +1510,7 @@ function bp_register_acf_field_groups() {
                 'min'          => 0,
                 'max'          => 6,
                 'button_label' => 'Add Check',
-                'instructions' => 'Leave empty to use defaults (No referral needed, Same-day service, Open 6 days a week).',
+                'instructions' => 'Leave empty to use defaults (No referral needed, Same-day service, Open Monday to Friday).',
                 'sub_fields'   => array(
                     array(
                         'key'   => 'field_bp_nhs_check_text',

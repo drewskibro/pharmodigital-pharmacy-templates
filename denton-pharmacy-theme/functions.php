@@ -13,6 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'DENTON_PHARMACY_VERSION', filemtime( get_theme_file_path( 'assets/css/globals.css' ) ) );
 define( 'DENTON_PHARMACY_DIR', get_template_directory() );
 define( 'DENTON_PHARMACY_URI', get_template_directory_uri() );
+define( 'DENTON_PHARMACY_ASSISTANT_URL', 'https://tlfyevjyogfinulsmljv.supabase.co/functions/v1/pharmacy_chat_widget_v3' );
+define( 'DENTON_PHARMACY_ASSISTANT_VERSION', '3.0.0' );
+define( 'DENTON_PHARMACY_ASSISTANT_SRI', 'sha384-wlxe3SLsS7hmJDVsBBjPMeEnUiNSaGVV1g263JQVjgituoX6VueASMArs8aWyyeE' );
 
 /**
  * Theme Setup
@@ -359,9 +362,9 @@ function denton_pharmacy_scripts() {
     // Subresource Integrity, so a changed remote script is refused by browsers.
     wp_enqueue_script(
         'denton-pharmacy-ai-assistant',
-        'https://tlfyevjyogfinulsmljv.supabase.co/functions/v1/pharmacy_chat_widget',
+        DENTON_PHARMACY_ASSISTANT_URL,
         array(),
-        '2.0.1.1',
+        DENTON_PHARMACY_ASSISTANT_VERSION,
         true
     );
 }
@@ -378,7 +381,7 @@ function denton_pharmacy_ai_assistant_script_tag( $tag, $handle, $src ) {
     return sprintf(
         '<script src="%1$s" integrity="%2$s" crossorigin="anonymous" defer></script>' . "\n",
         esc_url( $src ),
-        esc_attr( 'sha384-thyVbz3ndDZMIXcCA8bnL56psKBX89Pn0VATCCzp2h4hmNfr7zIQl4Ilu/xUSWIQ' )
+        esc_attr( DENTON_PHARMACY_ASSISTANT_SRI )
     );
 }
 add_filter( 'script_loader_tag', 'denton_pharmacy_ai_assistant_script_tag', 10, 3 );
@@ -396,6 +399,10 @@ if ( file_exists( DENTON_PHARMACY_DIR . '/inc/acf-fields.php' ) ) {
 
 if ( file_exists( DENTON_PHARMACY_DIR . '/inc/location-parking-autofill.php' ) ) {
     require_once DENTON_PHARMACY_DIR . '/inc/location-parking-autofill.php';
+}
+
+if ( file_exists( DENTON_PHARMACY_DIR . '/inc/seo.php' ) ) {
+    require_once DENTON_PHARMACY_DIR . '/inc/seo.php';
 }
 
 /**

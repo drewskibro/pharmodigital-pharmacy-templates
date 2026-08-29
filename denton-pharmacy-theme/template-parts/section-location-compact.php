@@ -41,8 +41,8 @@ $label_anchor = 'up';
 
 $addr_line_1 = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
 
-$hours_weekday  = dp_option( 'hours_weekday', '9:00am – 6:00pm' );
-$hours_saturday = dp_option( 'hours_saturday', '9:00am – 1:00pm' );
+$hours_weekday  = dp_option( 'hours_weekday', '9:00am – 5:30pm' );
+$hours_saturday = dp_option( 'hours_saturday', 'Closed' );
 $hours_sunday   = dp_option( 'hours_sunday', 'Closed' );
 
 $pin_icon_id  = dp_option( 'location_pin_icon' );

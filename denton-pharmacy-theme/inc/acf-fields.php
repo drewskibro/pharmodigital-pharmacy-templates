@@ -216,14 +216,14 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Weekday Hours',
                 'name'          => 'hours_weekday',
                 'type'          => 'text',
-                'default_value' => '9:00am – 6:00pm',
+                'default_value' => '9:00am – 5:30pm',
             ),
             array(
                 'key'           => 'field_dp_hours_saturday',
                 'label'         => 'Saturday Hours',
                 'name'          => 'hours_saturday',
                 'type'          => 'text',
-                'default_value' => '9:00am – 1:00pm',
+                'default_value' => 'Closed',
             ),
             array(
                 'key'           => 'field_dp_hours_sunday',
@@ -1493,7 +1493,7 @@ function dp_register_acf_field_groups() {
                 'min'          => 0,
                 'max'          => 6,
                 'button_label' => 'Add Check',
-                'instructions' => 'Leave empty to use defaults (No referral needed, Same-day service, Open 6 days a week).',
+                'instructions' => 'Leave empty to use defaults (No referral needed, Same-day service, Open Monday to Friday).',
                 'sub_fields'   => array(
                     array(
                         'key'   => 'field_dp_nhs_check_text',

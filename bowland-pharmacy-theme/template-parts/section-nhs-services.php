@@ -66,13 +66,17 @@ foreach ( $chips as &$chip_ref ) {
 unset( $chip_ref );
 
 // --- Trust checks (ACF repeater with defaults) ---
-$default_bottom_checks = array( 'No referral needed', 'Same-day service', 'Open 6 days a week' );
+$default_bottom_checks = array( 'No referral needed', 'Same-day service', 'Open Monday to Friday' );
 $bottom_checks = array();
 if ( function_exists( 'have_rows' ) && have_rows( 'nhs_bottom_checks' ) ) {
     while ( have_rows( 'nhs_bottom_checks' ) ) {
         the_row();
         $text = get_sub_field( 'check_text' );
         if ( $text ) {
+            // Replace the legacy claim while existing ACF rows are being updated.
+            if ( 0 === strcasecmp( trim( $text ), 'Open 6 days a week' ) ) {
+                $text = 'Open Monday to Friday';
+            }
             $bottom_checks[] = $text;
         }
     }

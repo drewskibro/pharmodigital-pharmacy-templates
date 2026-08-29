@@ -25,7 +25,7 @@ $address_line2 = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester M34 3
 
 // Hours. Day labels are added structurally below so the ACF values only need
 // to hold the times (e.g. "9am – 5:30pm" / "Closed").
-$hours_weekday = dp_option( 'hours_weekday', '9:00am – 6:00pm' );
+$hours_weekday = dp_option( 'hours_weekday', '9:00am – 5:30pm' );
 $hours_weekend = dp_option( 'hours_sunday', dp_option( 'hours_saturday', 'Closed' ) );
 
 // Social links.

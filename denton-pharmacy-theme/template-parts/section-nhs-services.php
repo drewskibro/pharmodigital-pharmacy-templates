@@ -23,6 +23,9 @@ $description = dp_field( 'nhs_description', 'Free NHS services for eligible pati
 // --- Bottom CTA ---
 $bottom_title    = dp_field( 'nhs_bottom_title', 'Your NHS services, under one roof' );
 $bottom_desc     = dp_field( 'nhs_bottom_description', 'No appointment needed for most services. Walk in or call us.' );
+if ( false !== stripos( $bottom_desc, 'servicess' ) ) {
+    $bottom_desc = str_ireplace( 'servicess', 'services', $bottom_desc );
+}
 $bottom_cta_text = dp_field( 'nhs_bottom_cta_text', 'Visit Us in Denton' );
 $phone        = dp_phone();
 $phone_link   = dp_phone_link();
@@ -48,13 +51,17 @@ if ( empty( $chips ) ) {
 }
 
 // --- Trust checks (ACF repeater with defaults) ---
-$default_bottom_checks = array( 'No referral needed', 'Same-day service', 'Open 6 days a week' );
+$default_bottom_checks = array( 'No referral needed', 'Same-day service', 'Open Monday to Friday' );
 $bottom_checks = array();
 if ( function_exists( 'have_rows' ) && have_rows( 'nhs_bottom_checks' ) ) {
     while ( have_rows( 'nhs_bottom_checks' ) ) {
         the_row();
         $text = get_sub_field( 'check_text' );
         if ( $text ) {
+            // Replace the legacy claim while existing ACF rows are being updated.
+            if ( 0 === strcasecmp( trim( $text ), 'Open 6 days a week' ) ) {
+                $text = 'Open Monday to Friday';
+            }
             $bottom_checks[] = $text;
         }
     }
