@@ -62,8 +62,8 @@ $addr_line_3    = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
 $directions_url = $pharmacy_directions;
 
 // --- Details: Opening Hours ---
-$hours_weekday  = dp_option( 'hours_weekday', '9:00am – 6:00pm' );
-$hours_saturday = dp_option( 'hours_saturday', '9:00am – 1:00pm' );
+$hours_weekday  = dp_option( 'hours_weekday', '9:00am – 5:30pm' );
+$hours_saturday = dp_option( 'hours_saturday', 'Closed' );
 $hours_sunday   = dp_option( 'hours_sunday', 'Closed' );
 
 // --- Details: Contact ---

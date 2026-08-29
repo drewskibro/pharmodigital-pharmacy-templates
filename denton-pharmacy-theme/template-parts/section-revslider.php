@@ -71,9 +71,9 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
                     </div>
 
                     <!-- Title -->
-                    <h1 class="revslider-title">
+                    <h2 class="revslider-title">
                         <?php echo esc_html( $title ); ?>
-                    </h1>
+                    </h2>
 
                     <!-- Subtitle -->
                     <p class="revslider-subtitle">

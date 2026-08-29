@@ -372,7 +372,7 @@ endif;
       <div class="healthhub-cta-checks">
         <span class="healthhub-cta-check"><i class="fas fa-check"></i> No Referral Needed</span>
         <span class="healthhub-cta-check"><i class="fas fa-check"></i> Expert Guidance</span>
-        <span class="healthhub-cta-check"><i class="fas fa-check"></i> Open 6 Days a Week</span>
+        <span class="healthhub-cta-check"><i class="fas fa-check"></i> Open Monday to Friday</span>
       </div>
 
     </div>

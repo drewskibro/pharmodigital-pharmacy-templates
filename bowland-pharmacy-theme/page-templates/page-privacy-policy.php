@@ -16,7 +16,7 @@ $addr_line_1   = bp_option( 'pharmacy_address_line_1', '52 Bowland Road' );
 $addr_line_2   = bp_option( 'pharmacy_address_line_2', 'Wythenshawe, Manchester' );
 $addr_line_3   = bp_option( 'pharmacy_address_line_3', 'M23 1JX' );
 $full_address  = trim( $addr_line_1 . ', ' . $addr_line_2 . ' ' . $addr_line_3 );
-$last_updated  = 'August 2026';
+$last_updated  = '29 August 2026';
 ?>
 
 <!-- ============================================
@@ -39,12 +39,12 @@ $last_updated  = 'August 2026';
     <h2>Introduction</h2>
     <p><?php echo esc_html( $pharmacy_name ); ?> ("we", "our" or "us") is committed to protecting your privacy and handling your personal information responsibly, securely and transparently.</p>
     <p>This Privacy Policy explains how we collect, use, store and protect your personal information when you visit our website, make an enquiry, book a service or otherwise interact with us online.</p>
-    <p>By using this website and providing your personal information, you consent to the collection, use and processing of your information as described in this Privacy Policy, including being contacted about your enquiry, booking and, where you have given your consent, other healthcare services, clinics, promotions and health initiatives that may be relevant to you. You may withdraw your consent to marketing communications at any time.</p>
+    <p>Where processing relies on consent, including marketing communications and optional AI quality review, we ask for that consent separately. You may decline or withdraw consent without affecting services that do not depend on it.</p>
 
     <h2>Who We Are</h2>
     <p><?php echo esc_html( $pharmacy_name ); ?> is an independent community pharmacy providing NHS and private healthcare services in Wythenshawe and across Manchester.</p>
     <p>We are registered with the General Pharmaceutical Council (GPhC registration number <?php echo esc_html( $gphc ); ?>) and our registered pharmacy address is <?php echo esc_html( $full_address ); ?>.</p>
-    <p>As the Data Controller, we are responsible for ensuring that your personal information is processed in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+    <p>AT Health Ltd, company number 14519140, is the data controller for personal information processed through this website, including the AI assistant. Ahmed Al-Liabi is the privacy contact and can be reached at <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>.</p>
 
     <h2>Information We Collect</h2>
     <p><strong>Personal Information</strong> — We may collect personal information that you voluntarily provide, including:</p>
@@ -82,11 +82,16 @@ $last_updated  = 'August 2026';
       <li>Comply with legal and regulatory obligations</li>
     </ul>
 
-    <h2>Claude AI Website Assistant</h2>
-    <p>Our optional website assistant provides general information about our opening hours, location, services, booking routes and travel-health guidance. It is not a healthcare professional, cannot access your pharmacy records or bookings, and must not be used for diagnosis, personalised medical advice or emergencies.</p>
-    <p>Please do not enter your name, contact details, date of birth, NHS number, medical history, symptoms or medicines into the assistant. Common direct identifiers are automatically removed before a question is sent to Claude, and clinical or emergency wording is redirected to an appropriate human or NHS route. Automated safeguards cannot identify every possible disclosure.</p>
-    <p>The redacted question is sent securely through Supabase to Anthropic's Claude API to generate a reply. We do not store the question or Claude's reply. We retain only limited operational statistics, such as the website used, a random browser-session identifier, broad topic, controlled search-intent label, response outcome, destination country where relevant and token counts, for up to 30 days. Search-intent and destination details appear in improvement reports only after at least five distinct anonymous sessions asked about the same label. A separate secret-keyed representation of the network address is used only to prevent abuse and is deleted after 2 days.</p>
-    <p>Under Anthropic's standard commercial API terms, API inputs and outputs may be retained by Anthropic for up to 30 days for safety and service operation. Anthropic states that commercial API data is not used to train its models unless the customer explicitly opts in. You can avoid this processing by closing the assistant and contacting us directly.</p>
+    <h2>AI Website Assistant</h2>
+    <p>AT Health Ltd, company number 14519140, is the data controller for the AI assistant operated on this website. Ahmed Al-Liabi is the privacy contact and can be reached at <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>.</p>
+    <p>The optional assistant provides general information about opening hours, locations, services, prices, booking routes and travel health. It is not a healthcare professional, cannot access pharmacy records or bookings, and must not be used for diagnosis, personalised medical advice, medicine-suitability decisions or emergencies.</p>
+    <p>Please do not enter your name, contact details, date of birth, NHS number, medical history, symptoms or medicines. Common direct identifiers are automatically removed before a question is sent through Supabase to Anthropic's Claude API. Clinical or emergency wording is redirected to an appropriate human or NHS route. Automated safeguards cannot identify every possible disclosure.</p>
+    <p>For the normal assistant service, AT Health Ltd does not store the question or reply. It stores limited operational information for up to 30 days, including the website used, a random browser-session identifier, source page path without its query string, broad topic, controlled search-intent label, response outcome, prompt source, evidence version, feedback and selected booking or contact clicks. A separate secret-keyed network representation used only to prevent abuse is deleted after two days. Test traffic is excluded from content insights.</p>
+    <p>AT Health Ltd relies on its legitimate interests to provide, secure and improve the normal assistant and website using this minimised operational information. Detailed search-intent and destination labels are disclosed in improvement reports only after at least five distinct anonymous sessions share the same label. No chatbot information is used for advertising or joined to patient, booking or NHS records.</p>
+    <p>Visitors may separately choose to let AT Health Ltd retain an already-redacted question and reply for answer-quality review. The checkbox is optional and off by default. Where the conversation reveals health information, this processing relies on the visitor's explicit consent. Declining does not affect the normal assistant. Consented content is encrypted, restricted to authorised reviewers and automatically deleted after 30 days. Emergency and clinical-handoff conversations are never retained for QA.</p>
+    <p>An opted-in visitor receives a private deletion reference that can delete the stored conversation before its expiry. Consent can also be withdrawn by contacting <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>. Withdrawal does not affect processing that occurred before withdrawal. Anonymous aggregate statistics that can no longer be linked to the conversation are not affected.</p>
+    <p>Supabase provides database and Edge Function infrastructure. Anthropic processes the redacted text to generate the answer. Under Anthropic's standard commercial API terms, API inputs and outputs may be retained for up to 30 days for safety and service operation and are not used to train its models unless the customer explicitly opts in. AT Health Ltd does not authorise supplier training using these conversations.</p>
+    <p>Visitors may avoid AI processing by closing the assistant and contacting the pharmacy directly. Data-protection rights and the right to complain to the Information Commissioner's Office are described elsewhere in this policy.</p>
 
     <h2>Legal Basis for Processing</h2>
     <p>We process your personal information on one or more of the following lawful bases:</p>
@@ -122,7 +127,7 @@ $last_updated  = 'August 2026';
 
     <h2>Data Retention</h2>
     <p>We retain personal information only for as long as necessary to fulfil the purposes for which it was collected or to comply with legal, regulatory and professional obligations.</p>
-    <p>For the AI website assistant, questions and replies are not stored by us. Limited usage statistics, including a random browser-session identifier, are deleted after 30 days. Secret-keyed network abuse-prevention identifiers are deleted after 2 days. Anthropic's standard API retention is described above.</p>
+    <p>For the normal AI assistant service, questions and replies are not stored by AT Health Ltd. Limited operational statistics are deleted after 30 days and secret-keyed network abuse-prevention identifiers after two days. If a visitor gives separate explicit consent, the already-redacted question and reply are retained for no more than 30 days unless the visitor uses the private deletion reference or withdraws consent sooner. Anthropic's standard API retention is described above.</p>
 
     <h2>Your Rights</h2>
     <p>Under UK GDPR, you have the right to:</p>
@@ -143,6 +148,7 @@ $last_updated  = 'August 2026';
 
     <div class="legal-contact-card">
       <h2>Contact Us</h2>
+      <p>For data protection questions or to withdraw AI quality-review consent, contact Ahmed Al-Liabi at <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>.</p>
       <p>If you have any questions about this Privacy Policy or wish to exercise your data protection rights, you may contact us at <?php echo esc_html( $pharmacy_name ); ?>, <?php echo esc_html( $full_address ); ?>, call us on <a href="tel:<?php echo esc_attr( $phone_link ); ?>"><?php echo esc_html( $phone ); ?></a>, or email us at <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>.</p>
       <p>We are committed to handling your personal information responsibly and addressing any privacy-related queries promptly.</p>
     </div>
