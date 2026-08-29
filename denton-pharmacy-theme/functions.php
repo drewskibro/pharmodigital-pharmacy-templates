@@ -15,8 +15,7 @@ define( 'DENTON_PHARMACY_DIR', get_template_directory() );
 define( 'DENTON_PHARMACY_URI', get_template_directory_uri() );
 define( 'DENTON_PHARMACY_ASSISTANT_URL', 'https://tlfyevjyogfinulsmljv.supabase.co/functions/v1/pharmacy_chat_widget_v3' );
 define( 'DENTON_PHARMACY_ASSISTANT_VERSION', '3.0.0' );
-// Deployment blocker: replace this placeholder with the final v3 bundle SHA-384.
-define( 'DENTON_PHARMACY_ASSISTANT_SRI', 'sha384-REPLACE_WITH_FINAL_V3_BUNDLE_HASH' );
+define( 'DENTON_PHARMACY_ASSISTANT_SRI', 'sha384-wlxe3SLsS7hmJDVsBBjPMeEnUiNSaGVV1g263JQVjgituoX6VueASMArs8aWyyeE' );
 
 /**
  * Theme Setup

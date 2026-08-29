@@ -26,7 +26,7 @@ function bp_register_options_pages() {
         'page_title'  => 'Pharmacy Settings',
         'menu_title'  => 'Pharmacy Settings',
         'menu_slug'   => 'pharmacy-settings',
-        'capability'  => 'edit_posts',
+        'capability'  => 'manage_options',
         'redirect'    => true,
         'icon_url'    => 'dashicons-store',
         'position'    => 30,
@@ -38,7 +38,7 @@ function bp_register_options_pages() {
         'menu_title'  => 'Branding',
         'menu_slug'   => 'branding',
         'parent_slug' => 'pharmacy-settings',
-        'capability'  => 'edit_posts',
+        'capability'  => 'manage_options',
     ) );
 
     // Sub page: Contact & Location.
@@ -47,7 +47,7 @@ function bp_register_options_pages() {
         'menu_title'  => 'Contact & Location',
         'menu_slug'   => 'contact-location',
         'parent_slug' => 'pharmacy-settings',
-        'capability'  => 'edit_posts',
+        'capability'  => 'manage_options',
     ) );
 
     // Sub page: Registration & Compliance.
@@ -56,7 +56,7 @@ function bp_register_options_pages() {
         'menu_title'  => 'Registration & Compliance',
         'menu_slug'   => 'registration-compliance',
         'parent_slug' => 'pharmacy-settings',
-        'capability'  => 'edit_posts',
+        'capability'  => 'manage_options',
     ) );
 
     // Sub page: Social Media.
@@ -65,7 +65,7 @@ function bp_register_options_pages() {
         'menu_title'  => 'Social Media',
         'menu_slug'   => 'social-media',
         'parent_slug' => 'pharmacy-settings',
-        'capability'  => 'edit_posts',
+        'capability'  => 'manage_options',
     ) );
 
     // Sub page: Navigation.
@@ -74,7 +74,7 @@ function bp_register_options_pages() {
         'menu_title'  => 'Navigation',
         'menu_slug'   => 'navigation',
         'parent_slug' => 'pharmacy-settings',
-        'capability'  => 'edit_posts',
+        'capability'  => 'manage_options',
     ) );
 
     // Sub page: Clinical Team.
@@ -83,7 +83,7 @@ function bp_register_options_pages() {
         'menu_title'  => 'Clinical Team',
         'menu_slug'   => 'clinical-team',
         'parent_slug' => 'pharmacy-settings',
-        'capability'  => 'edit_posts',
+        'capability'  => 'manage_options',
     ) );
 }
 add_action( 'acf/init', 'bp_register_options_pages' );

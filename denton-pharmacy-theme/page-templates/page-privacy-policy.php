@@ -44,7 +44,7 @@ $last_updated  = '29 August 2026';
     <h2>Who We Are</h2>
     <p><?php echo esc_html( $pharmacy_name ); ?> is an independent community pharmacy providing NHS and private healthcare services in Denton and across Manchester.</p>
     <p>We are registered with the General Pharmaceutical Council (GPhC registration number <?php echo esc_html( $gphc ); ?>) and our registered pharmacy address is <?php echo esc_html( $full_address ); ?>.</p>
-    <p>AT Health Ltd, company number 14519140, is the data controller for personal information processed through this website, including the AI assistant. Ahmed Al-Liabi is the privacy contact and can be reached at <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>.</p>
+    <p>AT Health Ltd, company number 14519140, is the data controller for personal information processed through this website, including the AI assistant. Ahmed Nizar Al-Liabi is the privacy contact and can be reached at <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>.</p>
 
     <h2>Information We Collect</h2>
     <p><strong>Personal Information</strong> — We may collect personal information that you voluntarily provide, including:</p>
@@ -83,13 +83,13 @@ $last_updated  = '29 August 2026';
     </ul>
 
     <h2>AI Website Assistant</h2>
-    <p>AT Health Ltd, company number 14519140, is the data controller for the AI assistant operated on this website. Ahmed Al-Liabi is the privacy contact and can be reached at <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>.</p>
+    <p>AT Health Ltd, company number 14519140, is the data controller for the AI assistant operated on this website. Ahmed Nizar Al-Liabi is the privacy contact and can be reached at <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>.</p>
     <p>The optional assistant provides general information about opening hours, locations, services, prices, booking routes and travel health. It is not a healthcare professional, cannot access pharmacy records or bookings, and must not be used for diagnosis, personalised medical advice, medicine-suitability decisions or emergencies.</p>
     <p>Please do not enter your name, contact details, date of birth, NHS number, medical history, symptoms or medicines. Common direct identifiers are automatically removed before a question is sent through Supabase to Anthropic's Claude API. Clinical or emergency wording is redirected to an appropriate human or NHS route. Automated safeguards cannot identify every possible disclosure.</p>
     <p>For the normal assistant service, AT Health Ltd does not store the question or reply. It stores limited operational information for up to 30 days, including the website used, a random browser-session identifier, source page path without its query string, broad topic, controlled search-intent label, response outcome, prompt source, evidence version, feedback and selected booking or contact clicks. A separate secret-keyed network representation used only to prevent abuse is deleted after two days. Test traffic is excluded from content insights.</p>
     <p>AT Health Ltd relies on its legitimate interests to provide, secure and improve the normal assistant and website using this minimised operational information. Detailed search-intent and destination labels are disclosed in improvement reports only after at least five distinct anonymous sessions share the same label. No chatbot information is used for advertising or joined to patient, booking or NHS records.</p>
     <p>Visitors may separately choose to let AT Health Ltd retain an already-redacted question and reply for answer-quality review. The checkbox is optional and off by default. Where the conversation reveals health information, this processing relies on the visitor's explicit consent. Declining does not affect the normal assistant. Consented content is encrypted, restricted to authorised reviewers and automatically deleted after 30 days. Emergency and clinical-handoff conversations are never retained for QA.</p>
-    <p>An opted-in visitor receives a private deletion reference that can delete the stored conversation before its expiry. Consent can also be withdrawn by contacting <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>. Withdrawal does not affect processing that occurred before withdrawal. Anonymous aggregate statistics that can no longer be linked to the conversation are not affected.</p>
+    <p>An opted-in visitor receives an immediate deletion control and a private reference. The reference can be quoted when contacting <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a> so AT Health Ltd can locate and delete the stored conversation before its expiry. Withdrawal does not affect processing that occurred before withdrawal. Anonymous aggregate statistics that can no longer be linked to the conversation are not affected.</p>
     <p>Supabase provides database and Edge Function infrastructure. Anthropic processes the redacted text to generate the answer. Under Anthropic's standard commercial API terms, API inputs and outputs may be retained for up to 30 days for safety and service operation and are not used to train its models unless the customer explicitly opts in. AT Health Ltd does not authorise supplier training using these conversations.</p>
     <p>Visitors may avoid AI processing by closing the assistant and contacting the pharmacy directly. Data-protection rights and the right to complain to the Information Commissioner's Office are described elsewhere in this policy.</p>
 
@@ -148,7 +148,7 @@ $last_updated  = '29 August 2026';
 
     <div class="legal-contact-card">
       <h2>Contact Us</h2>
-      <p>For data protection questions or to withdraw AI quality-review consent, contact Ahmed Al-Liabi at <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>.</p>
+      <p>For data protection questions or to withdraw AI quality-review consent, contact Ahmed Nizar Al-Liabi at <a href="mailto:info@at-health.co.uk">info@at-health.co.uk</a>.</p>
       <p>If you have any questions about this Privacy Policy or wish to exercise your data protection rights, you may contact us at <?php echo esc_html( $pharmacy_name ); ?>, <?php echo esc_html( $full_address ); ?>, call us on <a href="tel:<?php echo esc_attr( $phone_link ); ?>"><?php echo esc_html( $phone ); ?></a>, or email us at <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>.</p>
       <p>We are committed to handling your personal information responsibly and addressing any privacy-related queries promptly.</p>
     </div>

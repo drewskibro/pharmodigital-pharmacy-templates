@@ -203,6 +203,16 @@ function bowland_pharmacy_filter_yoast_schema_graph( $graph ) {
 add_filter( 'wpseo_schema_graph', 'bowland_pharmacy_filter_yoast_schema_graph', 20 );
 
 /**
+ * Encode schema for safe embedding in an HTML script element.
+ */
+function bowland_pharmacy_encode_schema( $schema ) {
+    return wp_json_encode(
+        $schema,
+        JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE
+    );
+}
+
+/**
  * Output standalone JSON-LD when Yoast is unavailable.
  */
 function bowland_pharmacy_output_local_business_schema() {
@@ -216,7 +226,7 @@ function bowland_pharmacy_output_local_business_schema() {
 
     $schema = bowland_pharmacy_local_business_schema();
     $schema = array_merge( array( '@context' => 'https://schema.org' ), $schema );
-    echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
+    echo '<script type="application/ld+json">' . bowland_pharmacy_encode_schema( $schema ) . '</script>' . "\n";
 }
 add_action( 'wp_head', 'bowland_pharmacy_output_local_business_schema', 30 );
 
