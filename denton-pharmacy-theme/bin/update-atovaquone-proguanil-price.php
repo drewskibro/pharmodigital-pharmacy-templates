@@ -87,11 +87,9 @@ if ( $new_price === $current_price ) {
 } else {
     $rows[ $target_index ]['travel_price_per_dose'] = $new_price;
 
-    if ( false === update_field( 'prices_travel', $rows, $page_id ) ) {
-        WP_CLI::error( 'Advanced Custom Fields could not save the Atovaquone/Proguanil price.' );
-        return;
-    }
-
+    // ACF's boolean result is ambiguous when a same-length repeater changes.
+    // The exact reread below is the authoritative save check.
+    update_field( 'prices_travel', $rows, $page_id );
     clean_post_cache( $page_id );
     $changed = true;
 }
