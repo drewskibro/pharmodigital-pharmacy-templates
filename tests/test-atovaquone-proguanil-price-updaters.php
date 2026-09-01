@@ -15,6 +15,7 @@ $scripts = array(
 $scenarios = array(
     'updates_known_old_price',
     'accepts_already_updated_price',
+    'accepts_false_return_after_success',
     'rejects_missing_target',
     'rejects_duplicate_target',
     'rejects_unexpected_price',
@@ -61,7 +62,8 @@ if ( $failures ) {
     exit( 1 );
 }
 
-fwrite( STDOUT, 'All 16 updater cases passed.' . PHP_EOL );
+$case_count = count( $scripts ) * count( $scenarios );
+fwrite( STDOUT, "All {$case_count} updater cases passed." . PHP_EOL );
 
 /**
  * Run one isolated scenario. Each scenario executes in a child PHP process so
@@ -113,6 +115,11 @@ function run_case( $theme, $scenario, $scripts ) {
             $rows[1]['travel_price_per_dose'] = '£2 per tablet';
             break;
 
+        case 'accepts_false_return_after_success':
+            $GLOBALS['mock_update_result'] = false;
+            $expect_update = true;
+            break;
+
         case 'rejects_missing_target':
             array_splice( $rows, 1, 1 );
             $expected_error = 'Expected exactly one Atovaquone/Proguanil Travel Health row.';
@@ -134,7 +141,8 @@ function run_case( $theme, $scenario, $scripts ) {
 
         case 'rejects_failed_save':
             $GLOBALS['mock_update_result'] = false;
-            $expected_error = 'Advanced Custom Fields could not save the Atovaquone/Proguanil price.';
+            $GLOBALS['mock_update_writes'] = false;
+            $expected_error = 'The Travel Health rows did not reread exactly as intended.';
             break;
 
         case 'rejects_reread_drift':
@@ -161,6 +169,9 @@ function run_case( $theme, $scenario, $scripts ) {
     $GLOBALS['mock_successes'] = array();
     $GLOBALS['mock_update_result'] = isset( $GLOBALS['mock_update_result'] )
         ? $GLOBALS['mock_update_result']
+        : true;
+    $GLOBALS['mock_update_writes'] = isset( $GLOBALS['mock_update_writes'] )
+        ? $GLOBALS['mock_update_writes']
         : true;
     $GLOBALS['mock_reread_drift'] = isset( $GLOBALS['mock_reread_drift'] )
         ? $GLOBALS['mock_reread_drift']
@@ -260,12 +271,11 @@ function update_field( $field, $value, $page_id ) {
     assert_true( 743 === $page_id, 'Updater wrote the wrong page.' );
     ++$GLOBALS['mock_update_calls'];
 
-    if ( ! $GLOBALS['mock_update_result'] ) {
-        return false;
+    if ( $GLOBALS['mock_update_writes'] ) {
+        $GLOBALS['mock_rows'] = $value;
     }
 
-    $GLOBALS['mock_rows'] = $value;
-    return true;
+    return $GLOBALS['mock_update_result'];
 }
 
 function clean_post_cache( $page_id ) {
