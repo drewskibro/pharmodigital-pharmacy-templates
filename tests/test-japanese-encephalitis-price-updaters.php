@@ -186,4 +186,3 @@ function add_option( $name, $value, $deprecated, $autoload ) {
     return true;
 }
 function clean_post_cache( $page ) { check( in_array( $page, array( 100, 200 ), true ), 'Cleaned an unrelated page.' ); }
-

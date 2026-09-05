@@ -26,4 +26,3 @@ jobs:
           php -l tests/test-japanese-encephalitis-price-updaters.php
       - name: Check price scope, drift handling and rollback snapshots
         run: php tests/test-japanese-encephalitis-price-updaters.php
-

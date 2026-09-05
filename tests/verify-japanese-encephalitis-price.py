@@ -36,4 +36,3 @@ if [text(value) for value in pricing_prices] != ["£100"]:
 if [text(value) for value in pricing_units] != ["per dose"]:
     raise SystemExit("Japanese encephalitis price unit changed")
 print("Verified Japanese encephalitis: Prices row, service hero and pricing card are £100 per dose.")
-

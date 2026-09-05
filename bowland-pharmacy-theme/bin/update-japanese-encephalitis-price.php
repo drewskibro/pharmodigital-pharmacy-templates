@@ -148,4 +148,3 @@ WP_CLI::success( sprintf(
     $service_page,
     $uses_fallback ? ' (service uses the updated template fallback)' : ''
 ) );
-
