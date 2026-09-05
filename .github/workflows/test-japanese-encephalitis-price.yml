@@ -1,0 +1,28 @@
+name: Test Japanese encephalitis price change
+
+on:
+  pull_request:
+    paths:
+      - 'bowland-pharmacy-theme/bin/update-japanese-encephalitis-price.php'
+      - 'denton-pharmacy-theme/bin/update-japanese-encephalitis-price.php'
+      - '**/page-japaneseencephalitis.php'
+      - 'tests/*japanese-encephalitis*'
+      - '.github/workflows/*'
+
+permissions:
+  contents: read
+
+jobs:
+  price-updater:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint the bounded price change
+        run: |
+          php -l bowland-pharmacy-theme/bin/update-japanese-encephalitis-price.php
+          php -l denton-pharmacy-theme/bin/update-japanese-encephalitis-price.php
+          php -l bowland-pharmacy-theme/page-templates/page-japaneseencephalitis.php
+          php -l denton-pharmacy-theme/page-templates/page-japaneseencephalitis.php
+          php -l tests/test-japanese-encephalitis-price-updaters.php
+      - name: Check price scope, drift handling and rollback snapshots
+        run: php tests/test-japanese-encephalitis-price-updaters.php

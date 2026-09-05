@@ -46,6 +46,8 @@ jobs:
             echo ""
             echo "Updating Atovaquone/Proguanil price..."
             wp eval-file wp-content/themes/bowland-pharmacy-theme/bin/update-atovaquone-proguanil-price.php
+            echo "Updating Japanese encephalitis price..."
+            wp eval-file wp-content/themes/bowland-pharmacy-theme/bin/update-japanese-encephalitis-price.php
             echo ""
             echo "=== Purging Kinsta caches ==="
             wp kinsta cache purge --all
@@ -107,3 +109,16 @@ jobs:
           if old_price.search(page):
               raise SystemExit("The Atovaquone/Proguanil row still has the previous £1.50 per tablet price")
           PY
+
+      - name: Verify public Japanese encephalitis prices
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS -H 'Cache-Control: no-cache' \
+            "https://bowlandpharmacy.co.uk/prices/?verify=je-${GITHUB_SHA}" \
+            -o "$RUNNER_TEMP/bowland-je-prices.html"
+          curl -fsS -H 'Cache-Control: no-cache' \
+            "https://bowlandpharmacy.co.uk/japanese-encephalitis-vaccination/?verify=je-${GITHUB_SHA}" \
+            -o "$RUNNER_TEMP/bowland-je-service.html"
+          python3 tests/verify-japanese-encephalitis-price.py \
+            "$RUNNER_TEMP/bowland-je-prices.html" "$RUNNER_TEMP/bowland-je-service.html"
