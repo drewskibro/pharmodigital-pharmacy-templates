@@ -13,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'DENTON_PHARMACY_VERSION', filemtime( get_theme_file_path( 'assets/css/globals.css' ) ) );
 define( 'DENTON_PHARMACY_DIR', get_template_directory() );
 define( 'DENTON_PHARMACY_URI', get_template_directory_uri() );
-define( 'DENTON_PHARMACY_ASSISTANT_URL', 'https://tlfyevjyogfinulsmljv.supabase.co/functions/v1/pharmacy_chat_widget_v3' );
+define( 'DENTON_PHARMACY_ASSISTANT_URL', 'https://tlfyevjyogfinulsmljv.supabase.co/functions/v1/pharmacy_chat_widget_v4' );
 define( 'DENTON_PHARMACY_ASSISTANT_VERSION', '3.0.0' );
-define( 'DENTON_PHARMACY_ASSISTANT_SRI', 'sha384-nsIGxFkNJFlq0bDig+qsyxWM08WOscnXWxICBD+RN4Lid8D7UDfbJkEJ5+25idsT' );
+define( 'DENTON_PHARMACY_ASSISTANT_SRI', 'sha384-gw//27s2rEJTjFkAS70WLtj8BnfoB1diovOf92E2Wl4dIcZBOofgotRJmrsibRLL' );
 
 /**
  * Theme Setup
