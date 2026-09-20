@@ -111,8 +111,6 @@ function bowland_pharmacy_scripts() {
     if ( is_page_template( 'page-templates/page-weight-loss.php' ) ) {
         wp_enqueue_style( 'bowland-weight-loss', BOWLAND_PHARMACY_URI . '/assets/css/weight-loss.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
         wp_enqueue_script( 'bowland-weight-loss-js', BOWLAND_PHARMACY_URI . '/assets/js/weight-loss.js', array(), filemtime( BOWLAND_PHARMACY_DIR . '/assets/js/weight-loss.js' ), true );
-        wp_enqueue_style( 'bowland-mj-calc', BOWLAND_PHARMACY_URI . '/assets/css/mounjaro-calculator.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
-        wp_enqueue_script( 'bowland-mj-calc-js', BOWLAND_PHARMACY_URI . '/assets/js/mounjaro-calculator.js', array(), BOWLAND_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-travel-health.php' ) ) {

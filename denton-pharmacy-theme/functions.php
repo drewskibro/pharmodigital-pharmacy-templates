@@ -111,8 +111,6 @@ function denton_pharmacy_scripts() {
     if ( is_page_template( 'page-templates/page-weight-loss.php' ) ) {
         wp_enqueue_style( 'denton-weight-loss', DENTON_PHARMACY_URI . '/assets/css/weight-loss.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
         wp_enqueue_script( 'denton-weight-loss-js', DENTON_PHARMACY_URI . '/assets/js/weight-loss.js', array(), filemtime( DENTON_PHARMACY_DIR . '/assets/js/weight-loss.js' ), true );
-        wp_enqueue_style( 'denton-mj-calc', DENTON_PHARMACY_URI . '/assets/css/mounjaro-calculator.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
-        wp_enqueue_script( 'denton-mj-calc-js', DENTON_PHARMACY_URI . '/assets/js/mounjaro-calculator.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-travel-health.php' ) ) {
