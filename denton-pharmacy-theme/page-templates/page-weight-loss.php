@@ -567,7 +567,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
             <i class="fas fa-plus wl-faq-icon"></i>
           </button>
           <div class="wl-faq-answer">
-            <p>Treatment starts from &pound;125 per month, which includes your medication, monthly face-to-face consultations, and ongoing support. The exact cost depends on which medication you're prescribed and the dosage. We'll discuss pricing transparently during your initial consultation &mdash; no hidden fees, no surprises.</p>
+            <p>Treatment starts from &pound;50 per month, which includes your medication, monthly face-to-face consultations, and ongoing support. The exact cost depends on which medication you're prescribed and the dosage. We'll discuss pricing transparently during your initial consultation &mdash; no hidden fees, no surprises.</p>
           </div>
         </div>
         <div class="wl-faq-item">

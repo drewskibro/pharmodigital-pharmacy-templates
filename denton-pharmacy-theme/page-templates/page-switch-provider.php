@@ -97,7 +97,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
           <i class="fas fa-tag"></i>
           <div class="switch-hero-price-content">
             <span class="switch-hero-price-label"><?php echo esc_html( dp_field( 'sp_hero_price_label', 'FROM' ) ); ?></span>
-            <span class="switch-hero-price-amount"><?php echo esc_html( dp_field( 'sp_hero_price_amount', '£125/mo' ) ); ?></span>
+            <span class="switch-hero-price-amount"><?php echo esc_html( dp_field( 'sp_hero_price_amount', '£50/mo' ) ); ?></span>
           </div>
         </div>
 
@@ -300,7 +300,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <div class="process-included-value">
           <div class="process-included-price-card">
             <span class="process-included-price-from">From</span>
-            <span class="process-included-price-amount"><?php echo esc_html( dp_field( 'sp_hero_price_amount', '£125/mo' ) ); ?></span>
+            <span class="process-included-price-amount"><?php echo esc_html( dp_field( 'sp_hero_price_amount', '£50/mo' ) ); ?></span>
             <span class="process-included-price-note">All-inclusive monthly plan</span>
             <div class="process-included-price-divider"></div>
             <div class="process-included-price-features">
@@ -413,7 +413,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
           <p class="comparison-card-subtitle comparison-card-subtitle-purple"><?php echo esc_html( dp_field( 'sp_card2_subtitle', 'Face-to-face weight loss care' ) ); ?></p>
           <div class="comparison-card-pricing">
             <div class="comparison-card-price-row">
-              <span class="comparison-card-price comparison-card-price-purple"><?php echo esc_html( dp_field( 'sp_card2_price', 'From £125' ) ); ?></span>
+              <span class="comparison-card-price comparison-card-price-purple"><?php echo esc_html( dp_field( 'sp_card2_price', 'From £50' ) ); ?></span>
               <span class="comparison-card-price-period"><?php echo esc_html( dp_field( 'sp_card2_price_period', '/month' ) ); ?></span>
             </div>
             <p class="comparison-card-price-note"><?php echo esc_html( dp_field( 'sp_card2_price_note', 'All-inclusive with face-to-face support' ) ); ?></p>
@@ -614,7 +614,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-tag"></i></div>
           <h3 class="switch-benefit-title">Transparent Pricing</h3>
-          <p class="switch-benefit-description">All-inclusive pricing from £125/month. No hidden fees, no surprise charges, no extras</p>
+          <p class="switch-benefit-description">All-inclusive pricing from £50/month. No hidden fees, no surprise charges, no extras</p>
         </div>
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-map-marker-alt"></i></div>
