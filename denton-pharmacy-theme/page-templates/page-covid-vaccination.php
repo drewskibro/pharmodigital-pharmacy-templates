@@ -42,15 +42,15 @@ $elig_items = array(
 
 $proc_steps = array(
     array( 'icon' => 'fa-clipboard-check', 'title' => 'Check eligibility', 'desc' => 'See if you qualify for a free NHS jab, or choose a private one.' ),
-    array( 'icon' => 'fa-calendar-check',  'title' => 'Book or walk in',   'desc' => 'Book a slot below, or pop in from 1 October.' ),
+    array( 'icon' => 'fa-calendar-check',  'title' => 'Book or walk in',   'desc' => 'Book below, book through the NHS, or walk in from 1 October.' ),
     array( 'icon' => 'fa-syringe',         'title' => 'Get vaccinated',    'desc' => 'A quick jab from our pharmacist in our private consultation room.' ),
 );
 
 $faqs = array(
     array( 'q' => 'Is the COVID jab free?', 'a' => 'It is free on the NHS for eligible patients, in line with current NHS guidance. Private vaccinations are also available.' ),
     array( 'q' => 'Is there a private option?', 'a' => 'Yes — if you are not eligible on the NHS, a private COVID-19 vaccination is available. Pricing varies with stock and availability, so please ask our team for the current price.' ),
-    array( 'q' => 'Do I need an appointment?', 'a' => 'You can book a slot or come as a walk-in. We offer COVID and flu vaccinations from 1 October each year, in line with NHS guidance.' ),
-    array( 'q' => 'How do I check NHS eligibility?', 'a' => 'Please see the latest NHS guidance on the NHS website for who can get a free COVID-19 vaccination.' ),
+    array( 'q' => 'Do I need an appointment?', 'a' => 'No. You can book a slot with us, book your NHS vaccination through the NHS, or come as a walk-in. We offer COVID and flu vaccinations from 1 October each year, in line with NHS guidance.' ),
+    array( 'q' => 'How do I check NHS eligibility?', 'a' => 'Check on the NHS website at nhs.uk/nbs/start/covid, where you can also book. If you book through the NHS, enter M34 3EX when it asks where you want your vaccination and choose Denton Pharmacy. You can also just book with us above.' ),
     array( 'q' => 'What about flu vaccination?', 'a' => 'We also offer flu vaccinations. See our Flu Vaccination page for details.' ),
 );
 
@@ -254,7 +254,8 @@ $cta_badges = array( 'NHS & private', 'Walk-in welcome', 'Same-day available' );
         <span class="section-badge-text">BOOK ONLINE</span>
       </div>
       <h2 class="bpack-booking-title">Book your COVID vaccination</h2>
-      <p class="bpack-booking-subtitle">Choose a time below for your COVID jab at <?php echo esc_html( dp_pharmacy_name() ); ?>.</p>
+      <p class="bpack-booking-subtitle">Choose a time below for your COVID jab at <?php echo esc_html( dp_pharmacy_name() ); ?>. Both the free NHS vaccination, if you are eligible, and the private one can be booked right here.</p>
+    <p class="bpack-booking-subtitle">Prefer to book your NHS vaccination through the NHS? <a href="https://www.nhs.uk/nbs/start/covid" target="_blank" rel="noopener">Check your eligibility and book on the NHS website</a>. When it asks where you want your vaccination, enter <strong>M34 3EX</strong> and choose Denton Pharmacy. Already booked with the NHS? <a href="https://www.nhs.uk/nbs/start/covid/manage-booking" target="_blank" rel="noopener">Change or cancel that appointment</a>.</p>
     </div>
     <div class="booking-calendar-wrapper">
       <iframe

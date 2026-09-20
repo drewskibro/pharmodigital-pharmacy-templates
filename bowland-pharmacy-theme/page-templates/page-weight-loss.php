@@ -49,7 +49,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         </h1>
 
         <p class="wl-hero-description">
-          <?php echo esc_html( bp_field( 'wl_hero_description', 'Prescription Mounjaro and Wegovy (GLP-1 treatments) with expert guidance and face-to-face support right here in Wythenshawe. No remote consultations — real care from someone who knows your name.' ) ); ?>
+          <?php echo esc_html( bp_field( 'wl_hero_description', 'Prescription weight management with expert guidance and face-to-face support right here in Wythenshawe. No remote consultations — real care from someone who knows your name.' ) ); ?>
         </p>
 
         <div class="wl-hero-actions">
@@ -180,8 +180,8 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'wl_results_badge', 'REAL RESULTS' ) ); ?></span>
       </div>
-      <h2 class="wl-results-title"><?php echo esc_html( bp_field( 'wl_results_title', 'Real Mounjaro & Wegovy results in Wythenshawe' ) ); ?></h2>
-      <p class="wl-results-description"><?php echo esc_html( bp_field( 'wl_results_description', 'Bowland patients using Mounjaro or Wegovy lose an average of 10-15% of their body weight in 12 months with our personalised programmes.' ) ); ?></p>
+      <h2 class="wl-results-title"><?php echo esc_html( bp_field( 'wl_results_title', 'Real results in Wythenshawe' ) ); ?></h2>
+      <p class="wl-results-description"><?php echo esc_html( bp_field( 'wl_results_description', 'Bowland patients get a personalised programme, monthly face-to-face reviews and support from their own pharmacist throughout.' ) ); ?></p>
     </div>
 
     <div class="wl-results-grid">
@@ -202,9 +202,9 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <div class="wl-results-featured-circle"></div>
         <div class="wl-results-featured-square"></div>
         <div class="wl-results-featured-icon"><i class="fas fa-chart-line"></i></div>
-        <p class="wl-results-featured-number"><?php echo esc_html( bp_field( 'wl_results_featured_number', '10-15%' ) ); ?></p>
-        <p class="wl-results-featured-label"><?php echo esc_html( bp_field( 'wl_results_featured_label', 'Average weight loss' ) ); ?></p>
-        <p class="wl-results-featured-sublabel"><?php echo esc_html( bp_field( 'wl_results_featured_sublabel', 'In 12 months' ) ); ?></p>
+        <p class="wl-results-featured-number"><?php echo esc_html( bp_field( 'wl_results_featured_number', 'Monthly' ) ); ?></p>
+        <p class="wl-results-featured-label"><?php echo esc_html( bp_field( 'wl_results_featured_label', 'Face-to-face reviews' ) ); ?></p>
+        <p class="wl-results-featured-sublabel"><?php echo esc_html( bp_field( 'wl_results_featured_sublabel', 'With your own pharmacist' ) ); ?></p>
       </div>
 
       <!-- Card 3: Wythenshawe Residents -->
@@ -374,8 +374,8 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
             'badge_icon'  => '',
         ),
         array(
-            'title'       => 'Begin Mounjaro or Wegovy treatment',
-            'description' => 'If suitable, we\'ll prescribe Mounjaro, Wegovy, or other GLP-1 treatments. You\'ll receive clear instructions and guidance on what to expect from your Wythenshawe weight loss programme.',
+            'title'       => 'Begin your treatment',
+            'description' => 'If treatment is clinically suitable for you, your pharmacist will prescribe it and explain how to take it. You\'ll receive clear instructions and guidance on what to expect from your Wythenshawe weight loss programme.',
             'icon'        => 'fas fa-pills',
             'meta'        => 'Same-day prescription available',
             'meta_icon'   => 'fas fa-bolt',
@@ -483,14 +483,6 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
   </div>
 </section>
 
-<!-- ============================================
-     CALCULATOR SECTION
-     ============================================ -->
-<section class="wl-calculator-section wl-reveal" id="calculator">
-  <div class="section-container">
-    <?php echo do_shortcode( '[mounjaro_calculator]' ); ?>
-  </div>
-</section>
 
 <!-- ============================================
      FAQ SECTION
@@ -527,7 +519,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
             <i class="fas fa-plus wl-faq-icon"></i>
           </button>
           <div class="wl-faq-answer">
-            <p>Clinical trials show patients typically lose 15-20% of their body weight over 12 months with GLP-1 treatments like Mounjaro and Wegovy. For example, someone weighing 100kg could lose 15-20kg. Results vary based on adherence to treatment, lifestyle changes, and individual metabolism. Our face-to-face support helps maximise your results.</p>
+            <p>Results vary from person to person, and depend on the treatment you are prescribed, how closely you follow it, your lifestyle and your own metabolism. Your pharmacist will talk through what is realistic for you at your consultation, and your monthly face-to-face reviews are there to keep you on track.</p>
           </div>
         </div>
         <div class="wl-faq-item">
@@ -543,11 +535,11 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <div class="wl-faq-item">
           <button class="wl-faq-question" onclick="toggleFAQ(this)">
             <span class="wl-faq-number">3</span>
-            <span class="wl-faq-question-text">What's the difference between Mounjaro and Wegovy?</span>
+            <span class="wl-faq-question-text">Which treatment will I be given?</span>
             <i class="fas fa-plus wl-faq-icon"></i>
           </button>
           <div class="wl-faq-answer">
-            <p>Both are GLP-1 treatments, but Mounjaro (tirzepatide) also activates GIP receptors, making it a dual-action medication. Clinical trials show Mounjaro may lead to slightly greater weight loss (up to 22%) compared to Wegovy (semaglutide) at 15-17%. During your consultation, we'll discuss which treatment is best suited to your needs and medical history.</p>
+            <p>That is decided at your consultation, not before. More than one licensed treatment is available and they work in different ways. Your pharmacist will go through your health, your medical history and what suits you, and will explain the options and the costs before anything is prescribed.</p>
           </div>
         </div>
         <div class="wl-faq-item">
@@ -623,14 +615,14 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         ),
         array(
             'name'      => 'James K.',
-            'service'   => 'Mounjaro',
+            'service'   => 'Weight Loss',
             'weight'    => '4st lost',
             'quote'     => 'Ahmed really takes the time to <span class="wl-testimonial-highlight">understand your goals</span>. The monthly check-ins keep me on track and I\'ve <span class="wl-testimonial-highlight">never felt better</span>.',
             'checklist' => array( 'Monthly Check-ins', 'Personalised Plan' ),
         ),
         array(
             'name'      => 'Linda P.',
-            'service'   => 'Wegovy',
+            'service'   => 'Weight Loss',
             'weight'    => '3st lost',
             'quote'     => 'I cannot thank you enough for helping me lose weight. Not only do I <span class="wl-testimonial-highlight">feel and look great</span>, my hip and knee pain is <span class="wl-testimonial-highlight">SO much better</span> now I weigh less.',
             'checklist' => array( 'Improved Mobility', 'Ongoing Support' ),
