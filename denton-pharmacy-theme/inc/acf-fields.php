@@ -4649,7 +4649,7 @@ function dp_register_acf_field_groups() {
             ),
             array( 'key' => 'field_dp_switch_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'sp_hero_image_alt', 'type' => 'text', 'default_value' => '' ),
             array( 'key' => 'field_dp_switch_hero_price_label', 'label' => 'Price Badge Label', 'name' => 'sp_hero_price_label', 'type' => 'text', 'default_value' => 'From' ),
-            array( 'key' => 'field_dp_switch_hero_price_amount', 'label' => 'Price Badge Amount', 'name' => 'sp_hero_price_amount', 'type' => 'text', 'default_value' => '£125/mo' ),
+            array( 'key' => 'field_dp_switch_hero_price_amount', 'label' => 'Price Badge Amount', 'name' => 'sp_hero_price_amount', 'type' => 'text', 'default_value' => '£50/mo' ),
             array( 'key' => 'field_dp_switch_hero_price_note', 'label' => 'Price Badge Note', 'name' => 'sp_hero_price_note', 'type' => 'text', 'default_value' => 'All-inclusive' ),
             array(
                 'key'           => 'field_dp_switch_hero_testimonial_text',
@@ -4745,7 +4745,7 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_switch_card2_badge', 'label' => 'Badge', 'name' => 'sp_card2_badge', 'type' => 'text', 'default_value' => 'DENTON BASED' ),
             array( 'key' => 'field_dp_switch_card2_title', 'label' => 'Title', 'name' => 'sp_card2_title', 'type' => 'text', 'default_value' => 'Denton Pharmacy' ),
             array( 'key' => 'field_dp_switch_card2_subtitle', 'label' => 'Subtitle', 'name' => 'sp_card2_subtitle', 'type' => 'text', 'default_value' => 'Face-to-face weight loss care' ),
-            array( 'key' => 'field_dp_switch_card2_price', 'label' => 'Price', 'name' => 'sp_card2_price', 'type' => 'text', 'default_value' => 'From £125' ),
+            array( 'key' => 'field_dp_switch_card2_price', 'label' => 'Price', 'name' => 'sp_card2_price', 'type' => 'text', 'default_value' => 'From £50' ),
             array( 'key' => 'field_dp_switch_card2_price_period', 'label' => 'Price Period', 'name' => 'sp_card2_price_period', 'type' => 'text', 'default_value' => '/month' ),
             array( 'key' => 'field_dp_switch_card2_price_note', 'label' => 'Price Note', 'name' => 'sp_card2_price_note', 'type' => 'text', 'default_value' => 'All-inclusive with face-to-face support' ),
             array( 'key' => 'field_dp_switch_card2_cta_text', 'label' => 'CTA Button Text', 'name' => 'sp_card2_cta_text', 'type' => 'text', 'default_value' => 'Make The Switch' ),
