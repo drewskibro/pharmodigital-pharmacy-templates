@@ -3,7 +3,7 @@
  * Template Part: Meet Your Clinical Team — 6-Card Grid
  *
  * Responsive team grid: 1 col mobile, 2 col tablet, 3 col desktop.
- * Each card shows photo, name, role, optional GPhC, and specialty tags.
+ * Five clinical profiles and a link to the full team.
  *
  * @package Denton_Pharmacy
  */
@@ -93,12 +93,77 @@ if ( empty( $team ) && function_exists( 'have_rows' ) && have_rows( 'pharmacy_te
 if ( empty( $team ) ) {
     $team = array(
         array( 'photo_id' => 0, 'name' => 'Ahmed Al-Liabi', 'role' => 'Lead Pharmacist & Independent Prescriber', 'gphc' => '2208502', 'tags' => array( 'Independent Prescriber', 'Weight Loss Specialist' ) ),
-        array( 'photo_id' => 0, 'name' => 'James Button', 'role' => 'Pharmacist Manager', 'gphc' => '', 'tags' => array( 'Independent Prescriber', 'Weight Loss Expert' ) ),
-        array( 'photo_id' => 0, 'name' => 'Paula Gaunt', 'role' => 'Trainee Pharmacy Technician', 'gphc' => '', 'tags' => array( 'Ear Wax Specialist' ) ),
+        array( 'photo_id' => 0, 'name' => 'James Button', 'role' => 'Pharmacist Manager', 'gphc' => '2240147', 'tags' => array() ),
+        array( 'photo_id' => 0, 'name' => 'Paula Gaunt', 'role' => 'Trainee Pharmacy Technician', 'gphc' => '', 'tags' => array( 'Ear Microsuction Specialist' ) ),
         array( 'photo_id' => 0, 'name' => 'Elisha Mackin', 'role' => 'Trainee Pharmacy Technician', 'gphc' => '', 'tags' => array() ),
         array( 'photo_id' => 0, 'name' => 'Joanne Tabberner', 'role' => 'Pharmacy Assistant', 'gphc' => '', 'tags' => array() ),
-        array( 'photo_id' => 0, 'name' => 'Baljender Nagi', 'role' => 'Senior Pharmacist', 'gphc' => '', 'tags' => array() ),
     );
+}
+
+// The homepage's saved list can be shorter than the published Team page.
+// Reuse Elisha and Joanne's existing profiles without changing saved ACF data.
+$team_page = get_page_by_path( 'team' );
+$team_page_url = $team_page && 'publish' === $team_page->post_status ? get_permalink( $team_page ) : '';
+if ( $team_page_url && function_exists( 'get_field' ) ) {
+    $team_profiles = get_field( 'team_members', $team_page->ID );
+    $additional_members = array( 'Elisha Mackin', 'Joanne Tabberner' );
+
+    foreach ( $additional_members as $full_name ) {
+        $aliases = array( strtolower( $full_name ), strtolower( strtok( $full_name, ' ' ) ) );
+        foreach ( is_array( $team_profiles ) ? $team_profiles : array() as $profile ) {
+            if ( ! in_array( strtolower( trim( $profile['name'] ?? '' ) ), $aliases, true ) ) {
+                continue;
+            }
+
+            $existing_index = null;
+            foreach ( $team as $index => $member ) {
+                if ( in_array( strtolower( trim( $member['name'] ) ), $aliases, true ) ) {
+                    $existing_index = $index;
+                    break;
+                }
+            }
+
+            if ( null !== $existing_index ) {
+                // Keep any page-specific details, filling only a missing photo.
+                if ( empty( $team[ $existing_index ]['photo_id'] ) ) {
+                    $team[ $existing_index ]['photo_id'] = $profile['image'] ?? 0;
+                }
+                break;
+            }
+
+            $tags = array();
+            foreach ( ( $profile['specialties'] ?? array() ) ?: array() as $specialty ) {
+                if ( ! empty( $specialty['specialty'] ) ) {
+                    $tags[] = $specialty['specialty'];
+                }
+            }
+            $team[] = array(
+                'photo_id' => $profile['image'] ?? 0,
+                'name'     => $full_name,
+                'role'     => $profile['role'] ?? '',
+                'gphc'     => $profile['gphc_number'] ?? '',
+                'tags'     => $tags,
+            );
+            break;
+        }
+    }
+}
+
+// Keep the homepage's confirmed role and specialties alongside saved profiles.
+foreach ( $team as $index => $member ) {
+    $profile_name = strtolower( trim( $member['name'] ) );
+    $additional_tags = array();
+
+    if ( in_array( $profile_name, array( 'ahmed', 'ahmed al-liabi' ), true ) ) {
+        $additional_tags = array( 'Travel Health Specialist' );
+    } elseif ( in_array( $profile_name, array( 'james', 'james button' ), true ) ) {
+        $team[ $index ]['role'] = 'Pharmacy Manager';
+        $additional_tags = array( 'Weight Loss Specialist', 'Travel Health Specialist', 'Phlebotomist' );
+    } elseif ( in_array( $profile_name, array( 'paula', 'paula gaunt' ), true ) ) {
+        $additional_tags = array( 'Phlebotomist' );
+    }
+
+    $team[ $index ]['tags'] = array_values( array_unique( array_merge( $member['tags'], $additional_tags ) ) );
 }
 ?>
 
@@ -131,35 +196,55 @@ if ( empty( $team ) ) {
                     $initials = strtoupper( substr( $parts[0], 0, 1 ) . ( isset( $parts[1] ) ? substr( $parts[1], 0, 1 ) : '' ) );
                 }
             ?>
-                <div class="team-card">
-                    <div class="team-card-photo">
-                        <?php if ( $photo_url ) : ?>
-                            <img src="<?php echo esc_url( $photo_url ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" />
-                        <?php else : ?>
-                            <span class="team-card-initials"><?php echo esc_html( $initials ); ?></span>
-                        <?php endif; ?>
+                <article class="team-card">
+                    <div class="team-card-identity">
+                        <div class="team-card-photo">
+                            <?php if ( $photo_url ) : ?>
+                                <img src="<?php echo esc_url( $photo_url ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" width="80" height="80" loading="lazy" decoding="async" />
+                            <?php else : ?>
+                                <span class="team-card-initials"><?php echo esc_html( $initials ); ?></span>
+                            <?php endif; ?>
+                        </div>
+                        <div class="team-card-details">
+                            <h3 class="team-card-name"><?php echo esc_html( $member['name'] ); ?></h3>
+                            <p class="team-card-role"><?php echo esc_html( $member['role'] ); ?></p>
+                        </div>
                     </div>
-                    <h3 class="team-card-name"><?php echo esc_html( $member['name'] ); ?></h3>
-                    <p class="team-card-role"><?php echo esc_html( $member['role'] ); ?></p>
-                    <?php if ( ! empty( $member['gphc'] ) ) : ?>
-                        <a href="https://www.pharmacyregulation.org/registers/pharmacist" target="_blank" rel="noopener noreferrer" class="team-card-gphc">
-                            <i class="fas fa-shield-halved"></i>
-                            GPhC: <?php echo esc_html( $member['gphc'] ); ?>
-                        </a>
-                    <?php endif; ?>
-                    <?php if ( ! empty( $member['tags'] ) ) : ?>
-                        <div class="team-card-tags">
-                            <?php foreach ( $member['tags'] as $tag ) : ?>
-                                <span class="team-card-tag"><?php echo esc_html( $tag ); ?></span>
-                            <?php endforeach; ?>
+                    <?php if ( ! empty( $member['gphc'] ) || ! empty( $member['tags'] ) ) : ?>
+                        <div class="team-card-meta">
+                            <?php if ( ! empty( $member['gphc'] ) ) : ?>
+                                <a href="https://www.pharmacyregulation.org/registers/pharmacist" target="_blank" rel="noopener noreferrer" class="team-card-gphc">
+                                    <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                                    GPhC: <?php echo esc_html( $member['gphc'] ); ?>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ( ! empty( $member['tags'] ) ) : ?>
+                                <div class="team-card-tags">
+                                    <?php foreach ( $member['tags'] as $tag ) : ?>
+                                        <span class="team-card-tag"><?php echo esc_html( $tag ); ?></span>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     <?php endif; ?>
-                </div>
+                </article>
             <?php endforeach; ?>
+            <?php if ( 5 === count( $team ) && $team_page_url ) : ?>
+                <article class="team-card team-card-more">
+                    <div class="team-card-identity">
+                        <span class="team-card-more-icon" aria-hidden="true"><i class="fas fa-users"></i></span>
+                        <div class="team-card-details">
+                            <h3 class="team-card-name">More familiar faces</h3>
+                            <p class="team-card-role">Get to know everyone who helps care for our Denton community.</p>
+                        </div>
+                    </div>
+                    <a class="team-card-link" href="<?php echo esc_url( $team_page_url ); ?>">Meet the whole team <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </article>
+            <?php endif; ?>
         </div>
 
         <!-- CTAs -->
-        <div class="pharmacist-cta" style="justify-content: center; margin-top: 3rem;">
+        <div class="pharmacist-cta">
             <a href="<?php echo esc_url( $cta_url ); ?>" class="cta-button primary-cta">
                 <?php echo esc_html( $cta_text ); ?>
                 <i class="fas fa-arrow-right"></i>
