@@ -148,6 +148,23 @@ if ( $team_page_url && function_exists( 'get_field' ) ) {
         }
     }
 }
+
+// Keep the homepage's confirmed role and specialties alongside saved profiles.
+foreach ( $team as $index => $member ) {
+    $profile_name = strtolower( trim( $member['name'] ) );
+    $additional_tags = array();
+
+    if ( in_array( $profile_name, array( 'ahmed', 'ahmed al-liabi' ), true ) ) {
+        $additional_tags = array( 'Travel Health Specialist' );
+    } elseif ( in_array( $profile_name, array( 'james', 'james button' ), true ) ) {
+        $team[ $index ]['role'] = 'Pharmacy Manager';
+        $additional_tags = array( 'Weight Loss Specialist', 'Travel Health Specialist', 'Phlebotomist' );
+    } elseif ( in_array( $profile_name, array( 'paula', 'paula gaunt' ), true ) ) {
+        $additional_tags = array( 'Phlebotomist' );
+    }
+
+    $team[ $index ]['tags'] = array_values( array_unique( array_merge( $member['tags'], $additional_tags ) ) );
+}
 ?>
 
 <section class="pharmacist-section" id="about">
