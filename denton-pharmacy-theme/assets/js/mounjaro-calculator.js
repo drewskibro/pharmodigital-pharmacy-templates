@@ -60,7 +60,8 @@
     return st + 'st ' + remainLbs + 'lbs';
   }
 
-  // SURMOUNT-1 loss percentages by week (tirzepatide 15 mg, approximate curve)
+  // Indicative loss percentages by week, from published averages for prescription weight
+  // management treatments. Do not name a medicine here: it renders to the public.
   var lossByWeek = { 12: 0.075, 24: 0.135, 52: 0.195, 72: 0.209 };
 
   // Animated count-up for the headline number

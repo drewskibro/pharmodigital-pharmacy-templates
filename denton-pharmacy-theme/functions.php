@@ -1045,20 +1045,25 @@ function denton_pharmacy_vimeo_shortcode( $atts ) {
 add_shortcode( 'vimeo', 'denton_pharmacy_vimeo_shortcode' );
 
 /**
- * Mounjaro Weight Loss Calculator Shortcode — [mounjaro_calculator]
+ * Weight Loss Calculator Shortcode — [weight_loss_calculator]
  *
- * Interactive calculator for blog posts showing projected weight loss
- * based on SURMOUNT-1 clinical trial data (tirzepatide 15 mg).
+ * Interactive calculator for blog posts showing an indicative projection
+ * from average outcomes published for prescription weight management
+ * treatments. Names no medicine: advertising a prescription-only medicine
+ * to the public breaches reg 284 of the Human Medicines Regulations 2012.
+ *
+ * [mounjaro_calculator] stays registered as an alias so that blog posts
+ * already using it keep working. Do not re-add a medicine name to either.
  *
  * Attributes:
  *   cta_url  — (optional) CTA button URL. Defaults to booking page.
  *   cta_text — (optional) CTA button text. Defaults to "Check Your Eligibility".
  */
-function denton_pharmacy_mounjaro_calculator_shortcode( $atts ) {
+function denton_pharmacy_weight_loss_calculator_shortcode( $atts ) {
     $atts = shortcode_atts( array(
         'cta_url'  => '',
         'cta_text' => 'Check Your Eligibility',
-    ), $atts, 'mounjaro_calculator' );
+    ), $atts, 'weight_loss_calculator' );
 
     $cta_url = $atts['cta_url'] ? esc_url( $atts['cta_url'] ) : esc_url( dp_booking_url() );
 
@@ -1117,7 +1122,7 @@ function denton_pharmacy_mounjaro_calculator_shortcode( $atts ) {
                     <span class="mj-calc-arrow">&rarr;</span>
                     <span class="mj-calc-to-weight"><i class="fas fa-check-circle"></i> <span id="mj-calc-to">&mdash;</span></span>
                 </div>
-                <p class="mj-calc-results-subtext">Based on the average 20.9% total body weight reduction in the SURMOUNT-1 trial (72 weeks, tirzepatide 15&nbsp;mg)</p>
+                <p class="mj-calc-results-subtext">An indicative projection based on average outcomes published for prescription weight management treatments over 72 weeks</p>
             </div>
 
             <div class="mj-calc-timeline">
@@ -1141,7 +1146,7 @@ function denton_pharmacy_mounjaro_calculator_shortcode( $atts ) {
 
             <div class="mj-calc-proof-bar">
                 <i class="fas fa-check-circle"></i>
-                <span><strong>91% of patients</strong> on Mounjaro lost clinically significant weight &mdash; SURMOUNT-1 Trial</span>
+                <span>Your pharmacist will discuss what is realistic for you, face to face, before anything is prescribed</span>
             </div>
 
             <a href="<?php echo $cta_url; ?>" class="mj-calc-cta">
@@ -1152,13 +1157,16 @@ function denton_pharmacy_mounjaro_calculator_shortcode( $atts ) {
 
         <p class="mj-calc-disclaimer">
             <i class="fas fa-info-circle"></i>
-            Results shown are estimates based on average outcomes from the SURMOUNT-1 clinical trial (tirzepatide 15&nbsp;mg, 72-week data). Individual results may vary significantly. Weight loss depends on adherence to treatment, diet, exercise, and individual metabolic factors. This calculator is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before starting any weight loss treatment.
+            Results shown are estimates based on average outcomes published for prescription weight management treatments. Individual results may vary significantly. Weight loss depends on adherence to treatment, diet, exercise, and individual metabolic factors. This calculator is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional before starting any weight loss treatment.
         </p>
     </div>
     <?php
     return ob_get_clean();
 }
-add_shortcode( 'mounjaro_calculator', 'denton_pharmacy_mounjaro_calculator_shortcode' );
+add_shortcode( 'weight_loss_calculator', 'denton_pharmacy_weight_loss_calculator_shortcode' );
+// Alias: blog posts already embed [mounjaro_calculator]. Keep it working, but it renders
+// the same medicine-free calculator. Do not reintroduce a medicine name here.
+add_shortcode( 'mounjaro_calculator', 'denton_pharmacy_weight_loss_calculator_shortcode' );
 
 /**
  * Contact Form AJAX Handler
