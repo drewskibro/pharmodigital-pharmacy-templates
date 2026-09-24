@@ -336,7 +336,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
     <div class="wl-cta-bar-content">
       <div class="wl-cta-bar-text">
         <h3 class="wl-cta-bar-title"><?php echo esc_html( dp_field( 'wl_cta_bar_title', 'Ready to transform your health?' ) ); ?></h3>
-        <p class="wl-cta-bar-subtitle"><?php echo esc_html( dp_field( 'wl_cta_bar_subtitle', 'Book your consultation with Ahmed today' ) ); ?></p>
+        <p class="wl-cta-bar-subtitle"><?php echo esc_html( dp_field( 'wl_cta_bar_subtitle', 'Book your in-store consultation today' ) ); ?></p>
       </div>
       <a href="<?php echo esc_url( dp_field( 'wl_hero_cta_url', '' ) ?: '#weight-loss-calendar' ); ?>" class="cta-button primary-cta wl-cta-bar-button">
         <?php echo esc_html( dp_field( 'wl_hero_cta_text', 'Book Consultation' ) ); ?>
@@ -794,7 +794,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
       </div>
 
       <h2 class="wl-final-cta-title"><?php echo esc_html( dp_field( 'wl_final_cta_title', 'Book your weight loss consultation' ) ); ?></h2>
-      <p class="wl-final-cta-description"><?php echo esc_html( dp_field( 'wl_final_cta_description', 'Join 5,000+ patients who have transformed their lives with medical weight loss. Book your face-to-face consultation with Ahmed today.' ) ); ?></p>
+      <p class="wl-final-cta-description"><?php echo esc_html( dp_field( 'wl_final_cta_description', 'Join 5,000+ patients who have transformed their lives with medical weight loss. Book your face-to-face consultation with our pharmacist today.' ) ); ?></p>
 
       <div class="wl-final-cta-actions">
         <a href="#weight-loss-calendar" class="cta-button primary-cta wl-final-cta-button-white">
@@ -840,11 +840,11 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <span class="section-badge-text">BOOK ONLINE</span>
       </div>
       <h2 class="wl-booking-title">Book Your Weight Loss Consultation</h2>
-      <p class="wl-booking-subtitle">Choose a time that suits you and book directly below.</p>
+      <p class="wl-booking-subtitle">New patient? Choose the 30-minute first consultation. Already with us? Book a 15-minute follow-up review. Both are in store and confirm instantly.</p>
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
-        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;appointmentType=category:%40Weight%20Loss&amp;ref=embedded_csp"
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;appointmentType[]=86724977&amp;appointmentType[]=98009511&amp;ref=embedded_csp"
         title="Schedule Appointment"
         allow="payment"></iframe>
     </div>

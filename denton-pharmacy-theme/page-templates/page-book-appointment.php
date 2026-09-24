@@ -213,7 +213,7 @@ get_header();
             <i class="fas fa-weight-scale"></i>
           </div>
           <h3 class="book-service-title">Medical Weight Loss</h3>
-          <p class="book-service-desc">Clinically proven GLP-1 treatments with weekly pharmacist support. Wegovy, Mounjaro, and more.</p>
+          <p class="book-service-desc">Pharmacist-led weight management with monthly in-store reviews. Treatment options are discussed at your consultation.</p>
           <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
         </div>
         <!-- Travel Health -->
