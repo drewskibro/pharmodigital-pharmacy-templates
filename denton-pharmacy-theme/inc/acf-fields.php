@@ -3210,7 +3210,7 @@ function dp_register_acf_field_groups() {
         'title'    => 'Weight Loss — CTA Bar',
         'fields'   => array(
             array( 'key' => 'field_dp_wl_cta_bar_title', 'label' => 'Title', 'name' => 'wl_cta_bar_title', 'type' => 'text', 'default_value' => 'Ready to transform your health?' ),
-            array( 'key' => 'field_dp_wl_cta_bar_subtitle', 'label' => 'Subtitle', 'name' => 'wl_cta_bar_subtitle', 'type' => 'text', 'default_value' => 'Book your consultation with Ahmed today' ),
+            array( 'key' => 'field_dp_wl_cta_bar_subtitle', 'label' => 'Subtitle', 'name' => 'wl_cta_bar_subtitle', 'type' => 'text', 'default_value' => 'Book your in-store consultation today' ),
         ),
         'location'              => $wl_location,
         'menu_order'            => 403,
@@ -3420,7 +3420,7 @@ function dp_register_acf_field_groups() {
         'title'    => 'Weight Loss — Final CTA Section',
         'fields'   => array(
             array( 'key' => 'field_dp_wl_final_cta_title', 'label' => 'Title', 'name' => 'wl_final_cta_title', 'type' => 'text', 'default_value' => 'Ready to start your weight loss journey?' ),
-            array( 'key' => 'field_dp_wl_final_cta_description', 'label' => 'Description', 'name' => 'wl_final_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join 500+ Denton residents who\'ve transformed their lives with medical weight loss. Book your consultation with Ahmed today.' ),
+            array( 'key' => 'field_dp_wl_final_cta_description', 'label' => 'Description', 'name' => 'wl_final_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join 500+ Denton residents who\'ve transformed their lives with medical weight loss. Book your in-store consultation today.' ),
             array( 'key' => 'field_dp_wl_final_cta_button_text', 'label' => 'Primary Button Text', 'name' => 'wl_final_cta_button_text', 'type' => 'text', 'default_value' => 'Book Your Consultation' ),
             array(
                 'key'          => 'field_dp_wl_final_cta_badges',

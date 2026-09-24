@@ -102,7 +102,7 @@ $has_posts = $healthhub_query->have_posts();
                     </div>
                     <div class="healthhub-card-content">
                         <h3 class="healthhub-card-title">Understanding Medical Weight Loss: Is it Right for You?</h3>
-                        <p class="healthhub-card-excerpt">Explore the science behind GLP-1 treatments like Mounjaro and Wegovy, and find out if medical weight loss could work for you.</p>
+                        <p class="healthhub-card-excerpt">Explore how pharmacist-led medical weight loss works and find out whether it could be right for you.</p>
                         <span class="healthhub-card-link">
                             Read Article
                             <i class="fas fa-arrow-right"></i>
