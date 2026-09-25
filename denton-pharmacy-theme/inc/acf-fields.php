@@ -1666,7 +1666,7 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Pharmacist Role',
                 'name'          => 'pharmacist_role',
                 'type'          => 'text',
-                'default_value' => 'Lead Pharmacist · Independent Prescriber',
+                'default_value' => 'Superintendent Pharmacist · Independent Prescriber',
             ),
             array(
                 'key'           => 'field_dp_pharmacist_bio',
@@ -5360,7 +5360,7 @@ function dp_register_acf_field_groups() {
                     array( 'key' => 'field_dp_team_member_role', 'label' => 'Role', 'name' => 'role', 'type' => 'text' ),
                     array( 'key' => 'field_dp_team_member_gphc', 'label' => 'GPhC Number', 'name' => 'gphc_number', 'type' => 'text', 'instructions' => 'GPhC registration number (e.g. 2208502). Auto-builds the verify link URL.' ),
                     array( 'key' => 'field_dp_team_member_gphc_url', 'label' => 'GPhC Verify URL', 'name' => 'gphc_url', 'type' => 'url', 'instructions' => 'Override verify link URL. Use for non-pharmacist staff (e.g. https://www.pharmacyregulation.org/registers).' ),
-                    array( 'key' => 'field_dp_team_member_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'instructions' => 'Overlay badge on photo, e.g. Lead Pharmacist' ),
+                    array( 'key' => 'field_dp_team_member_badge_text', 'label' => 'Badge Text', 'name' => 'badge_text', 'type' => 'text', 'instructions' => 'Overlay badge on photo, e.g. Superintendent Pharmacist' ),
                     array(
                         'key'     => 'field_dp_team_member_badge_type',
                         'label'   => 'Badge Type',
@@ -5896,7 +5896,7 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_yf_cert_desc', 'label' => 'Description', 'name' => 'yf_cert_desc', 'type' => 'text' ),
             array( 'key' => 'field_dp_yf_cert_image', 'label' => 'Image', 'name' => 'yf_cert_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
             array( 'key' => 'field_dp_yf_cert_nametag_name', 'label' => 'Nametag Name', 'name' => 'yf_cert_nametag_name', 'type' => 'text', 'default_value' => 'Ahmed Al-Liabi' ),
-            array( 'key' => 'field_dp_yf_cert_nametag_role', 'label' => 'Nametag Role', 'name' => 'yf_cert_nametag_role', 'type' => 'text', 'default_value' => 'Lead Pharmacist & Yellow Fever Specialist' ),
+            array( 'key' => 'field_dp_yf_cert_nametag_role', 'label' => 'Nametag Role', 'name' => 'yf_cert_nametag_role', 'type' => 'text', 'default_value' => 'Superintendent Pharmacist & Yellow Fever Specialist' ),
             array( 'key' => 'field_dp_yf_cert_highlight', 'label' => 'Highlight Text', 'name' => 'yf_cert_highlight', 'type' => 'text', 'default_value' => 'NHS Designated Yellow Fever Centre' ),
             array( 'key' => 'field_dp_yf_cert_subtitle', 'label' => 'Subtitle', 'name' => 'yf_cert_subtitle', 'type' => 'text' ),
             array( 'key' => 'field_dp_yf_cert_text', 'label' => 'Body Text', 'name' => 'yf_cert_text', 'type' => 'textarea', 'rows' => 4 ),

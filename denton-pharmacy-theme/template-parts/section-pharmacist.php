@@ -92,7 +92,7 @@ if ( empty( $team ) && function_exists( 'have_rows' ) && have_rows( 'pharmacy_te
 
 if ( empty( $team ) ) {
     $team = array(
-        array( 'photo_id' => 0, 'name' => 'Ahmed Al-Liabi', 'role' => 'Lead Pharmacist & Independent Prescriber', 'gphc' => '2208502', 'tags' => array( 'Independent Prescriber', 'Weight Loss Specialist' ) ),
+        array( 'photo_id' => 0, 'name' => 'Ahmed Al-Liabi', 'role' => 'Superintendent Pharmacist & Independent Prescriber', 'gphc' => '2208502', 'tags' => array( 'Independent Prescriber', 'Weight Loss Specialist' ) ),
         array( 'photo_id' => 0, 'name' => 'James Button', 'role' => 'Pharmacist Manager', 'gphc' => '2240147', 'tags' => array() ),
         array( 'photo_id' => 0, 'name' => 'Paula Gaunt', 'role' => 'Trainee Pharmacy Technician', 'gphc' => '', 'tags' => array( 'Ear Microsuction Specialist' ) ),
         array( 'photo_id' => 0, 'name' => 'Elisha Mackin', 'role' => 'Trainee Pharmacy Technician', 'gphc' => '', 'tags' => array() ),

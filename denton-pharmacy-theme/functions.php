@@ -662,7 +662,7 @@ function denton_pharmacy_post_schema() {
 
     // Author
     $author_name = get_the_author();
-    $author_role = dp_option( 'default_author_role', 'Lead Pharmacist' );
+    $author_role = dp_option( 'default_author_role', 'Superintendent Pharmacist' );
 
     // Reviewer (superintendent pharmacist)
     $reviewer_name = dp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
@@ -877,7 +877,7 @@ function denton_pharmacy_add_consultation_closer( $content ) {
     // Reviewer / pharmacist data (same fallback chain as single.php)
     $reviewer_name = dp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
     $reviewer_gphc = dp_option( 'superintendent_gphc_number', '2208502' );
-    $author_role   = dp_option( 'default_author_role', 'Lead Pharmacist' );
+    $author_role   = dp_option( 'default_author_role', 'Superintendent Pharmacist' );
     $pharmacy_name = dp_pharmacy_name();
     $pharmacy_town = dp_option( 'pharmacy_town', 'Denton' );
     $booking_url   = dp_booking_url();

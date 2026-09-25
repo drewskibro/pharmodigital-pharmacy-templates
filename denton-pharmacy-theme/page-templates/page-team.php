@@ -149,11 +149,11 @@ get_header();
           <div class="team-member-image-wrapper">
             <img src="<?php echo esc_url( $ahmed_image_url ); ?>" alt="Ahmed Al-Liabi" class="team-member-image" />
             <div class="team-member-overlay"></div>
-            <div class="team-member-badge-founder">Lead Pharmacist</div>
+            <div class="team-member-badge-founder">Superintendent Pharmacist</div>
           </div>
           <div class="team-member-content">
             <h3 class="team-member-name">Ahmed Al-Liabi</h3>
-            <p class="team-member-role">Founder &amp; Lead Pharmacist</p>
+            <p class="team-member-role">Founder &amp; Superintendent Pharmacist</p>
             <div class="team-member-credentials">
               <span class="team-credential-badge">GPhC: 2208502</span>
               <span class="team-credential-badge">Independent Prescriber</span>

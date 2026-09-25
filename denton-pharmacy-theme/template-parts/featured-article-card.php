@@ -32,7 +32,7 @@ $author_name   = get_the_author();
 if ( empty( $author_name ) ) {
     $author_name = dp_option( 'pharmacist_name', 'Ahmed Al-Liabi' );
 }
-$author_role   = dp_option( 'default_author_role', 'Lead Pharmacist' );
+$author_role   = dp_option( 'default_author_role', 'Superintendent Pharmacist' );
 $author_avatar = '';
 $author_id     = get_the_author_meta( 'ID' );
 

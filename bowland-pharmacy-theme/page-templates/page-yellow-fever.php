@@ -89,7 +89,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
           <img src="<?php echo esc_url( $cert_image_url ); ?>" alt="Yellow Fever vaccination specialist" class="yellowfever-cert-image" />
           <div class="yellowfever-cert-name-tag">
             <span class="name"><?php echo esc_html( bp_field( 'yf_cert_nametag_name', 'Ahmed Al-Liabi' ) ); ?></span>
-            <span class="role"><?php echo esc_html( bp_field( 'yf_cert_nametag_role', 'Lead Pharmacist & Yellow Fever Specialist' ) ); ?></span>
+            <span class="role"><?php echo esc_html( bp_field( 'yf_cert_nametag_role', 'Superintendent Pharmacist & Yellow Fever Specialist' ) ); ?></span>
           </div>
         </div>
       </div>

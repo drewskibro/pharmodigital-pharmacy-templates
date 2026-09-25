@@ -104,7 +104,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
         <!-- Main image card -->
         <div class="switch-hero-image-card">
           <?php if ( $sp_hero_image_url ) : ?>
-            <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( bp_field( 'sp_hero_image_alt', bp_option( 'superintendent_pharmacist', 'Lead Pharmacist' ) . ' at ' . bp_pharmacy_name() ) ); ?>" class="switch-hero-image" />
+            <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( bp_field( 'sp_hero_image_alt', bp_option( 'superintendent_pharmacist', 'Superintendent Pharmacist' ) . ' at ' . bp_pharmacy_name() ) ); ?>" class="switch-hero-image" />
           <?php endif; ?>
         </div>
 
