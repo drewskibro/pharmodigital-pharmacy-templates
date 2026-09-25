@@ -159,7 +159,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
       <div class="stat-item">
         <div class="stat-icon"><i class="<?php echo esc_attr( bp_fa_class( bp_field( 'sp_stat_3_icon', 'fa-star' ) ) ); ?>"></i></div>
         <div class="stat-content">
-          <span class="stat-number"><?php echo esc_html( bp_field( 'sp_stat_3_number', '4.9/5' ) ); ?></span>
+          <span class="stat-number"><?php echo esc_html( bp_field( 'sp_stat_3_number', '4.7/5' ) ); ?></span>
           <span class="stat-label"><?php echo esc_html( bp_field( 'sp_stat_3_label', 'Google Rating' ) ); ?></span>
         </div>
       </div>
@@ -524,7 +524,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
           <p class="switch-evidence-stat-description">lost by our patients in just 4 months with comprehensive support</p>
         </div>
         <div class="switch-evidence-card">
-          <div class="switch-evidence-stat-number">4.9/5</div>
+          <div class="switch-evidence-stat-number">4.7/5</div>
           <p class="switch-evidence-stat-label">Google Reviews</p>
           <p class="switch-evidence-stat-description">from verified <?php echo esc_html( bp_option( 'pharmacy_town', 'Wythenshawe' ) ); ?> patients on Google</p>
         </div>
