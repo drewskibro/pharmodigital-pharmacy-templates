@@ -49,8 +49,8 @@ $trust_3_text = bp_field( 'nhs_hero_trust_3_text', '4.7★ Rated' );
 
 // Rating badge
 $rating_score    = bp_field( 'nhs_hero_rating_score' );
-if ( ! $rating_score ) { $rating_score = bp_option( 'google_rating', '4.9' ); }
-$rating_count    = bp_field( 'nhs_hero_rating_count', bp_option( 'google_review_count', '300+' ) );
+if ( ! $rating_score ) { $rating_score = bp_option( 'google_rating', '4.7' ); }
+$rating_count    = bp_field( 'nhs_hero_rating_count', bp_option( 'google_review_count', '200+' ) );
 $rating_location = bp_field( 'nhs_hero_rating_location' );
 if ( ! $rating_location ) { $rating_location = bp_option( 'pharmacy_location_label', 'Wythenshawe, UK' ); }
 

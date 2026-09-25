@@ -24,9 +24,9 @@ $verified_label_sm = bp_field( 'testimonials_verified_label_short', 'Verified' )
 $transparency_label = bp_field( 'testimonials_transparency_label', 'Transparency Note:' );
 
 // --- CTA card fields ---
-$cta_title  = bp_field( 'testimonials_cta_title', 'Trusted by 10,000+ Bowland Customers' );
+$cta_title  = bp_field( 'testimonials_cta_title', 'Trusted by 1,000+ Bowland Patients' );
 $cta_text   = bp_field( 'testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local healthcare you can rely on.' );
-$rating     = bp_option( 'google_rating', '4.9' );
+$rating     = bp_option( 'google_rating', '4.7' );
 
 // --- Allowed HTML for default testimonial highlight spans ---
 $allowed_highlight_tags = array(

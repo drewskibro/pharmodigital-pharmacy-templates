@@ -108,7 +108,7 @@ $last_updated  = '29 August 2026';
     <p>We may share your information with carefully selected third-party organisations that assist us in providing healthcare services, operating our website and maintaining our systems. All such providers are required to process personal information securely, confidentially and in accordance with applicable data protection laws.</p>
     <p>The third parties we currently work with include:</p>
     <ul>
-      <li>Deltera — online booking and patient registration system</li>
+      <li>Acuity Scheduling — online appointment booking</li>
       <li>Kinsta — website hosting (<a href="https://kinsta.com" target="_blank" rel="noopener noreferrer">kinsta.com</a>)</li>
       <li>Gildhart (PharmoDigital Ltd) — digital marketing, website design and management (<a href="https://gildhart.com/" target="_blank" rel="noopener noreferrer">gildhart.com</a>)</li>
       <li>Website analytics provider(s) — Google Analytics / Microsoft Clarity</li>

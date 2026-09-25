@@ -24,7 +24,7 @@ $verified_label_sm = dp_field( 'testimonials_verified_label_short', 'Verified' )
 $transparency_label = dp_field( 'testimonials_transparency_label', 'Transparency Note:' );
 
 // --- CTA card fields ---
-$cta_title  = dp_field( 'testimonials_cta_title', 'Trusted by 10,000+ Denton Customers' );
+$cta_title  = dp_field( 'testimonials_cta_title', 'Trusted by 1,000+ Denton Patients' );
 $cta_text   = dp_field( 'testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local healthcare you can rely on.' );
 $rating     = dp_option( 'google_rating', '4.9' );
 

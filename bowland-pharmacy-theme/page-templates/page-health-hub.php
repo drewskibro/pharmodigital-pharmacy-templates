@@ -76,7 +76,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
           </div>
         </div>
         <div class="rating-score">
-          <span class="score-number"><?php echo esc_html( bp_field( 'hh_social_rating_score', bp_option( 'google_rating', '4.9' ) ) ); ?></span>
+          <span class="score-number"><?php echo esc_html( bp_field( 'hh_social_rating_score', bp_option( 'google_rating', '4.7' ) ) ); ?></span>
           <div class="rating-score-detail">
             <div class="star-row">
               <i class="fas fa-star"></i>
@@ -85,7 +85,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <span class="rating-count"><?php echo esc_html( bp_field( 'hh_social_rating_count', 'Based on 300+ reviews' ) ); ?></span>
+            <span class="rating-count"><?php echo esc_html( bp_field( 'hh_social_rating_count', 'Based on 200+ reviews' ) ); ?></span>
           </div>
         </div>
         <div class="rating-footer">
