@@ -663,7 +663,7 @@ function bowland_pharmacy_post_schema() {
 
     // Author
     $author_name = get_the_author();
-    $author_role = bp_option( 'default_author_role', 'Lead Pharmacist' );
+    $author_role = bp_option( 'default_author_role', 'Superintendent Pharmacist' );
 
     // Reviewer (superintendent pharmacist)
     $reviewer_name = bp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
@@ -878,7 +878,7 @@ function bowland_pharmacy_add_consultation_closer( $content ) {
     // Reviewer / pharmacist data (same fallback chain as single.php)
     $reviewer_name = bp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
     $reviewer_gphc = bp_option( 'superintendent_gphc_number', '2208502' );
-    $author_role   = bp_option( 'default_author_role', 'Lead Pharmacist' );
+    $author_role   = bp_option( 'default_author_role', 'Superintendent Pharmacist' );
     $pharmacy_name = bp_pharmacy_name();
     $pharmacy_town = bp_option( 'pharmacy_town', 'Wythenshawe' );
     $booking_url   = bp_booking_url();

@@ -24,7 +24,7 @@ $read_time   = max( 1, ceil( $word_count / 250 ) );
 
 // Author
 $author_name   = get_the_author();
-$author_role   = dp_option( 'default_author_role', 'Lead Pharmacist' );
+$author_role   = dp_option( 'default_author_role', 'Superintendent Pharmacist' );
 $author_id     = get_the_author_meta( 'ID' );
 $author_bio    = get_the_author_meta( 'description' );
 $author_avatar = '';

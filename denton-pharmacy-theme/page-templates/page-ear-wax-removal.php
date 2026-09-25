@@ -215,10 +215,10 @@ get_header();
         $default_team = array(
           array(
             'name'  => 'Ahmed Al-Liabi',
-            'role'  => 'Lead Pharmacist & Founder',
+            'role'  => 'Superintendent Pharmacist & Founder',
             'bio'   => 'As the founder of Denton Pharmacy, Ahmed brings over 15 years of pharmaceutical experience. A GPhC-registered pharmacist (2208502), he is dedicated to providing expert ear care with a personal touch.',
             'tags'  => array( 'GPhC Registered', '15+ Years Experience' ),
-            'badge' => 'Lead Pharmacist',
+            'badge' => 'Superintendent Pharmacist',
             'badge_style' => 'green',
           ),
           array(
