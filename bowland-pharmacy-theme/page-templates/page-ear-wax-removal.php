@@ -214,19 +214,27 @@ get_header();
 
         $default_team = array(
           array(
-            'name'  => 'Ahmed Al-Liabi',
-            'role'  => 'Superintendent Pharmacist & Founder',
-            'bio'   => 'As the founder of Bowland Pharmacy, Ahmed brings over 15 years of pharmaceutical experience. A GPhC-registered pharmacist (2208502), he is dedicated to providing expert ear care with a personal touch.',
-            'tags'  => array( 'GPhC Registered', '15+ Years Experience' ),
-            'badge' => 'Superintendent Pharmacist',
+            'name'  => 'Tayif',
+            'role'  => 'Pharmacy Manager',
+            'bio'   => '',
+            'tags'  => array(),
+            'badge' => 'Ear Care Team',
             'badge_style' => 'green',
           ),
           array(
-            'name'  => 'Jignasa Modhvadia',
-            'role'  => 'Director',
-            'bio'   => 'Jignasa combines clinical expertise with exceptional patient care. She plays a key role in delivering specialist ear care services at our Wythenshawe clinic.',
-            'tags'  => array( 'Clinic Director', 'Patient Care Expert' ),
-            'badge' => 'Director',
+            'name'  => 'Usman',
+            'role'  => 'Pharmacy Technician',
+            'bio'   => '',
+            'tags'  => array(),
+            'badge' => 'Ear Care Team',
+            'badge_style' => 'purple',
+          ),
+          array(
+            'name'  => 'JD',
+            'role'  => 'Trainee Pharmacy Technician',
+            'bio'   => '',
+            'tags'  => array(),
+            'badge' => 'Ear Care Team',
             'badge_style' => 'purple',
           ),
         );
@@ -241,8 +249,8 @@ get_header();
         ?>
           <div class="earwax-team-card">
             <div class="earwax-team-image-wrapper">
-              <?php if ( $ti === 0 && $global_pharmacist_image_url ) : ?>
-                <img src="<?php echo esc_url( $global_pharmacist_image_url ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" class="earwax-team-image" />
+              <?php if ( ! empty( $member['image'] ) ) : ?>
+                <img src="<?php echo esc_url( $member['image'] ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" class="earwax-team-image" />
               <?php else : ?>
                 <div class="earwax-team-avatar">
                   <span class="earwax-team-avatar-initials"><?php echo esc_html( $initials ); ?></span>
