@@ -125,7 +125,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
           <i class="fas fa-star"></i>
         </div>
         <div class="wl-stat-content">
-          <span class="wl-stat-number"><?php echo esc_html( bp_field( 'wl_stat_1_number', bp_option( 'google_rating', '4.9' ) ) ); ?></span>
+          <span class="wl-stat-number"><?php echo esc_html( bp_field( 'wl_stat_1_number', bp_option( 'google_rating', '4.7' ) ) ); ?></span>
           <span class="wl-stat-label"><?php echo esc_html( bp_field( 'wl_stat_1_label', 'Google Rating' ) ); ?></span>
         </div>
       </div>
@@ -137,7 +137,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
           <i class="fas fa-users"></i>
         </div>
         <div class="wl-stat-content">
-          <span class="wl-stat-number"><?php echo esc_html( bp_field( 'wl_stat_2_number', bp_option( 'google_review_count', '300+' ) ) ); ?></span>
+          <span class="wl-stat-number"><?php echo esc_html( bp_field( 'wl_stat_2_number', bp_option( 'google_review_count', '200+' ) ) ); ?></span>
           <span class="wl-stat-label"><?php echo esc_html( bp_field( 'wl_stat_2_label', 'Patients Helped' ) ); ?></span>
         </div>
       </div>
@@ -271,8 +271,8 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
     <!-- Bottom: Rating + CTAs + credentials -->
     <div class="wl-features-bottom">
       <?php
-      $wl_rating       = bp_option( 'google_rating', '4.9' );
-      $wl_review_count = bp_option( 'google_review_count', '300+' );
+      $wl_rating       = bp_option( 'google_rating', '4.7' );
+      $wl_review_count = bp_option( 'google_review_count', '200+' );
       $wl_location     = bp_option( 'pharmacy_location_label', 'Wythenshawe' );
       $wl_reviews_url  = bp_option( 'google_review_url', '#' );
       ?>
@@ -300,7 +300,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         $wl_default_creds = array(
             array( 'cred_icon' => 'fa-shield-halved', 'cred_text' => 'GPhC Registered' ),
             array( 'cred_icon' => 'fa-user-doctor', 'cred_text' => 'Independent Prescriber' ),
-            array( 'cred_icon' => 'fa-award', 'cred_text' => '30+ Years' ),
+            array( 'cred_icon' => 'fa-award', 'cred_text' => '15+ Years' ),
         );
         $wl_creds = array();
         if ( function_exists( 'have_rows' ) && have_rows( 'wl_features_credentials' ) ) {
@@ -740,12 +740,12 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <div class="wl-testimonial-cta-glow"></div>
         <div class="wl-testimonial-cta-body">
           <div class="wl-testimonial-cta-content">
-            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( bp_field( 'wl_testimonials_cta_title', 'Trusted by 5,000+ Bowland Patients' ) ); ?></h3>
+            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( bp_field( 'wl_testimonials_cta_title', 'Trusted by 1,000+ Bowland Patients' ) ); ?></h3>
             <p class="wl-testimonial-cta-text"><?php echo esc_html( bp_field( 'wl_testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ) ); ?></p>
           </div>
           <div class="wl-testimonial-cta-rating">
             <div class="wl-testimonial-cta-rating-card">
-              <span class="wl-testimonial-cta-score"><?php echo esc_html( bp_option( 'google_rating', '4.9' ) ); ?></span>
+              <span class="wl-testimonial-cta-score"><?php echo esc_html( bp_option( 'google_rating', '4.7' ) ); ?></span>
               <div class="star-row star-row-small">
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
               </div>
@@ -774,7 +774,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         $wl_default_badges = array(
             array( 'badge_icon' => 'fa-shield-halved', 'badge_text' => 'GPhC Registered' ),
             array( 'badge_icon' => 'fa-user-doctor', 'badge_text' => 'Independent Prescriber' ),
-            array( 'badge_icon' => 'fa-users', 'badge_text' => bp_field( 'wl_results_card3_number', '500+' ) . ' Patients Helped' ),
+            array( 'badge_icon' => 'fa-users', 'badge_text' => bp_field( 'wl_results_card3_number', '1,000+' ) . ' Patients Helped' ),
         );
         $wl_cta_badges = array();
         if ( function_exists( 'have_rows' ) && have_rows( 'wl_final_cta_badges' ) ) {
@@ -794,7 +794,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
       </div>
 
       <h2 class="wl-final-cta-title"><?php echo esc_html( bp_field( 'wl_final_cta_title', 'Book your weight loss consultation' ) ); ?></h2>
-      <p class="wl-final-cta-description"><?php echo esc_html( bp_field( 'wl_final_cta_description', 'Join 5,000+ patients who have transformed their lives with medical weight loss. Book your face-to-face consultation with our pharmacist today.' ) ); ?></p>
+      <p class="wl-final-cta-description"><?php echo esc_html( bp_field( 'wl_final_cta_description', 'Join 1,000+ patients who have transformed their lives with medical weight loss. Book your face-to-face consultation with our pharmacist today.' ) ); ?></p>
 
       <div class="wl-final-cta-actions">
         <a href="#weight-loss-calendar" class="cta-button primary-cta wl-final-cta-button-white">

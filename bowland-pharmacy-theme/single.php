@@ -373,7 +373,7 @@ $last_modified = get_the_modified_date( 'M j, Y' );
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
               </div>
-              <span class="rating-count">Based on 300+ reviews</span>
+              <span class="rating-count">Based on 200+ reviews</span>
             </div>
           </div>
           <div class="rating-footer">

@@ -63,7 +63,7 @@ get_header();
         <div class="team-stat-divider"></div>
         <div class="team-stat-item">
           <div class="team-stat-icon"><i class="fas fa-heart"></i></div>
-          <div class="team-stat-text"><span class="team-stat-number">5,000+</span><span class="team-stat-label">Patients Served</span></div>
+          <div class="team-stat-text"><span class="team-stat-number">1,000+</span><span class="team-stat-label">Patients Served</span></div>
         </div>
       <?php endif; ?>
     </div>
@@ -103,7 +103,7 @@ get_header();
     // Hardcoded Bowland placeholders — Drew will supply final details
     if ( empty( $team ) ) {
         $team = array(
-            array( 'photo_id' => 0, 'name' => 'Ahmed Al-Liabi',   'role' => 'Lead Pharmacist & Independent Prescriber', 'gphc' => '2088937', 'tags' => array( 'Independent Prescriber', 'Weight Loss', 'Travel Health' ) ),
+            array( 'photo_id' => 0, 'name' => 'Ahmed Al-Liabi',   'role' => 'Superintendent Pharmacist & Independent Prescriber', 'gphc' => '2208502', 'tags' => array( 'Independent Prescriber', 'Weight Loss', 'Travel Health' ) ),
             array( 'photo_id' => 0, 'name' => 'Elisha Mackin',    'role' => 'Trainee Pharmacy Technician',              'gphc' => '',        'tags' => array( 'Dispensing', 'Patient Support' ) ),
             array( 'photo_id' => 0, 'name' => 'Paula Gaunt',      'role' => 'Trainee Pharmacy Technician',              'gphc' => '',        'tags' => array( 'Dispensing', 'NHS Services' ) ),
             array( 'photo_id' => 0, 'name' => 'Joanne Tabberner', 'role' => 'Pharmacy Assistant',                       'gphc' => '',        'tags' => array( 'Patient Support', 'NHS Services' ) ),

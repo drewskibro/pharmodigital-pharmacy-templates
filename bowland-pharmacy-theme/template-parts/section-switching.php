@@ -95,10 +95,10 @@ $switching_image_alt = $switching_image_id
     : 'Switch to ' . bp_pharmacy_name();
 
 // --- Google rating (global options) ---
-$google_rating       = bp_option( 'google_rating', '4.9' );
-$google_review_count = bp_option( 'google_review_count', '300+' );
+$google_rating       = bp_option( 'google_rating', '4.7' );
+$google_review_count = bp_option( 'google_review_count', '200+' );
 $pharmacy_location   = bp_option( 'pharmacy_town', 'Wythenshawe' );
-$gphc_number         = bp_option( 'superintendent_gphc_number', '2088937' );
+$gphc_number         = bp_option( 'superintendent_gphc_number', '2208502' );
 ?>
 
 <section class="switching-section">

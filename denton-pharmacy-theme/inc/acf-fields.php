@@ -183,7 +183,7 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Patients Treated (stat)',
                 'name'          => 'patients_treated',
                 'type'          => 'text',
-                'default_value' => '5,000+',
+                'default_value' => '1,000+',
                 'instructions'  => 'Displayed in trust badges across the site.',
             ),
         ),
@@ -1098,8 +1098,8 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Rating Review Text',
                 'name'          => 'hero_rating_count_label',
                 'type'          => 'text',
-                'default_value' => 'Based on 300+ reviews',
-                'instructions'  => 'Full text shown below the stars, e.g. "Based on 300+ reviews".',
+                'default_value' => 'Based on 140+ reviews',
+                'instructions'  => 'Full text shown below the stars, e.g. "Based on 140+ reviews".',
             ),
             array(
                 'key'           => 'field_dp_hero_rating_link_text',
@@ -1184,7 +1184,7 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Stat 1 Number',
                 'name'          => 'stats_1_number',
                 'type'          => 'text',
-                'default_value' => '5,000+',
+                'default_value' => '1,000+',
             ),
             array(
                 'key'           => 'field_dp_stats_1_label',
@@ -2598,7 +2598,7 @@ function dp_register_acf_field_groups() {
                 'label'         => 'CTA Card Title',
                 'name'          => 'testimonials_cta_title',
                 'type'          => 'text',
-                'default_value' => 'Trusted by 10,000+ Denton Customers',
+                'default_value' => 'Trusted by 1,000+ Denton Patients',
             ),
             // CTA text
             array(
@@ -3242,7 +3242,7 @@ function dp_register_acf_field_groups() {
                 'min'          => 0,
                 'max'          => 6,
                 'button_label' => 'Add Credential',
-                'instructions' => 'Leave empty to use defaults (GPhC Registered, Independent Prescriber, 30+ Years).',
+                'instructions' => 'Leave empty to use defaults (GPhC Registered, Independent Prescriber, 15+ Years).',
                 'sub_fields'   => array(
                     array( 'key' => 'field_dp_wl_feat_cred_icon', 'label' => 'Icon', 'name' => 'cred_icon', 'type' => 'text', 'default_value' => 'fa-shield-halved' ),
                     array( 'key' => 'field_dp_wl_feat_cred_text', 'label' => 'Text', 'name' => 'cred_text', 'type' => 'text' ),
@@ -3259,7 +3259,7 @@ function dp_register_acf_field_groups() {
             ),
             array( 'key' => 'field_dp_wl_features_image_alt', 'label' => 'Image Alt Text', 'name' => 'wl_features_image_alt', 'type' => 'text', 'default_value' => 'Weight loss success patient' ),
             array( 'key' => 'field_dp_wl_features_rating_text', 'label' => 'Rating Badge Text', 'name' => 'wl_features_rating_text', 'type' => 'text', 'default_value' => '4.9/5' ),
-            array( 'key' => 'field_dp_wl_features_reviews_text', 'label' => 'Reviews Badge Text', 'name' => 'wl_features_reviews_text', 'type' => 'text', 'default_value' => '300+ Google Reviews' ),
+            array( 'key' => 'field_dp_wl_features_reviews_text', 'label' => 'Reviews Badge Text', 'name' => 'wl_features_reviews_text', 'type' => 'text', 'default_value' => '140+ Google Reviews' ),
             array( 'key' => 'field_dp_wl_features_view_reviews_text', 'label' => 'View Reviews Link Text', 'name' => 'wl_features_view_reviews_text', 'type' => 'text', 'default_value' => 'View Reviews' ),
             array( 'key' => 'field_dp_wl_features_reviews_label', 'label' => 'Reviews Label (after count)', 'name' => 'wl_features_reviews_label', 'type' => 'text', 'default_value' => 'reviews' ),
             array(
@@ -3380,7 +3380,7 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_wl_testimonials_title_highlight', 'label' => 'Title Highlight (split)', 'name' => 'wl_testimonials_title_highlight', 'type' => 'text', 'default_value' => 'Lasting Health.' ),
             array( 'key' => 'field_dp_wl_testimonials_description', 'label' => 'Description', 'name' => 'wl_testimonials_description', 'type' => 'text', 'default_value' => 'See how our patients have transformed their lives with medical weight loss' ),
             array( 'key' => 'field_dp_wl_testimonials_disclaimer', 'label' => 'Disclaimer', 'name' => 'wl_testimonials_disclaimer', 'type' => 'text', 'default_value' => 'The results below are from real Denton Pharmacy patients. Individual results may vary.' ),
-            array( 'key' => 'field_dp_wl_testimonials_cta_title', 'label' => 'CTA Card Title', 'name' => 'wl_testimonials_cta_title', 'type' => 'text', 'default_value' => 'Trusted by 5,000+ Denton Patients' ),
+            array( 'key' => 'field_dp_wl_testimonials_cta_title', 'label' => 'CTA Card Title', 'name' => 'wl_testimonials_cta_title', 'type' => 'text', 'default_value' => 'Trusted by 1,000+ Denton Patients' ),
             array( 'key' => 'field_dp_wl_testimonials_cta_text', 'label' => 'CTA Card Text', 'name' => 'wl_testimonials_cta_text', 'type' => 'text', 'default_value' => 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ),
             array( 'key' => 'field_dp_wl_testimonials_cta_rating_label', 'label' => 'CTA Rating Label', 'name' => 'wl_testimonials_cta_rating_label', 'type' => 'text', 'default_value' => 'Google Rating' ),
             array( 'key' => 'field_dp_wl_testimonials_verified_label', 'label' => 'Verified Label (full)', 'name' => 'wl_testimonials_verified_label', 'type' => 'text', 'default_value' => 'Verified Patient' ),
@@ -3420,7 +3420,7 @@ function dp_register_acf_field_groups() {
         'title'    => 'Weight Loss — Final CTA Section',
         'fields'   => array(
             array( 'key' => 'field_dp_wl_final_cta_title', 'label' => 'Title', 'name' => 'wl_final_cta_title', 'type' => 'text', 'default_value' => 'Ready to start your weight loss journey?' ),
-            array( 'key' => 'field_dp_wl_final_cta_description', 'label' => 'Description', 'name' => 'wl_final_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join 500+ Denton residents who\'ve transformed their lives with medical weight loss. Book your in-store consultation today.' ),
+            array( 'key' => 'field_dp_wl_final_cta_description', 'label' => 'Description', 'name' => 'wl_final_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join 1,000+ Denton residents who\'ve transformed their lives with medical weight loss. Book your in-store consultation today.' ),
             array( 'key' => 'field_dp_wl_final_cta_button_text', 'label' => 'Primary Button Text', 'name' => 'wl_final_cta_button_text', 'type' => 'text', 'default_value' => 'Book Your Consultation' ),
             array(
                 'key'          => 'field_dp_wl_final_cta_badges',
@@ -4297,9 +4297,9 @@ function dp_register_acf_field_groups() {
         'key'      => 'group_dp_hl_stats',
         'title'    => 'Hair Loss — Stats Bar',
         'fields'   => array(
-            array( 'key' => 'field_dp_hairloss_stat_1_icon', 'label' => 'Stat 1 — Icon', 'name' => 'hl_stat_1_icon', 'type' => 'text', 'default_value' => 'fas fa-users', 'instructions' => 'Full Font Awesome class.' ),
-            array( 'key' => 'field_dp_hairloss_stat_1_number', 'label' => 'Stat 1 — Number', 'name' => 'hl_stat_1_number', 'type' => 'text', 'default_value' => '500+' ),
-            array( 'key' => 'field_dp_hairloss_stat_1_label', 'label' => 'Stat 1 — Label', 'name' => 'hl_stat_1_label', 'type' => 'text', 'default_value' => 'Patients Treated' ),
+            array( 'key' => 'field_dp_hairloss_stat_1_icon', 'label' => 'Stat 1 — Icon', 'name' => 'hl_stat_1_icon', 'type' => 'text', 'default_value' => 'fas fa-award', 'instructions' => 'Full Font Awesome class.' ),
+            array( 'key' => 'field_dp_hairloss_stat_1_number', 'label' => 'Stat 1 — Number', 'name' => 'hl_stat_1_number', 'type' => 'text', 'default_value' => '15+' ),
+            array( 'key' => 'field_dp_hairloss_stat_1_label', 'label' => 'Stat 1 — Label', 'name' => 'hl_stat_1_label', 'type' => 'text', 'default_value' => 'Years Experience' ),
             array( 'key' => 'field_dp_hairloss_stat_2_icon', 'label' => 'Stat 2 — Icon', 'name' => 'hl_stat_2_icon', 'type' => 'text', 'default_value' => 'fas fa-certificate' ),
             array( 'key' => 'field_dp_hairloss_stat_2_number', 'label' => 'Stat 2 — Number', 'name' => 'hl_stat_2_number', 'type' => 'text', 'default_value' => 'GPhC' ),
             array( 'key' => 'field_dp_hairloss_stat_2_label', 'label' => 'Stat 2 — Label', 'name' => 'hl_stat_2_label', 'type' => 'text', 'default_value' => 'Registered' ),

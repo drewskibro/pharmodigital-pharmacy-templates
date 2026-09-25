@@ -77,29 +77,7 @@ get_header();
             <div class="book-hero-overlay"></div>
           </div>
 
-          <!-- Floating Testimonial Card -->
-          <div class="book-hero-testimonial-card">
-            <div class="book-hero-quote-icon">
-              <i class="fas fa-quote-left"></i>
-            </div>
-            <p class="book-hero-quote-text">
-              <?php
-              $default_quote = 'Booking was so easy and ' . dp_option( 'superintendent_pharmacist', 'our pharmacist' ) . ' was fantastic. I was seen on time and the advice was excellent.';
-              echo esc_html( dp_field( 'book_hero_quote', $default_quote ) );
-              ?>
-            </p>
-            <div class="book-hero-quote-footer">
-              <div class="book-hero-author">
-                <span class="book-hero-name"><?php echo esc_html(dp_field('book_hero_quote_name', 'Sarah J.')); ?></span>
-                <div class="star-row">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-              </div>
-              <div class="book-hero-result-badge">
-                <span><?php echo esc_html(dp_field('book_hero_quote_badge', 'Verified Patient')); ?></span>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
 
@@ -153,9 +131,9 @@ get_header();
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-clock"></i></div><div class="book-stat-content"><span class="book-stat-number">30+</span><span class="book-stat-label">Years Experience</span></div></div>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-users"></i></div><div class="book-stat-content"><span class="book-stat-number">10,000+</span><span class="book-stat-label">Patients Helped</span></div></div>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-star"></i></div><div class="book-stat-content"><span class="book-stat-number">4.9</span><span class="book-stat-label">Google Rating</span></div></div>
+        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-clock"></i></div><div class="book-stat-content"><span class="book-stat-number">15+</span><span class="book-stat-label">Years Experience</span></div></div>
+        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-users"></i></div><div class="book-stat-content"><span class="book-stat-number">1,000+</span><span class="book-stat-label">Patients Helped</span></div></div>
+        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-star"></i></div><div class="book-stat-content"><span class="book-stat-number"><?php echo esc_html( dp_option( 'google_rating', '4.9' ) ); ?></span><span class="book-stat-label">Google Rating</span></div></div>
         <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-certificate"></i></div><div class="book-stat-content"><span class="book-stat-number">GPhC</span><span class="book-stat-label">Registered</span></div></div>
       <?php endif; ?>
     </div>

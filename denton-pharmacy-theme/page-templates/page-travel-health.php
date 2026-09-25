@@ -38,7 +38,7 @@ $th_testimonial_dest   = dp_field( 'th_hero_testimonial_destination', 'Kenya' );
 // --- Rating badge (pull from global options) ---
 $google_rating     = dp_option( 'google_rating', '4.9' );
 $google_review_url = dp_option( 'google_review_url', '#' );
-$google_reviews    = dp_option( 'google_review_count', '300+' );
+$google_reviews    = dp_option( 'google_review_count', '140+' );
 $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
 ?>
 
@@ -382,7 +382,7 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         <?php
         $why_cards = array(
           array( 'icon' => 'fas fa-user-doctor', 'title' => 'Expert Pharmacist Consultations', 'desc' => 'Our expert pharmacists provide up-to-date travel health advice tailored to your specific itinerary and destination.' ),
-          array( 'icon' => 'fas fa-calendar-check', 'title' => 'Flexible Appointments', 'desc' => 'Same-day and weekend appointments available to suit your schedule.' ),
+          array( 'icon' => 'fas fa-calendar-check', 'title' => 'Flexible Appointments', 'desc' => 'Same-day appointments available to suit your schedule.' ),
           array( 'icon' => 'fas fa-tags', 'title' => 'Competitive Pricing', 'desc' => 'Transparent, affordable pricing for all vaccinations and antimalarials.' ),
           array( 'icon' => 'fas fa-location-dot', 'title' => 'Convenient Location', 'desc' => 'Easy to find in Denton with parking available nearby.' ),
         );

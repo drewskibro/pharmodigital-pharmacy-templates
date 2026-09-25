@@ -63,7 +63,7 @@ get_header();
         <div class="team-stat-divider"></div>
         <div class="team-stat-item">
           <div class="team-stat-icon"><i class="fas fa-heart"></i></div>
-          <div class="team-stat-text"><span class="team-stat-number">5,000+</span><span class="team-stat-label">Patients Served</span></div>
+          <div class="team-stat-text"><span class="team-stat-number">1,000+</span><span class="team-stat-label">Patients Served</span></div>
         </div>
       <?php endif; ?>
     </div>

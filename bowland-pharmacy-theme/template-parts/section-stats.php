@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $default_stats = array(
     array(
         'icon'   => 'fas fa-users',
-        'number' => '5,000+',
+        'number' => '1,000+',
         'label'  => 'Patients Treated',
     ),
     array(

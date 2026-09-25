@@ -85,7 +85,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <span class="rating-count"><?php echo esc_html( dp_field( 'hh_social_rating_count', 'Based on 300+ reviews' ) ); ?></span>
+            <span class="rating-count"><?php echo esc_html( dp_field( 'hh_social_rating_count', 'Based on 140+ reviews' ) ); ?></span>
           </div>
         </div>
         <div class="rating-footer">

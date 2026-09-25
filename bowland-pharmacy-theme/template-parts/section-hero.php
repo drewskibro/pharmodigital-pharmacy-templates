@@ -70,14 +70,14 @@ if ( ! in_array( $hero_image_focus, $allowed_focus, true ) ) {
 }
 
 // --- Google rating (global options + page overrides) ---
-$google_rating       = bp_option( 'google_rating', '4.9' );
+$google_rating       = bp_option( 'google_rating', '4.7' );
 $google_review_url   = bp_option( 'google_review_url', '#' );
 $pharmacy_location   = bp_option( 'pharmacy_town', 'Wythenshawe' );
 
 // --- Rating card (page-level fields with defaults) ---
 $rating_label       = bp_field( 'hero_rating_label', 'Google Rating' );
 $rating_stars       = (int) bp_field( 'hero_rating_stars', 5 );
-$rating_count_label = bp_field( 'hero_rating_count_label', 'Based on 300+ reviews' );
+$rating_count_label = bp_field( 'hero_rating_count_label', 'Based on 200+ reviews' );
 $rating_link_text   = bp_field( 'hero_rating_link_text', 'View Reviews' );
 ?>
 

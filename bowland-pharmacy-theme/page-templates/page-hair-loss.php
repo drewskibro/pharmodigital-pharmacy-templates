@@ -80,10 +80,10 @@ get_header();
     <div class="hairloss-stats-grid">
       <?php
       $stats = array(
-        array( 'icon' => 'hl_stat_1_icon', 'number' => 'hl_stat_1_number', 'label' => 'hl_stat_1_label', 'def_icon' => 'fas fa-users', 'def_number' => '500+', 'def_label' => 'Patients Treated' ),
+        array( 'icon' => 'hl_stat_1_icon', 'number' => 'hl_stat_1_number', 'label' => 'hl_stat_1_label', 'def_icon' => 'fas fa-award', 'def_number' => '15+', 'def_label' => 'Years Experience' ),
         array( 'icon' => 'hl_stat_2_icon', 'number' => 'hl_stat_2_number', 'label' => 'hl_stat_2_label', 'def_icon' => 'fas fa-certificate', 'def_number' => 'GPhC', 'def_label' => 'Registered' ),
         array( 'icon' => 'hl_stat_3_icon', 'number' => 'hl_stat_3_number', 'label' => 'hl_stat_3_label', 'def_icon' => 'fas fa-calendar-check', 'def_number' => '6-12 Months', 'def_label' => 'Typical Results' ),
-        array( 'icon' => 'hl_stat_4_icon', 'number' => 'hl_stat_4_number', 'label' => 'hl_stat_4_label', 'def_icon' => 'fas fa-star', 'def_number' => '4.9&#9733;', 'def_label' => 'Average Rating' ),
+        array( 'icon' => 'hl_stat_4_icon', 'number' => 'hl_stat_4_number', 'label' => 'hl_stat_4_label', 'def_icon' => 'fas fa-star', 'def_number' => '4.7&#9733;', 'def_label' => 'Average Rating' ),
       );
       foreach ( $stats as $stat ) :
         $icon   = bp_field( $stat['icon'], $stat['def_icon'] );
@@ -339,6 +339,7 @@ get_header();
 <!-- ============================================
      G7. TESTIMONIALS — 3-column
      ============================================ -->
+<?php if ( have_rows( 'hl_testimonials' ) ) : ?>
 <section class="hairloss-testimonials-section">
   <div class="section-container">
     <div class="hairloss-testimonials-header">
@@ -360,26 +361,11 @@ get_header();
             <span class="hairloss-testimonial-name"><?php echo esc_html( get_sub_field( 'author' ) ); ?></span>
           </div>
         </div>
-      <?php endwhile; else : ?>
-        <div class="hairloss-testimonial-card">
-          <div class="hairloss-testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="hairloss-testimonial-quote">After just 4 months of treatment from <?php echo esc_html( bp_pharmacy_name() ); ?>, I can already see new hair growth. The pharmacist explained everything clearly and made the whole process easy.</p>
-          <div class="hairloss-testimonial-author"><span class="hairloss-testimonial-name">James T.</span></div>
-        </div>
-        <div class="hairloss-testimonial-card">
-          <div class="hairloss-testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="hairloss-testimonial-quote">I was nervous about discussing hair loss but the team at <?php echo esc_html( bp_pharmacy_name() ); ?> made it completely comfortable. The consultation was thorough and private.</p>
-          <div class="hairloss-testimonial-author"><span class="hairloss-testimonial-name">Mark R.</span></div>
-        </div>
-        <div class="hairloss-testimonial-card">
-          <div class="hairloss-testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p class="hairloss-testimonial-quote">Six months in and the results speak for themselves. So much better than ordering online &mdash; having a real pharmacist monitor my progress makes all the difference.</p>
-          <div class="hairloss-testimonial-author"><span class="hairloss-testimonial-name">David P.</span></div>
-        </div>
-      <?php endif; ?>
+      <?php endwhile; endif; ?>
     </div>
   </div>
 </section>
+<?php endif; ?>
 
 <!-- ============================================
      G8. FINAL CTA — Purple gradient

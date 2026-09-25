@@ -77,7 +77,7 @@ $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
 // --- Rating card (page-level fields with defaults) ---
 $rating_label       = dp_field( 'hero_rating_label', 'Google Rating' );
 $rating_stars       = (int) dp_field( 'hero_rating_stars', 5 );
-$rating_count_label = dp_field( 'hero_rating_count_label', 'Based on 300+ reviews' );
+$rating_count_label = dp_field( 'hero_rating_count_label', 'Based on 140+ reviews' );
 $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
 ?>
 
