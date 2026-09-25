@@ -151,7 +151,7 @@ for ( $i = 1; $i <= 5; $i++ ) {
               <div class="star-row">
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
               </div>
-              <span class="rating-count">Based on <?php echo esc_html( $rating_count ); ?> reviews+</span>
+              <span class="rating-count">Based on <?php echo esc_html( $rating_count ); ?> reviews</span>
             </div>
           </div>
           <div class="rating-footer">
