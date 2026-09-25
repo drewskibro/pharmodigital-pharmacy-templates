@@ -161,7 +161,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
           <i class="fas fa-award"></i>
         </div>
         <div class="wl-stat-content">
-          <span class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_4_number', '30+' ) ); ?></span>
+          <span class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_4_number', '15+' ) ); ?></span>
           <span class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_4_label', 'Years Experience' ) ); ?></span>
         </div>
       </div>

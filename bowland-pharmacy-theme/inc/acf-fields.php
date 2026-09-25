@@ -3130,7 +3130,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_wl_stat_2_label', 'label' => 'Stat 2 — Label', 'name' => 'wl_stat_2_label', 'type' => 'text', 'default_value' => 'Patients Helped', 'wrapper' => array( 'width' => '50' ) ),
             array( 'key' => 'field_bp_wl_stat_3_number', 'label' => 'Stat 3 — Number', 'name' => 'wl_stat_3_number', 'type' => 'text', 'default_value' => 'GPhC', 'wrapper' => array( 'width' => '50' ) ),
             array( 'key' => 'field_bp_wl_stat_3_label', 'label' => 'Stat 3 — Label', 'name' => 'wl_stat_3_label', 'type' => 'text', 'default_value' => 'Fully Registered', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_bp_wl_stat_4_number', 'label' => 'Stat 4 — Number', 'name' => 'wl_stat_4_number', 'type' => 'text', 'default_value' => '30+', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_bp_wl_stat_4_number', 'label' => 'Stat 4 — Number', 'name' => 'wl_stat_4_number', 'type' => 'text', 'default_value' => '15+', 'wrapper' => array( 'width' => '50' ) ),
             array( 'key' => 'field_bp_wl_stat_4_label', 'label' => 'Stat 4 — Label', 'name' => 'wl_stat_4_label', 'type' => 'text', 'default_value' => 'Years Experience', 'wrapper' => array( 'width' => '50' ) ),
         ),
         'location'              => $wl_location,
