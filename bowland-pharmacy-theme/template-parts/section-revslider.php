@@ -43,6 +43,7 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
     if ( ! $cta_url ) {
         $cta_url = bp_booking_url() ?: home_url( '/travel-health/' );
     }
+    $cta_url = bp_booking_anchor( $cta_url, $cta_text );
 
     // Secondary CTA — scrolls to the location section (item 10).
     $secondary_text = bp_field( 'revslider_placeholder_secondary_text', 'Located in Wythenshawe' );

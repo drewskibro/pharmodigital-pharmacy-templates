@@ -43,6 +43,8 @@ $established       = bp_option( 'established_year', '2009' );
 $tagline = bp_option( 'footer_tagline', 'Your trusted partner in health and wellness across Wythenshawe, Manchester, and beyond.' );
 ?>
 
+</main>
+
   <!-- ============================================
        FOOTER
        Premium footer with gradient background

@@ -84,6 +84,7 @@ if ( function_exists( 'have_rows' ) && have_rows( 'nhs_cards' ) ) {
         $link = get_sub_field( 'card_link' );
         $btn_text   = ( is_array( $link ) && ! empty( $link['title'] ) )  ? $link['title']  : 'Learn More';
         $btn_url    = ( is_array( $link ) && ! empty( $link['url'] ) )    ? $link['url']    : home_url( '/book-appointment/' );
+        $btn_url    = dp_booking_anchor( $btn_url, $btn_text );
         $btn_target = ( is_array( $link ) && ! empty( $link['target'] ) ) ? $link['target'] : '';
 
         $cards[] = array(

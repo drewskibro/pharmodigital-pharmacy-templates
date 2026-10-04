@@ -43,6 +43,7 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
     if ( ! $cta_url ) {
         $cta_url = dp_booking_url() ?: home_url( '/travel-health/' );
     }
+    $cta_url = dp_booking_anchor( $cta_url, $cta_text );
 
     // Secondary CTA
     $secondary_text = dp_field( 'revslider_placeholder_secondary_text', 'Located in Denton' );
