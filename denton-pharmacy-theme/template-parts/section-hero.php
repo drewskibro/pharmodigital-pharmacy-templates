@@ -138,17 +138,21 @@ $rating_link_text   = dp_field( 'hero_rating_link_text', 'View Reviews' );
                         <?php echo esc_html( $cta_primary_text ); ?>
                         <i class="fas fa-arrow-right"></i>
                     </a>
+                    <a href="<?php echo esc_url( home_url( '/nhs-prescriptions/' ) ); ?>" class="cta-button secondary-cta">
+                        <?php echo esc_html( dp_field( 'hero_cta_rx_text', 'NHS Prescriptions' ) ); ?>
+                        <i class="fas fa-prescription-bottle-medical"></i>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/pharmacy-first/' ) ); ?>" class="cta-button secondary-cta">
+                        <?php echo esc_html( dp_field( 'hero_cta_pf_text', 'Pharmacy First' ) ); ?>
+                        <i class="fas fa-stethoscope"></i>
+                    </a>
                     <a href="<?php echo esc_url( $cta_secondary_url ); ?>" class="cta-button secondary-cta"<?php echo $cta_secondary_target ? ' target="' . esc_attr( $cta_secondary_target ) . '" rel="noopener"' : ''; ?>>
                         <?php echo esc_html( $cta_secondary_text ); ?>
                         <i class="fas fa-plane"></i>
                     </a>
-                    <a href="<?php echo esc_url( home_url( '/ear-wax-removal/' ) ); ?>" class="cta-button secondary-cta">
-                        <?php echo esc_html( dp_field( 'hero_cta_ear_text', 'Ear Clinic' ) ); ?>
-                        <i class="fas fa-ear-listen"></i>
-                    </a>
-                    <a href="<?php echo esc_url( home_url( '/blood-testing/' ) ); ?>" class="cta-button secondary-cta">
-                        <?php echo esc_html( dp_field( 'hero_cta_blood_text', 'Blood Testing' ) ); ?>
-                        <i class="fas fa-droplet"></i>
+                    <a href="<?php echo esc_url( home_url( '/prices/' ) ); ?>" class="cta-button secondary-cta">
+                        <?php echo esc_html( dp_field( 'hero_cta_prices_text', 'Prices' ) ); ?>
+                        <i class="fas fa-tags"></i>
                     </a>
                 </div>
 
