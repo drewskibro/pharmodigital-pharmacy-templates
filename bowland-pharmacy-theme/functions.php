@@ -393,6 +393,10 @@ if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/seo.php' ) ) {
     require_once BOWLAND_PHARMACY_DIR . '/inc/seo.php';
 }
 
+if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/faq-schema.php' ) ) {
+    require_once BOWLAND_PHARMACY_DIR . '/inc/faq-schema.php';
+}
+
 /**
  * Helper: Get option field with fallback
  *
