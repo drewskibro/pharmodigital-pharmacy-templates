@@ -156,6 +156,7 @@ if ( ! is_array( $ps_vaccines ) || empty( $ps_vaccines ) ) { $ps_vaccines = $def
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- ============================================
        DENTON PHARMACY THREE-TIER NAVIGATION
@@ -590,3 +591,5 @@ if ( ! is_array( $ps_vaccines ) || empty( $ps_vaccines ) ) { $ps_vaccines = $def
     </div>
 
   </nav>
+
+<main id="main-content" tabindex="-1">

@@ -25,8 +25,8 @@ get_header();
   <?php // 5. Pharmacist ?>
   <?php get_template_part( 'template-parts/section', 'pharmacist' ); ?>
 
-  <?php // 6. How It Works ?>
-  <?php get_template_part( 'template-parts/section', 'how-it-works' ); ?>
+  <?php // How It Works and Safe & Secure were removed from the homepage (Oct 2026): generic ?>
+  <?php // copy that made the page longer without telling patients anything new. Templates kept. ?>
 
   <?php // 7. Switching Provider ?>
   <?php get_template_part( 'template-parts/section', 'switching' ); ?>
@@ -34,17 +34,14 @@ get_header();
   <?php // 8. RevSlider / Travel Banner ?>
   <?php get_template_part( 'template-parts/section', 'revslider' ); ?>
 
-  <?php // 9. Safe & Secure ?>
-  <?php get_template_part( 'template-parts/section', 'safe-secure' ); ?>
-
   <?php // 10. Health Hub ?>
   <?php get_template_part( 'template-parts/section', 'health-hub' ); ?>
 
-  <?php // 11. Location ?>
-  <?php get_template_part( 'template-parts/section', 'location' ); ?>
-
-  <?php // 12. Testimonials ?>
+  <?php // 11. Testimonials ?>
   <?php get_template_part( 'template-parts/section', 'testimonials' ); ?>
+
+  <?php // 12. Location ?>
+  <?php get_template_part( 'template-parts/section', 'location' ); ?>
 
   <?php // 13. Sticky CTA ?>
   <?php get_template_part( 'template-parts/section', 'sticky-cta' ); ?>

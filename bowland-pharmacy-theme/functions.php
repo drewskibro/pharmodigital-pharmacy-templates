@@ -505,6 +505,28 @@ function bp_phone_link() {
 /**
  * Helper: Get booking URL
  */
+/**
+ * A button whose text starts with "Book" must open the booking calendar, not the
+ * top of an information page. When such a button points at a service page that
+ * has its own calendar further down, jump straight to that calendar.
+ *
+ * @param string $url  Link target (often saved in ACF).
+ * @param string $text Visible button text.
+ * @return string
+ */
+function bp_booking_anchor( $url, $text ) {
+    if ( ! $url || strpos( $url, '#' ) !== false || stripos( ltrim( (string) $text ), 'book' ) !== 0 ) {
+        return $url;
+    }
+    $anchors = array(
+        '/pharmacy-first/' => '#pharmfirst-book',
+        '/travel-health/'  => '#travel-health-calendar',
+    );
+    $path = wp_parse_url( $url, PHP_URL_PATH );
+    $path = $path ? trailingslashit( $path ) : '';
+    return isset( $anchors[ $path ] ) ? $url . $anchors[ $path ] : $url;
+}
+
 function bp_booking_url() {
     $page = bp_option( 'booking_page' );
     if ( $page ) {

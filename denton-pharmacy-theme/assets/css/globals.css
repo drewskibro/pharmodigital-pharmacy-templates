@@ -6142,3 +6142,97 @@ a.footer-cert-link:hover {
     min-height: 800px;
   }
 }
+
+/* ============================================
+   READABILITY AND ACCESSIBILITY FIXES (Oct 2026)
+   From the Oct 2026 usability review. Kept together at the end of the file
+   so they win over the earlier rules they correct.
+   ============================================ */
+
+/* Grey helper text: #64748b sat right on the 4.5:1 minimum on cream and
+   failed it on light grey. #475569 gives about 7:1. */
+:root {
+  --text-slate: #475569;
+}
+
+/* Sections no longer start invisible and fade in on scroll. Fast scrollers
+   saw blank screens, and the content was missing until the animation ran. */
+.nhs-card-reveal,
+.bpack-reveal,
+.bloodtest-reveal,
+.earwax-reveal,
+.npres-reveal,
+.pharmfirst-reveal,
+.switch-reveal,
+.team-reveal,
+.travel-reveal,
+.wl-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Body text at least 16px. */
+.hero-accent-text,
+.nhs-card-desc,
+.nhs-card-list li,
+.switching-feature-desc,
+.safe-trust-desc,
+.healthhub-card-excerpt,
+.location-callout-desc {
+  font-size: 1rem;
+}
+.testimonials-disclaimer p,
+.stat-label {
+  font-size: 0.9375rem;
+}
+
+/* NHS service card buttons: darker shades of the same colours so the text
+   reaches 4.5:1 on white (green, orange, cyan and pink were 3.6 to 4.1). */
+.nhs-card-green .nhs-card-btn { border-color: #047857; color: #047857; }
+.nhs-card-green .nhs-card-btn:hover { background: #047857; color: var(--white); }
+.nhs-card-orange .nhs-card-btn { border-color: #c2410c; color: #c2410c; }
+.nhs-card-orange .nhs-card-btn:hover { background: #c2410c; color: var(--white); }
+.nhs-card-pink .nhs-card-btn { border-color: #be185d; color: #be185d; }
+.nhs-card-pink .nhs-card-btn:hover { background: #be185d; color: var(--white); }
+.nhs-card-cyan .nhs-card-btn { border-color: #0e7490; color: #0e7490; }
+.nhs-card-cyan .nhs-card-btn:hover { background: #0e7490; color: var(--white); }
+
+/* Treatment cards: white text sat on pale photos (ear wax, blood tests).
+   A deeper shade behind the label keeps it readable on any photo. */
+.treatment-card-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.55) 40%, rgba(0, 0, 0, 0.1) 75%, transparent 100%);
+}
+.treatment-card-title,
+.treatment-card-subtitle {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+.treatment-card-subtitle {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.875rem;
+}
+
+/* Skip link: hidden until a keyboard user tabs to it. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100000;
+  padding: 0.75rem 1.25rem;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+#main-content:focus {
+  outline: none;
+}
+
+#pharmfirst-book,
+#travel-health-calendar {
+  scroll-margin-top: 24px;
+}

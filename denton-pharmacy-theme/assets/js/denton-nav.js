@@ -19,11 +19,28 @@ document.addEventListener('DOMContentLoaded', function () {
   // ── Scroll Effect + Compact on scroll ──
   // Runs regardless of mobile menu presence.
   if (nav) {
+    // Hide the header while the visitor scrolls down and bring it back the
+    // moment they scroll up, so it is not covering a third of the screen
+    // while they read. Never hidden near the top, while the mobile menu or
+    // search is open, or while focus is inside the header (keyboard users).
+    var lastY = window.scrollY;
     window.addEventListener('scroll', function () {
       var y = window.scrollY;
       nav.classList.toggle('scrolled', y > 10);
       nav.classList.toggle('nav-compact', y > 80);
+      var menuOpen = document.body.style.overflow === 'hidden' ||
+        (mobileMenu && mobileMenu.classList.contains('active'));
+      var hide = y > 400 && y > lastY + 4 && !menuOpen && !nav.contains(document.activeElement);
+      if (hide) {
+        nav.classList.add('nav-hidden');
+      } else if (y < lastY - 4 || y <= 400 || menuOpen) {
+        nav.classList.remove('nav-hidden');
+      }
+      lastY = y;
     }, { passive: true });
+    nav.addEventListener('focusin', function () {
+      nav.classList.remove('nav-hidden');
+    });
   }
 
   // ── Search Overlay (created dynamically so it works on all pages) ──

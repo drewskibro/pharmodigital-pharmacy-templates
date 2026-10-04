@@ -43,6 +43,8 @@ $established       = dp_option( 'established_year', '2009' );
 $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and wellness across Denton, Manchester, and beyond.' );
 ?>
 
+</main>
+
   <!-- ============================================
        FOOTER
        Premium footer with gradient background
