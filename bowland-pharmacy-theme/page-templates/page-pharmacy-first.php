@@ -36,7 +36,7 @@ get_header();
         </p>
 
         <div class="pharmfirst-hero-actions">
-          <a href="<?php echo esc_url( bp_field( 'pf_hero_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta">
+          <a href="<?php echo esc_url( bp_field( 'pf_hero_cta_url', '' ) ?: '#pharmfirst-book' ); ?>" class="cta-button primary-cta">
             <?php echo esc_html( bp_field( 'pf_hero_cta_text', 'Book Pharmacy First Visit' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
@@ -448,7 +448,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
         <?php echo esc_html( bp_field( 'pf_cta_description', 'Don\'t wait weeks for a GP appointment. Visit Bowland Pharmacy for your NHS Pharmacy First consultation — no GP registration required, no referral needed. Walk in or book a slot online.' ) ); ?>
       </p>
       <div class="pharmfirst-cta-actions">
-        <a href="<?php echo esc_url( bp_field( 'pf_cta_primary_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta pharmfirst-cta-button-white">
+        <a href="<?php echo esc_url( bp_field( 'pf_cta_primary_url', '' ) ?: '#pharmfirst-book' ); ?>" class="cta-button primary-cta pharmfirst-cta-button-white">
           <?php echo esc_html( bp_field( 'pf_cta_button_text', 'Book Pharmacy First Visit' ) ); ?>
           <i class="fas fa-arrow-right"></i>
         </a>

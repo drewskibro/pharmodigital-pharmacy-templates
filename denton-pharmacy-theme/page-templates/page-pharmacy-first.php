@@ -36,7 +36,7 @@ get_header();
         </p>
 
         <div class="pharmfirst-hero-actions">
-          <a href="<?php echo esc_url( dp_field( 'pf_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta">
+          <a href="<?php echo esc_url( dp_field( 'pf_hero_cta_url', '' ) ?: '#pharmfirst-book' ); ?>" class="cta-button primary-cta">
             <?php echo esc_html( dp_field( 'pf_hero_cta_text', 'Book Pharmacy First Visit' ) ); ?>
             <i class="fas fa-arrow-right"></i>
           </a>
@@ -438,7 +438,7 @@ $pf_process_image_url = $pf_process_image_id ? wp_get_attachment_image_url( $pf_
         <?php echo esc_html( dp_field( 'pf_cta_description', 'Don\'t wait weeks for a GP appointment. Visit Denton Pharmacy for a free NHS Pharmacy First consultation — walk in or book a slot online. No GP registration required. Standard NHS prescription charges apply to any medication unless you are exempt.' ) ); ?>
       </p>
       <div class="pharmfirst-cta-actions">
-        <a href="<?php echo esc_url( dp_field( 'pf_cta_primary_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta pharmfirst-cta-button-white">
+        <a href="<?php echo esc_url( dp_field( 'pf_cta_primary_url', '' ) ?: '#pharmfirst-book' ); ?>" class="cta-button primary-cta pharmfirst-cta-button-white">
           <?php echo esc_html( dp_field( 'pf_cta_button_text', 'Book Pharmacy First Visit' ) ); ?>
           <i class="fas fa-arrow-right"></i>
         </a>

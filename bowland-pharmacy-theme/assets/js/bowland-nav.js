@@ -177,8 +177,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var mobileIcon = mobileBtn.querySelector('svg');
 
+  // A closed menu must be unreachable by keyboard and screen readers.
+  mobileMenu.inert = true;
+
   var closeMobileMenu = function () {
     mobileMenu.classList.remove('active');
+    mobileMenu.inert = true;
     mobileBtn.setAttribute('aria-expanded', 'false');
     if (mobileIcon) {
       mobileIcon.innerHTML = '<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>';
@@ -192,6 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var opening = !isExpanded;
 
     mobileMenu.classList.toggle('active', opening);
+    mobileMenu.inert = !opening;
     mobileBtn.setAttribute('aria-expanded', String(opening));
 
     if (opening) {
@@ -199,6 +204,11 @@ document.addEventListener('DOMContentLoaded', function () {
         mobileIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
       }
       document.body.style.overflow = 'hidden';
+      // Move keyboard focus into the menu that just opened.
+      var firstItem = mobileMenu.querySelector('a, button');
+      if (firstItem) {
+        setTimeout(function () { firstItem.focus(); }, 50);
+      }
     } else {
       closeMobileMenu();
     }
@@ -232,6 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
       closeMobileMenu();
+      mobileBtn.focus();
     }
   });
 
