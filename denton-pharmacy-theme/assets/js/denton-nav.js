@@ -202,6 +202,11 @@ document.addEventListener('DOMContentLoaded', function () {
         mobileIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
       }
       document.body.style.overflow = 'hidden';
+      // Move keyboard focus into the menu that just opened.
+      var firstItem = mobileMenu.querySelector('a, button');
+      if (firstItem) {
+        setTimeout(function () { firstItem.focus(); }, 50);
+      }
     } else {
       closeMobileMenu();
     }
@@ -235,6 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
       closeMobileMenu();
+      mobileBtn.focus();
     }
   });
 
