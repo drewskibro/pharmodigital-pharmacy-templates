@@ -665,10 +665,16 @@
   flex-shrink: 0;
 }
 
-.denton-menu-item:hover .denton-dropdown {
+.denton-menu-item:hover .denton-dropdown,
+.denton-menu-item.is-open .denton-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+/* Escape closes a dropdown even while the pointer or focus is still inside it. */
+.denton-menu-item.is-closed .denton-dropdown {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .denton-dropdown-header {

@@ -653,10 +653,16 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
-.bowland-menu-item:hover .bowland-dropdown {
+.bowland-menu-item:hover .bowland-dropdown,
+.bowland-menu-item.is-open .bowland-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+/* Escape closes a dropdown even while the pointer or focus is still inside it. */
+.bowland-menu-item.is-closed .bowland-dropdown {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .bowland-dropdown-header {

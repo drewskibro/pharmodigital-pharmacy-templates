@@ -43,6 +43,41 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ── Desktop dropdowns: open on hover, or on click / Enter for keyboard users, and say so ──
+  document.querySelectorAll('.bowland-menu-item').forEach(function (item) {
+    var btn = item.querySelector('button.bowland-menu-btn');
+    var drop = item.querySelector('.bowland-dropdown');
+    if (!btn || !drop) return;
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    var sync = function () {
+      var open = !item.classList.contains('is-closed') &&
+        (item.classList.contains('is-open') || item.matches(':hover'));
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    btn.addEventListener('click', function () {
+      item.classList.remove('is-closed');
+      item.classList.toggle('is-open');
+      sync();
+    });
+    item.addEventListener('mouseenter', function () { item.classList.remove('is-closed'); sync(); });
+    item.addEventListener('mouseleave', function () { item.classList.remove('is-open', 'is-closed'); setTimeout(sync, 0); });
+    item.addEventListener('focusout', function () {
+      setTimeout(function () {
+        if (!item.contains(document.activeElement)) item.classList.remove('is-open', 'is-closed');
+        sync();
+      }, 0);
+    });
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        item.classList.remove('is-open');
+        item.classList.add('is-closed');
+        btn.focus();
+        sync();
+      }
+    });
+  });
+
   // ── Search Overlay (created dynamically so it works on all pages) ──
   var searchBtn = document.getElementById('bowland-search-btn');
   if (searchBtn) {
