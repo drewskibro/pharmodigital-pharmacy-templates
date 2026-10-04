@@ -43,7 +43,7 @@ $cta_primary_target = ( is_array( $cta_primary ) && ! empty( $cta_primary['targe
 
 $cta_secondary        = bp_field( 'hero_cta_secondary' );
 $cta_secondary_text   = ( is_array( $cta_secondary ) && ! empty( $cta_secondary['title'] ) ) ? $cta_secondary['title'] : 'Travel Clinic';
-$cta_secondary_url    = ( is_array( $cta_secondary ) && ! empty( $cta_secondary['url'] ) ) ? $cta_secondary['url'] : '#treatments';
+$cta_secondary_url    = ( is_array( $cta_secondary ) && ! empty( $cta_secondary['url'] ) ) ? $cta_secondary['url'] : home_url( '/travel-health/' );
 $cta_secondary_target = ( is_array( $cta_secondary ) && ! empty( $cta_secondary['target'] ) ) ? $cta_secondary['target'] : '';
 
 // --- Trust indicators ---
