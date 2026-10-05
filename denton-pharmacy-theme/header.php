@@ -51,7 +51,7 @@ $nav_wl_url   = dp_nav_url( 'nav_weight_loss_url', '/weight-loss/' );
 
 $nav_th_show  = dp_option( 'nav_travel_health_show', '1' );
 $nav_th_label = dp_option( 'nav_travel_health_label', 'Travel' );
-$nav_th_url   = dp_nav_url( 'nav_travel_health_url', '/travel-health/' );
+$nav_th_url   = dp_nav_url( 'nav_travel_health_url', '/travel-clinic-manchester/' );
 
 $nav_bt_show  = dp_option( 'nav_blood_testing_show', '1' );
 $nav_bt_label = dp_option( 'nav_blood_testing_label', 'Blood Testing' );
@@ -120,7 +120,7 @@ $default_sv_links = array(
 );
 $default_ps_links = array(
     array( 'label' => 'Weight Loss',     'description' => 'GLP-1 treatments & clinical support',     'icon' => 'fas fa-weight-scale', 'url' => home_url( '/weight-loss/' ) ),
-    array( 'label' => 'Travel Health',   'description' => 'Vaccinations & travel advice',            'icon' => 'fas fa-plane',        'url' => home_url( '/travel-health/' ) ),
+    array( 'label' => 'Travel Health',   'description' => 'Vaccinations & travel advice',            'icon' => 'fas fa-plane',        'url' => home_url( '/travel-clinic-manchester/' ) ),
     array( 'label' => 'Ear Wax Removal', 'description' => 'Professional microsuction clinic',         'icon' => 'fas fa-ear-listen',   'url' => home_url( '/ear-wax-removal/' ) ),
     array( 'label' => 'Hair Loss',       'description' => 'Treatments for male & female hair loss',   'icon' => 'fas fa-user-doctor',  'url' => home_url( '/hair-loss/' ) ),
     array( 'label' => 'Blood Testing',   'description' => 'Private health checks & diagnostic panels','icon' => 'fas fa-flask',        'url' => home_url( '/blood-testing/' ) ),
