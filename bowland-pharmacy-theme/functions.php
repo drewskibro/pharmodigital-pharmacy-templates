@@ -397,6 +397,10 @@ if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/faq-schema.php' ) ) {
     require_once BOWLAND_PHARMACY_DIR . '/inc/faq-schema.php';
 }
 
+if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/blood-test-privacy.php' ) ) {
+    require_once BOWLAND_PHARMACY_DIR . '/inc/blood-test-privacy.php';
+}
+
 /**
  * Helper: Get option field with fallback
  *
