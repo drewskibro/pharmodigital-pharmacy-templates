@@ -39,8 +39,15 @@ function bowland_pharmacy_hide_blood_test_cost( $response, $server, $request ) {
     if ( current_user_can( 'edit_posts' ) || ! ( $response instanceof WP_REST_Response ) ) {
         return $response;
     }
-    $route = (string) $request->get_route();
-    if ( 0 !== strpos( $route, '/ts-blood-tests/' ) && 0 !== strpos( $route, '/wp/v2/blood_test' ) ) {
+    // WordPress matches routes case-insensitively, so compare in lower case
+    // (otherwise /TS-BLOOD-TESTS/... would skip this filter). The ACF key
+    // tsbt_wholesale is unique to blood tests, so it is removed from every route.
+    $route = strtolower( (string) $request->get_route() . ' ' . (string) $response->get_matched_route() );
+    if ( false === strpos( $route, '/ts-blood-tests/' ) && false === strpos( $route, '/wp/v2/blood_test' ) ) {
+        $data = $response->get_data();
+        if ( is_array( $data ) && false !== strpos( (string) wp_json_encode( $data ), 'tsbt_wholesale' ) ) {
+            $response->set_data( bowland_pharmacy_strip_blood_test_cost( $data ) );
+        }
         return $response;
     }
     $response->set_data( bowland_pharmacy_strip_blood_test_cost( $response->get_data() ) );
