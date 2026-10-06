@@ -6229,11 +6229,14 @@ function bp_register_acf_field_groups() {
     // L. TRAVEL DESTINATION PAGE FIELDS
     // =========================================================================
 
-    // Thailand, Brazil, Vietnam share the same td_* field names (page-level, so each stores its own values).
+    // Thailand and Brazil share the same td_* field names (page-level, so each stores its own values).
+    // Vietnam is deliberately NOT in this list: the "L2 — Vietnam" groups further down register the
+    // same td_* names for page-travel-vietnam.php. With both on the edit screen, ACF caches loaded
+    // values by field name, so the second group's repeaters opened blank and pressing Update saved
+    // those blanks over the live page. One group per name per template.
     $td_location = array(
         array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-thailand.php' ) ),
         array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-brazil.php' ) ),
-        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-vietnam.php' ) ),
     );
 
     $ke_location = array(

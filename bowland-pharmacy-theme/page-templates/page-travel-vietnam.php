@@ -141,8 +141,17 @@ get_header();
       <div class="vietnam-malaria-visual">
         <div class="vietnam-malaria-image-card">
           <?php
-          $malaria_image_id = bp_field( 'td_malaria_image' );
-          $malaria_image_url = $malaria_image_id ? wp_get_attachment_image_url( $malaria_image_id, 'large' ) : 'https://images.unsplash.com/photo-1528127269322-539801943592?w=800&h=1000&fit=crop';
+          // Bowland's own Vietnam photo (attachment 854, uploads/2026/10/vietnam-landscape.webp) is
+          // used when the field is empty, is not an attachment ID (e.g. an old Unsplash URL), or the
+          // attachment cannot be found. No third-party stock photo.
+          $malaria_image_id  = bp_field( 'td_malaria_image' );
+          $malaria_image_url = is_numeric( $malaria_image_id ) ? wp_get_attachment_image_url( (int) $malaria_image_id, 'large' ) : '';
+          if ( ! $malaria_image_url || false !== strpos( $malaria_image_url, 'unsplash.com' ) ) {
+            $malaria_image_url = wp_get_attachment_image_url( 854, 'large' );
+          }
+          if ( ! $malaria_image_url ) {
+            $malaria_image_url = content_url( '/uploads/2026/10/vietnam-landscape.webp' );
+          }
           ?>
           <img src="<?php echo esc_url( $malaria_image_url ); ?>" alt="Vietnam travel health" class="vietnam-malaria-image" />
           <div class="vietnam-malaria-overlay"></div>
