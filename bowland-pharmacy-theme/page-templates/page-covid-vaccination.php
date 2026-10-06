@@ -29,7 +29,7 @@ $card_price  = 'Free';
 $card_sub    = 'on the NHS (if eligible)';
 $card_checks = array(
     'Free on the NHS if eligible',
-    'Private jabs also available',
+    'Private vaccination £85 (age 12+)',
     'Offered from 1 October each year',
 );
 
@@ -48,7 +48,7 @@ $proc_steps = array(
 
 $faqs = array(
     array( 'q' => 'Is the COVID jab free?', 'a' => 'It is free on the NHS for eligible patients, in line with current NHS guidance. Private vaccinations are also available.' ),
-    array( 'q' => 'Is there a private option?', 'a' => 'Yes — if you are not eligible on the NHS, a private COVID-19 vaccination is available. Pricing varies with stock and availability, so please ask our team for the current price.' ),
+    array( 'q' => 'Is there a private option?', 'a' => 'Yes. If you are not eligible on the NHS, a private COVID-19 vaccination costs £85, for anyone aged 12 and over, subject to pharmacist assessment.' ),
     array( 'q' => 'Do I need an appointment?', 'a' => 'No. You can book a slot with us, book your NHS vaccination through the NHS, or come as a walk-in. We offer COVID and flu vaccinations from 1 October each year, in line with NHS guidance.' ),
     array( 'q' => 'How do I check NHS eligibility?', 'a' => 'Check on the NHS website at nhs.uk/nbs/start/covid, where you can also book. If you book through the NHS, enter M23 1JX when it asks where you want your vaccination and choose Bowland Pharmacy. You can also just book with us above.' ),
     array( 'q' => 'What about flu vaccination?', 'a' => 'We also offer flu vaccinations. See our Flu Vaccination page for details.' ),
