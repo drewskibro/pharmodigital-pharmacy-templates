@@ -32,7 +32,7 @@ $hours_weekend = dp_option( 'hours_sunday', dp_option( 'hours_saturday', 'Closed
 $facebook_url  = dp_option( 'social_facebook', 'https://facebook.com' );
 $instagram_url = dp_option( 'social_instagram', 'https://instagram.com' );
 $twitter_url   = dp_option( 'social_twitter', 'https://twitter.com' );
-$linkedin_url  = dp_option( 'social_linkedin', 'https://linkedin.com' );
+$linkedin_url  = dp_option( 'social_linkedin', '' );
 
 // Registration.
 $gphc_number       = dp_option( 'gphc_registration', '1033447' );
