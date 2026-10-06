@@ -34,7 +34,7 @@ $read_time  = max( 1, ceil( $word_count / 250 ) );
         <?php if ( $thumbnail_url ) : ?>
             <img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-card-image" loading="lazy" />
         <?php else : ?>
-            <img src="<?php echo esc_url( DENTON_PHARMACY_URI . '/assets/images/blog-placeholder.jpg' ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="healthhub-card-image" loading="lazy" />
+            <img src="<?php echo esc_url( DENTON_PHARMACY_URI . '/assets/images/logo.svg' ); ?>" alt="" class="healthhub-card-image" style="object-fit:contain;padding:2rem;background:#f3f4f6" loading="lazy" />
         <?php endif; ?>
         <span class="healthhub-category-badge-overlay"><?php echo esc_html( $category_name ); ?></span>
     </div>

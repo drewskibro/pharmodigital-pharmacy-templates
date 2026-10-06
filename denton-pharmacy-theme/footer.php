@@ -32,7 +32,7 @@ $hours_weekend = dp_option( 'hours_sunday', dp_option( 'hours_saturday', 'Closed
 $facebook_url  = dp_option( 'social_facebook', 'https://facebook.com' );
 $instagram_url = dp_option( 'social_instagram', 'https://instagram.com' );
 $twitter_url   = dp_option( 'social_twitter', 'https://twitter.com' );
-$linkedin_url  = dp_option( 'social_linkedin', 'https://linkedin.com' );
+$linkedin_url  = dp_option( 'social_linkedin', '' );
 
 // Registration.
 $gphc_number       = dp_option( 'gphc_registration', '1033447' );
@@ -93,7 +93,7 @@ $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and well
           <h3 class="footer-column-title">Our Services</h3>
           <ul class="footer-links">
             <li><a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>" class="footer-link">Weight Loss Treatment</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/travel-health/' ) ); ?>" class="footer-link">Travel Health Clinic</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/travel-clinic-manchester/' ) ); ?>" class="footer-link">Travel Health Clinic</a></li>
             <li><a href="<?php echo esc_url( home_url( '/ear-wax-removal/' ) ); ?>" class="footer-link">Ear Wax Removal</a></li>
             <li><a href="<?php echo esc_url( home_url( '/hair-loss/' ) ); ?>" class="footer-link">Hair Loss Treatment</a></li>
             <li><a href="<?php echo esc_url( home_url( '/nhs-services/' ) ); ?>" class="footer-link">NHS Services</a></li>
