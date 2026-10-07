@@ -99,7 +99,7 @@ $phone_link       = dp_phone_link();
     <div class="prices-tab-panel is-active" role="tabpanel" id="prices-panel-weight-loss" aria-labelledby="prices-tab-weight-loss" data-panel="weight-loss">
       <div class="prices-panel-header">
         <h2 class="prices-panel-title">Weight Loss Treatments</h2>
-        <p class="prices-panel-subtitle">GLP-1 prescription weight loss treatments, dispensed following a clinical consultation.</p>
+        <p class="prices-panel-subtitle">Prescription weight loss treatments. Prescription-only medicines are supplied only after a consultation. The pharmacist or prescriber decides with you what is suitable; a preferred option will not be supplied if it is not right for you.</p>
       </div>
 
       <?php if ( have_rows( 'prices_weight_loss' ) ) : ?>
@@ -141,7 +141,7 @@ $phone_link       = dp_phone_link();
     <div class="prices-tab-panel" role="tabpanel" id="prices-panel-travel" aria-labelledby="prices-tab-travel" data-panel="travel" hidden>
       <div class="prices-panel-header">
         <h2 class="prices-panel-title">Travel Vaccinations</h2>
-        <p class="prices-panel-subtitle">Vaccines and antimalarials for safe travel, administered by our trained pharmacist.</p>
+        <p class="prices-panel-subtitle">Travel vaccines and malaria prevention, given by our trained pharmacist. Prescription-only medicines are supplied only after a consultation. The pharmacist or prescriber decides with you what is suitable; a preferred option will not be supplied if it is not right for you.</p>
       </div>
 
       <?php
@@ -193,7 +193,7 @@ $phone_link       = dp_phone_link();
         <div class="prices-subsection prices-subsection--malaria">
           <div class="prices-panel-header">
             <h3 class="prices-panel-title">Malaria Treatment</h3>
-            <p class="prices-panel-subtitle">Antimalarial tablets — the right option depends on your destination. We'll advise at your consultation.</p>
+            <p class="prices-panel-subtitle">Malaria prevention: the right option depends on your destination. We'll advise at your consultation. Prescription-only medicines are supplied only after a consultation. The pharmacist or prescriber decides with you what is suitable; a preferred option will not be supplied if it is not right for you.</p>
           </div>
           <div class="prices-table-wrap">
             <table class="prices-table">
@@ -324,7 +324,7 @@ $phone_link       = dp_phone_link();
     <div class="prices-tab-panel" role="tabpanel" id="prices-panel-private" aria-labelledby="prices-tab-private" data-panel="private" hidden>
       <div class="prices-panel-header">
         <h2 class="prices-panel-title">Other Private Services</h2>
-        <p class="prices-panel-subtitle">Self-funded healthcare services with no waiting list.</p>
+        <p class="prices-panel-subtitle">Self-funded healthcare services with no waiting list. Prescription-only medicines are supplied only after a consultation. The pharmacist or prescriber decides with you what is suitable; a preferred option will not be supplied if it is not right for you.</p>
       </div>
 
       <?php
@@ -442,7 +442,7 @@ $phone_link       = dp_phone_link();
   <div class="section-container">
     <div class="prices-cta-content">
       <h2 class="prices-cta-title">Ready to get started?</h2>
-      <p class="prices-cta-description">Speak to our pharmacist for a clinical consultation and tailored advice on the best treatment for you.</p>
+      <p class="prices-cta-description">Speak to our pharmacist for a clinical consultation and tailored advice on the treatment options that suit you.</p>
       <div class="prices-cta-actions">
         <a href="<?php echo esc_url( $book_url ); ?>" class="cta-button primary-cta prices-cta-button-white">
           Book a Consultation

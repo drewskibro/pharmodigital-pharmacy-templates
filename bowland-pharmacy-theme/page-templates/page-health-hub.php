@@ -61,7 +61,12 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
   <div class="section-container">
     <div class="healthhub-social-proof-wrapper">
 
-      <!-- Left: Google Rating Badge (reuses globals.css .rating-badge) -->
+      <!-- Left: Google Rating Badge (reuses globals.css .rating-badge), only when a rating is set -->
+      <?php
+      $hh_rating       = bp_field( 'hh_social_rating_score', bp_option( 'google_rating', '' ) );
+      $hh_rating_count = bp_field( 'hh_social_rating_count', '' );
+      ?>
+      <?php if ( $hh_rating ) : ?>
       <div class="rating-badge">
         <div class="rating-header">
           <div class="rating-label">
@@ -76,7 +81,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
           </div>
         </div>
         <div class="rating-score">
-          <span class="score-number"><?php echo esc_html( bp_field( 'hh_social_rating_score', bp_option( 'google_rating', '4.7' ) ) ); ?></span>
+          <span class="score-number"><?php echo esc_html( $hh_rating ); ?></span>
           <div class="rating-score-detail">
             <div class="star-row">
               <i class="fas fa-star"></i>
@@ -85,7 +90,9 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <span class="rating-count"><?php echo esc_html( bp_field( 'hh_social_rating_count', 'Based on 200+ reviews' ) ); ?></span>
+            <?php if ( $hh_rating_count ) : ?>
+              <span class="rating-count"><?php echo esc_html( $hh_rating_count ); ?></span>
+            <?php endif; ?>
           </div>
         </div>
         <div class="rating-footer">
@@ -96,6 +103,7 @@ $paged       = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
           <a href="<?php echo esc_url( bp_option( 'google_review_url', '#reviews' ) ); ?>" class="rating-link" target="_blank" rel="noopener noreferrer">View Reviews</a>
         </div>
       </div>
+      <?php endif; ?>
 
       <!-- Right: Text Content -->
       <div class="healthhub-social-proof-content">

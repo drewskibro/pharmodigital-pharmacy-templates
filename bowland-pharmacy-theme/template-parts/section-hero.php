@@ -70,14 +70,14 @@ if ( ! in_array( $hero_image_focus, $allowed_focus, true ) ) {
 }
 
 // --- Google rating (global options + page overrides) ---
-$google_rating       = bp_option( 'google_rating', '4.7' );
+$google_rating       = bp_option( 'google_rating', '' );
 $google_review_url   = bp_option( 'google_review_url', '#' );
 $pharmacy_location   = bp_option( 'pharmacy_town', 'Wythenshawe' );
 
 // --- Rating card (page-level fields with defaults) ---
 $rating_label       = bp_field( 'hero_rating_label', 'Google Rating' );
 $rating_stars       = (int) bp_field( 'hero_rating_stars', 5 );
-$rating_count_label = bp_field( 'hero_rating_count_label', 'Based on 200+ reviews' );
+$rating_count_label = bp_field( 'hero_rating_count_label', '' );
 $rating_link_text   = bp_field( 'hero_rating_link_text', 'View Reviews' );
 ?>
 
@@ -196,7 +196,8 @@ $rating_link_text   = bp_field( 'hero_rating_link_text', 'View Reviews' );
                     <div class="hero-overlay"></div>
                 </div>
 
-                <!-- Google rating badge (absolute positioned) -->
+                <!-- Google rating badge (absolute positioned), only when the rating option is set -->
+                <?php if ( $google_rating ) : ?>
                 <div class="rating-badge">
                     <div class="rating-header">
                         <div class="rating-label">
@@ -218,7 +219,9 @@ $rating_link_text   = bp_field( 'hero_rating_link_text', 'View Reviews' );
                                     <i class="fas fa-star"></i>
                                 <?php endfor; ?>
                             </div>
-                            <span class="rating-count"><?php echo esc_html( $rating_count_label ); ?></span>
+                            <?php if ( $rating_count_label ) : ?>
+                                <span class="rating-count"><?php echo esc_html( $rating_count_label ); ?></span>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="rating-footer">
@@ -232,6 +235,7 @@ $rating_link_text   = bp_field( 'hero_rating_link_text', 'View Reviews' );
                         </a>
                     </div>
                 </div>
+                <?php endif; ?>
 
             </div>
 

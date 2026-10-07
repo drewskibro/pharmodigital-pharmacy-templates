@@ -39,7 +39,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
         </h1>
 
         <p class="dtp-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', "Not sure when you last had a DTP booster? If it's been over 10 years, our Wythenshawe pharmacy can top up your Diphtheria, Tetanus and Polio protection with a single combined jab before you fly.")); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', "Not sure when you last had a DTP booster? If it has been over 10 years and your trip takes you somewhere medical help may be hard to reach, or where TravelHealthPro advises polio or diphtheria protection, our Wythenshawe pharmacy can give a single combined diphtheria, tetanus and polio booster before you travel.")); ?>
         </p>
 
         <div class="dtp-hero-actions">
@@ -71,7 +71,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
           <div class="dtp-trust-card-inner">
             <div class="dtp-trust-card-header">
               <div class="dtp-trust-card-icon"><i class="fas fa-syringe"></i></div>
-              <span class="dtp-trust-card-label"><?php echo esc_html(bp_field('vaccine_price_name', 'DTP Vaccine (Revaxis)')); ?></span>
+              <span class="dtp-trust-card-label"><?php echo esc_html(bp_field('vaccine_price_name', 'Diphtheria, tetanus and polio booster')); ?></span>
             </div>
             <div class="dtp-trust-card-price">
               <span class="dtp-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '£30')); ?></span>
@@ -79,8 +79,8 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
             </div>
             <div class="dtp-trust-card-divider"></div>
             <ul class="dtp-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Diphtheria, tetanus &amp; polio in one jab</span></li>
-              <li><i class="fas fa-check"></i> <span>Protection for up to 10 years</span></li>
+              <li><i class="fas fa-check"></i> <span>Diphtheria, tetanus and polio in one jab</span></li>
+              <li><i class="fas fa-check"></i> <span>Booster if your last dose was over 10 years ago</span></li>
               <li><i class="fas fa-check"></i> <span>Same-day appointments</span></li>
             </ul>
             <div class="dtp-trust-card-footer">
@@ -122,11 +122,11 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
       <div class="dtp-protect-content">
         <div class="dtp-protect-badge-box">
           <i class="fas fa-shield-halved"></i>
-          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'One Jab, Up to 10 Years of Protection')); ?></span>
+          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'One jab for diphtheria, tetanus and polio')); ?></span>
         </div>
 
-        <h3 class="dtp-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'One of the Easiest Boxes to Tick')); ?></h3>
-        <p class="dtp-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Nearly everyone had their DTP jabs as a child — the trouble is that protection fades over time. Revaxis rolls diphtheria, tetanus and polio cover into a single injection, and it's worth having if your last dose was more than a decade ago (usually around school age for most adults). It matters more if you're headed to South Asia, sub-Saharan Africa, the Middle East, Eastern Europe or Central Asia.")); ?></p>
+        <h3 class="dtp-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'A quick box to tick before you travel')); ?></h3>
+        <p class="dtp-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Most people in the UK had diphtheria, tetanus and polio vaccines as children, with the last dose usually at around 13 or 14. One booster covers all three diseases. For travel, a booster may be recommended if your last dose was more than 10 years ago and you are going somewhere medical help may be hard to reach, or where polio or diphtheria is a risk.")); ?></p>
 
         <ul class="dtp-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -140,15 +140,15 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
           <?php endwhile; else : ?>
             <li class="dtp-protect-feature">
               <div class="icon"><i class="fas fa-syringe"></i></div>
-              <div class="text"><strong>Three Diseases, One Jab</strong><p>No need for three separate appointments — it's all in a single dose.</p></div>
+              <div class="text"><strong>Three diseases, one jab</strong><p>No need for three separate injections. It is all in a single dose.</p></div>
             </li>
             <li class="dtp-protect-feature">
               <div class="icon"><i class="fas fa-clock"></i></div>
-              <div class="text"><strong>In and Out Fast</strong><p>Under 20 minutes, and easy to pair with other travel vaccines on the same visit.</p></div>
+              <div class="text"><strong>In and out quickly</strong><p>Under 20 minutes, and it can be given at the same visit as other travel vaccines.</p></div>
             </li>
             <li class="dtp-protect-feature">
               <div class="icon"><i class="fas fa-passport"></i></div>
-              <div class="text"><strong>Easy to Tolerate</strong><p>Most people notice nothing more than a sore arm for a day or two.</p></div>
+              <div class="text"><strong>What to expect afterwards</strong><p>Side effects are usually mild and do not last long, such as a sore or swollen arm. Read the leaflet or ask the pharmacist.</p></div>
             </li>
           <?php endif; ?>
         </ul>
@@ -178,7 +178,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
       <?php endwhile; else : ?>
         <div class="dtp-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">1 Dose</span><span class="label">Single Booster</span></div></div>
         <div class="dtp-stat-divider"></div>
-        <div class="dtp-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">10 Years</span><span class="label">Protection</span></div></div>
+        <div class="dtp-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">10 years</span><span class="label">Since your last dose? Ask about a booster</span></div></div>
         <div class="dtp-stat-divider"></div>
         <div class="dtp-stat-item"><div class="icon"><i class="fas fa-clock"></i></div><div class="content"><span class="number">Under 20 Min</span><span class="label">Appointment</span></div></div>
         <div class="dtp-stat-divider"></div>
@@ -207,7 +207,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
           $about_image_id = bp_field('vaccine_about_image');
           $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1586441133374-ed1cb4007a47?w=900&h=900&fit=crop';
           if ($about_image_url) : ?>
-            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_about_image_alt', 'Passport and boarding pass — check your DTP cover before you fly')); ?>" />
+            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_about_image_alt', 'Passport and boarding pass: check your DTP cover before you fly')); ?>" />
           <?php endif; ?>
         </div>
       </div>
@@ -220,18 +220,18 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
             <p><?php echo esc_html(get_sub_field('description')); ?></p>
           </div>
         <?php endwhile; else : ?>
-          <div class="dtp-info-card"><div class="icon"><i class="fas fa-lungs"></i></div><h3>Diphtheria</h3><p>Bacterial, attacking the throat and airway — severe cases can go on to damage the heart.</p></div>
+          <div class="dtp-info-card"><div class="icon"><i class="fas fa-lungs"></i></div><h3>Diphtheria</h3><p>A bacterial infection of the throat and airway. Severe cases can damage the heart.</p></div>
           <div class="dtp-info-card"><div class="icon"><i class="fas fa-hand-fist"></i></div><h3>Tetanus</h3><p>Picked up from soil bacteria entering through a wound, bringing painful spasms and lockjaw.</p></div>
           <div class="dtp-info-card"><div class="icon"><i class="fas fa-wheelchair"></i></div><h3>Polio</h3><p>Viral, and while most infections are mild, rare cases can leave lasting paralysis.</p></div>
-          <div class="dtp-info-card"><div class="icon"><i class="fas fa-shield-halved"></i></div><h3>One Injection Handles All Three</h3><p>Revaxis bundles protection against all three diseases into a single dose.</p></div>
+          <div class="dtp-info-card"><div class="icon"><i class="fas fa-shield-halved"></i></div><h3>One injection for all three</h3><p>The UK booster protects against diphtheria, tetanus and polio in a single dose.</p></div>
         <?php endif; ?>
       </div>
     </div>
 
     <div class="dtp-about-callout">
       <div class="badge"><?php echo esc_html(bp_field('vaccine_callout_badge', 'GOOD TO KNOW')); ?></div>
-      <h3><?php echo esc_html(bp_field('vaccine_callout_title', "Childhood Cover Doesn't Last Forever")); ?></h3>
-      <p><?php echo esc_html(bp_field('vaccine_callout_text', "Whatever protection you built up as a kid gradually wears off, which is why a top-up roughly every 10 years is recommended — and it matters more if you're heading somewhere higher-risk.")); ?></p>
+      <h3><?php echo esc_html(bp_field('vaccine_callout_title', "Is your last dose more than 10 years ago?")); ?></h3>
+      <p><?php echo esc_html(bp_field('vaccine_callout_text', "For travel, a booster may be recommended if your last dose was more than 10 years ago and medical help may be hard to reach, or polio or diphtheria is a risk, where you are going. The pharmacist will check your history and destination with you.")); ?></p>
     </div>
   </div>
 </section>
@@ -259,7 +259,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
           </div>
           <span class="nhs-card-badge">Recommended For</span>
           <h3 class="nhs-card-title">Anyone Overdue a Booster</h3>
-          <p class="nhs-card-desc">If your last dose goes back to your school days and that's more than 10 years, it's time to top up before you travel.</p>
+          <p class="nhs-card-desc">If your last dose was at school and that was more than 10 years ago, ask us whether you need a booster before you travel.</p>
           <ul class="nhs-card-list">
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Last dose over 10 years back</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Not sure of your own history</span></li>
@@ -277,10 +277,10 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           </div>
           <span class="nhs-card-badge">Especially Useful</span>
-          <h3 class="nhs-card-title">Travel to Higher-Risk Regions</h3>
-          <p class="nhs-card-desc">If South Asia, sub-Saharan Africa, the Middle East, Eastern Europe or Central Asia is on your itinerary, prioritise this one.</p>
+          <h3 class="nhs-card-title">Travel where medical help is hard to reach, or polio or diphtheria is a risk</h3>
+          <p class="nhs-card-desc">If either applies to your trip, this booster matters more. We check your destination at the appointment.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>South Asia, sub-Saharan Africa &amp; Middle East</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Remote or rural trips</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Longer or more off-grid itineraries</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Happy to pair with other travel jabs</span></li>
           </ul>
@@ -307,7 +307,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
     <div class="dtp-pricing-grid">
       <div class="dtp-pricing-card featured">
         <div class="dtp-pricing-ribbon">Single Booster</div>
-        <h3 class="dtp-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'DTP Vaccine (Revaxis)')); ?></h3>
+        <h3 class="dtp-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'Diphtheria, tetanus and polio booster')); ?></h3>
         <div class="dtp-pricing-amount">
           <span class="price"><?php echo esc_html(bp_field('vaccine_price_amount', '£30')); ?></span>
           <span class="per"><?php echo esc_html(bp_field('vaccine_price_unit', 'single dose')); ?></span>
@@ -322,7 +322,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
       </div>
     </div>
 
-    <p class="dtp-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "This booster is sometimes available free on the NHS depending on your circumstances — worth asking your GP about that route first if it applies to you.")); ?></p>
+    <p class="dtp-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "For travel, this booster may be free on the NHS from your GP surgery after a travel risk assessment. Ask your GP surgery first if you would like the NHS route.")); ?></p>
   </div>
 </section>
 
@@ -347,11 +347,11 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
         </div>
       <?php endwhile; else : ?>
         <div class="dtp-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>A Quick History Check</h3><p>We go through your vaccination history together and confirm a booster makes sense.</p></div>
-        <div class="dtp-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>One Jab</h3><p>Given in the upper arm — over in seconds, most people barely notice it.</p></div>
+        <div class="dtp-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>One jab</h3><p>Given in the upper arm and over in seconds.</p></div>
         <div class="dtp-detail-card"><div class="icon"><i class="fas fa-clock"></i></div><h3>Under 20 Minutes</h3><p>Quick appointment, and it can be paired with other travel vaccines the same day.</p></div>
-        <div class="dtp-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side Effects Are Usually Mild</h3><p>A sore arm, or occasionally a slight fever or headache for a day or two.</p></div>
+        <div class="dtp-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side effects are usually mild</h3><p>Most do not last long. They can include pain or swelling where the injection was given, a high temperature, a headache, dizziness or feeling sick.</p></div>
         <div class="dtp-detail-card"><div class="icon"><i class="fas fa-user-group"></i></div><h3>Happy to Combine</h3><p>Booking multiple travel vaccines at once? We can usually fit this in alongside them.</p></div>
-        <div class="dtp-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>NHS or Private</h3><p>This may be free on the NHS depending on your circumstances — otherwise book with us privately, no referral needed.</p></div>
+        <div class="dtp-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>NHS or private</h3><p>For travel, it may be free on the NHS from your GP surgery after a risk assessment. Or book with us privately, with no referral needed.</p></div>
       <?php endif; ?>
     </div>
   </div>
@@ -381,11 +381,11 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How do I know if I'm due one?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Rule of thumb: more than 10 years since your last dose (usually your last school-age jab for most adults) means it's worth having. Talk it through with our pharmacist if you're unsure.</p></div></div>
-        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How far ahead of travel should I book?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>2 to 4 weeks before you fly is ideal, but it's still worth having closer to departure if that's all you've got.</p></div></div>
-        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Can I get it with my other travel jabs?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Yes — it's routinely given alongside other travel vaccines like Hepatitis A or Typhoid in the same appointment, so you're not coming back twice.</p></div></div>
-        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Where does this matter most?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>South Asia, sub-Saharan Africa, the Middle East, Eastern Europe and Central Asia are the regions where it's most worth topping up, given how routine immunisation coverage varies there.</p></div></div>
-        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What side effects should I watch for?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Soreness, redness or swelling at the injection site is most common, sometimes with a mild fever, headache or muscle aches for a day or two.</p></div></div>
+        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How do I know if I'm due one?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>For travel, a booster may be recommended if your last dose was more than 10 years ago and you are going somewhere medical help may be hard to reach, or where TravelHealthPro advises polio or diphtheria protection. For most adults the last dose was at school. Talk it through with our pharmacist if you are unsure.</p></div></div>
+        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How far ahead of travel should I book?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Get travel health advice 4 to 6 weeks before you travel if you can, as some other travel vaccines need more than one dose. If your trip is sooner, it is still worth booking.</p></div></div>
+        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Can I get it with my other travel jabs?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Yes. It can be given at the same appointment as other vaccines, such as hepatitis A or typhoid, so you do not need to come back twice.</p></div></div>
+        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Where does this matter most?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Anywhere it may be difficult to get medical help quickly, such as remote or rural areas, and countries where TravelHealthPro advises polio or diphtheria protection. We also check whether your destination asks for proof of polio vaccination.</p></div></div>
+        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What side effects should I watch for?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Most side effects are mild and short-lived: pain or swelling where the injection was given, a high temperature, a headache, dizziness or feeling sick. A severe allergic reaction is very rare, and our pharmacist is trained to deal with it. Read the leaflet or ask the pharmacist.</p></div></div>
       <?php endif; ?>
     </div>
   </div>
@@ -418,7 +418,7 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
       <?php else : ?>
         <div class="dtp-booking-placeholder">
           <i class="fas fa-calendar-day"></i>
-          <p>Online booking coming soon — call us to book your appointment on <a href="tel:01619987114">0161 998 7114</a>.</p>
+          <p>Online booking coming soon. Call us to book your appointment on <a href="tel:01619987114">0161 998 7114</a>.</p>
         </div>
       <?php endif; ?>
     </div>
@@ -445,7 +445,7 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
       </div>
 
       <h2 class="dtp-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', "Tick This Off Your Travel List")); ?></h2>
-      <p class="dtp-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book your DTP booster with our Wythenshawe team — quick appointment, one less thing to worry about.")); ?></p>
+      <p class="dtp-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book your DTP booster with our Wythenshawe team. It is a quick appointment and can be done with your other travel vaccines.")); ?></p>
 
       <div class="dtp-cta-actions">
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Vaccination</a>

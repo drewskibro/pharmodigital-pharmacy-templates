@@ -690,16 +690,7 @@ function denton_pharmacy_post_schema() {
     // Featured image
     $image_url = get_the_post_thumbnail_url( $post_id, 'large' );
 
-    // Author
-    $author_name = get_the_author();
-    $author_role = dp_option( 'default_author_role', 'Superintendent Pharmacist' );
-
-    // Reviewer (superintendent pharmacist)
-    $reviewer_name = dp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
-    $reviewer_gphc = dp_option( 'superintendent_gphc_number', '2208502' );
-    $reviewer_url  = dp_option( 'gphc_verify_url', '' );
-
-    // Publisher
+    // Publisher (also the author: posts are published by the pharmacy)
     $pharmacy_name = dp_pharmacy_name();
     $logo_url      = dp_logo_url();
 
@@ -713,14 +704,9 @@ function denton_pharmacy_post_schema() {
         'datePublished' => $date_published,
         'dateModified'  => $date_modified,
         'author'        => array(
-            '@type'     => 'Person',
-            'name'      => $author_name,
-            'jobTitle'  => $author_role,
-        ),
-        'reviewedBy'    => array(
-            '@type'     => 'Person',
-            'name'      => $reviewer_name,
-            'jobTitle'  => 'Superintendent Pharmacist',
+            '@type' => 'Organization',
+            'name'  => $pharmacy_name,
+            'url'   => home_url( '/' ),
         ),
         'publisher'     => array(
             '@type' => 'Organization',
@@ -741,18 +727,6 @@ function denton_pharmacy_post_schema() {
             '@type' => 'ImageObject',
             'url'   => $logo_url,
         );
-    }
-
-    if ( $reviewer_gphc ) {
-        $schema['reviewedBy']['identifier'] = array(
-            '@type'    => 'PropertyValue',
-            'name'     => 'GPhC Registration Number',
-            'value'    => $reviewer_gphc,
-        );
-    }
-
-    if ( $reviewer_url ) {
-        $schema['reviewedBy']['url'] = $reviewer_url;
     }
 
     echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n";
@@ -892,7 +866,7 @@ add_filter( 'the_content', 'denton_pharmacy_add_toc', 8 );
 /**
  * Consultation Closer — appended to the end of single blog post content.
  *
- * Mirrors the "Clinically Reviewed" block at the top of the article but
+ * Mirrors the "About this article" block at the top of the article but
  * flipped for conversion: pharmacist photo + credentials on the left,
  * personal CTA on the right, compliance pills below.
  *
@@ -907,7 +881,6 @@ function denton_pharmacy_add_consultation_closer( $content ) {
     // Reviewer / pharmacist data (same fallback chain as single.php)
     $reviewer_name = dp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
     $reviewer_gphc = dp_option( 'superintendent_gphc_number', '2208502' );
-    $author_role   = dp_option( 'default_author_role', 'Superintendent Pharmacist' );
     $pharmacy_name = dp_pharmacy_name();
     $pharmacy_town = dp_option( 'pharmacy_town', 'Denton' );
     $booking_url   = dp_booking_url();
@@ -952,9 +925,9 @@ function denton_pharmacy_add_consultation_closer( $content ) {
     $closer .= '    <div class="article-closer-pharmacist">';
     $closer .= '      ' . $avatar_html;
     $closer .= '      <div class="article-closer-pharmacist-info">';
-    $closer .= '        <span class="article-closer-pharmacist-label">Clinically reviewed by</span>';
+    $closer .= '        <span class="article-closer-pharmacist-label">Superintendent Pharmacist</span>';
     $closer .= '        <span class="article-closer-pharmacist-name">' . esc_html( $reviewer_name ) . '</span>';
-    $closer .= '        <span class="article-closer-pharmacist-role">' . esc_html( $author_role ) . ' &middot; Independent Prescriber</span>';
+    $closer .= '        <span class="article-closer-pharmacist-role">Independent Prescriber</span>';
     $closer .= '        ' . $gphc_html;
     $closer .= '      </div>';
     $closer .= '    </div>';
@@ -981,7 +954,6 @@ function denton_pharmacy_add_consultation_closer( $content ) {
     $closer .= '</div>';
     $closer .= '<div class="article-closer-compliance">';
     $closer .= '  <span class="article-closer-compliance-pill"><i class="fas fa-shield-halved"></i> GPhC Registered Pharmacy</span>';
-    $closer .= '  <span class="article-closer-compliance-pill"><i class="fas fa-pills"></i> Prescription-Only Medicine</span>';
     $closer .= '  <span class="article-closer-compliance-pill"><i class="fas fa-user-doctor"></i> Clinical Criteria Apply</span>';
     $closer .= '</div>';
 
