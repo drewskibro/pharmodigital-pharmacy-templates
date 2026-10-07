@@ -167,36 +167,19 @@ $last_modified = get_the_modified_date( 'M j, Y' );
   <?php else : wp_reset_postdata(); endif; ?>
 
   <!-- ============================================
-       CLINICALLY REVIEWED (E-E-A-T trust block)
+       ABOUT THIS ARTICLE (publisher and accountable superintendent)
        ============================================ -->
   <section class="article-fact-check-section">
     <div class="section-container">
       <div class="article-fact-check">
         <div class="article-fact-check-header">
           <i class="fas fa-shield-halved"></i>
-          <span>Clinically Reviewed Content</span>
+          <span>About this article</span>
         </div>
         <div class="article-fact-check-people">
-          <!-- Written by -->
           <div class="article-fact-check-person">
-            <?php if ( $author_avatar ) : ?>
-              <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_name ); ?>" class="article-fact-check-avatar" />
-            <?php endif; ?>
             <div class="article-fact-check-info">
-              <span class="article-fact-check-label">Written by</span>
-              <span class="article-fact-check-name"><?php echo esc_html( $author_name ); ?></span>
-              <span class="article-fact-check-role"><?php echo esc_html( $author_role ); ?></span>
-            </div>
-          </div>
-          <!-- Reviewed by -->
-          <div class="article-fact-check-person">
-            <?php if ( $reviewer_avatar ) : ?>
-              <img src="<?php echo esc_url( $reviewer_avatar ); ?>" alt="<?php echo esc_attr( $reviewer_name ); ?>" class="article-fact-check-avatar" />
-            <?php endif; ?>
-            <div class="article-fact-check-info">
-              <span class="article-fact-check-label">Reviewed &amp; fact-checked by</span>
-              <span class="article-fact-check-name"><?php echo esc_html( $reviewer_name ); ?></span>
-              <span class="article-fact-check-role">Superintendent Pharmacist<?php if ( $reviewer_gphc ) : ?> &middot; GPhC: <?php echo esc_html( $reviewer_gphc ); ?><?php endif; ?></span>
+              <span class="article-fact-check-role">Published by <?php echo esc_html( bp_pharmacy_name() ); ?>. Written to NHS and UKHSA guidance. Superintendent Pharmacist: <?php echo esc_html( $reviewer_name ); ?><?php if ( $reviewer_gphc ) : ?> (GPhC <?php echo esc_html( $reviewer_gphc ); ?>)<?php endif; ?></span>
               <?php if ( $reviewer_url ) : ?>
                 <a href="<?php echo esc_url( $reviewer_url ); ?>" class="article-fact-check-verify" target="_blank" rel="noopener">
                   <i class="fas fa-external-link-alt"></i> Verify on GPhC Register
@@ -214,7 +197,6 @@ $last_modified = get_the_modified_date( 'M j, Y' );
         </div>
         <div class="article-fact-check-footer">
           <span><i class="far fa-calendar-alt"></i> Last updated: <?php echo esc_html( $last_modified ); ?></span>
-          <span><i class="fas fa-check-circle"></i> Medically reviewed</span>
         </div>
       </div>
     </div>
@@ -373,7 +355,6 @@ $last_modified = get_the_modified_date( 'M j, Y' );
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
               </div>
-              <span class="rating-count">Based on 200+ reviews</span>
             </div>
           </div>
           <div class="rating-footer">
@@ -389,7 +370,7 @@ $last_modified = get_the_modified_date( 'M j, Y' );
         <div class="article-social-proof-content">
           <p class="article-social-proof-eyebrow">TRUSTED BY <?php echo esc_html( strtoupper( bp_option( 'pharmacy_town', 'WYTHENSHAWE' ) ) ); ?></p>
           <h2 class="article-social-proof-headline">Expert health advice from <?php echo esc_html( bp_pharmacy_name() ); ?>'s clinical team</h2>
-          <p class="article-social-proof-subtext">Our articles are written and reviewed by qualified pharmacists and independent prescribers, so you can trust the advice you read here.</p>
+          <p class="article-social-proof-subtext">Our articles follow NHS and UKHSA guidance, and our Superintendent Pharmacist is accountable for the clinical content on this site.</p>
         </div>
       </div>
     </div>

@@ -32,11 +32,11 @@ get_header();
         </h1>
 
         <h2 class="earwax-hero-subtitle">
-          <?php echo esc_html( dp_field( 'ew_hero_subtitle', 'Expert microsuction by Ahmed and our specialist team at Denton Pharmacy' ) ); ?>
+          <?php echo esc_html( dp_field( 'ew_hero_subtitle', 'Microsuction ear wax removal by our trained team at Denton Pharmacy' ) ); ?>
         </h2>
 
         <p class="earwax-hero-description">
-          <?php echo esc_html( dp_field( 'ew_hero_description', 'Safe, effective ear wax removal using advanced microsuction technology. Same-day appointments available with guaranteed results. Just £60 for both ears, consultation included.' ) ); ?>
+          <?php echo esc_html( dp_field( 'ew_hero_description', 'Ear wax removal by microsuction, for adults aged 18 and over. We look in your ear first, then remove the wax if it needs to come out. Same-day appointments available.' ) ); ?>
         </p>
 
         <div class="earwax-hero-actions">
@@ -99,7 +99,7 @@ get_header();
       $stats = array(
         array( 'icon' => 'ew_stat_1_icon', 'number' => 'ew_stat_1_number', 'label' => 'ew_stat_1_label', 'def_icon' => 'fas fa-tag', 'def_number' => '£60', 'def_label' => 'Both Ears' ),
         array( 'icon' => 'ew_stat_2_icon', 'number' => 'ew_stat_2_number', 'label' => 'ew_stat_2_label', 'def_icon' => 'fas fa-clock', 'def_number' => '30 mins', 'def_label' => 'Treatment Time' ),
-        array( 'icon' => 'ew_stat_3_icon', 'number' => 'ew_stat_3_number', 'label' => 'ew_stat_3_label', 'def_icon' => 'fas fa-check-circle', 'def_number' => '95%+', 'def_label' => 'Success Rate' ),
+        array( 'icon' => 'ew_stat_3_icon', 'number' => 'ew_stat_3_number', 'label' => 'ew_stat_3_label', 'def_icon' => 'fas fa-check-circle', 'def_number' => '£20', 'def_label' => 'Ear consultation' ),
         array( 'icon' => 'ew_stat_4_icon', 'number' => 'ew_stat_4_number', 'label' => 'ew_stat_4_label', 'def_icon' => 'fas fa-calendar-check', 'def_number' => 'Same Day', 'def_label' => 'Appointments' ),
       );
       foreach ( $stats as $si => $stat ) :
@@ -173,8 +173,8 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_team_badge', 'OUR TEAM' ) ); ?></span>
       </div>
-      <h2 class="earwax-team-title"><?php echo esc_html( dp_field( 'ew_team_title', 'Meet Your Denton Ear Care Specialists' ) ); ?></h2>
-      <p class="earwax-team-description"><?php echo esc_html( dp_field( 'ew_team_description', 'As Denton\'s dedicated ear care practice, we\'ve helped thousands of local residents resolve their ear wax problems. We offer professional, face-to-face care with convenient access and parking nearby.' ) ); ?></p>
+      <h2 class="earwax-team-title"><?php echo esc_html( dp_field( 'ew_team_title', 'Meet your Denton ear care team' ) ); ?></h2>
+      <p class="earwax-team-description"><?php echo esc_html( dp_field( 'ew_team_description', 'Our trained team at Denton Pharmacy offers face-to-face ear care, with parking nearby.' ) ); ?></p>
     </div>
 
     <div class="earwax-team-grid">
@@ -207,62 +207,7 @@ get_header();
             <?php endif; ?>
           </div>
         </div>
-      <?php endwhile; else :
-        // Try to pull pharmacist image from global options as fallback
-        $global_pharmacist_image_id  = dp_option( 'pharmacist_image' );
-        $global_pharmacist_image_url = $global_pharmacist_image_id ? wp_get_attachment_image_url( $global_pharmacist_image_id, 'medium_large' ) : '';
-
-        $default_team = array(
-          array(
-            'name'  => 'Ahmed Al-Liabi',
-            'role'  => 'Superintendent Pharmacist & Founder',
-            'bio'   => 'As the founder of Denton Pharmacy, Ahmed brings over 15 years of pharmaceutical experience. A GPhC-registered pharmacist (2208502), he is dedicated to providing expert ear care with a personal touch.',
-            'tags'  => array( 'GPhC Registered', '15+ Years Experience' ),
-            'badge' => 'Superintendent Pharmacist',
-            'badge_style' => 'green',
-          ),
-          array(
-            'name'  => 'Jignasa Modhvadia',
-            'role'  => 'Director',
-            'bio'   => 'Jignasa combines clinical expertise with exceptional patient care. She plays a key role in delivering specialist ear care services at our Denton clinic.',
-            'tags'  => array( 'Clinic Director', 'Patient Care Expert' ),
-            'badge' => 'Director',
-            'badge_style' => 'purple',
-          ),
-        );
-
-        foreach ( $default_team as $ti => $member ) :
-          $initials = '';
-          $parts = explode( ' ', trim( $member['name'] ) );
-          $initials = strtoupper( substr( $parts[0], 0, 1 ) );
-          if ( count( $parts ) > 1 ) {
-            $initials .= strtoupper( substr( end( $parts ), 0, 1 ) );
-          }
-        ?>
-          <div class="earwax-team-card">
-            <div class="earwax-team-image-wrapper">
-              <?php if ( $ti === 0 && $global_pharmacist_image_url ) : ?>
-                <img src="<?php echo esc_url( $global_pharmacist_image_url ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" class="earwax-team-image" />
-              <?php else : ?>
-                <div class="earwax-team-avatar">
-                  <span class="earwax-team-avatar-initials"><?php echo esc_html( $initials ); ?></span>
-                </div>
-              <?php endif; ?>
-              <div class="earwax-team-badge-<?php echo esc_attr( $member['badge_style'] ); ?>"><?php echo esc_html( $member['badge'] ); ?></div>
-            </div>
-            <div class="earwax-team-content">
-              <h3 class="earwax-team-name"><?php echo esc_html( $member['name'] ); ?></h3>
-              <p class="earwax-team-role"><?php echo esc_html( $member['role'] ); ?></p>
-              <p class="earwax-team-bio"><?php echo esc_html( $member['bio'] ); ?></p>
-              <div class="earwax-team-tags">
-                <?php foreach ( $member['tags'] as $tag ) : ?>
-                  <span class="earwax-team-tag"><?php echo esc_html( $tag ); ?></span>
-                <?php endforeach; ?>
-              </div>
-            </div>
-          </div>
-        <?php endforeach; ?>
-      <?php endif; ?>
+      <?php endwhile; endif; ?>
     </div>
   </div>
 </section>
@@ -278,7 +223,7 @@ get_header();
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_compare_badge', 'TREATMENT COMPARISON' ) ); ?></span>
       </div>
       <h2 class="earwax-comparison-title"><?php echo esc_html( dp_field( 'ew_compare_title', 'How Our Treatment Compares' ) ); ?></h2>
-      <p class="earwax-comparison-description"><?php echo esc_html( dp_field( 'ew_compare_description', 'See why microsuction is the gold standard for ear wax removal in Denton' ) ); ?></p>
+      <p class="earwax-comparison-description"><?php echo esc_html( dp_field( 'ew_compare_description', 'How microsuction at the pharmacy compares with softening drops at home' ) ); ?></p>
     </div>
 
     <div class="earwax-comparison-table-wrapper">
@@ -287,7 +232,7 @@ get_header();
           <tr>
             <th>Feature</th>
             <th class="highlight"><?php echo esc_html( dp_field( 'ew_compare_col_1_heading', 'Denton Pharmacy' ) ); ?></th>
-            <th><?php echo esc_html( dp_field( 'ew_compare_col_3_heading', 'At-Home Remedies' ) ); ?></th>
+            <th><?php echo esc_html( dp_field( 'ew_compare_col_3_heading', 'Ear drops at home' ) ); ?></th>
           </tr>
         </thead>
         <tbody>
@@ -299,44 +244,24 @@ get_header();
             </tr>
           <?php endwhile; else : ?>
             <tr>
-              <td>Treatment Time</td>
+              <td>How long it takes</td>
               <td class="highlight">Up to 30 minutes</td>
-              <td>Days or weeks</td>
+              <td>Drops 3 to 4 times a day for 3 to 5 days. Wax can take about 2 weeks to come out</td>
             </tr>
             <tr>
-              <td>Water Spillage</td>
-              <td class="highlight">None</td>
-              <td>Low</td>
-            </tr>
-            <tr>
-              <td>Mess</td>
-              <td class="highlight">None</td>
-              <td>Low</td>
-            </tr>
-            <tr>
-              <td>Risk Level</td>
-              <td class="highlight">Very low</td>
-              <td>Varies</td>
-            </tr>
-            <tr>
-              <td>Success Rate</td>
-              <td class="highlight">95%+</td>
-              <td>Under 50%</td>
-            </tr>
-            <tr>
-              <td>Immediate Results</td>
-              <td class="highlight">Yes</td>
-              <td>Rarely</td>
-            </tr>
-            <tr>
-              <td>Expert Oversight</td>
-              <td class="highlight">Throughout</td>
-              <td>None</td>
-            </tr>
-            <tr>
-              <td>Safe for Perforated Eardrums</td>
-              <td class="highlight">Yes</td>
+              <td>Flushes the ear with water</td>
+              <td class="highlight">No</td>
               <td>No</td>
+            </tr>
+            <tr>
+              <td>Who does it</td>
+              <td class="highlight">Our trained team, looking into the ear throughout</td>
+              <td>You</td>
+            </tr>
+            <tr>
+              <td>If you have, or may have, a perforated eardrum</td>
+              <td class="highlight">Tell us first. We look before we remove anything, and we will tell you if you need an ear, nose and throat (ENT) service instead</td>
+              <td>Do not use drops</td>
             </tr>
           <?php endif; ?>
         </tbody>
@@ -345,7 +270,7 @@ get_header();
 
     <div class="earwax-comparison-note">
       <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-      <p><?php echo esc_html( dp_field( 'ew_compare_note', 'Before your appointment: please use olive oil drops in the affected ear for 1 week before booking to help soften the wax.' ) ); ?></p>
+      <p><?php echo esc_html( dp_field( 'ew_compare_note', 'Before your appointment: use olive oil drops in the affected ear 3 to 4 times a day for 3 to 5 days to help soften the wax. Do not use drops if you have, or think you may have, a perforated eardrum. Please tell us before your appointment if you take blood thinners or high-dose steroids, have had ear surgery, or find loud noises hard to bear. Microsuction may not suit you, and we will advise you.' ) ); ?></p>
     </div>
   </div>
 </section>
@@ -443,7 +368,7 @@ get_header();
             <i class="fas fa-microscope"></i>
           </div>
           <h3 class="earwax-process-card-title">Microsuction Treatment</h3>
-          <p class="earwax-process-card-desc">Gentle wax removal with continuous monitoring, progress updates, and immediate relief.</p>
+          <p class="earwax-process-card-desc">Wax removal by microsuction, with the ear checked as we go and progress explained to you.</p>
           <div class="earwax-process-step-time">
             <i class="fas fa-clock"></i>
             <span>15-20 minutes</span>
@@ -455,7 +380,7 @@ get_header();
             <i class="fas fa-heart-pulse"></i>
           </div>
           <h3 class="earwax-process-card-title">Aftercare Support</h3>
-          <p class="earwax-process-card-desc">Personalised prevention advice, home care tips, and expert guidance on keeping your ears healthy long-term.</p>
+          <p class="earwax-process-card-desc">Advice on looking after your ears, including when softening drops can help and when to come back.</p>
           <div class="earwax-process-step-badge">
             <i class="fas fa-check-circle"></i>
             <span>Personalised care plan</span>
@@ -484,8 +409,9 @@ get_header();
       <?php if ( have_rows( 'ew_pricing' ) ) : while ( have_rows( 'ew_pricing' ) ) : the_row(); ?>
         <?php $is_featured = get_sub_field( 'is_featured' ); ?>
         <div class="earwax-pricing-card <?php echo $is_featured ? 'earwax-pricing-card-featured' : ''; ?>">
-          <?php if ( $is_featured ) : ?>
-            <div class="earwax-pricing-badge"><?php echo esc_html( get_sub_field( 'badge_text' ) ?: 'MOST POPULAR' ); ?></div>
+          <?php $pricing_badge = get_sub_field( 'badge_text' ); ?>
+          <?php if ( $is_featured && $pricing_badge ) : ?>
+            <div class="earwax-pricing-badge"><?php echo esc_html( $pricing_badge ); ?></div>
           <?php endif; ?>
           <div class="earwax-pricing-icon">
             <i class="<?php echo esc_attr( dp_fa_class( get_sub_field( 'icon' ) ) ); ?>"></i>
@@ -506,7 +432,6 @@ get_header();
       <?php endwhile; else : ?>
         <!-- Default: Both Ears (Featured) -->
         <div class="earwax-pricing-card earwax-pricing-card-featured">
-          <div class="earwax-pricing-badge">MOST POPULAR</div>
           <div class="earwax-pricing-icon">
             <i class="fas fa-ear-listen"></i>
           </div>
@@ -634,7 +559,7 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'ew_faq_badge', 'FREQUENTLY ASKED QUESTIONS' ) ); ?></span>
       </div>
-      <h2 class="earwax-faq-title"><?php echo esc_html( dp_field( 'ew_faq_title', 'Frequently Asked Questions — Ear Wax Removal Denton' ) ); ?></h2>
+      <h2 class="earwax-faq-title"><?php echo esc_html( dp_field( 'ew_faq_title', 'Ear wax removal in Denton: your questions' ) ); ?></h2>
     </div>
 
     <div class="earwax-faq-list">
@@ -652,12 +577,12 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $faqs = array(
-          array( 'q' => 'Is the treatment uncomfortable?', 'a' => 'Most patients find microsuction very comfortable. You\'ll hear a quiet whistling sound, but the procedure is gentle and shouldn\'t cause any pain.' ),
-          array( 'q' => 'How often should I have my ears checked?', 'a' => 'Most people benefit from an annual check-up, though this varies. We\'ll advise based on your individual situation during your Denton appointment.' ),
-          array( 'q' => 'Can I drive after the treatment?', 'a' => 'Yes, you can drive immediately after treatment. Most people experience instant improvement in hearing.' ),
-          array( 'q' => 'Do you treat children?', 'a' => 'Yes, we treat patients of all ages at our Denton clinic. We\'re experienced in working with children and ensure they feel comfortable throughout.' ),
-          array( 'q' => 'What if I have a perforated eardrum?', 'a' => 'Microsuction is safe for perforated eardrums, unlike water syringing. We\'ll assess your ears during consultation.' ),
-          array( 'q' => 'Where are you located in Denton?', 'a' => 'We\'re based at 14-16 Ashton Road, Denton, Manchester, M34 3EX — with parking available nearby.' ),
+          array( 'q' => 'Is the treatment uncomfortable?', 'a' => 'Most people find it comfortable. You will hear a hissing or whistling sound. Tell us straight away if anything hurts or you feel dizzy, and we will stop.' ),
+          array( 'q' => 'How often should I have my ears checked?', 'a' => 'Ear wax usually falls out on its own and, in most cases, does not need removing. Come back if your hearing feels blocked again or your symptoms return.' ),
+          array( 'q' => 'Can I drive after the treatment?', 'a' => 'Most people can. If you feel dizzy afterwards, wait until it has passed before you drive.' ),
+          array( 'q' => 'Do you treat children?', 'a' => 'No. Ear wax removal at Denton Pharmacy is for adults aged 18 and over. If your child has ear wax problems, please speak to your GP.' ),
+          array( 'q' => 'What if I have a perforated eardrum?', 'a' => 'Tell us before your appointment. We look in your ear before removing anything. Microsuction may not be suitable if the eardrum is discharging, and if we see a perforation we will advise you to be referred to an ear, nose and throat (ENT) service. Do not use ear drops if you have a perforated eardrum.' ),
+          array( 'q' => 'Where are you located in Denton?', 'a' => 'We\'re based at 14-16 Ashton Road, Denton, Manchester, M34 3EX, with parking available nearby.' ),
         );
         foreach ( $faqs as $i => $faq ) :
         ?>
@@ -699,7 +624,7 @@ get_header();
       </div>
       <h2 class="earwax-cta-title"><?php echo esc_html( dp_field( 'ew_cta_title', 'Ready to hear clearly again?' ) ); ?></h2>
       <p class="earwax-cta-description">
-        <?php echo esc_html( dp_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Denton clinic today. Expert microsuction treatment with guaranteed results.' ) ); ?>
+        <?php echo esc_html( dp_field( 'ew_cta_description', 'Book your ear wax removal appointment at our Denton clinic today.' ) ); ?>
       </p>
       <div class="earwax-cta-actions">
         <a href="<?php echo esc_url( dp_field( 'ew_cta_primary_url', '' ) ?: '#ear-wax-calendar' ); ?>" class="cta-button primary-cta earwax-cta-button-white">
@@ -713,7 +638,7 @@ get_header();
       </div>
       <div class="earwax-cta-trust-checks">
         <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'ew_cta_check_1', 'No referral needed' ) ); ?></span>
-        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'ew_cta_check_2', 'Expert microsuction' ) ); ?></span>
+        <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'ew_cta_check_2', 'Microsuction by our trained team' ) ); ?></span>
         <span class="earwax-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'ew_cta_check_3', 'Same-day appointments' ) ); ?></span>
       </div>
     </div>
