@@ -125,7 +125,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
           <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'One jab for diphtheria, tetanus and polio')); ?></span>
         </div>
 
-        <h3 class="dtp-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'A quick box to tick before you travel')); ?></h3>
+        <h3 class="dtp-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Check if you need a booster before you travel')); ?></h3>
         <p class="dtp-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Most people in the UK had diphtheria, tetanus and polio vaccines as children, with the last dose usually at around 13 or 14. One booster covers all three diseases. For travel, a booster may be recommended if your last dose was more than 10 years ago and you are going somewhere medical help may be hard to reach, or where polio or diphtheria is a risk.")); ?></p>
 
         <ul class="dtp-protect-features">
@@ -244,7 +244,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_needs_badge', 'WHO IS IT FOR')); ?></span>
       </div>
-      <h2 class="dtp-needs-title"><?php echo esc_html(bp_field('vaccine_needs_title', 'Are You Due a Top-Up?')); ?></h2>
+      <h2 class="dtp-needs-title"><?php echo esc_html(bp_field('vaccine_needs_title', 'Could You Need a Booster for Your Trip?')); ?></h2>
       <p class="dtp-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', "If either of these applies, it's worth booking in")); ?></p>
     </div>
 
@@ -257,11 +257,11 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
           <div class="nhs-card-icon">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
-          <span class="nhs-card-badge">Recommended For</span>
-          <h3 class="nhs-card-title">Anyone Overdue a Booster</h3>
+          <span class="nhs-card-badge">Recommended When</span>
+          <h3 class="nhs-card-title">Your Trip Calls for It</h3>
           <p class="nhs-card-desc">If your last dose was at school and that was more than 10 years ago, ask us whether you need a booster before you travel.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Last dose over 10 years back</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Last dose over 10 years ago and travelling somewhere higher-risk</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Not sure of your own history</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travelling somewhere higher-risk</span></li>
           </ul>
@@ -316,7 +316,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
           <li><i class="fas fa-check"></i> One combined injection</li>
           <li><i class="fas fa-check"></i> Given by our pharmacist</li>
           <li><i class="fas fa-check"></i> Can be paired with other travel vaccines</li>
-          <li><i class="fas fa-check"></i> Suitable for most adults</li>
+          <li><i class="fas fa-check"></i> Pharmacist checks it is right for you</li>
         </ul>
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
       </div>
@@ -444,7 +444,7 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
         <?php endif; ?>
       </div>
 
-      <h2 class="dtp-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', "Tick This Off Your Travel List")); ?></h2>
+      <h2 class="dtp-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', "Check If You Need a Booster")); ?></h2>
       <p class="dtp-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book your DTP booster with our Wythenshawe team. It is a quick appointment and can be done with your other travel vaccines.")); ?></p>
 
       <div class="dtp-cta-actions">
