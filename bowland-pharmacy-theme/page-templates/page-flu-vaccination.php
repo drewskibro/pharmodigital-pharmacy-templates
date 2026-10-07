@@ -39,7 +39,7 @@ $elig_items = array(
     array( 'icon' => 'fa-lungs',         'title' => 'Long-term conditions',    'desc' => 'Asthma, COPD, diabetes, heart, kidney or liver disease.' ),
     array( 'icon' => 'fa-hand-holding-heart', 'title' => 'Carers',             'desc' => 'Carers and those receiving Carer\'s Allowance.' ),
     array( 'icon' => 'fa-shield-virus',  'title' => 'Weakened immune system',  'desc' => 'Including people who live with someone immunocompromised.' ),
-    array( 'icon' => 'fa-coins',         'title' => 'Not eligible?',           'desc' => 'Private flu vaccination from age 2, £25 per dose.' ),
+    array( 'icon' => 'fa-coins',         'title' => 'Not eligible?',           'desc' => 'Adults aged 18 or over can have it privately for £25.' ),
 );
 
 $proc_steps = array(
@@ -49,7 +49,7 @@ $proc_steps = array(
 );
 
 $faqs = array(
-    array( 'q' => 'Is the flu jab free?', 'a' => 'It is free on the NHS for eligible patients. If you are not eligible, you can have it privately with us from age 2, at £25 per dose. Children aged 2 to 8 having a flu vaccine for the first time who have a long-term health condition, or live with someone with a weakened immune system, need a second dose at least 4 weeks later (£25). Under 16s come with a parent or guardian. Most children aged 2 to 16 can have the flu vaccine free on the NHS, so ask us first.' ),
+    array( 'q' => 'Is the flu jab free?', 'a' => 'It is free on the NHS for eligible patients. If you are not eligible, adults aged 18 or over can have it privately with us for £25. Most children can have the flu vaccine free on the NHS, so ask us about the NHS child flu route.' ),
     array( 'q' => 'Do I need an appointment?', 'a' => 'You can book a slot or come as a walk-in. We offer flu and COVID vaccinations from 1 October each year, in line with NHS guidance.' ),
     array( 'q' => 'How long does it take to work?', 'a' => 'The flu vaccine takes around 10 to 14 days to take full effect.' ),
     array( 'q' => 'Are there any side effects?', 'a' => 'Most people have only mild effects — a slightly raised temperature or a tender arm — that usually settle within a day.' ),
