@@ -100,12 +100,8 @@ $last_modified = get_the_modified_date( 'M j, Y' );
 
         <div class="article-hero-author-row">
           <div class="article-hero-author">
-            <?php if ( $author_avatar ) : ?>
-              <img src="<?php echo esc_url( $author_avatar ); ?>" alt="<?php echo esc_attr( $author_name ); ?>" class="article-hero-avatar" />
-            <?php endif; ?>
             <div class="article-hero-author-text">
-              <span class="article-hero-author-name"><?php echo esc_html( $author_name ); ?></span>
-              <span class="article-hero-author-role"><?php echo esc_html( $author_role ); ?></span>
+              <span class="article-hero-author-name">Published by <?php echo esc_html( bp_pharmacy_name() ); ?></span>
             </div>
           </div>
           <span class="article-hero-date">
@@ -331,7 +327,9 @@ $last_modified = get_the_modified_date( 'M j, Y' );
     <div class="section-container">
       <div class="article-social-proof-wrapper">
 
-        <!-- Google Rating Badge (reuses globals.css .rating-badge) -->
+        <!-- Google Rating Badge (reuses globals.css .rating-badge), only when the rating option is set -->
+        <?php $post_google_rating = bp_option( 'google_rating', '' ); ?>
+        <?php if ( $post_google_rating ) : ?>
         <div class="rating-badge">
           <div class="rating-header">
             <div class="rating-label">
@@ -346,7 +344,7 @@ $last_modified = get_the_modified_date( 'M j, Y' );
             </div>
           </div>
           <div class="rating-score">
-            <span class="score-number"><?php echo esc_html( bp_option( 'google_rating', '4.7' ) ); ?></span>
+            <span class="score-number"><?php echo esc_html( $post_google_rating ); ?></span>
             <div class="rating-score-detail">
               <div class="star-row">
                 <i class="fas fa-star"></i>
@@ -365,11 +363,12 @@ $last_modified = get_the_modified_date( 'M j, Y' );
             <a href="#reviews" class="rating-link">View Reviews</a>
           </div>
         </div>
+        <?php endif; ?>
 
         <!-- Text Content -->
         <div class="article-social-proof-content">
           <p class="article-social-proof-eyebrow">TRUSTED BY <?php echo esc_html( strtoupper( bp_option( 'pharmacy_town', 'WYTHENSHAWE' ) ) ); ?></p>
-          <h2 class="article-social-proof-headline">Expert health advice from <?php echo esc_html( bp_pharmacy_name() ); ?>'s clinical team</h2>
+          <h2 class="article-social-proof-headline">Health advice from <?php echo esc_html( bp_pharmacy_name() ); ?>'s pharmacy team</h2>
           <p class="article-social-proof-subtext">Our articles follow NHS and UKHSA guidance, and our Superintendent Pharmacist is accountable for the clinical content on this site.</p>
         </div>
       </div>

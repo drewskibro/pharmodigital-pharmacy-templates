@@ -881,7 +881,6 @@ function denton_pharmacy_add_consultation_closer( $content ) {
     // Reviewer / pharmacist data (same fallback chain as single.php)
     $reviewer_name = dp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
     $reviewer_gphc = dp_option( 'superintendent_gphc_number', '2208502' );
-    $author_role   = dp_option( 'default_author_role', 'Superintendent Pharmacist' );
     $pharmacy_name = dp_pharmacy_name();
     $pharmacy_town = dp_option( 'pharmacy_town', 'Denton' );
     $booking_url   = dp_booking_url();
@@ -928,7 +927,7 @@ function denton_pharmacy_add_consultation_closer( $content ) {
     $closer .= '      <div class="article-closer-pharmacist-info">';
     $closer .= '        <span class="article-closer-pharmacist-label">Superintendent Pharmacist</span>';
     $closer .= '        <span class="article-closer-pharmacist-name">' . esc_html( $reviewer_name ) . '</span>';
-    $closer .= '        <span class="article-closer-pharmacist-role">' . esc_html( $author_role ) . ' &middot; Independent Prescriber</span>';
+    $closer .= '        <span class="article-closer-pharmacist-role">Independent Prescriber</span>';
     $closer .= '        ' . $gphc_html;
     $closer .= '      </div>';
     $closer .= '    </div>';

@@ -39,7 +39,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
         </h1>
 
         <p class="dtp-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', "Not sure when you last had a DTP booster? If it's been over 10 years, our Wythenshawe pharmacy can top up your Diphtheria, Tetanus and Polio protection with a single combined jab before you fly.")); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', "Not sure when you last had a DTP booster? If it has been over 10 years and your trip takes you somewhere medical help may be hard to reach, or where TravelHealthPro advises polio or diphtheria protection, our Wythenshawe pharmacy can give a single combined diphtheria, tetanus and polio booster before you travel.")); ?>
         </p>
 
         <div class="dtp-hero-actions">
@@ -122,10 +122,10 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
       <div class="dtp-protect-content">
         <div class="dtp-protect-badge-box">
           <i class="fas fa-shield-halved"></i>
-          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'One Jab, Up to 10 Years of Protection')); ?></span>
+          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'One jab for diphtheria, tetanus and polio')); ?></span>
         </div>
 
-        <h3 class="dtp-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'One of the Easiest Boxes to Tick')); ?></h3>
+        <h3 class="dtp-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'A quick box to tick before you travel')); ?></h3>
         <p class="dtp-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Most people in the UK had diphtheria, tetanus and polio vaccines as children, with the last dose usually at around 13 or 14. One booster covers all three diseases. For travel, a booster may be recommended if your last dose was more than 10 years ago and you are going somewhere medical help may be hard to reach, or where polio or diphtheria is a risk.")); ?></p>
 
         <ul class="dtp-protect-features">

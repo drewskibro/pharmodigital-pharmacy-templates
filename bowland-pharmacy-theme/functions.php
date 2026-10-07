@@ -882,7 +882,6 @@ function bowland_pharmacy_add_consultation_closer( $content ) {
     // Reviewer / pharmacist data (same fallback chain as single.php)
     $reviewer_name = bp_option( 'superintendent_pharmacist', 'Ahmed Al-Liabi' );
     $reviewer_gphc = bp_option( 'superintendent_gphc_number', '2208502' );
-    $author_role   = bp_option( 'default_author_role', 'Superintendent Pharmacist' );
     $pharmacy_name = bp_pharmacy_name();
     $pharmacy_town = bp_option( 'pharmacy_town', 'Wythenshawe' );
     $booking_url   = bp_booking_url();
@@ -929,7 +928,7 @@ function bowland_pharmacy_add_consultation_closer( $content ) {
     $closer .= '      <div class="article-closer-pharmacist-info">';
     $closer .= '        <span class="article-closer-pharmacist-label">Superintendent Pharmacist</span>';
     $closer .= '        <span class="article-closer-pharmacist-name">' . esc_html( $reviewer_name ) . '</span>';
-    $closer .= '        <span class="article-closer-pharmacist-role">' . esc_html( $author_role ) . ' &middot; Independent Prescriber</span>';
+    $closer .= '        <span class="article-closer-pharmacist-role">Independent Prescriber</span>';
     $closer .= '        ' . $gphc_html;
     $closer .= '      </div>';
     $closer .= '    </div>';
