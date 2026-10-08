@@ -99,6 +99,7 @@ $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and well
             <li><a href="<?php echo esc_url( home_url( '/nhs-services/' ) ); ?>" class="footer-link">NHS Services</a></li>
             <li><a href="<?php echo esc_url( home_url( '/blood-testing/' ) ); ?>" class="footer-link">Blood Testing</a></li>
             <li><a href="<?php echo esc_url( home_url( '/nhs-services/' ) ); ?>" class="footer-link">Flu Vaccinations</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/care-homes/' ) ); ?>" class="footer-link">Care homes</a></li>
           </ul>
         </div>
 
