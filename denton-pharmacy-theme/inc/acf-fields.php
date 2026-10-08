@@ -6236,15 +6236,16 @@ function dp_register_acf_field_groups() {
     // L. TRAVEL DESTINATION PAGE FIELDS
     // =========================================================================
 
-    // Thailand and Brazil share the same td_* field names (page-level, so each stores its own values).
-    // Vietnam is deliberately NOT in this list: the "L2 — Vietnam" groups further down register the
-    // same td_* names for page-travel-vietnam.php. With both on the edit screen, ACF caches loaded
-    // values by field name, so the second group's repeaters opened blank and pressing Update saved
-    // those blanks over the live page. One group per name per template.
-    $td_location = array(
-        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-thailand.php' ) ),
-        array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-brazil.php' ) ),
-    );
+    // The six shared "Travel Destination" groups below stay registered but are deliberately given no
+    // location. The Thailand-only (L1), Vietnam-only (L2) and Brazil-only (L4) groups further down
+    // register the same td_* names for their own templates. With two groups for one name on one edit
+    // screen, ACF loaded the second group's repeaters blank and pressing Update saved those blanks
+    // over the live page (this happened on the Bowland Vietnam page on 6 Oct 2026). The shared groups
+    // are kept registered so get_field() can still resolve any _td_* meta reference stored against
+    // their field keys. ACF's acf_get_field_group_visibility() returns false for an empty location
+    // (checked against the plugin's trunk source on 8 Oct 2026), so they appear on no edit screen.
+    // One group per name per template.
+    $td_location = array();
 
     $ke_location = array(
         array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-templates/page-travel-kenya.php' ) ),
