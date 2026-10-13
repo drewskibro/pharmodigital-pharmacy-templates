@@ -931,7 +931,7 @@
 }
 
 .hairloss-faq-item.active .hairloss-faq-content {
-  max-height: 300px;
+  max-height: 5000px;
   padding: 0 2rem 2rem 6rem;
 }
 
@@ -939,6 +939,10 @@
   font-size: 1rem;
   color: var(--text-gray);
   line-height: 1.7;
+}
+
+.hairloss-faq-content p + p {
+  margin-top: 0.75rem;
 }
 
 @media (max-width: 640px) {
