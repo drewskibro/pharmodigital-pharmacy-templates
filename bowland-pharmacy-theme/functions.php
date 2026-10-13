@@ -170,7 +170,7 @@ function bowland_pharmacy_scripts() {
     }
 
     if ( is_page_template( 'page-templates/page-hair-loss.php' ) ) {
-        wp_enqueue_style( 'bowland-hair-loss', BOWLAND_PHARMACY_URI . '/assets/css/hair-loss.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
+        wp_enqueue_style( 'bowland-hair-loss', BOWLAND_PHARMACY_URI . '/assets/css/hair-loss.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/hair-loss.css' ) );
         wp_enqueue_script( 'bowland-hair-loss-js', BOWLAND_PHARMACY_URI . '/assets/js/hair-loss.js', array(), BOWLAND_PHARMACY_VERSION, true );
     }
 

@@ -170,7 +170,7 @@ function denton_pharmacy_scripts() {
     }
 
     if ( is_page_template( 'page-templates/page-hair-loss.php' ) ) {
-        wp_enqueue_style( 'denton-hair-loss', DENTON_PHARMACY_URI . '/assets/css/hair-loss.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_style( 'denton-hair-loss', DENTON_PHARMACY_URI . '/assets/css/hair-loss.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/hair-loss.css' ) );
         wp_enqueue_script( 'denton-hair-loss-js', DENTON_PHARMACY_URI . '/assets/js/hair-loss.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
