@@ -125,7 +125,7 @@ $default_ps_links = array(
     array( 'label' => 'Weight Loss',     'description' => 'GLP-1 treatments & clinical support',     'icon' => 'fas fa-weight-scale', 'url' => home_url( '/weight-loss/' ) ),
     array( 'label' => 'Travel Health',   'description' => 'Vaccinations & travel advice',            'icon' => 'fas fa-plane',        'url' => home_url( '/travel-clinic/' ) ),
     array( 'label' => 'Ear Wax Removal', 'description' => 'Professional microsuction clinic',         'icon' => 'fas fa-ear-listen',   'url' => home_url( '/ear-wax-removal/' ) ),
-    array( 'label' => 'Hair Loss',       'description' => 'Treatments for male & female hair loss',   'icon' => 'fas fa-user-doctor',  'url' => home_url( '/hair-loss/' ) ),
+    array( 'label' => 'Hair Loss',       'description' => 'Consultations for male & female hair loss',   'icon' => 'fas fa-user-doctor',  'url' => home_url( '/hair-loss/' ) ),
     array( 'label' => 'Blood Testing',   'description' => 'Private health checks & diagnostic panels','icon' => 'fas fa-flask',        'url' => home_url( '/blood-testing/' ) ),
 );
 
