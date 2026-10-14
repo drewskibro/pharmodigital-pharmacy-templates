@@ -22,20 +22,20 @@ get_header();
       <div class="hairloss-hero-content">
         <div class="section-badge">
           <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-          <span class="section-badge-text"><?php echo esc_html( dp_field( 'hl_hero_badge', 'HAIR LOSS TREATMENT' ) ); ?></span>
+          <span class="section-badge-text"><?php echo esc_html( dp_field( 'hl_hero_badge', 'HAIR LOSS CONSULTATION' ) ); ?></span>
         </div>
 
         <h1 class="hairloss-hero-title">
-          <?php echo esc_html( dp_field( 'hl_hero_title_line1', 'Regrow Your Confidence with' ) ); ?> <span class="gradient-text"><?php echo esc_html( dp_field( 'hl_hero_title_highlight', 'Expert Hair Loss Treatment' ) ); ?></span>
+          <?php echo esc_html( dp_field( 'hl_hero_title_line1', 'Talk to a Pharmacist About' ) ); ?> <span class="gradient-text"><?php echo esc_html( dp_field( 'hl_hero_title_highlight', 'Your Hair Loss' ) ); ?></span>
         </h1>
 
         <p class="hairloss-hero-description">
-          <?php echo esc_html( dp_field( 'hl_hero_description', 'Clinically proven treatments including Finasteride and Minoxidil. Face-to-face consultations with our GPhC-registered pharmacist in ' . dp_option( 'pharmacy_town', 'Denton' ) . '.' ) ); ?>
+          <?php echo esc_html( dp_field( 'hl_hero_description', 'Private, face-to-face consultations with our GPhC-registered pharmacist in ' . dp_option( 'pharmacy_town', 'Denton' ) . '. We explain your options and supply treatment only if it is suitable for you.' ) ); ?>
         </p>
 
         <ul class="hairloss-hero-features">
-          <li><i class="fas fa-circle-check"></i> <?php echo esc_html( dp_field( 'hl_feature_1', 'Prescription treatments (Finasteride)' ) ); ?></li>
-          <li><i class="fas fa-circle-check"></i> <?php echo esc_html( dp_field( 'hl_feature_2', 'Over-the-counter solutions (Minoxidil)' ) ); ?></li>
+          <li><i class="fas fa-circle-check"></i> <?php echo esc_html( dp_field( 'hl_feature_1', 'Prescription-only treatment for men aged 18 and over, if suitable' ) ); ?></li>
+          <li><i class="fas fa-circle-check"></i> <?php echo esc_html( dp_field( 'hl_feature_2', 'Advice on options you can buy without a prescription' ) ); ?></li>
           <li><i class="fas fa-circle-check"></i> <?php echo esc_html( dp_field( 'hl_feature_3', 'Personalised treatment plans' ) ); ?></li>
         </ul>
 
@@ -55,13 +55,10 @@ get_header();
           $hero_image_id  = dp_field( 'hl_hero_image' );
           $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 'large' ) : '';
           if ( $hero_image_url ) : ?>
-            <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'hl_hero_image_alt', 'Hair loss treatment at ' . dp_pharmacy_name() ) ); ?>" class="hairloss-hero-image" />
+            <img src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'hl_hero_image_alt', 'Man looking at his hair in a bathroom mirror' ) ); ?>" class="hairloss-hero-image" />
             <div class="hairloss-hero-overlay"></div>
             <div class="hairloss-hero-caption">
-              <div class="star-row">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-              <p><?php echo esc_html( dp_field( 'hl_hero_caption', 'Real results from our patients' ) ); ?></p>
+              <p><?php echo esc_html( dp_field( 'hl_hero_caption', 'Helping patients across Manchester' ) ); ?></p>
             </div>
           <?php endif; ?>
         </div>
@@ -80,10 +77,10 @@ get_header();
     <div class="hairloss-stats-grid">
       <?php
       $stats = array(
-        array( 'icon' => 'hl_stat_1_icon', 'number' => 'hl_stat_1_number', 'label' => 'hl_stat_1_label', 'def_icon' => 'fas fa-award', 'def_number' => '15+', 'def_label' => 'Years Experience' ),
+        array( 'icon' => 'hl_stat_1_icon', 'number' => 'hl_stat_1_number', 'label' => 'hl_stat_1_label', 'def_icon' => 'fas fa-award', 'def_number' => '1-to-1', 'def_label' => 'Private consultation' ),
         array( 'icon' => 'hl_stat_2_icon', 'number' => 'hl_stat_2_number', 'label' => 'hl_stat_2_label', 'def_icon' => 'fas fa-certificate', 'def_number' => 'GPhC', 'def_label' => 'Registered' ),
-        array( 'icon' => 'hl_stat_3_icon', 'number' => 'hl_stat_3_number', 'label' => 'hl_stat_3_label', 'def_icon' => 'fas fa-calendar-check', 'def_number' => '6-12 Months', 'def_label' => 'Typical Results' ),
-        array( 'icon' => 'hl_stat_4_icon', 'number' => 'hl_stat_4_number', 'label' => 'hl_stat_4_label', 'def_icon' => 'fas fa-star', 'def_number' => '4.9&#9733;', 'def_label' => 'Average Rating' ),
+        array( 'icon' => 'hl_stat_3_icon', 'number' => 'hl_stat_3_number', 'label' => 'hl_stat_3_label', 'def_icon' => 'fas fa-calendar-check', 'def_number' => 'Face to face', 'def_label' => 'Assessment' ),
+        array( 'icon' => 'hl_stat_4_icon', 'number' => 'hl_stat_4_number', 'label' => 'hl_stat_4_label', 'def_icon' => 'fas fa-clock', 'def_number' => 'Same day', 'def_label' => 'Consultation' ),
       );
       foreach ( $stats as $stat ) :
         $icon   = dp_field( $stat['icon'], $stat['def_icon'] );
@@ -110,10 +107,10 @@ get_header();
     <div class="hairloss-treatments-header">
       <div class="section-badge">
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        <span class="section-badge-text"><?php echo esc_html( dp_field( 'hl_treatments_badge', 'PRESCRIPTION & OTC' ) ); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( dp_field( 'hl_treatments_badge', 'CONSULTATIONS' ) ); ?></span>
       </div>
-      <h2 class="hairloss-treatments-title"><?php echo esc_html( dp_field( 'hl_treatments_title_line1', 'Our' ) ); ?> <span class="gradient-text"><?php echo esc_html( dp_field( 'hl_treatments_title_highlight', 'Hair Loss Treatments' ) ); ?></span></h2>
-      <p class="hairloss-treatments-desc"><?php echo esc_html( dp_field( 'hl_treatments_description', 'Clinically proven treatments prescribed and monitored by our GPhC-registered pharmacist at ' . dp_pharmacy_name() . '.' ) ); ?></p>
+      <h2 class="hairloss-treatments-title"><?php echo esc_html( dp_field( 'hl_treatments_title_line1', 'Our' ) ); ?> <span class="gradient-text"><?php echo esc_html( dp_field( 'hl_treatments_title_highlight', 'Hair Loss Consultations' ) ); ?></span></h2>
+      <p class="hairloss-treatments-desc"><?php echo esc_html( dp_field( 'hl_treatments_description', 'Private consultations with our GPhC-registered pharmacist at ' . dp_pharmacy_name() . ', with treatment supplied and monitored only if it is suitable for you.' ) ); ?></p>
     </div>
 
     <div class="hairloss-treatments-grid">
@@ -135,7 +132,7 @@ get_header();
           <div class="hairloss-treatment-divider"></div>
           <h4 class="hairloss-treatment-heading">How It Works</h4>
           <p class="hairloss-treatment-text"><?php echo esc_html( get_sub_field( 'how_it_works' ) ); ?></p>
-          <h4 class="hairloss-treatment-heading">Results</h4>
+          <h4 class="hairloss-treatment-heading">What to expect</h4>
           <ul class="hairloss-treatment-list">
             <?php if ( have_rows( 'results' ) ) : while ( have_rows( 'results' ) ) : the_row(); ?>
               <li><i class="fas fa-circle-check"></i> <?php echo esc_html( get_sub_field( 'text' ) ); ?></li>
@@ -143,51 +140,51 @@ get_header();
           </ul>
           <div class="hairloss-treatment-details">
             <div class="detail"><span class="label">Duration</span><span class="value"><?php echo esc_html( get_sub_field( 'duration' ) ); ?></span></div>
-            <div class="detail"><span class="label">Price</span><span class="value"><?php echo esc_html( get_sub_field( 'price' ) ); ?></span></div>
+            <div class="detail"><span class="label">Where</span><span class="value"><?php echo esc_html( get_sub_field( 'price' ) ); ?></span></div>
           </div>
           <a href="<?php echo esc_url( dp_field( 'hl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button <?php echo $is_featured ? 'primary-cta' : 'secondary-cta'; ?> hairloss-treatment-btn"><?php echo esc_html( get_sub_field( 'button_text' ) ?: 'Book Now' ); ?></a>
         </div>
       <?php endwhile; else : ?>
-        <!-- Default: Finasteride -->
+        <!-- Default: consultation for men -->
         <div class="hairloss-treatment-card">
           <div class="hairloss-treatment-glow"></div>
-          <div class="hairloss-treatment-badge prescription">PRESCRIPTION REQUIRED</div>
-          <h3 class="hairloss-treatment-title">Finasteride 1mg Tablets</h3>
-          <p class="hairloss-treatment-subtitle">Most effective treatment for male pattern baldness</p>
+          <div class="hairloss-treatment-badge prescription">PHARMACIST CONSULTATION</div>
+          <h3 class="hairloss-treatment-title">Hair Loss Consultation for Men</h3>
+          <p class="hairloss-treatment-subtitle">For men aged 18 and over with thinning hair or a receding hairline</p>
           <div class="hairloss-treatment-divider"></div>
           <h4 class="hairloss-treatment-heading">How It Works</h4>
-          <p class="hairloss-treatment-text">Blocks the enzyme that converts testosterone to DHT, preventing further hair follicle shrinkage.</p>
-          <h4 class="hairloss-treatment-heading">Results</h4>
+          <p class="hairloss-treatment-text">Our pharmacist talks with you about your hair loss and your health, explains the options and their side effects, and can supply treatment the same day if it is suitable for you.</p>
+          <h4 class="hairloss-treatment-heading">What to expect</h4>
           <ul class="hairloss-treatment-list">
-            <li><i class="fas fa-circle-check"></i> Stops hair loss in 90% of men</li>
-            <li><i class="fas fa-circle-check"></i> Regrows hair in 65% of users</li>
-            <li><i class="fas fa-circle-check"></i> Visible results in 3-6 months</li>
+            <li><i class="fas fa-circle-check"></i> A private, face-to-face consultation</li>
+            <li><i class="fas fa-circle-check"></i> Clear information on the options, including side effects</li>
+            <li><i class="fas fa-circle-check"></i> Treatment only if it is right for you</li>
           </ul>
           <div class="hairloss-treatment-details">
-            <div class="detail"><span class="label">Duration</span><span class="value">Ongoing (daily tablet)</span></div>
-            <div class="detail"><span class="label">Price</span><span class="value">&pound;25/month</span></div>
+            <div class="detail"><span class="label">Duration</span><span class="value">15 minutes</span></div>
+            <div class="detail"><span class="label">Where</span><span class="value">In the pharmacy</span></div>
           </div>
           <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="cta-button primary-cta hairloss-treatment-btn">Book Consultation</a>
         </div>
-        <!-- Default: Minoxidil -->
+        <!-- Default: advice for women and men -->
         <div class="hairloss-treatment-card">
-          <div class="hairloss-treatment-badge otc">AVAILABLE OTC</div>
-          <h3 class="hairloss-treatment-title">Minoxidil Solution</h3>
-          <p class="hairloss-treatment-subtitle">Topical treatment to stimulate hair growth</p>
+          <div class="hairloss-treatment-badge otc">PHARMACY ADVICE</div>
+          <h3 class="hairloss-treatment-title">Hair Loss Advice for Women and Men</h3>
+          <p class="hairloss-treatment-subtitle">Thinning hair, shedding or bald patches</p>
           <div class="hairloss-treatment-divider"></div>
           <h4 class="hairloss-treatment-heading">How It Works</h4>
-          <p class="hairloss-treatment-text">Applied directly to scalp, increases blood flow to hair follicles and extends the growth phase.</p>
-          <h4 class="hairloss-treatment-heading">Results</h4>
+          <p class="hairloss-treatment-text">Hair loss has several causes, and some need a GP. Our pharmacist will talk through what may be behind yours, explain options you can buy from a pharmacy without a prescription, and tell you when to see your GP.</p>
+          <h4 class="hairloss-treatment-heading">What to expect</h4>
           <ul class="hairloss-treatment-list">
-            <li><i class="fas fa-circle-check"></i> Works for crown and hairline</li>
-            <li><i class="fas fa-circle-check"></i> Regrows hair in 40% of users</li>
-            <li><i class="fas fa-circle-check"></i> Visible results in 4-6 months</li>
+            <li><i class="fas fa-circle-check"></i> Advice on possible causes</li>
+            <li><i class="fas fa-circle-check"></i> Pharmacy options explained, with their side effects</li>
+            <li><i class="fas fa-circle-check"></i> Referral to your GP when that is the right step</li>
           </ul>
           <div class="hairloss-treatment-details">
-            <div class="detail"><span class="label">Duration</span><span class="value">Ongoing (twice daily)</span></div>
-            <div class="detail"><span class="label">Price</span><span class="value">&pound;15-30/month</span></div>
+            <div class="detail"><span class="label">Duration</span><span class="value">No appointment needed</span></div>
+            <div class="detail"><span class="label">Where</span><span class="value">In the pharmacy</span></div>
           </div>
-          <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="cta-button secondary-cta hairloss-treatment-btn">Visit In-Store</a>
+          <a href="<?php echo esc_url( dp_booking_url() ); ?>" class="cta-button secondary-cta hairloss-treatment-btn">Visit in Store</a>
         </div>
       <?php endif; ?>
     </div>
@@ -204,7 +201,7 @@ get_header();
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'hl_process_badge', 'HOW IT WORKS' ) ); ?></span>
       </div>
-      <h2 class="hairloss-process-title"><?php echo esc_html( dp_field( 'hl_process_title_line1', 'Your Hair Loss Treatment' ) ); ?> <span class="gradient-text"><?php echo esc_html( dp_field( 'hl_process_title_highlight', 'Journey' ) ); ?></span></h2>
+      <h2 class="hairloss-process-title"><?php echo esc_html( dp_field( 'hl_process_title_line1', 'How Your' ) ); ?> <span class="gradient-text"><?php echo esc_html( dp_field( 'hl_process_title_highlight', 'Consultation Works' ) ); ?></span></h2>
     </div>
     <div class="hairloss-process-grid">
       <?php if ( have_rows( 'hl_process_steps' ) ) : $step_num = 0; while ( have_rows( 'hl_process_steps' ) ) : the_row(); $step_num++; ?>
@@ -239,7 +236,7 @@ get_header();
           <div class="number">3</div>
           <div class="icon"><i class="fas fa-file-medical"></i></div>
           <h3>Treatment Plan</h3>
-          <p>Receive personalised recommendation. Prescription issued if suitable for Finasteride</p>
+          <p>Receive a personalised recommendation. If a prescription-only treatment is suitable, our pharmacist can supply it the same day. Tablet treatment is for men aged 18 and over</p>
           <span class="time-badge">Same day</span>
           <div class="arrow desktop-only"><i class="fas fa-arrow-right"></i></div>
         </div>
@@ -247,13 +244,13 @@ get_header();
           <div class="number">4</div>
           <div class="icon"><i class="fas fa-rotate"></i></div>
           <h3>Ongoing Support</h3>
-          <p>Regular check-ins to monitor progress, adjust treatment, and review results</p>
-          <span class="time-badge">3-6 month reviews</span>
+          <p>Regular check-ins to see how you are getting on, check for side effects and decide together whether to carry on</p>
+          <span class="time-badge">Reviews at least every 3 months</span>
         </div>
       <?php endif; ?>
     </div>
     <div class="hairloss-process-cta">
-      <a href="<?php echo esc_url( dp_field( 'hl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta"><?php echo esc_html( dp_field( 'hl_process_cta_text', 'Start Your Journey' ) ); ?></a>
+      <a href="<?php echo esc_url( dp_field( 'hl_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta"><?php echo esc_html( dp_field( 'hl_process_cta_text', 'Book Your Consultation' ) ); ?></a>
     </div>
   </div>
 </section>
@@ -286,18 +283,18 @@ get_header();
         <div class="hairloss-faq-item">
           <button class="hairloss-faq-btn" onclick="toggleFAQ(this)">
             <span class="num">01</span>
-            <span class="text">How long until I see results?</span>
+            <span class="text">How long before I know if a treatment is working?</span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </button>
-          <div class="hairloss-faq-content"><p>Finasteride typically shows results in 3-6 months. Minoxidil in 4-6 months. Maximum results appear after 12-18 months of consistent use. Hair loss should stop within 3 months.</p></div>
+          <div class="hairloss-faq-content"><p>It varies from person to person, and not everyone responds. Treatments for pattern hair loss usually need several months of daily use before you can tell whether they are working. Your pharmacist will explain what to expect for any option that suits you.</p></div>
         </div>
         <div class="hairloss-faq-item">
           <button class="hairloss-faq-btn" onclick="toggleFAQ(this)">
             <span class="num">02</span>
-            <span class="text">Do I need a prescription for these treatments?</span>
+            <span class="text">Do I need a prescription?</span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </button>
-          <div class="hairloss-faq-content"><p>Finasteride requires a prescription after pharmacist consultation. Minoxidil is available over-the-counter without prescription, though we recommend a consultation to ensure suitability.</p></div>
+          <div class="hairloss-faq-content"><p>Some hair loss treatments are prescription-only medicines. You do not need to bring a prescription: our pharmacist can supply a prescription-only treatment after a face-to-face consultation, for men aged 18 and over, and only if it is suitable for you. Other options can be bought from a pharmacy without a prescription, and we still recommend talking to our pharmacist first.</p></div>
         </div>
         <div class="hairloss-faq-item">
           <button class="hairloss-faq-btn" onclick="toggleFAQ(this)">
@@ -305,7 +302,7 @@ get_header();
             <span class="text">Are there side effects?</span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </button>
-          <div class="hairloss-faq-content"><p>Like all medicines, finasteride can cause side effects, although not everyone gets them.</p><p><strong>Sexual side effects.</strong> These include lower sex drive, difficulty getting or keeping an erection, and problems with ejaculation, such as less semen. The patient leaflet says these affect up to 1 in 100 men. They may go away with time or when you stop finasteride, but in some men they have carried on after stopping. Please talk to us or your GP if you notice any of these.</p><p><strong>Mood, depression and suicidal thoughts.</strong> Finasteride has been linked to low mood, depression and, less often, suicidal thoughts. Before you start, tell our pharmacist if you have ever had depression or suicidal thoughts. If you notice low mood, depression or suicidal thoughts while taking it, stop taking it straight away and contact your doctor or our pharmacist as soon as possible. If you have seriously harmed yourself or feel at risk of serious harm, call 999 straight away. Changes in mood can be hard to spot in yourself, so it helps to tell family or friends that you are taking it.</p><p><strong>Other things to know.</strong> Tell your doctor promptly about any breast changes, such as lumps, pain, swelling or nipple discharge. Women who are pregnant or may become pregnant should not handle crushed or broken tablets. Finasteride can lower the result of a PSA blood test, so tell your doctor you take it if you have this test.</p><p><strong>Patient card.</strong> Each pack contains a patient card about these side effects. Please read it, keep it with you, and read the leaflet in the pack. You can report side effects through the MHRA Yellow Card scheme.</p><p><strong>Minoxidil.</strong> Scalp irritation, itching or dryness, headache, and unwanted hair growth on the face or body. Hair shedding can increase for a short time when you start. Stop using it and see a doctor if you get chest pain, a fast heartbeat, faintness or dizziness, sudden weight gain, or swollen hands or feet.</p><p>We'll go through all of this at your consultation.</p></div>
+          <div class="hairloss-faq-content"><p>Like all medicines, the prescription tablet for male pattern hair loss can cause side effects, although not everyone gets them.</p><p><strong>Sexual side effects.</strong> These include lower sex drive, difficulty getting or keeping an erection, and problems with ejaculation, such as less semen. The patient leaflet says these affect up to 1 in 100 men. They may go away with time or when you stop the tablet, but in some men they have carried on after stopping. Please talk to us or your GP if you notice any of these.</p><p><strong>Mood, depression and suicidal thoughts.</strong> The tablet has been linked to low mood, depression and, less often, suicidal thoughts. Before you start, tell our pharmacist if you have ever had depression or suicidal thoughts. If you notice low mood, depression or suicidal thoughts while taking it, stop taking it straight away and contact your doctor or our pharmacist as soon as possible. If you have seriously harmed yourself or feel at risk of serious harm, call 999 straight away. Changes in mood can be hard to spot in yourself, so it helps to tell family or friends that you are taking it.</p><p><strong>Other things to know.</strong> Tell your doctor promptly about any breast changes, such as lumps, pain, swelling or nipple discharge. Women who are pregnant or may become pregnant should not handle crushed or broken tablets. The tablet can lower the result of a PSA blood test, so tell your doctor you take it if you have this test.</p><p><strong>Patient card.</strong> Each pack contains a patient card about these side effects. Please read it, keep it with you, and read the leaflet in the pack. You can report side effects through the MHRA Yellow Card scheme.</p><p><strong>Scalp lotion or foam (sold without a prescription).</strong> Scalp irritation, itching or dryness, headache, and unwanted hair growth on the face or body. Hair shedding can increase for a short time when you start. Stop using it and see a doctor if you get chest pain, a fast heartbeat, faintness or dizziness, sudden weight gain, or swollen hands or feet.</p><p>We'll go through all of this at your consultation.</p></div>
         </div>
         <div class="hairloss-faq-item">
           <button class="hairloss-faq-btn" onclick="toggleFAQ(this)">
@@ -313,23 +310,23 @@ get_header();
             <span class="text">What happens if I stop treatment?</span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </button>
-          <div class="hairloss-faq-content"><p>Hair loss will gradually resume within 3-6 months of stopping treatment. These are ongoing treatments &mdash; results are maintained only with continued use.</p></div>
+          <div class="hairloss-faq-content"><p>The benefit of treatments for pattern hair loss lasts only while you keep using them. If you stop, any benefit is usually lost again over the following months. Your pharmacist will explain this before you start.</p></div>
         </div>
         <div class="hairloss-faq-item">
           <button class="hairloss-faq-btn" onclick="toggleFAQ(this)">
             <span class="num">05</span>
-            <span class="text">Can I use both treatments together?</span>
+            <span class="text">Can treatments be combined?</span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </button>
-          <div class="hairloss-faq-content"><p>Yes! Combining Finasteride and Minoxidil provides the best results with success rates up to 85%. This is often recommended for maximum effectiveness.</p></div>
+          <div class="hairloss-faq-content"><p>Sometimes. Whether a combination is suitable depends on you, and our pharmacist will advise at your consultation.</p></div>
         </div>
         <div class="hairloss-faq-item">
           <button class="hairloss-faq-btn" onclick="toggleFAQ(this)">
             <span class="num">06</span>
-            <span class="text">Why choose <?php echo esc_html( dp_pharmacy_name() ); ?> over online providers?</span>
+            <span class="text">Why see a pharmacist in person?</span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </button>
-          <div class="hairloss-faq-content"><p>Face-to-face assessment ensures treatment suitability. Ongoing local support and monitoring. Immediate access to professional advice. No waiting for postal delivery &mdash; collect same day.</p></div>
+          <div class="hairloss-faq-content"><p>You can talk face to face with a pharmacist who can see your hair loss for themselves, ask about your health and answer your questions there and then. You also get ongoing local support, and if treatment is suitable you can usually take it home the same day.</p></div>
         </div>
       <?php endif; ?>
     </div>
@@ -373,7 +370,7 @@ get_header();
 <section class="hairloss-cta-section">
   <div class="section-container">
     <div class="hairloss-cta-content">
-      <h2 class="hairloss-cta-title"><?php echo esc_html( dp_field( 'hl_cta_title', 'Ready to Start Your Hair Regrowth Journey?' ) ); ?></h2>
+      <h2 class="hairloss-cta-title"><?php echo esc_html( dp_field( 'hl_cta_title', 'Ready to Talk About Your Hair Loss?' ) ); ?></h2>
       <p class="hairloss-cta-desc"><?php echo esc_html( dp_field( 'hl_cta_description', 'Book a confidential consultation with our GPhC-registered pharmacist in ' . dp_option( 'pharmacy_town', 'Denton' ) ) ); ?></p>
       <div class="hairloss-cta-actions">
         <a href="<?php echo esc_url( dp_field( 'hl_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta hairloss-cta-btn-book">
