@@ -5504,7 +5504,7 @@ function dp_register_acf_field_groups() {
         'title'    => 'Vaccination — Hero',
         'fields'   => array(
             array( 'key' => 'field_dp_vaccine_name', 'label' => 'Vaccine Name', 'name' => 'vaccine_name', 'type' => 'text', 'instructions' => 'e.g. Rabies, Hepatitis, Typhoid' ),
-            array( 'key' => 'field_dp_vaccine_parent_url', 'label' => 'Parent Page URL', 'name' => 'vaccine_parent_url', 'type' => 'url', 'default_value' => '/travel-health/' ),
+            array( 'key' => 'field_dp_vaccine_parent_url', 'label' => 'Parent Page URL', 'name' => 'vaccine_parent_url', 'type' => 'url', 'default_value' => '/travel-clinic-manchester/' ),
             array( 'key' => 'field_dp_vaccine_hero_image', 'label' => 'Hero Background Image', 'name' => 'vaccine_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
             array( 'key' => 'field_dp_vaccine_hero_label', 'label' => 'Hero Label', 'name' => 'vaccine_hero_label', 'type' => 'text', 'default_value' => 'TRAVEL HEALTH PROTECTION' ),
             array( 'key' => 'field_dp_vaccine_hero_title', 'label' => 'Hero Title', 'name' => 'vaccine_hero_title', 'type' => 'text' ),
@@ -5857,7 +5857,7 @@ function dp_register_acf_field_groups() {
         'key'      => 'group_dp_yf_hero',
         'title'    => 'Yellow Fever — Hero',
         'fields'   => array(
-            array( 'key' => 'field_dp_yf_parent_url', 'label' => 'Parent Page URL', 'name' => 'yf_parent_url', 'type' => 'url', 'default_value' => '/travel-health/' ),
+            array( 'key' => 'field_dp_yf_parent_url', 'label' => 'Parent Page URL', 'name' => 'yf_parent_url', 'type' => 'url', 'default_value' => '/travel-clinic-manchester/' ),
             array( 'key' => 'field_dp_yf_hero_image', 'label' => 'Hero Background Image', 'name' => 'yf_hero_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
             array( 'key' => 'field_dp_yf_hero_label', 'label' => 'Hero Label', 'name' => 'yf_hero_label', 'type' => 'text', 'default_value' => 'OFFICIAL YELLOW FEVER CENTRE' ),
             array( 'key' => 'field_dp_yf_hero_title', 'label' => 'Hero Title', 'name' => 'yf_hero_title', 'type' => 'text', 'default_value' => 'Yellow Fever Vaccination Service in Denton' ),

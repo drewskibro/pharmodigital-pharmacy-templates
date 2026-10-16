@@ -14,7 +14,7 @@ get_header();
   <div class="section-container">
     <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
     <span class="separator">/</span>
-    <a href="<?php echo esc_url( bp_field( 'yf_parent_url', home_url( '/travel-health/' ) ) ); ?>">Travel Health</a>
+    <a href="<?php echo esc_url( bp_field( 'yf_parent_url', home_url( '/travel-clinic/' ) ) ); ?>">Travel Health</a>
     <span class="separator">/</span>
     <span class="current">Yellow Fever Vaccination</span>
   </div>
