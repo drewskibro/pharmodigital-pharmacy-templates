@@ -22,7 +22,7 @@ $description = bp_field( 'treatments_description', 'Expert-led treatments and NH
 $default_treatments = array(
     array(
         'treatment_title'    => 'Weight Loss',
-        'treatment_subtitle' => 'GLP-1 treatments',
+        'treatment_subtitle' => 'Consultation & support',
         'treatment_url'      => home_url( '/weight-loss/' ),
         'treatment_image_id' => 0,
     ),

@@ -63,13 +63,15 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
           </a>
         </div>
 
-        <!-- Testimonial Card -->
+        <!-- Testimonial Card: shown only when a quote is saved on this page. No default quote, so clearing the field hides the card. -->
+        <?php $wl_hero_quote = function_exists( 'get_field' ) ? trim( (string) get_field( 'wl_hero_testimonial_quote' ) ) : ''; ?>
+        <?php if ( '' !== $wl_hero_quote ) : ?>
         <div class="wl-hero-testimonial">
           <div class="wl-hero-testimonial-quote-icon">
             <i class="fas fa-quote-left"></i>
           </div>
           <p class="wl-hero-testimonial-quote">
-            <?php echo esc_html( dp_field( 'wl_hero_testimonial_quote', '"I travel 40 miles every month to see Ahmed for my weight loss consultations—he\'s that good. Would never go anywhere else."' ) ); ?>
+            <?php echo esc_html( $wl_hero_quote ); ?>
           </p>
           <div class="wl-hero-testimonial-footer">
             <div class="wl-hero-testimonial-author">
@@ -85,6 +87,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
             </div>
           </div>
         </div>
+        <?php endif; ?>
       </div>
 
       <!-- Right: Image Grid -->
@@ -394,7 +397,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         ),
         array(
             'title'       => 'Reach your goals',
-            'description' => 'With consistent support and proven medical treatments, most patients reach their target weight within 12 months. We\'ll help you maintain results long-term.',
+            'description' => 'Results vary from person to person. We\'ll help you maintain results long-term.',
             'icon'        => 'fas fa-trophy',
             'meta'        => 'Ongoing maintenance support',
             'meta_icon'   => 'fas fa-infinity',
@@ -569,7 +572,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
             <i class="fas fa-plus wl-faq-icon"></i>
           </button>
           <div class="wl-faq-answer">
-            <p>Most patients see significant results within 3-6 months and reach their target weight within 12 months. However, weight loss is a journey, not a sprint. We'll work with you to create a sustainable plan that fits your lifestyle. Many patients continue treatment for 12-18 months to achieve and maintain their goals.</p>
+            <p>Results vary from person to person. Weight loss is a journey, not a sprint. We'll work with you to create a sustainable plan that fits your lifestyle. Many patients continue treatment for 12-18 months to achieve and maintain their goals.</p>
           </div>
         </div>
       <?php endif; ?>

@@ -394,7 +394,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         ),
         array(
             'title'       => 'Reach your goals',
-            'description' => 'With consistent support and proven medical treatments, most patients reach their target weight within 12 months. We\'ll help you maintain results long-term.',
+            'description' => 'Results vary from person to person. We\'ll help you maintain results long-term.',
             'icon'        => 'fas fa-trophy',
             'meta'        => 'Ongoing maintenance support',
             'meta_icon'   => 'fas fa-infinity',
@@ -569,7 +569,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
             <i class="fas fa-plus wl-faq-icon"></i>
           </button>
           <div class="wl-faq-answer">
-            <p>Most patients see significant results within 3-6 months and reach their target weight within 12 months. However, weight loss is a journey, not a sprint. We'll work with you to create a sustainable plan that fits your lifestyle. Many patients continue treatment for 12-18 months to achieve and maintain their goals.</p>
+            <p>Results vary from person to person. Weight loss is a journey, not a sprint. We'll work with you to create a sustainable plan that fits your lifestyle. Many patients continue treatment for 12-18 months to achieve and maintain their goals.</p>
           </div>
         </div>
       <?php endif; ?>

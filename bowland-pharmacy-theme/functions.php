@@ -126,8 +126,8 @@ function bowland_pharmacy_scripts() {
     if ( is_single() ) {
         wp_enqueue_style( 'bowland-blog', BOWLAND_PHARMACY_URI . '/assets/css/blog.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
         wp_enqueue_script( 'bowland-blog-js', BOWLAND_PHARMACY_URI . '/assets/js/blog.js', array(), BOWLAND_PHARMACY_VERSION, true );
-        wp_enqueue_style( 'bowland-mj-calc', BOWLAND_PHARMACY_URI . '/assets/css/mounjaro-calculator.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
-        wp_enqueue_script( 'bowland-mj-calc-js', BOWLAND_PHARMACY_URI . '/assets/js/mounjaro-calculator.js', array(), BOWLAND_PHARMACY_VERSION, true );
+        wp_enqueue_style( 'bowland-wl-calc', BOWLAND_PHARMACY_URI . '/assets/css/weight-loss-calculator.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
+        wp_enqueue_script( 'bowland-wl-calc-js', BOWLAND_PHARMACY_URI . '/assets/js/weight-loss-calculator.js', array(), BOWLAND_PHARMACY_VERSION, true );
     }
 
     if ( is_page_template( 'page-templates/page-nhs-services.php' ) ) {
