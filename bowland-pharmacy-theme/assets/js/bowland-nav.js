@@ -150,8 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
           'weight loss': '/weight-loss/',
           'weight': '/weight-loss/',
           'obesity': '/weight-loss/',
-          'wegovy': '/weight-loss/',
-          'mounjaro': '/weight-loss/',
           'travel': '/travel-clinic/',
           'travel health': '/travel-clinic/',
           'travel vaccines': '/travel-clinic/',

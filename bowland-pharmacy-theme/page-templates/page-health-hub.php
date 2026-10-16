@@ -126,7 +126,7 @@ $default_cats = array(
     array(
         'title'       => 'Weight Loss Journeys',
         'label'       => 'WEIGHT LOSS',
-        'description' => 'GLP-1 medications, side effects management, nutrition guides, and real patient experiences',
+        'description' => 'What a clinical assessment involves, nutrition and activity guides, and realistic goal setting',
         'url'         => add_query_arg( 'category', 'weight-loss', get_permalink() ),
         'image_id'    => 0,
     ),

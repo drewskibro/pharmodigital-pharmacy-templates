@@ -32,7 +32,7 @@ if ( ! $sp_hero_image_url ) {
 // --- Testimonial ---
 $sp_testi_quote  = bp_field( 'sp_hero_testimonial_text', bp_option( 'superintendent_pharmacist', 'Our pharmacist' ) . ' genuinely cares about your progress. The face-to-face support makes all the difference.' );
 $sp_testi_name   = bp_field( 'sp_hero_testimonial_name', bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' Patient' );
-$sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
+$sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from person to person' );
 ?>
 
 <section class="switch-hero-section switch-reveal">
@@ -617,12 +617,15 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', '3 Stone Lost' );
 <?php
 $sp_band_image_id = bp_field( 'sp_band_image' );
 $sp_band_image_url = $sp_band_image_id ? wp_get_attachment_image_url( $sp_band_image_id, 'full' ) : '';
-$sp_band_quote     = bp_field( 'sp_band_quote', 'I was with a national provider for months and felt like just a number. Switching to ' . bp_option( 'superintendent_pharmacist', 'our pharmacist' ) . ' at ' . bp_pharmacy_name() . ' changed everything — real face-to-face care, no waiting lists, and I\'ve lost 3 stone in 4 months.' );
+// No default quote: a review is shown only when one is saved on the page.
+$sp_band_quote     = trim( (string) bp_field( 'sp_band_quote', '' ) );
 $sp_band_author    = bp_field( 'sp_band_author', 'Sarah M.' );
-$sp_band_result    = bp_field( 'sp_band_result', '3 Stone Lost' );
+$sp_band_result    = bp_field( 'sp_band_result', 'Results vary from person to person' );
 $sp_band_location  = bp_field( 'sp_band_location', 'Switched from National Provider' );
 $sp_band_stat_num  = bp_field( 'sp_band_stat_number', '95%' );
 $sp_band_stat_text = bp_field( 'sp_band_stat_label', 'of patients recommend switching to ' . bp_pharmacy_name() );
+// Hidden on Bowland (Ahmed, 16 Oct 2026): no patient quote in the band. The saved text stays in WordPress.
+$sp_band_show_quote = false;
 ?>
 
 <section class="switch-band-section switch-reveal">
@@ -635,15 +638,16 @@ $sp_band_stat_text = bp_field( 'sp_band_stat_label', 'of patients recommend swit
   </div>
 
   <div class="section-container">
-    <div class="switch-band-grid">
+    <div class="switch-band-grid"<?php echo $sp_band_show_quote ? '' : ' style="grid-template-columns:1fr"'; ?>>
 
       <!-- Left: Stat callout -->
-      <div class="switch-band-stat">
+      <div class="switch-band-stat"<?php echo $sp_band_show_quote ? '' : ' style="text-align:center"'; ?>>
         <span class="switch-band-stat-number"><?php echo esc_html( $sp_band_stat_num ); ?></span>
         <span class="switch-band-stat-label"><?php echo esc_html( $sp_band_stat_text ); ?></span>
       </div>
 
       <!-- Right: Testimonial card -->
+      <?php if ( $sp_band_show_quote ) : ?>
       <div class="switch-band-testimonial">
         <div class="switch-band-quote-icon">
           <i class="fas fa-quote-left"></i>
@@ -665,6 +669,7 @@ $sp_band_stat_text = bp_field( 'sp_band_stat_label', 'of patients recommend swit
           <?php endif; ?>
         </div>
       </div>
+      <?php endif; ?>
 
     </div>
   </div>

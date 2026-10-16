@@ -1,6 +1,6 @@
 // ============================================
-// MOUNJARO WEIGHT LOSS CALCULATOR
-// [mounjaro_calculator] shortcode — standalone JS
+// WEIGHT LOSS CALCULATOR
+// [weight_loss_calculator] shortcode (old alias still registered), standalone JS
 // Loaded on any page that uses the shortcode
 // ============================================
 (function () {

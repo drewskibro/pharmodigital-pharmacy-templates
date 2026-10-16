@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Mounjaro calculator JS moved to mounjaro-calculator.js
+  // Weight loss calculator JS moved to weight-loss-calculator.js
 
   // FAQ accordion toggle
   var faqButtons = document.querySelectorAll('.article-faq-question');
