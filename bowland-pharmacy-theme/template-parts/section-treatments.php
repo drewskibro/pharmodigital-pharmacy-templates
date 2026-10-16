@@ -29,7 +29,7 @@ $default_treatments = array(
     array(
         'treatment_title'    => 'Travel Health',
         'treatment_subtitle' => 'Vaccinations & advice',
-        'treatment_url'      => home_url( '/travel-health/' ),
+        'treatment_url'      => home_url( '/travel-clinic/' ),
         'treatment_image_id' => 0,
     ),
     array(

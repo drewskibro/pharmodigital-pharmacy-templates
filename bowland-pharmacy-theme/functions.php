@@ -438,6 +438,40 @@ function bp_field( $field_name, $default = '' ) {
 }
 
 /**
+ * Live address for links saved under a page's old address.
+ * Saved ACF fields (hero buttons, Book page cards, travel vaccine cards,
+ * breadcrumbs) still hold /travel-health/, which 301s to the travel page.
+ * Google lists every such link as "Page with redirect", so swap it here,
+ * whether the field holds a plain URL or an ACF link array.
+ */
+function bp_live_url( $url ) {
+    if ( ! is_string( $url ) || $url === '' ) {
+        return $url;
+    }
+    $moved = array(
+        '/travel-health' => '/travel-clinic/',
+        '/yellow-fever-manchester' => '/yellow-fever-manchester/',
+    );
+    $parts = wp_parse_url( $url );
+    if ( ! $parts || isset( $parts['query'] ) || isset( $parts['fragment'] ) || ! isset( $parts['path'] ) ) {
+        return $url;
+    }
+    if ( isset( $parts['host'] ) && $parts['host'] !== wp_parse_url( home_url(), PHP_URL_HOST ) ) {
+        return $url;
+    }
+    $path = untrailingslashit( $parts['path'] );
+    return isset( $moved[ $path ] ) ? home_url( $moved[ $path ] ) : $url;
+}
+
+add_filter( 'acf/format_value', function ( $value ) {
+    if ( is_array( $value ) && isset( $value['url'] ) ) {
+        $value['url'] = bp_live_url( $value['url'] );
+        return $value;
+    }
+    return bp_live_url( $value );
+}, 20 );
+
+/**
  * Helper: Ensure Font Awesome icon class has a style prefix.
  * Users often enter just "fa-file-medical" but FA6 requires "fas fa-file-medical".
  * This auto-prefixes "fas " (solid) when no style prefix is present.

@@ -41,7 +41,7 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
     $cta_text = bp_field( 'revslider_placeholder_cta_text', 'Book Travel Clinic' );
     $cta_url  = bp_field( 'revslider_placeholder_cta_url' );
     if ( ! $cta_url ) {
-        $cta_url = bp_booking_url() ?: home_url( '/travel-health/' );
+        $cta_url = bp_booking_url() ?: home_url( '/travel-clinic/' );
     }
     $cta_url = bp_booking_anchor( $cta_url, $cta_text );
 

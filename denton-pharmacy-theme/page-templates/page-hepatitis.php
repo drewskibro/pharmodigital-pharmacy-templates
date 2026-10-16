@@ -23,7 +23,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
     <div class="section-container">
       <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
       <span class="separator">/</span>
-      <a href="<?php echo esc_url(dp_field('vaccine_parent_url', '/travel-health/')); ?>">Travel Health</a>
+      <a href="<?php echo esc_url(dp_field('vaccine_parent_url', '/travel-clinic-manchester/')); ?>">Travel Health</a>
       <span class="separator">/</span>
       <span class="current"><?php echo esc_html($vaccine_name); ?> Vaccination</span>
     </div>
