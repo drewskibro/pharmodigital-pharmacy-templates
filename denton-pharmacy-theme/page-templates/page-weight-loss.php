@@ -140,8 +140,8 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
           <i class="fas fa-users"></i>
         </div>
         <div class="wl-stat-content">
-          <span class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_2_number', dp_option( 'google_review_count', '140+' ) ) ); ?></span>
-          <span class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_2_label', 'Patients Helped' ) ); ?></span>
+          <span class="wl-stat-number"><?php echo esc_html( dp_field( 'wl_stat_2_number', 'Free' ) ); ?></span>
+          <span class="wl-stat-label"><?php echo esc_html( dp_field( 'wl_stat_2_label', 'First consultation' ) ); ?></span>
         </div>
       </div>
 
@@ -215,9 +215,9 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <div class="wl-results-icon">
           <i class="fas fa-user-group"></i>
         </div>
-        <p class="wl-results-number gradient-text"><?php echo esc_html( dp_field( 'wl_results_card3_number', '300+' ) ); ?></p>
-        <p class="wl-results-label"><?php echo esc_html( dp_field( 'wl_results_card3_label', 'Denton residents' ) ); ?></p>
-        <p class="wl-results-sublabel"><?php echo esc_html( dp_field( 'wl_results_card3_sublabel', 'Successfully helped' ) ); ?></p>
+        <p class="wl-results-number gradient-text"><?php echo esc_html( dp_field( 'wl_results_card3_number', 'Free' ) ); ?></p>
+        <p class="wl-results-label"><?php echo esc_html( dp_field( 'wl_results_card3_label', 'First consultation' ) ); ?></p>
+        <p class="wl-results-sublabel"><?php echo esc_html( dp_field( 'wl_results_card3_sublabel', 'With your local pharmacist' ) ); ?></p>
       </div>
     </div>
 
@@ -239,7 +239,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <span class="section-badge-text"><?php echo esc_html( dp_field( 'wl_features_badge', 'Why Choose Us' ) ); ?></span>
       </div>
       <h2 class="wl-features-title"><?php echo esc_html( dp_field( 'wl_features_title', 'The Denton Pharmacy Difference' ) ); ?></h2>
-      <p class="wl-features-description"><?php echo esc_html( dp_field( 'wl_features_description', 'Real face-to-face support. Expert guidance. Proven results.' ) ); ?></p>
+      <p class="wl-features-description"><?php echo esc_html( dp_field( 'wl_features_description', 'Real face-to-face support. Expert guidance. A plan that fits you.' ) ); ?></p>
     </div>
 
     <!-- Feature cards — full-width grid -->
@@ -265,8 +265,8 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         </div>
         <div class="wl-features-card">
           <svg class="wl-features-card-svg" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-          <h3 class="wl-features-card-title">Evidence-based approach</h3>
-          <p class="wl-features-card-description">Clinically-proven treatment combined with tailored nutrition and lifestyle guidance.</p>
+          <h3 class="wl-features-card-title">A whole-person approach</h3>
+          <p class="wl-features-card-description">Treatment, if it is suitable for you, alongside tailored nutrition and lifestyle guidance.</p>
         </div>
       <?php endif; ?>
     </div>
@@ -562,7 +562,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
             <i class="fas fa-plus wl-faq-icon"></i>
           </button>
           <div class="wl-faq-answer">
-            <p>Treatment starts from &pound;50 per month, which includes your medication, monthly face-to-face consultations, and ongoing support. The exact cost depends on which medication you're prescribed and the dosage. We'll discuss pricing transparently during your initial consultation &mdash; no hidden fees, no surprises.</p>
+            <p>Treatment starts from &pound;50 per month. Your consultation is free, and there is no extra charge for your monthly check-ins. The exact cost depends on which treatment, if any, is suitable for you and the dose. We will explain all costs during your consultation, before anything is supplied, with no hidden fees.</p>
           </div>
         </div>
         <div class="wl-faq-item">
@@ -596,7 +596,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <?php echo esc_html( dp_field( 'wl_testimonials_title_start', 'Real Results.' ) ); ?>
         <span class="gradient-text"><?php echo esc_html( dp_field( 'wl_testimonials_title_highlight', 'Lasting Health.' ) ); ?></span>
       </h2>
-      <p class="wl-testimonials-description"><?php echo esc_html( dp_field( 'wl_testimonials_description', 'See how our patients across Denton have transformed their health with personalised weight loss care.' ) ); ?></p>
+      <p class="wl-testimonials-description"><?php echo esc_html( dp_field( 'wl_testimonials_description', 'Hear from our patients about their care with us.' ) ); ?></p>
       <div class="wl-testimonials-disclaimer">
         <i class="fas fa-info-circle"></i>
         <p><strong><?php echo esc_html( dp_field( 'wl_testimonials_transparency_label', 'Transparency Note:' ) ); ?></strong> <?php echo esc_html( dp_field( 'wl_testimonials_disclaimer', 'The results below are from real Denton Pharmacy patients. Individual results may vary.' ) ); ?></p>
@@ -743,7 +743,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <div class="wl-testimonial-cta-glow"></div>
         <div class="wl-testimonial-cta-body">
           <div class="wl-testimonial-cta-content">
-            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( dp_field( 'wl_testimonials_cta_title', 'Trusted by 1,000+ Denton Patients' ) ); ?></h3>
+            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( dp_field( 'wl_testimonials_cta_title', 'Local, face-to-face support' ) ); ?></h3>
             <p class="wl-testimonial-cta-text"><?php echo esc_html( dp_field( 'wl_testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ) ); ?></p>
           </div>
           <div class="wl-testimonial-cta-rating">
@@ -777,7 +777,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         $wl_default_badges = array(
             array( 'badge_icon' => 'fa-shield-halved', 'badge_text' => 'GPhC Registered' ),
             array( 'badge_icon' => 'fa-user-doctor', 'badge_text' => 'Independent Prescriber' ),
-            array( 'badge_icon' => 'fa-users', 'badge_text' => dp_field( 'wl_results_card3_number', '1,000+' ) . ' Patients Helped' ),
+            array( 'badge_icon' => 'fa-users', 'badge_text' => 'Free consultation' ),
         );
         $wl_cta_badges = array();
         if ( function_exists( 'have_rows' ) && have_rows( 'wl_final_cta_badges' ) ) {
@@ -797,7 +797,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
       </div>
 
       <h2 class="wl-final-cta-title"><?php echo esc_html( dp_field( 'wl_final_cta_title', 'Book your weight loss consultation' ) ); ?></h2>
-      <p class="wl-final-cta-description"><?php echo esc_html( dp_field( 'wl_final_cta_description', 'Join 1,000+ patients who have transformed their lives with medical weight loss. Book your face-to-face consultation with our pharmacist today.' ) ); ?></p>
+      <p class="wl-final-cta-description"><?php echo esc_html( dp_field( 'wl_final_cta_description', 'Book a free consultation with our pharmacist to talk through your options and whether treatment is suitable for you.' ) ); ?></p>
 
       <div class="wl-final-cta-actions">
         <a href="#weight-loss-calendar" class="cta-button primary-cta wl-final-cta-button-white">

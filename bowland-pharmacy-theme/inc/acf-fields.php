@@ -3126,8 +3126,8 @@ function bp_register_acf_field_groups() {
         'fields'   => array(
             array( 'key' => 'field_bp_wl_stat_1_number', 'label' => 'Stat 1 — Number', 'name' => 'wl_stat_1_number', 'type' => 'text', 'default_value' => '4.9', 'wrapper' => array( 'width' => '50' ) ),
             array( 'key' => 'field_bp_wl_stat_1_label', 'label' => 'Stat 1 — Label', 'name' => 'wl_stat_1_label', 'type' => 'text', 'default_value' => 'Google Rating', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_bp_wl_stat_2_number', 'label' => 'Stat 2 — Number', 'name' => 'wl_stat_2_number', 'type' => 'text', 'default_value' => '300+', 'wrapper' => array( 'width' => '50' ) ),
-            array( 'key' => 'field_bp_wl_stat_2_label', 'label' => 'Stat 2 — Label', 'name' => 'wl_stat_2_label', 'type' => 'text', 'default_value' => 'Patients Helped', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_bp_wl_stat_2_number', 'label' => 'Stat 2 — Number', 'name' => 'wl_stat_2_number', 'type' => 'text', 'default_value' => 'Free', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_bp_wl_stat_2_label', 'label' => 'Stat 2 — Label', 'name' => 'wl_stat_2_label', 'type' => 'text', 'default_value' => 'First consultation', 'wrapper' => array( 'width' => '50' ) ),
             array( 'key' => 'field_bp_wl_stat_3_number', 'label' => 'Stat 3 — Number', 'name' => 'wl_stat_3_number', 'type' => 'text', 'default_value' => 'GPhC', 'wrapper' => array( 'width' => '50' ) ),
             array( 'key' => 'field_bp_wl_stat_3_label', 'label' => 'Stat 3 — Label', 'name' => 'wl_stat_3_label', 'type' => 'text', 'default_value' => 'Fully Registered', 'wrapper' => array( 'width' => '50' ) ),
             array( 'key' => 'field_bp_wl_stat_4_number', 'label' => 'Stat 4 — Number', 'name' => 'wl_stat_4_number', 'type' => 'text', 'default_value' => '15+', 'wrapper' => array( 'width' => '50' ) ),
@@ -3181,9 +3181,9 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_wl_results_featured_number', 'label' => 'Featured Card — Number', 'name' => 'wl_results_featured_number', 'type' => 'text', 'default_value' => 'Monthly' ),
             array( 'key' => 'field_bp_wl_results_featured_label', 'label' => 'Featured Card — Label', 'name' => 'wl_results_featured_label', 'type' => 'text', 'default_value' => 'Face-to-face reviews' ),
             array( 'key' => 'field_bp_wl_results_featured_sublabel', 'label' => 'Featured Card — Sublabel', 'name' => 'wl_results_featured_sublabel', 'type' => 'text', 'default_value' => 'With your own pharmacist' ),
-            array( 'key' => 'field_bp_wl_results_card3_number', 'label' => 'Card 3 — Number', 'name' => 'wl_results_card3_number', 'type' => 'text', 'default_value' => '300+' ),
-            array( 'key' => 'field_bp_wl_results_card3_label', 'label' => 'Card 3 — Label', 'name' => 'wl_results_card3_label', 'type' => 'text', 'default_value' => 'Wythenshawe residents' ),
-            array( 'key' => 'field_bp_wl_results_card3_sublabel', 'label' => 'Card 3 — Sublabel', 'name' => 'wl_results_card3_sublabel', 'type' => 'text', 'default_value' => 'Successfully helped' ),
+            array( 'key' => 'field_bp_wl_results_card3_number', 'label' => 'Card 3 — Number', 'name' => 'wl_results_card3_number', 'type' => 'text', 'default_value' => 'Free' ),
+            array( 'key' => 'field_bp_wl_results_card3_label', 'label' => 'Card 3 — Label', 'name' => 'wl_results_card3_label', 'type' => 'text', 'default_value' => 'First consultation' ),
+            array( 'key' => 'field_bp_wl_results_card3_sublabel', 'label' => 'Card 3 — Sublabel', 'name' => 'wl_results_card3_sublabel', 'type' => 'text', 'default_value' => 'With your local pharmacist' ),
             array( 'key' => 'field_bp_wl_results_disclaimer', 'label' => 'Disclaimer', 'name' => 'wl_results_disclaimer', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Results vary by individual. Weight loss depends on adherence to treatment, lifestyle changes, and individual metabolism.' ),
         ),
         'location'              => $wl_location,
@@ -3223,7 +3223,7 @@ function bp_register_acf_field_groups() {
         'fields'   => array(
             array( 'key' => 'field_bp_wl_features_badge', 'label' => 'Badge Text', 'name' => 'wl_features_badge', 'type' => 'text', 'default_value' => 'Why Choose Us' ),
             array( 'key' => 'field_bp_wl_features_title_field', 'label' => 'Title', 'name' => 'wl_features_title', 'type' => 'text', 'default_value' => 'The Bowland Pharmacy Difference' ),
-            array( 'key' => 'field_bp_wl_features_description', 'label' => 'Description', 'name' => 'wl_features_description', 'type' => 'text', 'default_value' => 'Real face-to-face support. Expert guidance. Proven results.' ),
+            array( 'key' => 'field_bp_wl_features_description', 'label' => 'Description', 'name' => 'wl_features_description', 'type' => 'text', 'default_value' => 'Real face-to-face support. Expert guidance. A plan that fits you.' ),
             array( 'key' => 'field_bp_wl_features_cta_primary_text', 'label' => 'Primary CTA Text', 'name' => 'wl_features_cta_primary_text', 'type' => 'text', 'default_value' => 'Start Your Journey' ),
             array( 'key' => 'field_bp_wl_features_cta_secondary_text', 'label' => 'Secondary CTA Text', 'name' => 'wl_features_cta_secondary_text', 'type' => 'text', 'default_value' => 'Call Us' ),
             array(
@@ -3371,9 +3371,9 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_wl_testimonials_title', 'label' => 'Title', 'name' => 'wl_testimonials_title', 'type' => 'text', 'default_value' => 'Real Wythenshawe success stories' ),
             array( 'key' => 'field_bp_wl_testimonials_title_start', 'label' => 'Title Start (split)', 'name' => 'wl_testimonials_title_start', 'type' => 'text', 'default_value' => 'Real Results.' ),
             array( 'key' => 'field_bp_wl_testimonials_title_highlight', 'label' => 'Title Highlight (split)', 'name' => 'wl_testimonials_title_highlight', 'type' => 'text', 'default_value' => 'Lasting Health.' ),
-            array( 'key' => 'field_bp_wl_testimonials_description', 'label' => 'Description', 'name' => 'wl_testimonials_description', 'type' => 'text', 'default_value' => 'See how our patients have transformed their lives with medical weight loss' ),
+            array( 'key' => 'field_bp_wl_testimonials_description', 'label' => 'Description', 'name' => 'wl_testimonials_description', 'type' => 'text', 'default_value' => 'Hear from our patients about their care with us.' ),
             array( 'key' => 'field_bp_wl_testimonials_disclaimer', 'label' => 'Disclaimer', 'name' => 'wl_testimonials_disclaimer', 'type' => 'text', 'default_value' => 'The results below are from real Bowland Pharmacy patients. Individual results may vary.' ),
-            array( 'key' => 'field_bp_wl_testimonials_cta_title', 'label' => 'CTA Card Title', 'name' => 'wl_testimonials_cta_title', 'type' => 'text', 'default_value' => 'Trusted by 1,000+ Bowland Patients' ),
+            array( 'key' => 'field_bp_wl_testimonials_cta_title', 'label' => 'CTA Card Title', 'name' => 'wl_testimonials_cta_title', 'type' => 'text', 'default_value' => 'Local, face-to-face support' ),
             array( 'key' => 'field_bp_wl_testimonials_cta_text', 'label' => 'CTA Card Text', 'name' => 'wl_testimonials_cta_text', 'type' => 'text', 'default_value' => 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ),
             array( 'key' => 'field_bp_wl_testimonials_cta_rating_label', 'label' => 'CTA Rating Label', 'name' => 'wl_testimonials_cta_rating_label', 'type' => 'text', 'default_value' => 'Google Rating' ),
             array( 'key' => 'field_bp_wl_testimonials_verified_label', 'label' => 'Verified Label (full)', 'name' => 'wl_testimonials_verified_label', 'type' => 'text', 'default_value' => 'Verified Patient' ),
@@ -3413,7 +3413,7 @@ function bp_register_acf_field_groups() {
         'title'    => 'Weight Loss — Final CTA Section',
         'fields'   => array(
             array( 'key' => 'field_bp_wl_final_cta_title', 'label' => 'Title', 'name' => 'wl_final_cta_title', 'type' => 'text', 'default_value' => 'Ready to start your weight loss journey?' ),
-            array( 'key' => 'field_bp_wl_final_cta_description', 'label' => 'Description', 'name' => 'wl_final_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Join 1,000+ Wythenshawe residents who\'ve transformed their lives with medical weight loss. Book your in-store consultation today.' ),
+            array( 'key' => 'field_bp_wl_final_cta_description', 'label' => 'Description', 'name' => 'wl_final_cta_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Book a free consultation with our pharmacist to talk through your options and whether treatment is suitable for you.' ),
             array( 'key' => 'field_bp_wl_final_cta_button_text', 'label' => 'Primary Button Text', 'name' => 'wl_final_cta_button_text', 'type' => 'text', 'default_value' => 'Book Your Consultation' ),
             array(
                 'key'          => 'field_bp_wl_final_cta_badges',
