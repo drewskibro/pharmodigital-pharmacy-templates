@@ -39,7 +39,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chikungunya');
         </h1>
 
         <p class="chikungunya-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', "Protect yourself before travelling with our chikungunya vaccination service in Denton, Manchester. A single injection recommended for trips to Africa, Asia, the Indian Ocean islands, and Central and South America.")); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', "Protect yourself before travelling with our chikungunya vaccination service in Denton, Manchester. A single injection that may be suitable if you are travelling to an area with chikungunya. Our pharmacist will check your trip.")); ?>
         </p>
 
         <div class="chikungunya-hero-actions">
@@ -124,7 +124,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chikungunya');
           <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'One dose. How long protection lasts is not yet known.')); ?></span>
         </div>
 
-        <h3 class="chikungunya-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Straightforward Protection Before You Travel')); ?></h3>
+        <h3 class="chikungunya-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'A Single-Dose Travel Vaccine')); ?></h3>
         <p class="chikungunya-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', "Chikungunya is a mosquito-borne virus that causes sudden high fever, severe joint pain, muscle aches and a rash, with joint pain sometimes lasting weeks or months. We offer a chikungunya vaccine that is licensed in the UK for people aged 12 and over. It is given as a single injection. Ideally have it at least 2 to 4 weeks before you fly, so protection has time to build up.")); ?></p>
 
         <ul class="chikungunya-protect-features">
@@ -217,10 +217,10 @@ $vaccine_name = dp_field('vaccine_name', 'Chikungunya');
             <p><?php echo esc_html(get_sub_field('description')); ?></p>
           </div>
         <?php endwhile; else : ?>
-          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-mosquito"></i></div><h3>Mosquito-Borne Virus</h3><p>Spread by daytime-biting mosquitoes, with symptoms usually starting 3 to 7 days after a bite.</p></div>
+          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-mosquito"></i></div><h3>Mosquito-Borne Virus</h3><p>Spread by daytime-biting mosquitoes, with symptoms usually starting 4 to 8 days after a bite.</p></div>
           <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-temperature-high"></i></div><h3>Sudden, Severe Symptoms</h3><p>High fever and severe joint pain are typical, along with muscle aches, headache, fatigue and a rash.</p></div>
           <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-earth-africa"></i></div><h3>Found Widely</h3><p>Present across Africa, Asia, the Indian Ocean islands, and Central and South America, including the Caribbean.</p></div>
-          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-shield-virus"></i></div><h3>Preventable</h3><p>A single vaccine dose gives strong protection ahead of higher-risk travel.</p></div>
+          <div class="chikungunya-info-card"><div class="icon"><i class="fas fa-shield-virus"></i></div><h3>Lower Your Risk</h3><p>One vaccine dose can lower your risk. It may not protect everyone, so keep avoiding mosquito bites.</p></div>
         <?php endif; ?>
       </div>
     </div>
@@ -254,13 +254,12 @@ $vaccine_name = dp_field('vaccine_name', 'Chikungunya');
           <div class="nhs-card-icon">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
-          <span class="nhs-card-badge">Recommended For</span>
+          <span class="nhs-card-badge">May Be Suitable For</span>
           <h3 class="nhs-card-title">Travellers to Higher-Risk Regions</h3>
           <p class="nhs-card-desc">Worth considering if you're heading to Africa, Asia, the Indian Ocean islands, or Central and South America.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travel to endemic countries</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Longer or repeat trips</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Outdoor or rural itineraries</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travel to an area with a current outbreak</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Long or frequent trips to areas with chikungunya in the last 5 years</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
@@ -275,7 +274,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chikungunya');
           </div>
           <span class="nhs-card-badge">Especially Useful</span>
           <h3 class="nhs-card-title">Older Travellers &amp; Those With Health Conditions</h3>
-          <p class="nhs-card-desc">Chikungunya can hit harder in older adults and people with existing health conditions, so vaccination is often worth prioritising.</p>
+          <p class="nhs-card-desc">Chikungunya can be more serious in older adults and people with long-term health conditions. The vaccine may work less well from age 65 or with a weakened immune system. Our pharmacist will talk this through with you.</p>
           <ul class="nhs-card-list">
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travellers aged 60+</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Existing joint or health conditions</span></li>
