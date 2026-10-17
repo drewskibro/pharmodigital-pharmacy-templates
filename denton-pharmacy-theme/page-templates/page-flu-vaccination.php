@@ -39,7 +39,7 @@ $elig_items = array(
     array( 'icon' => 'fa-lungs',         'title' => 'Long-term conditions',    'desc' => 'Asthma, COPD, diabetes, heart, kidney or liver disease.' ),
     array( 'icon' => 'fa-hand-holding-heart', 'title' => 'Carers',             'desc' => 'Carers and those receiving Carer\'s Allowance.' ),
     array( 'icon' => 'fa-shield-virus',  'title' => 'Weakened immune system',  'desc' => 'Including people who live with someone immunocompromised.' ),
-    array( 'icon' => 'fa-coins',         'title' => 'Not eligible?',           'desc' => 'Adults aged 18 or over can have it privately for £25.' ),
+    array( 'icon' => 'fa-coins',         'title' => 'Not eligible?',           'desc' => 'People aged 9 and over can have it privately for £25. Under-16s need consent from a parent or legal guardian.' ),
 );
 
 $proc_steps = array(
@@ -49,7 +49,8 @@ $proc_steps = array(
 );
 
 $faqs = array(
-    array( 'q' => 'Is the flu jab free?', 'a' => 'It is free on the NHS for eligible patients. If you are not eligible, adults aged 18 or over can have it privately with us for £25. Most children can have the flu vaccine free on the NHS, so ask us about the NHS child flu route.' ),
+    array( 'q' => 'Is the flu jab free?', 'a' => 'It is free on the NHS for eligible patients. If you are not eligible, people aged 9 and over can have it privately with us for £25 (under-16s need consent from a parent or legal guardian). Most children can have the flu vaccine free on the NHS, so ask us about the NHS child flu route.' ),
+    array( 'q' => 'Can my child have a private flu vaccine?', 'a' => 'Yes, if your child is 9 or over. A private flu vaccination costs £25 and is one injection. Children under 9 cannot have a private flu vaccination with us. If your child is under 16, a parent or legal guardian must give consent. Young people aged 16 or 17 can usually consent for themselves. Before you pay, check whether your child can have it free. In England this winter, the NHS offers the children\'s flu vaccine to children aged 2 or 3 on 31 August 2026, school children from Reception to Year 11 (usually at school), and children aged 6 months to 17 years with certain long-term health conditions. On the NHS most children have a nasal spray, which is the recommended first choice for children. Our private vaccination is an injection, which is a suitable alternative. All vaccinations are subject to a clinical assessment on the day.' ),
     array( 'q' => 'Do I need an appointment?', 'a' => 'You can book a slot or come as a walk-in. We offer flu and COVID vaccinations from 1 October each year, in line with NHS guidance.' ),
     array( 'q' => 'How long does it take to work?', 'a' => 'The flu vaccine takes around 10 to 14 days to take full effect.' ),
     array( 'q' => 'Are there any side effects?', 'a' => 'Most people have only mild effects — a slightly raised temperature or a tender arm — that usually settle within a day.' ),
