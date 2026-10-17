@@ -135,7 +135,7 @@ function denton_pharmacy_scripts() {
     }
 
     if ( is_page_template( 'page-templates/page-book-appointment.php' ) ) {
-        wp_enqueue_style( 'denton-book-appointment', DENTON_PHARMACY_URI . '/assets/css/book-appointment.css', array( 'denton-globals' ), DENTON_PHARMACY_VERSION );
+        wp_enqueue_style( 'denton-book-appointment', DENTON_PHARMACY_URI . '/assets/css/book-appointment.css', array( 'denton-globals' ), filemtime( DENTON_PHARMACY_DIR . '/assets/css/book-appointment.css' ) );
         wp_enqueue_script( 'denton-book-appointment-js', DENTON_PHARMACY_URI . '/assets/js/book-appointment.js', array(), DENTON_PHARMACY_VERSION, true );
     }
 
