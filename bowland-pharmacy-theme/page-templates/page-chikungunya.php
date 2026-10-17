@@ -80,7 +80,6 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
             <div class="chikungunya-trust-card-divider"></div>
             <ul class="chikungunya-trust-card-list">
               <li><i class="fas fa-check"></i> <span>Just one injection</span></li>
-              <li><i class="fas fa-check"></i> <span>Around 2 years' protection</span></li>
               <li><i class="fas fa-check"></i> <span>Same-day appointments</span></li>
             </ul>
             <div class="chikungunya-trust-card-footer">
@@ -122,11 +121,11 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
       <div class="chikungunya-protect-content">
         <div class="chikungunya-protect-badge-box">
           <i class="fas fa-syringe"></i>
-          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'One Injection, Around 2 Years of Protection')); ?></span>
+          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'One dose. How long protection lasts is not yet known.')); ?></span>
         </div>
 
         <h3 class="chikungunya-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'One Jab, Minimal Fuss')); ?></h3>
-        <p class="chikungunya-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Caught by a mosquito bite, chikungunya brings on sudden high fever and joint pain severe enough to stop you in your tracks — and the joint pain can drag on for weeks or months after everything else clears up. The UK currently offers two vaccines, Ixchiq and Vimkunya, both single injections. Book it in 2 to 4 weeks before you fly if you can, to give your protection time to kick in.")); ?></p>
+        <p class="chikungunya-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Caught by a mosquito bite, chikungunya brings on sudden high fever and joint pain severe enough to stop you in your tracks — and the joint pain can drag on for weeks or months after everything else clears up. We offer a chikungunya vaccine that is licensed in the UK for people aged 12 and over. It is given as a single injection. Book it in 2 to 4 weeks before you fly if you can, to give your protection time to kick in.")); ?></p>
 
         <ul class="chikungunya-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -177,8 +176,6 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         </div>
       <?php endwhile; else : ?>
         <div class="chikungunya-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">1 Dose</span><span class="label">Single Injection</span></div></div>
-        <div class="chikungunya-stat-divider"></div>
-        <div class="chikungunya-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">~2 Years</span><span class="label">Protection</span></div></div>
         <div class="chikungunya-stat-divider"></div>
         <div class="chikungunya-stat-item"><div class="icon"><i class="fas fa-clock"></i></div><div class="content"><span class="number">2–4 Weeks</span><span class="label">Before Travel</span></div></div>
         <div class="chikungunya-stat-divider"></div>
@@ -323,6 +320,8 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
     </div>
 
     <p class="chikungunya-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "Covers a single dose. If you're pregnant, breastfeeding, or under 12, we'll need to do an individual risk assessment first — just ask when you book.")); ?></p>
+    <p class="chikungunya-pricing-note">The vaccine will only be given if it is suitable for you after a consultation with our pharmacist.</p>
+    <p class="chikungunya-pricing-note">No vaccine protects everyone, so keep avoiding mosquito bites while you travel.</p>
   </div>
 </section>
 
@@ -350,7 +349,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>One Quick Jab</h3><p>Given in the upper arm — over before you've had time to think about it.</p></div>
         <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-clock"></i></div><h3>Timing Matters</h3><p>Book in 2–4 weeks ahead of travel where you can, for the best protection by the time you fly.</p></div>
         <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side Effects Are Usually Minor</h3><p>A sore arm, mild headache, tiredness or a slight fever for a day or two is typical.</p></div>
-        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-user-check"></i></div><h3>From Age 12</h3><p>Offered to most adults and children from 12, with individual assessment for anyone outside that.</p></div>
+        <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-user-check"></i></div><h3>Licensed from age 12</h3><p>Licensed for people aged 12 and over. Your pharmacist will check it is right for you.</p></div>
         <div class="chikungunya-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private, No GP Needed</h3><p>It's not an NHS service for travel purposes, so book with us directly — no referral required.</p></div>
       <?php endif; ?>
     </div>
@@ -381,7 +380,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is it just the one dose?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>Yes. Both vaccines available in the UK right now — Ixchiq and Vimkunya — are single injections, with no follow-up needed for most people.</p></div></div>
+        <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is it just the one dose?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>Just one. The vaccine is given as a single injection. It is not yet known whether a booster dose will be needed in future.</p></div></div>
         <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How far ahead should I book?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>2 to 4 weeks before you fly is ideal, giving your immune system time to respond. If you're booking later than that, it's still worth having — just come and see us.</p></div></div>
         <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is this actually relevant to where I'm going?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>Depends on the destination. Chikungunya turns up across Africa, Asia, the Indian Ocean islands, and Central and South America — tell our pharmacist your route and length of stay and they'll give you a clear answer.</p></div></div>
         <div class="chikungunya-faq-item"><button class="chikungunya-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Will this also cover dengue or Zika?</span><i class="fas fa-plus icon"></i></button><div class="chikungunya-faq-content"><p>No, it's chikungunya-specific. Dengue, Zika and yellow fever each need their own precautions — ask us and we'll talk you through what applies to your trip.</p></div></div>
