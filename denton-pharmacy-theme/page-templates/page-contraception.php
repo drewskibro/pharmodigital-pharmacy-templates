@@ -37,7 +37,7 @@ $card_sub    = 'on the NHS';
 $card_checks = array(
     'No GP appointment needed',
     'Private consultation room',
-    'Available to anyone aged 16+',
+    'Open to under 16s, upper age limits apply',
 );
 ?>
 
@@ -123,7 +123,7 @@ $elig_items = array(
     array( 'icon' => 'fa-pills',        'title' => 'Starting the pill',     'desc' => 'Begin a new oral contraceptive pill after a consultation with our pharmacist.' ),
     array( 'icon' => 'fa-rotate',       'title' => 'Continuing your pill',   'desc' => 'Get an ongoing supply of the contraceptive pill you already take.' ),
     array( 'icon' => 'fa-clock',        'title' => 'Morning-after pill',     'desc' => 'Emergency hormonal contraception, available the same day if you need it.' ),
-    array( 'icon' => 'fa-user-check',   'title' => 'Aged 16 or over',        'desc' => 'The NHS Pharmacy Contraception Service is available to anyone aged 16 and above.' ),
+    array( 'icon' => 'fa-user-check',   'title' => 'Any age once your periods have started', 'desc' => 'There is no minimum age. Under 16s are asked some extra questions in private, to check the service is right for them. Upper age limits depend on the type of pill.' ),
     array( 'icon' => 'fa-comments',     'title' => 'Want a private chat',    'desc' => 'Discuss your contraception options confidentially, with no referral needed.' ),
 );
 ?>
@@ -195,8 +195,8 @@ $faqs = array(
     array( 'q' => 'Is the service free?', 'a' => 'Yes. The NHS Pharmacy Contraception Service is free for eligible patients.' ),
     array( 'q' => 'Do I need a GP appointment?', 'a' => 'No. You can start or continue your contraceptive pill directly with our pharmacist — no GP appointment or referral needed.' ),
     array( 'q' => 'What contraception can you provide?', 'a' => 'Following a consultation, we can start or repeat oral contraceptive pills — both the combined pill and the progestogen-only (mini) pill. We also provide emergency hormonal contraception (the morning-after pill).' ),
-    array( 'q' => 'Is it confidential?', 'a' => 'Completely. Your consultation takes place privately in our consultation room.' ),
-    array( 'q' => 'What age do I need to be?', 'a' => 'The service is available to anyone aged 16 and over.' ),
+    array( 'q' => 'Is it confidential?', 'a' => 'Yes. Your consultation takes place in private, in our consultation room. We only tell your GP if you agree. Like all NHS services, some details are shared with NHS England and the NHS Business Services Authority, which check and pay for the service. This is the same for under 16s: we will not tell your parents or carers. The only exception is if the pharmacist thinks you or someone else is at risk of harm, when they may need to share information to keep people safe.' ),
+    array( 'q' => 'What age do I need to be?', 'a' => 'There is no minimum age once your periods have started. If you are under 16, the pharmacist will ask some extra questions in private, to check you understand the advice and that the service is right for you. There are upper age limits for the pill, which depend on the type, and the pharmacist will check these with you.' ),
 );
 ?>
 <!-- FAQ -->
