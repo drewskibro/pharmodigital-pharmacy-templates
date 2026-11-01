@@ -31,12 +31,12 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
   <div class="section-container">
     <div class="yellowfever-hero-content">
       <div class="yellowfever-hero-line"></div>
-      <span class="yellowfever-hero-label"><?php echo esc_html( bp_field( 'yf_hero_label', 'OFFICIAL YELLOW FEVER CENTRE' ) ); ?></span>
+      <span class="yellowfever-hero-label"><?php echo esc_html( bp_field( 'yf_hero_label', 'DESIGNATED YELLOW FEVER VACCINATION CENTRE' ) ); ?></span>
 
       <h1 class="yellowfever-hero-title"><?php echo esc_html( bp_field( 'yf_hero_title', 'Yellow Fever Vaccination Service in Wythenshawe' ) ); ?></h1>
 
       <p class="yellowfever-hero-description">
-        <?php echo esc_html( bp_field( 'yf_hero_description', 'We are an official NHS Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Bowland Pharmacy.' ) ); ?>
+        <?php echo esc_html( bp_field( 'yf_hero_description', 'We are a designated Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Bowland Pharmacy.' ) ); ?>
       </p>
 
       <div class="yellowfever-hero-actions">
@@ -52,7 +52,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <?php if ( have_rows( 'yf_hero_badges' ) ) : while ( have_rows( 'yf_hero_badges' ) ) : the_row(); ?>
           <div class="yellowfever-hero-badge"><?php echo esc_html( get_sub_field( 'text' ) ); ?></div>
         <?php endwhile; else : ?>
-          <div class="yellowfever-hero-badge">Official Yellow Fever Centre</div>
+          <div class="yellowfever-hero-badge">Designated Yellow Fever Vaccination Centre</div>
           <div class="yellowfever-hero-badge">ICVP Certificate</div>
           <div class="yellowfever-hero-badge">Same Day Appointments</div>
         <?php endif; ?>
@@ -69,10 +69,10 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
     <div class="yellowfever-cert-header">
       <div class="section-badge">
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        <span class="section-badge-text"><?php echo esc_html( bp_field( 'yf_cert_badge', 'OFFICIAL CENTRE' ) ); ?></span>
+        <span class="section-badge-text"><?php echo esc_html( bp_field( 'yf_cert_badge', 'DESIGNATED CENTRE' ) ); ?></span>
       </div>
       <h2 class="yellowfever-cert-title"><?php echo esc_html( bp_field( 'yf_cert_title', 'Designated Yellow Fever Vaccination Centre' ) ); ?></h2>
-      <p class="yellowfever-cert-desc"><?php echo esc_html( bp_field( 'yf_cert_desc', 'Authorised to administer yellow fever vaccinations and issue international certificates' ) ); ?></p>
+      <p class="yellowfever-cert-desc"><?php echo esc_html( bp_field( 'yf_cert_desc', 'Designated by NaTHNaC to give yellow fever vaccine and issue international certificates' ) ); ?></p>
     </div>
 
     <div class="yellowfever-cert-grid">
@@ -98,7 +98,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       <div class="yellowfever-cert-content">
         <div class="yellowfever-cert-badge-box">
           <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html( bp_field( 'yf_cert_highlight', 'NHS Designated Yellow Fever Centre' ) ); ?></span>
+          <span><?php echo esc_html( bp_field( 'yf_cert_highlight', 'Designated Yellow Fever Vaccination Centre' ) ); ?></span>
         </div>
 
         <h3 class="yellowfever-cert-subtitle"><?php echo esc_html( bp_field( 'yf_cert_subtitle', 'Why Choose Our Centre' ) ); ?></h3>
@@ -116,7 +116,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
           <?php endwhile; else : ?>
             <div class="yellowfever-cert-feature">
               <div class="icon"><i class="fas fa-certificate"></i></div>
-              <div class="text"><strong>NaTHNaC Registered</strong><p>Officially registered with the National Travel Health Network and Centre.</p></div>
+              <div class="text"><strong>NaTHNaC Designated</strong><p>Designated by the National Travel Health Network and Centre.</p></div>
             </div>
             <div class="yellowfever-cert-feature">
               <div class="icon"><i class="fas fa-passport"></i></div>
@@ -168,7 +168,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="yellowfever-stat-item"><div class="icon"><i class="fas fa-certificate"></i></div><div class="content"><span class="number">Official</span><span class="label">YF Centre</span></div></div>
+        <div class="yellowfever-stat-item"><div class="icon"><i class="fas fa-certificate"></i></div><div class="content"><span class="number">Designated</span><span class="label">YF Centre</span></div></div>
         <div class="yellowfever-stat-divider"></div>
         <div class="yellowfever-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">1 Dose</span><span class="label">Lifelong Protection</span></div></div>
         <div class="yellowfever-stat-divider"></div>
@@ -221,7 +221,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
           <div class="yellowfever-info-card"><div class="icon"><i class="fas fa-mosquito"></i></div><h3>Mosquito-Borne</h3><p>Spread by infected Aedes mosquitoes that bite during the day, particularly at dawn and dusk.</p></div>
           <div class="yellowfever-info-card"><div class="icon"><i class="fas fa-virus"></i></div><h3>Viral Infection</h3><p>Causes fever, headache, jaundice, and in severe cases can lead to organ failure and death.</p></div>
           <div class="yellowfever-info-card"><div class="icon"><i class="fas fa-globe-africa"></i></div><h3>Tropical Regions</h3><p>Found in parts of Africa and South America. Over 40 countries are considered at risk.</p></div>
-          <div class="yellowfever-info-card"><div class="icon"><i class="fas fa-triangle-exclamation"></i></div><h3>No Cure</h3><p>There is no specific treatment for Yellow Fever. Prevention through vaccination is the best defence.</p></div>
+          <div class="yellowfever-info-card"><div class="icon"><i class="fas fa-triangle-exclamation"></i></div><h3>No Cure</h3><p>There is no specific treatment for Yellow Fever.</p></div>
         <?php endif; ?>
       </div>
     </div>
@@ -519,14 +519,14 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <?php if ( have_rows( 'yf_cta_badges' ) ) : while ( have_rows( 'yf_cta_badges' ) ) : the_row(); ?>
           <span class="badge"><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
         <?php endwhile; else : ?>
-          <span class="badge">Official Yellow Fever Centre</span>
+          <span class="badge">Designated Yellow Fever Vaccination Centre</span>
           <span class="badge">ICVP Certificate</span>
           <span class="badge">Same Day Appointments</span>
         <?php endif; ?>
       </div>
 
       <h2 class="yellowfever-cta-title"><?php echo esc_html( bp_field( 'yf_cta_title', 'Get your Yellow Fever vaccination and certificate' ) ); ?></h2>
-      <p class="yellowfever-cta-desc"><?php echo esc_html( bp_field( 'yf_cta_desc', 'Book your Yellow Fever vaccination at our official centre in Wythenshawe. Certificate issued on the day.' ) ); ?></p>
+      <p class="yellowfever-cta-desc"><?php echo esc_html( bp_field( 'yf_cta_desc', 'Book your Yellow Fever vaccination at our designated centre in Wythenshawe. Certificate issued on the day.' ) ); ?></p>
 
       <div class="yellowfever-cta-actions">
         <a href="<?php echo esc_url( bp_field( 'yf_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta white-btn"><?php echo esc_html( bp_field( 'yf_cta_button_text', 'Book Vaccination' ) ); ?></a>
@@ -537,7 +537,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <?php if ( have_rows( 'yf_cta_checks' ) ) : while ( have_rows( 'yf_cta_checks' ) ) : the_row(); ?>
           <div class="check"><i class="fas fa-check-circle"></i> <?php echo esc_html( get_sub_field( 'text' ) ); ?></div>
         <?php endwhile; else : ?>
-          <div class="check"><i class="fas fa-check-circle"></i> Official Centre</div>
+          <div class="check"><i class="fas fa-check-circle"></i> Designated Centre</div>
           <div class="check"><i class="fas fa-check-circle"></i> ICVP Certificate</div>
           <div class="check"><i class="fas fa-check-circle"></i> Expert Advice</div>
         <?php endif; ?>

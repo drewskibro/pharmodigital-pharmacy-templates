@@ -219,7 +219,7 @@ $parking        = dp_option( 'pharmacy_parking', 'Free customer parking availabl
       <div class="contact-cta-trust-row">
         <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_1', 'No referral needed' ) ); ?></span></div>
         <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_2', 'Expert guidance' ) ); ?></span></div>
-        <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_3', '15+ years serving ' . dp_option( 'pharmacy_town', 'Denton' ) ) ); ?></span></div>
+        <?php if ( dp_field( 'contact_cta_check_3' ) ) : ?><div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_3' ) ); ?></span></div><?php endif; ?>
       </div>
     </div>
   </div>

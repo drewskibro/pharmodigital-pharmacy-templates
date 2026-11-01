@@ -64,16 +64,8 @@ get_header();
         </div>
       <?php endwhile; else : ?>
         <div class="thailand-stat-item">
-          <div class="thailand-stat-icon"><i class="fas fa-syringe"></i></div>
-          <div class="thailand-stat-content"><p class="thailand-stat-number">5-7</p><p class="thailand-stat-label">Vaccines Recommended</p></div>
-        </div>
-        <div class="thailand-stat-item">
           <div class="thailand-stat-icon"><i class="fas fa-calendar-alt"></i></div>
           <div class="thailand-stat-content"><p class="thailand-stat-number">4-6</p><p class="thailand-stat-label">Weeks Before Travel</p></div>
-        </div>
-        <div class="thailand-stat-item">
-          <div class="thailand-stat-icon"><i class="fas fa-shield-halved"></i></div>
-          <div class="thailand-stat-content"><p class="thailand-stat-number">Full</p><p class="thailand-stat-label">Protection Available</p></div>
         </div>
       <?php endif; ?>
     </div>

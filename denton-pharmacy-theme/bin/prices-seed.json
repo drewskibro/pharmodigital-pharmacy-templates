@@ -2,14 +2,14 @@
   "_comment": "Seed data for the Denton Prices page. Import via WP-CLI: wp eval-file wp-content/themes/denton-pharmacy-theme/bin/import-prices.php — see bin/README.md. This file is the launch snapshot; ongoing edits should be made in WP Admin (Pages → Prices), not here.",
   "disclaimer": "Prices correct as of 2025/26 and subject to change. Some services require a clinical assessment before treatment can be provided. NHS services are free for eligible patients — standard NHS prescription charges apply where relevant.",
   "weight_loss": [
-    { "wl_product_name": "Mounjaro", "wl_strength": "2.5mg Starter", "wl_price": "£159", "wl_supply": "4 week supply", "wl_note": "Consultation included. Eligible patients must have BMI over 30, or BMI over 27 with weight-related conditions." },
+    { "wl_product_name": "Mounjaro", "wl_strength": "2.5mg", "wl_price": "£159", "wl_supply": "4 week supply", "wl_note": "Consultation included. Eligible patients must have BMI over 30, or BMI over 27 with weight-related conditions." },
     { "wl_product_name": "Mounjaro", "wl_strength": "5mg", "wl_price": "£189", "wl_supply": "4 week supply", "wl_note": "Consultation included. Eligible patients must have BMI over 30, or BMI over 27 with weight-related conditions." },
     { "wl_product_name": "Mounjaro", "wl_strength": "7.5mg", "wl_price": "£239", "wl_supply": "4 week supply", "wl_note": "Consultation included. Eligible patients must have BMI over 30, or BMI over 27 with weight-related conditions." },
     { "wl_product_name": "Mounjaro", "wl_strength": "10mg", "wl_price": "£269", "wl_supply": "4 week supply", "wl_note": "Consultation included. Eligible patients must have BMI over 30, or BMI over 27 with weight-related conditions." },
     { "wl_product_name": "Mounjaro", "wl_strength": "12.5mg", "wl_price": "£279", "wl_supply": "4 week supply", "wl_note": "Consultation included. Eligible patients must have BMI over 30, or BMI over 27 with weight-related conditions." },
     { "wl_product_name": "Mounjaro", "wl_strength": "15mg", "wl_price": "£299", "wl_supply": "4 week supply", "wl_note": "Consultation included. Eligible patients must have BMI over 30, or BMI over 27 with weight-related conditions." },
 
-    { "wl_product_name": "Wegovy", "wl_strength": "0.25mg Starter", "wl_price": "£109", "wl_supply": "4 week supply", "wl_note": "" },
+    { "wl_product_name": "Wegovy", "wl_strength": "0.25mg", "wl_price": "£109", "wl_supply": "4 week supply", "wl_note": "" },
     { "wl_product_name": "Wegovy", "wl_strength": "0.5mg", "wl_price": "£129", "wl_supply": "4 week supply", "wl_note": "" },
     { "wl_product_name": "Wegovy", "wl_strength": "1mg", "wl_price": "£149", "wl_supply": "4 week supply", "wl_note": "" },
     { "wl_product_name": "Wegovy", "wl_strength": "1.7mg", "wl_price": "£179", "wl_supply": "4 week supply", "wl_note": "" },
