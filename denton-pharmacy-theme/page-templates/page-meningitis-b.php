@@ -37,7 +37,7 @@ $vaccine_name = dp_field('vaccine_name', 'Meningitis B');
         </h1>
 
         <p class="meningitis-b-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect against meningitis B in Denton, Manchester. On the NHS, MenB vaccine is given to babies at 8 weeks, 12 weeks and 1 year, and to some people with certain health conditions. Teenagers and new students are offered a different vaccine, MenACWY, through their GP. If you are not eligible, you can book privately with us.')); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect against meningitis B in Denton, Manchester. Some students and teenagers qualify for the vaccination free on the NHS. Check the criteria below before booking. If you are not eligible, you can book privately with us.')); ?>
         </p>
 
         <div class="meningitis-b-hero-actions">
@@ -85,6 +85,7 @@ $vaccine_name = dp_field('vaccine_name', 'Meningitis B');
             </div>
             <div class="meningitis-b-trust-card-divider"></div>
             <ul class="meningitis-b-trust-card-list">
+              <li><i class="fas fa-check"></i> <span>Free on the NHS for eligible students &amp; teens</span></li>
               <li><i class="fas fa-check"></i> <span>Private option for all ages, from 2 months</span></li>
               <li><i class="fas fa-check"></i> <span>Suitability check &amp; advice included</span></li>
             </ul>
@@ -381,7 +382,7 @@ $nhs_booking_url = dp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
       </div>
     </div>
 
-    <p class="meningitis-b-pricing-note"><?php echo wp_kses_post(dp_field('vaccine_price_note', 'This is our private price per dose. On the NHS, MenB vaccine is given to babies at 8 weeks, 12 weeks and 1 year, and to some people with certain health conditions. Teenagers and new students are offered a different vaccine, MenACWY, through their GP. The number of doses needed depends on age, so our pharmacist will confirm the right schedule for you or your child.')); ?></p>
+    <p class="meningitis-b-pricing-note"><?php echo wp_kses_post(dp_field('vaccine_price_note', 'This is our private price per dose. Eligible students and teenagers can get the MenB vaccination free on the NHS. See <a href="#pathways">the NHS criteria above</a>. The number of doses needed depends on age, so our pharmacist will confirm the right schedule for you or your child.')); ?></p>
   </div>
 </section>
 
