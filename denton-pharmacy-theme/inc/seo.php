@@ -20,8 +20,8 @@ function denton_pharmacy_get_page_seo_data() {
     $slug = get_post_field( 'post_name', get_queried_object_id() );
     $pages = array(
         'contact' => array(
-            'title'       => 'Contact Denton Pharmacy | Opening Hours and Directions',
-            'description' => 'Contact Denton Pharmacy for opening hours, directions, parking and help with NHS or private pharmacy services. Call or send our local team a message today.',
+            'title'       => 'Contact Us, Ashton Road, Denton M34 3EX | Denton Pharmacy',
+            'description' => 'Denton Pharmacy on Ashton Road, Denton, Manchester M34 3EX. Opening hours, free customer parking nearby and directions. Call 0161 336 2548.',
         ),
         'nominate-denton-pharmacy' => array(
             'title'       => 'Nominate Denton Pharmacy for NHS Prescriptions and Delivery',
@@ -225,7 +225,138 @@ function denton_pharmacy_local_business_schema() {
         $schema['sameAs'] = array_values( array_unique( $same_as ) );
     }
 
+    $schema['parentOrganization'] = array( '@id' => 'https://at-health.co.uk/#organization' );
+
     return $schema;
+}
+
+/**
+ * AT Health Ltd, the company that owns the pharmacy. The same @id is used on
+ * Wilmslow Pharmacy and MNC Travel Clinic, so search engines can join the sites.
+ */
+function denton_pharmacy_owner_schema() {
+    return array(
+        '@type'      => 'Organization',
+        '@id'        => 'https://at-health.co.uk/#organization',
+        'name'       => 'AT Health',
+        'legalName'  => 'AT Health Ltd',
+        'url'        => 'https://at-health.co.uk/',
+        'identifier' => array(
+            '@type'      => 'PropertyValue',
+            'propertyID' => 'Companies House',
+            'name'       => 'Company number, England and Wales',
+            'value'      => '14519140',
+        ),
+        'sameAs'     => array( 'https://find-and-update.company-information.service.gov.uk/company/14519140' ),
+    );
+}
+
+/**
+ * The Superintendent Pharmacist. Uses the @id Yoast already gives Ahmed's author
+ * record, so the post author and the Superintendent are one person.
+ */
+function denton_pharmacy_superintendent_id() {
+    return trailingslashit( home_url( '/' ) ) . '#/schema/person/6e821815e24ba4ec964c52022ef19947';
+}
+
+function denton_pharmacy_superintendent_schema() {
+    return array(
+        '@type'         => 'Person',
+        '@id'           => denton_pharmacy_superintendent_id(),
+        'name'          => 'Ahmed Nizar Al-Liabi',
+        'alternateName' => 'Ahmed Al-Liabi',
+        'jobTitle'      => 'Superintendent Pharmacist',
+        'identifier'    => array(
+            '@type'      => 'PropertyValue',
+            'propertyID' => 'GPhC',
+            'name'       => 'GPhC pharmacist registration number',
+            'value'      => '2208502',
+        ),
+        'sameAs'        => array( 'https://www.pharmacyregulation.org/registers/pharmacist/2208502' ),
+        'url'           => home_url( '/team/' ),
+        'worksFor'      => array( '@id' => 'https://at-health.co.uk/#organization' ),
+    );
+}
+
+/**
+ * Other registered pharmacists on /team/. Nobody without a GPhC number on the
+ * page is marked up, so first-name-only staff cards add nothing.
+ */
+function denton_pharmacy_team_people_schema() {
+    if ( ! is_page( 'team' ) ) {
+        return array();
+    }
+    $people = array();
+    // Meet the Team rows (page field team_members). Only a registered pharmacist
+    // shown with a full name and a GPhC number becomes a Person.
+    $rows = function_exists( 'get_field' ) ? get_field( 'team_members' ) : array();
+    foreach ( (array) $rows as $row ) {
+        $people[] = array(
+            'name' => isset( $row['name'] ) ? $row['name'] : '',
+            'role' => isset( $row['role'] ) ? $row['role'] : '',
+            'gphc' => isset( $row['gphc_number'] ) ? $row['gphc_number'] : '',
+        );
+    }
+    $out      = array();
+    $business = trailingslashit( home_url( '/' ) ) . '#organization';
+    foreach ( $people as $p ) {
+        $gphc = preg_replace( '/[^0-9]/', '', (string) $p['gphc'] );
+        $name = trim( wp_strip_all_tags( (string) $p['name'] ) );
+        if ( '' === $gphc || '2208502' === $gphc || false === strpos( $name, ' ' ) ) {
+            continue; // Ahmed is added separately; first names alone are skipped.
+        }
+        $out[] = array(
+            '@type'      => 'Person',
+            '@id'        => home_url( '/team/' ) . '#' . sanitize_title( $name ),
+            'name'       => $name,
+            'jobTitle'   => trim( wp_strip_all_tags( (string) $p['role'] ) ),
+            'identifier' => array(
+                '@type'      => 'PropertyValue',
+                'propertyID' => 'GPhC',
+                'name'       => 'GPhC pharmacist registration number',
+                'value'      => $gphc,
+            ),
+            'sameAs'     => array( 'https://www.pharmacyregulation.org/registers/pharmacist/' . $gphc ),
+            'worksFor'   => array( '@id' => $business ),
+        );
+    }
+    return $out;
+}
+
+/**
+ * A Service record on each service page. The name is the page's own title, so
+ * it never says more than the page does. No price: prices change, and a stale
+ * price here would be one more place to update.
+ */
+function denton_pharmacy_service_schema() {
+    if ( ! is_page() ) {
+        return null;
+    }
+    $service_templates = array(
+        'page-blister-packs.php', 'page-blood-testing.php', 'page-chickenpox.php',
+        'page-chikungunya.php', 'page-cholera.php', 'page-contraception.php',
+        'page-corporate.php', 'page-covid-vaccination.php', 'page-dengue.php',
+        'page-dtp.php', 'page-ear-wax-removal.php', 'page-flu-vaccination.php',
+        'page-hair-loss.php', 'page-hepatitis-b-occupational.php', 'page-hepatitisa.php',
+        'page-hepatitisb.php', 'page-hpv.php', 'page-japaneseencephalitis.php',
+        'page-malaria.php', 'page-meningitis-acwy.php', 'page-meningitis-b.php',
+        'page-mmr.php', 'page-nhs-prescriptions.php', 'page-pharmacy-first.php',
+        'page-pneumonia.php', 'page-rabies.php', 'page-shingles.php', 'page-tbe.php',
+        'page-travel-health.php', 'page-typhoid.php', 'page-weight-loss.php',
+        'page-whoopingcough.php', 'page-yellow-fever.php',
+    );
+    if ( ! in_array( basename( (string) get_page_template_slug() ), $service_templates, true ) ) {
+        return null;
+    }
+    $url = get_permalink();
+    return array(
+        '@type'            => 'Service',
+        '@id'              => $url . '#service',
+        'name'             => wp_strip_all_tags( get_the_title() ),
+        'url'              => $url,
+        'provider'         => array( '@id' => trailingslashit( home_url( '/' ) ) . '#organization' ),
+        'mainEntityOfPage' => array( '@id' => $url ),
+    );
 }
 
 /**
@@ -234,6 +365,7 @@ function denton_pharmacy_local_business_schema() {
 function denton_pharmacy_filter_yoast_schema_graph( $graph ) {
     $business = denton_pharmacy_local_business_schema();
     $found    = false;
+    $person_found = false;
 
     foreach ( $graph as $index => $piece ) {
         $piece_id    = isset( $piece['@id'] ) ? $piece['@id'] : '';
@@ -253,6 +385,11 @@ function denton_pharmacy_filter_yoast_schema_graph( $graph ) {
             $found = true;
         }
 
+        if ( in_array( 'Person', $piece_types, true ) && denton_pharmacy_superintendent_id() === $piece_id ) {
+            $graph[ $index ] = array_merge( $piece, denton_pharmacy_superintendent_schema() );
+            $person_found    = true;
+        }
+
         if ( in_array( 'WebSite', $piece_types, true ) ) {
             $graph[ $index ]['publisher'] = array( '@id' => $business['@id'] );
         }
@@ -264,6 +401,21 @@ function denton_pharmacy_filter_yoast_schema_graph( $graph ) {
 
     if ( ! $found ) {
         $graph[] = $business;
+    }
+
+    $graph[] = denton_pharmacy_owner_schema();
+
+    if ( ! $person_found && is_page( 'team' ) ) {
+        $graph[] = denton_pharmacy_superintendent_schema();
+    }
+
+    foreach ( denton_pharmacy_team_people_schema() as $person ) {
+        $graph[] = $person;
+    }
+
+    $service = denton_pharmacy_service_schema();
+    if ( $service ) {
+        $graph[] = $service;
     }
 
     return $graph;
