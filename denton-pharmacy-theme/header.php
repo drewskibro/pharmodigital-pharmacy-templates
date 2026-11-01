@@ -21,11 +21,10 @@ $logo_url      = $nav_logo_id
 $phone         = dp_phone();
 $phone_link    = dp_phone_link();
 $booking_url   = dp_booking_url();
-$google_rating = dp_option( 'google_rating', '4.9' );
+$google_rating = dp_option( 'google_rating', '' );
 $google_count  = dp_option( 'google_review_count', '140+' );
 $booking_text  = dp_option( 'booking_cta_text', 'Book Consultation' );
 $trust_item_1  = dp_option( 'trust_bar_item_1', 'GPhC Registered' );
-$trust_item_2  = dp_option( 'trust_bar_item_2', 'NHS Partner' );
 
 // ---------------------------------------------------------------------------
 // Helper: resolve a nav page-link option field, falling back to a slug.
@@ -92,8 +91,6 @@ $ps_links    = dp_option( 'nav_dd_private_services_links' );
 
 // Defaults — used when repeaters are empty (i.e. nothing saved in ACF yet).
 $default_wl_links = array(
-    array( 'label' => 'Weight Loss Treatments', 'description' => 'Prescription medications & ongoing clinical support', 'icon' => 'fas fa-check-circle', 'url' => home_url( '/weight-loss/' ) ),
-    array( 'label' => 'Switching Provider',     'description' => 'Already on treatment? Switch your care to us',     'icon' => 'fas fa-user',         'url' => home_url( '/switch-provider/' ) ),
     array( 'label' => 'Free Consultation',  'description' => 'Book your no-obligation assessment today',        'icon' => 'fas fa-calendar',     'url' => $booking_url ),
 );
 $default_th_services = array(
@@ -171,16 +168,13 @@ if ( ! is_array( $ps_vaccines ) || empty( $ps_vaccines ) ) { $ps_vaccines = $def
             <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
             <span><?php echo esc_html( $trust_item_1 ); ?></span>
           </div>
-          <div class="denton-trust-divider"></div>
-          <div class="denton-trust-item">
-            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-            <span><?php echo esc_html( $trust_item_2 ); ?></span>
-          </div>
+          <?php if ( $google_rating ) : ?>
           <div class="denton-trust-divider"></div>
           <div class="denton-trust-item denton-trust-item--rating">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
             <span><strong><?php echo esc_html( $google_rating ); ?></strong> Google Reviews</span>
           </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -248,7 +242,7 @@ if ( ! is_array( $ps_vaccines ) || empty( $ps_vaccines ) ) { $ps_vaccines = $def
             <div class="denton-dropdown">
               <div class="denton-dropdown-header">
                 <h3>Medical Weight Loss</h3>
-                <p>Evidence-based treatments that work</p>
+                <p>Weight management: consultation and ongoing support</p>
               </div>
               <div class="denton-dropdown-content">
                 <?php foreach ( $wl_links as $link ) :
@@ -286,7 +280,7 @@ if ( ! is_array( $ps_vaccines ) || empty( $ps_vaccines ) ) { $ps_vaccines = $def
             <div class="denton-dropdown wide">
               <div class="denton-dropdown-header teal">
                 <h3>Travel Vaccinations</h3>
-                <p>Official Yellow Fever Centre</p>
+                <p>Designated Yellow Fever Vaccination Centre</p>
               </div>
               <div class="denton-dropdown-row">
                 <div class="denton-dropdown-col">

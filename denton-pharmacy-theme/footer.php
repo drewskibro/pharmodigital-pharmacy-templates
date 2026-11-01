@@ -38,7 +38,10 @@ $linkedin_url  = dp_option( 'social_linkedin', '' );
 $gphc_number       = dp_option( 'gphc_registration', '1033447' );
 $gphc_register_url = dp_option( 'gphc_register_url' ) ?: 'https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/' . $gphc_number;
 $company_reg       = dp_option( 'company_registration', '14519140' );
-$established       = dp_option( 'established_year', '2009' );
+$sp_name           = dp_option( 'superintendent_pharmacist', 'Ahmed Nizar Al-Liabi' );
+$sp_gphc           = dp_option( 'superintendent_gphc_number', '2208502' );
+$sp_register_url   = 'https://www.pharmacyregulation.org/registers/pharmacist/' . rawurlencode( $sp_gphc );
+$established       = dp_option( 'established_year', '2024' );
 
 $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and wellness across Denton, Manchester, and beyond.' );
 ?>
@@ -197,6 +200,12 @@ $tagline = dp_option( 'footer_tagline', 'Your trusted partner in health and well
       <div class="footer-bottom">
         <div class="footer-bottom-left">
           <p class="footer-copyright">&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( $pharmacy_name ); ?>. All rights reserved.</p>
+          <p class="footer-copyright">
+            Check our registration:
+            <a href="<?php echo esc_url( $gphc_register_url ); ?>" class="footer-legal-link" target="_blank" rel="noopener">Pharmacy, GPhC <?php echo esc_html( $gphc_number ); ?></a>
+            <span class="footer-legal-divider">&bull;</span>
+            <a href="<?php echo esc_url( $sp_register_url ); ?>" class="footer-legal-link" target="_blank" rel="noopener">Superintendent Pharmacist <?php echo esc_html( $sp_name ); ?>, GPhC <?php echo esc_html( $sp_gphc ); ?></a>
+          </p>
         </div>
         <div class="footer-bottom-right">
           <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="footer-legal-link">Privacy Policy</a>
