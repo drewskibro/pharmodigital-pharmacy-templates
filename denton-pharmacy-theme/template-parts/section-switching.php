@@ -70,9 +70,9 @@ $default_trust = array(
         'label' => 'Google Rating',
     ),
     array(
-        'icon'  => 'fa-truck-fast',
-        'value' => '24h',
-        'label' => 'Delivery Time',
+        'icon'  => 'fa-award',
+        'value' => '',
+        'label' => '',
     ),
 );
 

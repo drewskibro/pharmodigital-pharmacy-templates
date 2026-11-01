@@ -2119,14 +2119,14 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Trust Stat 3 — Value',
                 'name'          => 'switching_trust_3_value',
                 'type'          => 'text',
-                'default_value' => '24h',
+                'default_value' => '',
             ),
             array(
                 'key'           => 'field_dp_switching_t3_label',
                 'label'         => 'Trust Stat 3 — Label',
                 'name'          => 'switching_trust_3_label',
                 'type'          => 'text',
-                'default_value' => 'Delivery Time',
+                'default_value' => '',
             ),
             // Section Image
             array(
