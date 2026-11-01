@@ -20,7 +20,7 @@ $email         = dp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
 $booking_url   = dp_booking_url();
 
 // Address.
-$address_line1 = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
+$address_line1 = dp_option( 'pharmacy_address_line_1', '14 Ashton Road' );
 $address_line2 = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester M34 3EX' );
 
 // Hours. Day labels are added structurally below so the ACF values only need

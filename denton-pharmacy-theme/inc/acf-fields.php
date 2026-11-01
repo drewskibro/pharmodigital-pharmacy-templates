@@ -154,7 +154,7 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Address Line 1',
                 'name'          => 'pharmacy_address_line_1',
                 'type'          => 'text',
-                'default_value' => '14-16 Ashton Road',
+                'default_value' => '14 Ashton Road',
             ),
             array(
                 'key'           => 'field_dp_contact_address_line_2',

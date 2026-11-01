@@ -10,7 +10,7 @@ get_header();
 $phone         = dp_phone();
 $phone_link    = dp_phone_link();
 $email         = dp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
-$addr_line_1   = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
+$addr_line_1   = dp_option( 'pharmacy_address_line_1', '14 Ashton Road' );
 $addr_line_2   = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
 $addr_line_3   = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
 $directions_url = dp_option( 'pharmacy_directions_url' );

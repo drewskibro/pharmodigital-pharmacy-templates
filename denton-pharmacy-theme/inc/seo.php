@@ -189,7 +189,7 @@ function denton_pharmacy_local_business_schema() {
         'email'       => dp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' ),
         'address'     => array(
             '@type'           => 'PostalAddress',
-            'streetAddress'   => dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' ),
+            'streetAddress'   => dp_option( 'pharmacy_address_line_1', '14 Ashton Road' ),
             'addressLocality' => dp_option( 'pharmacy_town', 'Denton' ),
             'addressRegion'   => 'Greater Manchester',
             'postalCode'      => dp_option( 'pharmacy_address_line_3', 'M34 3EX' ),
