@@ -85,7 +85,7 @@ $vaccine_name = dp_field('vaccine_name', 'Meningitis B');
             </div>
             <div class="meningitis-b-trust-card-divider"></div>
             <ul class="meningitis-b-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Free on the NHS for eligible students &amp; teens</span></li>
+              <li><i class="fas fa-check"></i> <span>Eligible young people can get it free at NHS pharmacies until March 2027</span></li>
               <li><i class="fas fa-check"></i> <span>Private option for all ages, from 2 months</span></li>
               <li><i class="fas fa-check"></i> <span>Suitability check &amp; advice included</span></li>
             </ul>
@@ -130,13 +130,7 @@ $nhs_booking_url = dp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
       <div class="meningitis-b-pathway-card meningitis-b-pathway-card--nhs">
         <span class="meningitis-b-pathway-badge meningitis-b-pathway-badge--nhs"><?php echo esc_html( dp_field( 'vaccine_nhs_badge', 'NHS — FREE' ) ); ?></span>
         <h3 class="meningitis-b-pathway-title"><?php echo esc_html( dp_field( 'vaccine_nhs_title', 'Free NHS MenB vaccination' ) ); ?></h3>
-        <p class="meningitis-b-pathway-lead"><?php echo wp_kses_post( dp_field( 'vaccine_nhs_lead', '<strong>You must be eligible.</strong> The NHS service is available if you are:' ) ); ?></p>
-
-        <ul class="meningitis-b-pathway-list">
-          <li><?php echo wp_kses_post( dp_field( 'vaccine_nhs_criteria_1', 'Born between <strong>1 September 2007</strong> and <strong>31 August 2008</strong>; or' ) ); ?></li>
-          <li><?php echo wp_kses_post( dp_field( 'vaccine_nhs_criteria_2', 'Born on or after <strong>21 July 2001</strong> and starting undergraduate higher education in autumn 2026; or' ) ); ?></li>
-          <li><?php echo wp_kses_post( dp_field( 'vaccine_nhs_criteria_3', 'Born on or after <strong>21 July 2001</strong> and entering eligible further education for the first time in autumn 2026 while living in college accommodation or halls of residence.' ) ); ?></li>
-        </ul>
+        <p class="meningitis-b-pathway-lead"><?php echo esc_html( dp_field( 'vaccine_nhs_offer', 'Free on the NHS until 31 March 2027 if you were born 1 Sep 2007 to 31 Aug 2008, or born on or after 21 July 2001 and starting university, or moving into further education college accommodation, for the first time in autumn 2026 (bring proof of your place). First dose by 31 December 2026, at participating pharmacies.' ) ); ?></p>
 
         <p class="meningitis-b-pathway-fineprint"><?php echo esc_html( dp_field( 'vaccine_nhs_fineprint', 'International students and students from Scotland, Wales, Northern Ireland, the Channel Islands and the Isle of Man are included. You may need evidence of your university or college offer.' ) ); ?></p>
 

@@ -2097,21 +2097,21 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Trust Stat 3 — Icon',
                 'name'          => 'switching_trust_3_icon',
                 'type'          => 'text',
-                'default_value' => 'fas fa-truck-fast',
+                'default_value' => '',
             ),
             array(
                 'key'           => 'field_bp_switching_t3_value',
                 'label'         => 'Trust Stat 3 — Value',
                 'name'          => 'switching_trust_3_value',
                 'type'          => 'text',
-                'default_value' => '24h',
+                'default_value' => '',
             ),
             array(
                 'key'           => 'field_bp_switching_t3_label',
                 'label'         => 'Trust Stat 3 — Label',
                 'name'          => 'switching_trust_3_label',
                 'type'          => 'text',
-                'default_value' => 'Delivery Time',
+                'default_value' => '',
             ),
             // Section Image
             array(
