@@ -453,7 +453,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
     <?php endwhile; else : ?>
       <?php
       $steps = array(
-        array( 'title' => 'Book Consultation', 'desc' => 'Book your appointment online or call us. We recommend booking 6-8 weeks before travel, but we can often accommodate last-minute trips.', 'icon' => 'fas fa-calendar-check', 'meta_icon' => 'fas fa-clock', 'meta_text' => 'Book online 24/7' ),
+        array( 'title' => 'Book Consultation', 'desc' => 'Book your appointment online or call us. The NHS advises getting travel health advice at least 4 to 6 weeks before you go.', 'icon' => 'fas fa-calendar-check', 'meta_icon' => 'fas fa-clock', 'meta_text' => 'Book online 24/7' ),
         array( 'title' => 'Consultation & Vaccination', 'desc' => 'Meet with our pharmacist to discuss your itinerary and health history. We\'ll administer necessary vaccinations and provide health advice.', 'icon' => 'fas fa-user-doctor', 'meta_icon' => 'fas fa-check-circle', 'meta_text' => 'Safe & professional' ),
         array( 'title' => 'Travel with Confidence', 'desc' => 'Leave with your vaccination record card, any necessary medication (like antimalarials), and the peace of mind that you\'re protected.', 'icon' => 'fas fa-plane-departure', 'meta_icon' => 'fas fa-passport', 'meta_text' => 'Official certificates' ),
       );
@@ -570,10 +570,10 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
       <?php endwhile; else : ?>
         <?php
         $faqs = array(
-          array( 'q' => 'When should I book my travel vaccinations?', 'a' => 'We recommend booking your appointment 6-8 weeks before you travel. Some vaccinations require multiple doses over a few weeks to be fully effective. However, we can often accommodate last-minute travellers, so please contact us even if you\'re travelling sooner.' ),
+          array( 'q' => 'When should I book my travel vaccinations?', 'a' => 'The NHS advises getting travel health advice at least 4 to 6 weeks before you go. Some vaccinations require multiple doses over a few weeks to be fully effective. However, we can often accommodate last-minute travellers, so please contact us even if you\'re travelling sooner.' ),
           array( 'q' => 'Do I need a yellow fever certificate?', 'a' => 'Some countries require an International Certificate of Vaccination or Prophylaxis (ICVP) for yellow fever as a condition of entry. We are a designated Yellow Fever Vaccination Centre and can provide this official certificate. We\'ll advise you on the specific requirements for your destination during your consultation.' ),
           array( 'q' => 'What should I bring to my appointment?', 'a' => 'Please bring details of your itinerary (countries, regions, duration), any previous vaccination records, and a list of current medications. This helps us provide the most accurate and safe advice for your trip.' ),
-          array( 'q' => 'Do you provide malaria tablets?', 'a' => 'Yes, we can prescribe and supply malaria prevention tablets (antimalarials) such as Malarone, Doxycycline, and Lariam. We\'ll assess your risk based on your destination and recommend the most suitable option for you.' ),
+          array( 'q' => 'Do you provide malaria tablets?', 'a' => 'If your trip has a malaria risk, the pharmacist explains how to avoid mosquito bites and whether you need malaria prevention tablets. If you do, we supply them only after a consultation, and only if the pharmacist confirms they are suitable for you.' ),
         );
         foreach ( $faqs as $i => $faq ) :
         ?>

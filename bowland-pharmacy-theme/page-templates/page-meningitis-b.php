@@ -37,7 +37,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
         </h1>
 
         <p class="meningitis-b-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect against meningitis B in Wythenshawe, Manchester with Bexsero, the only licensed UK MenB vaccine. Some students and teenagers qualify for the vaccination free on the NHS — check the criteria below before booking. If you are not eligible, you can book privately with us.')); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect against meningitis B in Wythenshawe, Manchester. On the NHS, MenB vaccine is given to babies at 8 weeks, 12 weeks and 1 year, and to some people with certain health conditions. Teenagers and new students are offered a different vaccine, MenACWY, through their GP. If you are not eligible, you can book privately with us.')); ?>
         </p>
 
         <div class="meningitis-b-hero-actions">
@@ -53,7 +53,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
 
         <div class="meningitis-b-hero-trust">
           <div class="meningitis-b-hero-trust-item"><i class="fas fa-baby"></i><span>Free on NHS if Eligible</span></div>
-          <div class="meningitis-b-hero-trust-item"><i class="fas fa-syringe"></i><span>Bexsero Vaccine</span></div>
+          <div class="meningitis-b-hero-trust-item"><i class="fas fa-syringe"></i><span>MenB Vaccine</span></div>
           <div class="meningitis-b-hero-trust-item"><i class="fas fa-user-doctor"></i><span>No GP Referral Needed</span></div>
         </div>
       </div>
@@ -68,7 +68,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
           <div class="meningitis-b-trust-card-inner">
             <div class="meningitis-b-trust-card-header">
               <div class="meningitis-b-trust-card-icon"><i class="fas fa-shield-virus"></i></div>
-              <span class="meningitis-b-trust-card-label"><?php echo esc_html(bp_field('vaccine_price_name', 'Bexsero Vaccine')); ?></span>
+              <span class="meningitis-b-trust-card-label"><?php echo esc_html(bp_field('vaccine_price_name', 'MenB Vaccine')); ?></span>
             </div>
             <div class="meningitis-b-trust-card-prices">
               <div class="meningitis-b-trust-price-col">
@@ -85,7 +85,6 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
             </div>
             <div class="meningitis-b-trust-card-divider"></div>
             <ul class="meningitis-b-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Free on the NHS for eligible students &amp; teens</span></li>
               <li><i class="fas fa-check"></i> <span>Private option for all ages, from 2 months</span></li>
               <li><i class="fas fa-check"></i> <span>Suitability check &amp; advice included</span></li>
             </ul>
@@ -167,7 +166,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
         <ul class="meningitis-b-pathway-list meningitis-b-pathway-list--check">
           <li><?php echo esc_html( bp_field( 'vaccine_private_point_1', 'Babies from 2 months, children, teenagers and adults' ) ); ?></li>
           <li><?php echo esc_html( bp_field( 'vaccine_private_point_2', 'Anyone who missed their NHS doses, or was vaccinated over 5 years ago' ) ); ?></li>
-          <li><?php echo esc_html( bp_field( 'vaccine_private_point_3', 'Bexsero vaccine, administration and a suitability check included' ) ); ?></li>
+          <li><?php echo esc_html( bp_field( 'vaccine_private_point_3', 'MenB vaccine, administration and a suitability check included' ) ); ?></li>
         </ul>
 
         <p class="meningitis-b-pathway-fineprint"><?php echo esc_html( bp_field( 'vaccine_private_fineprint', 'The number of doses needed depends on age — our pharmacist will confirm the right schedule for you or your child.' ) ); ?></p>
@@ -216,13 +215,13 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
           <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'Acts Fast — So Should You')); ?></span>
         </div>
 
-        <h3 class="meningitis-b-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Bexsero — Cover Against MenB')); ?></h3>
-        <p class="meningitis-b-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', 'Meningitis B is a bacterial infection that can cause meningitis and blood poisoning (septicaemia). It can develop within hours and be life-threatening, and survivors can be left with lasting effects. The Bexsero vaccine protects against meningococcal group B, the most common cause of bacterial meningitis in the UK.')); ?></p>
+        <h3 class="meningitis-b-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Cover Against MenB')); ?></h3>
+        <p class="meningitis-b-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', 'Meningitis B is a bacterial infection that can cause meningitis and blood poisoning (septicaemia). It can develop within hours and be life-threatening, and survivors can be left with lasting effects. The MenB vaccine protects against meningococcal group B, the most common cause of bacterial meningitis in the UK.')); ?></p>
 
         <ul class="meningitis-b-protect-features">
           <li class="meningitis-b-protect-feature">
             <div class="icon"><i class="fas fa-baby"></i></div>
-            <div class="text"><strong>From 2 Months Old</strong><p>Babies and young children are at highest risk. Bexsero can be given from 2 months of age.</p></div>
+            <div class="text"><strong>From 2 Months Old</strong><p>Babies and young children are at highest risk. The MenB vaccine can be given from 2 months of age.</p></div>
           </li>
           <li class="meningitis-b-protect-feature">
             <div class="icon"><i class="fas fa-user-graduate"></i></div>
@@ -366,14 +365,14 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
 
     <div class="meningitis-b-pricing-grid">
       <div class="meningitis-b-pricing-card featured">
-        <div class="meningitis-b-pricing-ribbon">Bexsero</div>
-        <h3 class="meningitis-b-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'Bexsero Vaccine')); ?></h3>
+        <div class="meningitis-b-pricing-ribbon">MenB</div>
+        <h3 class="meningitis-b-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'MenB Vaccine')); ?></h3>
         <div class="meningitis-b-pricing-amount">
           <span class="price"><?php echo esc_html(bp_field('vaccine_price_amount', '£125')); ?></span>
           <span class="per"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
         <ul class="meningitis-b-pricing-includes">
-          <li><i class="fas fa-check"></i> Bexsero vaccine</li>
+          <li><i class="fas fa-check"></i> MenB vaccine</li>
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
           <li><i class="fas fa-check"></i> Suitability check &amp; advice</li>
           <li><i class="fas fa-check"></i> Suitable from 2 months of age</li>
@@ -382,7 +381,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
       </div>
     </div>
 
-    <p class="meningitis-b-pricing-note"><?php echo wp_kses_post(bp_field('vaccine_price_note', 'This is our private price per dose. Eligible students and teenagers can get the MenB vaccination free on the NHS — see <a href="#pathways">the NHS criteria above</a>. The number of doses needed depends on age, so our pharmacist will confirm the right schedule for you or your child.')); ?></p>
+    <p class="meningitis-b-pricing-note"><?php echo wp_kses_post(bp_field('vaccine_price_note', 'This is our private price per dose. On the NHS, MenB vaccine is given to babies at 8 weeks, 12 weeks and 1 year, and to some people with certain health conditions. Teenagers and new students are offered a different vaccine, MenACWY, through their GP. The number of doses needed depends on age, so our pharmacist will confirm the right schedule for you or your child.')); ?></p>
   </div>
 </section>
 
@@ -402,7 +401,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
       <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We confirm suitability and the right schedule for your age before we start.</p></div>
       <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>The Injection</h3><p>Given in the thigh for babies, or the upper arm for older children and adults.</p></div>
       <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Follow-Up Doses</h3><p>If more than one dose is needed, we'll book the follow-up at the right interval.</p></div>
-      <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-temperature-half"></i></div><h3>Fever in Babies</h3><p>A short-lived fever is common in babies after Bexsero — we'll explain how to manage it.</p></div>
+      <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-temperature-half"></i></div><h3>Fever in Babies</h3><p>A short-lived fever is common in babies after the MenB vaccine. We'll explain how to manage it.</p></div>
       <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-baby"></i></div><h3>From 2 Months</h3><p>Suitable for babies from 2 months and for children, teens and adults.</p></div>
       <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>For those outside NHS eligibility, or who want it sooner — no referral needed.</p></div>
     </div>
@@ -422,8 +421,8 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
 
     <div class="meningitis-b-faq-list">
       <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses are needed?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>For adults and older children it's usually a single dose. Babies need more doses on a set schedule — our pharmacist will confirm what's right for you at your appointment.</p></div></div>
-      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">From what age can it be given?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>The Bexsero vaccine can be given from 2 months of age, and there's no upper age limit, so older children, teenagers and adults can have it too.</p></div></div>
-      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is this the same as the MenACWY vaccine?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>No. Bexsero protects against meningococcal group B. MenACWY protects against four different groups (A, C, W and Y). Many people choose to have both for broader cover.</p></div></div>
+      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">From what age can it be given?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>The MenB vaccine can be given from 2 months of age, and there's no upper age limit, so older children, teenagers and adults can have it too.</p></div></div>
+      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is this the same as the MenACWY vaccine?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>No. The MenB vaccine protects against meningococcal group B. MenACWY protects against four different groups (A, C, W and Y). Many people choose to have both for broader cover.</p></div></div>
       <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>Usually mild — a sore leg or arm, and a short-lived fever which is common in babies. Serious reactions are very rare.</p></div></div>
       <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What are the warning signs of meningitis?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>Fever, severe headache, stiff neck, dislike of bright light, and a rash that doesn't fade under a glass. In babies, a high-pitched cry, floppiness or refusing feeds. Seek urgent medical help if you're worried.</p></div></div>
     </div>

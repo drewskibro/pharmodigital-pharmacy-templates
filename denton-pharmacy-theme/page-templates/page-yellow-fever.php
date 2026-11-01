@@ -102,7 +102,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         </div>
 
         <h3 class="yellowfever-cert-subtitle"><?php echo esc_html( dp_field( 'yf_cert_subtitle', 'Why Choose Our Centre' ) ); ?></h3>
-        <p class="yellowfever-cert-text"><?php echo esc_html( dp_field( 'yf_cert_text', 'As an officially designated Yellow Fever Vaccination Centre, we are authorised by NaTHNaC to administer the Stamaril vaccine and issue the International Certificate of Vaccination or Prophylaxis (ICVP). Our lead pharmacist has specialist training in travel health.' ) ); ?></p>
+        <p class="yellowfever-cert-text"><?php echo esc_html( dp_field( 'yf_cert_text', 'We are designated by NaTHNaC to give yellow fever vaccine and issue the International Certificate of Vaccination or Prophylaxis (ICVP). Our lead pharmacist has specialist training in travel health.' ) ); ?></p>
 
         <div class="yellowfever-cert-features">
           <?php if ( have_rows( 'yf_cert_features' ) ) : while ( have_rows( 'yf_cert_features' ) ) : the_row(); ?>
@@ -450,7 +450,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         </div>
       <?php endwhile; else : ?>
         <div class="yellowfever-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>Single Dose</h3><p>Yellow Fever vaccination requires just one injection. No need for multiple appointments or a course of doses.</p></div>
-        <div class="yellowfever-detail-card"><div class="icon"><i class="fas fa-infinity"></i></div><h3>Lifelong Protection</h3><p>A single dose provides lifelong immunity for most travellers. No booster doses are required.</p></div>
+        <div class="yellowfever-detail-card"><div class="icon"><i class="fas fa-shield-halved"></i></div><h3>Long-Lasting Protection</h3><p>One dose gives long-lasting protection for most people. A small number of travellers who stay at risk may be offered a booster, and the pharmacist will tell you if you need one.</p></div>
         <div class="yellowfever-detail-card"><div class="icon"><i class="fas fa-passport"></i></div><h3>ICVP Certificate</h3><p>We issue the International Certificate of Vaccination or Prophylaxis on the day of your appointment.</p></div>
         <div class="yellowfever-detail-card"><div class="icon"><i class="fas fa-calendar-check"></i></div><h3>10-Day Rule</h3><p>Your certificate becomes valid 10 days after vaccination. Book at least 10 days before travel.</p></div>
         <div class="yellowfever-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Some people may experience mild headache, muscle aches, or low-grade fever. Serious side effects are very rare.</p></div>
@@ -501,7 +501,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         </div>
         <div class="yellowfever-faq-item">
           <button class="yellowfever-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Who should NOT have the Yellow Fever vaccine?</span><i class="fas fa-plus icon"></i></button>
-          <div class="yellowfever-faq-content"><p>The vaccine is not suitable for infants under 6 months, people with severe egg allergies, those with weakened immune systems, or people with thymus disorders. We can issue an exemption letter if needed.</p></div>
+          <div class="yellowfever-faq-content"><p>The vaccine is not suitable for infants under 6 months, people with severe egg allergies, those with weakened immune systems, or people with thymus disorders. The vaccine is usually given from 9 months of age. Some people, including anyone aged 60 or over, pregnant or breastfeeding, or with a weakened immune system, are at higher risk of serious side effects or may not be able to have it. The pharmacist will go through this with you. We can issue an exemption letter if needed.</p></div>
         </div>
       <?php endif; ?>
     </div>

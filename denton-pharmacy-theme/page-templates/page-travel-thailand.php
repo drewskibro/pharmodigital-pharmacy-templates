@@ -69,7 +69,7 @@ get_header();
         </div>
         <div class="thailand-stat-item">
           <div class="thailand-stat-icon"><i class="fas fa-calendar-alt"></i></div>
-          <div class="thailand-stat-content"><p class="thailand-stat-number">6-8</p><p class="thailand-stat-label">Weeks Before Travel</p></div>
+          <div class="thailand-stat-content"><p class="thailand-stat-number">4-6</p><p class="thailand-stat-label">Weeks Before Travel</p></div>
         </div>
         <div class="thailand-stat-item">
           <div class="thailand-stat-icon"><i class="fas fa-shield-halved"></i></div>
@@ -108,7 +108,7 @@ get_header();
         <?php
         $vaccines = array(
           array( 'icon' => 'fas fa-virus', 'name' => 'Hepatitis A', 'badge_color' => 'purple', 'badge' => 'Recommended', 'short' => 'Protection against contaminated food/water', 'desc' => 'Hepatitis A is spread through contaminated food and water. This vaccine is recommended for all travellers to Thailand.' ),
-          array( 'icon' => 'fas fa-bacteria', 'name' => 'Typhoid', 'badge_color' => 'purple', 'badge' => 'Recommended', 'short' => 'Essential for food safety', 'desc' => 'Typhoid fever is contracted through contaminated food and water. Highly recommended for travellers to Thailand, especially outside major cities.' ),
+          array( 'icon' => 'fas fa-bacteria', 'name' => 'Typhoid', 'badge_color' => 'gray', 'badge' => 'Consider', 'short' => '', 'desc' => 'Could be considered for people visiting friends and relatives, and for frequent or long-stay travellers to places where food hygiene and sanitation may be poor.' ),
           array( 'icon' => 'fas fa-notes-medical', 'name' => 'Hepatitis B', 'badge_color' => 'gray', 'badge' => 'Consider', 'short' => 'For longer stays or medical procedures', 'desc' => 'Recommended for long-term travellers, those who may need medical treatment, or anyone engaging in activities with blood contact risk.' ),
           array( 'icon' => 'fas fa-mosquito', 'name' => 'Japanese Encephalitis', 'badge_color' => 'gray', 'badge' => 'Rural Areas', 'short' => 'For rural travel and extended stays', 'desc' => 'Recommended if you\'re spending time in rural areas, especially during monsoon season, or staying for more than a month.' ),
           array( 'icon' => 'fas fa-dog', 'name' => 'Rabies', 'badge_color' => 'gray', 'badge' => 'Consider', 'short' => 'For animal contact risk', 'desc' => 'Consider if you\'ll be in rural areas, working with animals, or travelling for extended periods where medical care may be limited.' ),
@@ -123,7 +123,7 @@ get_header();
                 <h3 class="thailand-vaccine-name"><?php echo esc_html( $vax['name'] ); ?></h3>
                 <span class="thailand-badge-<?php echo esc_attr( $vax['badge_color'] ); ?>"><?php echo esc_html( $vax['badge'] ); ?></span>
               </div>
-              <p class="thailand-vaccine-short"><?php echo esc_html( $vax['short'] ); ?></p>
+              <?php if ( ! empty( $vax['short'] ) ) : ?><p class="thailand-vaccine-short"><?php echo esc_html( $vax['short'] ); ?></p><?php endif; ?>
               <p class="thailand-vaccine-desc"><?php echo esc_html( $vax['desc'] ); ?></p>
             </div>
           </div>
@@ -180,15 +180,29 @@ get_header();
             <div class="thailand-malaria-item">
               <div class="thailand-malaria-item-icon low-risk"><i class="fas fa-check-circle"></i></div>
               <div class="thailand-malaria-item-text">
-                <h4>Low Malaria Risk</h4>
-                <p>Bangkok, Phuket, Chiang Mai, and Koh Samui are generally low risk for malaria.</p>
+                <h4>No Risk in the Main Cities</h4>
+                <p>No risk in the cities of Bangkok, Chiang Mai, Chiang Rai, Koh Phangan, Koh Samui and Pattaya. Avoiding mosquito bites is still recommended.</p>
+              </div>
+            </div>
+            <div class="thailand-malaria-item">
+              <div class="thailand-malaria-item-icon low-risk"><i class="fas fa-check-circle"></i></div>
+              <div class="thailand-malaria-item-text">
+                <h4>Very Low Risk Elsewhere</h4>
+                <p>Very low risk in the rest of Thailand, including Kanchanaburi (the Kwai Bridge). Know the risk and avoid bites.</p>
               </div>
             </div>
             <div class="thailand-malaria-item">
               <div class="thailand-malaria-item-icon high-risk"><i class="fas fa-exclamation-triangle"></i></div>
               <div class="thailand-malaria-item-text">
-                <h4>Border Regions</h4>
-                <p>Malaria risk exists near borders with Myanmar, Cambodia, and Laos. Antimalarials may be needed.</p>
+                <h4>Border Areas</h4>
+                <p>Low risk in the rural, forested border areas with Cambodia, Laos and Myanmar. Know the risk and avoid bites.</p>
+              </div>
+            </div>
+            <div class="thailand-malaria-item">
+              <div class="thailand-malaria-item-icon low-risk"><i class="fas fa-info-circle"></i></div>
+              <div class="thailand-malaria-item-text">
+                <h4>Malaria Tablets</h4>
+                <p>For most trips, TravelHealthPro advises avoiding bites rather than taking tablets. Tablets may be considered only in exceptional cases for the low-risk border areas, for people at higher risk of malaria or its complications, such as long-stay travellers visiting friends and family, pregnant women, babies and young children, people over 70 and people with a weakened immune system. People with no working spleen need specialist advice before any trip to a malaria area.</p>
               </div>
             </div>
           <?php endif; ?>
@@ -241,7 +255,7 @@ get_header();
         <?php
         $tips = array(
           array( 'icon' => 'fas fa-glass-water', 'title' => 'Food & Water', 'desc' => 'Stick to bottled water and avoid ice. Eat at busy spots where food is cooked fresh.', 'image' => 'https://images.unsplash.com/photo-1559314809-0d155014e29e?w=600&h=800&fit=crop' ),
-          array( 'icon' => 'fas fa-mosquito', 'title' => 'Insect Protection', 'desc' => 'Dengue is common. Use 50% DEET repellent and cover up at dawn and dusk.', 'image' => 'https://images.unsplash.com/photo-1550989460-0adf9ea622e2?w=600&h=800&fit=crop' ),
+          array( 'icon' => 'fas fa-mosquito', 'title' => 'Insect Protection', 'desc' => 'Dengue is common. Use 50% DEET repellent. Avoid bites by day and night. Dengue mosquitoes bite mainly in the day, and malaria and Japanese encephalitis mosquitoes mainly between dusk and dawn.', 'image' => 'https://images.unsplash.com/photo-1550989460-0adf9ea622e2?w=600&h=800&fit=crop' ),
           array( 'icon' => 'fas fa-sun', 'title' => 'Sun Safety', 'desc' => 'The tropical sun is strong. Use high SPF, wear a hat, and stay hydrated.', 'image' => 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=800&fit=crop' ),
         );
         foreach ( $tips as $tip ) :
