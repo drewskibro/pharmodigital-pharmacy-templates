@@ -3129,7 +3129,7 @@ function bp_register_acf_field_groups() {
         'key'      => 'group_bp_wl_stats',
         'title'    => 'Weight Loss — Stats Bar',
         'fields'   => array(
-            array( 'key' => 'field_bp_wl_stat_1_number', 'label' => 'Stat 1 — Number', 'name' => 'wl_stat_1_number', 'type' => 'text', 'default_value' => '4.9', 'wrapper' => array( 'width' => '50' ) ),
+            array( 'key' => 'field_bp_wl_stat_1_number', 'label' => 'Stat 1 — Number', 'name' => 'wl_stat_1_number', 'type' => 'text', 'default_value' => '', 'instructions' => 'Leave blank to show the Google Rating from Pharmacy Settings (hidden if that is blank).', 'wrapper' => array( 'width' => '50' ) ),
             array( 'key' => 'field_bp_wl_stat_1_label', 'label' => 'Stat 1 — Label', 'name' => 'wl_stat_1_label', 'type' => 'text', 'default_value' => 'Google Rating', 'wrapper' => array( 'width' => '50' ) ),
             array( 'key' => 'field_bp_wl_stat_2_number', 'label' => 'Stat 2 — Number', 'name' => 'wl_stat_2_number', 'type' => 'text', 'default_value' => 'Free', 'wrapper' => array( 'width' => '50' ) ),
             array( 'key' => 'field_bp_wl_stat_2_label', 'label' => 'Stat 2 — Label', 'name' => 'wl_stat_2_label', 'type' => 'text', 'default_value' => 'First consultation', 'wrapper' => array( 'width' => '50' ) ),
