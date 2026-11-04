@@ -53,20 +53,21 @@ jobs:
             wp kinsta cache purge --all
             echo "Deploy complete!"
 
-      - name: Verify public assistant embed
+      - name: Verify the chat box is off
         shell: bash
         run: |
           set -euo pipefail
+          # Chat box switched off on Ahmed's instruction, 4 Nov 2026: fail if it is still on a page.
           verify_page() {
             local url="$1"
             for attempt in 1 2 3 4 5; do
-              if curl -fsS "$url" -o "$RUNNER_TEMP/bowland-page.html" \
-                && grep -Fq 'functions/v1/pharmacy_chat_widget' "$RUNNER_TEMP/bowland-page.html"; then
+              if curl -fsS "$url?nocache=$(date +%s)" -o "$RUNNER_TEMP/bowland-page.html" \
+                && ! grep -Fq 'functions/v1/pharmacy_chat_widget' "$RUNNER_TEMP/bowland-page.html"; then
                 return 0
               fi
-              sleep 2
+              sleep 5
             done
-            echo "Assistant embed missing from $url" >&2
+            echo "Chat box still present on (or page failed to load) $url" >&2
             return 1
           }
           verify_page "https://bowlandpharmacy.co.uk/"

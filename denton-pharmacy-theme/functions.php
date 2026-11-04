@@ -16,6 +16,8 @@ define( 'DENTON_PHARMACY_URI', get_template_directory_uri() );
 define( 'DENTON_PHARMACY_ASSISTANT_URL', 'https://tlfyevjyogfinulsmljv.supabase.co/functions/v1/pharmacy_chat_widget_v5' );
 define( 'DENTON_PHARMACY_ASSISTANT_VERSION', '3.0.0' );
 define( 'DENTON_PHARMACY_ASSISTANT_SRI', 'sha384-dX7hn7O+d1w6ARxM8q6Zx+bKZ9WsmuDAzbbTzlaR2eFtjMnhnOL7jaZH0UVn2SyY' );
+// Chat box switched off on Ahmed's instruction, 4 Nov 2026; set true to restore.
+define( 'DENTON_PHARMACY_ASSISTANT_ENABLED', false );
 
 /**
  * Theme Setup
@@ -358,13 +360,15 @@ function denton_pharmacy_scripts() {
 
     // Optional public assistant. The exact audited bundle is pinned below with
     // Subresource Integrity, so a changed remote script is refused by browsers.
-    wp_enqueue_script(
-        'denton-pharmacy-ai-assistant',
-        DENTON_PHARMACY_ASSISTANT_URL,
-        array(),
-        DENTON_PHARMACY_ASSISTANT_VERSION,
-        true
-    );
+    if ( DENTON_PHARMACY_ASSISTANT_ENABLED ) {
+        wp_enqueue_script(
+            'denton-pharmacy-ai-assistant',
+            DENTON_PHARMACY_ASSISTANT_URL,
+            array(),
+            DENTON_PHARMACY_ASSISTANT_VERSION,
+            true
+        );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'denton_pharmacy_scripts' );
 
