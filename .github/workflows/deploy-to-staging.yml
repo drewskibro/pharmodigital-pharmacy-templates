@@ -1,0 +1,177 @@
+name: Deploy a branch or PR to staging (Denton / Bowland)
+
+# Manual only. Copies a theme from any branch or pull request onto the
+# Kinsta STAGING environment so changes can be checked before they are
+# merged. Merging to main deploys to LIVE; this workflow never does.
+#
+# Before copying anything it connects to the target and refuses to go on
+# unless the server answers as a Kinsta staging environment, so a staging
+# secret that has been set to live details cannot push unreviewed code to
+# a live site.
+#
+# To test a pull request, deploy refs/pull/NUMBER/merge: that is the PR
+# combined with the current main, i.e. what live will look like once it is
+# merged. Deploying the PR's own branch can miss changes made on main since
+# the branch was cut.
+#
+# See docs/staging-deploys.md for setup (secrets) and usage.
+
+on:
+  workflow_dispatch:
+    inputs:
+      site:
+        description: Which site's staging environment
+        type: choice
+        options:
+          - both
+          - denton
+          - bowland
+        default: both
+      ref:
+        description: "What to deploy: refs/pull/NUMBER/merge for a pull request, or a branch name"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+# One staging deploy at a time, so two runs can't interleave file copies.
+concurrency:
+  group: deploy-to-staging
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    name: Check inputs
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - id: plan
+        env:
+          SITE: ${{ inputs.site }}
+          REF: ${{ inputs.ref }}
+        run: |
+          set -euo pipefail
+          if ! printf '%s' "$REF" | grep -Eq '^(refs/pull/[0-9]+/(merge|head)|[A-Za-z0-9._/-]+)$'; then
+            echo "::error::'$REF' is not a branch name or refs/pull/NUMBER/merge"
+            exit 1
+          fi
+          case "$SITE" in
+            denton)  m='[{"site":"denton","prefix":"DENTON"}]' ;;
+            bowland) m='[{"site":"bowland","prefix":"BOWLAND"}]' ;;
+            both)    m='[{"site":"denton","prefix":"DENTON"},{"site":"bowland","prefix":"BOWLAND"}]' ;;
+            *) echo "::error::unknown site '$SITE'"; exit 1 ;;
+          esac
+          echo "matrix=$m" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    name: Deploy ${{ matrix.site }} to staging
+    needs: plan
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    env:
+      SSH_HOST: ${{ secrets[format('{0}_STAGING_SSH_HOST', matrix.prefix)] }}
+      SSH_USER: ${{ secrets[format('{0}_STAGING_SSH_USER', matrix.prefix)] }}
+      SSH_PASSWORD: ${{ secrets[format('{0}_STAGING_SSH_PASSWORD', matrix.prefix)] }}
+      SSH_PORT: ${{ secrets[format('{0}_STAGING_SSH_PORT', matrix.prefix)] }}
+      THEME: ${{ matrix.site }}-pharmacy-theme
+
+    steps:
+      - name: Check the staging secrets are set
+        env:
+          PREFIX: ${{ matrix.prefix }}
+        run: |
+          missing=""
+          for v in SSH_HOST SSH_USER SSH_PASSWORD SSH_PORT; do
+            [ -n "${!v}" ] || missing="$missing ${PREFIX}_STAGING_${v}"
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repository secrets:$missing. Add them under Settings > Secrets and variables > Actions (see docs/staging-deploys.md)."
+            exit 1
+          fi
+
+      # Runs before anything is copied. Kinsta hostnames carry the environment
+      # (*-staging-staging vs *-live-prod) and staging sites live on
+      # *.kinsta.cloud, so both must match.
+      - name: Refuse unless the target is a staging environment
+        id: guard
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USER }}
+          password: ${{ env.SSH_PASSWORD }}
+          port: ${{ env.SSH_PORT }}
+          capture_stdout: true
+          script: |
+            cd ~/public || exit 1
+            site_url=$(wp option get home 2>/dev/null)
+            host_name=$(hostname)
+            echo "site_url=$site_url"
+            echo "hostname=$host_name"
+            case "$host_name" in
+              *staging*) ;;
+              *) echo "REFUSING: hostname '$host_name' is not a staging environment"; exit 1 ;;
+            esac
+            case "$site_url" in
+              *.kinsta.cloud*) ;;
+              *) echo "REFUSING: site URL '$site_url' is not a kinsta.cloud staging URL"; exit 1 ;;
+            esac
+            echo "OK: confirmed staging"
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          persist-credentials: false
+
+      - name: Record what is being deployed
+        env:
+          REF: ${{ inputs.ref }}
+          GUARD_OUT: ${{ steps.guard.outputs.stdout }}
+        run: |
+          test -d "$THEME" || { echo "::error::$THEME not found at $REF"; exit 1; }
+          site_url=$(printf '%s\n' "$GUARD_OUT" | sed -n 's/^site_url=//p' | head -1)
+          {
+            echo "### ${THEME} → staging"
+            echo ""
+            echo "- Source: \`${REF}\` at \`$(git rev-parse --short HEAD)\`"
+            echo "- Staging site: ${site_url:-unknown}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Copies over the top of the existing theme. Files deleted on the branch
+      # are not removed from staging.
+      - name: Copy theme files to staging
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USER }}
+          password: ${{ env.SSH_PASSWORD }}
+          port: ${{ env.SSH_PORT }}
+          source: ${{ env.THEME }}/
+          target: "~/public/wp-content/themes/"
+
+      # Mirrors what the live deploy does after copying: run the price update
+      # scripts and purge the cache, so staging shows what live will show.
+      - name: Run the live post-deploy steps on staging
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USER }}
+          password: ${{ env.SSH_PASSWORD }}
+          port: ${{ env.SSH_PORT }}
+          script: |
+            cd ~/public || exit 1
+            case "$(hostname)" in *staging*) ;; *) echo "REFUSING: not staging"; exit 1 ;; esac
+            status=0
+            for f in wp-content/themes/${{ matrix.site }}-pharmacy-theme/bin/update-*.php; do
+              [ -e "$f" ] || continue
+              echo "Running $f"
+              wp eval-file "$f" || status=1
+            done
+            wp kinsta cache purge --all || echo "Cache purge not available on this environment"
+            echo "Theme on staging:"
+            head -7 wp-content/themes/${{ matrix.site }}-pharmacy-theme/style.css
+            exit $status
