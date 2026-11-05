@@ -405,6 +405,8 @@ if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/blood-test-privacy.php' ) ) {
     require_once BOWLAND_PHARMACY_DIR . '/inc/blood-test-privacy.php';
 }
 
+require_once get_theme_file_path('inc/hide-user-list.php');
+
 /**
  * Helper: Get option field with fallback
  *
