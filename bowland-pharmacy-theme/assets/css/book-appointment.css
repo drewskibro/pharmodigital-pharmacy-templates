@@ -919,6 +919,21 @@
   color: var(--brand-primary);
 }
 
+.booking-terms-line {
+  max-width: 46rem;
+  margin: 1.25rem auto 0;
+  padding: 0 1.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-gray);
+  text-align: center;
+}
+
+.booking-terms-line a {
+  color: var(--brand-primary);
+  text-decoration: underline;
+}
+
 .book-amelia-footer {
   text-align: center;
   margin-top: 2rem;

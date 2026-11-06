@@ -69,18 +69,20 @@ add_filter( 'image_size_names_choose', 'bowland_pharmacy_custom_image_sizes' );
  * Enqueue Global Styles & Scripts
  */
 function bowland_pharmacy_scripts() {
-    // Google Fonts
+    // Fonts (DM Sans, Playfair Display, Syne), served from the theme so no
+    // visitor's address goes to Google. Files and licences: assets/fonts/.
     wp_enqueue_style(
-        'bowland-google-fonts',
-        'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;700;800;900&family=Syne:wght@400;600;700;800&display=swap',
+        'bowland-fonts',
+        BOWLAND_PHARMACY_URI . '/assets/fonts/fonts.css',
         array(),
-        null
+        filemtime( BOWLAND_PHARMACY_DIR . '/assets/fonts/fonts.css' )
     );
 
-    // Font Awesome
+    // Font Awesome Free 6.4.0, served from the theme rather than Cloudflare's
+    // cdnjs. Unmodified vendor files and licence: assets/vendor/fontawesome/.
     wp_enqueue_style(
         'font-awesome',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+        BOWLAND_PHARMACY_URI . '/assets/vendor/fontawesome/css/all.min.css',
         array(),
         '6.4.0'
     );
@@ -407,6 +409,9 @@ if ( file_exists( BOWLAND_PHARMACY_DIR . '/inc/blood-test-privacy.php' ) ) {
 
 require_once get_theme_file_path('inc/hide-user-list.php');
 
+// NHS registration form: private store, answer-free alert email, 14-day clear-out.
+require_once get_theme_file_path( 'inc/nhs-registration.php' );
+
 /**
  * Helper: Get option field with fallback
  *
@@ -441,6 +446,25 @@ function bp_field( $field_name, $default = '' ) {
         return $value;
     }
     return $default;
+}
+
+/**
+ * Travel menu flags are served from the theme (assets/images/flags/), so no
+ * visitor's address goes to flagcdn.com. A saved ACF flag URL that points at
+ * flagcdn.com is swapped for the theme's copy when the theme holds that flag;
+ * any other URL is left as it is.
+ */
+function bp_local_flag_url( $url ) {
+    if ( ! is_string( $url ) || $url === '' ) {
+        return $url;
+    }
+    if ( preg_match( '#^https?://flagcdn\.com/[a-z0-9]+/([a-z]{2})\.(?:png|webp|svg)$#i', $url, $m ) ) {
+        $code = strtolower( $m[1] );
+        if ( file_exists( BOWLAND_PHARMACY_DIR . '/assets/images/flags/' . $code . '.png' ) ) {
+            return BOWLAND_PHARMACY_URI . '/assets/images/flags/' . $code . '.png';
+        }
+    }
+    return $url;
 }
 
 /**
@@ -1272,167 +1296,3 @@ function bp_contact_form_handler() {
 }
 add_action( 'wp_ajax_bp_contact_form', 'bp_contact_form_handler' );
 add_action( 'wp_ajax_nopriv_bp_contact_form', 'bp_contact_form_handler' );
-
-
-/**
- * NHS Prescription Registration AJAX Handler
- *
- * Mirrors bp_contact_form_handler: nonce + honeypot, sanitises everything,
- * validates required fields, posts the body to pharmacy_email via wp_mail().
- * Replies are JSON for the JS in nhs-prescriptions-register.js to render
- * inline success/error state.
- */
-function bp_npreg_form_handler() {
-    if ( ! isset( $_POST['bp_npreg_nonce'] ) || ! wp_verify_nonce( $_POST['bp_npreg_nonce'], 'bp_npreg_form_nonce' ) ) {
-        wp_send_json_error( array( 'message' => 'Security check failed. Please refresh the page and try again.' ) );
-    }
-
-    if ( ! empty( $_POST['npreg_website'] ) ) {
-        wp_send_json_error( array( 'message' => 'Spam detected.' ) );
-    }
-
-    // Sanitise
-    $name             = sanitize_text_field( $_POST['npreg_name'] ?? '' );
-    $dob              = sanitize_text_field( $_POST['npreg_dob'] ?? '' );
-    $phone            = sanitize_text_field( $_POST['npreg_phone'] ?? '' );
-    $email            = sanitize_email( $_POST['npreg_email'] ?? '' );
-    $address          = sanitize_textarea_field( $_POST['npreg_address'] ?? '' );
-    $postcode         = sanitize_text_field( $_POST['npreg_postcode'] ?? '' );
-    $nhs_number       = preg_replace( '/\s+/', '', sanitize_text_field( $_POST['npreg_nhs_number'] ?? '' ) );
-    $gp_practice      = sanitize_text_field( $_POST['npreg_gp_practice'] ?? '' );
-    $exemption        = sanitize_text_field( $_POST['npreg_exemption'] ?? '' );
-    $collection       = sanitize_text_field( $_POST['npreg_collection'] ?? '' );
-    $order_management = sanitize_text_field( $_POST['npreg_order_management'] ?? '' );
-    $medication       = sanitize_textarea_field( $_POST['npreg_medication'] ?? '' );
-    $scr_consent      = ! empty( $_POST['npreg_scr_consent'] );
-    $referral         = sanitize_text_field( $_POST['npreg_referral'] ?? '' );
-    $comments         = sanitize_textarea_field( $_POST['npreg_comments'] ?? '' );
-
-    // Validate required
-    $required = array(
-        'Full name'                            => $name,
-        'Date of birth'                        => $dob,
-        'Phone number'                         => $phone,
-        'Email address'                        => $email,
-        'Home address'                         => $address,
-        'Postcode'                             => $postcode,
-        'NHS number'                           => $nhs_number,
-        'GP practice name'                     => $gp_practice,
-        'Prescription exemption'               => $exemption,
-        'Prescription collection preference'   => $collection,
-        'Medication list'                      => $medication,
-    );
-    foreach ( $required as $field_label => $value ) {
-        if ( $value === '' ) {
-            wp_send_json_error( array( 'message' => 'Please fill in all required fields.' ) );
-        }
-    }
-
-    if ( ! is_email( $email ) ) {
-        wp_send_json_error( array( 'message' => 'Please enter a valid email address.' ) );
-    }
-
-    if ( ! preg_match( '/^\d{10}$/', $nhs_number ) ) {
-        wp_send_json_error( array( 'message' => 'Please enter your 10-digit NHS number.' ) );
-    }
-
-    if ( ! $scr_consent ) {
-        wp_send_json_error( array( 'message' => 'Please tick the Summary Care Record consent box to continue.' ) );
-    }
-
-    if ( empty( $order_management ) ) {
-        wp_send_json_error( array( 'message' => 'Please confirm you understand you will need to order your own repeat prescriptions.' ) );
-    }
-
-    // Human-readable exemption / collection / order labels for the email body
-    $exemption_labels = array(
-        'pay' => 'I pay for my prescriptions (£9.90 per item)',
-        'A'   => 'A — Aged 60 or over / under 16',
-        'B'   => 'B — Aged 16–18 in full-time education',
-        'D'   => 'D — Maternity Exemption Certificate (MatEx)',
-        'E'   => 'E — Medical Exemption Certificate (MedEx)',
-        'F'   => 'F — Prescription Prepayment Certificate (PPC)',
-        'W'   => 'W — HRT Prescription Prepayment Certificate',
-        'G'   => 'G — Ministry of Defence exemption',
-        'L'   => 'L — HC2 certificate (full help)',
-        'H'   => 'H — Income Support or income-related ESA',
-        'K'   => "K — Income-based Jobseeker's Allowance",
-        'M'   => 'M — Tax Credit exemption certificate',
-        'S'   => 'S — Pension Credit Guarantee Credit',
-        'U'   => 'U — Universal Credit (meets criteria)',
-    );
-    $collection_labels = array(
-        'collect'  => 'Patient will collect from the pharmacy',
-        'delivery' => 'Patient would like home delivery',
-    );
-    $order_labels = array(
-        'acknowledged' => 'Acknowledged — patient will order their own repeat prescriptions (NHS app or surgery)',
-    );
-    $referral_labels = array(
-        'social'  => 'Social Media (Facebook / Instagram)',
-        'leaflet' => 'Leaflet Drop',
-        'wom'     => 'Word of Mouth',
-        'other'   => 'Other',
-    );
-
-    $exemption_display  = $exemption_labels[ $exemption ] ?? $exemption;
-    $collection_display = $collection_labels[ $collection ] ?? $collection;
-    $order_display      = $order_labels[ $order_management ] ?? $order_management;
-    $referral_display   = $referral ? ( $referral_labels[ $referral ] ?? $referral ) : '';
-
-    $to           = bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' );
-    $subject_line = '[' . bp_pharmacy_name() . '] New NHS Prescription Registration from ' . $name;
-
-    $body  = "New NHS prescription registration via " . home_url( '/nominate-bowland-pharmacy/' ) . "\n";
-    $body .= str_repeat( '=', 60 ) . "\n\n";
-
-    $body .= "PERSONAL DETAILS\n" . str_repeat( '-', 60 ) . "\n";
-    $body .= "Name:           " . $name . "\n";
-    $body .= "Date of birth:  " . $dob . "\n";
-    $body .= "Phone:          " . $phone . "\n";
-    $body .= "Email:          " . $email . "\n";
-    $body .= "Address:        " . $address . "\n";
-    $body .= "Postcode:       " . $postcode . "\n";
-    $body .= "NHS number:     " . $nhs_number . "\n\n";
-
-    $body .= "GP DETAILS\n" . str_repeat( '-', 60 ) . "\n";
-    $body .= "GP practice:    " . $gp_practice . "\n\n";
-
-    $body .= "PRESCRIPTION PREFERENCES\n" . str_repeat( '-', 60 ) . "\n";
-    $body .= "Exemption:      " . $exemption_display . "\n";
-    $body .= "Collection:     " . $collection_display . "\n";
-    $body .= "Order mgmt:     " . $order_display . "\n";
-    $body .= "Medication:\n" . $medication . "\n\n";
-
-    $body .= "CONSENT\n" . str_repeat( '-', 60 ) . "\n";
-    $body .= "Summary Care Record access consent: YES\n\n";
-
-    if ( $referral_display || $comments ) {
-        $body .= "ADDITIONAL INFORMATION\n" . str_repeat( '-', 60 ) . "\n";
-        if ( $referral_display ) {
-            $body .= "How they heard about us: " . $referral_display . "\n";
-        }
-        if ( $comments ) {
-            $body .= "Other comments:\n" . $comments . "\n";
-        }
-    }
-
-    $headers = array(
-        'From: ' . bp_pharmacy_name() . ' <wordpress@' . wp_parse_url( home_url(), PHP_URL_HOST ) . '>',
-        'Reply-To: ' . $name . ' <' . $email . '>',
-    );
-
-    $sent = wp_mail( $to, $subject_line, $body, $headers );
-
-    if ( $sent ) {
-        wp_send_json_success( array(
-            'message' => 'Thank you for registering with ' . bp_pharmacy_name() . '. We will be in touch within 1 working day to confirm your registration.',
-        ) );
-    } else {
-        wp_send_json_error( array(
-            'message' => 'Sorry, there was an error sending your registration. Please call us on ' . bp_phone() . ' instead.',
-        ) );
-    }
-}
-add_action( 'wp_ajax_bp_npreg_form', 'bp_npreg_form_handler' );
-add_action( 'wp_ajax_nopriv_bp_npreg_form', 'bp_npreg_form_handler' );

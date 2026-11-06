@@ -11,17 +11,17 @@ $phone         = dp_phone();
 $phone_link    = dp_phone_link();
 $email         = dp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
 $gphc          = dp_option( 'gphc_registration', '1033447' );
-$addr_line_1   = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
+$addr_line_1   = dp_option( 'pharmacy_address_line_1', '14 Ashton Road' );
 $addr_line_2   = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
 $addr_line_3   = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
 $full_address  = trim( $addr_line_1 . ', ' . $addr_line_2 . ' ' . $addr_line_3 );
-$last_updated  = 'July 2026';
+$last_updated  = 'November 2026';
 ?>
 
 <section class="legal-hero">
   <div class="legal-hero-inner">
     <span class="legal-badge"><i class="fas fa-file-contract"></i> Legal</span>
-    <h1>Terms &amp; Conditions</h1>
+    <h1>Terms and Conditions</h1>
     <p class="legal-hero-updated">Last updated: <?php echo esc_html( $last_updated ); ?></p>
   </div>
 </section>
@@ -29,45 +29,27 @@ $last_updated  = 'July 2026';
 <section class="legal-body">
   <div class="legal-content">
 
-    <h2>Introduction</h2>
-    <p>These Terms and Conditions govern your use of the <?php echo esc_html( $pharmacy_name ); ?> website. By accessing or using this website, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our website.</p>
+    <p>These terms cover our website and appointments you book with us.</p>
 
-    <h2>About Us</h2>
-    <p><?php echo esc_html( $pharmacy_name ); ?> is an independent community pharmacy providing NHS and private healthcare services. We are registered with the General Pharmaceutical Council (GPhC registration number <?php echo esc_html( $gphc ); ?>) and our registered pharmacy address is <?php echo esc_html( $full_address ); ?>.</p>
+    <h2>1. Who we are</h2>
+    <p><?php echo esc_html( $pharmacy_name ); ?>, <?php echo esc_html( $full_address ); ?>, is a registered pharmacy (GPhC <?php echo esc_html( $gphc ); ?>), run by AT Health Ltd, company number 14519140, registered in England and Wales. Registered office: Wilmslow Pharmacy, Unit 2 Summerfields Village Centre, Dean Row Road, Wilmslow SK9 2TA. VAT number GB 429880260. Our Superintendent Pharmacist is Ahmed Nizar Al-Liabi (GPhC 2208502). You can check our registration at <a href="https://www.pharmacyregulation.org" target="_blank" rel="noopener noreferrer">pharmacyregulation.org</a>. Contact us on <a href="tel:<?php echo esc_attr( $phone_link ); ?>"><?php echo esc_html( $phone ); ?></a> or <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>.</p>
 
-    <h2>Use of Our Website</h2>
-    <p>You agree to use our website only for lawful purposes and in a way that does not infringe the rights of, restrict or inhibit anyone else's use of the website. You must not misuse our website by knowingly introducing viruses or other malicious material, or by attempting to gain unauthorised access to our website, the server on which it is stored, or any server, computer or database connected to it.</p>
+    <h2>2. Information on this website</h2>
+    <p>Our website gives general information about our pharmacy and services. It is not medical advice. In an emergency, call 999. For urgent advice, call NHS 111.</p>
 
-    <h2>No Medical Advice</h2>
-    <p>The information provided on our website is for general information purposes only and is not intended to be a substitute for professional medical advice, diagnosis or treatment. You should always seek the advice of your pharmacist, GP or other qualified healthcare professional with any questions you may have regarding a medical condition or treatment.</p>
-    <p>Never disregard professional medical advice, or delay seeking it, because of something you have read on our website. If you think you may have a medical emergency, call 999 or contact NHS 111 immediately.</p>
+    <h2 id="appointments">3. Appointments and bookings</h2>
+    <p>You can book online through our booking calendar, provided by Acuity Scheduling. For private services, you pay after your appointment, at the pharmacy, for the service you receive. Nothing is paid in advance. NHS services are free, apart from any NHS prescription charge for medicines you take away, unless you are exempt. You pay the price on our <a href="<?php echo esc_url( home_url( '/prices/' ) ); ?>">Prices page</a>. If it has changed since you booked, we will tell you before your appointment starts, and you can cancel free.</p>
+    <p>Booking does not guarantee a treatment or vaccination. Our pharmacist checks at the appointment that it is suitable for you. If it is not, we explain why and talk through other options.</p>
+    <p>You can cancel or move your appointment at any time before it starts, using the link in your confirmation email, by calling <a href="tel:<?php echo esc_attr( $phone_link ); ?>"><?php echo esc_html( $phone ); ?></a>, by emailing <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a> or by telling us in the pharmacy. There is no charge for cancelling or moving. Please tell us as early as you can, so we can offer the time to someone else.</p>
 
-    <h2>Services and Bookings</h2>
-    <p>Where you book an appointment or request a service through our website, you agree to provide accurate and complete information. Bookings are subject to availability and to our acceptance. We reserve the right to decline or cancel a booking where clinically appropriate or where required by law or professional guidance. All healthcare services are provided in accordance with GPhC standards and relevant regulations.</p>
+    <h2>4. Medicines</h2>
+    <p>We cannot take back medicines once they have left the pharmacy, except where the law requires (for example a dispensing error or a recall). Our <a href="<?php echo esc_url( home_url( '/returns-policy/' ) ); ?>">returns policy</a> covers other items bought in the pharmacy.</p>
 
-    <h2>Intellectual Property</h2>
-    <p>All content on this website, including text, graphics, logos, images and design, is the property of <?php echo esc_html( $pharmacy_name ); ?> or its licensors and is protected by copyright and other intellectual property laws. You may view and print content for your own personal, non-commercial use, but you must not reproduce, distribute or otherwise use any content without our prior written permission.</p>
+    <h2 id="complaints">5. Complaints</h2>
+    <p>If you are unhappy with our service, please tell us first, on <a href="tel:<?php echo esc_attr( $phone_link ); ?>"><?php echo esc_html( $phone ); ?></a>, by email to <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a> or in the pharmacy. Complaints about NHS services can go to the local NHS commissioner instead, NHS Greater Manchester Integrated Care Board (phone 0161 271 3980 or email <a href="mailto:nhsgm.patientservices@nhs.net">nhsgm.patientservices@nhs.net</a>). If you are not happy with the final answer to an NHS complaint, you can ask the <a href="https://www.ombudsman.org.uk" target="_blank" rel="noopener noreferrer">Parliamentary and Health Service Ombudsman</a> to look at it. Concerns about professional standards can go to the <a href="https://www.pharmacyregulation.org" target="_blank" rel="noopener noreferrer">General Pharmaceutical Council</a>.</p>
 
-    <h2>Third-Party Links</h2>
-    <p>Our website may contain links to external websites operated by third parties. These links are provided for your convenience only. We have no control over the content of those websites and accept no responsibility for them or for any loss or damage that may arise from your use of them.</p>
-
-    <h2>Limitation of Liability</h2>
-    <p>While we take reasonable care to ensure that the information on our website is accurate and up to date, we make no warranties or representations, express or implied, as to its accuracy, completeness or fitness for a particular purpose. To the fullest extent permitted by law, we exclude all liability for any loss or damage arising from your use of, or inability to use, our website.</p>
-    <p>Nothing in these Terms and Conditions excludes or limits our liability for death or personal injury caused by our negligence, for fraud, or for any other liability that cannot be excluded or limited under applicable law.</p>
-
-    <h2>Privacy</h2>
-    <p>Your use of our website is also governed by our <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a> and <a href="<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>">Cookie Policy</a>, which explain how we collect, use and protect your personal information.</p>
-
-    <h2>Changes to These Terms</h2>
-    <p>We may update these Terms and Conditions from time to time to reflect changes in our services, or for legal or regulatory reasons. Any updates will be published on this page together with the revised "Last Updated" date. Your continued use of our website after any changes indicates your acceptance of the updated terms.</p>
-
-    <h2>Governing Law</h2>
-    <p>These Terms and Conditions are governed by and construed in accordance with the laws of England and Wales, and any disputes will be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
-
-    <div class="legal-contact-card">
-      <h2>Contact Us</h2>
-      <p>If you have any questions about these Terms and Conditions, you may contact us at <?php echo esc_html( $pharmacy_name ); ?>, <?php echo esc_html( $full_address ); ?>, call us on <a href="tel:<?php echo esc_attr( $phone_link ); ?>"><?php echo esc_html( $phone ); ?></a>, or email us at <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>.</p>
-    </div>
+    <h2>6. Liability and law</h2>
+    <p>Nothing in these terms limits our liability for death or personal injury caused by our negligence, or anything else the law does not let us limit. These terms are governed by the law of England and Wales. Your legal rights are not affected. For how we handle your information, see our <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">privacy policy</a> and <a href="<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>">cookie policy</a>.</p>
 
   </div>
 </section>

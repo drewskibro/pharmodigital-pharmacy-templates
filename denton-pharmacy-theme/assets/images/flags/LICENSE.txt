@@ -1,0 +1,7 @@
+Country flag images (PNG, 40 pixels wide) for the travel menu.
+
+Source: flagcdn.com, the image service of Flagpedia.net, copied unmodified
+on 6 November 2026 so visitors' browsers no longer contact flagcdn.com.
+
+Licence: Flagpedia states that the flag images are in the public domain
+(exempt from copyright) and free for commercial use (https://flagpedia.net/about).

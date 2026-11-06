@@ -14,7 +14,7 @@ $addr_line_1   = bp_option( 'pharmacy_address_line_1', '52 Bowland Road' );
 $addr_line_2   = bp_option( 'pharmacy_address_line_2', 'Wythenshawe, Manchester' );
 $addr_line_3   = bp_option( 'pharmacy_address_line_3', 'M23 1JX' );
 $full_address  = trim( $addr_line_1 . ', ' . $addr_line_2 . ' ' . $addr_line_3 );
-$last_updated  = 'July 2026';
+$last_updated  = 'November 2026';
 ?>
 
 <section class="legal-hero">
@@ -28,59 +28,38 @@ $last_updated  = 'July 2026';
 <section class="legal-body">
   <div class="legal-content">
 
-    <h2>Introduction</h2>
-    <p>This Cookie Policy explains how <?php echo esc_html( $pharmacy_name ); ?> ("we", "our" or "us") uses cookies and similar technologies on our website. It should be read alongside our <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a>, which explains how we handle your personal information.</p>
-    <p>By continuing to use our website, you agree to the use of cookies as described in this policy. You can manage or withdraw your consent at any time through your browser settings, as explained below.</p>
+    <h2>What this policy covers</h2>
+    <p>Cookies are small files a website stores on your device. Similar tools, such as local storage and scripts that read details from your browser, are covered too. This policy should be read with our <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">privacy policy</a>.</p>
 
-    <h2>What Are Cookies?</h2>
-    <p>Cookies are small text files that are placed on your device (computer, tablet or smartphone) when you visit a website. They are widely used to make websites work, to improve their performance and usability, and to provide information to the website owner.</p>
-    <p>Cookies may be "session" cookies, which are deleted when you close your browser, or "persistent" cookies, which remain on your device until they expire or you delete them. Similar technologies such as pixels, tags and local storage may also be used, and are covered by this policy.</p>
+    <h2>Your choice</h2>
+    <p>When you first visit, we ask whether we may use analytics. Nothing that measures visitors runs until you choose "Accept analytics". "Essential only" is just as easy, and the website works the same either way. We keep your choice for six months, then ask again. You can change it at any time with Cookie settings at the foot of every page. If you change to Essential only, we remove the analytics cookies and reload the page.</p>
 
-    <h2>How We Use Cookies</h2>
-    <p>We use the following categories of cookies on our website:</p>
-    <h3>Strictly Necessary Cookies</h3>
-    <p>These cookies are essential for the website to function correctly. They enable core features such as page navigation, security and access to secure areas of the site. The website cannot function properly without these cookies, and they cannot be switched off in our systems.</p>
-    <h3>Performance &amp; Analytics Cookies</h3>
-    <p>These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously — for example, which pages are visited most often and whether visitors encounter any errors. This helps us improve how our website works. We use:</p>
+    <h2>Always on (no consent needed)</h2>
     <ul>
-      <li><strong>Google Analytics</strong> — to measure and analyse website traffic and usage.</li>
-      <li><strong>Microsoft Clarity</strong> — to understand how visitors use and navigate our website.</li>
+      <li><strong>bp_consent</strong>: remembers your cookie choice. Kept for six months.</li>
+      <li><strong>__cf_bm</strong>: set by Cloudflare to protect our website from automated attacks. Kept for 30 minutes.</li>
+      <li>WordPress sign-in cookies: only for our staff when they are signed in.</li>
     </ul>
-    <h3>Functional Cookies</h3>
-    <p>These cookies allow the website to remember choices you make (such as your preferences) to provide enhanced, more personal features. The information these cookies collect may be anonymised, and they cannot track your browsing activity on other websites.</p>
 
-    <h3>Booking System Cookies</h3>
-    <p>Our online appointment booking system uses cookies to manage your session and make sure your booking is processed correctly.</p>
-
-    <h2>Third-Party Cookies</h2>
-    <p>Alongside our own cookies, the following third-party services may set cookies when you use our website:</p>
+    <h2>Only if you choose "Accept analytics"</h2>
     <ul>
-      <li><strong>Google Analytics</strong> &mdash; website analytics and performance measurement</li>
-      <li><strong>Microsoft Clarity</strong> &mdash; understanding how visitors navigate and use the site</li>
-      <li><strong>Acuity Scheduling</strong> &mdash; our online appointment booking system</li>
+      <li>Google Analytics, run by Google, loaded directly and through Google Tag Manager: counts visits, clicks and bookings, and roughly where visitors are and what device they use. Cookies _ga and _ga_ followed by a code, kept for up to 2 years. When you book, it records only that a booking was made and its reference number, never your name or email.</li>
+      <li>Microsoft Clarity, run by Microsoft: records how visitors move, click and scroll on our pages, so we can see where the website is hard to use. Cookies _clck and _clsk, and Microsoft may set its own cookies. Clarity never runs on our NHS registration, NHS prescriptions or contact pages.</li>
     </ul>
-    <p>We do not control the setting of these cookies, so we recommend you review each provider's own cookie and privacy policies for more information.</p>
-    <p>Our website is designed, developed and managed by Gildhart (PharmoDigital Ltd). For more information about our digital partner, visit <a href="https://gildhart.com/" target="_blank" rel="noopener noreferrer">gildhart.com</a>.</p>
 
-
-    <h2>Managing Cookies</h2>
-    <p>You can control and manage cookies in various ways. Most web browsers allow you to refuse or accept cookies, delete existing cookies, and set preferences for certain websites. Please note that if you disable or delete cookies, some parts of our website may not function correctly.</p>
-    <p>Guidance on managing cookies in the most popular browsers is available here:</p>
+    <h2>Content from other companies</h2>
     <ul>
-      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
-      <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
-      <li><a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
-      <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+      <li>Acuity Scheduling (Squarespace): our booking calendar. It loads inside our booking pages and may set its own cookies. See its own policies.</li>
+      <li>Google Maps, run by Google: the map on some of our pages, including our home, contact and NHS services pages. It loads inside our pages and Google may set its own cookies. See its own policies.</li>
+      <li>Unsplash: photographs on many of our vaccination and travel pages. It sets no cookies for us, but it receives your device's internet address.</li>
     </ul>
-    <p>You can opt out of Google Analytics specifically by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.</p>
-    <p>You can also find general information about cookies and how to manage them at <a href="https://www.aboutcookies.org" target="_blank" rel="noopener noreferrer">aboutcookies.org</a>.</p>
 
-    <h2>Changes to this Cookie Policy</h2>
-    <p>We may update this Cookie Policy from time to time to reflect changes in the cookies we use or for other operational, legal or regulatory reasons. Any updates will be published on this page together with the revised "Last Updated" date.</p>
+    <h2>Browser settings</h2>
+    <p>You can also block or delete cookies in your browser. Blocking every cookie may stop the booking calendar working. Guidance is at <a href="https://www.aboutcookies.org" target="_blank" rel="noopener noreferrer">aboutcookies.org</a>.</p>
 
     <div class="legal-contact-card">
-      <h2>Contact Us</h2>
-      <p>If you have any questions about this Cookie Policy, you may contact us at <?php echo esc_html( $pharmacy_name ); ?>, <?php echo esc_html( $full_address ); ?>, call us on <a href="tel:<?php echo esc_attr( $phone_link ); ?>"><?php echo esc_html( $phone ); ?></a>, or email us at <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>.</p>
+      <h2>Questions</h2>
+      <p>Contact us at <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a> or <a href="tel:<?php echo esc_attr( $phone_link ); ?>"><?php echo esc_html( $phone ); ?></a>, or see our <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">privacy policy</a>.</p>
     </div>
 
   </div>
