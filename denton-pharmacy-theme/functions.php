@@ -750,6 +750,13 @@ function denton_pharmacy_post_schema() {
     $date_published = get_the_date( 'c', $post_id );
     $date_modified  = get_the_modified_date( 'c', $post_id );
 
+    // A post written ahead and scheduled keeps the date it was last saved, which
+    // can be earlier than the day it went out. Never say a post was modified
+    // before it was published.
+    if ( strtotime( $date_modified ) < strtotime( $date_published ) ) {
+        $date_modified = $date_published;
+    }
+
     // Featured image
     $image_url = get_the_post_thumbnail_url( $post_id, 'large' );
 

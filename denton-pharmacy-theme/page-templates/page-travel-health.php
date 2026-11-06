@@ -14,7 +14,7 @@ get_header();
 <?php
 // --- Hero content ---
 $th_badge         = dp_field( 'th_hero_badge', 'TRAVEL HEALTH SERVICES' );
-$th_title_line1   = dp_field( 'th_hero_title_line1', 'Denton\'s Leading' );
+$th_title_line1   = dp_field( 'th_hero_title_line1', '' );
 $th_title_line2   = dp_field( 'th_hero_title_line2', 'Travel Clinic' );
 $th_title_line3   = dp_field( 'th_hero_title_line3', 'Fly Happy.' );
 $th_description   = dp_field( 'th_hero_description', 'Expert travel jabs and health advice for your next adventure. Book your appointment at our Denton travel clinic with ' . dp_option( 'superintendent_pharmacist', 'our expert team' ) . '.' );
@@ -28,15 +28,15 @@ $th_hero_bg_alt = dp_field( 'th_hero_bg_alt', 'Travel health destination' );
 
 // --- Floating badge ---
 $th_float_badge_text  = dp_field( 'th_hero_float_badge_text', 'Yellow Fever Centre' );
-$th_float_badge_label = dp_field( 'th_hero_float_badge_label', 'OFFICIAL' );
+$th_float_badge_label = dp_field( 'th_hero_float_badge_label', 'DESIGNATED' );
 
 // --- Testimonial ---
-$th_testimonial_quote  = dp_field( 'th_hero_testimonial_quote', 'The pharmacist was brilliant — explained everything clearly and made the whole family feel at ease before our trip to Kenya.' );
+$th_testimonial_quote  = '';
 $th_testimonial_author = dp_field( 'th_hero_testimonial_author', 'Denton Patient' );
 $th_testimonial_dest   = dp_field( 'th_hero_testimonial_destination', 'Kenya' );
 
 // --- Rating badge (pull from global options) ---
-$google_rating     = dp_option( 'google_rating', '4.9' );
+$google_rating     = dp_option( 'google_rating', '' );
 $google_review_url = dp_option( 'google_review_url', '#' );
 $google_reviews    = dp_option( 'google_review_count', '140+' );
 $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
@@ -58,7 +58,7 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         </div>
 
         <h1 class="travel-hero-title">
-          <?php echo esc_html( $th_title_line1 ); ?><br />
+          <?php if ( $th_title_line1 ) : ?><?php echo esc_html( $th_title_line1 ); ?><br /><?php endif; ?>
           <span class="travel-hero-title-accent"><?php echo esc_html( $th_title_line2 ); ?></span><br />
           <span class="travel-hero-title-line3"><?php echo esc_html( $th_title_line3 ); ?></span>
         </h1>
@@ -115,49 +115,6 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
           <?php endif; ?>
         </div>
 
-        <!-- Testimonial card (overlapping bottom-left) -->
-        <div class="travel-hero-testimonial">
-          <div class="travel-hero-testimonial-quote-icon">
-            <i class="fas fa-quote-left"></i>
-          </div>
-          <p class="travel-hero-testimonial-quote">"<?php echo esc_html( $th_testimonial_quote ); ?>"</p>
-          <div class="travel-hero-testimonial-footer">
-            <div class="travel-hero-testimonial-author">
-              <p class="travel-hero-testimonial-name"><?php echo esc_html( $th_testimonial_author ); ?></p>
-              <div class="star-row">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-            </div>
-            <?php if ( $th_testimonial_dest ) : ?>
-              <div class="travel-hero-testimonial-dest">
-                <i class="fas fa-plane"></i>
-                <span><?php echo esc_html( $th_testimonial_dest ); ?></span>
-              </div>
-            <?php endif; ?>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile testimonial (below content on small screens) -->
-      <div class="travel-hero-testimonial-mobile mobile-only">
-        <div class="travel-hero-testimonial-quote-icon">
-          <i class="fas fa-quote-left"></i>
-        </div>
-        <p class="travel-hero-testimonial-quote">"<?php echo esc_html( $th_testimonial_quote ); ?>"</p>
-        <div class="travel-hero-testimonial-footer">
-          <div class="travel-hero-testimonial-author">
-            <p class="travel-hero-testimonial-name"><?php echo esc_html( $th_testimonial_author ); ?></p>
-            <div class="star-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-          <?php if ( $th_testimonial_dest ) : ?>
-            <div class="travel-hero-testimonial-dest">
-              <i class="fas fa-plane"></i>
-              <span><?php echo esc_html( $th_testimonial_dest ); ?></span>
-            </div>
-          <?php endif; ?>
-        </div>
       </div>
 
     </div>
@@ -173,9 +130,7 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
     <div class="travel-stats-grid">
       <?php
       $stats = array(
-        array( 'icon' => 'th_stat_1_icon', 'number' => 'th_stat_1_number', 'label' => 'th_stat_1_label', 'def_icon' => 'fas fa-shield-virus', 'def_number' => 'Official', 'def_label' => 'Yellow Fever Centre' ),
-        array( 'icon' => 'th_stat_2_icon', 'number' => 'th_stat_2_number', 'label' => 'th_stat_2_label', 'def_icon' => 'fas fa-passport', 'def_number' => '1,000+', 'def_label' => 'Travellers Protected' ),
-        array( 'icon' => 'th_stat_3_icon', 'number' => 'th_stat_3_number', 'label' => 'th_stat_3_label', 'def_icon' => 'fas fa-award', 'def_number' => '15+', 'def_label' => 'Years Experience' ),
+        array( 'icon' => 'th_stat_1_icon', 'number' => 'th_stat_1_number', 'label' => 'th_stat_1_label', 'def_icon' => 'fas fa-shield-virus', 'def_number' => 'Designated', 'def_label' => 'Yellow Fever Centre' ),
         array( 'icon' => 'th_stat_4_icon', 'number' => 'th_stat_4_number', 'label' => 'th_stat_4_label', 'def_icon' => 'fas fa-shield-halved', 'def_number' => 'GPhC', 'def_label' => 'Registered' ),
       );
       foreach ( $stats as $stat ) :
@@ -294,7 +249,7 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         <div class="travel-vaccine-card travel-vaccine-card-yellow">
           <div class="travel-vaccine-icon"><i class="fas fa-shield-virus"></i></div>
           <h4 class="travel-vaccine-name">Yellow Fever</h4>
-          <span class="travel-vaccine-badge">Official Centre</span>
+          <span class="travel-vaccine-badge">Designated Centre</span>
         </div>
         <div class="travel-vaccine-card">
           <div class="travel-vaccine-icon"><i class="fas fa-syringe"></i></div>
@@ -382,8 +337,6 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
         <?php
         $why_cards = array(
           array( 'icon' => 'fas fa-user-doctor', 'title' => 'Expert Pharmacist Consultations', 'desc' => 'Our expert pharmacists provide up-to-date travel health advice tailored to your specific itinerary and destination.' ),
-          array( 'icon' => 'fas fa-calendar-check', 'title' => 'Flexible Appointments', 'desc' => 'Same-day appointments available to suit your schedule.' ),
-          array( 'icon' => 'fas fa-tags', 'title' => 'Competitive Pricing', 'desc' => 'Transparent, affordable pricing for all vaccinations and antimalarials.' ),
           array( 'icon' => 'fas fa-location-dot', 'title' => 'Convenient Location', 'desc' => 'Easy to find in Denton with parking available nearby.' ),
         );
         foreach ( $why_cards as $i => $card ) :
@@ -453,9 +406,9 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
     <?php endwhile; else : ?>
       <?php
       $steps = array(
-        array( 'title' => 'Book Consultation', 'desc' => 'Book your appointment online or call us. We recommend booking 6-8 weeks before travel, but we can often accommodate last-minute trips.', 'icon' => 'fas fa-calendar-check', 'meta_icon' => 'fas fa-clock', 'meta_text' => 'Book online 24/7' ),
+        array( 'title' => 'Book Consultation', 'desc' => 'Book your appointment online or call us. The NHS advises getting travel health advice at least 4 to 6 weeks before you go.', 'icon' => 'fas fa-calendar-check', 'meta_icon' => 'fas fa-clock', 'meta_text' => 'Book online 24/7' ),
         array( 'title' => 'Consultation & Vaccination', 'desc' => 'Meet with our pharmacist to discuss your itinerary and health history. We\'ll administer necessary vaccinations and provide health advice.', 'icon' => 'fas fa-user-doctor', 'meta_icon' => 'fas fa-check-circle', 'meta_text' => 'Safe & professional' ),
-        array( 'title' => 'Travel with Confidence', 'desc' => 'Leave with your vaccination record card, any necessary medication (like antimalarials), and the peace of mind that you\'re protected.', 'icon' => 'fas fa-plane-departure', 'meta_icon' => 'fas fa-passport', 'meta_text' => 'Official certificates' ),
+        array( 'title' => 'Travel with Confidence', 'desc' => 'Leave with your vaccination record card and any necessary medication (like antimalarials).', 'icon' => 'fas fa-plane-departure', 'meta_icon' => 'fas fa-passport', 'meta_text' => 'Official certificates' ),
       );
       foreach ( $steps as $i => $step ) :
         $direction = ( ($i + 1) % 2 === 1 ) ? 'left' : 'right';
@@ -570,10 +523,10 @@ $pharmacy_town     = dp_option( 'pharmacy_town', 'Denton' );
       <?php endwhile; else : ?>
         <?php
         $faqs = array(
-          array( 'q' => 'When should I book my travel vaccinations?', 'a' => 'We recommend booking your appointment 6-8 weeks before you travel. Some vaccinations require multiple doses over a few weeks to be fully effective. However, we can often accommodate last-minute travellers, so please contact us even if you\'re travelling sooner.' ),
+          array( 'q' => 'When should I book my travel vaccinations?', 'a' => 'The NHS advises getting travel health advice at least 4 to 6 weeks before you go. Some vaccinations require multiple doses over a few weeks to be fully effective. However, we can often accommodate last-minute travellers, so please contact us even if you\'re travelling sooner.' ),
           array( 'q' => 'Do I need a yellow fever certificate?', 'a' => 'Some countries require an International Certificate of Vaccination or Prophylaxis (ICVP) for yellow fever as a condition of entry. We are a designated Yellow Fever Vaccination Centre and can provide this official certificate. We\'ll advise you on the specific requirements for your destination during your consultation.' ),
           array( 'q' => 'What should I bring to my appointment?', 'a' => 'Please bring details of your itinerary (countries, regions, duration), any previous vaccination records, and a list of current medications. This helps us provide the most accurate and safe advice for your trip.' ),
-          array( 'q' => 'Do you provide malaria tablets?', 'a' => 'Yes, we can prescribe and supply malaria prevention tablets (antimalarials) such as Malarone, Doxycycline, and Lariam. We\'ll assess your risk based on your destination and recommend the most suitable option for you.' ),
+          array( 'q' => 'Do you provide malaria tablets?', 'a' => 'If your trip has a malaria risk, the pharmacist explains how to avoid mosquito bites and whether you need malaria prevention tablets. If you do, we supply them only after a consultation, and only if the pharmacist confirms they are suitable for you.' ),
         );
         foreach ( $faqs as $i => $faq ) :
         ?>

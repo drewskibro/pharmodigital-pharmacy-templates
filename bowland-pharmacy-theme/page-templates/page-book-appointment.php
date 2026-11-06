@@ -134,7 +134,7 @@ get_header();
       <?php endwhile; else : ?>
         <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-clock"></i></div><div class="book-stat-content"><span class="book-stat-number">15+</span><span class="book-stat-label">Years Experience</span></div></div>
         <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-users"></i></div><div class="book-stat-content"><span class="book-stat-number">1,000+</span><span class="book-stat-label">Patients Helped</span></div></div>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-star"></i></div><div class="book-stat-content"><span class="book-stat-number"><?php echo esc_html( bp_option( 'google_rating', '4.7' ) ); ?></span><span class="book-stat-label">Google Rating</span></div></div>
+        <?php if ( bp_option( 'google_rating' ) ) : ?><div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-star"></i></div><div class="book-stat-content"><span class="book-stat-number"><?php echo esc_html( bp_option( 'google_rating' ) ); ?></span><span class="book-stat-label">Google Rating</span></div></div><?php endif; ?>
         <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-certificate"></i></div><div class="book-stat-content"><span class="book-stat-number">GPhC</span><span class="book-stat-label">Registered</span></div></div>
       <?php endif; ?>
     </div>
@@ -201,7 +201,7 @@ get_header();
             <i class="fas fa-plane-departure"></i>
           </div>
           <h3 class="book-service-title">Travel Vaccinations</h3>
-          <p class="book-service-desc">Official Yellow Fever Centre. Hepatitis, Typhoid, Rabies, and destination-specific advice.</p>
+          <p class="book-service-desc">Designated Yellow Fever Vaccination Centre. Hepatitis, Typhoid, Rabies, and destination-specific advice.</p>
           <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
         </div>
         <!-- Ear Wax Removal -->
@@ -379,7 +379,7 @@ get_header();
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">05</span><span class="book-faq-question">Why do so many Bowland patients choose you?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>We combine clinical expertise with genuine warmth. Plus, we're a local independent pharmacy that has been part of the Wythenshawe community for decades—we truly care about your health outcomes. Our patients appreciate the personal care you can't get from large chains.</p></div>
+          <div class="book-faq-answer"><p>We combine clinical expertise with genuine warmth. Plus, we're a local independent pharmacy in Wythenshawe, and we truly care about your health outcomes. Our patients appreciate the personal care you can't get from large chains.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">06</span><span class="book-faq-question">Do I need a referral from my GP?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
