@@ -105,12 +105,12 @@ $default_th_services = array(
     array( 'label' => 'Travel Advice',       'description' => 'Destination-specific health recommendations',        'icon' => 'fas fa-clipboard-check', 'url' => '' ),
 );
 $default_th_dests = array(
-    array( 'name' => 'Thailand',   'flag_url' => 'https://flagcdn.com/w40/th.png', 'url' => home_url( '/travel-thailand/' ) ),
-    array( 'name' => 'India',      'flag_url' => 'https://flagcdn.com/w40/in.png', 'url' => home_url( '/travel-india/' ) ),
-    array( 'name' => 'Vietnam',    'flag_url' => 'https://flagcdn.com/w40/vn.png', 'url' => home_url( '/travel-vietnam/' ) ),
-    array( 'name' => 'Kenya',      'flag_url' => 'https://flagcdn.com/w40/ke.png', 'url' => home_url( '/travel-kenya/' ) ),
-    array( 'name' => 'Brazil',     'flag_url' => 'https://flagcdn.com/w40/br.png', 'url' => home_url( '/travel-brazil/' ) ),
-    array( 'name' => 'Cape Verde', 'flag_url' => 'https://flagcdn.com/w40/cv.png', 'url' => home_url( '/travel-cape-verde/' ) ),
+    array( 'name' => 'Thailand',   'flag_url' => BOWLAND_PHARMACY_URI . '/assets/images/flags/th.png', 'url' => home_url( '/travel-thailand/' ) ),
+    array( 'name' => 'India',      'flag_url' => BOWLAND_PHARMACY_URI . '/assets/images/flags/in.png', 'url' => home_url( '/travel-india/' ) ),
+    array( 'name' => 'Vietnam',    'flag_url' => BOWLAND_PHARMACY_URI . '/assets/images/flags/vn.png', 'url' => home_url( '/travel-vietnam/' ) ),
+    array( 'name' => 'Kenya',      'flag_url' => BOWLAND_PHARMACY_URI . '/assets/images/flags/ke.png', 'url' => home_url( '/travel-kenya/' ) ),
+    array( 'name' => 'Brazil',     'flag_url' => BOWLAND_PHARMACY_URI . '/assets/images/flags/br.png', 'url' => home_url( '/travel-brazil/' ) ),
+    array( 'name' => 'Cape Verde', 'flag_url' => BOWLAND_PHARMACY_URI . '/assets/images/flags/cv.png', 'url' => home_url( '/travel-cape-verde/' ) ),
 );
 $default_sv_links = array(
     array( 'label' => 'NHS Prescriptions',   'description' => 'Free for eligible patients, fast delivery', 'icon' => 'fas fa-file-medical',         'url' => home_url( '/nhs-prescriptions/' ) ),
@@ -315,7 +315,7 @@ if ( ! is_array( $ps_vaccines ) || empty( $ps_vaccines ) ) { $ps_vaccines = $def
                     <?php foreach ( $th_dests as $dest ) :
                       $href     = ! empty( $dest['url'] ) ? $dest['url'] : $nav_th_url;
                       $name     = ! empty( $dest['name'] ) ? $dest['name'] : '';
-                      $flag_url = ! empty( $dest['flag_url'] ) ? $dest['flag_url'] : '';
+                      $flag_url = ! empty( $dest['flag_url'] ) ? bp_local_flag_url( $dest['flag_url'] ) : '';
                     ?>
                     <a href="<?php echo esc_url( $href ); ?>" class="bowland-destination-link">
                       <?php if ( $flag_url ) : ?>

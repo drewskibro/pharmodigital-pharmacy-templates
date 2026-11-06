@@ -4,9 +4,9 @@
  * @package Denton_Pharmacy
  *
  * Standalone NHS prescription registration form. Submits via AJAX to
- * dp_npreg_form_handler() in functions.php; the handler posts to
- * info@dentonpharmacy.co.uk (or whatever the pharmacy_email option is set
- * to).
+ * dp_npreg_form_handler() in inc/nhs-registration.php, which keeps the answers
+ * in a private record in wp-admin (NHS registrations), emails the pharmacy_email
+ * inbox only to say a new form is waiting, and deletes the record after 14 days.
  */
 
 get_header();
@@ -147,9 +147,9 @@ $referral_options = array(
             </div>
 
             <div class="npreg-field">
-              <label for="npreg-nhs-number">NHS Number <span class="npreg-req" aria-hidden="true">*</span></label>
-              <input type="text" id="npreg-nhs-number" name="npreg_nhs_number" required inputmode="numeric" pattern="\d{10}" maxlength="10" aria-describedby="npreg-nhs-hint" />
-              <span id="npreg-nhs-hint" class="npreg-hint">Your 10-digit NHS number can be found on any NHS letter or by calling 111.</span>
+              <label for="npreg-nhs-number">NHS Number <span class="npreg-fieldset-optional">(optional)</span></label>
+              <input type="text" id="npreg-nhs-number" name="npreg_nhs_number" inputmode="numeric" pattern="\d{10}" maxlength="10" aria-describedby="npreg-nhs-hint" />
+              <span id="npreg-nhs-hint" class="npreg-hint">Your 10-digit NHS number is on any NHS letter or in the NHS App. Leave it blank if you do not know it and we will find it.</span>
             </div>
           </div>
         </fieldset>
@@ -208,11 +208,6 @@ $referral_options = array(
               </span>
             </label>
           </div>
-
-          <div class="npreg-field">
-            <label for="npreg-medication">What medication do you need? <span class="npreg-req" aria-hidden="true">*</span></label>
-            <textarea id="npreg-medication" name="npreg_medication" rows="4" required placeholder="Please list all your regular medications"></textarea>
-          </div>
         </fieldset>
 
         <!-- Consent -->
@@ -220,11 +215,10 @@ $referral_options = array(
           <legend class="npreg-fieldset-legend">Consent</legend>
 
           <label class="npreg-checkbox">
-            <input type="checkbox" id="npreg-scr-consent" name="npreg_scr_consent" value="1" required />
+            <input type="checkbox" id="npreg-scr-consent" name="npreg_scr_consent" value="1" />
             <span class="npreg-checkbox-marker"></span>
             <span class="npreg-checkbox-text">
-              I give consent for <?php echo esc_html( dp_pharmacy_name() ); ?> to access my Summary Care Record (GP record) to confirm my medication if required.
-              <span class="npreg-req" aria-hidden="true">*</span>
+              Optional: I give <?php echo esc_html( dp_pharmacy_name() ); ?> permission to look at my Summary Care Record (my GP medication record) when it helps my care. I can change my mind at any time by telling the pharmacy.
             </span>
           </label>
         </fieldset>
@@ -251,6 +245,11 @@ $referral_options = array(
             <textarea id="npreg-comments" name="npreg_comments" rows="3" placeholder="Anything else you'd like us to know"></textarea>
           </div>
         </fieldset>
+
+        <div class="npreg-privacy">
+          <p><strong>How we use these details.</strong> We use them only to register you with <?php echo esc_html( dp_pharmacy_name() ); ?>, set us as your nominated pharmacy on the NHS system so prescriptions from your GP practice come to us, and contact you about your prescriptions. Only people we authorise can see them. The website copy is deleted automatically <?php echo (int) DP_NPREG_KEEP_DAYS; ?> days after you send it. Once you are registered, your details become part of your pharmacy record, kept as long as NHS rules require.</p>
+          <p><?php echo esc_html( dp_pharmacy_name() ); ?> is run by AT Health Ltd. Read our <a href="<?php echo esc_url( home_url( '/privacy-policy/#nhs-registration-form' ) ); ?>">privacy policy</a> for your rights, including how to complain to us or to the Information Commission (the ICO).</p>
+        </div>
 
         <div class="npreg-submit-row">
           <button type="submit" class="cta-button primary-cta npreg-submit-btn">

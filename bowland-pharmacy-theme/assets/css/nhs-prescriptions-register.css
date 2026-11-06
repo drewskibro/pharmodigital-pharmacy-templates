@@ -425,6 +425,23 @@
 }
 
 /* Submit + states */
+/* Privacy line above the button (UK GDPR Article 13: tell people when they give the details) */
+.npreg-privacy {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  background: rgba(63, 115, 174, 0.06);
+  border: 1px solid rgba(63, 115, 174, 0.15);
+  border-radius: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-slate);
+}
+
+.npreg-privacy p { margin: 0; }
+.npreg-privacy p + p { margin-top: 0.5rem; }
+.npreg-privacy strong { color: var(--text-dark); }
+.npreg-privacy a { color: var(--brand-primary); font-weight: 700; text-decoration: underline; }
+
 .npreg-submit-row {
   display: flex;
   justify-content: center;
