@@ -34,11 +34,12 @@ $card_checks = array(
 );
 
 $elig_items = array(
-    array( 'icon' => 'fa-user',          'title' => 'Aged 65 or over',        'desc' => 'A free NHS flu jab is available if you are 65 or over.' ),
+    array( 'icon' => 'fa-user',          'title' => 'Aged 65 or over, including anyone turning 65 by 31 March 2027', 'desc' => 'A free NHS flu jab is available if you are 65 or over.' ),
     array( 'icon' => 'fa-person-pregnant','title' => 'Pregnant',               'desc' => 'Recommended at any stage of pregnancy to protect you and your baby.' ),
     array( 'icon' => 'fa-lungs',         'title' => 'Long-term conditions',    'desc' => 'Asthma, COPD, diabetes, heart, kidney or liver disease.' ),
     array( 'icon' => 'fa-hand-holding-heart', 'title' => 'Carers',             'desc' => 'Carers and those receiving Carer\'s Allowance.' ),
     array( 'icon' => 'fa-shield-virus',  'title' => 'Weakened immune system',  'desc' => 'Including people who live with someone immunocompromised.' ),
+    array( 'icon' => 'fa-child',         'title' => 'Children aged 2 and 3',   'desc' => 'We give the free NHS flu vaccine to children aged 2 or 3 on 31 August 2026 (born 1 September 2022 to 31 August 2024), including those who have since turned 4.' ),
     array( 'icon' => 'fa-coins',         'title' => 'Not eligible?',           'desc' => 'Private flu vaccination is available at Denton Pharmacy, Denton, for anyone aged 2 or over, at £25 per dose. Under-16s must come with a parent or legal guardian, who gives consent.' ),
 );
 
@@ -49,8 +50,8 @@ $proc_steps = array(
 );
 
 $faqs = array(
-    array( 'q' => 'Is the flu jab free?', 'a' => 'It is free on the NHS for eligible patients. Private flu vaccination is available at Denton Pharmacy, Denton, for anyone aged 2 or over, at £25 per dose. Under-16s must come with a parent or legal guardian, who gives consent. If your child is eligible, please use the NHS service first.' ),
-    array( 'q' => 'Can my child have a private flu vaccine?', 'a' => 'Private flu vaccination is available at Denton Pharmacy, Denton, for anyone aged 2 or over, at £25 per dose. The pharmacist will check the vaccine is suitable and choose the type; for children this is an injection. Most people need one dose. A child under 9 who has never had a flu vaccine and has certain health conditions, or lives with someone with a weakened immune system, may need a second dose at least 4 weeks later, charged at £25. Under-16s must come with a parent or legal guardian, who gives consent. Many children can have a free NHS flu vaccine, usually a nasal spray, at school, their GP surgery or a pharmacy offering the NHS service. This includes children aged 2 or 3 on 31 August 2026, children in Reception to Year 11, and children with certain health conditions. If your child is eligible, please use the NHS service first.' ),
+    array( 'q' => 'Is the flu jab free?', 'a' => 'It is free on the NHS for eligible patients. We give the free NHS flu vaccine to children aged 2 or 3 on 31 August 2026. Private flu vaccination is available at Denton Pharmacy, Denton, for anyone aged 2 or over, at £25 per dose. Under-16s must come with a parent or legal guardian, who gives consent. If your child is eligible, please use the NHS service first.' ),
+    array( 'q' => 'Can my child have a private flu vaccine?', 'a' => 'Private flu vaccination is available at Denton Pharmacy, Denton, for anyone aged 2 or over, at £25 per dose. The pharmacist will check the vaccine is suitable and choose the type; for children this is an injection. Most people need one dose. A child under 9 who has never had a flu vaccine and has certain health conditions, or lives with someone with a weakened immune system, may need a second dose at least 4 weeks later, charged at £25. Under-16s must come with a parent or legal guardian, who gives consent. Many children can have a free NHS flu vaccine, usually a nasal spray, at school, their GP surgery or a pharmacy offering the NHS service. This includes children aged 2 or 3 on 31 August 2026, children in Reception to Year 11, and children with certain health conditions. We give the free NHS flu vaccine to children aged 2 or 3 on 31 August 2026. If your child is eligible, please use the NHS service first.' ),
     array( 'q' => 'Do I need an appointment?', 'a' => 'You can book a slot or come as a walk-in. We offer flu and COVID vaccinations from 1 October each year, in line with NHS guidance.' ),
     array( 'q' => 'How long does it take to work?', 'a' => 'The vaccine usually takes up to 14 days to work.' ),
     array( 'q' => 'Are there any side effects?', 'a' => 'Side effects are usually mild and get better within 1 to 2 days. The most common are a slightly raised temperature or a tender arm.' ),

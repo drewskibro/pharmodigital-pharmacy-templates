@@ -106,6 +106,7 @@ get_header();
           width="100%"
           frameborder="0">
         </iframe>
+        <p class="booking-terms-line">NHS services are free, apart from any NHS prescription charge for medicines you take away, unless you are exempt. For private services, you pay after your appointment. Nothing is paid in advance. To cancel or move your appointment, use the link in your confirmation email, call <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>"><?php echo esc_html( bp_phone() ); ?></a> or email <a href="mailto:<?php echo esc_attr( bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' ) ); ?>"><?php echo esc_html( bp_option( 'pharmacy_email', 'info@bowlandpharmacy.co.uk' ) ); ?></a>. If the link does not work, please call us. There is no charge for cancelling or moving. Booking pages and emails may show the name MNC Travel Clinic, our travel clinic, also run by AT Health Ltd. Read our <a href="<?php echo esc_url( home_url( '/terms-conditions/#appointments' ) ); ?>">booking terms</a>, <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">privacy policy</a> and <a href="<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>">cookie policy</a>.</p>
       </div>
     </div>
 
