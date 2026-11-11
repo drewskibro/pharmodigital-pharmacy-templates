@@ -33,7 +33,7 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
         </h1>
 
         <p class="mmr-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect against measles, mumps and rubella with our private vaccination service in Denton, Manchester. One combined vaccine, given as a two-dose course, for children and for adults whose vaccination history is incomplete or uncertain.')); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect against measles, mumps and rubella with our private vaccination service in Denton, Manchester. One combined vaccine, given as a two-dose course, for children and for adults whose vaccination history is incomplete or uncertain. Children born on or after 1 January 2020 are now offered the MMRV vaccine (which also covers chickenpox) free on the NHS through their GP surgery, in place of MMR. If you or your child were born on or before 31 December 2019 and missed one or both MMR doses, you can also get them free on the NHS through your GP surgery.')); ?>
         </p>
 
         <div class="mmr-hero-actions">
@@ -50,7 +50,7 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
         <div class="mmr-hero-trust">
           <div class="mmr-hero-trust-item"><i class="fas fa-shield-virus"></i><span>3-in-1 Protection</span></div>
           <div class="mmr-hero-trust-item"><i class="fas fa-syringe"></i><span>Two-Dose Course</span></div>
-          <div class="mmr-hero-trust-item"><i class="fas fa-user-doctor"></i><span>No GP Referral Needed</span></div>
+          <div class="mmr-hero-trust-item"><i class="fas fa-user-doctor"></i><span>Private Service</span></div>
         </div>
       </div>
 
@@ -68,11 +68,11 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
             </div>
             <div class="mmr-trust-card-price">
               <span class="mmr-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£50')); ?></span>
-              <span class="mmr-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'full 2-dose course')); ?></span>
+              <span class="mmr-trust-card-sub"><?php echo esc_html(dp_field('vaccine_price_unit', 'full 2-dose course, if suitable')); ?></span>
             </div>
             <div class="mmr-trust-card-divider"></div>
             <ul class="mmr-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>£25 per single dose</span></li>
+              <li><i class="fas fa-check"></i> <span>£25 per single dose, if suitable</span></li>
               <li><i class="fas fa-check"></i> <span>Protects against 3 diseases</span></li>
               <li><i class="fas fa-check"></i> <span>Children &amp; adults</span></li>
             </ul>
@@ -128,7 +128,7 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
         <ul class="mmr-protect-features">
           <li class="mmr-protect-feature">
             <div class="icon"><i class="fas fa-syringe"></i></div>
-            <div class="text"><strong>Two-Dose Course</strong><p>Two injections give full protection — for adults the second dose is given at least 4 weeks after the first.</p></div>
+            <div class="text"><strong>Two-Dose Course</strong><p>Two injections give full protection. For adults and children aged 18 months or over, the second dose is at least 4 weeks after the first. For children under 18 months, our pharmacist plans the second dose so the course counts as complete, usually at least 3 months later.</p></div>
           </li>
           <li class="mmr-protect-feature">
             <div class="icon"><i class="fas fa-people-roof"></i></div>
@@ -136,7 +136,7 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
           </li>
           <li class="mmr-protect-feature">
             <div class="icon"><i class="fas fa-user-check"></i></div>
-            <div class="text"><strong>Catch-Up for Adults</strong><p>If your childhood vaccinations are incomplete or uncertain, it's safe to have MMR at any age.</p></div>
+            <div class="text"><strong>Catch-Up for Adults</strong><p>If your childhood vaccinations are incomplete or uncertain, adults can have MMR at any age.</p></div>
           </li>
         </ul>
 
@@ -157,7 +157,7 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
       <div class="mmr-stat-divider"></div>
       <div class="mmr-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">2 Doses</span><span class="label">Full Course</span></div></div>
       <div class="mmr-stat-divider"></div>
-      <div class="mmr-stat-item"><div class="icon"><i class="fas fa-child-reaching"></i></div><div class="content"><span class="number">All Ages</span><span class="label">Children &amp; Adults</span></div></div>
+      <div class="mmr-stat-item"><div class="icon"><i class="fas fa-child-reaching"></i></div><div class="content"><span class="number">12 months+</span><span class="label">Children &amp; Adults</span></div></div>
       <div class="mmr-stat-divider"></div>
       <div class="mmr-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Appointments</span></div></div>
     </div>
@@ -226,11 +226,12 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
           </div>
           <span class="nhs-card-badge">Recommended For</span>
           <h3 class="nhs-card-title">Children &amp; Families</h3>
-          <p class="nhs-card-desc">The MMR vaccine is a key part of childhood protection, and a good option for families who want to stay up to date.</p>
+          <p class="nhs-card-desc">Children born on or after 1 January 2020 are offered MMRV free through their GP surgery. We offer MMR to adults, and to children born before 2020, who missed doses. For younger children, our pharmacist talks through both vaccines with you first.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Children from 12 months</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>From 12 months, after a talk about MMRV</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Catch-up for missed doses</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Families before travel</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Babies under 12 months should speak to their GP.</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
@@ -276,7 +277,7 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
         <h3 class="mmr-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Full MMR Course')); ?></h3>
         <div class="mmr-pricing-amount">
           <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£50')); ?></span>
-          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'full 2-dose course')); ?></span>
+          <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'full 2-dose course, if suitable')); ?></span>
         </div>
         <ul class="mmr-pricing-includes">
           <li><i class="fas fa-check"></i> <strong>£25</strong> per single dose</li>
@@ -288,7 +289,7 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
       </div>
     </div>
 
-    <p class="mmr-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'A single dose is £25, or £50 for the full two-dose course. For adults the second dose is given at least 4 weeks after the first.')); ?></p>
+    <p class="mmr-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'If suitable, a single dose is £25, or £50 for the full two-dose course. For adults and children aged 18 months or over, the second dose is at least 4 weeks after the first. For children under 18 months, our pharmacist plans the second dose so the course counts as complete, usually at least 3 months later.')); ?></p>
   </div>
 </section>
 
@@ -305,12 +306,12 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
     </div>
 
     <div class="mmr-details-grid">
-      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We review your (or your child's) vaccination history and answer any questions before we start.</p></div>
+      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We review your (or your child's) vaccination history and answer any questions before we start. For children born on or after 1 January 2020, we also explain the free NHS MMRV vaccine.</p></div>
       <div class="mmr-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>A quick, safe injection given in the upper arm or thigh — the appointment takes under 10 minutes.</p></div>
-      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Second Dose</h3><p>We book the second dose at the right interval (at least 4 weeks later for adults) to complete the course.</p></div>
+      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Second Dose</h3><p>We book the second dose at the right interval to complete the course. For adults and children aged 18 months or over, the second dose is at least 4 weeks after the first. For children under 18 months, our pharmacist plans the second dose so the course counts as complete, usually at least 3 months later.</p></div>
       <div class="mmr-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>A mild fever, a faint rash or a little swelling at the injection site can occur and soon settle.</p></div>
-      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Children &amp; Adults</h3><p>Suitable from 12 months and at any age for adults who are unvaccinated or unsure.</p></div>
-      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>No referral needed, with same-day appointments available.</p></div>
+      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Children &amp; Adults</h3><p>From 12 months, for anyone unvaccinated or unsure. For children born on or after 1 January 2020, we first talk through MMRV.</p></div>
+      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Same-day appointments available.</p></div>
     </div>
   </div>
 </section>
@@ -327,11 +328,14 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
     </div>
 
     <div class="mmr-faq-list">
-      <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses are needed?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>Two doses give full protection. For adults the second dose is given at least 4 weeks after the first.</p></div></div>
+      <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses are needed?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>Two doses give full protection. For adults and children aged 18 months or over, the second dose is at least 4 weeks after the first. For children under 18 months, our pharmacist plans the second dose so the course counts as complete, usually at least 3 months later.</p></div></div>
       <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Can adults have the MMR vaccine?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>Yes — at any age if you were never vaccinated or are unsure of your history. There's no harm in having it again.</p></div></div>
-      <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is the vaccine safe?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>Yes. MMR is safe and well-tolerated, with hundreds of millions of doses given worldwide.</p></div></div>
+      <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is the vaccine safe?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>MMR has been used in the UK since 1988 and has a well-established safety record. Most side effects are mild and short-lived.</p></div></div>
       <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>Usually mild — a mild fever, a faint rash, or swelling at the injection site, which soon settle. Serious side effects are rare.</p></div></div>
-      <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">How soon before travel should I have it?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>As early as possible — ideally several weeks before travel, especially if you're visiting an area with active measles outbreaks.</p></div></div>
+      <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">How soon before travel should I have it?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>As early as possible — ideally several weeks before travel, especially if you're visiting an area with active measles outbreaks. Babies under 12 months should speak to their GP.</p></div></div>
+      <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">06</span><span class="text">My child was born in 2020 or later. Should they have MMR here?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>Children born on or after 1 January 2020 are offered MMRV free on the NHS through their GP surgery. It protects against measles, mumps, rubella and chickenpox, and is the recommended vaccine for this age group. If you would still like MMR, our pharmacist will talk it through with you first. Your child will still be offered MMRV by the NHS afterwards.</p></div></div>
+      <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">07</span><span class="text">Who can have MMR with us?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>Anyone aged 12 months or over whose MMR record is unknown or incomplete, after a suitability check with our pharmacist. Under 16s need a parent or guardian's consent.</p></div></div>
+      <div class="mmr-faq-item"><button class="mmr-faq-btn" onclick="toggleFAQ(this)"><span class="num">08</span><span class="text">Who should not have it?</span><i class="fas fa-plus icon"></i></button><div class="mmr-faq-content"><p>It is not suitable in pregnancy, and pregnancy should be avoided for 1 month after vaccination. It is also not suitable for people with a weakened immune system, or anyone who has had a serious allergic reaction to a previous vaccine dose or to an ingredient such as neomycin or gelatine. Babies under 12 months should speak to their GP. Please tell us about any allergies (including egg), conditions affecting the brain or nerves, bleeding problems, recent blood products or recent other vaccines. Our pharmacist checks this and may refer you to your GP surgery.</p></div></div>
     </div>
   </div>
 </section>
@@ -379,7 +383,7 @@ $acuity_url = dp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
       <div class="mmr-cta-badges">
         <span class="badge">Same Day Appointments</span>
         <span class="badge">3-in-1 Protection</span>
-        <span class="badge">No Referral Needed</span>
+        <span class="badge">Private Service</span>
       </div>
 
       <h2 class="mmr-cta-title"><?php echo esc_html(dp_field('vaccine_cta_title', 'Stay protected against measles, mumps & rubella')); ?></h2>
