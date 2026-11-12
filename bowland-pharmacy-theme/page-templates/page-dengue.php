@@ -39,7 +39,7 @@ $vaccine_name = bp_field('vaccine_name', 'Dengue Fever');
         </h1>
 
         <p class="dengue-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', "Frequent flyer to Southeast Asia, the Caribbean, or Central and South America? Our Wythenshawe pharmacy offers the Qdenga course, covering all four dengue serotypes, before your next trip.")); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', "Dengue vaccination may be considered for people aged 4 and over who have had dengue before. Our pharmacist checks your history and travel plans first. Our price list shows the current fee.")); ?>
         </p>
 
         <div class="dengue-hero-actions">
@@ -55,31 +55,27 @@ $vaccine_name = bp_field('vaccine_name', 'Dengue Fever');
 
         <div class="dengue-hero-trust">
           <div class="dengue-hero-trust-item"><i class="fas fa-syringe"></i><span>Full Dose Course</span></div>
-          <div class="dengue-hero-trust-item"><i class="fas fa-shield-virus"></i><span>All 4 Serotypes Covered</span></div>
           <div class="dengue-hero-trust-item"><i class="fas fa-user-doctor"></i><span>No GP Referral Needed</span></div>
         </div>
       </div>
 
       <!-- Right: Pricing trust card + floating badge -->
       <div class="dengue-hero-visual">
-        <div class="dengue-hero-float-badge">
-          <span class="dengue-hero-float-number"><?php echo esc_html(bp_field('vaccine_float_number', '4')); ?></span>
-          <span class="dengue-hero-float-label"><?php echo esc_html(bp_field('vaccine_float_label', 'serotypes covered')); ?></span>
-        </div>
         <div class="dengue-trust-card">
           <div class="dengue-trust-card-glow"></div>
           <div class="dengue-trust-card-inner">
             <div class="dengue-trust-card-header">
               <div class="dengue-trust-card-icon"><i class="fas fa-syringe"></i></div>
-              <span class="dengue-trust-card-label"><?php echo esc_html(bp_field('vaccine_price_name', 'Dengue Vaccine (Qdenga)')); ?></span>
+              <span class="dengue-trust-card-label"><?php echo esc_html(bp_field('vaccine_price_name', 'Dengue Vaccine')); ?></span>
             </div>
+            <?php if (bp_field('vaccine_price_amount', '')) : ?>
             <div class="dengue-trust-card-price">
-              <span class="dengue-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '£100')); ?></span>
+              <span class="dengue-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '')); ?></span>
               <span class="dengue-trust-card-sub"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
             </div>
+            <?php endif; ?>
             <div class="dengue-trust-card-divider"></div>
             <ul class="dengue-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Covers all 4 dengue serotypes</span></li>
               <li><i class="fas fa-check"></i> <span>Suitable from age 4</span></li>
               <li><i class="fas fa-check"></i> <span>Same-day appointments</span></li>
             </ul>
@@ -114,19 +110,14 @@ $vaccine_name = bp_field('vaccine_name', 'Dengue Fever');
           $protect_image_id = bp_field('vaccine_protect_image');
           $protect_image_url = $protect_image_id ? wp_get_attachment_image_url($protect_image_id, 'large') : 'https://images.unsplash.com/photo-1755189884783-7122b938576b?w=900&h=1000&fit=crop';
           if ($protect_image_url) : ?>
-            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_protect_image_alt', 'A nurse preparing a dose of the Qdenga dengue vaccine')); ?>" class="dengue-protect-image" />
+            <img src="<?php echo esc_url($protect_image_url); ?>" alt="<?php echo esc_attr(bp_field('vaccine_protect_image_alt', 'A nurse preparing a dose of the dengue vaccine')); ?>" class="dengue-protect-image" />
           <?php endif; ?>
         </div>
       </div>
 
       <div class="dengue-protect-content">
-        <div class="dengue-protect-badge-box">
-          <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'Qdenga — Covers All Four Dengue Serotypes')); ?></span>
-        </div>
-
         <h3 class="dengue-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Built for Repeat Travellers')); ?></h3>
-        <p class="dengue-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Dengue spreads through mosquito bites and turns up right across Southeast Asia, the Caribbean, Central and South America, Africa and the Pacific Islands. Qdenga is the vaccine we use — a live attenuated jab covering all four dengue serotypes, given as a course rather than a one-off. Start the course 4 weeks or more before your first trip so you're properly covered by the time you fly.")); ?></p>
+        <p class="dengue-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Dengue spreads through mosquito bites and turns up right across Southeast Asia, the Caribbean, Central and South America, Africa and the Pacific Islands. The dengue vaccine is a live attenuated vaccine, given as a course rather than a one-off. Start the course 4 weeks or more before your first trip so you're properly covered by the time you fly.")); ?></p>
 
         <ul class="dengue-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -177,8 +168,6 @@ $vaccine_name = bp_field('vaccine_name', 'Dengue Fever');
         </div>
       <?php endwhile; else : ?>
         <div class="dengue-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">Course</span><span class="label">Of Injections</span></div></div>
-        <div class="dengue-stat-divider"></div>
-        <div class="dengue-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">4 Types</span><span class="label">Serotypes Covered</span></div></div>
         <div class="dengue-stat-divider"></div>
         <div class="dengue-stat-item"><div class="icon"><i class="fas fa-child-reaching"></i></div><div class="content"><span class="number">Age 4+</span><span class="label">Suitable From</span></div></div>
         <div class="dengue-stat-divider"></div>
@@ -307,11 +296,13 @@ $vaccine_name = bp_field('vaccine_name', 'Dengue Fever');
     <div class="dengue-pricing-grid">
       <div class="dengue-pricing-card featured">
         <div class="dengue-pricing-ribbon">Per Dose</div>
-        <h3 class="dengue-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'Dengue Vaccine (Qdenga)')); ?></h3>
+        <h3 class="dengue-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'Dengue Vaccine')); ?></h3>
+        <?php if (bp_field('vaccine_price_amount', '')) : ?>
         <div class="dengue-pricing-amount">
-          <span class="price"><?php echo esc_html(bp_field('vaccine_price_amount', '£100')); ?></span>
+          <span class="price"><?php echo esc_html(bp_field('vaccine_price_amount', '')); ?></span>
           <span class="per"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
+        <?php endif; ?>
         <ul class="dengue-pricing-includes">
           <li><i class="fas fa-check"></i> Given by our pharmacist</li>
           <li><i class="fas fa-check"></i> Advice tailored to your trip</li>
@@ -322,7 +313,7 @@ $vaccine_name = bp_field('vaccine_name', 'Dengue Fever');
       </div>
     </div>
 
-    <p class="dengue-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "Price shown is per dose — Qdenga is a course, and we'll confirm your total schedule and cost at your first appointment. Not recommended if you are pregnant, breastfeeding, or immunocompromised. Please mention this when booking so we can advise on the most appropriate option for you.")); ?></p>
+    <p class="dengue-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "The dengue vaccine is given as a course, and we'll confirm your total schedule and cost at your first appointment. Not recommended if you are pregnant, breastfeeding, or immunocompromised. Please mention this when booking so we can advise on the most appropriate option for you.")); ?></p>
   </div>
 </section>
 
@@ -381,7 +372,7 @@ $vaccine_name = bp_field('vaccine_name', 'Dengue Fever');
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="dengue-faq-item"><button class="dengue-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is it a single injection?</span><i class="fas fa-plus icon"></i></button><div class="dengue-faq-content"><p>No — Qdenga is given as a course. We'll set out exactly how many appointments you need at your first visit.</p></div></div>
+        <div class="dengue-faq-item"><button class="dengue-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is it a single injection?</span><i class="fas fa-plus icon"></i></button><div class="dengue-faq-content"><p>No. The dengue vaccine is given as a course. We'll set out exactly how many appointments you need at your first visit.</p></div></div>
         <div class="dengue-faq-item"><button class="dengue-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">When should I start?</span><i class="fas fa-plus icon"></i></button><div class="dengue-faq-content"><p>At least 4 weeks before you first travel — earlier if you can, since the full course takes time. This matters more if you're a frequent or long-stay traveller.</p></div></div>
         <div class="dengue-faq-item"><button class="dengue-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is this relevant for where I'm going?</span><i class="fas fa-plus icon"></i></button><div class="dengue-faq-content"><p>Depends on your destination, how often you go, and your own risk factors. Southeast Asia, the Caribbean, Central and South America, Africa and the Pacific all see cases — tell us your plans and we'll advise properly.</p></div></div>
         <div class="dengue-faq-item"><button class="dengue-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">How long does the protection last?</span><i class="fas fa-plus icon"></i></button><div class="dengue-faq-content"><p>Several years once you've completed the full course. Longer-term data is still coming in, so exact duration isn't fully settled yet.</p></div></div>
@@ -439,13 +430,12 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
           <span class="badge"><?php echo esc_html(get_sub_field('text')); ?></span>
         <?php endwhile; else : ?>
           <span class="badge">Same Day Appointments</span>
-          <span class="badge">All 4 Serotypes Covered</span>
           <span class="badge">No Referral Needed</span>
         <?php endif; ?>
       </div>
 
       <h2 class="dengue-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', "Start the Course Before Your Next Trip")); ?></h2>
-      <p class="dengue-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book your Qdenga course with our Wythenshawe team and get ahead of it early.")); ?></p>
+      <p class="dengue-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book your dengue vaccine course with our Wythenshawe team and get ahead of it early.")); ?></p>
 
       <div class="dengue-cta-actions">
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Vaccination</a>

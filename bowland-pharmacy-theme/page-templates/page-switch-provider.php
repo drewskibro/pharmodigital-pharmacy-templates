@@ -17,7 +17,7 @@ $sp_badge      = bp_field( 'sp_hero_badge', 'SWITCH TO ' . strtoupper( bp_pharma
 $sp_line1      = bp_field( 'sp_hero_title_line1', 'Frustrated with' );
 $sp_line2      = bp_field( 'sp_hero_title_line2', 'Your Current' );
 $sp_line3      = bp_field( 'sp_hero_title_line3', 'Weight Loss Provider?' );
-$sp_subtitle   = bp_field( 'sp_hero_subtitle', 'Switch to ' . bp_pharmacy_name() . ' for expert care, transparent pricing, and ongoing pharmacist support. No waiting lists.' );
+$sp_subtitle   = bp_field( 'sp_hero_subtitle', 'Already having weight management treatment elsewhere? Book a consultation to move your care to us. Our pharmacist prescriber reviews your history and records and decides with you whether continuing is suitable.' );
 $sp_cta_text   = bp_field( 'sp_hero_cta_text', 'Start Your Switch Today' );
 $sp_cta_url    = bp_field( 'sp_hero_cta_url', '#comparison' );
 
@@ -92,15 +92,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
       <div class="switch-hero-visual">
         <div class="switch-hero-visual-glow"></div>
 
-        <!-- Floating price badge -->
-        <div class="switch-hero-price-badge">
-          <i class="fas fa-tag"></i>
-          <div class="switch-hero-price-content">
-            <span class="switch-hero-price-label"><?php echo esc_html( bp_field( 'sp_hero_price_label', 'FROM' ) ); ?></span>
-            <span class="switch-hero-price-amount"><?php echo esc_html( bp_field( 'sp_hero_price_amount', '£50/mo' ) ); ?></span>
-          </div>
-        </div>
-
         <!-- Main image card -->
         <div class="switch-hero-image-card">
           <?php if ( $sp_hero_image_url ) : ?>
@@ -108,25 +99,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
           <?php endif; ?>
         </div>
 
-        <!-- Testimonial card -->
-        <div class="switch-hero-testimonial-card">
-          <div class="switch-hero-quote-icon">
-            <i class="fas fa-quote-left"></i>
-          </div>
-          <p class="switch-hero-quote-text">"<?php echo esc_html( $sp_testi_quote ); ?>"</p>
-          <div class="switch-hero-quote-footer">
-            <div class="switch-hero-author">
-              <span class="switch-hero-name"><?php echo esc_html( $sp_testi_name ); ?></span>
-              <div class="star-row">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="switch-hero-result-badge">
-              <i class="fas fa-weight-scale"></i>
-              <span><?php echo esc_html( $sp_testi_result ); ?></span>
-            </div>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -140,30 +112,17 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
 <section class="stats-section switch-stats-overlap switch-reveal">
   <div class="section-container">
     <div class="stats-bar">
-      <div class="stat-item">
-        <div class="stat-icon"><i class="<?php echo esc_attr( bp_fa_class( bp_field( 'sp_stat_1_icon', 'fa-weight-scale' ) ) ); ?>"></i></div>
-        <div class="stat-content">
-          <span class="stat-number"><?php echo esc_html( bp_field( 'sp_stat_1_number', '2.5st' ) ); ?></span>
-          <span class="stat-label"><?php echo esc_html( bp_field( 'sp_stat_1_label', 'Avg Loss' ) ); ?></span>
-        </div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <div class="stat-icon"><i class="<?php echo esc_attr( bp_fa_class( bp_field( 'sp_stat_2_icon', 'fa-users' ) ) ); ?>"></i></div>
-        <div class="stat-content">
-          <span class="stat-number"><?php echo esc_html( bp_field( 'sp_stat_2_number', 'Hundreds' ) ); ?></span>
-          <span class="stat-label"><?php echo esc_html( bp_field( 'sp_stat_2_label', 'Patients Switched' ) ); ?></span>
-        </div>
-      </div>
-      <div class="stat-divider"></div>
+      <?php $sp_stat_3 = bp_field( 'sp_stat_3_number', bp_option( 'google_rating' ) ? bp_option( 'google_rating' ) . '/5' : '' ); ?>
+      <?php if ( $sp_stat_3 ) : ?>
       <div class="stat-item">
         <div class="stat-icon"><i class="<?php echo esc_attr( bp_fa_class( bp_field( 'sp_stat_3_icon', 'fa-star' ) ) ); ?>"></i></div>
         <div class="stat-content">
-          <span class="stat-number"><?php echo esc_html( bp_field( 'sp_stat_3_number', '4.7/5' ) ); ?></span>
+          <span class="stat-number"><?php echo esc_html( $sp_stat_3 ); ?></span>
           <span class="stat-label"><?php echo esc_html( bp_field( 'sp_stat_3_label', 'Google Rating' ) ); ?></span>
         </div>
       </div>
       <div class="stat-divider"></div>
+      <?php endif; ?>
       <div class="stat-item">
         <div class="stat-icon"><i class="<?php echo esc_attr( bp_fa_class( bp_field( 'sp_stat_4_icon', 'fa-location-dot' ) ) ); ?>"></i></div>
         <div class="stat-content">
@@ -198,7 +157,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
     $default_steps = array(
         array( 'title' => 'Book Consultation', 'description' => 'Visit us in ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' or <a href="' . esc_url( bp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
         array( 'title' => 'We Handle Everything', 'description' => 'No prescription transfer needed. Our team manages the entire switch seamlessly for you.', 'image' => '' ),
-        array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption. Same-day approval available for seamless care.', 'image' => '' ),
+        array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption.', 'image' => '' ),
         array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' pharmacy with expert guidance and personalised care.', 'image' => '' ),
     );
 
@@ -248,7 +207,7 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
 
     <!-- What's Included Box -->
     <div class="process-included-box">
-      <div class="process-included-grid">
+      <div class="process-included-grid" style="grid-template-columns:1fr">
 
         <!-- Left: Checklist -->
         <div class="process-included-content">
@@ -273,30 +232,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
               <?php echo esc_html( bp_field( 'sp_included_cta_text', 'Start Your Switch' ) ); ?>
               <i class="fas fa-arrow-right"></i>
             </a>
-          </div>
-        </div>
-
-        <!-- Right: Price + value summary -->
-        <div class="process-included-value">
-          <div class="process-included-price-card">
-            <span class="process-included-price-from">From</span>
-            <span class="process-included-price-amount"><?php echo esc_html( bp_field( 'sp_hero_price_amount', '£50/mo' ) ); ?></span>
-            <span class="process-included-price-note">All-inclusive monthly plan</span>
-            <div class="process-included-price-divider"></div>
-            <div class="process-included-price-features">
-              <div class="process-included-price-feature">
-                <i class="fas fa-bolt"></i>
-                <span>Zero gap in treatment</span>
-              </div>
-              <div class="process-included-price-feature">
-                <i class="fas fa-user-doctor"></i>
-                <span>Face-to-face care</span>
-              </div>
-              <div class="process-included-price-feature">
-                <i class="fas fa-pills"></i>
-                <span>Medication included</span>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -327,54 +262,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
     <!-- 3-Card Comparison Layout -->
     <div class="comparison-cards-grid">
 
-      <!-- CARD 1: THE PROBLEM -->
-      <div class="comparison-card comparison-card-problem">
-        <div class="comparison-card-glow"></div>
-        <div class="comparison-card-header">
-          <div class="comparison-card-icon comparison-card-icon-gray">
-            <i class="<?php echo esc_attr( bp_field( 'sp_card1_icon', 'fas fa-laptop' ) ); ?>"></i>
-          </div>
-          <span class="comparison-card-badge comparison-card-badge-red"><?php echo esc_html( bp_field( 'sp_card1_badge', 'ONLINE ONLY' ) ); ?></span>
-        </div>
-        <h3 class="comparison-card-title"><?php echo esc_html( bp_field( 'sp_card1_title', 'National Providers' ) ); ?></h3>
-        <p class="comparison-card-subtitle"><?php echo esc_html( bp_field( 'sp_card1_subtitle', 'Remote-only weight loss services' ) ); ?></p>
-        <div class="comparison-card-pricing">
-          <div class="comparison-card-price-row">
-            <span class="comparison-card-price"><?php echo esc_html( bp_field( 'sp_card1_price', '£250+' ) ); ?></span>
-            <span class="comparison-card-price-period"><?php echo esc_html( bp_field( 'sp_card1_price_period', '/month' ) ); ?></span>
-          </div>
-          <p class="comparison-card-price-note"><?php echo esc_html( bp_field( 'sp_card1_price_note', 'Plus hidden consultation fees' ) ); ?></p>
-        </div>
-        <ul class="comparison-card-features">
-          <?php if ( have_rows( 'sp_card1_features' ) ) : while ( have_rows( 'sp_card1_features' ) ) : the_row(); ?>
-            <li class="comparison-card-feature">
-              <div class="comparison-card-feature-icon comparison-card-feature-icon-red"><i class="fas fa-times"></i></div>
-              <span class="comparison-card-feature-text"><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
-            </li>
-          <?php endwhile; else : ?>
-            <li class="comparison-card-feature">
-              <div class="comparison-card-feature-icon comparison-card-feature-icon-red"><i class="fas fa-times"></i></div>
-              <span class="comparison-card-feature-text">Video calls only — no face-to-face</span>
-            </li>
-            <li class="comparison-card-feature">
-              <div class="comparison-card-feature-icon comparison-card-feature-icon-red"><i class="fas fa-times"></i></div>
-              <span class="comparison-card-feature-text">Automated responses, long wait times</span>
-            </li>
-            <li class="comparison-card-feature">
-              <div class="comparison-card-feature-icon comparison-card-feature-icon-red"><i class="fas fa-times"></i></div>
-              <span class="comparison-card-feature-text">Different clinician each time</span>
-            </li>
-            <li class="comparison-card-feature">
-              <div class="comparison-card-feature-icon comparison-card-feature-icon-red"><i class="fas fa-times"></i></div>
-              <span class="comparison-card-feature-text">Impersonal, transactional service</span>
-            </li>
-          <?php endif; ?>
-        </ul>
-        <div class="comparison-card-footer">
-          <p class="comparison-card-footer-text"><?php echo esc_html( bp_field( 'sp_card1_footer', 'What you\'re leaving behind' ) ); ?></p>
-        </div>
-      </div>
-
       <!-- CARD 2: BOWLAND PHARMACY (FEATURED) -->
       <div class="comparison-card comparison-card-featured">
         <div class="comparison-card-glow-purple"></div>
@@ -391,13 +278,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
           </div>
           <h3 class="comparison-card-title"><?php echo esc_html( bp_field( 'sp_card2_title', bp_pharmacy_name() ) ); ?></h3>
           <p class="comparison-card-subtitle comparison-card-subtitle-purple"><?php echo esc_html( bp_field( 'sp_card2_subtitle', 'Face-to-face weight loss care' ) ); ?></p>
-          <div class="comparison-card-pricing">
-            <div class="comparison-card-price-row">
-              <span class="comparison-card-price comparison-card-price-purple"><?php echo esc_html( bp_field( 'sp_card2_price', 'From £50' ) ); ?></span>
-              <span class="comparison-card-price-period"><?php echo esc_html( bp_field( 'sp_card2_price_period', '/month' ) ); ?></span>
-            </div>
-            <p class="comparison-card-price-note"><?php echo esc_html( bp_field( 'sp_card2_price_note', 'All-inclusive with face-to-face support' ) ); ?></p>
-          </div>
           <ul class="comparison-card-features">
             <?php if ( have_rows( 'sp_card2_features' ) ) : while ( have_rows( 'sp_card2_features' ) ) : the_row(); ?>
               <li class="comparison-card-feature">
@@ -412,14 +292,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
               <li class="comparison-card-feature">
                 <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
                 <span class="comparison-card-feature-text comparison-card-feature-text-bold">Same pharmacist who knows your name</span>
-              </li>
-              <li class="comparison-card-feature">
-                <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
-                <span class="comparison-card-feature-text comparison-card-feature-text-bold">Same-day prescription approval</span>
-              </li>
-              <li class="comparison-card-feature">
-                <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
-                <span class="comparison-card-feature-text comparison-card-feature-text-bold">Transparent, all-inclusive pricing</span>
               </li>
             <?php endif; ?>
           </ul>
@@ -488,67 +360,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
 </section>
 
 <!-- ============================================
-     H4. EVIDENCE / COMPARISON DETAIL — Extended breakdown
-     Stat cards with gradient numbers
-     ============================================ -->
-<section class="switch-evidence-section switch-reveal">
-  <div class="section-container">
-    <div class="switch-evidence-header">
-      <div class="section-badge">
-        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        <span class="section-badge-text"><?php echo esc_html( bp_field( 'sp_evidence_badge', 'PROVEN RESULTS' ) ); ?></span>
-      </div>
-      <h2 class="switch-evidence-title">
-        <span class="gradient-text"><?php echo esc_html( bp_field( 'sp_evidence_title_line1', 'Real data.' ) ); ?></span>
-        <span class="hero-accent-text"><?php echo esc_html( bp_field( 'sp_evidence_title_line2', 'Real results.' ) ); ?></span>
-      </h2>
-      <p class="switch-evidence-subtitle"><?php echo esc_html( bp_field( 'sp_evidence_subtitle', 'Evidence-based care with measurable outcomes from hundreds of ' . bp_option( 'pharmacy_town', 'Wythenshawe' ) . ' patients' ) ); ?></p>
-    </div>
-
-    <div class="switch-evidence-grid">
-      <?php if ( have_rows( 'sp_evidence_cards' ) ) : while ( have_rows( 'sp_evidence_cards' ) ) : the_row(); ?>
-        <div class="switch-evidence-card">
-          <div class="switch-evidence-stat-number"><?php echo esc_html( get_sub_field( 'number' ) ); ?></div>
-          <p class="switch-evidence-stat-label"><?php echo esc_html( get_sub_field( 'label' ) ); ?></p>
-          <p class="switch-evidence-stat-description"><?php echo esc_html( get_sub_field( 'description' ) ); ?></p>
-        </div>
-      <?php endwhile; else : ?>
-        <div class="switch-evidence-card">
-          <div class="switch-evidence-stat-number">95%</div>
-          <p class="switch-evidence-stat-label">Success Rate</p>
-          <p class="switch-evidence-stat-description">of patients achieve their weight loss goals with our face-to-face support</p>
-        </div>
-        <div class="switch-evidence-card">
-          <div class="switch-evidence-stat-number">12kg</div>
-          <p class="switch-evidence-stat-label">Average Weight Loss</p>
-          <p class="switch-evidence-stat-description">lost by our patients in just 4 months with comprehensive support</p>
-        </div>
-        <div class="switch-evidence-card">
-          <div class="switch-evidence-stat-number">4.7/5</div>
-          <p class="switch-evidence-stat-label">Google Reviews</p>
-          <p class="switch-evidence-stat-description">from verified <?php echo esc_html( bp_option( 'pharmacy_town', 'Wythenshawe' ) ); ?> patients on Google</p>
-        </div>
-        <div class="switch-evidence-card">
-          <div class="switch-evidence-stat-number">10%+</div>
-          <p class="switch-evidence-stat-label">Body Weight Loss</p>
-          <p class="switch-evidence-stat-description">achieved with our comprehensive programme and ongoing support</p>
-        </div>
-        <div class="switch-evidence-card">
-          <div class="switch-evidence-stat-number">9/10</div>
-          <p class="switch-evidence-stat-label">Retention Rate</p>
-          <p class="switch-evidence-stat-description">patients continue with us after switching from online providers</p>
-        </div>
-        <div class="switch-evidence-card">
-          <div class="switch-evidence-stat-number">GPhC</div>
-          <p class="switch-evidence-stat-label">Registered Pharmacy</p>
-          <p class="switch-evidence-stat-description">fully regulated and inspected by the General Pharmaceutical Council</p>
-        </div>
-      <?php endif; ?>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
      H5. BENEFITS — Feature cards grid
      Why patients switch to Bowland Pharmacy
      ============================================ -->
@@ -584,17 +395,12 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-shield-halved"></i></div>
           <h3 class="switch-benefit-title">Same Pharmacist</h3>
-          <p class="switch-benefit-description">No more explaining your story to a different clinician every time — continuity of care guaranteed</p>
+          <p class="switch-benefit-description">No more explaining your story to a different clinician every time</p>
         </div>
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-clock"></i></div>
           <h3 class="switch-benefit-title">No Waiting Lists</h3>
           <p class="switch-benefit-description">Same-day and next-day appointments available. Start or continue your treatment without delay</p>
-        </div>
-        <div class="switch-benefit-card">
-          <div class="switch-benefit-icon"><i class="fas fa-tag"></i></div>
-          <h3 class="switch-benefit-title">Transparent Pricing</h3>
-          <p class="switch-benefit-description">All-inclusive pricing from £50/month. No hidden fees, no surprise charges, no extras</p>
         </div>
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-map-marker-alt"></i></div>
@@ -607,70 +413,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
           <p class="switch-benefit-description">Direct phone and email access to your pharmacist between appointments for questions and support</p>
         </div>
       <?php endif; ?>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     H5b. SOCIAL PROOF BAND — Full-width lifestyle image with testimonial overlay
-     ============================================ -->
-<?php
-$sp_band_image_id = bp_field( 'sp_band_image' );
-$sp_band_image_url = $sp_band_image_id ? wp_get_attachment_image_url( $sp_band_image_id, 'full' ) : '';
-// No default quote: a review is shown only when one is saved on the page.
-$sp_band_quote     = trim( (string) bp_field( 'sp_band_quote', '' ) );
-$sp_band_author    = bp_field( 'sp_band_author', 'Sarah M.' );
-$sp_band_result    = bp_field( 'sp_band_result', 'Results vary from person to person' );
-$sp_band_location  = bp_field( 'sp_band_location', 'Switched from National Provider' );
-$sp_band_stat_num  = bp_field( 'sp_band_stat_number', '95%' );
-$sp_band_stat_text = bp_field( 'sp_band_stat_label', 'of patients recommend switching to ' . bp_pharmacy_name() );
-// Hidden on Bowland (Ahmed, 16 Oct 2026): no patient quote in the band. The saved text stays in WordPress.
-$sp_band_show_quote = false;
-?>
-
-<section class="switch-band-section switch-reveal">
-  <!-- Background image -->
-  <div class="switch-band-bg">
-    <?php if ( $sp_band_image_url ) : ?>
-      <img src="<?php echo esc_url( $sp_band_image_url ); ?>" alt="<?php echo esc_attr( bp_pharmacy_name() ); ?> patient consultation" class="switch-band-bg-image" />
-    <?php endif; ?>
-    <div class="switch-band-overlay"></div>
-  </div>
-
-  <div class="section-container">
-    <div class="switch-band-grid"<?php echo $sp_band_show_quote ? '' : ' style="grid-template-columns:1fr"'; ?>>
-
-      <!-- Left: Stat callout -->
-      <div class="switch-band-stat"<?php echo $sp_band_show_quote ? '' : ' style="text-align:center"'; ?>>
-        <span class="switch-band-stat-number"><?php echo esc_html( $sp_band_stat_num ); ?></span>
-        <span class="switch-band-stat-label"><?php echo esc_html( $sp_band_stat_text ); ?></span>
-      </div>
-
-      <!-- Right: Testimonial card -->
-      <?php if ( $sp_band_show_quote ) : ?>
-      <div class="switch-band-testimonial">
-        <div class="switch-band-quote-icon">
-          <i class="fas fa-quote-left"></i>
-        </div>
-        <p class="switch-band-quote">"<?php echo esc_html( $sp_band_quote ); ?>"</p>
-        <div class="switch-band-footer">
-          <div class="switch-band-author-info">
-            <span class="switch-band-author-name"><?php echo esc_html( $sp_band_author ); ?></span>
-            <span class="switch-band-author-location"><?php echo esc_html( $sp_band_location ); ?></span>
-            <div class="star-row">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-          <?php if ( $sp_band_result ) : ?>
-            <div class="switch-band-result">
-              <i class="fas fa-weight-scale"></i>
-              <span><?php echo esc_html( $sp_band_result ); ?></span>
-            </div>
-          <?php endif; ?>
-        </div>
-      </div>
-      <?php endif; ?>
-
     </div>
   </div>
 </section>
@@ -705,10 +447,6 @@ $sp_band_show_quote = false;
         <div class="switch-cta-check">
           <i class="fas fa-check"></i>
           <span><?php echo esc_html( bp_field( 'sp_cta_check_1', 'No waiting list' ) ); ?></span>
-        </div>
-        <div class="switch-cta-check">
-          <i class="fas fa-check"></i>
-          <span><?php echo esc_html( bp_field( 'sp_cta_check_2', 'Same-day approval' ) ); ?></span>
         </div>
         <div class="switch-cta-check">
           <i class="fas fa-check"></i>

@@ -111,7 +111,7 @@ get_header();
         array( 'icon' => 'bt_stat_1_icon', 'number' => 'bt_stat_1_number', 'label' => 'bt_stat_1_label', 'def_icon' => 'fas fa-vials', 'def_number' => '20+', 'def_label' => 'Tests Available' ),
         array( 'icon' => 'bt_stat_2_icon', 'number' => 'bt_stat_2_number', 'label' => 'bt_stat_2_label', 'def_icon' => 'fas fa-sterling-sign', 'def_number' => 'From £39', 'def_label' => 'Per Panel' ),
         array( 'icon' => 'bt_stat_3_icon', 'number' => 'bt_stat_3_number', 'label' => 'bt_stat_3_label', 'def_icon' => 'fas fa-user-doctor', 'def_number' => 'No GP', 'def_label' => 'Referral Needed' ),
-        array( 'icon' => 'bt_stat_4_icon', 'number' => 'bt_stat_4_number', 'label' => 'bt_stat_4_label', 'def_icon' => 'fas fa-clock', 'def_number' => '2-5 Days', 'def_label' => 'For Results' ),
+        array( 'icon' => 'bt_stat_4_icon', 'number' => 'bt_stat_4_number', 'label' => 'bt_stat_4_label', 'def_icon' => 'fas fa-clock', 'def_number' => '2 to 5 Days', 'def_label' => 'For Most Results' ),
       );
       foreach ( $stats as $si => $stat ) :
       ?>
@@ -232,7 +232,7 @@ if ( ! empty( $bt_mr_ids ) ) :
         $steps = array(
           array( 'icon' => 'fas fa-calendar-check', 'title' => 'Walk In or Book', 'desc' => 'Visit Denton Pharmacy during opening hours or book a convenient time online. No GP referral required.', 'link' => true ),
           array( 'icon' => 'fas fa-vial', 'title' => 'Sample Collection', 'desc' => 'Our trained phlebotomist will take a small blood sample in our private consultation room. Quick and comfortable.' ),
-          array( 'icon' => 'fas fa-file-medical', 'title' => 'Get Your Results', 'desc' => 'Receive your results within 2-5 working days via secure email or collect them in person at the pharmacy.' ),
+          array( 'icon' => 'fas fa-file-medical', 'title' => 'Get Your Results', 'desc' => 'Receive most results within 2 to 5 days via secure email, or collect them in person at the pharmacy.' ),
         );
         foreach ( $steps as $i => $step ) :
         ?>
@@ -295,7 +295,7 @@ if ( ! empty( $bt_mr_ids ) ) :
           array( 'q' => 'What blood tests do you offer at Denton Pharmacy?', 'a' => 'We offer a comprehensive range of blood tests including full blood count, thyroid function, liver function, kidney function, diabetes screening (HbA1c), cholesterol and lipid profiles, vitamin D, iron studies, and more. Contact us for a full list of available panels.' ),
           array( 'q' => 'Do I need a GP referral for a blood test?', 'a' => 'No, you do not need a GP referral. You can simply walk into Denton Pharmacy or book an appointment online. Our service is available to anyone aged 18 and over.' ),
           array( 'q' => 'How much do blood tests cost?', 'a' => 'Blood tests start from £39 per panel. Prices vary depending on the specific tests required. Contact us or visit the pharmacy for a full price list and to discuss which tests are right for you.' ),
-          array( 'q' => 'How long do results take?', 'a' => 'Most results are available within 2-5 working days. Results are sent securely via email or can be collected in person at the pharmacy. Our pharmacist will explain your results and advise on any next steps.' ),
+          array( 'q' => 'How long do results take?', 'a' => 'Most results are available within 2 to 5 days. Some specialist tests take longer, and we will tell you when you book. Results are sent securely via email or can be collected in person at the pharmacy. Our pharmacist will explain your results and advise on any next steps.' ),
           array( 'q' => 'Do I need to fast before a blood test?', 'a' => 'Some tests, such as cholesterol and glucose panels, require fasting for 8-12 hours beforehand. We will advise you when you book your appointment so you can prepare properly.' ),
           array( 'q' => 'What happens if my results are abnormal?', 'a' => 'Our pharmacist will discuss your results with you and explain what they mean. If further investigation or treatment is needed, we can recommend you visit your GP or refer you to the appropriate healthcare service.' ),
         );
@@ -353,7 +353,7 @@ if ( ! empty( $bt_mr_ids ) ) :
       </div>
       <div class="bloodtest-cta-trust-checks">
         <span class="bloodtest-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'bt_cta_check_1', 'No referral needed' ) ); ?></span>
-        <span class="bloodtest-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'bt_cta_check_2', 'Results in 2-5 days' ) ); ?></span>
+        <span class="bloodtest-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'bt_cta_check_2', 'Most results in 2 to 5 days' ) ); ?></span>
         <span class="bloodtest-cta-check"><i class="fas fa-check"></i> <?php echo esc_html( dp_field( 'bt_cta_check_3', 'GPhC registered' ) ); ?></span>
       </div>
     </div>

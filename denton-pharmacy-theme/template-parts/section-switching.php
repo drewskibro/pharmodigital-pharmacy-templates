@@ -29,8 +29,8 @@ $description = dp_field( 'switching_description', 'Tired of waiting weeks for pr
 $default_features = array(
     array(
         'icon'  => 'fa-file-signature',
-        'title' => 'Same-Day Prescriptions',
-        'desc'  => 'No more waiting weeks for approval. Our prescribers review and issue prescriptions within hours, not days.',
+        'title' => '',
+        'desc'  => '',
     ),
     array(
         'icon'  => 'fa-user-doctor',
@@ -46,39 +46,47 @@ $default_features = array(
 
 $features = array();
 for ( $i = 1; $i <= 3; $i++ ) {
-    $features[] = array(
+    $feature = array(
         'icon'  => dp_field( 'switching_feature_' . $i . '_icon', $default_features[ $i - 1 ]['icon'] ),
         'title' => dp_field( 'switching_feature_' . $i . '_title', $default_features[ $i - 1 ]['title'] ),
         'desc'  => dp_field( 'switching_feature_' . $i . '_desc', $default_features[ $i - 1 ]['desc'] ),
     );
+    // A feature with no title is not shown.
+    if ( '' !== trim( (string) $feature['title'] ) ) {
+        $features[] = $feature;
+    }
 }
 
 // --- Trust proof stats ---
 $default_trust = array(
     array(
         'icon'  => 'fa-user-group',
-        'value' => '50+',
-        'label' => 'Switched Monthly',
+        'value' => '',
+        'label' => '',
     ),
     array(
         'icon'  => 'fa-star',
-        'value' => '4.9/5',
+        'value' => dp_option( 'google_rating' ) ? dp_option( 'google_rating' ) . '/5' : '',
         'label' => 'Google Rating',
     ),
     array(
         'icon'  => 'fa-award',
-        'value' => '15+',
-        'label' => 'Years Experience',
+        'value' => '',
+        'label' => '',
     ),
 );
 
 $trust_items = array();
 for ( $i = 1; $i <= 3; $i++ ) {
-    $trust_items[] = array(
+    $trust_item = array(
         'icon'  => dp_field( 'switching_trust_' . $i . '_icon', $default_trust[ $i - 1 ]['icon'] ),
         'value' => dp_field( 'switching_trust_' . $i . '_value', $default_trust[ $i - 1 ]['value'] ),
         'label' => dp_field( 'switching_trust_' . $i . '_label', $default_trust[ $i - 1 ]['label'] ),
     );
+    // A trust item with no value is not shown.
+    if ( '' !== trim( (string) $trust_item['value'] ) ) {
+        $trust_items[] = $trust_item;
+    }
 }
 
 // --- CTAs ---
@@ -95,7 +103,7 @@ $switching_image_alt = $switching_image_id
     : 'Switch to ' . dp_pharmacy_name();
 
 // --- Google rating (global options) ---
-$google_rating       = dp_option( 'google_rating', '4.9' );
+$google_rating       = dp_option( 'google_rating', '' );
 $google_review_count = dp_option( 'google_review_count', '140+' );
 $pharmacy_location   = dp_option( 'pharmacy_town', 'Denton' );
 $gphc_number         = dp_option( 'superintendent_gphc_number', '2208502' );
@@ -189,6 +197,7 @@ $gphc_number         = dp_option( 'superintendent_gphc_number', '2208502' );
                 </div>
 
                 <!-- Google rating badge — glassmorphic overlay -->
+                <?php if ( $google_rating ) : ?>
                 <div class="switching-rating-badge">
                     <div class="switching-rating-top">
                         <div class="switching-rating-score-block">
@@ -213,10 +222,11 @@ $gphc_number         = dp_option( 'superintendent_gphc_number', '2208502' );
                         </span>
                         <span class="switching-rating-pill">
                             <i class="fas fa-map-marker-alt"></i>
-                            <?php echo esc_html( $pharmacy_location ); ?> since <?php echo esc_html( dp_option( 'established_year', '2009' ) ); ?>
+                            <?php echo esc_html( $pharmacy_location ); ?> since <?php echo esc_html( dp_option( 'established_year', '2024' ) ); ?>
                         </span>
                     </div>
                 </div>
+                <?php endif; ?>
 
             </div>
 

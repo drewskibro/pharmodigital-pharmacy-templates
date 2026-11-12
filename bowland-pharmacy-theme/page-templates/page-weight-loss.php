@@ -63,28 +63,6 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
           </a>
         </div>
 
-        <!-- Testimonial Card -->
-        <div class="wl-hero-testimonial">
-          <div class="wl-hero-testimonial-quote-icon">
-            <i class="fas fa-quote-left"></i>
-          </div>
-          <p class="wl-hero-testimonial-quote">
-            <?php echo esc_html( bp_field( 'wl_hero_testimonial_quote', '"I travel 40 miles every month to see Ahmed for my weight loss consultations—he\'s that good. Would never go anywhere else."' ) ); ?>
-          </p>
-          <div class="wl-hero-testimonial-footer">
-            <div class="wl-hero-testimonial-author">
-              <p class="wl-hero-testimonial-name"><?php echo esc_html( bp_field( 'wl_hero_testimonial_name', 'Bowland Patient' ) ); ?></p>
-              <p class="wl-hero-testimonial-location"><?php echo esc_html( bp_field( 'wl_hero_testimonial_location', 'Wythenshawe' ) ); ?></p>
-            </div>
-            <div class="star-row">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Right: Image Grid -->
@@ -120,17 +98,20 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
   <div class="section-container">
     <div class="wl-stats-bar">
 
+      <?php $wl_stat_1 = bp_field( 'wl_stat_1_number', bp_option( 'google_rating', '' ) ); ?>
+      <?php if ( $wl_stat_1 ) : ?>
       <div class="wl-stat-item">
         <div class="wl-stat-icon">
           <i class="fas fa-star"></i>
         </div>
         <div class="wl-stat-content">
-          <span class="wl-stat-number"><?php echo esc_html( bp_field( 'wl_stat_1_number', bp_option( 'google_rating', '4.7' ) ) ); ?></span>
+          <span class="wl-stat-number"><?php echo esc_html( $wl_stat_1 ); ?></span>
           <span class="wl-stat-label"><?php echo esc_html( bp_field( 'wl_stat_1_label', 'Google Rating' ) ); ?></span>
         </div>
       </div>
 
       <div class="wl-stat-divider"></div>
+      <?php endif; ?>
 
       <div class="wl-stat-item">
         <div class="wl-stat-icon">
@@ -167,61 +148,6 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
       </div>
 
     </div>
-  </div>
-</section>
-
-<!-- ============================================
-     RESULTS SHOWCASE
-     ============================================ -->
-<section class="wl-results-section wl-reveal">
-  <div class="section-container">
-    <div class="wl-results-header">
-      <div class="section-badge">
-        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        <span class="section-badge-text"><?php echo esc_html( bp_field( 'wl_results_badge', 'REAL RESULTS' ) ); ?></span>
-      </div>
-      <h2 class="wl-results-title"><?php echo esc_html( bp_field( 'wl_results_title', 'Real results in Wythenshawe' ) ); ?></h2>
-      <p class="wl-results-description"><?php echo esc_html( bp_field( 'wl_results_description', 'Bowland patients get a personalised programme, monthly face-to-face reviews and support from their own pharmacist throughout.' ) ); ?></p>
-    </div>
-
-    <div class="wl-results-grid">
-      <!-- Card 1: Satisfaction -->
-      <div class="wl-results-card">
-        <div class="star-row wl-results-stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        </div>
-        <p class="wl-results-number gradient-text"><?php echo esc_html( bp_field( 'wl_results_card1_number', '4.7/5' ) ); ?></p>
-        <p class="wl-results-label"><?php echo esc_html( bp_field( 'wl_results_card1_label', 'Patient satisfaction' ) ); ?></p>
-        <p class="wl-results-sublabel"><?php echo esc_html( bp_field( 'wl_results_card1_sublabel', 'Based on verified reviews' ) ); ?></p>
-      </div>
-
-      <!-- Card 2: Featured Weight Loss -->
-      <div class="wl-results-card wl-results-card-featured">
-        <div class="wl-results-featured-badge"><?php echo esc_html( bp_field( 'wl_results_featured_badge', 'Most Important' ) ); ?></div>
-        <div class="wl-results-featured-bg-dots"></div>
-        <div class="wl-results-featured-circle"></div>
-        <div class="wl-results-featured-square"></div>
-        <div class="wl-results-featured-icon"><i class="fas fa-chart-line"></i></div>
-        <p class="wl-results-featured-number"><?php echo esc_html( bp_field( 'wl_results_featured_number', 'Monthly' ) ); ?></p>
-        <p class="wl-results-featured-label"><?php echo esc_html( bp_field( 'wl_results_featured_label', 'Face-to-face reviews' ) ); ?></p>
-        <p class="wl-results-featured-sublabel"><?php echo esc_html( bp_field( 'wl_results_featured_sublabel', 'With your own pharmacist' ) ); ?></p>
-      </div>
-
-      <!-- Card 3: Wythenshawe Residents -->
-      <div class="wl-results-card">
-        <div class="wl-results-icon">
-          <i class="fas fa-user-group"></i>
-        </div>
-        <p class="wl-results-number gradient-text"><?php echo esc_html( bp_field( 'wl_results_card3_number', 'Free' ) ); ?></p>
-        <p class="wl-results-label"><?php echo esc_html( bp_field( 'wl_results_card3_label', 'First consultation' ) ); ?></p>
-        <p class="wl-results-sublabel"><?php echo esc_html( bp_field( 'wl_results_card3_sublabel', 'With your local pharmacist' ) ); ?></p>
-      </div>
-    </div>
-
-    <p class="wl-results-disclaimer">
-      <i class="fas fa-info-circle"></i>
-      <?php echo esc_html( bp_field( 'wl_results_disclaimer', 'Results vary by individual. Weight loss depends on adherence to treatment, lifestyle changes, and individual metabolism.' ) ); ?>
-    </p>
   </div>
 </section>
 
@@ -271,11 +197,12 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
     <!-- Bottom: Rating + CTAs + credentials -->
     <div class="wl-features-bottom">
       <?php
-      $wl_rating       = bp_option( 'google_rating', '4.7' );
+      $wl_rating       = bp_option( 'google_rating', '' );
       $wl_review_count = bp_option( 'google_review_count', '200+' );
       $wl_location     = bp_option( 'pharmacy_location_label', 'Wythenshawe' );
       $wl_reviews_url  = bp_option( 'google_review_url', '#' );
       ?>
+      <?php if ( $wl_rating ) : ?>
       <div class="wl-features-rating-strip">
         <svg class="wl-google-icon" width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         <span class="wl-features-rating-score"><?php echo esc_html( $wl_rating ); ?></span>
@@ -285,6 +212,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <span class="wl-features-rating-meta"><?php echo esc_html( $wl_review_count ); ?> <?php echo esc_html( bp_field( 'wl_features_reviews_label', 'reviews' ) ); ?> · <?php echo esc_html( $wl_location ); ?></span>
         <a href="<?php echo esc_url( $wl_reviews_url ); ?>" class="wl-features-rating-link" target="_blank" rel="noopener"><?php echo esc_html( bp_field( 'wl_features_view_reviews_text', 'View Reviews' ) ); ?> <i class="fas fa-arrow-right"></i></a>
       </div>
+      <?php endif; ?>
 
       <div class="wl-features-actions">
         <a href="<?php echo esc_url( bp_field( 'wl_hero_cta_url', '' ) ?: '#weight-loss-calendar' ); ?>" class="cta-button primary-cta">
@@ -377,10 +305,10 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
             'title'       => 'Begin your treatment',
             'description' => 'If treatment is clinically suitable for you, your pharmacist will prescribe it and explain how to take it. You\'ll receive clear instructions and guidance on what to expect from your Wythenshawe weight loss programme.',
             'icon'        => 'fas fa-pills',
-            'meta'        => 'Same-day prescription available',
-            'meta_icon'   => 'fas fa-bolt',
-            'badge'       => 'Same Day',
-            'badge_icon'  => 'fas fa-bolt',
+            'meta'        => '',
+            'meta_icon'   => '',
+            'badge'       => '',
+            'badge_icon'  => '',
         ),
         array(
             'title'       => 'Monthly check-ins',
@@ -456,10 +384,12 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
           <div class="wl-journey-step-number"><?php echo esc_html( $i + 1 ); ?></div>
           <h3 class="wl-journey-step-title"><?php echo esc_html( $step['title'] ); ?></h3>
           <p class="wl-journey-step-description"><?php echo esc_html( $step['description'] ); ?></p>
+          <?php if ( ! empty( $step['meta'] ) ) : ?>
           <div class="wl-journey-step-meta">
             <i class="<?php echo esc_attr( $step['meta_icon'] ); ?>"></i>
             <span><?php echo esc_html( $step['meta'] ); ?></span>
           </div>
+          <?php endif; ?>
         </div>
 
         <?php if ( $direction === 'left' && $step_image ) : ?>
@@ -559,7 +489,7 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
             <i class="fas fa-plus wl-faq-icon"></i>
           </button>
           <div class="wl-faq-answer">
-            <p>Treatment starts from &pound;50 per month. Your consultation is free, and there is no extra charge for your monthly check-ins. The exact cost depends on which treatment, if any, is suitable for you and the dose. We will explain all costs during your consultation, before anything is supplied, with no hidden fees.</p>
+            <p>Book a weight management consultation with our pharmacist prescriber. If a treatment is suitable, we explain the options and costs at your appointment. Prices are on our price list.</p>
           </div>
         </div>
         <div class="wl-faq-item">
@@ -573,188 +503,6 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
           </div>
         </div>
       <?php endif; ?>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     TESTIMONIALS SECTION (Premium editorial layout)
-     ============================================ -->
-<section class="wl-testimonials-section wl-reveal">
-  <div class="section-container">
-
-    <!-- Section header -->
-    <div class="wl-testimonials-header">
-      <div class="section-badge">
-        <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        <span class="section-badge-text"><?php echo esc_html( bp_field( 'wl_testimonials_badge', 'Real Transformations' ) ); ?></span>
-      </div>
-      <h2 class="wl-testimonials-title">
-        <?php echo esc_html( bp_field( 'wl_testimonials_title_start', 'Real Results.' ) ); ?>
-        <span class="gradient-text"><?php echo esc_html( bp_field( 'wl_testimonials_title_highlight', 'Lasting Health.' ) ); ?></span>
-      </h2>
-      <p class="wl-testimonials-description"><?php echo esc_html( bp_field( 'wl_testimonials_description', 'Hear from our patients about their care with us.' ) ); ?></p>
-      <div class="wl-testimonials-disclaimer">
-        <i class="fas fa-info-circle"></i>
-        <p><strong><?php echo esc_html( bp_field( 'wl_testimonials_transparency_label', 'Transparency Note:' ) ); ?></strong> <?php echo esc_html( bp_field( 'wl_testimonials_disclaimer', 'The results below are from real Bowland Pharmacy patients. Individual results may vary.' ) ); ?></p>
-      </div>
-    </div>
-
-    <?php
-    // --- Allowed HTML for highlight spans ---
-    $wl_allowed_highlight = array( 'span' => array( 'class' => array() ) );
-
-    // --- Default testimonials ---
-    $wl_default_testimonials = array(
-        array(
-            'name'      => 'Sarah M.',
-            'service'   => 'Weight Loss',
-            'weight'    => 'Long-term support',
-            'quote'     => 'Thank you so much for your weight loss service. I\'ve tried <span class="wl-testimonial-highlight">everything over the years</span>. With your help, I\'ve finally managed to <span class="wl-testimonial-highlight">lose weight and keep it off</span>.',
-            'checklist' => array( 'Face-to-Face Support', 'Monthly Reviews' ),
-        ),
-        array(
-            'name'      => 'James K.',
-            'service'   => 'Weight Loss',
-            'weight'    => 'Monthly check-ins',
-            'quote'     => 'Ahmed really takes the time to <span class="wl-testimonial-highlight">understand your goals</span>. The monthly check-ins keep me on track and I\'ve <span class="wl-testimonial-highlight">never felt better</span>.',
-            'checklist' => array( 'Monthly Check-ins', 'Personalised Plan' ),
-        ),
-        array(
-            'name'      => 'Linda P.',
-            'service'   => 'Weight Loss',
-            'weight'    => 'Improved mobility',
-            'quote'     => 'I cannot thank you enough for helping me lose weight. Not only do I <span class="wl-testimonial-highlight">feel and look great</span>, my hip and knee pain is <span class="wl-testimonial-highlight">SO much better</span> now I weigh less.',
-            'checklist' => array( 'Improved Mobility', 'Ongoing Support' ),
-        ),
-    );
-
-    // --- Build testimonials from ACF or defaults ---
-    $wl_testimonials    = array();
-    $wl_use_acf         = false;
-
-    if ( function_exists( 'have_rows' ) && have_rows( 'wl_testimonials' ) ) {
-        while ( have_rows( 'wl_testimonials' ) ) {
-            the_row();
-            $t_name   = get_sub_field( 'author' ) ?: 'Patient';
-            $t_quote  = get_sub_field( 'quote' ) ?: '';
-            $t_weight = get_sub_field( 'weight_lost_short' ) ?: '';
-            $t_title  = get_sub_field( 'title' ) ?: 'Weight Loss';
-
-            $words    = preg_split( '/\s+/', trim( $t_name ) );
-            $initials = '';
-            foreach ( $words as $w ) {
-                if ( $w !== '' ) $initials .= strtoupper( mb_substr( $w, 0, 1 ) );
-            }
-
-            $wl_testimonials[] = array(
-                'name'      => $t_name,
-                'initials'  => $initials,
-                'service'   => $t_title,
-                'weight'    => $t_weight,
-                'quote'     => $t_quote,
-                'checklist' => array(),
-            );
-        }
-        $wl_use_acf = true;
-    }
-
-    if ( empty( $wl_testimonials ) ) {
-        foreach ( $wl_default_testimonials as $dt ) {
-            $words    = preg_split( '/\s+/', trim( $dt['name'] ) );
-            $initials = '';
-            foreach ( $words as $w ) {
-                if ( $w !== '' ) $initials .= strtoupper( mb_substr( $w, 0, 1 ) );
-            }
-            $dt['initials'] = $initials;
-            $wl_testimonials[] = $dt;
-        }
-    }
-    ?>
-
-    <!-- Testimonials grid (12-col asymmetric) -->
-    <div class="wl-testimonials-grid">
-
-      <?php foreach ( $wl_testimonials as $t_index => $t ) :
-          $is_large    = ( $t_index === 0 );
-          $card_class  = $is_large ? 'wl-testimonial-card wl-testimonial-card-large' : 'wl-testimonial-card wl-testimonial-card-medium';
-      ?>
-        <div class="<?php echo esc_attr( $card_class ); ?>">
-
-          <!-- Verified badge -->
-          <div class="wl-testimonial-verified">
-            <i class="fas fa-check-circle"></i>
-            <span><?php echo esc_html( $is_large ? bp_field( 'wl_testimonials_verified_label', 'Verified Patient' ) : bp_field( 'wl_testimonials_verified_label_short', 'Verified' ) ); ?></span>
-          </div>
-
-          <div class="wl-testimonial-card-body">
-            <?php if ( ! empty( $t['weight'] ) ) : ?>
-              <div class="wl-testimonial-weight-pill">
-                <i class="fas fa-arrow-trend-down"></i>
-                <span><?php echo esc_html( $t['weight'] ); ?></span>
-              </div>
-            <?php endif; ?>
-
-            <!-- Stars -->
-            <div class="star-row <?php echo $is_large ? 'star-row-large' : ''; ?>">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-
-            <!-- Quote -->
-            <blockquote class="wl-testimonial-quote <?php echo $is_large ? 'wl-testimonial-quote-large' : ''; ?>">
-              <?php if ( $wl_use_acf ) : ?>
-                &ldquo;<?php echo esc_html( $t['quote'] ); ?>&rdquo;
-              <?php else : ?>
-                &ldquo;<?php echo wp_kses( $t['quote'], $wl_allowed_highlight ); ?>&rdquo;
-              <?php endif; ?>
-            </blockquote>
-
-            <!-- Author row -->
-            <div class="wl-testimonial-author-row">
-              <div class="wl-testimonial-avatar <?php echo $is_large ? 'wl-testimonial-avatar-large' : ''; ?>">
-                <?php echo esc_html( $t['initials'] ); ?>
-              </div>
-              <div class="wl-testimonial-author-info">
-                <span class="wl-testimonial-service"><?php echo esc_html( $t['service'] ); ?></span>
-                <h4 class="wl-testimonial-author-name"><?php echo esc_html( $t['name'] ); ?></h4>
-                <p class="wl-testimonial-author-status"><?php echo esc_html( bp_field( 'wl_testimonials_verified_label', 'Verified Patient' ) ); ?></p>
-              </div>
-            </div>
-
-            <?php if ( ! empty( $t['checklist'] ) ) : ?>
-              <div class="wl-testimonial-checklist">
-                <?php foreach ( $t['checklist'] as $check ) : ?>
-                  <div class="wl-testimonial-check">
-                    <i class="fas fa-check"></i>
-                    <span><?php echo esc_html( $check ); ?></span>
-                  </div>
-                <?php endforeach; ?>
-              </div>
-            <?php endif; ?>
-          </div>
-        </div>
-      <?php endforeach; ?>
-
-      <!-- CTA Card -->
-      <div class="wl-testimonial-card wl-testimonial-card-cta">
-        <div class="wl-testimonial-cta-glow"></div>
-        <div class="wl-testimonial-cta-body">
-          <div class="wl-testimonial-cta-content">
-            <h3 class="wl-testimonial-cta-title"><?php echo esc_html( bp_field( 'wl_testimonials_cta_title', 'Local, face-to-face support' ) ); ?></h3>
-            <p class="wl-testimonial-cta-text"><?php echo esc_html( bp_field( 'wl_testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local weight loss support you can rely on.' ) ); ?></p>
-          </div>
-          <div class="wl-testimonial-cta-rating">
-            <div class="wl-testimonial-cta-rating-card">
-              <span class="wl-testimonial-cta-score"><?php echo esc_html( bp_option( 'google_rating', '4.7' ) ); ?></span>
-              <div class="star-row star-row-small">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-              </div>
-              <span class="wl-testimonial-cta-label"><?php echo esc_html( bp_field( 'wl_testimonials_cta_rating_label', 'Google Rating' ) ); ?></span>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>

@@ -83,7 +83,7 @@ if ( $np ) {
     update_field( 'np_cta_secondary',   [ 'title' => 'Call 0161 998 7114', 'url' => 'tel:01619987114', 'target' => '' ], $np );
     update_field( 'np_cta_badges', [
         [ 'text' => 'GPhC Registered' ],
-        [ 'text' => 'NHS Partner' ],
+        [ 'text' => 'Providing NHS services' ],
         [ 'text' => '15+ Years in Wythenshawe' ],
     ], $np );
 
@@ -167,7 +167,7 @@ if ( $th ) {
     update_field( 'th_vaccines_title_rest',     'Vaccinations', $th );
 
     update_field( 'th_vaccinations', [
-        [ 'icon' => 'fa-solid fa-shield-virus',  'name' => 'Yellow Fever',            'is_featured' => 1, 'badge' => 'Official Centre' ],
+        [ 'icon' => 'fa-solid fa-shield-virus',  'name' => 'Yellow Fever',            'is_featured' => 1, 'badge' => 'Designated Centre' ],
         [ 'icon' => 'fa-solid fa-syringe',       'name' => 'Hepatitis A',             'is_featured' => 0, 'badge' => '' ],
         [ 'icon' => 'fa-solid fa-syringe',       'name' => 'Hepatitis B',             'is_featured' => 0, 'badge' => '' ],
         [ 'icon' => 'fa-solid fa-syringe',       'name' => 'Typhoid',                 'is_featured' => 0, 'badge' => '' ],

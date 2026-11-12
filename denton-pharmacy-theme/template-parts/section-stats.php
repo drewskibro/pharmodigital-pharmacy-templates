@@ -21,13 +21,13 @@ $default_stats = array(
     ),
     array(
         'icon'   => 'fas fa-star',
-        'number' => dp_option( 'google_rating', '4.9' ),
+        'number' => dp_option( 'google_rating', '' ),
         'label'  => 'Google Rating',
     ),
     array(
         'icon'   => 'fas fa-award',
-        'number' => '15+',
-        'label'  => 'Years Experience',
+        'number' => '',
+        'label'  => '',
     ),
     array(
         'icon'   => 'fas fa-shield-halved',
@@ -47,6 +47,11 @@ for ( $i = 1; $i <= 5; $i++ ) {
     $icon   = dp_field( 'stats_' . $i . '_icon', $default_stats[ $i - 1 ]['icon'] );
     $number = dp_field( 'stats_' . $i . '_number', $default_stats[ $i - 1 ]['number'] );
     $label  = dp_field( 'stats_' . $i . '_label', $default_stats[ $i - 1 ]['label'] );
+
+    // A stat with no number is not shown (for example no Google rating set).
+    if ( '' === trim( (string) $number ) ) {
+        continue;
+    }
 
     // Ensure Font Awesome icon class has a style prefix
     $icon = dp_fa_class( $icon );
