@@ -10154,8 +10154,8 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_bt_stat_3_number', 'label' => 'Stat 3 Number', 'name' => 'bt_stat_3_number', 'type' => 'text', 'default_value' => 'No GP' ),
             array( 'key' => 'field_dp_bt_stat_3_label',  'label' => 'Stat 3 Label',  'name' => 'bt_stat_3_label',  'type' => 'text', 'default_value' => 'Referral Needed' ),
             array( 'key' => 'field_dp_bt_stat_4_icon',   'label' => 'Stat 4 Icon',   'name' => 'bt_stat_4_icon',   'type' => 'text', 'default_value' => 'fas fa-clock' ),
-            array( 'key' => 'field_dp_bt_stat_4_number', 'label' => 'Stat 4 Number', 'name' => 'bt_stat_4_number', 'type' => 'text', 'default_value' => '2-5 Days' ),
-            array( 'key' => 'field_dp_bt_stat_4_label',  'label' => 'Stat 4 Label',  'name' => 'bt_stat_4_label',  'type' => 'text', 'default_value' => 'For Results' ),
+            array( 'key' => 'field_dp_bt_stat_4_number', 'label' => 'Stat 4 Number', 'name' => 'bt_stat_4_number', 'type' => 'text', 'default_value' => '2 to 5 Days' ),
+            array( 'key' => 'field_dp_bt_stat_4_label',  'label' => 'Stat 4 Label',  'name' => 'bt_stat_4_label',  'type' => 'text', 'default_value' => 'For Most Results' ),
         ),
         'location' => array(
             array(
@@ -10306,7 +10306,7 @@ function dp_register_acf_field_groups() {
             array( 'key' => 'field_dp_bt_cta_primary_url', 'label' => 'CTA URL', 'name' => 'bt_cta_primary_url', 'type' => 'url' ),
             array( 'key' => 'field_dp_bt_cta_button_text', 'label' => 'CTA Button Text', 'name' => 'bt_cta_button_text', 'type' => 'text', 'default_value' => 'Book Online' ),
             array( 'key' => 'field_dp_bt_cta_check_1', 'label' => 'Trust Check 1', 'name' => 'bt_cta_check_1', 'type' => 'text', 'default_value' => 'No referral needed' ),
-            array( 'key' => 'field_dp_bt_cta_check_2', 'label' => 'Trust Check 2', 'name' => 'bt_cta_check_2', 'type' => 'text', 'default_value' => 'Results in 2-5 days' ),
+            array( 'key' => 'field_dp_bt_cta_check_2', 'label' => 'Trust Check 2', 'name' => 'bt_cta_check_2', 'type' => 'text', 'default_value' => 'Most results in 2 to 5 days' ),
             array( 'key' => 'field_dp_bt_cta_check_3', 'label' => 'Trust Check 3', 'name' => 'bt_cta_check_3', 'type' => 'text', 'default_value' => 'GPhC registered' ),
         ),
         'location' => array(
