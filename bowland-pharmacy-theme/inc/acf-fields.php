@@ -1966,7 +1966,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'switching_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Tired of waiting weeks for prescriptions? Fed up with impersonal online-only services? At Bowland Pharmacy, you get real pharmacist support, same-day prescriptions, and premium discreet delivery — all from a trusted local pharmacy.',
+                'default_value' => 'Tired of waiting weeks for prescriptions? Fed up with impersonal online-only services? At Bowland Pharmacy, you get real pharmacist support and premium discreet delivery, all from a trusted local pharmacy.',
             ),
             array(
                 'key'           => 'field_bp_switching_cta_text',
