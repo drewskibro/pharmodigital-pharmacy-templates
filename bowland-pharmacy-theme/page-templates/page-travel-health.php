@@ -162,7 +162,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
       <h2 class="travel-services-title">
         <?php echo esc_html( bp_field( 'th_services_title_highlight', 'Everything you need' ) ); ?> <?php echo esc_html( bp_field( 'th_services_title_rest', 'for safe travel' ) ); ?>
       </h2>
-      <p class="travel-services-description"><?php echo esc_html( bp_field( 'th_services_description', 'From expert consultations to all vaccinations and official certificates' ) ); ?></p>
+      <p class="travel-services-description"><?php echo esc_html( bp_field( 'th_services_description', 'From expert consultations to vaccinations and yellow fever certificates' ) ); ?></p>
     </div>
 
     <div class="travel-services-grid">
@@ -406,9 +406,9 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
     <?php endwhile; else : ?>
       <?php
       $steps = array(
-        array( 'title' => 'Book Consultation', 'desc' => 'Book your appointment online or call us. The NHS advises getting travel health advice at least 4 to 6 weeks before you go.', 'icon' => 'fas fa-calendar-check', 'meta_icon' => 'fas fa-clock', 'meta_text' => 'Book online 24/7' ),
+        array( 'title' => 'Book Consultation', 'desc' => 'Book your appointment online or call us. The NHS advises getting travel health advice at least 4 to 6 weeks before you go. If you travel sooner, we can still help.', 'icon' => 'fas fa-calendar-check', 'meta_icon' => 'fas fa-clock', 'meta_text' => 'Book online 24/7' ),
         array( 'title' => 'Consultation & Vaccination', 'desc' => 'Meet with our pharmacist to discuss your itinerary and health history. We\'ll administer necessary vaccinations and provide health advice.', 'icon' => 'fas fa-user-doctor', 'meta_icon' => 'fas fa-check-circle', 'meta_text' => 'Safe & professional' ),
-        array( 'title' => 'Travel with Confidence', 'desc' => 'Leave with your vaccination record card and any necessary medication (like antimalarials).', 'icon' => 'fas fa-plane-departure', 'meta_icon' => 'fas fa-passport', 'meta_text' => 'Official certificates' ),
+        array( 'title' => 'Travel with Confidence', 'desc' => 'Leave with your vaccination record card and any necessary medication (like antimalarials).', 'icon' => 'fas fa-plane-departure', 'meta_icon' => 'fas fa-passport', 'meta_text' => 'Yellow fever certificates' ),
       );
       foreach ( $steps as $i => $step ) :
         $direction = ( ($i + 1) % 2 === 1 ) ? 'left' : 'right';
@@ -596,7 +596,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
         </div>
         <div class="travel-cta-check">
           <i class="fas fa-check"></i>
-          <span><?php echo esc_html( bp_field( 'th_cta_check_3', 'Official certificates' ) ); ?></span>
+          <span><?php echo esc_html( bp_field( 'th_cta_check_3', 'Yellow fever certificates' ) ); ?></span>
         </div>
       </div>
     </div>

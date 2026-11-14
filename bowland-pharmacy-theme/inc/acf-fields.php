@@ -3556,7 +3556,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_th_services_badge', 'label' => 'Badge Text', 'name' => 'th_services_badge', 'type' => 'text', 'default_value' => 'COMPREHENSIVE TRAVEL HEALTH' ),
             array( 'key' => 'field_bp_th_services_title_highlight', 'label' => 'Title Highlight (gradient)', 'name' => 'th_services_title_highlight', 'type' => 'text', 'default_value' => 'Everything you need' ),
             array( 'key' => 'field_bp_th_services_title_rest', 'label' => 'Title (after highlight)', 'name' => 'th_services_title_rest', 'type' => 'text', 'default_value' => 'for safe travel' ),
-            array( 'key' => 'field_bp_th_services_description', 'label' => 'Description', 'name' => 'th_services_description', 'type' => 'text', 'default_value' => 'From expert consultations to all vaccinations and official certificates' ),
+            array( 'key' => 'field_bp_th_services_description', 'label' => 'Description', 'name' => 'th_services_description', 'type' => 'text', 'default_value' => 'From expert consultations to vaccinations and yellow fever certificates' ),
             array(
                 'key'          => 'field_bp_th_services',
                 'label'        => 'Service Cards',
@@ -3826,7 +3826,7 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_th_cta_primary_url', 'label' => 'Primary CTA URL', 'name' => 'th_cta_primary_url', 'type' => 'url', 'instructions' => 'Leave blank to use the booking page.' ),
             array( 'key' => 'field_bp_th_cta_check_1', 'label' => 'Check Item 1', 'name' => 'th_cta_check_1', 'type' => 'text', 'default_value' => 'Flexible appointments' ),
             array( 'key' => 'field_bp_th_cta_check_2', 'label' => 'Check Item 2', 'name' => 'th_cta_check_2', 'type' => 'text', 'default_value' => 'Expert advice' ),
-            array( 'key' => 'field_bp_th_cta_check_3', 'label' => 'Check Item 3', 'name' => 'th_cta_check_3', 'type' => 'text', 'default_value' => 'Official certificates' ),
+            array( 'key' => 'field_bp_th_cta_check_3', 'label' => 'Check Item 3', 'name' => 'th_cta_check_3', 'type' => 'text', 'default_value' => 'Yellow fever certificates' ),
         ),
         'location'              => $th_location,
         'menu_order'            => 508,

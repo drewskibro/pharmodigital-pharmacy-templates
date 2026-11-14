@@ -375,7 +375,7 @@ get_header();
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">04</span><span class="book-faq-question">Do I need to book travel vaccinations in advance?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>Ideally, yes. We recommend booking 6-8 weeks before you travel to allow time for any vaccine courses to be completed. However, we can often accommodate last-minute appointments for urgent travel needs. We hold most vaccines in stock, including Yellow Fever.</p></div>
+          <div class="book-faq-answer"><p>Ideally, yes. The NHS advises getting travel health advice at least 4 to 6 weeks before you go. Some vaccines need more than one dose, so booking early helps. If you travel sooner, we can still help, so please book or call us. We hold most vaccines in stock, including yellow fever.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">05</span><span class="book-faq-question">Why do so many Bowland patients choose you?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>

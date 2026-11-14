@@ -526,7 +526,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       </div>
 
       <h2 class="yellowfever-cta-title"><?php echo esc_html( dp_field( 'yf_cta_title', 'Get your Yellow Fever vaccination and certificate' ) ); ?></h2>
-      <p class="yellowfever-cta-desc"><?php echo esc_html( dp_field( 'yf_cta_desc', 'Book your Yellow Fever vaccination at our designated centre in Denton. Certificate issued on the day.' ) ); ?></p>
+      <p class="yellowfever-cta-desc"><?php echo esc_html( dp_field( 'yf_cta_desc', 'Book your yellow fever vaccination at our designated centre in Denton. We issue your certificate on the day. It becomes valid 10 days after your vaccination.' ) ); ?></p>
 
       <div class="yellowfever-cta-actions">
         <a href="<?php echo esc_url( dp_field( 'yf_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta white-btn"><?php echo esc_html( dp_field( 'yf_cta_button_text', 'Book Vaccination' ) ); ?></a>
