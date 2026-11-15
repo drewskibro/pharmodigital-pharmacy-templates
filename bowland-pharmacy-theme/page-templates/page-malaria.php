@@ -40,7 +40,7 @@ $vaccine_name = bp_field('vaccine_name', 'Malaria Prevention');
         </h1>
 
         <p class="malaria-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', "Heading somewhere with a malaria risk? Our Wythenshawe pharmacist can talk you through the right antimalarial tablets and get you a same-day prescription — no GP appointment needed.")); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', "Heading somewhere with a malaria risk? A short pharmacist consultation and, if antimalarial tablets are right for you, a prescription and your tablets the same day. No GP referral needed.")); ?>
         </p>
 
         <div class="malaria-hero-actions">
@@ -82,7 +82,7 @@ $vaccine_name = bp_field('vaccine_name', 'Malaria Prevention');
             <ul class="malaria-trust-card-list">
               <li><i class="fas fa-check"></i> <span>Pharmacist review of your itinerary</span></li>
               <li><i class="fas fa-check"></i> <span>Right tablets matched to you</span></li>
-              <li><i class="fas fa-check"></i> <span>Same-day prescribing &amp; dispensing</span></li>
+              <li><i class="fas fa-check"></i> <span>Prescription issued the same day, if suitable</span></li>
             </ul>
             <div class="malaria-trust-card-footer">
               <i class="fas fa-shield-halved"></i>
@@ -183,7 +183,7 @@ $vaccine_name = bp_field('vaccine_name', 'Malaria Prevention');
         <div class="malaria-stat-divider"></div>
         <div class="malaria-stat-item"><div class="icon"><i class="fas fa-earth-africa"></i></div><div class="content"><span class="number">100+</span><span class="label">Countries Covered</span></div></div>
         <div class="malaria-stat-divider"></div>
-        <div class="malaria-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Prescribing</span></div></div>
+        <div class="malaria-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Appointments</span></div></div>
       <?php endif; ?>
     </div>
   </div>
@@ -316,7 +316,7 @@ $vaccine_name = bp_field('vaccine_name', 'Malaria Prevention');
         <ul class="malaria-pricing-includes">
           <li><i class="fas fa-check"></i> 15-minute consultation with our pharmacist</li>
           <li><i class="fas fa-check"></i> Destination and medical history review</li>
-          <li><i class="fas fa-check"></i> Prescription issued the same day</li>
+          <li><i class="fas fa-check"></i> Prescription issued the same day, if suitable</li>
           <li><i class="fas fa-check"></i> Tablets dispensed on-site</li>
         </ul>
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
@@ -349,7 +349,7 @@ $vaccine_name = bp_field('vaccine_name', 'Malaria Prevention');
       <?php endwhile; else : ?>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-comments"></i></div><h3>We Talk It Through</h3><p>Destination, trip length, accommodation, medical history — the full picture.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-pills"></i></div><h3>A Tailored Recommendation</h3><p>Your pharmacist suggests the tablet that fits your trip and your health.</p></div>
-        <div class="malaria-detail-card"><div class="icon"><i class="fas fa-file-prescription"></i></div><h3>Prescribed on the Spot</h3><p>No GP appointment to wait for — we can prescribe there and then.</p></div>
+        <div class="malaria-detail-card"><div class="icon"><i class="fas fa-file-prescription"></i></div><h3>Same-Day Prescription, If Suitable</h3><p>No need to wait for a GP appointment. If antimalarials are right for you, your pharmacist can prescribe them at your appointment.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>What to Expect From Your Tablets</h3><p>We'll flag anything worth knowing, like sun sensitivity with certain options.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-shield-halved"></i></div><h3>The Full ABCD Approach</h3><p>Awareness, bite prevention, tablets and diagnosis — we cover all four.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private, No Referral</h3><p>Antimalarials sit outside the NHS for travel, so book with us directly.</p></div>
@@ -447,14 +447,14 @@ $acuity_url_child = bp_field( 'vaccine_acuity_url_child', 'https://app.acuitysch
         <?php if (have_rows('vaccine_cta_badges')) : while (have_rows('vaccine_cta_badges')) : the_row(); ?>
           <span class="badge"><?php echo esc_html(get_sub_field('text')); ?></span>
         <?php endwhile; else : ?>
-          <span class="badge">Same Day Prescribing</span>
+          <span class="badge">Same-Day Appointments</span>
           <span class="badge">4 Tablet Options</span>
           <span class="badge">No Referral Needed</span>
         <?php endif; ?>
       </div>
 
       <h2 class="malaria-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', "Sort Your Antimalarials Before You Fly")); ?></h2>
-      <p class="malaria-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book a consultation with our Wythenshawe team — same-day prescribing, no GP needed.")); ?></p>
+      <p class="malaria-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book a consultation with our Wythenshawe team: same-day appointments, no GP referral needed.")); ?></p>
 
       <div class="malaria-cta-actions">
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Consultation</a>

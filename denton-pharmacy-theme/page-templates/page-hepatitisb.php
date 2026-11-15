@@ -39,7 +39,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
         </h1>
 
         <p class="hepatitisb-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', "Protect yourself before travelling with our hepatitis B vaccination service in Denton, Manchester. A three-dose course giving lifetime protection for most healthy adults, for both adults and children.")); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', "Protect yourself before travelling with our hepatitis B vaccination service in Denton, Manchester. A full course gives long-lasting protection for most people, and most do not need a booster.")); ?>
         </p>
 
         <div class="hepatitisb-hero-actions">
@@ -104,7 +104,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
         <span class="section-badge-text"><?php echo esc_html(dp_field('vaccine_protect_badge', 'WHY VACCINATE')); ?></span>
       </div>
       <h2 class="hepatitisb-protect-title"><?php echo esc_html(dp_field('vaccine_protect_title', 'The Hepatitis B Vaccine')); ?></h2>
-      <p class="hepatitisb-protect-desc"><?php echo esc_html(dp_field('vaccine_protect_desc', 'A three-dose course giving lifetime protection for most healthy adults')); ?></p>
+      <p class="hepatitisb-protect-desc"><?php echo esc_html(dp_field('vaccine_protect_desc', 'A full course gives long-lasting protection for most people, and most do not need a booster.')); ?></p>
     </div>
 
     <div class="hepatitisb-protect-grid">
@@ -140,7 +140,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
           <?php endwhile; else : ?>
             <li class="hepatitisb-protect-feature">
               <div class="icon"><i class="fas fa-syringe"></i></div>
-              <div class="text"><strong>Complete the Full Course</strong><p>Three doses give lifetime protection for most healthy adults — an accelerated schedule is available if time is tight.</p></div>
+              <div class="text"><strong>Complete the Full Course</strong><p>A full course gives long-lasting protection for most people, and most do not need a booster. An accelerated schedule is available if time is tight.</p></div>
             </li>
             <li class="hepatitisb-protect-feature">
               <div class="icon"><i class="fas fa-clock"></i></div>
@@ -301,7 +301,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
         <span class="section-badge-text"><?php echo esc_html(dp_field('vaccine_pricing_badge', 'TRANSPARENT PRICING')); ?></span>
       </div>
       <h2 class="hepatitisb-pricing-title"><?php echo esc_html(dp_field('vaccine_pricing_title', 'Hepatitis B Vaccination Pricing')); ?></h2>
-      <p class="hepatitisb-pricing-desc"><?php echo esc_html(dp_field('vaccine_pricing_desc', 'Priced per dose — we will confirm your full course schedule at your first appointment')); ?></p>
+      <p class="hepatitisb-pricing-desc"><?php echo esc_html(dp_field('vaccine_pricing_desc', 'Standard course £105 for an adult or £90 for a child. The travel health consultation is free.')); ?></p>
     </div>
 
     <div class="hepatitisb-pricing-grid">
@@ -322,7 +322,8 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
       </div>
     </div>
 
-    <p class="hepatitisb-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Child: £30 per dose. Adult: £35 per dose. The standard course is 3 doses over 6 months; an accelerated schedule is available if you\'re travelling sooner — ask our team.')); ?></p>
+    <p class="hepatitisb-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', '£35 per dose for adults and £30 for children. The standard course is 3 doses over 6 months, so £105 for an adult or £90 for a child. If you are travelling sooner, the pharmacist may advise an accelerated course of 4 doses, the last at 12 months: £140 for an adult or £120 for a child.')); ?></p>
+    <p class="hepatitisb-pricing-note">The pharmacist decides at your consultation whether the vaccine is right for you, and which course you need. If it is not suitable for you, we will not give it.</p>
   </div>
 </section>
 
@@ -357,6 +358,23 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
   </div>
 </section>
 
+<!-- Greater Manchester: our three travel clinics -->
+<section class="hepatitisb-details-section">
+  <div class="section-container">
+    <div class="hepatitisb-details-header">
+      <h2 class="hepatitisb-details-title">Hepatitis B vaccine across Greater Manchester</h2>
+      <p class="hepatitisb-details-desc">Our travel clinic runs at three pharmacies. Choose the one nearest you:</p>
+    </div>
+
+    <div class="hepatitisb-details-grid">
+        <div class="hepatitisb-detail-card"><div class="icon"><i class="fas fa-location-dot"></i></div><h3><a href="https://dentonpharmacy.co.uk/hepatitis-b-vaccination/">Denton Pharmacy</a></h3><p>Ashton Road, Denton M34 3EX: for Tameside and east Manchester.</p></div>
+        <div class="hepatitisb-detail-card"><div class="icon"><i class="fas fa-location-dot"></i></div><h3><a href="https://bowlandpharmacy.co.uk/hepatitis-b-occupational/">Bowland Pharmacy</a></h3><p>52 Bowland Road, Wythenshawe M23 1JX: for Wythenshawe, south Manchester and near Manchester Airport.</p></div>
+        <div class="hepatitisb-detail-card"><div class="icon"><i class="fas fa-location-dot"></i></div><h3><a href="https://wilmslow-pharmacy.co.uk/hepatitis-b-vaccination/">Wilmslow Pharmacy</a></h3><p>Summerfields Village Centre, Dean Row Road, Wilmslow SK9 2TA: for Cheshire and south Manchester.</p></div>
+    </div>
+    <p class="hepatitisb-details-desc" style="text-align:center;margin-top:2rem;">The price is the same at all three.</p>
+  </div>
+</section>
+
 <!-- FAQ Section -->
 <section class="hepatitisb-faq-section">
   <div class="section-container">
@@ -380,13 +398,23 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
             <p><?php echo esc_html(get_sub_field('answer')); ?></p>
           </div>
         </div>
-      <?php endwhile; else : ?>
+      <?php endwhile; else : $faq_num = 5; ?>
         <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses does my child need?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>The same three-dose schedule as adults. Use the "Child" option on the booking calendar below to get the age-appropriate appointment.</p></div></div>
         <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Can I have an accelerated course if I'm travelling soon?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>Yes — an accelerated schedule (0, 1, 2 months plus a 12-month booster) is available, and in some cases an even faster 3-week schedule may be possible. Contact us to discuss your travel dates.</p></div></div>
         <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">What if I only have one or two doses before I travel?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>Partial courses don't give full protection, so it's best to complete all doses. If you're short on time before travel, ask us about the accelerated schedule.</p></div></div>
         <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Will I need a booster later on?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>Most healthy adults who complete the full 3-dose course don't need a booster — protection is generally considered lifelong.</p></div></div>
         <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>Most people just get some soreness, redness or swelling at the injection site, and occasionally a mild headache, tiredness or fever.</p></div></div>
       <?php endif; ?>
+      <?php
+      // Area and price questions: always shown, after any saved FAQs.
+      $area_faqs = array(
+        array( 'q' => 'Where can I get the hepatitis B vaccine in Manchester?', 'a' => 'Here at Denton Pharmacy, for Tameside and east Manchester. Our travel clinic also runs at Bowland Pharmacy in Wythenshawe, for south Manchester and near Manchester Airport, and at Wilmslow Pharmacy, for Cheshire. You do not need a GP referral.' ),
+        array( 'q' => 'How much is a hepatitis B vaccine course?', 'a' => 'The standard course is 3 doses: £105 for an adult or £90 for a child (£35 or £30 per dose). If the pharmacist advises the accelerated course of 4 doses, it is £140 for an adult or £120 for a child. The travel health consultation is free.' ),
+        array( 'q' => 'Is the hepatitis B vaccine free on the NHS?', 'a' => 'Not for travel, so we give it privately.' ),
+      );
+      foreach ( $area_faqs as $area_faq ) : $faq_num++; ?>
+        <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num"><?php echo esc_html( str_pad( $faq_num, 2, '0', STR_PAD_LEFT ) ); ?></span><span class="text"><?php echo esc_html( $area_faq['q'] ); ?></span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p><?php echo esc_html( $area_faq['a'] ); ?></p></div></div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>

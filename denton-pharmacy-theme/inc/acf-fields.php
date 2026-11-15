@@ -1981,7 +1981,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'switching_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Tired of waiting weeks for prescriptions? Fed up with impersonal online-only services? At Denton Pharmacy, you get real pharmacist support and premium discreet delivery, all from a trusted local pharmacy.',
+                'default_value' => 'Fed up with impersonal online-only services? At Denton Pharmacy, you get face-to-face pharmacist support, same-day appointments and discreet delivery, all from a trusted local pharmacy.',
             ),
             array(
                 'key'           => 'field_dp_switching_cta_text',
@@ -2003,7 +2003,7 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Feature 1 — Title',
                 'name'          => 'switching_feature_1_title',
                 'type'          => 'text',
-                'default_value' => '',
+                'default_value' => 'Same-Day Consultations',
                 'instructions'  => 'A feature with no title is hidden.',
             ),
             array(
@@ -2012,7 +2012,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'switching_feature_1_desc',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => '',
+                'default_value' => 'No waiting weeks to be seen. Face-to-face appointments are often available the same day, and our prescriber will tell you whether treatment is suitable.',
             ),
             // Feature 2
             array(
@@ -5549,7 +5549,7 @@ function dp_register_acf_field_groups() {
         'key'      => 'group_dp_vaccine_protect',
         'title'    => 'Vaccination — Protection',
         'fields'   => array(
-            array( 'key' => 'field_dp_vaccine_protect_badge', 'label' => 'Badge Text', 'name' => 'vaccine_protect_badge', 'type' => 'text', 'default_value' => 'ESSENTIAL PROTECTION' ),
+            array( 'key' => 'field_dp_vaccine_protect_badge', 'label' => 'Badge Text', 'name' => 'vaccine_protect_badge', 'type' => 'text', 'default_value' => '' ),
             array( 'key' => 'field_dp_vaccine_protect_title', 'label' => 'Title', 'name' => 'vaccine_protect_title', 'type' => 'text' ),
             array( 'key' => 'field_dp_vaccine_protect_desc', 'label' => 'Description', 'name' => 'vaccine_protect_desc', 'type' => 'text' ),
             array( 'key' => 'field_dp_vaccine_protect_image', 'label' => 'Image', 'name' => 'vaccine_protect_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),

@@ -157,7 +157,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
     $default_steps = array(
         array( 'title' => 'Book Consultation', 'description' => 'Visit us in ' . dp_option( 'pharmacy_town', 'Denton' ) . ' or <a href="' . esc_url( dp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
         array( 'title' => 'We Handle Everything', 'description' => 'No prescription transfer needed. Our team manages the entire switch seamlessly for you.', 'image' => '' ),
-        array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption.', 'image' => '' ),
+        array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption. Same-day appointments can help you avoid a gap, if switching is suitable for you.', 'image' => '' ),
         array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our ' . dp_option( 'pharmacy_town', 'Denton' ) . ' pharmacy with expert guidance and personalised care.', 'image' => '' ),
     );
 
@@ -292,6 +292,10 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
               <li class="comparison-card-feature">
                 <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
                 <span class="comparison-card-feature-text comparison-card-feature-text-bold">Same pharmacist who knows your name</span>
+              </li>
+              <li class="comparison-card-feature">
+                <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
+                <span class="comparison-card-feature-text comparison-card-feature-text-bold">Same-day appointments available</span>
               </li>
             <?php endif; ?>
           </ul>
@@ -447,6 +451,11 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
         <div class="switch-cta-check">
           <i class="fas fa-check"></i>
           <span><?php echo esc_html( dp_field( 'sp_cta_check_1', 'No waiting list' ) ); ?></span>
+        </div>
+        <?php // Fixed text, not the sp_cta_check_2 field: an old saved value there may still say "Same-day approval". ?>
+        <div class="switch-cta-check">
+          <i class="fas fa-check"></i>
+          <span>Same-day appointments</span>
         </div>
         <div class="switch-cta-check">
           <i class="fas fa-check"></i>

@@ -323,6 +323,7 @@ $vaccine_name = bp_field('vaccine_name', 'Typhoid');
     </div>
 
     <p class="typhoid-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "Injection and capsule course are both £30, with similar protection for around 3 years.")); ?></p>
+    <p class="typhoid-pricing-note">The injection is usually one dose and the capsule course is 3 capsules. The travel health consultation is free. The pharmacist decides at your consultation whether the vaccine is right for you. If it is not suitable for you, we will not give it.</p>
   </div>
 </section>
 
@@ -351,9 +352,26 @@ $vaccine_name = bp_field('vaccine_name', 'Typhoid');
         <div class="typhoid-detail-card"><div class="icon"><i class="fas fa-capsules"></i></div><h3>If You Choose Capsules</h3><p>Three, taken on alternate days, with clear instructions to follow.</p></div>
         <div class="typhoid-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side Effects Are Usually Mild</h3><p>Injection: a sore arm. Capsules: occasional mild stomach upset.</p></div>
         <div class="typhoid-detail-card"><div class="icon"><i class="fas fa-glass-water"></i></div><h3>Food and Water Advice Too</h3><p>Neither option covers you fully alone, so we'll go over hygiene precautions.</p></div>
-        <div class="typhoid-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private, No Referral</h3><p>Travel typhoid vaccination sits outside the NHS, so book with us directly.</p></div>
+        <div class="typhoid-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private, No Referral</h3><p>Typhoid vaccine for travel can be free on the NHS from your GP surgery. We give it privately, so you can book with us directly.</p></div>
       <?php endif; ?>
     </div>
+  </div>
+</section>
+
+<!-- Greater Manchester: our three travel clinics -->
+<section class="typhoid-details-section">
+  <div class="section-container">
+    <div class="typhoid-details-header">
+      <h2 class="typhoid-details-title">Typhoid vaccine across Greater Manchester</h2>
+      <p class="typhoid-details-desc">Our travel clinic runs at three pharmacies. Choose the one nearest you:</p>
+    </div>
+
+    <div class="typhoid-details-grid">
+        <div class="typhoid-detail-card"><div class="icon"><i class="fas fa-location-dot"></i></div><h3><a href="https://bowlandpharmacy.co.uk/typhoid-vaccination/">Bowland Pharmacy</a></h3><p>52 Bowland Road, Wythenshawe M23 1JX: for Wythenshawe, south Manchester and near Manchester Airport.</p></div>
+        <div class="typhoid-detail-card"><div class="icon"><i class="fas fa-location-dot"></i></div><h3><a href="https://dentonpharmacy.co.uk/typhoid-vaccination/">Denton Pharmacy</a></h3><p>Ashton Road, Denton M34 3EX: for Tameside and east Manchester.</p></div>
+        <div class="typhoid-detail-card"><div class="icon"><i class="fas fa-location-dot"></i></div><h3><a href="https://wilmslow-pharmacy.co.uk/typhoid-vaccination/">Wilmslow Pharmacy</a></h3><p>Summerfields Village Centre, Dean Row Road, Wilmslow SK9 2TA: for Cheshire and south Manchester.</p></div>
+    </div>
+    <p class="typhoid-details-desc" style="text-align:center;margin-top:2rem;">The price is the same at all three.</p>
   </div>
 </section>
 
@@ -380,13 +398,24 @@ $vaccine_name = bp_field('vaccine_name', 'Typhoid');
             <p><?php echo esc_html(get_sub_field('answer')); ?></p>
           </div>
         </div>
-      <?php endwhile; else : ?>
+      <?php endwhile; else : $faq_num = 5; ?>
         <div class="typhoid-faq-item"><button class="typhoid-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Injection or capsules — which is better?</span><i class="fas fa-plus icon"></i></button><div class="typhoid-faq-content"><p>Protection-wise, they're about the same over 3 years, so it's really down to preference. Injection means one visit and you're done; capsules skip the needle but need three doses on alternate days.</p></div></div>
         <div class="typhoid-faq-item"><button class="typhoid-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">When should I have it before travel?</span><i class="fas fa-plus icon"></i></button><div class="typhoid-faq-content"><p>Injection: at least 2 weeks out. Capsules: finished at least a week before you fly. Earlier is always better for immunity to fully develop.</p></div></div>
         <div class="typhoid-faq-item"><button class="typhoid-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Can this go with other travel vaccines?</span><i class="fas fa-plus icon"></i></button><div class="typhoid-faq-content"><p>Yes — either format can be booked alongside most other travel vaccines, Hepatitis A included.</p></div></div>
         <div class="typhoid-faq-item"><button class="typhoid-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Can I relax about food and water once vaccinated?</span><i class="fas fa-plus icon"></i></button><div class="typhoid-faq-content"><p>Not quite — both options land around 50 to 80% protection, not 100%. Keep an eye on food and water hygiene regardless.</p></div></div>
         <div class="typhoid-faq-item"><button class="typhoid-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What side effects come up?</span><i class="fas fa-plus icon"></i></button><div class="typhoid-faq-content"><p>Injection: temporary soreness, redness or swelling where the needle went in. Capsules: occasionally a mild stomach upset. Serious reactions are rare either way.</p></div></div>
       <?php endif; ?>
+      <?php
+      // Area and price questions: always shown, after any saved FAQs.
+      $area_faqs = array(
+        array( 'q' => 'Where can I get a typhoid vaccine in Manchester?', 'a' => 'Here at Bowland Pharmacy in Wythenshawe, for south Manchester and near Manchester Airport. Our travel clinic also runs at Denton Pharmacy, for Tameside and east Manchester, and at Wilmslow Pharmacy, for Cheshire. You do not need a GP referral.' ),
+        array( 'q' => 'How much is the typhoid vaccine?', 'a' => '£30, either for one injection or for a course of 3 capsules. The travel health consultation is free.' ),
+        array( 'q' => 'Is the typhoid vaccine free on the NHS?', 'a' => 'It can be. The NHS gives typhoid vaccine for travel free at GP surgeries, so it is worth asking yours first. We give it privately, for £30.' ),
+        array( 'q' => 'How long does the typhoid vaccine last?', 'a' => 'About 3 years, for the injection or the capsules. If you are still at risk after that, the pharmacist may advise another injection or another full course of capsules.' ),
+      );
+      foreach ( $area_faqs as $area_faq ) : $faq_num++; ?>
+        <div class="typhoid-faq-item"><button class="typhoid-faq-btn" onclick="toggleFAQ(this)"><span class="num"><?php echo esc_html( str_pad( $faq_num, 2, '0', STR_PAD_LEFT ) ); ?></span><span class="text"><?php echo esc_html( $area_faq['q'] ); ?></span><i class="fas fa-plus icon"></i></button><div class="typhoid-faq-content"><p><?php echo esc_html( $area_faq['a'] ); ?></p></div></div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>

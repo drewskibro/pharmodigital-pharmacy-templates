@@ -40,7 +40,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
         </h1>
 
         <p class="malaria-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', "Get expert advice and antimalarial tablets before travelling with our malaria prevention service in Denton, Manchester. A short pharmacist consultation, same-day prescription and dispensing — no GP referral needed.")); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', "Get expert advice and antimalarial tablets before travelling with our malaria prevention service in Denton, Manchester. A short pharmacist consultation and, if antimalarial tablets are right for you, a prescription and your tablets the same day. No GP referral needed.")); ?>
         </p>
 
         <div class="malaria-hero-actions">
@@ -82,7 +82,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
             <ul class="malaria-trust-card-list">
               <li><i class="fas fa-check"></i> <span>Pharmacist review of your itinerary</span></li>
               <li><i class="fas fa-check"></i> <span>Right tablets matched to you</span></li>
-              <li><i class="fas fa-check"></i> <span>Same-day prescribing &amp; dispensing</span></li>
+              <li><i class="fas fa-check"></i> <span>Prescription issued the same day, if suitable</span></li>
             </ul>
             <div class="malaria-trust-card-footer">
               <i class="fas fa-shield-halved"></i>
@@ -183,7 +183,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
         <div class="malaria-stat-divider"></div>
         <div class="malaria-stat-item"><div class="icon"><i class="fas fa-earth-africa"></i></div><div class="content"><span class="number">100+</span><span class="label">Countries Covered</span></div></div>
         <div class="malaria-stat-divider"></div>
-        <div class="malaria-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Prescribing</span></div></div>
+        <div class="malaria-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Appointments</span></div></div>
       <?php endif; ?>
     </div>
   </div>
@@ -316,7 +316,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
         <ul class="malaria-pricing-includes">
           <li><i class="fas fa-check"></i> 15-minute pharmacist consultation</li>
           <li><i class="fas fa-check"></i> Destination &amp; medical history review</li>
-          <li><i class="fas fa-check"></i> Prescription issued the same day</li>
+          <li><i class="fas fa-check"></i> Prescription issued the same day, if suitable</li>
           <li><i class="fas fa-check"></i> Tablets dispensed on-site</li>
         </ul>
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
@@ -349,7 +349,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
       <?php endwhile; else : ?>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-comments"></i></div><h3>Consultation</h3><p>We discuss your destination, trip length, accommodation and medical history.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-pills"></i></div><h3>Tablet Recommendation</h3><p>Your pharmacist recommends the option that best suits your trip and health.</p></div>
-        <div class="malaria-detail-card"><div class="icon"><i class="fas fa-file-prescription"></i></div><h3>Same-Day Prescription</h3><p>No need to wait for a GP appointment — your pharmacist can prescribe on the spot.</p></div>
+        <div class="malaria-detail-card"><div class="icon"><i class="fas fa-file-prescription"></i></div><h3>Same-Day Prescription, If Suitable</h3><p>No need to wait for a GP appointment. If antimalarials are right for you, your pharmacist can prescribe them at your appointment.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side Effect Advice</h3><p>We'll explain what to expect from your specific tablets, including any precautions like sun sensitivity.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-shield-halved"></i></div><h3>Bite Prevention Advice</h3><p>We'll also cover the ABCD approach — awareness, bite prevention, tablets and diagnosis.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Antimalarials aren't usually available on the NHS for travel, so we offer this privately with no referral needed.</p></div>
@@ -447,7 +447,7 @@ $acuity_url_child = dp_field( 'vaccine_acuity_url_child', 'https://app.acuitysch
         <?php if (have_rows('vaccine_cta_badges')) : while (have_rows('vaccine_cta_badges')) : the_row(); ?>
           <span class="badge"><?php echo esc_html(get_sub_field('text')); ?></span>
         <?php endwhile; else : ?>
-          <span class="badge">Same Day Prescribing</span>
+          <span class="badge">Same-Day Appointments</span>
           <span class="badge">4 Tablet Options</span>
           <span class="badge">No Referral Needed</span>
         <?php endif; ?>
