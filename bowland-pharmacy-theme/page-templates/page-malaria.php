@@ -127,7 +127,7 @@ $vaccine_name = bp_field('vaccine_name', 'Malaria Prevention');
         </div>
 
         <h3 class="malaria-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'The Right Tablet for the Right Trip')); ?></h3>
-        <p class="malaria-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "There's no vaccine on offer here — malaria protection comes down to antimalarial tablets, prescribed after a quick chat with our pharmacist. We look at where you're going, how long for, and your medical history, then recommend from Doxycycline, Malarone (Atovaquone/Proguanil), Mefloquine (Lariam) or Paludrine/Avloclor (Chloroquine/Proguanil) — whichever suits your trip and your health.")); ?></p>
+        <p class="malaria-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "There's no vaccine on offer here. Malaria protection comes down to avoiding mosquito bites and, if you need them, antimalarial tablets, supplied only after a consultation with our pharmacist. We look at where you're going, how long for, and your medical history, and recommend tablets only if they suit your trip and your health.")); ?></p>
 
         <ul class="malaria-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -145,7 +145,7 @@ $vaccine_name = bp_field('vaccine_name', 'Malaria Prevention');
             </li>
             <li class="malaria-protect-feature">
               <div class="icon"><i class="fas fa-clock"></i></div>
-              <div class="text"><strong>Timing Depends on the Tablet</strong><p>Doxycycline and Malarone start 1–2 days out; Mefloquine wants 2–3 weeks' notice.</p></div>
+              <div class="text"><strong>Timing Depends on the Tablet</strong><p>Depending on the tablet, you usually start a few days or weeks before you travel. Your pharmacist will tell you when to start and when to stop.</p></div>
             </li>
             <li class="malaria-protect-feature">
               <div class="icon"><i class="fas fa-shield-halved"></i></div>
@@ -323,7 +323,7 @@ $vaccine_name = bp_field('vaccine_name', 'Malaria Prevention');
       </div>
     </div>
 
-    <p class="malaria-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "We stock Doxycycline, Malarone (Atovaquone/Proguanil), Mefloquine (Lariam) and Paludrine/Avloclor (Chloroquine/Proguanil). Cost depends on the medication and course length — your pharmacist confirms the price before you buy. Antimalarials aren't usually an NHS travel service.")); ?></p>
+    <p class="malaria-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "Cost depends on the medicine and course length, and your pharmacist confirms the price before you buy. Antimalarials aren't usually an NHS travel service.")); ?></p>
   </div>
 </section>
 
@@ -383,8 +383,8 @@ $vaccine_name = bp_field('vaccine_name', 'Malaria Prevention');
         </div>
       <?php endwhile; else : ?>
         <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Can I just get a vaccine instead?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>There isn't one available here — malaria protection means antimalarial tablets matched to your trip, plus solid mosquito bite avoidance.</p></div></div>
-        <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Which tablets will I end up with?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>Depends on where you're going, how long for, and your medical history. Malarone tends to be best tolerated, but Doxycycline, Mefloquine and Paludrine/Avloclor are all options — your pharmacist will steer you to the right one.</p></div></div>
-        <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">When do I start taking them?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>Depends on the tablet. Doxycycline and Malarone usually start 1–2 days before you fly; Mefloquine needs 2–3 weeks' head start. We'll confirm exactly when at your consultation.</p></div></div>
+        <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Do you provide malaria tablets?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>If your trip has a malaria risk, the pharmacist explains how to avoid mosquito bites and whether you need malaria prevention tablets. If you do, we supply them only after a consultation, and only if the pharmacist confirms they are suitable for you.</p></div></div>
+        <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">When do I start taking them?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>It depends on the tablet. You usually start a few days or weeks before you go. If tablets are right for you, we'll confirm exactly when to start and stop at your consultation.</p></div></div>
         <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Do I still need repellent if I'm on tablets?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>Yes — tablets aren't 100% on their own. Stack them with DEET repellent, covering up, and mosquito nets or air-con where you can.</p></div></div>
         <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What if I feel unwell once I'm home?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>Symptoms can show up weeks or months later. Fever or feeling off within a year of visiting a risk area? Get urgent medical care and mention your travel history.</p></div></div>
       <?php endif; ?>

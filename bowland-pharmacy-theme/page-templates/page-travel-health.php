@@ -191,7 +191,7 @@ $pharmacy_town     = bp_option( 'pharmacy_town', 'Wythenshawe' );
           array( 'icon' => 'fas fa-syringe', 'title' => 'Travel Vaccinations', 'desc' => 'Full range including yellow fever, rabies, and typhoid.' ),
           array( 'icon' => 'fas fa-pills', 'title' => 'Malaria Prevention', 'desc' => 'Prescription medication and guidance for your trip.' ),
           array( 'icon' => 'fas fa-kit-medical', 'title' => 'Travel Health Kits', 'desc' => 'Personalised first aid kits tailored for your destination.' ),
-          array( 'icon' => 'fas fa-certificate', 'title' => 'Health Certificates', 'desc' => 'Official vaccination certificates for border entry.' ),
+          array( 'icon' => 'fas fa-certificate', 'title' => 'Health Certificates', 'desc' => 'Yellow fever certificates for countries that require one.' ),
           array( 'icon' => 'fas fa-clipboard-check', 'title' => 'Travel Health Advice', 'desc' => 'Destination-specific guidance from expert pharmacists.' ),
         );
         foreach ( $services as $svc ) :

@@ -157,7 +157,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
     $default_steps = array(
         array( 'title' => 'Book Consultation', 'description' => 'Visit us in ' . dp_option( 'pharmacy_town', 'Denton' ) . ' or <a href="' . esc_url( dp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
         array( 'title' => 'We Handle Everything', 'description' => 'No prescription transfer needed. Our team manages the entire switch seamlessly for you.', 'image' => '' ),
-        array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption. Same-day appointments can help you avoid a gap, if switching is suitable for you.', 'image' => '' ),
+        array( 'title' => 'Planning Your Switch', 'description' => 'Same-day appointments can help you avoid a gap, if switching is suitable for you.', 'image' => '' ),
         array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our ' . dp_option( 'pharmacy_town', 'Denton' ) . ' pharmacy with expert guidance and personalised care.', 'image' => '' ),
     );
 

@@ -351,7 +351,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis A');
         <div class="hepatitisa-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Booster Dose</h3><p>We book your second dose 6 to 12 months later to complete the course.</p></div>
         <div class="hepatitisa-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Usually mild — a sore arm, slight fever or tiredness for a day or so.</p></div>
         <div class="hepatitisa-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Adult &amp; Child Options</h3><p>Choose the age-appropriate booking calendar when you're ready to book.</p></div>
-        <div class="hepatitisa-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Not available on the NHS for travel purposes, so we offer it privately with no referral needed.</p></div>
+        <div class="hepatitisa-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Hepatitis A vaccine for travel can be free on the NHS from your GP surgery. We give it privately, with no referral needed.</p></div>
       <?php endif; ?>
     </div>
   </div>

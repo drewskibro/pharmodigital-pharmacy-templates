@@ -409,7 +409,7 @@ $vaccine_name = dp_field('vaccine_name', 'Japanese Encephalitis');
       // Area and price questions: always shown, after any saved FAQs.
       $area_faqs = array(
         array( 'q' => 'Where can I get the Japanese encephalitis vaccine in Manchester?', 'a' => 'Here at Denton Pharmacy, for Tameside and east Manchester. Our travel clinic also runs at Bowland Pharmacy in Wythenshawe, for south Manchester and near Manchester Airport, and at Wilmslow Pharmacy, for Cheshire. You do not need a GP referral.' ),
-        array( 'q' => 'How much is the Japanese encephalitis vaccine?', 'a' => '£100 per dose, and the usual course is 2 doses. The travel health consultation is free.' ),
+        array( 'q' => 'How much is the Japanese encephalitis vaccine?', 'a' => '£100 per dose, and the usual course is 2 doses. The travel health consultation is free. The pharmacist decides at your consultation whether the vaccine is right for you.' ),
         array( 'q' => 'Is the Japanese encephalitis vaccine free on the NHS?', 'a' => 'Not for travel, so we give it privately.' ),
       );
       foreach ( $area_faqs as $area_faq ) : $faq_num++; ?>

@@ -351,7 +351,7 @@ $vaccine_name = dp_field('vaccine_name', 'Cholera');
         <div class="cholera-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Second Dose</h3><p>We book your second dose 1 to 6 weeks later, at least a week before you fly.</p></div>
         <div class="cholera-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Usually well tolerated — occasional mild stomach upset, nausea or a low fever.</p></div>
         <div class="cholera-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Suitable from Age 2</h3><p>Given to adults and children from 2 years old, with dosing adjusted by age.</p></div>
-        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Not available on the NHS for travel purposes, so we offer it privately with no referral needed.</p></div>
+        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Cholera vaccine for travel can be free on the NHS from your GP surgery. We give it privately, with no referral needed.</p></div>
       <?php endif; ?>
     </div>
   </div>

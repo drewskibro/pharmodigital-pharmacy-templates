@@ -80,7 +80,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
             <div class="hepatitisb-trust-card-divider"></div>
             <ul class="hepatitisb-trust-card-list">
               <li><i class="fas fa-check"></i> <span>Adult &amp; child booking available</span></li>
-              <li><i class="fas fa-check"></i> <span>Lifetime protection for most adults</span></li>
+              <li><i class="fas fa-check"></i> <span>Long-lasting protection for most people</span></li>
               <li><i class="fas fa-check"></i> <span>Same-day appointments</span></li>
             </ul>
             <div class="hepatitisb-trust-card-footer">
@@ -122,11 +122,11 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
       <div class="hepatitisb-protect-content">
         <div class="hepatitisb-protect-badge-box">
           <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Three Doses, Lifetime Protection')); ?></span>
+          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Full Course, Long-Lasting Protection')); ?></span>
         </div>
 
         <h3 class="hepatitisb-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'A Complete Course Is Essential')); ?></h3>
-        <p class="hepatitisb-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', "Hepatitis B is a viral liver infection spread through blood, sexual contact and other bodily fluids, which can become chronic and lead to serious liver disease. The standard course is three doses at 0, 1 and 6 months, though an accelerated schedule (0, 1, 2 months plus a 12-month booster) is available if you're travelling sooner. Completing all three doses matters — one or two doses alone don't give full protection.")); ?></p>
+        <p class="hepatitisb-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', "Hepatitis B is a viral liver infection spread through blood, sexual contact and other bodily fluids, which can become chronic and lead to serious liver disease. The standard course is three doses at 0, 1 and 6 months. If you are travelling sooner, an accelerated course of 4 doses is available: at 0, 1 and 2 months, with the fourth dose at 12 months completing the course. Completing the full course matters, as one or two doses alone don't give full protection.")); ?></p>
 
         <ul class="hepatitisb-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -178,7 +178,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
       <?php endwhile; else : ?>
         <div class="hepatitisb-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">3 Doses</span><span class="label">Full Course</span></div></div>
         <div class="hepatitisb-stat-divider"></div>
-        <div class="hepatitisb-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">Lifetime</span><span class="label">Protection*</span></div></div>
+        <div class="hepatitisb-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">Long-Lasting</span><span class="label">Protection</span></div></div>
         <div class="hepatitisb-stat-divider"></div>
         <div class="hepatitisb-stat-item"><div class="icon"><i class="fas fa-child-reaching"></i></div><div class="content"><span class="number">Adult &amp; Child</span><span class="label">Appointments</span></div></div>
         <div class="hepatitisb-stat-divider"></div>
@@ -400,7 +400,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
         </div>
       <?php endwhile; else : $faq_num = 5; ?>
         <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses does my child need?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>The same three-dose schedule as adults. Use the "Child" option on the booking calendar below to get the age-appropriate appointment.</p></div></div>
-        <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Can I have an accelerated course if I'm travelling soon?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>Yes — an accelerated schedule (0, 1, 2 months plus a 12-month booster) is available, and in some cases an even faster 3-week schedule may be possible. Contact us to discuss your travel dates.</p></div></div>
+        <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Can I have an accelerated course if I'm travelling soon?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>Yes. The accelerated course is 4 doses: at 0, 1 and 2 months, with the fourth dose at 12 months completing the course. For adults, a very rapid course of 3 doses over 3 weeks (days 0, 7 and 21), with a fourth dose at 12 months, may be possible. Contact us to discuss your travel dates.</p></div></div>
         <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">What if I only have one or two doses before I travel?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>Partial courses don't give full protection, so it's best to complete all doses. If you're short on time before travel, ask us about the accelerated schedule.</p></div></div>
         <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Will I need a booster later on?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>A full course gives long-lasting protection for most people, and most do not need a booster.</p></div></div>
         <div class="hepatitisb-faq-item"><button class="hepatitisb-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="hepatitisb-faq-content"><p>Most people just get some soreness, redness or swelling at the injection site, and occasionally a mild headache, tiredness or fever.</p></div></div>
@@ -409,7 +409,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B');
       // Area and price questions: always shown, after any saved FAQs.
       $area_faqs = array(
         array( 'q' => 'Where can I get the hepatitis B vaccine in Manchester?', 'a' => 'Here at Denton Pharmacy, for Tameside and east Manchester. Our travel clinic also runs at Bowland Pharmacy in Wythenshawe, for south Manchester and near Manchester Airport, and at Wilmslow Pharmacy, for Cheshire. You do not need a GP referral.' ),
-        array( 'q' => 'How much is a hepatitis B vaccine course?', 'a' => 'The standard course is 3 doses: £105 for an adult or £90 for a child (£35 or £30 per dose). If the pharmacist advises the accelerated course of 4 doses, it is £140 for an adult or £120 for a child. The travel health consultation is free.' ),
+        array( 'q' => 'How much is a hepatitis B vaccine course?', 'a' => 'The standard course is 3 doses: £105 for an adult or £90 for a child (£35 or £30 per dose). If the pharmacist advises the accelerated course of 4 doses, it is £140 for an adult or £120 for a child. The travel health consultation is free. The pharmacist decides at your consultation whether the vaccine is right for you.' ),
         array( 'q' => 'Is the hepatitis B vaccine free on the NHS?', 'a' => 'Not for travel, so we give it privately.' ),
       );
       foreach ( $area_faqs as $area_faq ) : $faq_num++; ?>

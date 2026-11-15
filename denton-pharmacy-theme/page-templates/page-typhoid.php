@@ -409,7 +409,7 @@ $vaccine_name = dp_field('vaccine_name', 'Typhoid');
       // Area and price questions: always shown, after any saved FAQs.
       $area_faqs = array(
         array( 'q' => 'Where can I get a typhoid vaccine in Manchester?', 'a' => 'Here at Denton Pharmacy, for Tameside and east Manchester. Our travel clinic also runs at Bowland Pharmacy in Wythenshawe, for south Manchester and near Manchester Airport, and at Wilmslow Pharmacy, for Cheshire. You do not need a GP referral.' ),
-        array( 'q' => 'How much is the typhoid vaccine?', 'a' => '£30, either for one injection or for a course of 3 capsules. The travel health consultation is free.' ),
+        array( 'q' => 'How much is the typhoid vaccine?', 'a' => '£30, either for one injection or for a course of 3 capsules. The travel health consultation is free. The pharmacist decides at your consultation whether the vaccine is right for you.' ),
         array( 'q' => 'Is the typhoid vaccine free on the NHS?', 'a' => 'It can be. The NHS gives typhoid vaccine for travel free at GP surgeries, so it is worth asking yours first. We give it privately, for £30.' ),
         array( 'q' => 'How long does the typhoid vaccine last?', 'a' => 'About 3 years, for the injection or the capsules. If you are still at risk after that, the pharmacist may advise another injection or another full course of capsules.' ),
       );
