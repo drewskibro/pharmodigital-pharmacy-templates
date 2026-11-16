@@ -9364,7 +9364,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'cv_malaria_intro',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Malaria risk is generally low but present on Santiago island. Dengue fever and Zika virus are also risks. Bite avoidance is essential.',
+                'default_value' => 'There is no risk of malaria in Cape Verde. The WHO declared it malaria-free in 2024. Avoid insect bites, as dengue and Zika occur.',
             ),
             array(
                 'key'          => 'field_dp_travel_cv_malaria_risks',
