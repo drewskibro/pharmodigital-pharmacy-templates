@@ -218,7 +218,7 @@ $vaccine_name = dp_field('vaccine_name', 'Rabies');
           $about_image_id = dp_field('vaccine_about_image');
           $about_image_url = $about_image_id ? wp_get_attachment_image_url($about_image_id, 'large') : 'https://images.unsplash.com/photo-1630188354484-6e19a46e24fc?w=900&h=900&fit=crop';
           if ($about_image_url) : ?>
-            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_about_image_alt', 'A stray dog on a street — dogs cause around 99% of human rabies cases worldwide')); ?>" />
+            <img src="<?php echo esc_url($about_image_url); ?>" alt="<?php echo esc_attr(dp_field('vaccine_about_image_alt', 'A stray dog on a street. Dogs cause up to 99% of human rabies cases worldwide')); ?>" />
           <?php endif; ?>
         </div>
       </div>

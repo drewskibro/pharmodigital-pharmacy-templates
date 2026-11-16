@@ -33,7 +33,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
         </h1>
 
         <p class="hepb-occ-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', 'Hepatitis B protection for people at risk through their work, here in Denton, Manchester. A full three-dose course with antibody testing and the records your employer needs — no GP referral required.')); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', 'Hepatitis B protection for people at risk through their work, here in Denton, Manchester. A full vaccination course, with antibody testing available and a record of each dose for your employer. No GP referral required.')); ?>
         </p>
 
         <div class="hepb-occ-hero-actions">
@@ -48,7 +48,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
         </div>
 
         <div class="hepb-occ-hero-trust">
-          <div class="hepb-occ-hero-trust-item"><i class="fas fa-syringe"></i><span>3-Dose Course</span></div>
+          <div class="hepb-occ-hero-trust-item"><i class="fas fa-syringe"></i><span>3 or 4 Dose Course</span></div>
           <div class="hepb-occ-hero-trust-item"><i class="fas fa-vial"></i><span>Antibody Testing</span></div>
           <div class="hepb-occ-hero-trust-item"><i class="fas fa-file-medical"></i><span>Records for Employers</span></div>
         </div>
@@ -56,7 +56,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
 
       <div class="hepb-occ-hero-visual">
         <div class="hepb-occ-hero-float-badge">
-          <span class="hepb-occ-hero-float-number"><?php echo esc_html(dp_field('vaccine_float_number', '3')); ?></span>
+          <span class="hepb-occ-hero-float-number"><?php echo esc_html(dp_field('vaccine_float_number', '3 or 4')); ?></span>
           <span class="hepb-occ-hero-float-label"><?php echo esc_html(dp_field('vaccine_float_label', 'dose course')); ?></span>
         </div>
         <div class="hepb-occ-trust-card">
@@ -73,7 +73,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
             <div class="hepb-occ-trust-card-divider"></div>
             <ul class="hepb-occ-trust-card-list">
               <li><i class="fas fa-check"></i> <span>Adult £35 &middot; Child £30 per dose</span></li>
-              <li><i class="fas fa-check"></i> <span>Full course £105 adult / £90 child</span></li>
+              <li><i class="fas fa-check"></i> <span>3-dose course £105 adult / £90 child; 4-dose course £140 adult / £120 child</span></li>
               <li><i class="fas fa-check"></i> <span>Antibody testing available</span></li>
             </ul>
             <div class="hepb-occ-trust-card-footer">
@@ -119,24 +119,24 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
       <div class="hepb-occ-protect-content">
         <div class="hepb-occ-protect-badge-box">
           <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', '95% Protection After the Full Course')); ?></span>
+          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Most Adults Respond Well to a Full Course')); ?></span>
         </div>
 
         <h3 class="hepb-occ-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Protect Yourself at Work')); ?></h3>
-        <p class="hepb-occ-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'Hepatitis B is a bloodborne virus that attacks the liver and can lead to chronic liver disease, cirrhosis and liver cancer. It is 50 to 100 times more infectious than HIV and can survive outside the body for up to a week. A full vaccination course gives around 95% protection and, once adequate antibody levels are reached, long-lasting protection for most people.')); ?></p>
+        <p class="hepb-occ-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'Hepatitis B is a bloodborne virus that attacks the liver and can lead to chronic liver disease, cirrhosis and liver cancer. It is 50 to 100 times more infectious than HIV and can survive outside the body for up to a week. Around 90% of adults respond well to a full course, and most people who respond do not need a booster.')); ?></p>
 
         <ul class="hepb-occ-protect-features">
           <li class="hepb-occ-protect-feature">
             <div class="icon"><i class="fas fa-list-ol"></i></div>
-            <div class="text"><strong>Three-Dose Course</strong><p>Standard schedule at 0, 1 and 6 months. An accelerated 0, 1 and 2 month course is available if you need protection sooner.</p></div>
+            <div class="text"><strong>Three Schedules</strong><p>Standard course: 3 doses at 0, 1 and 6 months. Accelerated course: 4 doses at 0, 1, 2 and 12 months. Very rapid course, for adults 18 and over: 4 doses, on days 0, 7 and 21 and at 12 months. The faster courses protect you sooner, but the course is only complete after the 12-month dose.</p></div>
           </li>
           <li class="hepb-occ-protect-feature">
             <div class="icon"><i class="fas fa-vial"></i></div>
-            <div class="text"><strong>Antibody Testing</strong><p>A blood test 4–8 weeks after your final dose confirms you're protected (100 mIU/mL or above).</p></div>
+            <div class="text"><strong>Antibody Testing</strong><p>A blood test 1 to 2 months after the last dose of your course (the 6-month dose, or the 12-month dose on a 4-dose course) shows how well you have responded.</p></div>
           </li>
           <li class="hepb-occ-protect-feature">
             <div class="icon"><i class="fas fa-file-medical"></i></div>
-            <div class="text"><strong>Records for Work</strong><p>We provide vaccination records and antibody results for your occupational health file.</p></div>
+            <div class="text"><strong>Records for Work</strong><p>We provide vaccination records for your occupational health file. If you have an antibody test, we take the blood sample here and the laboratory sends the result to you.</p></div>
           </li>
         </ul>
 
@@ -153,9 +153,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
 <section class="hepb-occ-stats-section">
   <div class="section-container">
     <div class="hepb-occ-stats-bar">
-      <div class="hepb-occ-stat-item"><div class="icon"><i class="fas fa-list-ol"></i></div><div class="content"><span class="number">3 Doses</span><span class="label">0, 1 &amp; 6 Months</span></div></div>
-      <div class="hepb-occ-stat-divider"></div>
-      <div class="hepb-occ-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">95%</span><span class="label">Protection</span></div></div>
+      <div class="hepb-occ-stat-item"><div class="icon"><i class="fas fa-list-ol"></i></div><div class="content"><span class="number">3 or 4 Doses</span><span class="label">Depending on Schedule</span></div></div>
       <div class="hepb-occ-stat-divider"></div>
       <div class="hepb-occ-stat-item"><div class="icon"><i class="fas fa-virus"></i></div><div class="content"><span class="number">50–100x</span><span class="label">More Infectious Than HIV</span></div></div>
       <div class="hepb-occ-stat-divider"></div>
@@ -198,8 +196,8 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
 
     <div class="hepb-occ-about-callout">
       <div class="badge"><?php echo esc_html(dp_field('vaccine_callout_badge', 'GOOD TO KNOW')); ?></div>
-      <h3><?php echo esc_html(dp_field('vaccine_callout_title', 'Often a Condition of Employment')); ?></h3>
-      <p><?php echo esc_html(dp_field('vaccine_callout_text', 'For clinical staff, hepatitis B vaccination is strongly recommended and, in many NHS trusts, a condition of employment. We provide the vaccination records and antibody results you need for occupational health documentation.')); ?></p>
+      <h3><?php echo esc_html(dp_field('vaccine_callout_title', 'Recommended for At-Risk Work')); ?></h3>
+      <p><?php echo esc_html(dp_field('vaccine_callout_text', 'Hepatitis B vaccination is recommended for healthcare and laboratory workers and others whose work brings them into contact with blood or body fluids. We give you a record of each dose for your occupational health documentation. If you have an antibody test, the laboratory sends the result to you.')); ?></p>
     </div>
   </div>
 </section>
@@ -267,7 +265,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
         <span class="section-badge-text"><?php echo esc_html(dp_field('vaccine_pricing_badge', 'TRANSPARENT PRICING')); ?></span>
       </div>
       <h2 class="hepb-occ-pricing-title"><?php echo esc_html(dp_field('vaccine_pricing_title', 'Hepatitis B Vaccination Pricing')); ?></h2>
-      <p class="hepb-occ-pricing-desc"><?php echo esc_html(dp_field('vaccine_pricing_desc', 'Per dose or full 3-dose course — adult and child rates')); ?></p>
+      <p class="hepb-occ-pricing-desc"><?php echo esc_html(dp_field('vaccine_pricing_desc', 'Per dose, or a full course of 3 or 4 doses. Adult and child rates.')); ?></p>
     </div>
 
     <div class="hepb-occ-pricing-grid hepb-occ-pricing-grid--two">
@@ -279,8 +277,8 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
           <span class="per">per dose</span>
         </div>
         <ul class="hepb-occ-pricing-includes">
-          <li><i class="fas fa-check"></i> <strong>£105</strong> full 3-dose course</li>
-          <li><i class="fas fa-check"></i> Standard or accelerated schedule</li>
+          <li><i class="fas fa-check"></i> <strong>£105</strong> standard 3-dose course</li>
+          <li><i class="fas fa-check"></i> <strong>£140</strong> 4-dose course (accelerated, or very rapid for adults)</li>
           <li><i class="fas fa-check"></i> Antibody testing available</li>
           <li><i class="fas fa-check"></i> Records for occupational health</li>
         </ul>
@@ -295,8 +293,8 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
           <span class="per">per dose</span>
         </div>
         <ul class="hepb-occ-pricing-includes">
-          <li><i class="fas fa-check"></i> <strong>£90</strong> full 3-dose course</li>
-          <li><i class="fas fa-check"></i> Standard or accelerated schedule</li>
+          <li><i class="fas fa-check"></i> <strong>£90</strong> standard 3-dose course</li>
+          <li><i class="fas fa-check"></i> <strong>£120</strong> accelerated 4-dose course</li>
           <li><i class="fas fa-check"></i> Antibody testing available</li>
           <li><i class="fas fa-check"></i> Administered by our pharmacist</li>
         </ul>
@@ -304,7 +302,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
       </div>
     </div>
 
-    <p class="hepb-occ-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'A full course is three doses. Adult: £35 per dose / £105 for the course. Child: £30 per dose / £90 for the course. Antibody testing can be arranged 4–8 weeks after the final dose.')); ?></p>
+    <p class="hepb-occ-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'A standard course is 3 doses. Adult: £35 per dose, £105 for 3 doses or £140 for 4 doses. Child: £30 per dose, £90 for 3 doses or £120 for the accelerated 4-dose course. The accelerated and very rapid courses are 4 doses, the last at 12 months. Antibody testing can be arranged 1 to 2 months after the last dose of your course.')); ?></p>
   </div>
 </section>
 
@@ -323,10 +321,10 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
     <div class="hepb-occ-details-grid">
       <div class="hepb-occ-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Consultation</h3><p>We review your medical history and confirm the right schedule for your role.</p></div>
       <div class="hepb-occ-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>Your first injection is given and you receive a vaccination record on the day.</p></div>
-      <div class="hepb-occ-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Follow-Up Doses</h3><p>Standard 0, 1 and 6 months, or accelerated 0, 1 and 2 months if you need cover sooner.</p></div>
-      <div class="hepb-occ-detail-card"><div class="icon"><i class="fas fa-vial"></i></div><h3>Antibody Test</h3><p>A blood test 4–8 weeks after the final dose confirms you're protected.</p></div>
+      <div class="hepb-occ-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Follow-Up Doses</h3><p>Standard 0, 1 and 6 months. If you need cover sooner: accelerated 0, 1, 2 and 12 months, or, for adults, very rapid on days 0, 7 and 21 with a fourth dose at 12 months.</p></div>
+      <div class="hepb-occ-detail-card"><div class="icon"><i class="fas fa-vial"></i></div><h3>Antibody Test</h3><p>A blood test 1 to 2 months after the last dose of your course (the 6-month dose, or the 12-month dose on a 4-dose course) shows how well you have responded.</p></div>
       <div class="hepb-occ-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>A sore arm, mild headache or tiredness for a day or two are common and soon pass.</p></div>
-      <div class="hepb-occ-detail-card"><div class="icon"><i class="fas fa-file-medical"></i></div><h3>Documentation</h3><p>We provide records and antibody results for your occupational health file.</p></div>
+      <div class="hepb-occ-detail-card"><div class="icon"><i class="fas fa-file-medical"></i></div><h3>Documentation</h3><p>We provide vaccination records for your occupational health file. The laboratory sends any antibody test result to you.</p></div>
     </div>
   </div>
 </section>
@@ -343,10 +341,10 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
     </div>
 
     <div class="hepb-occ-faq-list">
-      <div class="hepb-occ-faq-item"><button class="hepb-occ-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses do I need?</span><i class="fas fa-plus icon"></i></button><div class="hepb-occ-faq-content"><p>A full course is three doses, given at 0, 1 and 6 months. An accelerated 0, 1 and 2 month schedule is available if you need protection more quickly.</p></div></div>
-      <div class="hepb-occ-faq-item"><button class="hepb-occ-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Is it required for my job?</span><i class="fas fa-plus icon"></i></button><div class="hepb-occ-faq-content"><p>For clinical staff it's strongly recommended and, in many NHS trusts, a condition of employment. We provide the records and antibody results your employer needs.</p></div></div>
-      <div class="hepb-occ-faq-item"><button class="hepb-occ-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">What is antibody testing?</span><i class="fas fa-plus icon"></i></button><div class="hepb-occ-faq-content"><p>A blood test taken 4–8 weeks after your final dose to check your immune response. A level of 100 mIU/mL or above is considered protective.</p></div></div>
-      <div class="hepb-occ-faq-item"><button class="hepb-occ-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Will I need a booster?</span><i class="fas fa-plus icon"></i></button><div class="hepb-occ-faq-content"><p>A full course gives long-lasting protection for most people, and most do not need a booster. Your antibody results will guide whether one is recommended.</p></div></div>
+      <div class="hepb-occ-faq-item"><button class="hepb-occ-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses do I need?</span><i class="fas fa-plus icon"></i></button><div class="hepb-occ-faq-content"><p>The standard course is 3 doses, at 0, 1 and 6 months. If you need protection sooner, there is an accelerated course of 4 doses at 0, 1, 2 and 12 months, and, for adults 18 and over, a very rapid course of 4 doses on days 0, 7 and 21 and at 12 months. The faster courses protect you sooner, but you need the 12-month dose to complete the course.</p></div></div>
+      <div class="hepb-occ-faq-item"><button class="hepb-occ-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Is it required for my job?</span><i class="fas fa-plus icon"></i></button><div class="hepb-occ-faq-content"><p>Hepatitis B vaccination is recommended for healthcare and laboratory workers and others whose work brings them into contact with blood or body fluids. Your employer's occupational health service can tell you what your role needs. We give you a record of each dose to show your employer or occupational health service. If you have an antibody test, the laboratory sends the result to you.</p></div></div>
+      <div class="hepb-occ-faq-item"><button class="hepb-occ-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">What is antibody testing?</span><i class="fas fa-plus icon"></i></button><div class="hepb-occ-faq-content"><p>A blood test taken 1 to 2 months after the last dose of your course (the 6-month dose, or the 12-month dose on a 4-dose course), to check how well you responded. We take the blood sample at the pharmacy and the laboratory sends the result to you. A level of 10 mIU/mL or more is generally accepted as protective, and UK guidance prefers 100 mIU/mL or more for healthcare and laboratory workers.</p></div></div>
+      <div class="hepb-occ-faq-item"><button class="hepb-occ-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Will I need a booster?</span><i class="fas fa-plus icon"></i></button><div class="hepb-occ-faq-content"><p>Most people who respond to the full course do not need a booster. If you have an antibody test, the laboratory sends the result to you. UK guidance for healthcare and laboratory workers says: 100 mIU/mL or above, no more doses or tests; 10 to 100 mIU/mL, one more dose now; below 10 mIU/mL, a blood test for hepatitis B infection and usually a second course. If your result is below 100, show it to your employer's occupational health service, or to your GP if you do not have one, and ask about the next step. If you are exposed to blood at work, for example a needlestick injury, follow your workplace procedure and get medical advice straight away.</p></div></div>
       <div class="hepb-occ-faq-item"><button class="hepb-occ-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Can you vaccinate our team?</span><i class="fas fa-plus icon"></i></button><div class="hepb-occ-faq-content"><p>Yes. We offer group vaccination sessions at the pharmacy or on-site for organisations — get in touch to arrange.</p></div></div>
     </div>
   </div>
