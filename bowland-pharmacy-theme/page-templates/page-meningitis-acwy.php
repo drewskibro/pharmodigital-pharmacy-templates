@@ -33,7 +33,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
         </h1>
 
         <p class="meningitis-acwy-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect against four strains of meningococcal disease with our private vaccination service in Wythenshawe, Manchester. A single dose covering groups A, C, W and Y — required for Hajj and Umrah travel, and recommended for students and travellers.')); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect against four groups of meningococcal bacteria with our private vaccination service in Wythenshawe, Manchester. One dose covers groups A, C, W and Y. Saudi Arabia requires it for Hajj and Umrah. If you are under 25 and missed your school dose, you can have it free on the NHS from your GP.')); ?>
         </p>
 
         <div class="meningitis-acwy-hero-actions">
@@ -74,7 +74,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
             <ul class="meningitis-acwy-trust-card-list">
               <li><i class="fas fa-check"></i> <span>Covers groups A, C, W &amp; Y</span></li>
               <li><i class="fas fa-check"></i> <span>Same-day travel certificate</span></li>
-              <li><i class="fas fa-check"></i> <span>Protection valid for 5 years</span></li>
+              <li><i class="fas fa-check"></i> <span>Accepted for Hajj and Umrah for 5 years (conjugate vaccine)</span></li>
             </ul>
             <div class="meningitis-acwy-trust-card-footer">
               <i class="fas fa-shield-halved"></i>
@@ -97,7 +97,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_protect_badge', 'WHY VACCINATE')); ?></span>
       </div>
       <h2 class="meningitis-acwy-protect-title"><?php echo esc_html(bp_field('vaccine_protect_title', 'The Meningitis ACWY Vaccine')); ?></h2>
-      <p class="meningitis-acwy-protect-desc"><?php echo esc_html(bp_field('vaccine_protect_desc', 'One injection, four strains, five years of cover')); ?></p>
+      <p class="meningitis-acwy-protect-desc"><?php echo esc_html(bp_field('vaccine_protect_desc', 'One injection, four meningococcal groups')); ?></p>
     </div>
 
     <div class="meningitis-acwy-protect-grid">
@@ -122,8 +122,8 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
           <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'Required for Hajj &amp; Umrah')); ?></span>
         </div>
 
-        <h3 class="meningitis-acwy-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Cover Against Four Strains')); ?></h3>
-        <p class="meningitis-acwy-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', 'Meningitis ACWY protects against four groups of meningococcal bacteria (A, C, W and Y) that can cause meningitis and blood poisoning. It is given as a single injection, and the certificate is valid for five years — making it essential for pilgrims and a smart choice for students and travellers.')); ?></p>
+        <h3 class="meningitis-acwy-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Cover against four groups')); ?></h3>
+        <p class="meningitis-acwy-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', 'Meningitis ACWY protects against four groups of meningococcal bacteria (A, C, W and Y) that can cause meningitis and blood poisoning. It is given as a single injection. For Hajj and Umrah, Saudi Arabia requires it for anyone aged 1 or over, and accepts a conjugate vaccine given in the last five years and at least 10 days before arrival.')); ?></p>
 
         <ul class="meningitis-acwy-protect-features">
           <li class="meningitis-acwy-protect-feature">
@@ -132,11 +132,11 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
           </li>
           <li class="meningitis-acwy-protect-feature">
             <div class="icon"><i class="fas fa-passport"></i></div>
-            <div class="text"><strong>Same-Day Certificate</strong><p>We issue your certificate on the day — accepted for Hajj and Umrah visas.</p></div>
+            <div class="text"><strong>Same-Day Certificate</strong><p>We issue your certificate on the day, for your Hajj or Umrah visa application.</p></div>
           </li>
           <li class="meningitis-acwy-protect-feature">
             <div class="icon"><i class="fas fa-calendar-check"></i></div>
-            <div class="text"><strong>Valid 5 Years</strong><p>Protection and the certificate last five years, so you're covered for future trips.</p></div>
+            <div class="text"><strong>Certificate rules</strong><p>For Hajj and Umrah, a conjugate vaccine certificate counts for five years. UK guidance does not set a fixed length of protection. If you stay at risk, a booster after 5 years may be advised.</p></div>
           </li>
         </ul>
 
@@ -155,9 +155,9 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
     <div class="meningitis-acwy-stats-bar">
       <div class="meningitis-acwy-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">1 Dose</span><span class="label">Single Visit</span></div></div>
       <div class="meningitis-acwy-stat-divider"></div>
-      <div class="meningitis-acwy-stat-item"><div class="icon"><i class="fas fa-shield-virus"></i></div><div class="content"><span class="number">A·C·W·Y</span><span class="label">Four Strains</span></div></div>
+      <div class="meningitis-acwy-stat-item"><div class="icon"><i class="fas fa-shield-virus"></i></div><div class="content"><span class="number">A·C·W·Y</span><span class="label">Four groups</span></div></div>
       <div class="meningitis-acwy-stat-divider"></div>
-      <div class="meningitis-acwy-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">5 Years</span><span class="label">Certificate Valid</span></div></div>
+      <div class="meningitis-acwy-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">10 Days</span><span class="label">Before Hajj or Umrah</span></div></div>
       <div class="meningitis-acwy-stat-divider"></div>
       <div class="meningitis-acwy-stat-item"><div class="icon"><i class="fas fa-passport"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Certificate</span></div></div>
     </div>
@@ -189,7 +189,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
       </div>
 
       <div class="meningitis-acwy-about-cards-grid">
-        <div class="meningitis-acwy-info-card"><div class="icon"><i class="fas fa-earth-africa"></i></div><h3>Group A</h3><p>Common in sub-Saharan Africa's "meningitis belt" — a key risk for travellers to the region.</p></div>
+        <div class="meningitis-acwy-info-card"><div class="icon"><i class="fas fa-earth-africa"></i></div><h3>Group A</h3><p>Once the main cause of epidemics in Africa's meningitis belt, now much rarer there.</p></div>
         <div class="meningitis-acwy-info-card"><div class="icon"><i class="fas fa-shield-virus"></i></div><h3>Group C</h3><p>Once common in the UK and now vaccine-preventable, included for broad protection.</p></div>
         <div class="meningitis-acwy-info-card"><div class="icon"><i class="fas fa-kaaba"></i></div><h3>Group W</h3><p>Linked to Hajj and Umrah pilgrimages and large gatherings, which is why proof of vaccination is required.</p></div>
         <div class="meningitis-acwy-info-card"><div class="icon"><i class="fas fa-globe"></i></div><h3>Group Y</h3><p>Increasingly seen in Europe and North America, so cover is useful for many travellers.</p></div>
@@ -213,7 +213,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_needs_badge', 'WHO IS IT FOR')); ?></span>
       </div>
       <h2 class="meningitis-acwy-needs-title"><?php echo esc_html(bp_field('vaccine_needs_title', 'Should you get vaccinated?')); ?></h2>
-      <p class="meningitis-acwy-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Essential for pilgrims, recommended for students and travellers')); ?></p>
+      <p class="meningitis-acwy-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Required for Hajj and Umrah, and free on the NHS for under 25s who missed it')); ?></p>
     </div>
 
     <div class="meningitis-acwy-needs-grid">
@@ -224,13 +224,11 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
           <div class="nhs-card-icon">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
-          <span class="nhs-card-badge">Recommended For</span>
           <h3 class="nhs-card-title">Students &amp; Young Adults</h3>
-          <p class="nhs-card-desc">A second peak of risk hits teenagers and young adults, especially those starting university in shared accommodation.</p>
+          <p class="nhs-card-desc">Under 25s who missed their school dose can have it free from their GP.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>University &amp; college students</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Under 25 and missed it? Free from your GP</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Those in halls of residence</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Teens who missed NHS doses</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
@@ -242,9 +240,9 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
           <div class="nhs-card-icon">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><circle cx="12" cy="12" r="10"></circle></svg>
           </div>
-          <span class="nhs-card-badge">Essential For</span>
+          <span class="nhs-card-badge">Required for</span>
           <h3 class="nhs-card-title">Travellers &amp; Pilgrims</h3>
-          <p class="nhs-card-desc">Mandatory for Hajj and Umrah, and strongly recommended for travel to the meningitis belt.</p>
+          <p class="nhs-card-desc">Required by Saudi Arabia for Hajj and Umrah. May be advised for some travel to Africa's meningitis belt; our pharmacist checks your itinerary.</p>
           <ul class="nhs-card-list">
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Hajj &amp; Umrah pilgrims</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travel to sub-Saharan Africa</span></li>
@@ -282,13 +280,13 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
           <li><i class="fas fa-check"></i> Covers groups A, C, W &amp; Y</li>
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
           <li><i class="fas fa-check"></i> Same-day travel certificate</li>
-          <li><i class="fas fa-check"></i> Protection valid for 5 years</li>
+          <li><i class="fas fa-check"></i> Accepted for Hajj and Umrah for 5 years (conjugate vaccine)</li>
         </ul>
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
       </div>
     </div>
 
-    <p class="meningitis-acwy-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', 'Price is £39 per dose. For Hajj or Umrah, the certificate must be issued at least 10 days before you travel — book in good time.')); ?></p>
+    <p class="meningitis-acwy-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', 'Price is £39 per dose. For Hajj or Umrah, the vaccine must be given at least 10 days before you arrive in Saudi Arabia, so book in good time.')); ?></p>
   </div>
 </section>
 
@@ -307,9 +305,9 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
     <div class="meningitis-acwy-details-grid">
       <div class="meningitis-acwy-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We confirm your suitability and travel plans, and answer any questions before we start.</p></div>
       <div class="meningitis-acwy-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>Single Injection</h3><p>One injection into the upper arm — quick and straightforward.</p></div>
-      <div class="meningitis-acwy-detail-card"><div class="icon"><i class="fas fa-passport"></i></div><h3>Same-Day Certificate</h3><p>We issue your certificate on the day, accepted for Hajj and Umrah visas.</p></div>
+      <div class="meningitis-acwy-detail-card"><div class="icon"><i class="fas fa-passport"></i></div><h3>Same-Day Certificate</h3><p>We issue your certificate on the day, for your Hajj or Umrah visa application.</p></div>
       <div class="meningitis-acwy-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>A sore arm, mild fever or feeling off for a day or two are common and pass quickly.</p></div>
-      <div class="meningitis-acwy-detail-card"><div class="icon"><i class="fas fa-clock"></i></div><h3>Timing Matters</h3><p>At least 10 days before Hajj/Umrah, and ideally 2 weeks before other travel.</p></div>
+      <div class="meningitis-acwy-detail-card"><div class="icon"><i class="fas fa-clock"></i></div><h3>Timing Matters</h3><p>At least 10 days before you travel, including for Hajj and Umrah.</p></div>
       <div class="meningitis-acwy-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>No referral needed, with same-day and last-minute appointments available.</p></div>
     </div>
   </div>
@@ -327,11 +325,11 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis ACWY');
     </div>
 
     <div class="meningitis-acwy-faq-list">
-      <div class="meningitis-acwy-faq-item"><button class="meningitis-acwy-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is it required for Hajj or Umrah?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-acwy-faq-content"><p>Yes. Meningitis ACWY is mandatory for Hajj and Umrah. Your certificate must be issued at least 10 days before you arrive in Saudi Arabia.</p></div></div>
+      <div class="meningitis-acwy-faq-item"><button class="meningitis-acwy-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is it required for Hajj or Umrah?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-acwy-faq-content"><p>Yes. Saudi Arabia requires it for Hajj and Umrah for anyone aged 1 or over. The vaccine must be given at least 10 days before you arrive. Check TravelHealthPro for this year's rules before you book.</p></div></div>
       <div class="meningitis-acwy-faq-item"><button class="meningitis-acwy-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How many doses do I need?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-acwy-faq-content"><p>For most people it's a single dose, which protects against all four groups (A, C, W and Y).</p></div></div>
-      <div class="meningitis-acwy-faq-item"><button class="meningitis-acwy-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">How long does protection last?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-acwy-faq-content"><p>Around 5 years. A booster may be recommended if you remain at ongoing risk or travel again after that.</p></div></div>
+      <div class="meningitis-acwy-faq-item"><button class="meningitis-acwy-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">How long does protection last?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-acwy-faq-content"><p>UK guidance does not set a fixed length of protection. If you stay at risk, a booster after 5 years may be advised. Our pharmacist will tell you if you need another dose.</p></div></div>
       <div class="meningitis-acwy-faq-item"><button class="meningitis-acwy-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-acwy-faq-content"><p>Usually mild — soreness at the injection site, a mild fever or feeling off for a day or two. Serious side effects are uncommon.</p></div></div>
-      <div class="meningitis-acwy-faq-item"><button class="meningitis-acwy-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">How soon before travel should I have it?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-acwy-faq-content"><p>At least 10 days before Hajj or Umrah, and ideally around 2 weeks before other travel to allow immunity to build.</p></div></div>
+      <div class="meningitis-acwy-faq-item"><button class="meningitis-acwy-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">How soon before travel should I have it?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-acwy-faq-content"><p>At least 10 days before you travel, including for Hajj and Umrah. Book in good time so the vaccine can be given before then.</p></div></div>
     </div>
   </div>
 </section>

@@ -30,7 +30,7 @@ if ( ! $sp_hero_image_url ) {
 }
 
 // --- Testimonial ---
-$sp_testi_quote  = dp_field( 'sp_hero_testimonial_text', dp_option( 'superintendent_pharmacist', 'Our pharmacist' ) . ' genuinely cares about your progress. The face-to-face support makes all the difference.' );
+$sp_testi_quote  = dp_field( 'sp_hero_testimonial_text', 'The pharmacist genuinely cares about your progress. The face-to-face support makes all the difference.' );
 $sp_testi_name   = dp_field( 'sp_hero_testimonial_name', dp_option( 'pharmacy_town', 'Denton' ) . ' Patient' );
 $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from person to person' );
 ?>
@@ -95,7 +95,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
         <!-- Main image card -->
         <div class="switch-hero-image-card">
           <?php if ( $sp_hero_image_url ) : ?>
-            <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'sp_hero_image_alt', dp_option( 'superintendent_pharmacist', 'Superintendent Pharmacist' ) . ' at ' . dp_pharmacy_name() ) ); ?>" class="switch-hero-image" />
+            <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'sp_hero_image_alt', 'Superintendent Pharmacist at ' . dp_pharmacy_name() ) ); ?>" class="switch-hero-image" />
           <?php endif; ?>
         </div>
 
@@ -220,7 +220,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
                 <span><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
               </li>
             <?php endwhile; else : ?>
-              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with <?php echo esc_html( dp_option( 'superintendent_pharmacist', 'our pharmacist' ) ); ?></span></li>
+              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with our pharmacist or our clinical team</span></li>
               <li><i class="fas fa-check-circle"></i><span>Medication included in your monthly plan</span></li>
               <li><i class="fas fa-check-circle"></i><span>Blood pressure, weight, and health monitoring</span></li>
               <li><i class="fas fa-check-circle"></i><span>Direct phone and email access between appointments</span></li>
@@ -394,7 +394,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-user-doctor"></i></div>
           <h3 class="switch-benefit-title">Face-to-Face Care</h3>
-          <p class="switch-benefit-description">Monthly in-person consultations with <?php echo esc_html( dp_option( 'superintendent_pharmacist', 'our pharmacist' ) ); ?>, your dedicated pharmacist who knows your history</p>
+          <p class="switch-benefit-description">Monthly in-person consultations with our pharmacist, who knows your history</p>
         </div>
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-shield-halved"></i></div>
