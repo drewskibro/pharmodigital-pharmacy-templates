@@ -23,14 +23,14 @@ $allowed_title_tags = array(
 $title = dp_field( 'switching_title', 'Frustrated with Your Current <span class="gradient-text">Weight Loss Provider?</span>' );
 
 // --- Description ---
-$description = dp_field( 'switching_description', 'Tired of waiting weeks for prescriptions? Join hundreds who have switched to Denton Pharmacy for faster service, direct access to qualified professionals, and personal care you can trust.' );
+$description = dp_field( 'switching_description', 'Fed up with impersonal online-only services? At Denton Pharmacy, you get face-to-face pharmacist support, same-day appointments and discreet delivery, all from a trusted local pharmacy.' );
 
 // --- 3 Feature items (individual ACF fields per feature) ---
 $default_features = array(
     array(
         'icon'  => 'fa-file-signature',
-        'title' => '',
-        'desc'  => '',
+        'title' => 'Same-Day Consultations',
+        'desc'  => 'No waiting weeks to be seen. Face-to-face appointments are often available the same day, and our prescriber will tell you whether treatment is suitable.',
     ),
     array(
         'icon'  => 'fa-user-doctor',

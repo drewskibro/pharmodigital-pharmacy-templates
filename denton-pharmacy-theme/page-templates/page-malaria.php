@@ -40,7 +40,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
         </h1>
 
         <p class="malaria-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', "Get expert advice and antimalarial tablets before travelling with our malaria prevention service in Denton, Manchester. A short pharmacist consultation, same-day prescription and dispensing — no GP referral needed.")); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', "Get expert advice and, if you need them, antimalarial tablets before travelling with our malaria prevention service in Denton, Manchester. A short pharmacist consultation and, if antimalarial tablets are right for you, a prescription and your tablets the same day. No GP referral needed.")); ?>
         </p>
 
         <div class="malaria-hero-actions">
@@ -82,7 +82,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
             <ul class="malaria-trust-card-list">
               <li><i class="fas fa-check"></i> <span>Pharmacist review of your itinerary</span></li>
               <li><i class="fas fa-check"></i> <span>Right tablets matched to you</span></li>
-              <li><i class="fas fa-check"></i> <span>Same-day prescribing &amp; dispensing</span></li>
+              <li><i class="fas fa-check"></i> <span>Prescription issued the same day, if suitable</span></li>
             </ul>
             <div class="malaria-trust-card-footer">
               <i class="fas fa-shield-halved"></i>
@@ -127,7 +127,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
         </div>
 
         <h3 class="malaria-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Prescription Tablets, Chosen for Your Trip')); ?></h3>
-        <p class="malaria-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', "There is no vaccine for malaria available through this service — protection comes from antimalarial tablets, prescribed after a short consultation with our pharmacist. We review your destination, itinerary and medical history, then recommend from options including Doxycycline, Malarone (Atovaquone/Proguanil), Mefloquine (Lariam) or Paludrine/Avloclor (Chloroquine/Proguanil), depending on where you're going and your health.")); ?></p>
+        <p class="malaria-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', "There is no vaccine for malaria available through this service. Protection comes from avoiding mosquito bites and, if you need them, antimalarial tablets, supplied only after a consultation with our pharmacist. We review your destination, itinerary and medical history, and recommend tablets only if they are suitable for you.")); ?></p>
 
         <ul class="malaria-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -145,7 +145,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
             </li>
             <li class="malaria-protect-feature">
               <div class="icon"><i class="fas fa-clock"></i></div>
-              <div class="text"><strong>Start Timing Varies by Tablet</strong><p>Doxycycline and Malarone start 1–2 days before travel; Mefloquine needs 2–3 weeks.</p></div>
+              <div class="text"><strong>Start Timing Varies by Tablet</strong><p>Depending on the tablet, you usually start a few days or weeks before you travel. Your pharmacist will tell you when to start and when to stop.</p></div>
             </li>
             <li class="malaria-protect-feature">
               <div class="icon"><i class="fas fa-shield-halved"></i></div>
@@ -183,7 +183,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
         <div class="malaria-stat-divider"></div>
         <div class="malaria-stat-item"><div class="icon"><i class="fas fa-earth-africa"></i></div><div class="content"><span class="number">100+</span><span class="label">Countries Covered</span></div></div>
         <div class="malaria-stat-divider"></div>
-        <div class="malaria-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Prescribing</span></div></div>
+        <div class="malaria-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Appointments</span></div></div>
       <?php endif; ?>
     </div>
   </div>
@@ -316,14 +316,14 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
         <ul class="malaria-pricing-includes">
           <li><i class="fas fa-check"></i> 15-minute pharmacist consultation</li>
           <li><i class="fas fa-check"></i> Destination &amp; medical history review</li>
-          <li><i class="fas fa-check"></i> Prescription issued the same day</li>
+          <li><i class="fas fa-check"></i> Prescription issued the same day, if suitable</li>
           <li><i class="fas fa-check"></i> Tablets dispensed on-site</li>
         </ul>
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
       </div>
     </div>
 
-    <p class="malaria-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'We stock Doxycycline, Malarone (Atovaquone/Proguanil), Mefloquine (Lariam) and Paludrine/Avloclor (Chloroquine/Proguanil). Tablet pricing depends on the medication and course length — your pharmacist will confirm the cost before you buy. Antimalarials are not usually covered by the NHS for travel.')); ?></p>
+    <p class="malaria-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Tablet prices depend on the medicine and course length, and your pharmacist will confirm the cost before you buy. Antimalarials are not usually covered by the NHS for travel.')); ?></p>
   </div>
 </section>
 
@@ -349,7 +349,7 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
       <?php endwhile; else : ?>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-comments"></i></div><h3>Consultation</h3><p>We discuss your destination, trip length, accommodation and medical history.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-pills"></i></div><h3>Tablet Recommendation</h3><p>Your pharmacist recommends the option that best suits your trip and health.</p></div>
-        <div class="malaria-detail-card"><div class="icon"><i class="fas fa-file-prescription"></i></div><h3>Same-Day Prescription</h3><p>No need to wait for a GP appointment — your pharmacist can prescribe on the spot.</p></div>
+        <div class="malaria-detail-card"><div class="icon"><i class="fas fa-file-prescription"></i></div><h3>Same-Day Prescription, If Suitable</h3><p>No need to wait for a GP appointment. If antimalarials are right for you, your pharmacist can prescribe them at your appointment.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side Effect Advice</h3><p>We'll explain what to expect from your specific tablets, including any precautions like sun sensitivity.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-shield-halved"></i></div><h3>Bite Prevention Advice</h3><p>We'll also cover the ABCD approach — awareness, bite prevention, tablets and diagnosis.</p></div>
         <div class="malaria-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Antimalarials aren't usually available on the NHS for travel, so we offer this privately with no referral needed.</p></div>
@@ -383,8 +383,8 @@ $vaccine_name = dp_field('vaccine_name', 'Malaria Prevention');
         </div>
       <?php endwhile; else : ?>
         <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is there a malaria vaccine I can have instead?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>We don't offer a malaria vaccine through this service — prevention here is antimalarial tablets, matched to your trip, alongside mosquito bite avoidance.</p></div></div>
-        <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Which tablets will I be prescribed?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>It depends on your destination, trip length and medical history. Malarone is generally the best tolerated option, but Doxycycline, Mefloquine and Paludrine/Avloclor are also available — your pharmacist will recommend what suits you.</p></div></div>
-        <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">When do I need to start taking them?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>It varies by tablet. Doxycycline and Malarone are usually started 1 to 2 days before travel, while Mefloquine needs to start 2 to 3 weeks beforehand. We'll confirm your exact schedule at your consultation.</p></div></div>
+        <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Do you provide malaria tablets?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>If your trip has a malaria risk, the pharmacist explains how to avoid mosquito bites and whether you need malaria prevention tablets. If you do, we supply them only after a consultation, and only if the pharmacist confirms they are suitable for you.</p></div></div>
+        <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">When do I need to start taking them?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>It depends on the tablet. You usually start a few days or weeks before you go. If tablets are right for you, we'll confirm exactly when to start and stop at your consultation.</p></div></div>
         <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Do I still need insect repellent if I'm taking tablets?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>Yes — tablets reduce your risk but aren't 100% effective on their own. We recommend combining them with DEET repellent, covering up, and mosquito nets or air conditioning where possible.</p></div></div>
         <div class="malaria-faq-item"><button class="malaria-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What if I feel unwell after I get home?</span><i class="fas fa-plus icon"></i></button><div class="malaria-faq-content"><p>Malaria symptoms can appear weeks or months after travel. If you develop a fever or feel unwell within a year of visiting a malaria-risk area, seek urgent medical care and tell them where you've been.</p></div></div>
       <?php endif; ?>
@@ -447,7 +447,7 @@ $acuity_url_child = dp_field( 'vaccine_acuity_url_child', 'https://app.acuitysch
         <?php if (have_rows('vaccine_cta_badges')) : while (have_rows('vaccine_cta_badges')) : the_row(); ?>
           <span class="badge"><?php echo esc_html(get_sub_field('text')); ?></span>
         <?php endwhile; else : ?>
-          <span class="badge">Same Day Prescribing</span>
+          <span class="badge">Same-Day Appointments</span>
           <span class="badge">4 Tablet Options</span>
           <span class="badge">No Referral Needed</span>
         <?php endif; ?>

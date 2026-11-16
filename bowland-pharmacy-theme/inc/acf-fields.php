@@ -1966,7 +1966,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'switching_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Tired of waiting weeks for prescriptions? Fed up with impersonal online-only services? At Bowland Pharmacy, you get real pharmacist support and premium discreet delivery, all from a trusted local pharmacy.',
+                'default_value' => 'Fed up with impersonal online-only services? At Bowland Pharmacy, you get face-to-face pharmacist support, same-day appointments and discreet delivery, all from a trusted local pharmacy.',
             ),
             array(
                 'key'           => 'field_bp_switching_cta_text',
@@ -1988,7 +1988,7 @@ function bp_register_acf_field_groups() {
                 'label'         => 'Feature 1 — Title',
                 'name'          => 'switching_feature_1_title',
                 'type'          => 'text',
-                'default_value' => '',
+                'default_value' => 'Same-Day Consultations',
                 'instructions'  => 'A feature with no title is hidden.',
             ),
             array(
@@ -1997,7 +1997,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'switching_feature_1_desc',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => '',
+                'default_value' => 'No waiting weeks to be seen. Face-to-face appointments are often available the same day, and our prescriber will tell you whether treatment is suitable.',
             ),
             // Feature 2
             array(
@@ -3861,8 +3861,8 @@ function bp_register_acf_field_groups() {
             array( 'key' => 'field_bp_ew_hero_badge', 'label' => 'Badge Text', 'name' => 'ew_hero_badge', 'type' => 'text', 'default_value' => 'SAME-DAY MICROSUCTION AVAILABLE' ),
             array( 'key' => 'field_bp_ew_hero_title_highlight', 'label' => 'Title — Highlighted Line', 'name' => 'ew_hero_title_highlight', 'type' => 'text', 'default_value' => 'Professional Ear Wax Removal', 'instructions' => 'Displayed in gradient text.' ),
             array( 'key' => 'field_bp_ew_hero_title_rest', 'label' => 'Title — Second Line', 'name' => 'ew_hero_title_rest', 'type' => 'text', 'default_value' => 'in Wythenshawe' ),
-            array( 'key' => 'field_bp_ew_hero_subtitle', 'label' => 'Subtitle', 'name' => 'ew_hero_subtitle', 'type' => 'text', 'default_value' => 'Expert microsuction by Ahmed and our specialist team at Bowland Pharmacy' ),
-            array( 'key' => 'field_bp_ew_hero_description', 'label' => 'Description', 'name' => 'ew_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Safe, effective ear wax removal using advanced microsuction technology. Same-day appointments available. Guaranteed results with complimentary follow-up within 7 days if needed.' ),
+            array( 'key' => 'field_bp_ew_hero_subtitle', 'label' => 'Subtitle', 'name' => 'ew_hero_subtitle', 'type' => 'text', 'default_value' => 'Microsuction ear wax removal by our trained team at Bowland Pharmacy' ),
+            array( 'key' => 'field_bp_ew_hero_description', 'label' => 'Description', 'name' => 'ew_hero_description', 'type' => 'textarea', 'rows' => 3, 'default_value' => 'Ear wax removal using microsuction. Same-day appointments available with expert microsuction care. Just £60 for both ears, consultation included.' ),
             array( 'key' => 'field_bp_ew_hero_cta_text', 'label' => 'CTA Button Text', 'name' => 'ew_hero_cta_text', 'type' => 'text', 'default_value' => 'Book Your Appointment' ),
             array( 'key' => 'field_bp_ew_hero_cta_url', 'label' => 'CTA Button URL', 'name' => 'ew_hero_cta_url', 'type' => 'url', 'instructions' => 'Leave blank to use the default booking page.' ),
             array(
@@ -3876,9 +3876,9 @@ function bp_register_acf_field_groups() {
                 'instructions'  => 'Main hero image. Recommended: portrait orientation, at least 800×1000px.',
             ),
             array( 'key' => 'field_bp_ew_hero_image_alt', 'label' => 'Hero Image Alt Text', 'name' => 'ew_hero_image_alt', 'type' => 'text', 'default_value' => 'Professional ear wax removal at Bowland Pharmacy' ),
-            array( 'key' => 'field_bp_ew_price_label', 'label' => 'Price Badge — Label', 'name' => 'ew_price_label', 'type' => 'text', 'default_value' => 'Starting From' ),
-            array( 'key' => 'field_bp_ew_price_amount', 'label' => 'Price Badge — Amount', 'name' => 'ew_price_amount', 'type' => 'text', 'default_value' => '£40' ),
-            array( 'key' => 'field_bp_ew_price_sub', 'label' => 'Price Badge — Subtext', 'name' => 'ew_price_sub', 'type' => 'text', 'default_value' => 'per ear' ),
+            array( 'key' => 'field_bp_ew_price_label', 'label' => 'Price Badge — Label', 'name' => 'ew_price_label', 'type' => 'text', 'default_value' => 'Both Ears' ),
+            array( 'key' => 'field_bp_ew_price_amount', 'label' => 'Price Badge — Amount', 'name' => 'ew_price_amount', 'type' => 'text', 'default_value' => '£60' ),
+            array( 'key' => 'field_bp_ew_price_sub', 'label' => 'Price Badge — Subtext', 'name' => 'ew_price_sub', 'type' => 'text', 'default_value' => 'consultation included' ),
             array( 'key' => 'field_bp_ew_trust_1', 'label' => 'Trust Item 1', 'name' => 'ew_trust_1', 'type' => 'text', 'default_value' => 'GPhC Registered' ),
             array( 'key' => 'field_bp_ew_trust_1_icon', 'label' => 'Trust Item 1 — Icon', 'name' => 'ew_trust_1_icon', 'type' => 'text', 'default_value' => 'fas fa-check-circle', 'instructions' => 'Font Awesome class, e.g. fas fa-check-circle' ),
             array( 'key' => 'field_bp_ew_trust_2', 'label' => 'Trust Item 2', 'name' => 'ew_trust_2', 'type' => 'text', 'default_value' => 'Same-day available' ),
@@ -5541,7 +5541,7 @@ function bp_register_acf_field_groups() {
         'key'      => 'group_bp_vaccine_protect',
         'title'    => 'Vaccination — Protection',
         'fields'   => array(
-            array( 'key' => 'field_bp_vaccine_protect_badge', 'label' => 'Badge Text', 'name' => 'vaccine_protect_badge', 'type' => 'text', 'default_value' => 'ESSENTIAL PROTECTION' ),
+            array( 'key' => 'field_bp_vaccine_protect_badge', 'label' => 'Badge Text', 'name' => 'vaccine_protect_badge', 'type' => 'text', 'default_value' => '' ),
             array( 'key' => 'field_bp_vaccine_protect_title', 'label' => 'Title', 'name' => 'vaccine_protect_title', 'type' => 'text' ),
             array( 'key' => 'field_bp_vaccine_protect_desc', 'label' => 'Description', 'name' => 'vaccine_protect_desc', 'type' => 'text' ),
             array( 'key' => 'field_bp_vaccine_protect_image', 'label' => 'Image', 'name' => 'vaccine_protect_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
@@ -9356,7 +9356,7 @@ function bp_register_acf_field_groups() {
                 'name'          => 'cv_malaria_intro',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Malaria risk is generally low but present on Santiago island. Dengue fever and Zika virus are also risks. Bite avoidance is essential.',
+                'default_value' => 'There is no risk of malaria in Cape Verde. The WHO declared it malaria-free in 2024. Avoid insect bites, as dengue and Zika occur.',
             ),
             array(
                 'key'          => 'field_bp_travel_cv_malaria_risks',

@@ -367,7 +367,7 @@ get_header();
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">02</span><span class="book-faq-question">How quickly can I start the weight loss programme?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>You can often start the same day as your consultation. Because we have our own prescriber, we don't have waiting lists. If the treatment is suitable for you, we can issue your prescription and medication immediately during your appointment.</p></div>
+          <div class="book-faq-answer"><p>No waiting weeks to be seen. Face-to-face appointments are often available the same day, and our prescriber will tell you whether treatment is suitable.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">03</span><span class="book-faq-question">Who will I be seeing for my consultation?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>

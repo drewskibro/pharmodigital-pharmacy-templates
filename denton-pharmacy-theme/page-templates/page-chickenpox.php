@@ -39,7 +39,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
         </h1>
 
         <p class="chickenpox-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect your family against chickenpox with our private vaccination service in Denton, Manchester. A safe, two-dose course that is around 90% effective — for children from 12 months and for adults who have never had chickenpox.')); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect your family against chickenpox with our private vaccination service in Denton, Manchester. A two-dose course for children from 12 months and for adults up to 65 who have never had chickenpox.')); ?>
         </p>
 
         <div class="chickenpox-hero-actions">
@@ -56,7 +56,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
         <div class="chickenpox-hero-trust">
           <div class="chickenpox-hero-trust-item"><i class="fas fa-child-reaching"></i><span>Children &amp; Adults</span></div>
           <div class="chickenpox-hero-trust-item"><i class="fas fa-syringe"></i><span>Two-Dose Course</span></div>
-          <div class="chickenpox-hero-trust-item"><i class="fas fa-user-doctor"></i><span>No GP Referral Needed</span></div>
+          <div class="chickenpox-hero-trust-item"><i class="fas fa-user-doctor"></i><span>Private Service</span></div>
         </div>
       </div>
 
@@ -126,11 +126,11 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
       <div class="chickenpox-protect-content">
         <div class="chickenpox-protect-badge-box">
           <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Around 90% Effective After Two Doses')); ?></span>
+          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Two Doses, No Booster Needed')); ?></span>
         </div>
 
-        <h3 class="chickenpox-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Safe, Proven Protection')); ?></h3>
-        <p class="chickenpox-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'Chickenpox (varicella) is a highly contagious viral infection. For most children it is mild, but it can be far more serious for adults, pregnant women, newborns and anyone with a weakened immune system, occasionally leading to complications such as pneumonia or encephalitis. The vaccine is a well-established jab that is around 90% effective after a full two-dose course.')); ?></p>
+        <h3 class="chickenpox-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Well-Established Protection')); ?></h3>
+        <p class="chickenpox-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'Chickenpox (varicella) is a highly contagious viral infection. For most children it is mild, but it can be far more serious for adults, pregnant women, newborns and anyone with a weakened immune system, occasionally leading to complications such as pneumonia or encephalitis. The NHS says a full two-dose course gives around 98% protection in children and about 75% in adults.')); ?></p>
 
         <ul class="chickenpox-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -144,7 +144,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
           <?php endwhile; else : ?>
             <li class="chickenpox-protect-feature">
               <div class="icon"><i class="fas fa-syringe"></i></div>
-              <div class="text"><strong>Two-Dose Course</strong><p>Two injections given 4 to 8 weeks apart for the best protection. Suitable from 1 year of age.</p></div>
+              <div class="text"><strong>Two-Dose Course</strong><p>Two injections given 4 to 8 weeks apart. Suitable from age 1 to 65.</p></div>
             </li>
             <li class="chickenpox-protect-feature">
               <div class="icon"><i class="fas fa-house-user"></i></div>
@@ -152,7 +152,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
             </li>
             <li class="chickenpox-protect-feature">
               <div class="icon"><i class="fas fa-briefcase-medical"></i></div>
-              <div class="text"><strong>Also Available on the NHS</strong><p>Chickenpox vaccination is now offered on the NHS for children born on or after 1 July 2024 via the MMRV vaccine. If your child is older, or you are an adult who has never had chickenpox, we offer the private vaccination with no GP referral needed.</p></div>
+              <div class="text"><strong>Also Available on the NHS</strong><p>Children born on or after 1 January 2020 are now offered the MMRV vaccine, which also covers chickenpox, free on the NHS through their GP surgery. If your child was born before 2020, or you are an adult up to 65 who has never had chickenpox, we offer the private vaccination. For children born on or after 1 January 2020, our pharmacist talks through the free NHS vaccine with you first.</p></div>
             </li>
           <?php endif; ?>
         </ul>
@@ -182,9 +182,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
       <?php endwhile; else : ?>
         <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">2 Doses</span><span class="label">Full Course</span></div></div>
         <div class="chickenpox-stat-divider"></div>
-        <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">~90%</span><span class="label">Effective</span></div></div>
-        <div class="chickenpox-stat-divider"></div>
-        <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-child-reaching"></i></div><div class="content"><span class="number">1 Year+</span><span class="label">Suitable Age</span></div></div>
+        <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-child-reaching"></i></div><div class="content"><span class="number">1 to 65</span><span class="label">Suitable Age</span></div></div>
         <div class="chickenpox-stat-divider"></div>
         <div class="chickenpox-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Appointments</span></div></div>
       <?php endif; ?>
@@ -249,7 +247,7 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
         <span class="section-badge-text"><?php echo esc_html(dp_field('vaccine_needs_badge', 'WHO IS IT FOR')); ?></span>
       </div>
       <h2 class="chickenpox-needs-title"><?php echo esc_html(dp_field('vaccine_needs_title', 'Should you get vaccinated?')); ?></h2>
-      <p class="chickenpox-needs-desc"><?php echo esc_html(dp_field('vaccine_needs_desc', 'Recommended for anyone who has not had chickenpox')); ?></p>
+      <p class="chickenpox-needs-desc"><?php echo esc_html(dp_field('vaccine_needs_desc', 'Available privately for ages 1 to 65 if you have not had chickenpox')); ?></p>
     </div>
 
     <div class="chickenpox-needs-grid">
@@ -261,11 +259,11 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
           <div class="nhs-card-icon">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
-          <span class="nhs-card-badge">Recommended For</span>
+          <span class="nhs-card-badge">Who May Choose It</span>
           <h3 class="nhs-card-title">Children &amp; Families</h3>
-          <p class="nhs-card-desc">A good choice for healthy children from 1 year old and for parents who would rather avoid chickenpox altogether.</p>
+          <p class="nhs-card-desc">Children born on or after 1 January 2020 are offered MMRV, which includes chickenpox, free through their GP surgery. We offer the private vaccine to older children, and to adults up to 65, who have not had chickenpox. For younger children, our pharmacist talks through the NHS vaccine with you first.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Children aged 1 year and over</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>From 12 months, after a talk about MMRV</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Siblings of newborns</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Families planning travel</span></li>
           </ul>
@@ -351,11 +349,11 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
         </div>
       <?php endwhile; else : ?>
         <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We confirm you (or your child) are suitable for the vaccine and answer any questions before we start.</p></div>
-        <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>The injection takes just a moment. Most people feel only a brief scratch in the upper arm or thigh.</p></div>
+        <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>The injection takes just a moment. Most people feel only a brief scratch in the upper arm.</p></div>
         <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Second Dose</h3><p>We book your second dose 4 to 8 weeks later to complete the course and lock in protection.</p></div>
         <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Usually mild — a sore arm, or sometimes a few spots and a mild fever a week or two later.</p></div>
-        <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Suitable from Age 1</h3><p>Given to children from 1 year old and to adults. We'll advise on timing for the whole family.</p></div>
-        <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Not routinely available on the NHS, so we offer it privately with no referral needed.</p></div>
+        <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Suitable from Age 1 to 65</h3><p>Given to children from 1 year old and to adults up to 65. We'll advise on timing for the whole family.</p></div>
+        <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>Children born on or after 1 January 2020 are offered MMRV, which includes chickenpox, free through their GP surgery, and our pharmacist talks this through with you first. We provide the vaccine privately from age 1 to 65.</p></div>
       <?php endif; ?>
     </div>
   </div>
@@ -385,11 +383,12 @@ $vaccine_name = dp_field('vaccine_name', 'Chickenpox');
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses does my child need?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>A full course is two doses, given 4 to 8 weeks apart. Each dose is priced individually, and together they give the best, longest-lasting protection.</p></div></div>
-        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">At what age can the vaccine be given?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>From 1 year of age. There's no upper age limit, so adults who never had chickenpox as children can have it too.</p></div></div>
-        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">What if we're not sure whether we've had chickenpox?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>That's fine — many adults aren't sure. If you've had chickenpox you likely have natural immunity, and a blood test can confirm it. The vaccine is also safe to have even if you've had chickenpox before. Our pharmacist can talk it through at your appointment.</p></div></div>
-        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>Side effects are usually mild — a sore arm, and occasionally a few spots or a mild fever a week or two after the jab. Serious reactions are very rare.</p></div></div>
-        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Who should not have the vaccine?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>It's a live vaccine, so it isn't suitable during pregnancy or for people with significantly weakened immune systems. We'll check suitability before vaccinating.</p></div></div>
+        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses does my child need?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>A full course is two doses, given 4 to 8 weeks apart. Each dose is priced individually. Two doses give better, longer-lasting protection than one.</p></div></div>
+        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">At what age can the vaccine be given?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>From 1 year of age up to 65. Adults who never had chickenpox as children can have it too. For children born on or after 1 January 2020, our pharmacist talks through the free NHS MMRV vaccine with you first.</p></div></div>
+        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">My child was born in 2020 or later. Should they have the chickenpox vaccine here?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>Children born on or after 1 January 2020 are offered the MMRV vaccine, which includes chickenpox, free on the NHS through their GP surgery. If you would still like a private chickenpox vaccine, our pharmacist will talk it through with you first, including how it fits around your child's NHS MMR or MMRV doses. Children due MMRV in the routine NHS schedule should still have it on time.</p></div></div>
+        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">What if we're not sure whether we've had chickenpox?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>That's fine — many adults aren't sure. If you've had chickenpox you likely have natural immunity, and a blood test can confirm it. The vaccine can also be given even if you've had chickenpox before. Our pharmacist can talk it through at your appointment.</p></div></div>
+        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>Side effects are usually mild — a sore arm, and occasionally a few spots or a mild fever a week or two after the jab. Serious reactions are very rare.</p></div></div>
+        <div class="chickenpox-faq-item"><button class="chickenpox-faq-btn" onclick="toggleFAQ(this)"><span class="num">06</span><span class="text">Who should not have the vaccine?</span><i class="fas fa-plus icon"></i></button><div class="chickenpox-faq-content"><p>It's a live vaccine, so it isn't suitable during pregnancy, and pregnancy should be avoided for 1 month after the last dose. It also isn't suitable for people with a significantly weakened immune system, or anyone who has had a serious allergic reaction to a vaccine or to an ingredient such as neomycin or gelatine. We cannot give it at the pharmacy while you are breastfeeding. We'll check suitability before vaccinating.</p></div></div>
       <?php endif; ?>
     </div>
   </div>
@@ -445,7 +444,7 @@ $acuity_url = dp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
         <?php endwhile; else : ?>
           <span class="badge">Same Day Appointments</span>
           <span class="badge">Children &amp; Adults</span>
-          <span class="badge">No Referral Needed</span>
+          <span class="badge">Private Service</span>
         <?php endif; ?>
       </div>
 

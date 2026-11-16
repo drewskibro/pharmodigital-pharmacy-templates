@@ -1981,7 +1981,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'switching_description',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Tired of waiting weeks for prescriptions? Fed up with impersonal online-only services? At Denton Pharmacy, you get real pharmacist support and premium discreet delivery, all from a trusted local pharmacy.',
+                'default_value' => 'Fed up with impersonal online-only services? At Denton Pharmacy, you get face-to-face pharmacist support, same-day appointments and discreet delivery, all from a trusted local pharmacy.',
             ),
             array(
                 'key'           => 'field_dp_switching_cta_text',
@@ -2003,7 +2003,7 @@ function dp_register_acf_field_groups() {
                 'label'         => 'Feature 1 — Title',
                 'name'          => 'switching_feature_1_title',
                 'type'          => 'text',
-                'default_value' => '',
+                'default_value' => 'Same-Day Consultations',
                 'instructions'  => 'A feature with no title is hidden.',
             ),
             array(
@@ -2012,7 +2012,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'switching_feature_1_desc',
                 'type'          => 'textarea',
                 'rows'          => 2,
-                'default_value' => '',
+                'default_value' => 'No waiting weeks to be seen. Face-to-face appointments are often available the same day, and our prescriber will tell you whether treatment is suitable.',
             ),
             // Feature 2
             array(
@@ -4663,7 +4663,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'sp_hero_testimonial_text',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => '"Ahmed genuinely cares about your progress. The face-to-face support makes all the difference."',
+                'default_value' => 'The pharmacist genuinely cares about your progress. The face-to-face support makes all the difference.',
             ),
             array( 'key' => 'field_dp_switch_hero_testimonial_name', 'label' => 'Testimonial Author', 'name' => 'sp_hero_testimonial_name', 'type' => 'text', 'default_value' => 'Denton Patient' ),
             array( 'key' => 'field_dp_switch_hero_testimonial_result', 'label' => 'Testimonial Result Badge', 'name' => 'sp_hero_testimonial_result', 'type' => 'text', 'default_value' => 'Results vary from person to person' ),
@@ -5549,7 +5549,7 @@ function dp_register_acf_field_groups() {
         'key'      => 'group_dp_vaccine_protect',
         'title'    => 'Vaccination — Protection',
         'fields'   => array(
-            array( 'key' => 'field_dp_vaccine_protect_badge', 'label' => 'Badge Text', 'name' => 'vaccine_protect_badge', 'type' => 'text', 'default_value' => 'ESSENTIAL PROTECTION' ),
+            array( 'key' => 'field_dp_vaccine_protect_badge', 'label' => 'Badge Text', 'name' => 'vaccine_protect_badge', 'type' => 'text', 'default_value' => '' ),
             array( 'key' => 'field_dp_vaccine_protect_title', 'label' => 'Title', 'name' => 'vaccine_protect_title', 'type' => 'text' ),
             array( 'key' => 'field_dp_vaccine_protect_desc', 'label' => 'Description', 'name' => 'vaccine_protect_desc', 'type' => 'text' ),
             array( 'key' => 'field_dp_vaccine_protect_image', 'label' => 'Image', 'name' => 'vaccine_protect_image', 'type' => 'image', 'return_format' => 'id', 'preview_size' => 'medium' ),
@@ -9364,7 +9364,7 @@ function dp_register_acf_field_groups() {
                 'name'          => 'cv_malaria_intro',
                 'type'          => 'textarea',
                 'rows'          => 3,
-                'default_value' => 'Malaria risk is generally low but present on Santiago island. Dengue fever and Zika virus are also risks. Bite avoidance is essential.',
+                'default_value' => 'There is no risk of malaria in Cape Verde. The WHO declared it malaria-free in 2024. Avoid insect bites, as dengue and Zika occur.',
             ),
             array(
                 'key'          => 'field_dp_travel_cv_malaria_risks',

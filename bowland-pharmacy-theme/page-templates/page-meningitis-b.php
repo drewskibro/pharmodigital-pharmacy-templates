@@ -37,7 +37,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
         </h1>
 
         <p class="meningitis-b-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect against meningitis B in Wythenshawe, Manchester. Some students and teenagers qualify for the vaccination free on the NHS. Check the criteria below before booking. If you are not eligible, you can book privately with us.')); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', 'Protect against meningitis B in Wythenshawe, Manchester. Some young people and new students can have the vaccine free on the NHS. Check the criteria below before booking. If you are not eligible, you can book privately with us.')); ?>
         </p>
 
         <div class="meningitis-b-hero-actions">
@@ -60,8 +60,8 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
 
       <div class="meningitis-b-hero-visual">
         <div class="meningitis-b-hero-float-badge">
-          <span class="meningitis-b-hero-float-number"><?php echo esc_html(bp_field('vaccine_float_number', '1')); ?></span>
-          <span class="meningitis-b-hero-float-label"><?php echo esc_html(bp_field('vaccine_float_label', 'single dose')); ?></span>
+          <span class="meningitis-b-hero-float-number"><?php echo esc_html(bp_field('vaccine_float_number', '2+')); ?></span>
+          <span class="meningitis-b-hero-float-label"><?php echo esc_html(bp_field('vaccine_float_label', 'doses, depending on age')); ?></span>
         </div>
         <div class="meningitis-b-trust-card">
           <div class="meningitis-b-trust-card-glow"></div>
@@ -86,7 +86,7 @@ $vaccine_name = bp_field('vaccine_name', 'Meningitis B');
             <div class="meningitis-b-trust-card-divider"></div>
             <ul class="meningitis-b-trust-card-list">
               <li><i class="fas fa-check"></i> <span>Free on the NHS here for eligible young people until March 2027</span></li>
-              <li><i class="fas fa-check"></i> <span>Private option for all ages, from 2 months</span></li>
+              <li><i class="fas fa-check"></i> <span>Private option from age 2</span></li>
               <li><i class="fas fa-check"></i> <span>Suitability check &amp; advice included</span></li>
             </ul>
             <a href="#pathways" class="meningitis-b-trust-card-eligibility">
@@ -135,7 +135,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
         <p class="meningitis-b-pathway-fineprint"><?php echo esc_html( bp_field( 'vaccine_nhs_fineprint', 'International students and students from Scotland, Wales, Northern Ireland, the Channel Islands and the Isle of Man are included. You may need evidence of your university or college offer.' ) ); ?></p>
 
         <div class="meningitis-b-pathway-callout">
-          <?php echo wp_kses_post( bp_field( 'vaccine_nhs_callout', '<strong>Already vaccinated?</strong> You are not eligible under this offer if you completed a qualifying MenB vaccination course within the last 5 years.' ) ); ?>
+          <?php echo wp_kses_post( bp_field( 'vaccine_nhs_callout', '<strong>Already vaccinated?</strong> You are not eligible under this offer if you completed a qualifying MenB vaccination course within the last 5 years. If your course was 5 or more years ago, you can have one more NHS dose.' ) ); ?>
         </div>
 
         <a href="<?php echo esc_url( $nhs_booking_url ); ?>" class="meningitis-b-pathway-btn meningitis-b-pathway-btn--nhs" target="_blank" rel="noopener noreferrer">
@@ -143,7 +143,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
           <i class="fas fa-arrow-up-right-from-square"></i>
         </a>
 
-        <p class="meningitis-b-pathway-warning"><?php echo esc_html( bp_field( 'vaccine_nhs_warning', 'All NHS MenB appointments must be arranged through the NHS website. Please do not use our private booking calendar for an NHS appointment.' ) ); ?></p>
+        <p class="meningitis-b-pathway-warning"><?php echo esc_html( bp_field( 'vaccine_nhs_warning', 'Book NHS MenB appointments through the NHS website, by calling 119, or at a pharmacy walk-in site. Please do not use our private booking calendar for an NHS appointment.' ) ); ?></p>
       </div>
 
       <!-- Private pathway -->
@@ -159,9 +159,9 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
         <p class="meningitis-b-pathway-lead"><?php echo wp_kses_post( bp_field( 'vaccine_private_lead', "<strong>Open to everyone.</strong> Book with us if you don't meet the NHS criteria above, or you'd simply rather be seen here:" ) ); ?></p>
 
         <ul class="meningitis-b-pathway-list meningitis-b-pathway-list--check">
-          <li><?php echo esc_html( bp_field( 'vaccine_private_point_1', 'Babies from 2 months, children, teenagers and adults' ) ); ?></li>
-          <li><?php echo esc_html( bp_field( 'vaccine_private_point_2', 'Anyone who missed their NHS doses, or was vaccinated over 5 years ago' ) ); ?></li>
-          <li><?php echo esc_html( bp_field( 'vaccine_private_point_3', 'MenB vaccine, administration and a suitability check included' ) ); ?></li>
+          <li><?php echo esc_html( bp_field( 'vaccine_private_point_1', 'Children from age 2, teenagers and adults' ) ); ?></li>
+          <li><?php echo esc_html( bp_field( 'vaccine_private_point_2', 'Children aged 2 and over, teenagers and adults outside the NHS groups' ) ); ?></li>
+          <li><?php echo esc_html( bp_field( 'vaccine_private_point_3', 'Vaccine, administration and a suitability check included' ) ); ?></li>
         </ul>
 
         <p class="meningitis-b-pathway-fineprint"><?php echo esc_html( bp_field( 'vaccine_private_fineprint', 'The number of doses needed depends on age — our pharmacist will confirm the right schedule for you or your child.' ) ); ?></p>
@@ -207,16 +207,16 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
       <div class="meningitis-b-protect-content">
         <div class="meningitis-b-protect-badge-box">
           <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'Acts Fast — So Should You')); ?></span>
+          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'It can act fast: know the signs')); ?></span>
         </div>
 
-        <h3 class="meningitis-b-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Cover Against MenB')); ?></h3>
-        <p class="meningitis-b-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', 'Meningitis B is a bacterial infection that can cause meningitis and blood poisoning (septicaemia). It can develop within hours and be life-threatening, and survivors can be left with lasting effects. The MenB vaccine protects against meningococcal group B, the most common cause of bacterial meningitis in the UK.')); ?></p>
+        <h3 class="meningitis-b-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Cover against MenB')); ?></h3>
+        <p class="meningitis-b-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', 'Meningitis B is a bacterial infection that can cause meningitis and blood poisoning (septicaemia). It can develop within hours and be life-threatening, and survivors can be left with lasting effects. The MenB vaccine helps protect against meningococcal group B bacteria.')); ?></p>
 
         <ul class="meningitis-b-protect-features">
           <li class="meningitis-b-protect-feature">
             <div class="icon"><i class="fas fa-baby"></i></div>
-            <div class="text"><strong>From 2 Months Old</strong><p>Babies and young children are at highest risk. The MenB vaccine can be given from 2 months of age.</p></div>
+            <div class="text"><strong>From Age 2 Privately</strong><p>Babies and toddlers have the MenB vaccine free on the NHS as part of their routine vaccinations. We give it privately from age 2.</p></div>
           </li>
           <li class="meningitis-b-protect-feature">
             <div class="icon"><i class="fas fa-user-graduate"></i></div>
@@ -224,7 +224,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
           </li>
           <li class="meningitis-b-protect-feature">
             <div class="icon"><i class="fas fa-syringe"></i></div>
-            <div class="text"><strong>Single Dose for Most</strong><p>Given as one injection into the upper arm for adults and older children. Babies follow a different schedule — our pharmacist will advise.</p></div>
+            <div class="text"><strong>Two doses for most</strong><p>Children aged 2 and over, teenagers and adults usually have 2 doses, at least 1 month apart. Babies follow the NHS schedule. Our pharmacist will confirm the right number for you.</p></div>
           </li>
         </ul>
 
@@ -241,11 +241,9 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
 <section class="meningitis-b-stats-section">
   <div class="section-container">
     <div class="meningitis-b-stats-bar">
-      <div class="meningitis-b-stat-item"><div class="icon"><i class="fas fa-baby"></i></div><div class="content"><span class="number">2 Months+</span><span class="label">Suitable Age</span></div></div>
+      <div class="meningitis-b-stat-item"><div class="icon"><i class="fas fa-baby"></i></div><div class="content"><span class="number">Age 2+</span><span class="label">Suitable Age</span></div></div>
       <div class="meningitis-b-stat-divider"></div>
       <div class="meningitis-b-stat-item"><div class="icon"><i class="fas fa-bolt"></i></div><div class="content"><span class="number">Hours</span><span class="label">Can Develop Fast</span></div></div>
-      <div class="meningitis-b-stat-divider"></div>
-      <div class="meningitis-b-stat-item"><div class="icon"><i class="fas fa-shield-virus"></i></div><div class="content"><span class="number">MenB</span><span class="label">Most Common Cause</span></div></div>
       <div class="meningitis-b-stat-divider"></div>
       <div class="meningitis-b-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Appointments</span></div></div>
     </div>
@@ -279,7 +277,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
       <div class="meningitis-b-about-cards-grid">
         <div class="meningitis-b-info-card"><div class="icon"><i class="fas fa-bacterium"></i></div><h3>Bacterial Infection</h3><p>Meningitis B is caused by meningococcal group B bacteria, which can inflame the lining of the brain and cause blood poisoning.</p></div>
         <div class="meningitis-b-info-card"><div class="icon"><i class="fas fa-bolt"></i></div><h3>Develops Quickly</h3><p>Symptoms can appear and worsen within hours. Early treatment is vital, which is why prevention matters.</p></div>
-        <div class="meningitis-b-info-card"><div class="icon"><i class="fas fa-baby"></i></div><h3>Highest Risk: Under-5s &amp; Teens</h3><p>Most common in children under 5, with a second peak in teenagers and young adults aged 15&ndash;24, especially students.</p></div>
+        <div class="meningitis-b-info-card"><div class="icon"><i class="fas fa-baby"></i></div><h3>Who is most at risk</h3><p>Most common in babies under 1, with a smaller second peak in older teenagers and first-year students.</p></div>
         <div class="meningitis-b-info-card"><div class="icon"><i class="fas fa-triangle-exclamation"></i></div><h3>Serious Outcomes</h3><p>It can be life-threatening, and some survivors are left with hearing loss, scarring or other long-term effects.</p></div>
       </div>
     </div>
@@ -287,7 +285,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
     <div class="meningitis-b-about-callout">
       <div class="badge"><?php echo esc_html(bp_field('vaccine_callout_badge', 'KNOW THE SIGNS')); ?></div>
       <h3><?php echo esc_html(bp_field('vaccine_callout_title', 'A Rash That Doesn\'t Fade')); ?></h3>
-      <p><?php echo esc_html(bp_field('vaccine_callout_text', 'Warning signs include fever, a severe headache, a stiff neck, dislike of bright light and a rash that does not fade when pressed with a glass. In babies, look for a high-pitched cry, floppiness or refusing feeds. If you suspect meningitis, seek urgent medical help — vaccination is the best prevention.')); ?></p>
+      <p><?php echo esc_html(bp_field('vaccine_callout_text', 'Warning signs include fever, a severe headache, a stiff neck, dislike of bright light and a rash that does not fade when pressed with a glass. In babies, look for a high-pitched cry, floppiness or refusing feeds. If you suspect meningitis, seek urgent medical help. Vaccination helps prevent meningitis B.')); ?></p>
     </div>
   </div>
 </section>
@@ -301,7 +299,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_needs_badge', 'WHO IS IT FOR')); ?></span>
       </div>
       <h2 class="meningitis-b-needs-title"><?php echo esc_html(bp_field('vaccine_needs_title', 'Should you get vaccinated?')); ?></h2>
-      <p class="meningitis-b-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Recommended across all ages, with two peaks of risk')); ?></p>
+      <p class="meningitis-b-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Who may choose it: two age groups are at higher risk')); ?></p>
     </div>
 
     <div class="meningitis-b-needs-grid">
@@ -312,15 +310,14 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
           <div class="nhs-card-icon">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
-          <span class="nhs-card-badge">Recommended For</span>
-          <h3 class="nhs-card-title">Babies &amp; Young Children</h3>
-          <p class="nhs-card-desc">The highest-risk group. A good choice for infants and children, including those who missed NHS doses.</p>
+          <span class="nhs-card-badge">Highest risk</span>
+          <h3 class="nhs-card-title">Babies</h3>
+          <p class="nhs-card-desc">Babies get MenB free on the NHS. If your child missed a dose, their GP can give it free up to age 2.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Babies from 2 months</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Routine NHS vaccines for babies</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Young children</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Those who missed NHS doses</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Missed a dose? Free from your GP up to age 2</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -330,9 +327,9 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
           <div class="nhs-card-icon">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           </div>
-          <span class="nhs-card-badge">Especially Useful</span>
+          <span class="nhs-card-badge">Also at risk</span>
           <h3 class="nhs-card-title">Teens, Students &amp; Adults</h3>
-          <p class="nhs-card-desc">A second peak of risk hits older teenagers and students. Worth considering for anyone wanting cover.</p>
+          <p class="nhs-card-desc">Older teenagers and first-year students have a smaller second peak of risk.</p>
           <ul class="nhs-card-list">
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Teenagers &amp; sixth formers</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>University students</span></li>
@@ -370,7 +367,7 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
           <li><i class="fas fa-check"></i> MenB vaccine</li>
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
           <li><i class="fas fa-check"></i> Suitability check &amp; advice</li>
-          <li><i class="fas fa-check"></i> Suitable from 2 months of age</li>
+          <li><i class="fas fa-check"></i> Suitable from age 2</li>
         </ul>
         <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
       </div>
@@ -394,10 +391,10 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
 
     <div class="meningitis-b-details-grid">
       <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We confirm suitability and the right schedule for your age before we start.</p></div>
-      <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>The Injection</h3><p>Given in the thigh for babies, or the upper arm for older children and adults.</p></div>
+      <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>The Injection</h3><p>Given as an injection in the upper arm.</p></div>
       <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Follow-Up Doses</h3><p>If more than one dose is needed, we'll book the follow-up at the right interval.</p></div>
-      <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-temperature-half"></i></div><h3>Fever in Babies</h3><p>A short-lived fever is common in babies after the MenB vaccine. We'll explain how to manage it.</p></div>
-      <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-baby"></i></div><h3>From 2 Months</h3><p>Suitable for babies from 2 months and for children, teens and adults.</p></div>
+      <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-temperature-half"></i></div><h3>Fever in Young Children</h3><p>A short-lived fever is common in young children after the MenB vaccine. We'll explain how to manage it.</p></div>
+      <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-baby"></i></div><h3>From Age 2</h3><p>Suitable from age 2. Babies and toddlers have it on the NHS.</p></div>
       <div class="meningitis-b-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private Service</h3><p>For those outside NHS eligibility, or who want it sooner — no referral needed.</p></div>
     </div>
   </div>
@@ -415,10 +412,10 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
     </div>
 
     <div class="meningitis-b-faq-list">
-      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses are needed?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>For adults and older children it's usually a single dose. Babies need more doses on a set schedule — our pharmacist will confirm what's right for you at your appointment.</p></div></div>
-      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">From what age can it be given?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>The MenB vaccine can be given from 2 months of age, and there's no upper age limit, so older children, teenagers and adults can have it too.</p></div></div>
-      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is this the same as the MenACWY vaccine?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>No. The MenB vaccine protects against meningococcal group B. MenACWY protects against four different groups (A, C, W and Y). Many people choose to have both for broader cover.</p></div></div>
-      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>Usually mild — a sore leg or arm, and a short-lived fever which is common in babies. Serious reactions are very rare.</p></div></div>
+      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses are needed?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>Children aged 2 and over, teenagers and adults usually need 2 doses, at least 1 month apart. Babies have their doses on the NHS schedule. Our pharmacist will confirm the right number at your appointment.</p></div></div>
+      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">From what age can it be given?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>We give it privately from age 2. Babies and toddlers have it free on the NHS as part of their routine vaccinations. Older children, teenagers and adults can have it with us after a suitability check.</p></div></div>
+      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Is this the same as the MenACWY vaccine?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>No. The MenB vaccine protects against meningococcal group B. MenACWY protects against four different groups (A, C, W and Y). The NHS gives both, to different age groups.</p></div></div>
+      <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>Usually mild — a sore leg or arm, and a short-lived fever which is common in young children. Serious reactions are very rare.</p></div></div>
       <div class="meningitis-b-faq-item"><button class="meningitis-b-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What are the warning signs of meningitis?</span><i class="fas fa-plus icon"></i></button><div class="meningitis-b-faq-content"><p>Fever, severe headache, stiff neck, dislike of bright light, and a rash that doesn't fade under a glass. In babies, a high-pitched cry, floppiness or refusing feeds. Seek urgent medical help if you're worried.</p></div></div>
     </div>
   </div>
@@ -468,7 +465,7 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
     <div class="meningitis-b-cta-content">
       <div class="meningitis-b-cta-badges">
         <span class="badge">Same Day Appointments</span>
-        <span class="badge">Babies to Adults</span>
+        <span class="badge">Age 2 to Adults</span>
         <span class="badge">No Referral Needed</span>
       </div>
 

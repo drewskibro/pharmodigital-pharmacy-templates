@@ -30,7 +30,7 @@ if ( ! $sp_hero_image_url ) {
 }
 
 // --- Testimonial ---
-$sp_testi_quote  = dp_field( 'sp_hero_testimonial_text', dp_option( 'superintendent_pharmacist', 'Our pharmacist' ) . ' genuinely cares about your progress. The face-to-face support makes all the difference.' );
+$sp_testi_quote  = dp_field( 'sp_hero_testimonial_text', 'The pharmacist genuinely cares about your progress. The face-to-face support makes all the difference.' );
 $sp_testi_name   = dp_field( 'sp_hero_testimonial_name', dp_option( 'pharmacy_town', 'Denton' ) . ' Patient' );
 $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from person to person' );
 ?>
@@ -74,10 +74,6 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
         <!-- Trust Badges -->
         <div class="switch-hero-trust-row">
           <div class="switch-hero-trust-pill">
-            <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'sp_hero_trust_1_icon', 'fas fa-bolt' ) ) ); ?>"></i>
-            <span><?php echo esc_html( dp_field( 'sp_hero_trust_1', 'Zero Gap in Treatment' ) ); ?></span>
-          </div>
-          <div class="switch-hero-trust-pill">
             <i class="<?php echo esc_attr( dp_fa_class( dp_field( 'sp_hero_trust_2_icon', 'fas fa-calendar-check' ) ) ); ?>"></i>
             <span><?php echo esc_html( dp_field( 'sp_hero_trust_2', 'Same Day Appointments' ) ); ?></span>
           </div>
@@ -95,7 +91,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
         <!-- Main image card -->
         <div class="switch-hero-image-card">
           <?php if ( $sp_hero_image_url ) : ?>
-            <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'sp_hero_image_alt', dp_option( 'superintendent_pharmacist', 'Superintendent Pharmacist' ) . ' at ' . dp_pharmacy_name() ) ); ?>" class="switch-hero-image" />
+            <img src="<?php echo esc_url( $sp_hero_image_url ); ?>" alt="<?php echo esc_attr( dp_field( 'sp_hero_image_alt', 'Superintendent Pharmacist at ' . dp_pharmacy_name() ) ); ?>" class="switch-hero-image" />
           <?php endif; ?>
         </div>
 
@@ -157,7 +153,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
     $default_steps = array(
         array( 'title' => 'Book Consultation', 'description' => 'Visit us in ' . dp_option( 'pharmacy_town', 'Denton' ) . ' or <a href="' . esc_url( dp_booking_url() ) . '">book a consultation online</a>. Tell us about your current treatment and goals.', 'image' => '' ),
         array( 'title' => 'We Handle Everything', 'description' => 'No prescription transfer needed. Our team manages the entire switch seamlessly for you.', 'image' => '' ),
-        array( 'title' => 'Zero Treatment Gap', 'description' => 'Continue your programme without interruption.', 'image' => '' ),
+        array( 'title' => 'Planning Your Switch', 'description' => 'Same-day appointments can help you avoid a gap, if switching is suitable for you.', 'image' => '' ),
         array( 'title' => 'Face-to-Face Support', 'description' => 'Ongoing monthly check-ins at our ' . dp_option( 'pharmacy_town', 'Denton' ) . ' pharmacy with expert guidance and personalised care.', 'image' => '' ),
     );
 
@@ -220,7 +216,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
                 <span><?php echo esc_html( get_sub_field( 'text' ) ); ?></span>
               </li>
             <?php endwhile; else : ?>
-              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with <?php echo esc_html( dp_option( 'superintendent_pharmacist', 'our pharmacist' ) ); ?></span></li>
+              <li><i class="fas fa-check-circle"></i><span>Monthly face-to-face consultation with our pharmacist or our clinical team</span></li>
               <li><i class="fas fa-check-circle"></i><span>Medication included in your monthly plan</span></li>
               <li><i class="fas fa-check-circle"></i><span>Blood pressure, weight, and health monitoring</span></li>
               <li><i class="fas fa-check-circle"></i><span>Direct phone and email access between appointments</span></li>
@@ -292,6 +288,10 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
               <li class="comparison-card-feature">
                 <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
                 <span class="comparison-card-feature-text comparison-card-feature-text-bold">Same pharmacist who knows your name</span>
+              </li>
+              <li class="comparison-card-feature">
+                <div class="comparison-card-feature-icon comparison-card-feature-icon-purple"><i class="fas fa-check"></i></div>
+                <span class="comparison-card-feature-text comparison-card-feature-text-bold">Same-day appointments available</span>
               </li>
             <?php endif; ?>
           </ul>
@@ -390,7 +390,7 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-user-doctor"></i></div>
           <h3 class="switch-benefit-title">Face-to-Face Care</h3>
-          <p class="switch-benefit-description">Monthly in-person consultations with <?php echo esc_html( dp_option( 'superintendent_pharmacist', 'our pharmacist' ) ); ?>, your dedicated pharmacist who knows your history</p>
+          <p class="switch-benefit-description">Monthly in-person consultations with our pharmacist, who knows your history</p>
         </div>
         <div class="switch-benefit-card">
           <div class="switch-benefit-icon"><i class="fas fa-shield-halved"></i></div>
@@ -447,6 +447,11 @@ $sp_testi_result = dp_field( 'sp_hero_testimonial_result', 'Results vary from pe
         <div class="switch-cta-check">
           <i class="fas fa-check"></i>
           <span><?php echo esc_html( dp_field( 'sp_cta_check_1', 'No waiting list' ) ); ?></span>
+        </div>
+        <?php // Fixed text, not the sp_cta_check_2 field: an old saved value there may still say "Same-day approval". ?>
+        <div class="switch-cta-check">
+          <i class="fas fa-check"></i>
+          <span>Same-day appointments</span>
         </div>
         <div class="switch-cta-check">
           <i class="fas fa-check"></i>
