@@ -306,7 +306,7 @@ $vaccine_name = bp_field('vaccine_name', 'MMR');
 
     <div class="mmr-details-grid">
       <div class="mmr-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We review your (or your child's) vaccination history and answer any questions before we start. For children born on or after 1 January 2020, we also explain the free NHS MMRV vaccine.</p></div>
-      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>A quick injection in the upper arm or thigh. The appointment takes under 10 minutes.</p></div>
+      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>A quick injection in the upper arm. The appointment takes under 10 minutes.</p></div>
       <div class="mmr-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Second Dose</h3><p>We book the second dose at the right interval to complete the course. For adults and children aged 18 months or over, the second dose is at least 4 weeks after the first. For children under 18 months, our pharmacist plans the second dose so the course counts as complete, usually at least 3 months later.</p></div>
       <div class="mmr-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>A mild fever, a faint rash or a little swelling at the injection site can occur and soon settle.</p></div>
       <div class="mmr-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Children &amp; Adults</h3><p>From 12 months, for anyone unvaccinated or unsure. For children born on or after 1 January 2020, we first talk through MMRV.</p></div>

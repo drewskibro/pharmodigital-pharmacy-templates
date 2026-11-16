@@ -349,7 +349,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chickenpox');
         </div>
       <?php endwhile; else : ?>
         <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We confirm you (or your child) are suitable for the vaccine and answer any questions before we start.</p></div>
-        <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>The injection takes just a moment. Most people feel only a brief scratch in the upper arm or thigh.</p></div>
+        <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>The injection takes just a moment. Most people feel only a brief scratch in the upper arm.</p></div>
         <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Second Dose</h3><p>We book your second dose 4 to 8 weeks later to complete the course and lock in protection.</p></div>
         <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>Usually mild — a sore arm, or sometimes a few spots and a mild fever a week or two later.</p></div>
         <div class="chickenpox-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Suitable from Age 1 to 65</h3><p>Given to children from 1 year old and to adults up to 65. We'll advise on timing for the whole family.</p></div>

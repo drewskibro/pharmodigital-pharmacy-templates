@@ -74,10 +74,6 @@ $sp_testi_result = bp_field( 'sp_hero_testimonial_result', 'Results vary from pe
         <!-- Trust Badges -->
         <div class="switch-hero-trust-row">
           <div class="switch-hero-trust-pill">
-            <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'sp_hero_trust_1_icon', 'fas fa-bolt' ) ) ); ?>"></i>
-            <span><?php echo esc_html( bp_field( 'sp_hero_trust_1', 'Zero Gap in Treatment' ) ); ?></span>
-          </div>
-          <div class="switch-hero-trust-pill">
             <i class="<?php echo esc_attr( bp_fa_class( bp_field( 'sp_hero_trust_2_icon', 'fas fa-calendar-check' ) ) ); ?>"></i>
             <span><?php echo esc_html( bp_field( 'sp_hero_trust_2', 'Same Day Appointments' ) ); ?></span>
           </div>

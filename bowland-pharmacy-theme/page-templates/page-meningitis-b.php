@@ -318,7 +318,6 @@ $nhs_booking_url = bp_field( 'vaccine_nhs_booking_url', 'https://www.nhs.uk/nhs-
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Young children</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Missed a dose? Free from your GP up to age 2</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
