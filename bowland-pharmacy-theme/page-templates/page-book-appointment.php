@@ -4,6 +4,14 @@
  * @package Bowland_Pharmacy
  */
 
+// Only the placement values used by Bowland's yellow fever buttons select an appointment.
+$yellow_fever_selected = in_array( $_GET['yf_from'] ?? '', BOWLAND_YELLOW_FEVER_BOOKING_PLACEMENTS, true );
+$acuity_url = 'https://app.acuityscheduling.com/schedule.php?owner=29286426&calendarID=8436365&ref=embedded_csp';
+if ( $yellow_fever_selected ) {
+    $acuity_url = add_query_arg( 'appointmentType', '47108784', $acuity_url );
+}
+$acuity_title = $yellow_fever_selected ? 'Schedule a yellow fever vaccination at Bowland Pharmacy' : 'Schedule Appointment';
+
 get_header();
 ?>
 
@@ -101,8 +109,8 @@ get_header();
     <div class="book-amelia-container">
       <div class="booking-calendar-wrapper">
         <iframe
-          src="https://app.acuityscheduling.com/schedule.php?owner=29286426&calendarID=8436365&ref=embedded_csp"
-          title="Schedule Appointment"
+          src="<?php echo esc_url( $acuity_url ); ?>"
+          title="<?php echo esc_attr( $acuity_title ); ?>"
           width="100%"
           frameborder="0">
         </iframe>

@@ -4,6 +4,8 @@
  * @package Bowland_Pharmacy
  */
 
+$yellow_fever_booking_label = is_page( 678 ) ? BOWLAND_YELLOW_FEVER_BOOKING_LABEL : null;
+
 get_header();
 ?>
 
@@ -40,8 +42,8 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       </p>
 
       <div class="yellowfever-hero-actions">
-        <a href="<?php echo esc_url( bp_field( 'yf_hero_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button yellowfever-btn-primary">
-          <?php echo esc_html( bp_field( 'yf_hero_cta_text', 'Book Yellow Fever Vaccination' ) ); ?>
+        <a href="<?php echo esc_url( $yellow_fever_booking_label ? bp_yellow_fever_booking_url( 'service-hero' ) : ( bp_field( 'yf_hero_cta_url', '' ) ?: bp_booking_url() ) ); ?>" class="cta-button yellowfever-btn-primary">
+          <?php echo esc_html( $yellow_fever_booking_label ?? bp_field( 'yf_hero_cta_text', 'Book Yellow Fever Vaccination' ) ); ?>
         </a>
         <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button yellowfever-btn-secondary">
           Call <?php echo esc_html( bp_phone() ); ?>
@@ -134,7 +136,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         </div>
 
         <div class="yellowfever-cert-actions">
-          <a href="<?php echo esc_url( bp_field( 'yf_cert_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta"><?php echo esc_html( bp_field( 'yf_cert_cta_text', 'Book Yellow Fever Vaccination' ) ); ?></a>
+          <a href="<?php echo esc_url( $yellow_fever_booking_label ? bp_yellow_fever_booking_url( 'service-certificate' ) : ( bp_field( 'yf_cert_cta_url', '' ) ?: bp_booking_url() ) ); ?>" class="cta-button primary-cta"><?php echo esc_html( $yellow_fever_booking_label ?? bp_field( 'yf_cert_cta_text', 'Book Yellow Fever Vaccination' ) ); ?></a>
           <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button secondary-cta">Call <?php echo esc_html( bp_phone() ); ?></a>
         </div>
 
@@ -529,7 +531,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       <p class="yellowfever-cta-desc"><?php echo esc_html( bp_field( 'yf_cta_desc', 'Book your yellow fever vaccination at our designated centre in Wythenshawe. We issue your certificate on the day. It becomes valid 10 days after your vaccination.' ) ); ?></p>
 
       <div class="yellowfever-cta-actions">
-        <a href="<?php echo esc_url( bp_field( 'yf_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button primary-cta white-btn"><?php echo esc_html( bp_field( 'yf_cta_button_text', 'Book Vaccination' ) ); ?></a>
+        <a href="<?php echo esc_url( $yellow_fever_booking_label ? bp_yellow_fever_booking_url( 'service-footer' ) : ( bp_field( 'yf_cta_url', '' ) ?: bp_booking_url() ) ); ?>" class="cta-button primary-cta white-btn"><?php echo esc_html( $yellow_fever_booking_label ?? bp_field( 'yf_cta_button_text', 'Book Vaccination' ) ); ?></a>
         <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button secondary-cta outline-btn">Call <?php echo esc_html( bp_phone() ); ?></a>
       </div>
 

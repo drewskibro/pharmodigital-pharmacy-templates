@@ -98,6 +98,12 @@ $last_modified = get_the_modified_date( 'M j, Y' );
           <p class="article-hero-excerpt"><?php echo esc_html( get_the_excerpt() ); ?></p>
         <?php endif; ?>
 
+        <?php if ( 888 === get_the_ID() ) : ?>
+          <div class="article-hero-booking">
+            <a class="cta-button primary-cta article-booking-cta" href="<?php echo esc_url( bp_yellow_fever_booking_url( 'article-summary' ) ); ?>"><?php echo esc_html( BOWLAND_YELLOW_FEVER_BOOKING_LABEL ); ?></a>
+          </div>
+        <?php endif; ?>
+
         <div class="article-hero-author-row">
           <div class="article-hero-author">
             <div class="article-hero-author-text">

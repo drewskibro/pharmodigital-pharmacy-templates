@@ -128,7 +128,7 @@ function bowland_pharmacy_scripts() {
     }
 
     if ( is_single() ) {
-        wp_enqueue_style( 'bowland-blog', BOWLAND_PHARMACY_URI . '/assets/css/blog.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
+        wp_enqueue_style( 'bowland-blog', BOWLAND_PHARMACY_URI . '/assets/css/blog.css', array( 'bowland-globals' ), filemtime( BOWLAND_PHARMACY_DIR . '/assets/css/blog.css' ) );
         wp_enqueue_script( 'bowland-blog-js', BOWLAND_PHARMACY_URI . '/assets/js/blog.js', array(), BOWLAND_PHARMACY_VERSION, true );
         wp_enqueue_style( 'bowland-wl-calc', BOWLAND_PHARMACY_URI . '/assets/css/weight-loss-calculator.css', array( 'bowland-globals' ), BOWLAND_PHARMACY_VERSION );
         wp_enqueue_script( 'bowland-wl-calc-js', BOWLAND_PHARMACY_URI . '/assets/js/weight-loss-calculator.js', array(), BOWLAND_PHARMACY_VERSION, true );
@@ -605,6 +605,19 @@ function bp_booking_url() {
         return get_permalink( $page );
     }
     return home_url( '/book-appointment/' );
+}
+
+const BOWLAND_YELLOW_FEVER_BOOKING_LABEL = 'See yellow fever appointments in Wythenshawe · £69';
+const BOWLAND_YELLOW_FEVER_BOOKING_PLACEMENTS = array(
+    'article-summary',
+    'article-price',
+    'service-hero',
+    'service-certificate',
+    'service-footer',
+);
+
+function bp_yellow_fever_booking_url( $placement ) {
+    return add_query_arg( 'yf_from', $placement, home_url( '/book-appointment/' ) ) . '#booking-widget';
 }
 
 /**
