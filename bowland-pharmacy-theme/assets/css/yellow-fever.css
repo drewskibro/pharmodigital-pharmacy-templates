@@ -157,6 +157,7 @@
   background: var(--white);
   color: var(--brand-dark);
   border: none;
+  text-align: center;
 }
 
 .yellowfever-btn-primary:hover {
@@ -366,6 +367,10 @@
   .yellowfever-cert-actions {
     flex-direction: row;
   }
+}
+
+.yellowfever-cert-actions .primary-cta {
+  text-align: center;
 }
 
 .yellowfever-cert-callout {
@@ -1387,6 +1392,7 @@
 
 .yellowfever-cta-actions {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 3rem;
@@ -1395,6 +1401,7 @@
 .yellowfever-cta-actions .white-btn {
   background: #ffffff;
   color: #0969cd;
+  text-align: center;
 }
 
 .yellowfever-cta-actions .white-btn:hover {

@@ -1184,6 +1184,15 @@
   margin-right: auto;
 }
 
+.article-hero-booking {
+  margin-bottom: 1.5rem;
+}
+
+.article-booking-cta {
+  max-width: 100%;
+  text-align: center;
+}
+
 .article-hero-author-row {
   display: flex;
   align-items: center;
@@ -1334,6 +1343,11 @@
 .article-content a:hover {
   color: #79bc2e;
   text-decoration-color: #79bc2e;
+}
+
+.article-content a.article-booking-cta {
+  color: var(--white);
+  text-decoration: none;
 }
 
 /* Lists */
