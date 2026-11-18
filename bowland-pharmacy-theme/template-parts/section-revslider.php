@@ -33,7 +33,7 @@ if ( class_exists( 'RevSlider' ) && $revslider_alias ) : ?>
     $placeholder_image_url = $placeholder_image_id ? wp_get_attachment_image_url( $placeholder_image_id, 'full' ) : '';
 
     // Content fields
-    $badge_text     = bp_field( 'revslider_placeholder_badge', 'Yellow Fever Approved' );
+    $badge_text     = bp_field( 'revslider_placeholder_badge', 'Designated Yellow Fever Vaccination Centre' );
     $title          = bp_field( 'revslider_placeholder_title', 'Protect Your Adventures Across the Globe' );
     $subtitle       = bp_field( 'revslider_placeholder_subtitle', 'From yellow fever to malaria prevention, get expert travel vaccinations at Bowland Pharmacy' );
 

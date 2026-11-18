@@ -21,7 +21,7 @@ $default_stats = array(
     ),
     array(
         'icon'   => 'fas fa-star',
-        'number' => '4.7',
+        'number' => bp_option( 'google_rating', '' ),
         'label'  => 'Google Rating',
     ),
     array(
@@ -47,6 +47,11 @@ for ( $i = 1; $i <= 5; $i++ ) {
     $icon   = bp_field( 'stats_' . $i . '_icon', $default_stats[ $i - 1 ]['icon'] );
     $number = bp_field( 'stats_' . $i . '_number', $default_stats[ $i - 1 ]['number'] );
     $label  = bp_field( 'stats_' . $i . '_label', $default_stats[ $i - 1 ]['label'] );
+
+    // A stat with no number is not shown (for example no Google rating set).
+    if ( '' === trim( (string) $number ) ) {
+        continue;
+    }
 
     // Ensure Font Awesome icon class has a style prefix
     $icon = bp_fa_class( $icon );

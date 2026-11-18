@@ -351,7 +351,7 @@ $vaccine_name = bp_field('vaccine_name', 'Cholera');
         <div class="cholera-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Dose Two, A Few Weeks Later</h3><p>We'll get your second appointment booked 1–6 weeks out, timed to land before departure.</p></div>
         <div class="cholera-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side Effects Are Usually Minor</h3><p>Some people get a mild upset stomach, nausea, or a slight temperature — nothing serious.</p></div>
         <div class="cholera-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>From Age 2 Up</h3><p>We vaccinate both adults and children from age 2, adjusting the dose accordingly.</p></div>
-        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private, No Referral</h3><p>Travel cholera vaccination isn't an NHS service — book directly with us, no GP letter needed.</p></div>
+        <div class="cholera-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private, No Referral</h3><p>Cholera vaccine for travel can be free on the NHS from your GP surgery. We give it privately, so you can book with us directly.</p></div>
       <?php endif; ?>
     </div>
   </div>

@@ -319,7 +319,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
       </div>
     </div>
 
-    <p class="chikungunya-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "Covers a single dose. If you're pregnant, breastfeeding, or under 12, we'll need to do an individual risk assessment first — just ask when you book.")); ?></p>
+    <p class="chikungunya-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "Covers a single dose. Not offered to children under 12. If you are pregnant or breastfeeding, it can only be given after a prescriber has assessed you. Just ask when you book.")); ?></p>
     <p class="chikungunya-pricing-note">The vaccine will only be given if it is suitable for you after a consultation with our pharmacist.</p>
     <p class="chikungunya-pricing-note">No vaccine protects everyone, so keep avoiding mosquito bites while you travel.</p>
   </div>

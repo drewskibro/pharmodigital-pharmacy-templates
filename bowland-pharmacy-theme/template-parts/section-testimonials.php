@@ -26,7 +26,7 @@ $transparency_label = bp_field( 'testimonials_transparency_label', 'Transparency
 // --- CTA card fields ---
 $cta_title  = bp_field( 'testimonials_cta_title', 'Trusted by 1,000+ Bowland Patients' );
 $cta_text   = bp_field( 'testimonials_cta_text', 'No waiting lists. No hidden fees. Just expert, local healthcare you can rely on.' );
-$rating     = bp_option( 'google_rating', '4.7' );
+$rating     = bp_option( 'google_rating', '' );
 
 // --- Allowed HTML for default testimonial highlight spans ---
 $allowed_highlight_tags = array(
@@ -243,6 +243,7 @@ if ( empty( $testimonials ) ) {
                         <h3 class="testimonial-cta-title"><?php echo esc_html( $cta_title ); ?></h3>
                         <p class="testimonial-cta-text"><?php echo esc_html( $cta_text ); ?></p>
                     </div>
+                    <?php if ( $rating ) : ?>
                     <div class="testimonial-cta-rating">
                         <div class="testimonial-cta-rating-card">
                             <span class="testimonial-cta-score"><?php echo esc_html( $rating ); ?></span>
@@ -256,6 +257,7 @@ if ( empty( $testimonials ) ) {
                             <span class="testimonial-cta-label">Google Rating</span>
                         </div>
                     </div>
+                    <?php endif; ?>
                 </div>
             </div>
 

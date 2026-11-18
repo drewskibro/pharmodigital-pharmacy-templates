@@ -122,7 +122,7 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
           <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Three Diseases, One Vaccine')); ?></span>
         </div>
 
-        <h3 class="mmr-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Safe, Long-Lasting Protection')); ?></h3>
+        <h3 class="mmr-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Long-Lasting Protection')); ?></h3>
         <p class="mmr-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'MMR is a combined vaccine that protects against measles, mumps and rubella — three viral infections that can cause serious complications. Measles is highly contagious and can lead to pneumonia or encephalitis, mumps can cause meningitis, and rubella is dangerous in pregnancy. Two doses give long-lasting protection and help prevent outbreaks.')); ?></p>
 
         <ul class="mmr-protect-features">
@@ -273,7 +273,6 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
 
     <div class="mmr-pricing-grid">
       <div class="mmr-pricing-card featured">
-        <div class="mmr-pricing-ribbon">Best Value</div>
         <h3 class="mmr-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Full MMR Course')); ?></h3>
         <div class="mmr-pricing-amount">
           <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£50')); ?></span>
@@ -307,7 +306,7 @@ $vaccine_name = dp_field('vaccine_name', 'MMR');
 
     <div class="mmr-details-grid">
       <div class="mmr-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We review your (or your child's) vaccination history and answer any questions before we start. For children born on or after 1 January 2020, we also explain the free NHS MMRV vaccine.</p></div>
-      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>A quick, safe injection given in the upper arm or thigh — the appointment takes under 10 minutes.</p></div>
+      <div class="mmr-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>A quick injection in the upper arm. The appointment takes under 10 minutes.</p></div>
       <div class="mmr-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Second Dose</h3><p>We book the second dose at the right interval to complete the course. For adults and children aged 18 months or over, the second dose is at least 4 weeks after the first. For children under 18 months, our pharmacist plans the second dose so the course counts as complete, usually at least 3 months later.</p></div>
       <div class="mmr-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>A mild fever, a faint rash or a little swelling at the injection site can occur and soon settle.</p></div>
       <div class="mmr-detail-card"><div class="icon"><i class="fas fa-child-reaching"></i></div><h3>Children &amp; Adults</h3><p>From 12 months, for anyone unvaccinated or unsure. For children born on or after 1 January 2020, we first talk through MMRV.</p></div>

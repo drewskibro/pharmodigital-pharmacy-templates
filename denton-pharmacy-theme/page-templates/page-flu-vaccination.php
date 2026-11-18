@@ -46,15 +46,15 @@ $elig_items = array(
 $proc_steps = array(
     array( 'icon' => 'fa-clipboard-check', 'title' => 'Check eligibility', 'desc' => 'See if you qualify for a free NHS flu jab, or choose a private one.' ),
     array( 'icon' => 'fa-calendar-check',  'title' => 'Book or walk in',   'desc' => 'Book a slot below, or pop in from 1 October.' ),
-    array( 'icon' => 'fa-syringe',         'title' => 'Get vaccinated',    'desc' => 'A quick jab from our pharmacist — protection builds in 10 to 14 days.' ),
+    array( 'icon' => 'fa-syringe',         'title' => 'Get vaccinated',    'desc' => 'A quick jab from our pharmacist. The vaccine usually takes up to 14 days to work.' ),
 );
 
 $faqs = array(
     array( 'q' => 'Is the flu jab free?', 'a' => 'It is free on the NHS for eligible patients. We give the free NHS flu vaccine to children aged 2 or 3 on 31 August 2026. Private flu vaccination is available at Denton Pharmacy, Denton, for anyone aged 2 or over, at £25 per dose. Under-16s must come with a parent or legal guardian, who gives consent. If your child is eligible, please use the NHS service first.' ),
     array( 'q' => 'Can my child have a private flu vaccine?', 'a' => 'Private flu vaccination is available at Denton Pharmacy, Denton, for anyone aged 2 or over, at £25 per dose. The pharmacist will check the vaccine is suitable and choose the type; for children this is an injection. Most people need one dose. A child under 9 who has never had a flu vaccine and has certain health conditions, or lives with someone with a weakened immune system, may need a second dose at least 4 weeks later, charged at £25. Under-16s must come with a parent or legal guardian, who gives consent. Many children can have a free NHS flu vaccine, usually a nasal spray, at school, their GP surgery or a pharmacy offering the NHS service. This includes children aged 2 or 3 on 31 August 2026, children in Reception to Year 11, and children with certain health conditions. We give the free NHS flu vaccine to children aged 2 or 3 on 31 August 2026. If your child is eligible, please use the NHS service first.' ),
     array( 'q' => 'Do I need an appointment?', 'a' => 'You can book a slot or come as a walk-in. We offer flu and COVID vaccinations from 1 October each year, in line with NHS guidance.' ),
-    array( 'q' => 'How long does it take to work?', 'a' => 'The flu vaccine takes around 10 to 14 days to take full effect.' ),
-    array( 'q' => 'Are there any side effects?', 'a' => 'Most people have only mild effects — a slightly raised temperature or a tender arm — that usually settle within a day.' ),
+    array( 'q' => 'How long does it take to work?', 'a' => 'The vaccine usually takes up to 14 days to work.' ),
+    array( 'q' => 'Are there any side effects?', 'a' => 'Side effects are usually mild and get better within 1 to 2 days. The most common are a slightly raised temperature or a tender arm.' ),
     array( 'q' => 'What about COVID vaccination?', 'a' => 'We also offer COVID vaccinations. See our COVID Vaccination page for details.' ),
 );
 

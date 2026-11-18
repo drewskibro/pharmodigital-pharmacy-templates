@@ -132,9 +132,8 @@ get_header();
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-clock"></i></div><div class="book-stat-content"><span class="book-stat-number">15+</span><span class="book-stat-label">Years Experience</span></div></div>
         <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-users"></i></div><div class="book-stat-content"><span class="book-stat-number">1,000+</span><span class="book-stat-label">Patients Helped</span></div></div>
-        <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-star"></i></div><div class="book-stat-content"><span class="book-stat-number"><?php echo esc_html( dp_option( 'google_rating', '4.9' ) ); ?></span><span class="book-stat-label">Google Rating</span></div></div>
+        <?php if ( dp_option( 'google_rating' ) ) : ?><div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-star"></i></div><div class="book-stat-content"><span class="book-stat-number"><?php echo esc_html( dp_option( 'google_rating' ) ); ?></span><span class="book-stat-label">Google Rating</span></div></div><?php endif; ?>
         <div class="book-stat-item"><div class="book-stat-icon"><i class="fas fa-certificate"></i></div><div class="book-stat-content"><span class="book-stat-number">GPhC</span><span class="book-stat-label">Registered</span></div></div>
       <?php endif; ?>
     </div>
@@ -201,7 +200,7 @@ get_header();
             <i class="fas fa-plane-departure"></i>
           </div>
           <h3 class="book-service-title">Travel Vaccinations</h3>
-          <p class="book-service-desc">Official Yellow Fever Centre. Hepatitis, Typhoid, Rabies, and destination-specific advice.</p>
+          <p class="book-service-desc">Designated Yellow Fever Vaccination Centre. Hepatitis, Typhoid, Rabies, and destination-specific advice.</p>
           <button onclick="scrollToBooking()" class="cta-button primary-cta book-service-btn">Book Consultation <i class="fas fa-arrow-right"></i></button>
         </div>
         <!-- Ear Wax Removal -->
@@ -367,7 +366,7 @@ get_header();
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">02</span><span class="book-faq-question">How quickly can I start the weight loss programme?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>You can often start the same day as your consultation. Because we have our own prescriber, we don't have waiting lists. If the treatment is suitable for you, we can issue your prescription and medication immediately during your appointment.</p></div>
+          <div class="book-faq-answer"><p>No waiting weeks to be seen. Face-to-face appointments are often available the same day, and our prescriber will tell you whether treatment is suitable.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">03</span><span class="book-faq-question">Who will I be seeing for my consultation?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
@@ -375,11 +374,11 @@ get_header();
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">04</span><span class="book-faq-question">Do I need to book travel vaccinations in advance?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>Ideally, yes. We recommend booking 6-8 weeks before you travel to allow time for any vaccine courses to be completed. However, we can often accommodate last-minute appointments for urgent travel needs. We hold most vaccines in stock, including Yellow Fever.</p></div>
+          <div class="book-faq-answer"><p>Ideally, yes. The NHS advises getting travel health advice at least 4 to 6 weeks before you go. Some vaccines need more than one dose, so booking early helps. If you travel sooner, we can still help, so please book or call us. We hold most vaccines in stock, including yellow fever.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">05</span><span class="book-faq-question">Why do so many Denton patients choose you?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>
-          <div class="book-faq-answer"><p>We combine clinical expertise with genuine warmth. Plus, we're a local independent pharmacy that has been part of the Denton community for decades—we truly care about your health outcomes. Our patients appreciate the personal care you can't get from large chains.</p></div>
+          <div class="book-faq-answer"><p>We combine clinical expertise with genuine warmth. Plus, we're a local independent pharmacy in Denton, and we truly care about your health outcomes. Our patients appreciate the personal care you can't get from large chains.</p></div>
         </div>
         <div class="book-faq-item">
           <button class="book-faq-btn" onclick="toggleFAQ(this)"><div class="book-faq-left"><span class="book-faq-number">06</span><span class="book-faq-question">Do I need a referral from my GP?</span></div><div class="book-faq-icon"><i class="fas fa-plus"></i></div></button>

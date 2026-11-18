@@ -71,7 +71,7 @@ $vaccine_name = bp_field('vaccine_name', 'Shingles');
           <div class="shingles-trust-card-inner">
             <div class="shingles-trust-card-header">
               <div class="shingles-trust-card-icon"><i class="fas fa-shield-virus"></i></div>
-              <span class="shingles-trust-card-label"><?php echo esc_html(bp_field('vaccine_price_name', 'Shingrix Vaccine')); ?></span>
+              <span class="shingles-trust-card-label"><?php echo esc_html(bp_field('vaccine_price_name', 'Shingles Vaccine')); ?></span>
             </div>
             <div class="shingles-trust-card-price">
               <span class="shingles-trust-card-amount"><?php echo esc_html(bp_field('vaccine_price_amount', '£199')); ?></span>
@@ -79,7 +79,7 @@ $vaccine_name = bp_field('vaccine_name', 'Shingles');
             </div>
             <div class="shingles-trust-card-divider"></div>
             <ul class="shingles-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Shingrix vaccine &amp; administration</span></li>
+              <li><i class="fas fa-check"></i> <span>Shingles vaccine &amp; administration</span></li>
               <li><i class="fas fa-check"></i> <span>Two-dose course for full protection</span></li>
               <li><i class="fas fa-check"></i> <span>Suitability check &amp; advice</span></li>
             </ul>
@@ -206,7 +206,7 @@ $vaccine_name = bp_field('vaccine_name', 'Shingles');
     <div class="shingles-about-callout">
       <div class="badge"><?php echo esc_html(bp_field('vaccine_callout_badge', 'GOOD TO KNOW')); ?></div>
       <h3><?php echo esc_html(bp_field('vaccine_callout_title', 'Had Chickenpox? You Carry the Virus')); ?></h3>
-      <p><?php echo esc_html(bp_field('vaccine_callout_text', 'Almost everyone who had chickenpox as a child carries the dormant virus and can develop shingles later in life. Vaccination with Shingrix dramatically reduces that risk and the chance of long-term nerve pain.')); ?></p>
+      <p><?php echo esc_html(bp_field('vaccine_callout_text', 'Almost everyone who had chickenpox as a child carries the dormant virus and can develop shingles later in life. The shingles vaccine dramatically reduces that risk and the chance of long-term nerve pain.')); ?></p>
     </div>
   </div>
 </section>
@@ -286,14 +286,14 @@ $vaccine_name = bp_field('vaccine_name', 'Shingles');
 
     <div class="shingles-pricing-grid">
       <div class="shingles-pricing-card featured">
-        <div class="shingles-pricing-ribbon">Shingrix</div>
-        <h3 class="shingles-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'Shingrix Vaccine')); ?></h3>
+        <div class="shingles-pricing-ribbon">Shingles Vaccine</div>
+        <h3 class="shingles-pricing-name"><?php echo esc_html(bp_field('vaccine_price_name', 'Shingles Vaccine')); ?></h3>
         <div class="shingles-pricing-amount">
           <span class="price"><?php echo esc_html(bp_field('vaccine_price_amount', '£199')); ?></span>
           <span class="per"><?php echo esc_html(bp_field('vaccine_price_unit', 'per dose')); ?></span>
         </div>
         <ul class="shingles-pricing-includes">
-          <li><i class="fas fa-check"></i> Shingrix vaccine</li>
+          <li><i class="fas fa-check"></i> Shingles vaccine</li>
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
           <li><i class="fas fa-check"></i> Suitability check &amp; advice</li>
         </ul>
@@ -318,7 +318,7 @@ $vaccine_name = bp_field('vaccine_name', 'Shingles');
     </div>
 
     <div class="shingles-details-grid">
-      <div class="shingles-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We confirm you're suitable for Shingrix and answer any questions before we start.</p></div>
+      <div class="shingles-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>Quick Check</h3><p>We confirm you're suitable for the shingles vaccine and answer any questions before we start.</p></div>
       <div class="shingles-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>First Dose</h3><p>The injection takes just a moment and is given in the upper arm.</p></div>
       <div class="shingles-detail-card"><div class="icon"><i class="fas fa-calendar-check"></i></div><h3>Two Visits</h3><p>The second dose is given 8 weeks to 6 months after the first to complete the course.</p></div>
       <div class="shingles-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Mild Side Effects</h3><p>A sore arm, tiredness or aches for a day or two are common and pass quickly.</p></div>
@@ -340,11 +340,11 @@ $vaccine_name = bp_field('vaccine_name', 'Shingles');
     </div>
 
     <div class="shingles-faq-list">
-      <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses do I need?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>Shingrix is given as a two-dose course — the second dose is given 8 weeks to 6 months after the first. Protection lasts for several years.</p></div></div>
+      <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How many doses do I need?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>The shingles vaccine is given as a two-dose course. The second dose is given 8 weeks to 6 months after the first. Protection lasts for several years.</p></div></div>
       <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">Who should have the shingles vaccine?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>It's recommended for adults from age 50, and for at-risk adults from 18 (for example, those with a weakened immune system). We can check your suitability at your appointment.</p></div></div>
       <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">I've had shingles before — can I still be vaccinated?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>Yes. You can have shingles more than once, so vaccination is recommended even if you've had it before. We'd usually wait until the episode has fully settled.</p></div></div>
       <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>Side effects are usually mild and short-lived — a sore arm, tiredness, headache or aches for a day or two. Serious reactions are very rare.</p></div></div>
-      <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Is the shingles vaccine the same as the chickenpox one?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>No. They protect against the same family of virus but are different vaccines. Shingrix is specifically designed to prevent shingles and its complications in adults.</p></div></div>
+      <div class="shingles-faq-item"><button class="shingles-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Is the shingles vaccine the same as the chickenpox one?</span><i class="fas fa-plus icon"></i></button><div class="shingles-faq-content"><p>No. They protect against the same family of virus but are different vaccines. The shingles vaccine is specifically designed to prevent shingles and its complications in adults.</p></div></div>
     </div>
   </div>
 </section>

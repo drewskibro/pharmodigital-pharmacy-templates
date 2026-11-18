@@ -39,7 +39,7 @@ $map_center_lng   = isset( $map_center_parts[1] ) ? (float) $map_center_parts[1]
 // Force the pin label above the dot so it clears the bottom info bar.
 $label_anchor = 'up';
 
-$addr_line_1 = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
+$addr_line_1 = dp_option( 'pharmacy_address_line_1', '14 Ashton Road' );
 
 $hours_weekday  = dp_option( 'hours_weekday', '9:00am – 5:30pm' );
 $hours_saturday = dp_option( 'hours_saturday', 'Closed' );
