@@ -26,7 +26,7 @@ get_header();
       </h1>
 
       <p class="team-hero-description">
-        <?php echo esc_html( dp_field( 'team_hero_description', 'We are a dedicated team of experienced clinicians committed to the health of Denton. Combining over 15 years of expertise with a modern, personal approach to care.' ) ); ?>
+        <?php echo esc_html( dp_field( 'team_hero_description', 'We are a dedicated team of experienced clinicians committed to the health of Denton, with a modern, personal approach to care.' ) ); ?>
       </p>
     </div>
   </div>
@@ -46,11 +46,6 @@ get_header();
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="team-stat-item">
-          <div class="team-stat-icon"><i class="fas fa-calendar-check"></i></div>
-          <div class="team-stat-text"><span class="team-stat-number">15+</span><span class="team-stat-label">Years Experience</span></div>
-        </div>
-        <div class="team-stat-divider"></div>
         <div class="team-stat-item">
           <div class="team-stat-icon"><i class="fas fa-shield-halved"></i></div>
           <div class="team-stat-text"><span class="team-stat-number">GPhC</span><span class="team-stat-label">Registered</span></div>
@@ -163,7 +158,7 @@ get_header();
               Verify GPhC Registration
               <i class="fas fa-external-link-alt"></i>
             </a>
-            <p class="team-member-bio">With over 15 years of experience serving the Denton community, Ahmed leads our team with dedication and expertise. As an Independent Prescriber, he specialises in travel health, medical weight loss, and ear wax removal.</p>
+            <p class="team-member-bio">With over 15 years of experience, Ahmed leads our team with dedication and expertise. As an Independent Prescriber, he specialises in travel health, medical weight loss, and ear wax removal.</p>
             <div class="team-member-specialties">
               <span class="team-specialty-tag">Weight Loss</span>
               <span class="team-specialty-tag">Travel Health</span>
@@ -296,7 +291,7 @@ get_header();
         <div class="team-value-card">
           <div class="team-value-icon"><i class="fas fa-handshake"></i></div>
           <h3 class="team-value-title">Building Trust</h3>
-          <p class="team-value-description">Serving Denton for over 15 years, we've built lasting relationships based on honesty and reliability.</p>
+          <p class="team-value-description">We build lasting relationships based on honesty and reliability.</p>
         </div>
         <div class="team-value-card">
           <div class="team-value-icon"><i class="fas fa-lightbulb"></i></div>
@@ -316,7 +311,7 @@ get_header();
   <div class="section-container">
     <div class="team-cta-content">
       <div class="team-cta-badges">
-        <span class="team-cta-badge"><?php echo esc_html( dp_field( 'team_cta_badge_1', '15+ Years Experience' ) ); ?></span>
+        <?php if ( dp_field( 'team_cta_badge_1' ) ) : ?><span class="team-cta-badge"><?php echo esc_html( dp_field( 'team_cta_badge_1' ) ); ?></span><?php endif; ?>
         <span class="team-cta-badge"><?php echo esc_html( dp_field( 'team_cta_badge_2', 'GPhC Registered' ) ); ?></span>
         <span class="team-cta-badge"><?php echo esc_html( dp_field( 'team_cta_badge_3', 'Patient-First Care' ) ); ?></span>
       </div>
@@ -338,7 +333,7 @@ get_header();
       <div class="team-cta-trust-row">
         <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'team_cta_trust_1', 'Expert team' ) ); ?></span></div>
         <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'team_cta_trust_2', 'Same-day appointments' ) ); ?></span></div>
-        <div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'team_cta_trust_3', '15+ years serving Denton' ) ); ?></span></div>
+        <?php if ( dp_field( 'team_cta_trust_3' ) ) : ?><div class="team-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'team_cta_trust_3' ) ); ?></span></div><?php endif; ?>
       </div>
     </div>
   </div>

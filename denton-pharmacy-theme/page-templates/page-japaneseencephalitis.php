@@ -71,7 +71,7 @@ $vaccine_name = dp_field('vaccine_name', 'Japanese Encephalitis');
           <div class="japaneseencephalitis-trust-card-inner">
             <div class="japaneseencephalitis-trust-card-header">
               <div class="japaneseencephalitis-trust-card-icon"><i class="fas fa-syringe"></i></div>
-              <span class="japaneseencephalitis-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'JE Vaccine (Ixiaro)')); ?></span>
+              <span class="japaneseencephalitis-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Japanese encephalitis vaccination')); ?></span>
             </div>
             <div class="japaneseencephalitis-trust-card-price">
               <span class="japaneseencephalitis-trust-card-amount"><?php echo esc_html(dp_field('vaccine_price_amount', '£100')); ?></span>
@@ -126,7 +126,7 @@ $vaccine_name = dp_field('vaccine_name', 'Japanese Encephalitis');
         </div>
 
         <h3 class="japaneseencephalitis-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Worth Considering for Rural &amp; Outdoor Trips')); ?></h3>
-        <p class="japaneseencephalitis-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', "Japanese encephalitis is spread by Culex mosquitoes, mainly in rural and agricultural parts of Asia, and can cause serious brain inflammation. The vaccine (Ixiaro) is given as two doses, 28 days apart, with full protection developing about a week after the second dose. It's most relevant for longer stays, monsoon-season travel, or trips involving outdoor activity, cycling or trekking in affected areas.")); ?></p>
+        <p class="japaneseencephalitis-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', "Japanese encephalitis is spread by Culex mosquitoes, mainly in rural and agricultural parts of Asia, and can cause serious brain inflammation. The vaccine is given as two doses, 28 days apart, with full protection developing about a week after the second dose. It's most relevant for longer stays, monsoon-season travel, or trips involving outdoor activity, cycling or trekking in affected areas.")); ?></p>
 
         <ul class="japaneseencephalitis-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -301,13 +301,13 @@ $vaccine_name = dp_field('vaccine_name', 'Japanese Encephalitis');
         <span class="section-badge-text"><?php echo esc_html(dp_field('vaccine_pricing_badge', 'TRANSPARENT PRICING')); ?></span>
       </div>
       <h2 class="japaneseencephalitis-pricing-title"><?php echo esc_html(dp_field('vaccine_pricing_title', 'Japanese Encephalitis Vaccination Pricing')); ?></h2>
-      <p class="japaneseencephalitis-pricing-desc"><?php echo esc_html(dp_field('vaccine_pricing_desc', 'Priced per dose — we will confirm your full course cost at your first appointment')); ?></p>
+      <p class="japaneseencephalitis-pricing-desc"><?php echo esc_html(dp_field('vaccine_pricing_desc', '£100 per dose, and the usual course is 2 doses. The travel health consultation is free.')); ?></p>
     </div>
 
     <div class="japaneseencephalitis-pricing-grid">
       <div class="japaneseencephalitis-pricing-card featured">
         <div class="japaneseencephalitis-pricing-ribbon">Per Dose</div>
-        <h3 class="japaneseencephalitis-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'JE Vaccine (Ixiaro)')); ?></h3>
+        <h3 class="japaneseencephalitis-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'Japanese encephalitis vaccination')); ?></h3>
         <div class="japaneseencephalitis-pricing-amount">
           <span class="price"><?php echo esc_html(dp_field('vaccine_price_amount', '£100')); ?></span>
           <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'per dose')); ?></span>
@@ -318,11 +318,12 @@ $vaccine_name = dp_field('vaccine_name', 'Japanese Encephalitis');
           <li><i class="fas fa-check"></i> Course scheduling support</li>
           <li><i class="fas fa-check"></i> Can be combined with other travel vaccines</li>
         </ul>
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
+        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book an appointment</a>
       </div>
     </div>
 
     <p class="japaneseencephalitis-pricing-note"><?php echo esc_html(dp_field('vaccine_price_note', 'Price shown is per dose. The full course is 2 doses, 28 days apart — not available on the NHS for travel. If you have less than 5 weeks before you travel, contact us to discuss your options.')); ?></p>
+    <p class="japaneseencephalitis-pricing-note">The pharmacist decides at your consultation whether the vaccine is right for you. If it is not suitable for you, we will not give it.</p>
   </div>
 </section>
 
@@ -357,6 +358,23 @@ $vaccine_name = dp_field('vaccine_name', 'Japanese Encephalitis');
   </div>
 </section>
 
+<!-- Greater Manchester: our three travel clinics -->
+<section class="japaneseencephalitis-details-section">
+  <div class="section-container">
+    <div class="japaneseencephalitis-details-header">
+      <h2 class="japaneseencephalitis-details-title">Japanese encephalitis vaccine across Greater Manchester</h2>
+      <p class="japaneseencephalitis-details-desc">Our travel clinic runs at three pharmacies. Choose the one nearest you:</p>
+    </div>
+
+    <div class="japaneseencephalitis-details-grid">
+        <div class="japaneseencephalitis-detail-card"><div class="icon"><i class="fas fa-location-dot"></i></div><h3><a href="https://dentonpharmacy.co.uk/japanese-encephalitis-vaccination/">Denton Pharmacy</a></h3><p>Ashton Road, Denton M34 3EX: for Tameside and east Manchester.</p></div>
+        <div class="japaneseencephalitis-detail-card"><div class="icon"><i class="fas fa-location-dot"></i></div><h3><a href="https://bowlandpharmacy.co.uk/japanese-encephalitis-vaccination/">Bowland Pharmacy</a></h3><p>52 Bowland Road, Wythenshawe M23 1JX: for Wythenshawe, south Manchester and near Manchester Airport.</p></div>
+        <div class="japaneseencephalitis-detail-card"><div class="icon"><i class="fas fa-location-dot"></i></div><h3><a href="https://wilmslow-pharmacy.co.uk/japanese-encephalitis-vaccination/">Wilmslow Pharmacy</a></h3><p>Summerfields Village Centre, Dean Row Road, Wilmslow SK9 2TA: for Cheshire and south Manchester.</p></div>
+    </div>
+    <p class="japaneseencephalitis-details-desc" style="text-align:center;margin-top:2rem;">The price is the same at all three.</p>
+  </div>
+</section>
+
 <!-- FAQ Section -->
 <section class="japaneseencephalitis-faq-section">
   <div class="section-container">
@@ -380,13 +398,23 @@ $vaccine_name = dp_field('vaccine_name', 'Japanese Encephalitis');
             <p><?php echo esc_html(get_sub_field('answer')); ?></p>
           </div>
         </div>
-      <?php endwhile; else : ?>
+      <?php endwhile; else : $faq_num = 5; ?>
         <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Do I actually need this vaccine for my trip?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>It depends on your itinerary. It's most relevant for longer stays in rural, agricultural parts of Asia, monsoon-season travel, or trips involving outdoor activity — short city breaks carry much lower risk. Our pharmacist can advise based on your plans.</p></div></div>
         <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How soon before travel should I start the course?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>Ideally at least 5 weeks before departure, to complete both doses with the second at least a week before you travel. If your trip is sooner, contact us to discuss your options.</p></div></div>
         <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Can I have this alongside other travel vaccines?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>Yes — it can be given at the same appointment as other travel vaccines, saving you a return visit.</p></div></div>
         <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">How long does protection last?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>The primary course gives protection for at least 1 to 2 years. A booster is available 12 to 24 months later if you need longer-term or repeat protection.</p></div></div>
         <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">Are there any side effects?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>Most people just get some soreness at the injection site, a headache, muscle aches or a slight fever, and these usually pass quickly.</p></div></div>
       <?php endif; ?>
+      <?php
+      // Area and price questions: always shown, after any saved FAQs.
+      $area_faqs = array(
+        array( 'q' => 'Where can I get the Japanese encephalitis vaccine in Manchester?', 'a' => 'Here at Denton Pharmacy, for Tameside and east Manchester. Our travel clinic also runs at Bowland Pharmacy in Wythenshawe, for south Manchester and near Manchester Airport, and at Wilmslow Pharmacy, for Cheshire. You do not need a GP referral.' ),
+        array( 'q' => 'How much is the Japanese encephalitis vaccine?', 'a' => '£100 per dose, and the usual course is 2 doses. The travel health consultation is free. The pharmacist decides at your consultation whether the vaccine is right for you.' ),
+        array( 'q' => 'Is the Japanese encephalitis vaccine free on the NHS?', 'a' => 'Not for travel, so we give it privately.' ),
+      );
+      foreach ( $area_faqs as $area_faq ) : $faq_num++; ?>
+        <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num"><?php echo esc_html( str_pad( $faq_num, 2, '0', STR_PAD_LEFT ) ); ?></span><span class="text"><?php echo esc_html( $area_faq['q'] ); ?></span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p><?php echo esc_html( $area_faq['a'] ); ?></p></div></div>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>

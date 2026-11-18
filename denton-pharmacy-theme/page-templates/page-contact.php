@@ -10,7 +10,7 @@ get_header();
 $phone         = dp_phone();
 $phone_link    = dp_phone_link();
 $email         = dp_option( 'pharmacy_email', 'info@dentonpharmacy.co.uk' );
-$addr_line_1   = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
+$addr_line_1   = dp_option( 'pharmacy_address_line_1', '14 Ashton Road' );
 $addr_line_2   = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
 $addr_line_3   = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
 $directions_url = dp_option( 'pharmacy_directions_url' );
@@ -219,7 +219,7 @@ $parking        = dp_option( 'pharmacy_parking', 'Free customer parking availabl
       <div class="contact-cta-trust-row">
         <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_1', 'No referral needed' ) ); ?></span></div>
         <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_2', 'Expert guidance' ) ); ?></span></div>
-        <div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_3', '15+ years serving ' . dp_option( 'pharmacy_town', 'Denton' ) ) ); ?></span></div>
+        <?php if ( dp_field( 'contact_cta_check_3' ) ) : ?><div class="contact-cta-trust-item"><i class="fas fa-check-circle"></i><span><?php echo esc_html( dp_field( 'contact_cta_check_3' ) ); ?></span></div><?php endif; ?>
       </div>
     </div>
   </div>

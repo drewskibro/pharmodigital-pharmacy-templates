@@ -157,7 +157,138 @@ function bowland_pharmacy_local_business_schema() {
         $schema['sameAs'] = array_values( array_unique( $same_as ) );
     }
 
+    $schema['parentOrganization'] = array( '@id' => 'https://at-health.co.uk/#organization' );
+
     return $schema;
+}
+
+/**
+ * AT Health Ltd, the company that owns the pharmacy. The same @id is used on
+ * Wilmslow Pharmacy and MNC Travel Clinic, so search engines can join the sites.
+ */
+function bowland_pharmacy_owner_schema() {
+    return array(
+        '@type'      => 'Organization',
+        '@id'        => 'https://at-health.co.uk/#organization',
+        'name'       => 'AT Health',
+        'legalName'  => 'AT Health Ltd',
+        'url'        => 'https://at-health.co.uk/',
+        'identifier' => array(
+            '@type'      => 'PropertyValue',
+            'propertyID' => 'Companies House',
+            'name'       => 'Company number, England and Wales',
+            'value'      => '14519140',
+        ),
+        'sameAs'     => array( 'https://find-and-update.company-information.service.gov.uk/company/14519140' ),
+    );
+}
+
+/**
+ * The Superintendent Pharmacist. Uses the @id Yoast already gives Ahmed's author
+ * record, so the post author and the Superintendent are one person.
+ */
+function bowland_pharmacy_superintendent_id() {
+    return trailingslashit( home_url( '/' ) ) . '#/schema/person/aa0b67a63a4129271798304d8397691c';
+}
+
+function bowland_pharmacy_superintendent_schema() {
+    return array(
+        '@type'         => 'Person',
+        '@id'           => bowland_pharmacy_superintendent_id(),
+        'name'          => 'Ahmed Nizar Al-Liabi',
+        'alternateName' => 'Ahmed Al-Liabi',
+        'jobTitle'      => 'Superintendent Pharmacist',
+        'identifier'    => array(
+            '@type'      => 'PropertyValue',
+            'propertyID' => 'GPhC',
+            'name'       => 'GPhC pharmacist registration number',
+            'value'      => '2208502',
+        ),
+        'sameAs'        => array( 'https://www.pharmacyregulation.org/registers/pharmacist/2208502' ),
+        'url'           => home_url( '/team/' ),
+        'worksFor'      => array( '@id' => 'https://at-health.co.uk/#organization' ),
+    );
+}
+
+/**
+ * Other registered pharmacists on /team/. Nobody without a GPhC number on the
+ * page is marked up, so first-name-only staff cards add nothing.
+ */
+function bowland_pharmacy_team_people_schema() {
+    if ( ! is_page( 'team' ) ) {
+        return array();
+    }
+    $people = array();
+    // Meet the Team rows (option field pharmacy_team_members). Only a registered
+    // pharmacist shown with a full name and a GPhC number becomes a Person.
+    $rows = function_exists( 'get_field' ) ? get_field( 'pharmacy_team_members', 'option' ) : array();
+    foreach ( (array) $rows as $row ) {
+        $people[] = array(
+            'name' => isset( $row['team_name'] ) ? $row['team_name'] : '',
+            'role' => isset( $row['team_role'] ) ? $row['team_role'] : '',
+            'gphc' => isset( $row['team_gphc'] ) ? $row['team_gphc'] : '',
+        );
+    }
+    $out      = array();
+    $business = trailingslashit( home_url( '/' ) ) . '#organization';
+    foreach ( $people as $p ) {
+        $gphc = preg_replace( '/[^0-9]/', '', (string) $p['gphc'] );
+        $name = trim( wp_strip_all_tags( (string) $p['name'] ) );
+        if ( '' === $gphc || '2208502' === $gphc || false === strpos( $name, ' ' ) ) {
+            continue; // Ahmed is added separately; first names alone are skipped.
+        }
+        $out[] = array(
+            '@type'      => 'Person',
+            '@id'        => home_url( '/team/' ) . '#' . sanitize_title( $name ),
+            'name'       => $name,
+            'jobTitle'   => trim( wp_strip_all_tags( (string) $p['role'] ) ),
+            'identifier' => array(
+                '@type'      => 'PropertyValue',
+                'propertyID' => 'GPhC',
+                'name'       => 'GPhC pharmacist registration number',
+                'value'      => $gphc,
+            ),
+            'sameAs'     => array( 'https://www.pharmacyregulation.org/registers/pharmacist/' . $gphc ),
+            'worksFor'   => array( '@id' => $business ),
+        );
+    }
+    return $out;
+}
+
+/**
+ * A Service record on each service page. The name is the page's own title, so
+ * it never says more than the page does. No price: prices change, and a stale
+ * price here would be one more place to update.
+ */
+function bowland_pharmacy_service_schema() {
+    if ( ! is_page() ) {
+        return null;
+    }
+    $service_templates = array(
+        'page-blister-packs.php', 'page-blood-testing.php', 'page-chickenpox.php',
+        'page-chikungunya.php', 'page-cholera.php', 'page-contraception.php',
+        'page-corporate.php', 'page-covid-vaccination.php', 'page-dengue.php',
+        'page-dtp.php', 'page-ear-wax-removal.php', 'page-flu-vaccination.php',
+        'page-hair-loss.php', 'page-hepatitis-b-occupational.php', 'page-hepatitisa.php',
+        'page-hepatitisb.php', 'page-hpv.php', 'page-japaneseencephalitis.php',
+        'page-malaria.php', 'page-meningitis-acwy.php', 'page-meningitis-b.php',
+        'page-mmr.php', 'page-nhs-prescriptions.php', 'page-pharmacy-first.php',
+        'page-pneumonia.php', 'page-rabies.php', 'page-shingles.php', 'page-tbe.php',
+        'page-travel-health.php', 'page-typhoid.php', 'page-weight-loss.php',
+        'page-whoopingcough.php', 'page-yellow-fever.php',
+    );
+    if ( ! in_array( basename( (string) get_page_template_slug() ), $service_templates, true ) ) {
+        return null;
+    }
+    $url = get_permalink();
+    return array(
+        '@type'            => 'Service',
+        '@id'              => $url . '#service',
+        'name'             => wp_strip_all_tags( get_the_title() ),
+        'url'              => $url,
+        'provider'         => array( '@id' => trailingslashit( home_url( '/' ) ) . '#organization' ),
+        'mainEntityOfPage' => array( '@id' => $url ),
+    );
 }
 
 /**
@@ -166,6 +297,7 @@ function bowland_pharmacy_local_business_schema() {
 function bowland_pharmacy_filter_yoast_schema_graph( $graph ) {
     $business = bowland_pharmacy_local_business_schema();
     $found    = false;
+    $person_found = false;
 
     foreach ( $graph as $index => $piece ) {
         $piece_id    = isset( $piece['@id'] ) ? $piece['@id'] : '';
@@ -185,6 +317,11 @@ function bowland_pharmacy_filter_yoast_schema_graph( $graph ) {
             $found = true;
         }
 
+        if ( in_array( 'Person', $piece_types, true ) && bowland_pharmacy_superintendent_id() === $piece_id ) {
+            $graph[ $index ] = array_merge( $piece, bowland_pharmacy_superintendent_schema() );
+            $person_found    = true;
+        }
+
         if ( in_array( 'WebSite', $piece_types, true ) ) {
             $graph[ $index ]['publisher'] = array( '@id' => $business['@id'] );
         }
@@ -196,6 +333,21 @@ function bowland_pharmacy_filter_yoast_schema_graph( $graph ) {
 
     if ( ! $found ) {
         $graph[] = $business;
+    }
+
+    $graph[] = bowland_pharmacy_owner_schema();
+
+    if ( ! $person_found && is_page( 'team' ) ) {
+        $graph[] = bowland_pharmacy_superintendent_schema();
+    }
+
+    foreach ( bowland_pharmacy_team_people_schema() as $person ) {
+        $graph[] = $person;
+    }
+
+    $service = bowland_pharmacy_service_schema();
+    if ( $service ) {
+        $graph[] = $service;
     }
 
     return $graph;

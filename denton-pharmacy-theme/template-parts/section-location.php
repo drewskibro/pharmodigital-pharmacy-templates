@@ -56,7 +56,7 @@ $pharmacy_image_alt = $pharmacy_image_id
     : esc_attr( dp_pharmacy_name() ) . ' storefront';
 
 // --- Details: Address ---
-$addr_line_1    = dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' );
+$addr_line_1    = dp_option( 'pharmacy_address_line_1', '14 Ashton Road' );
 $addr_line_2    = dp_option( 'pharmacy_address_line_2', 'Denton, Manchester' );
 $addr_line_3    = dp_option( 'pharmacy_address_line_3', 'M34 3EX' );
 $directions_url = $pharmacy_directions;
@@ -133,7 +133,7 @@ $booking_url = dp_booking_url();
                 </span>
                 <span class="location-pin-label">
                     <span class="location-pin-label-name"><?php echo esc_html( dp_pharmacy_name() ); ?></span>
-                    <span class="location-pin-label-addr"><?php echo esc_html( dp_option( 'pharmacy_address_line_1', '14-16 Ashton Road' ) ); ?></span>
+                    <span class="location-pin-label-addr"><?php echo esc_html( dp_option( 'pharmacy_address_line_1', '14 Ashton Road' ) ); ?></span>
                     <span class="location-pin-label-cta">
                         Get directions
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>

@@ -32,11 +32,11 @@ get_header();
         </h1>
 
         <h2 class="earwax-hero-subtitle">
-          <?php echo esc_html( bp_field( 'ew_hero_subtitle', 'Expert microsuction by Ahmed and our specialist team at Bowland Pharmacy' ) ); ?>
+          <?php echo esc_html( bp_field( 'ew_hero_subtitle', 'Microsuction ear wax removal by our trained team at Bowland Pharmacy' ) ); ?>
         </h2>
 
         <p class="earwax-hero-description">
-          <?php echo esc_html( bp_field( 'ew_hero_description', 'Safe, effective ear wax removal using advanced microsuction technology. Same-day appointments available with expert microsuction care. Just £60 for both ears, consultation included.' ) ); ?>
+          <?php echo esc_html( bp_field( 'ew_hero_description', 'Ear wax removal using microsuction. Same-day appointments available with expert microsuction care. Just £60 for both ears, consultation included.' ) ); ?>
         </p>
 
         <div class="earwax-hero-actions">
@@ -342,8 +342,8 @@ get_header();
               <td>None</td>
             </tr>
             <tr>
-              <td>Safe for Perforated Eardrums</td>
-              <td class="highlight">Yes</td>
+              <td>If You Have a Perforated Eardrum</td>
+              <td class="highlight">Tell us if you have, or may have, a perforated eardrum. We assess your ears at the consultation and will tell you whether microsuction is suitable.</td>
               <td>No</td>
             </tr>
           <?php endif; ?>
@@ -664,7 +664,7 @@ get_header();
           array( 'q' => 'How often should I have my ears checked?', 'a' => 'Most people benefit from an annual check-up, though this varies. We\'ll advise based on your individual situation during your Bowland appointment.' ),
           array( 'q' => 'Can I drive after the treatment?', 'a' => 'Yes, you can drive immediately after treatment. Most people experience instant improvement in hearing.' ),
           array( 'q' => 'Do you treat children?', 'a' => 'Yes, we treat patients of all ages at our Wythenshawe clinic. We\'re experienced in working with children and ensure they feel comfortable throughout.' ),
-          array( 'q' => 'What if I have a perforated eardrum?', 'a' => 'Microsuction is safe for perforated eardrums, unlike water syringing. We\'ll assess your ears during consultation.' ),
+          array( 'q' => 'What if I have a perforated eardrum?', 'a' => 'Tell us if you have, or may have, a perforated eardrum. We assess your ears at the consultation and will tell you whether microsuction is suitable.' ),
           array( 'q' => 'Where are you located in Wythenshawe?', 'a' => 'We\'re based at 52 Bowland Road, Wythenshawe, Manchester, M23 1JX — with parking available nearby.' ),
         );
         foreach ( $faqs as $i => $faq ) :

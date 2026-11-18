@@ -65,15 +65,15 @@ get_header();
       <?php endwhile; else : ?>
         <div class="capeverde-stat-item">
           <div class="capeverde-stat-icon"><i class="fas fa-syringe"></i></div>
-          <div class="capeverde-stat-content"><p class="capeverde-stat-number">4-6</p><p class="capeverde-stat-label">Vaccines Recommended</p></div>
+          <div class="capeverde-stat-content"><p class="capeverde-stat-number">3</p><p class="capeverde-stat-label">Vaccines for most travellers</p></div>
         </div>
         <div class="capeverde-stat-item">
           <div class="capeverde-stat-icon"><i class="fas fa-calendar-alt"></i></div>
-          <div class="capeverde-stat-content"><p class="capeverde-stat-number">6-8</p><p class="capeverde-stat-label">Weeks Before Travel</p></div>
+          <div class="capeverde-stat-content"><p class="capeverde-stat-number">4 to 6</p><p class="capeverde-stat-label">Weeks Before Travel</p></div>
         </div>
         <div class="capeverde-stat-item">
           <div class="capeverde-stat-icon"><i class="fas fa-shield-halved"></i></div>
-          <div class="capeverde-stat-content"><p class="capeverde-stat-number">Full</p><p class="capeverde-stat-label">Protection Available</p></div>
+          <div class="capeverde-stat-content"><p class="capeverde-stat-number">Free</p><p class="capeverde-stat-label">Travel health consultation</p></div>
         </div>
       <?php endif; ?>
     </div>
@@ -107,11 +107,11 @@ get_header();
       <?php endwhile; else : ?>
         <?php
         $vaccines = array(
-          array( 'icon' => 'fas fa-virus', 'name' => 'Hepatitis A', 'badge_color' => 'purple', 'badge' => 'Essential', 'short' => 'Food & water safety', 'desc' => 'Spread through contaminated food and water. Recommended for all travellers.' ),
-          array( 'icon' => 'fas fa-bacteria', 'name' => 'Typhoid', 'badge_color' => 'purple', 'badge' => 'Essential', 'short' => 'Food & water safety', 'desc' => 'Recommended for most travellers, especially if visiting rural areas or staying with locals.' ),
-          array( 'icon' => 'fas fa-syringe', 'name' => 'Tetanus', 'badge_color' => 'purple', 'badge' => 'Essential', 'short' => 'Routine booster', 'desc' => 'Ensure your routine UK schedule is up to date. A booster may be needed.' ),
+          array( 'icon' => 'fas fa-virus', 'name' => 'Hepatitis A', 'badge_color' => 'purple', 'badge' => 'Advised for most travellers', 'short' => 'Food & water safety', 'desc' => 'Spread through contaminated food and water. Recommended for all travellers.' ),
+          array( 'icon' => 'fas fa-bacteria', 'name' => 'Typhoid', 'badge_color' => 'purple', 'badge' => 'Advised for most travellers', 'short' => 'Food & water safety', 'desc' => 'Recommended for most travellers, especially if visiting rural areas or staying with locals.' ),
+          array( 'icon' => 'fas fa-syringe', 'name' => 'Tetanus', 'badge_color' => 'purple', 'badge' => 'Advised for most travellers', 'short' => 'Routine booster', 'desc' => 'Ensure your routine UK schedule is up to date. A booster may be needed.' ),
           array( 'icon' => 'fas fa-notes-medical', 'name' => 'Hepatitis B', 'badge_color' => 'gray', 'badge' => 'Consider', 'short' => 'Blood/fluid contact', 'desc' => 'Consider for longer stays or if you might need medical treatment.' ),
-          array( 'icon' => 'fas fa-dog', 'name' => 'Rabies', 'badge_color' => 'gray', 'badge' => 'Consider', 'short' => 'Animal contact risk', 'desc' => 'Risk from bats and dogs. Consider if working with animals or in remote areas.' ),
+          array( 'icon' => 'fas fa-dog', 'name' => 'Rabies', 'badge_color' => 'gray', 'badge' => 'Consider', 'short' => 'Animal contact risk', 'desc' => 'The rabies risk for most travellers is low. Bats may carry rabies-like viruses, so get medical advice straight away after any animal bite or scratch.' ),
           array( 'icon' => 'fas fa-shield-virus', 'name' => 'Yellow Fever', 'badge_color' => 'gray', 'badge' => 'Certificate', 'short' => 'Entry requirement', 'desc' => 'Certificate required if arriving from a country with risk of Yellow Fever transmission.' ),
         );
         foreach ( $vaccines as $vax ) :
@@ -164,7 +164,7 @@ get_header();
 
         <h2 class="capeverde-malaria-title"><?php echo esc_html( dp_field( 'cv_malaria_title', 'Malaria & Dengue in Cape Verde' ) ); ?></h2>
         <p class="capeverde-malaria-intro">
-          <?php echo esc_html( dp_field( 'cv_malaria_intro', 'Malaria risk is generally low but present on Santiago island. Dengue fever and Zika virus are also risks. Bite avoidance is essential.' ) ); ?>
+          <?php echo esc_html( dp_field( 'cv_malaria_intro', 'There is no risk of malaria in Cape Verde. The WHO declared it malaria-free in 2024. Avoid insect bites, as dengue and Zika occur.' ) ); ?>
         </p>
 
         <div class="capeverde-malaria-info-grid">
@@ -182,15 +182,8 @@ get_header();
             <div class="capeverde-malaria-item">
               <div class="capeverde-malaria-item-icon low-risk"><i class="fas fa-check-circle"></i></div>
               <div class="capeverde-malaria-item-text">
-                <h4>Most Islands</h4>
-                <p>Sal, Boa Vista, and other islands have very low to no malaria risk.</p>
-              </div>
-            </div>
-            <div class="capeverde-malaria-item">
-              <div class="capeverde-malaria-item-icon high-risk"><i class="fas fa-exclamation-triangle"></i></div>
-              <div class="capeverde-malaria-item-text">
-                <h4>Santiago Island</h4>
-                <p>Low risk exists from September to November. Antimalarials may be advised.</p>
+                <h4>All Islands</h4>
+                <p>There is no risk of malaria anywhere in Cape Verde.</p>
               </div>
             </div>
           <?php endif; ?>

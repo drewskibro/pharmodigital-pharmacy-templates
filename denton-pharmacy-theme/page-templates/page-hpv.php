@@ -34,7 +34,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
         </h1>
 
         <p class="hpv-hero-description">
-          <?php echo esc_html(dp_field('vaccine_hero_description', 'Protect against HPV-related cancers with our private vaccination service in Denton, Manchester. Gardasil 9 guards against nine strains of the virus — for girls and boys, women and men aged 9 to 45.')); ?>
+          <?php echo esc_html(dp_field('vaccine_hero_description', 'We offer private HPV vaccination in Denton, Manchester. The HPV vaccine guards against nine strains of the virus, for girls and boys, women and men aged 9 to 45.')); ?>
         </p>
 
         <div class="hpv-hero-actions">
@@ -49,7 +49,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
         </div>
 
         <div class="hpv-hero-trust">
-          <div class="hpv-hero-trust-item"><i class="fas fa-shield-virus"></i><span>Gardasil 9</span></div>
+          <div class="hpv-hero-trust-item"><i class="fas fa-shield-virus"></i><span>HPV Vaccine</span></div>
           <div class="hpv-hero-trust-item"><i class="fas fa-venus-mars"></i><span>Girls &amp; Boys</span></div>
           <div class="hpv-hero-trust-item"><i class="fas fa-user-doctor"></i><span>No GP Referral Needed</span></div>
         </div>
@@ -65,7 +65,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
           <div class="hpv-trust-card-inner">
             <div class="hpv-trust-card-header">
               <div class="hpv-trust-card-icon"><i class="fas fa-shield-virus"></i></div>
-              <span class="hpv-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'Gardasil 9 Vaccine')); ?></span>
+              <span class="hpv-trust-card-label"><?php echo esc_html(dp_field('vaccine_price_name', 'HPV Vaccine')); ?></span>
             </div>
             <div class="hpv-trust-card-price">
               <span class="hpv-trust-card-amount hpv-trust-card-amount--text"><?php echo esc_html(dp_field('vaccine_price_amount', 'Contact us')); ?></span>
@@ -73,7 +73,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
             </div>
             <div class="hpv-trust-card-divider"></div>
             <ul class="hpv-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Gardasil 9 — covers 9 strains</span></li>
+              <li><i class="fas fa-check"></i> <span>HPV vaccine, covers 9 strains</span></li>
               <li><i class="fas fa-check"></i> <span>2–3 doses depending on age</span></li>
               <li><i class="fas fa-check"></i> <span>For ages 9 to 45</span></li>
             </ul>
@@ -98,7 +98,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
         <span class="section-badge-text"><?php echo esc_html(dp_field('vaccine_protect_badge', 'WHY VACCINATE')); ?></span>
       </div>
       <h2 class="hpv-protect-title"><?php echo esc_html(dp_field('vaccine_protect_title', 'The HPV Vaccine')); ?></h2>
-      <p class="hpv-protect-desc"><?php echo esc_html(dp_field('vaccine_protect_desc', 'Cancer protection that works best when given early')); ?></p>
+      <p class="hpv-protect-desc"><?php echo esc_html(dp_field('vaccine_protect_desc', 'Protection that works best when given early')); ?></p>
     </div>
 
     <div class="hpv-protect-grid">
@@ -118,19 +118,10 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
       </div>
 
       <div class="hpv-protect-content">
-        <div class="hpv-protect-badge-box">
-          <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html(dp_field('vaccine_protect_highlight', 'Protects Against HPV-Related Cancers')); ?></span>
-        </div>
-
-        <h3 class="hpv-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Gardasil 9 — Broad Protection')); ?></h3>
-        <p class="hpv-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'HPV is a group of very common viruses. Some strains can cause cervical, genital and throat (oropharyngeal) cancers, as well as genital warts. The Gardasil 9 vaccine protects against nine strains and is most effective when given before any exposure — but it still offers benefits for those already sexually active.')); ?></p>
+        <h3 class="hpv-protect-subtitle"><?php echo esc_html(dp_field('vaccine_protect_subtitle', 'Broad Protection')); ?></h3>
+        <p class="hpv-protect-text"><?php echo esc_html(dp_field('vaccine_protect_text', 'HPV is a group of very common viruses. Some strains can cause cervical, genital and throat (oropharyngeal) cancers, as well as genital warts. The HPV vaccine protects against nine strains and is most effective when given before any exposure, but it still offers benefits for those already sexually active.')); ?></p>
 
         <ul class="hpv-protect-features">
-          <li class="hpv-protect-feature">
-            <div class="icon"><i class="fas fa-shield-virus"></i></div>
-            <div class="text"><strong>Prevents Cancers</strong><p>Helps protect against cervical, genital and throat cancers linked to HPV.</p></div>
-          </li>
           <li class="hpv-protect-feature">
             <div class="icon"><i class="fas fa-venus-mars"></i></div>
             <div class="text"><strong>Girls &amp; Boys</strong><p>Recommended for both — HPV affects everyone, so vaccinating all genders gives the best protection.</p></div>
@@ -154,7 +145,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
 <section class="hpv-stats-section">
   <div class="section-container">
     <div class="hpv-stats-bar">
-      <div class="hpv-stat-item"><div class="icon"><i class="fas fa-shield-virus"></i></div><div class="content"><span class="number">9 Strains</span><span class="label">Gardasil 9</span></div></div>
+      <div class="hpv-stat-item"><div class="icon"><i class="fas fa-shield-virus"></i></div><div class="content"><span class="number">9 Strains</span><span class="label">HPV Vaccine</span></div></div>
       <div class="hpv-stat-divider"></div>
       <div class="hpv-stat-item"><div class="icon"><i class="fas fa-venus-mars"></i></div><div class="content"><span class="number">9–45</span><span class="label">Suitable Ages</span></div></div>
       <div class="hpv-stat-divider"></div>
@@ -191,7 +182,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
 
       <div class="hpv-about-cards-grid">
         <div class="hpv-info-card"><div class="icon"><i class="fas fa-virus"></i></div><h3>Very Common</h3><p>HPV is a group of more than 200 related viruses and the most common sexually transmitted infection worldwide.</p></div>
-        <div class="hpv-info-card"><div class="icon"><i class="fas fa-ribbon"></i></div><h3>Linked to Cancers</h3><p>Certain strains cause cervical, genital and throat cancers — many of which are preventable by vaccination.</p></div>
+        <div class="hpv-info-card"><div class="icon"><i class="fas fa-ribbon"></i></div><h3>Linked to Cancers</h3><p>Certain strains cause cervical, genital and throat cancers.</p></div>
         <div class="hpv-info-card"><div class="icon"><i class="fas fa-venus-mars"></i></div><h3>Affects Everyone</h3><p>HPV affects all genders, which is why both boys and girls are recommended to have the vaccine.</p></div>
         <div class="hpv-info-card"><div class="icon"><i class="fas fa-clock"></i></div><h3>Best Given Early</h3><p>It works best before any exposure, ideally in the early teens, but still benefits people up to age 45.</p></div>
       </div>
@@ -200,7 +191,7 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
     <div class="hpv-about-callout">
       <div class="badge"><?php echo esc_html(dp_field('vaccine_callout_badge', 'GOOD TO KNOW')); ?></div>
       <h3><?php echo esc_html(dp_field('vaccine_callout_title', 'Vaccination Plus Screening')); ?></h3>
-      <p><?php echo esc_html(dp_field('vaccine_callout_text', 'The HPV vaccine works best alongside regular cervical screening for women and safe-sex practices. Together they offer the strongest protection against HPV and the cancers it can cause.')); ?></p>
+      <p><?php echo esc_html(dp_field('vaccine_callout_text', 'The HPV vaccine works best alongside regular cervical screening for women and safe-sex practices.')); ?></p>
     </div>
   </div>
 </section>
@@ -273,14 +264,14 @@ $vaccine_name = dp_field('vaccine_name', 'HPV');
 
     <div class="hpv-pricing-grid">
       <div class="hpv-pricing-card featured">
-        <div class="hpv-pricing-ribbon">Gardasil 9</div>
+        <div class="hpv-pricing-ribbon">HPV Vaccine</div>
         <h3 class="hpv-pricing-name"><?php echo esc_html(dp_field('vaccine_price_name', 'HPV Vaccine')); ?></h3>
         <div class="hpv-pricing-amount">
           <span class="price hpv-pricing-amount--text"><?php echo esc_html(dp_field('vaccine_price_amount', 'Contact us')); ?></span>
           <span class="per"><?php echo esc_html(dp_field('vaccine_price_unit', 'for current pricing')); ?></span>
         </div>
         <ul class="hpv-pricing-includes">
-          <li><i class="fas fa-check"></i> Gardasil 9 (covers 9 strains)</li>
+          <li><i class="fas fa-check"></i> HPV vaccine (covers 9 strains)</li>
           <li><i class="fas fa-check"></i> 2–3 doses depending on age</li>
           <li><i class="fas fa-check"></i> Administration by our pharmacist</li>
           <li><i class="fas fa-check"></i> For girls &amp; boys, ages 9–45</li>
@@ -383,7 +374,7 @@ $acuity_url = dp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
         <span class="badge">No Referral Needed</span>
       </div>
 
-      <h2 class="hpv-cta-title"><?php echo esc_html(dp_field('vaccine_cta_title', 'Protect against HPV-related cancers')); ?></h2>
+      <h2 class="hpv-cta-title"><?php echo esc_html(dp_field('vaccine_cta_title', 'Book your HPV vaccination')); ?></h2>
       <p class="hpv-cta-desc"><?php echo esc_html(dp_field('vaccine_cta_desc', 'Book your HPV vaccination with our friendly team in Denton today. Quick, convenient and professional.')); ?></p>
 
       <div class="hpv-cta-actions">

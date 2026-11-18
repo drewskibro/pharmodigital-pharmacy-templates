@@ -227,7 +227,7 @@ $phone_link       = dp_phone_link();
     <div class="prices-tab-panel" role="tabpanel" id="prices-panel-blood" aria-labelledby="prices-tab-blood" data-panel="blood" hidden>
       <div class="prices-panel-header">
         <h2 class="prices-panel-title">Blood Testing</h2>
-        <p class="prices-panel-subtitle">Our most requested blood test panels — browse 400+ tests on our Blood Testing page.</p>
+        <p class="prices-panel-subtitle">Our most requested blood test panels. Browse over 300 tests on our Blood Testing page.</p>
       </div>
 
       <?php

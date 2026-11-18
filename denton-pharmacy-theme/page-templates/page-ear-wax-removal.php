@@ -582,7 +582,7 @@ get_header();
           array( 'q' => 'Can I drive after the treatment?', 'a' => 'Most people can. If you feel dizzy afterwards, wait until it has passed before you drive.' ),
           array( 'q' => 'Do you treat children?', 'a' => 'No. Ear wax removal at Denton Pharmacy is for adults aged 18 and over. If your child has ear wax problems, please speak to your GP.' ),
           array( 'q' => 'What if I have a perforated eardrum?', 'a' => 'Tell us before your appointment. We look in your ear before removing anything. Microsuction may not be suitable if the eardrum is discharging, and if we see a perforation we will advise you to be referred to an ear, nose and throat (ENT) service. Do not use ear drops if you have a perforated eardrum.' ),
-          array( 'q' => 'Where are you located in Denton?', 'a' => 'We\'re based at 14-16 Ashton Road, Denton, Manchester, M34 3EX, with parking available nearby.' ),
+          array( 'q' => 'Where are you located in Denton?', 'a' => 'We\'re based at 14 Ashton Road, Denton, Manchester, M34 3EX, with parking available nearby.' ),
         );
         foreach ( $faqs as $i => $faq ) :
         ?>

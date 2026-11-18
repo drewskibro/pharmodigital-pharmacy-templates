@@ -41,15 +41,16 @@ $hero_caption_title = dp_field( 'nhs_hero_caption_title', 'Free for Eligible Pat
 
 // Trust indicators
 $trust_1_icon = dp_field( 'nhs_hero_trust_1_icon', 'fas fa-check-circle' );
-$trust_1_text = dp_field( 'nhs_hero_trust_1_text', 'NHS Approved' );
+$trust_1_text = dp_field( 'nhs_hero_trust_1_text', 'Providing NHS services' );
 $trust_2_icon = dp_field( 'nhs_hero_trust_2_icon', 'fas fa-shield-halved' );
 $trust_2_text = dp_field( 'nhs_hero_trust_2_text', 'GPhC Registered' );
 $trust_3_icon = dp_field( 'nhs_hero_trust_3_icon', 'fas fa-star' );
-$trust_3_text = dp_field( 'nhs_hero_trust_3_text', '4.7★ Rated' );
+$trust_3_text = dp_field( 'nhs_hero_trust_3_text' );
+if ( ! $trust_3_text && dp_option( 'google_rating' ) ) { $trust_3_text = dp_option( 'google_rating' ) . '★ Rated'; }
 
 // Rating badge
 $rating_score    = dp_field( 'nhs_hero_rating_score' );
-if ( ! $rating_score ) { $rating_score = dp_option( 'google_rating', '4.9' ); }
+if ( ! $rating_score ) { $rating_score = dp_option( 'google_rating', '' ); }
 $rating_count    = dp_field( 'nhs_hero_rating_count', dp_option( 'google_review_count', '140+' ) );
 $rating_location = dp_field( 'nhs_hero_rating_location' );
 if ( ! $rating_location ) { $rating_location = dp_option( 'pharmacy_location_label', 'Denton, UK' ); }
@@ -118,8 +119,10 @@ for ( $i = 1; $i <= 5; $i++ ) {
           <li class="trust-item"><i class="<?php echo esc_attr( dp_fa_class( $trust_1_icon ) ); ?>"></i><span><?php echo esc_html( $trust_1_text ); ?></span></li>
           <li class="trust-item trust-divider"><span class="dot-separator"></span></li>
           <li class="trust-item"><i class="<?php echo esc_attr( dp_fa_class( $trust_2_icon ) ); ?>"></i><span><?php echo esc_html( $trust_2_text ); ?></span></li>
+          <?php if ( $trust_3_text ) : ?>
           <li class="trust-item trust-divider"><span class="dot-separator"></span></li>
           <li class="trust-item"><i class="<?php echo esc_attr( dp_fa_class( $trust_3_icon ) ); ?>"></i><span><?php echo esc_html( $trust_3_text ); ?></span></li>
+          <?php endif; ?>
         </ul>
       </div>
 
@@ -137,6 +140,7 @@ for ( $i = 1; $i <= 5; $i++ ) {
         </div>
 
         <!-- Rating Badge -->
+        <?php if ( $rating_score ) : ?>
         <div class="rating-badge">
           <div class="rating-header">
             <div class="rating-label">
@@ -159,6 +163,7 @@ for ( $i = 1; $i <= 5; $i++ ) {
             <a href="<?php echo esc_url( dp_option( 'google_review_url', '#' ) ); ?>" class="rating-link" target="_blank" rel="noopener noreferrer">View Reviews</a>
           </div>
         </div>
+        <?php endif; ?>
       </div>
       <?php endif; ?>
 
