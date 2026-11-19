@@ -335,6 +335,7 @@ $vaccine_name = bp_field('vaccine_name', 'Rabies');
           <li><i class="fas fa-check"></i> Full course scheduled for you</li>
           <li><i class="fas fa-check"></i> Best if you have 4+ weeks before you fly</li>
         </ul>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v2s', 'service-price' ) ); ?>" class="cta-button primary-cta">Book standard pre-travel rabies vaccination</a>
       </div>
 
       <!-- Accelerated schedule -->
@@ -355,6 +356,7 @@ $vaccine_name = bp_field('vaccine_name', 'Rabies');
           <li><i class="fas fa-check"></i> First 3 doses within one week</li>
           <li><i class="fas fa-check"></i> Only for adults aged 18 to 65 who cannot fit in the standard course</li>
         </ul>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v2a', 'service-price' ) ); ?>" class="cta-button primary-cta">Book accelerated pre-travel rabies vaccination</a>
       </div>
 
     </div>
