@@ -2689,3 +2689,24 @@
 }
 
 /* Weight loss calculator styles moved to weight-loss-calculator.css */
+
+
+.article-travel-booking {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  margin: 0 auto 1.5rem;
+}
+.article-travel-booking > p, .article-vaccine-options { flex-basis: 100%; }
+.article-travel-booking .cta-button { max-width: 100%; white-space: normal; }
+.article-vaccine-options summary { cursor: pointer; text-decoration: underline; }
+.article-vaccine-options ul {
+  display: inline-block;
+  text-align: left;
+  margin: .75rem 0 0;
+  padding-inline-start: 1.4rem;
+}
+.article-vaccine-options a, .article-travel-booking > p a { color: inherit; text-decoration: underline; }
+.article-vaccine-options li { padding: .25rem 0; }

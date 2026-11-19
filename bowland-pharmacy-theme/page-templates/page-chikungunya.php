@@ -42,15 +42,13 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
           <?php echo esc_html(bp_field('vaccine_hero_description', "Heading somewhere mosquitoes carry more than an itchy bite? Our Wythenshawe pharmacy offers the chikungunya vaccine as a single injection. If you are travelling to Africa, Asia, the Indian Ocean islands, or Central and South America, this may be worth considering. Our pharmacist will check it fits your trip.")); ?>
         </p>
 
-        <div class="chikungunya-hero-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">
-            <?php echo esc_html(bp_field('vaccine_cta_text', 'Book Chikungunya Vaccination')); ?>
-            <i class="fas fa-arrow-right"></i>
-          </a>
+        <div class="chikungunya-hero-actions travel-appointment-actions">
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v4', 'service-hero' ) ); ?>" class="cta-button primary-cta">Book chikungunya vaccination <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta">
             <i class="fas fa-phone"></i>
             <?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?>
           </a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 't1', 'service-hero' ) ); ?>" class="cta-button secondary-cta">Discuss my itinerary with a pharmacist</a>
         </div>
 
         <div class="chikungunya-hero-trust">
@@ -153,7 +151,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
         </ul>
 
         <div class="chikungunya-protect-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Appointment</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v4', 'service-body' ) ); ?>" class="cta-button primary-cta">Book Appointment</a>
           <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta">Call 0161 998 7114</a>
         </div>
       </div>
@@ -262,7 +260,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Longer trips or repeat visits</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Time spent outdoors or rurally</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v4', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -281,7 +279,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Existing joint or other health conditions</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Longer postings in affected regions</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v4', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -315,7 +313,7 @@ $vaccine_name = bp_field('vaccine_name', 'Chikungunya');
           <li><i class="fas fa-check"></i> Advice tailored to your trip</li>
           <li><i class="fas fa-check"></i> Suitable for most adults</li>
         </ul>
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v4', 'service-price' ) ); ?>" class="cta-button primary-cta">Book chikungunya vaccination</a>
       </div>
     </div>
 
@@ -447,7 +445,7 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
       <p class="chikungunya-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book your chikungunya vaccine consultation with our Wythenshawe team.")); ?></p>
 
       <div class="chikungunya-cta-actions">
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Vaccination</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v4', 'service-footer' ) ); ?>" class="cta-button primary-cta white-btn">Book chikungunya vaccination</a>
         <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?></a>
       </div>
     </div>

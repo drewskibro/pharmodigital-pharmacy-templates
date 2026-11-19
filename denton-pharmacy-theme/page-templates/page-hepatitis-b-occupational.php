@@ -36,15 +36,13 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
           <?php echo esc_html(dp_field('vaccine_hero_description', 'Hepatitis B protection for people at risk through their work, here in Denton, Manchester. A full vaccination course, with antibody testing available and a record of each dose for your employer. No GP referral required.')); ?>
         </p>
 
-        <div class="hepb-occ-hero-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">
-            <?php echo esc_html(dp_field('vaccine_cta_text', 'Book Hepatitis B Vaccination')); ?>
-            <i class="fas fa-arrow-right"></i>
-          </a>
+        <div class="hepb-occ-hero-actions travel-appointment-actions">
+          <a href="<?php echo esc_url( at_travel_booking_url( 'c2', 'service-hero' ) ); ?>" class="cta-button primary-cta">Book occupational hepatitis B vaccination</a>
           <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta">
             <i class="fas fa-phone"></i>
             <?php echo esc_html(dp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?>
           </a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'c3', 'service-hero' ) ); ?>" class="cta-button secondary-cta">Book a hepatitis B immunity blood test</a>
         </div>
 
         <div class="hepb-occ-hero-trust">
@@ -141,7 +139,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
         </ul>
 
         <div class="hepb-occ-protect-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Appointment</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'c2', 'service-body' ) ); ?>" class="cta-button primary-cta">Book occupational hepatitis B vaccination</a>
           <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta">Call 0161 336 2548</a>
         </div>
       </div>
@@ -230,7 +228,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Paramedics &amp; emergency responders</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Lab, mortuary &amp; custodial staff</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'c2', 'service-body' ) ); ?>" class="nhs-card-btn">Book occupational hepatitis B vaccination</a>
         </div>
       </div>
 
@@ -248,7 +246,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Drug &amp; alcohol service staff</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Group &amp; on-site sessions available</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'c2', 'service-body' ) ); ?>" class="nhs-card-btn">Book occupational hepatitis B vaccination</a>
         </div>
       </div>
 
@@ -282,7 +280,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
           <li><i class="fas fa-check"></i> Antibody testing available</li>
           <li><i class="fas fa-check"></i> Records for occupational health</li>
         </ul>
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'c2', 'service-price' ) ); ?>" class="cta-button primary-cta">Book occupational hepatitis B vaccination</a>
       </div>
 
       <div class="hepb-occ-pricing-card">
@@ -298,7 +296,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis B (Occupational)');
           <li><i class="fas fa-check"></i> Antibody testing available</li>
           <li><i class="fas fa-check"></i> Administered by our pharmacist</li>
         </ul>
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button secondary-cta">Book Now</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v5c', 'service-price' ) ); ?>" class="cta-button secondary-cta">Book child hepatitis B vaccination</a>
       </div>
     </div>
 
@@ -400,7 +398,7 @@ $acuity_url = dp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
       <p class="hepb-occ-cta-desc"><?php echo esc_html(dp_field('vaccine_cta_desc', 'Book your occupational hepatitis B vaccination with our team in Denton today. Quick, professional, and fully documented.')); ?></p>
 
       <div class="hepb-occ-cta-actions">
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Vaccination</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'c2', 'service-footer' ) ); ?>" class="cta-button primary-cta white-btn">Book occupational hepatitis B vaccination</a>
         <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(dp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?></a>
       </div>
     </div>

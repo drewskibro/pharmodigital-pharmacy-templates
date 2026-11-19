@@ -42,15 +42,13 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
           <?php echo esc_html(bp_field('vaccine_hero_description', "Rice paddies, rural guesthouses, monsoon-season trips — if that's your itinerary in Asia, it's worth talking to us. Our Wythenshawe pharmacy runs the two-dose Japanese encephalitis course.")); ?>
         </p>
 
-        <div class="japaneseencephalitis-hero-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">
-            <?php echo esc_html(bp_field('vaccine_cta_text', 'Book Japanese Encephalitis Vaccination')); ?>
-            <i class="fas fa-arrow-right"></i>
-          </a>
+        <div class="japaneseencephalitis-hero-actions travel-appointment-actions">
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v3', 'service-hero' ) ); ?>" class="cta-button primary-cta">Book Japanese encephalitis vaccination <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta">
             <i class="fas fa-phone"></i>
             <?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?>
           </a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 't1', 'service-hero' ) ); ?>" class="cta-button secondary-cta">Discuss my itinerary with a pharmacist</a>
         </div>
 
         <div class="japaneseencephalitis-hero-trust">
@@ -154,7 +152,7 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
         </ul>
 
         <div class="japaneseencephalitis-protect-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Appointment</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v3', 'service-body' ) ); ?>" class="cta-button primary-cta">Book Appointment</a>
           <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta">Call 0161 998 7114</a>
         </div>
       </div>
@@ -265,7 +263,7 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travelling in monsoon season (May–October)</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Basic accommodation, no screens or air-con</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v3', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -284,7 +282,7 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Outdoor work assignments</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Repeat visits to the same regions</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v3', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -318,7 +316,7 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
           <li><i class="fas fa-check"></i> Full course scheduled for you</li>
           <li><i class="fas fa-check"></i> Can be paired with other travel vaccines</li>
         </ul>
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book an appointment</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v3', 'service-price' ) ); ?>" class="cta-button primary-cta">Book Japanese encephalitis vaccination</a>
       </div>
     </div>
 
@@ -476,7 +474,7 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
       <p class="japaneseencephalitis-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book your Japanese encephalitis vaccine with our Wythenshawe team, in good time before you fly.")); ?></p>
 
       <div class="japaneseencephalitis-cta-actions">
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Vaccination</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v3', 'service-footer' ) ); ?>" class="cta-button primary-cta white-btn">Book Japanese encephalitis vaccination</a>
         <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?></a>
       </div>
     </div>

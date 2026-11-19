@@ -98,6 +98,8 @@ $last_modified = get_the_modified_date( 'M j, Y' );
           <p class="article-hero-excerpt"><?php echo esc_html( get_the_excerpt() ); ?></p>
         <?php endif; ?>
 
+        <?php at_travel_article_booking(); ?>
+
         <div class="article-hero-author-row">
           <div class="article-hero-author">
             <div class="article-hero-author-text">

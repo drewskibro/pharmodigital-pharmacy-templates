@@ -6100,3 +6100,8 @@ a.footer-cert-link:hover {
 #travel-health-calendar {
   scroll-margin-top: 24px;
 }
+
+
+/* Several travel services offer a second appointment or an itinerary consultation. */
+.travel-appointment-actions { flex-wrap: wrap; }
+.travel-appointment-actions .cta-button { max-width: 100%; white-space: normal; text-align: center; }

@@ -42,15 +42,15 @@ $vaccine_name = bp_field('vaccine_name', 'Rabies');
           <?php echo esc_html(bp_field('vaccine_hero_description', "Rabies is almost always fatal once symptoms show. Pre-exposure vaccination buys you time and simpler treatment if you're ever bitten. Most people have the standard three-dose course. If you are an adult aged 18 to 65 and there is not enough time for it before you fly (usually less than 3 weeks), an accelerated course gives the first 3 doses within one week.")); ?>
         </p>
 
-        <div class="rabies-hero-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">
-            <?php echo esc_html(bp_field('vaccine_cta_text', 'Book Rabies Vaccination')); ?>
-            <i class="fas fa-arrow-right"></i>
-          </a>
+        <p class="rabies-hero-description">These are pre-travel appointments. If you may have been exposed to rabies, get urgent medical advice where you are.</p>
+
+        <div class="rabies-hero-actions travel-appointment-actions">
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v2', 'service-hero' ) ); ?>" class="cta-button primary-cta">See pre-travel rabies appointments <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta">
             <i class="fas fa-phone"></i>
             <?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?>
           </a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 't1', 'service-hero' ) ); ?>" class="cta-button secondary-cta">Discuss my itinerary with a pharmacist</a>
         </div>
 
         <div class="rabies-hero-trust">
@@ -165,7 +165,7 @@ $vaccine_name = bp_field('vaccine_name', 'Rabies');
         </ul>
 
         <div class="rabies-protect-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Appointment</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v2', 'service-body' ) ); ?>" class="cta-button primary-cta">Book Appointment</a>
           <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta">Call 0161 998 7114</a>
         </div>
       </div>
@@ -276,7 +276,7 @@ $vaccine_name = bp_field('vaccine_name', 'Rabies');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Trekking or adventure travel</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Families travelling with children</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v2', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -295,7 +295,7 @@ $vaccine_name = bp_field('vaccine_name', 'Rabies');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Bat handlers &amp; fieldwork staff</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Extended or repeat travel abroad</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v2', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -360,7 +360,7 @@ $vaccine_name = bp_field('vaccine_name', 'Rabies');
     </div>
 
     <div style="display:flex;justify-content:center;margin-top:2rem;">
-      <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book an appointment</a>
+      <a href="<?php echo esc_url( at_travel_booking_url( 'v2', 'service-price' ) ); ?>" class="cta-button primary-cta">See pre-travel rabies appointments</a>
     </div>
 
     <p class="rabies-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "Prices are per dose. Both courses are 3 doses. The accelerated course also needs a 4th dose at one year if you keep travelling to high-risk areas. This isn't an NHS travel service. Our pharmacist will confirm which schedule suits you at your first visit.")); ?></p>
@@ -469,7 +469,7 @@ $vaccine_name = bp_field('vaccine_name', 'Rabies');
      To change service/location, edit the appointmentType / calendarID in the
      default URL below, or override per-page via the ACF field 'vaccine_acuity_url'. -->
 <?php
-$acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/schedule.php?owner=29286426&appointmentType=47536474&calendarID=8436365&ref=embedded_csp' );
+$acuity_url = at_travel_calendar_url( 'v2' );
 ?>
 <section class="rabies-booking-section" id="booking-widget">
   <div class="rabies-booking-blob-1"></div>
@@ -517,7 +517,7 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
       <p class="rabies-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book with our Wythenshawe team — the course takes a few weeks, so don't leave it too late.")); ?></p>
 
       <div class="rabies-cta-actions">
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Vaccination</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v2', 'service-footer' ) ); ?>" class="cta-button primary-cta white-btn">See pre-travel rabies appointments</a>
         <a href="tel:<?php echo esc_attr(bp_field('vaccine_phone', '01619987114')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(bp_field('vaccine_phone_display', 'Call 0161 998 7114')); ?></a>
       </div>
     </div>
