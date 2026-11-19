@@ -41,7 +41,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <?php echo esc_html( bp_field( 'yf_hero_description', 'We are a designated Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Bowland Pharmacy.' ) ); ?>
       </p>
 
-      <div class="yellowfever-hero-actions">
+      <div class="yellowfever-hero-actions travel-appointment-actions">
         <a href="<?php echo esc_url( $yellow_fever_booking_label ? bp_yellow_fever_booking_url( 'service-hero' ) : ( bp_field( 'yf_hero_cta_url', '' ) ?: bp_booking_url() ) ); ?>" class="cta-button yellowfever-btn-primary">
           <?php echo esc_html( $yellow_fever_booking_label ?? bp_field( 'yf_hero_cta_text', 'Book Yellow Fever Vaccination' ) ); ?>
         </a>
@@ -135,8 +135,9 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
           <?php endif; ?>
         </div>
 
-        <div class="yellowfever-cert-actions">
+        <div class="yellowfever-cert-actions travel-appointment-actions">
           <a href="<?php echo esc_url( $yellow_fever_booking_label ? bp_yellow_fever_booking_url( 'service-certificate' ) : ( bp_field( 'yf_cert_cta_url', '' ) ?: bp_booking_url() ) ); ?>" class="cta-button primary-cta"><?php echo esc_html( $yellow_fever_booking_label ?? bp_field( 'yf_cert_cta_text', 'Book Yellow Fever Vaccination' ) ); ?></a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'c1', 'service-body' ) ); ?>" class="cta-button secondary-cta">Replacement or exemption certificate</a>
           <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button secondary-cta">Call <?php echo esc_html( bp_phone() ); ?></a>
         </div>
 
@@ -409,7 +410,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <?php echo esc_html( bp_field( 'yf_risk_footer_text', "Unsure about your destination? We'll check the latest requirements for you." ) ); ?>
       </div>
       <div class="actions">
-        <a href="<?php echo esc_url( bp_field( 'yf_risk_cta_url', '' ) ?: bp_booking_url() ); ?>" class="cta-button yellow-btn"><?php echo esc_html( bp_field( 'yf_risk_cta_text', 'Book Consultation' ) ); ?></a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 't1', 'service-body' ) ); ?>" class="cta-button yellow-btn"><?php echo esc_html( bp_field( 'yf_risk_cta_text', 'Book Consultation' ) ); ?></a>
         <a href="tel:<?php echo esc_attr( bp_phone_link() ); ?>" class="cta-button outline-btn">Call <?php echo esc_html( bp_phone() ); ?></a>
       </div>
     </div>

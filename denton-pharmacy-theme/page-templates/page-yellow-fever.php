@@ -39,9 +39,9 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <?php echo esc_html( dp_field( 'yf_hero_description', 'We are a designated Yellow Fever Vaccination Centre. Get your vaccination and International Certificate of Vaccination (ICVP) at Denton Pharmacy.' ) ); ?>
       </p>
 
-      <div class="yellowfever-hero-actions">
-        <a href="<?php echo esc_url( dp_field( 'yf_hero_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button yellowfever-btn-primary">
-          <?php echo esc_html( dp_field( 'yf_hero_cta_text', 'Book Yellow Fever Vaccination' ) ); ?>
+      <div class="yellowfever-hero-actions travel-appointment-actions">
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v1', 'service-hero' ) ); ?>" class="cta-button yellowfever-btn-primary">
+          <?php echo esc_html( 'Book yellow fever vaccination · £69' ); ?>
         </a>
         <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button yellowfever-btn-secondary">
           Call <?php echo esc_html( dp_phone() ); ?>
@@ -133,8 +133,9 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
           <?php endif; ?>
         </div>
 
-        <div class="yellowfever-cert-actions">
-          <a href="<?php echo esc_url( dp_field( 'yf_cert_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta"><?php echo esc_html( dp_field( 'yf_cert_cta_text', 'Book Yellow Fever Vaccination' ) ); ?></a>
+        <div class="yellowfever-cert-actions travel-appointment-actions">
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v1', 'service-body' ) ); ?>" class="cta-button primary-cta"><?php echo esc_html( dp_field( 'yf_cert_cta_text', 'Book Yellow Fever Vaccination' ) ); ?></a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'c1', 'service-body' ) ); ?>" class="cta-button secondary-cta">Replacement or exemption certificate</a>
           <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button secondary-cta">Call <?php echo esc_html( dp_phone() ); ?></a>
         </div>
 
@@ -407,7 +408,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
         <?php echo esc_html( dp_field( 'yf_risk_footer_text', "Unsure about your destination? We'll check the latest requirements for you." ) ); ?>
       </div>
       <div class="actions">
-        <a href="<?php echo esc_url( dp_field( 'yf_risk_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button yellow-btn"><?php echo esc_html( dp_field( 'yf_risk_cta_text', 'Book Consultation' ) ); ?></a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 't1', 'service-body' ) ); ?>" class="cta-button yellow-btn"><?php echo esc_html( dp_field( 'yf_risk_cta_text', 'Book Consultation' ) ); ?></a>
         <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button outline-btn">Call <?php echo esc_html( dp_phone() ); ?></a>
       </div>
     </div>
@@ -529,7 +530,7 @@ $hero_image_url = $hero_image_id ? wp_get_attachment_image_url( $hero_image_id, 
       <p class="yellowfever-cta-desc"><?php echo esc_html( dp_field( 'yf_cta_desc', 'Book your yellow fever vaccination at our designated centre in Denton. We issue your certificate on the day. It becomes valid 10 days after your vaccination.' ) ); ?></p>
 
       <div class="yellowfever-cta-actions">
-        <a href="<?php echo esc_url( dp_field( 'yf_cta_url', '' ) ?: dp_booking_url() ); ?>" class="cta-button primary-cta white-btn"><?php echo esc_html( dp_field( 'yf_cta_button_text', 'Book Vaccination' ) ); ?></a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v1', 'service-footer' ) ); ?>" class="cta-button primary-cta white-btn"><?php echo esc_html( dp_field( 'yf_cta_button_text', 'Book Vaccination' ) ); ?></a>
         <a href="tel:<?php echo esc_attr( dp_phone_link() ); ?>" class="cta-button secondary-cta outline-btn">Call <?php echo esc_html( dp_phone() ); ?></a>
       </div>
 

@@ -4,6 +4,10 @@
  * @package Denton_Pharmacy
  */
 
+$travel_route = at_travel_selected_route( $_GET['via'] ?? '' );
+$acuity_url = at_travel_calendar_url( $travel_route );
+$acuity_title = $travel_route ? at_travel_appointments()[ $travel_route ][0] . ' at Denton Pharmacy' : 'Schedule Appointment';
+
 get_header();
 ?>
 
@@ -101,8 +105,8 @@ get_header();
     <div class="book-amelia-container">
       <div class="booking-calendar-wrapper">
         <iframe
-          src="https://app.acuityscheduling.com/schedule.php?owner=29286426&calendarID=10903457&ref=embedded_csp"
-          title="Schedule Appointment"
+          src="<?php echo esc_url( $acuity_url ); ?>"
+          title="<?php echo esc_attr( $acuity_title ); ?>"
           width="100%"
           frameborder="0">
         </iframe>

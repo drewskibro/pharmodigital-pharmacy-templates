@@ -42,11 +42,10 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis A');
           <?php echo esc_html(dp_field('vaccine_hero_description', "Protect your liver health before travelling with our hepatitis A vaccination service in Denton, Manchester. A two-dose course giving up to 25 years of protection, for both adults and children.")); ?>
         </p>
 
-        <div class="hepatitisa-hero-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">
-            <?php echo esc_html(dp_field('vaccine_cta_text', 'Book Hepatitis A Vaccination')); ?>
-            <i class="fas fa-arrow-right"></i>
-          </a>
+        <p class="hepatitisa-hero-description">Flying soon? Call <a href="tel:01613362548">0161 336 2548</a> to discuss the earliest suitable appointment.</p>
+
+        <div class="hepatitisa-hero-actions travel-appointment-actions">
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v7', 'service-hero' ) ); ?>" class="cta-button primary-cta">See adult and child hepatitis A appointments <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta">
             <i class="fas fa-phone"></i>
             <?php echo esc_html(dp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?>
@@ -154,7 +153,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis A');
         </ul>
 
         <div class="hepatitisa-protect-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Appointment</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v7', 'service-body' ) ); ?>" class="cta-button primary-cta">Book Appointment</a>
           <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta">Call 0161 336 2548</a>
         </div>
       </div>
@@ -265,7 +264,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis A');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Africa, Central or South America</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Families with children</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v7', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -284,7 +283,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis A');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Basic or rural accommodation</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Repeat travel to affected regions</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v7', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -318,7 +317,7 @@ $vaccine_name = dp_field('vaccine_name', 'Hepatitis A');
           <li><i class="fas fa-check"></i> Travel risk assessment &amp; advice</li>
           <li><i class="fas fa-check"></i> Booster reminder for your second dose</li>
         </ul>
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v7', 'service-price' ) ); ?>" class="cta-button primary-cta">See adult and child hepatitis A appointments</a>
       </div>
     </div>
 
@@ -456,7 +455,7 @@ $acuity_url_child = dp_field( 'vaccine_acuity_url_child', 'https://app.acuitysch
       <p class="hepatitisa-cta-desc"><?php echo esc_html(dp_field('vaccine_cta_desc', 'Book your hepatitis A vaccination with our friendly team in Denton today. Quick, convenient and professional.')); ?></p>
 
       <div class="hepatitisa-cta-actions">
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Vaccination</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v7', 'service-footer' ) ); ?>" class="cta-button primary-cta white-btn">See adult and child hepatitis A appointments</a>
         <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(dp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?></a>
       </div>
     </div>

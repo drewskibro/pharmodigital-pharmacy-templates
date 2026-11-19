@@ -104,6 +104,8 @@ $last_modified = get_the_modified_date( 'M j, Y' );
           </div>
         <?php endif; ?>
 
+        <?php at_travel_article_booking(); ?>
+
         <div class="article-hero-author-row">
           <div class="article-hero-author">
             <div class="article-hero-author-text">

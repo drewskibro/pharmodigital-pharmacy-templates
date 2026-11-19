@@ -10,6 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+const AT_TRAVEL_CALENDAR_ID = 10903457;
+const AT_TRAVEL_ARTICLE_ROUTES = array(
+    'the-ultimate-pre-travel-health-checklist' => 't1',
+    'how-to-read-a-travel-vaccination-price-list-before-you-book' => 't1',
+    'travel-vaccination-records-denton' => 't1',
+    'cape-verde-injections-malaria-tablets' => 't1',
+);
+require_once __DIR__ . '/inc/travel-booking.php';
+
 define( 'DENTON_PHARMACY_VERSION', filemtime( get_theme_file_path( 'assets/css/globals.css' ) ) );
 define( 'DENTON_PHARMACY_DIR', get_template_directory() );
 define( 'DENTON_PHARMACY_URI', get_template_directory_uri() );

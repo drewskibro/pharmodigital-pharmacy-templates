@@ -10,6 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+const AT_TRAVEL_CALENDAR_ID = 8436365;
+const AT_TRAVEL_ARTICLE_ROUTES = array(
+    'the-ultimate-pre-travel-health-checklist' => 't1',
+    'how-long-does-yellow-fever-vaccine-last' => 'v1',
+    'polio-booster-before-travel' => 'v8',
+    'travel-health-consultation-wythenshawe' => 't1',
+);
+require_once __DIR__ . '/inc/travel-booking.php';
+
 define( 'BOWLAND_PHARMACY_VERSION', filemtime( get_theme_file_path( 'assets/css/globals.css' ) ) );
 define( 'BOWLAND_PHARMACY_DIR', get_template_directory() );
 define( 'BOWLAND_PHARMACY_URI', get_template_directory_uri() );

@@ -42,15 +42,13 @@ $vaccine_name = dp_field('vaccine_name', 'Typhoid');
           <?php echo esc_html(dp_field('vaccine_hero_description', "Protect yourself before travelling with our typhoid vaccination service in Denton, Manchester. Choose between a single injection or oral capsules — both give around 3 years' protection for travel to South Asia, Southeast Asia, Africa and beyond.")); ?>
         </p>
 
-        <div class="typhoid-hero-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">
-            <?php echo esc_html(dp_field('vaccine_cta_text', 'Book Typhoid Vaccination')); ?>
-            <i class="fas fa-arrow-right"></i>
-          </a>
+        <div class="typhoid-hero-actions travel-appointment-actions">
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v6', 'service-hero' ) ); ?>" class="cta-button primary-cta">See typhoid injection and capsule appointments <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta">
             <i class="fas fa-phone"></i>
             <?php echo esc_html(dp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?>
           </a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 't1', 'service-hero' ) ); ?>" class="cta-button secondary-cta">Discuss my itinerary with a pharmacist</a>
         </div>
 
         <div class="typhoid-hero-trust">
@@ -154,7 +152,7 @@ $vaccine_name = dp_field('vaccine_name', 'Typhoid');
         </ul>
 
         <div class="typhoid-protect-actions">
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Appointment</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v6', 'service-body' ) ); ?>" class="cta-button primary-cta">Book Appointment</a>
           <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta">Call 0161 336 2548</a>
         </div>
       </div>
@@ -265,7 +263,7 @@ $vaccine_name = dp_field('vaccine_name', 'Typhoid');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>No need to remember a capsule schedule</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Can combine with other travel jabs</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v6', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -284,7 +282,7 @@ $vaccine_name = dp_field('vaccine_name', 'Typhoid');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Three capsules on alternate days</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Complete at least a week before travel</span></li>
           </ul>
-          <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v6', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
         </div>
       </div>
 
@@ -318,7 +316,7 @@ $vaccine_name = dp_field('vaccine_name', 'Typhoid');
           <li><i class="fas fa-check"></i> Travel risk assessment &amp; advice</li>
           <li><i class="fas fa-check"></i> Can combine with other travel vaccines</li>
         </ul>
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta">Book Now</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v6', 'service-price' ) ); ?>" class="cta-button primary-cta">See typhoid injection and capsule appointments</a>
       </div>
     </div>
 
@@ -485,7 +483,7 @@ $acuity_url_capsules  = dp_field( 'vaccine_acuity_url_capsules', 'https://app.ac
       <p class="typhoid-cta-desc"><?php echo esc_html(dp_field('vaccine_cta_desc', 'Book your typhoid vaccination with our friendly team in Denton today. Quick, convenient and professional.')); ?></p>
 
       <div class="typhoid-cta-actions">
-        <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="cta-button primary-cta white-btn">Book Vaccination</a>
+        <a href="<?php echo esc_url( at_travel_booking_url( 'v6', 'service-footer' ) ); ?>" class="cta-button primary-cta white-btn">See typhoid injection and capsule appointments</a>
         <a href="tel:<?php echo esc_attr(dp_field('vaccine_phone', '01613362548')); ?>" class="cta-button secondary-cta outline-btn"><?php echo esc_html(dp_field('vaccine_phone_display', 'Call 0161 336 2548')); ?></a>
       </div>
     </div>
