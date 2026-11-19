@@ -1,0 +1,20 @@
+name: Test travel booking choices
+on:
+  pull_request:
+    paths:
+      - '**/inc/travel-booking.php'
+      - '**/page-templates/page-rabies.php'
+      - '**/page-templates/page-typhoid.php'
+      - 'tests/test-travel-booking.php'
+      - '.github/workflows/test-travel-booking.yml'
+permissions:
+  contents: read
+jobs:
+  booking-choices:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check both branch calendars and their labelled links
+        run: |
+          php tests/test-travel-booking.php bowland
+          php tests/test-travel-booking.php denton

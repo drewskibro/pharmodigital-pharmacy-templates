@@ -263,7 +263,7 @@ $vaccine_name = bp_field('vaccine_name', 'Typhoid');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>No need to remember a capsule schedule</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Can combine with other travel jabs</span></li>
           </ul>
-          <a href="<?php echo esc_url( at_travel_booking_url( 'v6', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v6i', 'service-body' ) ); ?>" class="nhs-card-btn">Book the typhoid injection</a>
         </div>
       </div>
 
@@ -282,7 +282,7 @@ $vaccine_name = bp_field('vaccine_name', 'Typhoid');
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Three capsules on alternate days</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Complete at least a week before travel</span></li>
           </ul>
-          <a href="<?php echo esc_url( at_travel_booking_url( 'v6', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
+          <a href="<?php echo esc_url( at_travel_booking_url( 'v6c', 'service-body' ) ); ?>" class="nhs-card-btn">Book typhoid capsules</a>
         </div>
       </div>
 

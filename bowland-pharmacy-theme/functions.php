@@ -1029,7 +1029,7 @@ function bowland_pharmacy_add_consultation_closer( $content ) {
     $closer .= '      <p class="article-closer-title">Ready to take the next step?</p>';
     $closer .= '      <p class="article-closer-description">Book your consultation with ' . esc_html( $pharmacy_name ) . ' in ' . esc_html( $pharmacy_town ) . '. Same-day and next-day appointments usually available.</p>';
     $closer .= '      <div class="article-closer-buttons">';
-    $closer .= '        <a href="' . esc_url( $booking_url ) . '" class="cta-button primary-cta article-closer-book">';
+    $closer .= '        <a href="' . esc_url( at_travel_article_route() ? at_travel_booking_url( 't1', 'article-body' ) : $booking_url ) . '" class="cta-button primary-cta article-closer-book">';
     $closer .= '          Book a Consultation';
     $closer .= '          <i class="fas fa-arrow-right"></i>';
     $closer .= '        </a>';
