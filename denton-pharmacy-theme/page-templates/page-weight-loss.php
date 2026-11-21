@@ -615,11 +615,11 @@ $wl_hero_section_class = 'wl-hero-section' . ( $wl_hero_mobile_bg_url ? ' wl-her
         <span class="section-badge-text">BOOK ONLINE</span>
       </div>
       <h2 class="wl-booking-title">Book Your Weight Loss Consultation</h2>
-      <p class="wl-booking-subtitle">New patient? Choose the 30-minute first consultation. Already with us? Book a 15-minute follow-up review. Both are in store and confirm instantly.</p>
+      <p class="wl-booking-subtitle">Book a 30-minute weight-loss consultation in store. When you book, tell us if you are new to us or already a patient. If you are already with us, we can also book your next review while you are in store.</p>
     </div>
     <div class="booking-calendar-wrapper">
       <iframe
-        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;appointmentType[]=86724977&amp;appointmentType[]=98009511&amp;ref=embedded_csp"
+        src="https://app.acuityscheduling.com/schedule.php?owner=29286426&amp;calendarID=10903457&amp;appointmentType[]=86724977&amp;ref=embedded_csp"
         title="Schedule Appointment"
         allow="payment"></iframe>
     </div>
