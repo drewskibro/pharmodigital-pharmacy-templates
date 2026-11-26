@@ -353,15 +353,7 @@ get_header();
 
     <div class="earwax-comparison-note">
       <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-      <p>
-        <strong>Before your appointment</strong><br>
-        <?php echo esc_html( bp_field(
-            'ew_compare_note',
-            'Olive oil drops can help soften earwax before your appointment. ' .
-            'If you have or think you may have a hole in your eardrum (a perforated eardrum), do not use ear drops, including olive oil drops, unless a doctor recommends them. ' .
-            'If you’re unsure how to prepare, call us on 0161 998 7114.'
-        ) ); ?>
-      </p>
+      <p><?php echo esc_html( bp_field( 'ew_compare_note', 'Before your appointment: you can use olive oil drops in the affected ear for 3 to 5 days to help soften the wax. Do not use ear drops if you have, or think you may have, a hole in your eardrum (perforated eardrum) or an ear infection; contact Bowland Pharmacy for advice instead.' ) ); ?></p>
     </div>
   </div>
 </section>

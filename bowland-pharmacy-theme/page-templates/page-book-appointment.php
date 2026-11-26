@@ -268,7 +268,7 @@ get_header();
         <div class="book-service-card">
           <div class="book-service-header-row"><div class="book-service-icon-small"><i class="fas fa-notes-medical"></i></div></div>
           <h3 class="book-service-title">Private Services</h3>
-          <p class="book-service-desc">Chickenpox, shingles, Hepatitis B, B12 injections, and general health consultations.</p>
+          <p class="book-service-desc">Chickenpox, shingles, Hepatitis B, B12 injections, and general health consultations. Read about <a href="/whooping-cough-vaccination/" style="text-decoration: underline;">whooping cough vaccination</a>.</p>
           <button onclick="scrollToBooking()" class="cta-button secondary-cta book-service-btn-small">Book Service</button>
         </div>
       <?php endif; ?>
