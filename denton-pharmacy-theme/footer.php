@@ -31,7 +31,7 @@ $hours_weekend = dp_option( 'hours_sunday', dp_option( 'hours_saturday', 'Closed
 // Social links.
 $facebook_url  = dp_option( 'social_facebook', 'https://facebook.com' );
 $instagram_url = dp_option( 'social_instagram', 'https://instagram.com' );
-$twitter_url   = dp_option( 'social_twitter', 'https://twitter.com' );
+$twitter_url   = dp_option( 'social_twitter' );
 $linkedin_url  = dp_option( 'social_linkedin', '' );
 
 // Registration.

@@ -39,7 +39,7 @@ $vaccine_name = bp_field('vaccine_name', 'Whooping Cough');
         </h1>
 
         <p class="whoopingcough-hero-description">
-          <?php echo esc_html(bp_field('vaccine_hero_description', "One injection can pass real protection on to your baby before they're born. Our Wythenshawe pharmacy offers the whooping cough vaccine, especially recommended during pregnancy and for anyone close to young babies.")); ?>
+          <?php echo esc_html(bp_field('vaccine_hero_description', "We offer private whooping cough vaccination at our pharmacy in Wythenshawe. Speak to a pharmacist if you are unsure whether it is suitable for you.")); ?>
         </p>
 
         <div class="whoopingcough-hero-actions">
@@ -104,7 +104,7 @@ $vaccine_name = bp_field('vaccine_name', 'Whooping Cough');
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_protect_badge', 'WHY VACCINATE')); ?></span>
       </div>
       <h2 class="whoopingcough-protect-title"><?php echo esc_html(bp_field('vaccine_protect_title', 'About the Whooping Cough Vaccine')); ?></h2>
-      <p class="whoopingcough-protect-desc"><?php echo esc_html(bp_field('vaccine_protect_desc', 'One injection matters most in pregnancy and around newborns')); ?></p>
+      <p class="whoopingcough-protect-desc"><?php echo esc_html(bp_field('vaccine_protect_desc', 'Recommended in every pregnancy, free on the NHS')); ?></p>
     </div>
 
     <div class="whoopingcough-protect-grid">
@@ -126,7 +126,7 @@ $vaccine_name = bp_field('vaccine_name', 'Whooping Cough');
         </div>
 
         <h3 class="whoopingcough-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Small Effort, Real Payoff for Your Baby')); ?></h3>
-        <p class="whoopingcough-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Whooping cough spreads easily and brings on violent coughing fits that can drag on for 10 to 12 weeks or more. One injection covers you, though protection fades — adults are advised to top up roughly every 10 years. It's safe in every pregnancy, ideally between 16 and 32 weeks, and passes protective antibodies to your baby ahead of their own jab at 8 weeks old.")); ?></p>
+        <p class="whoopingcough-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Whooping cough spreads easily and brings on violent coughing fits that can drag on for 10 to 12 weeks or more. Protection from vaccination can fade over time. If you are pregnant, the NHS offers a free whooping cough vaccine in every pregnancy, usually around 20 weeks (from 16 weeks, and best before 32 weeks), through your midwife or GP surgery. It passes protective antibodies to your baby before their own first vaccine at 8 weeks old.")); ?></p>
 
         <ul class="whoopingcough-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -148,7 +148,7 @@ $vaccine_name = bp_field('vaccine_name', 'Whooping Cough');
             </li>
             <li class="whoopingcough-protect-feature">
               <div class="icon"><i class="fas fa-baby"></i></div>
-              <div class="text"><strong>Good for Anyone Near Newborns</strong><p>Carers, grandparents and anyone spending regular time with young babies should consider it too.</p></div>
+              <div class="text"><strong>Advice for families</strong><p>It is not routinely recommended in the UK, but if you regularly care for a newborn, ask a pharmacist whether a private dose is right for you.</p></div>
             </li>
           <?php endif; ?>
         </ul>
@@ -180,7 +180,7 @@ $vaccine_name = bp_field('vaccine_name', 'Whooping Cough');
         <div class="whoopingcough-stat-divider"></div>
         <div class="whoopingcough-stat-item"><div class="icon"><i class="fas fa-person-pregnant"></i></div><div class="content"><span class="number">16–32 Wks</span><span class="label">Ideal Pregnancy Window</span></div></div>
         <div class="whoopingcough-stat-divider"></div>
-        <div class="whoopingcough-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">10 Years</span><span class="label">Booster Interval</span></div></div>
+        <div class="whoopingcough-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">Ask us</span><span class="label">Vaccine advice</span></div></div>
         <div class="whoopingcough-stat-divider"></div>
         <div class="whoopingcough-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">Appointments</span></div></div>
       <?php endif; ?>
@@ -245,7 +245,7 @@ $vaccine_name = bp_field('vaccine_name', 'Whooping Cough');
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_needs_badge', 'WHO IS IT FOR')); ?></span>
       </div>
       <h2 class="whoopingcough-needs-title"><?php echo esc_html(bp_field('vaccine_needs_title', 'Two Groups Where This Matters')); ?></h2>
-      <p class="whoopingcough-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Pregnancy and close contact with young babies both raise the stakes')); ?></p>
+      <p class="whoopingcough-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Ask a pharmacist whether this vaccine is suitable for you.')); ?></p>
     </div>
 
     <div class="whoopingcough-needs-grid">
@@ -276,13 +276,13 @@ $vaccine_name = bp_field('vaccine_name', 'Whooping Cough');
           <div class="nhs-card-icon">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           </div>
-          <span class="nhs-card-badge">Especially Useful</span>
-          <h3 class="nhs-card-title">Carers &amp; Family of Newborns</h3>
-          <p class="nhs-card-desc">If you're often around young babies, or it's been a decade since your last dose, this is for you.</p>
+          <span class="nhs-card-badge">Speak to a pharmacist</span>
+          <h3 class="nhs-card-title">Advice for other adults</h3>
+          <p class="nhs-card-desc">Our pharmacist can help you decide whether the vaccine is suitable for you.</p>
           <ul class="nhs-card-list">
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Grandparents &amp; family caregivers</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Healthcare &amp; childcare workers</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Overdue a 10-year booster</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Your previous vaccinations</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Contact with young babies</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Advice from your employer or a clinician</span></li>
           </ul>
           <a href="#booking-widget" onclick="scrollToBooking(); return false;" class="nhs-card-btn">Book Now</a>
         </div>
@@ -350,7 +350,7 @@ $vaccine_name = bp_field('vaccine_name', 'Whooping Cough');
         <div class="whoopingcough-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>One Injection</h3><p>In the upper arm — quick, and most people barely notice it.</p></div>
         <div class="whoopingcough-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side Effects Are Usually Mild</h3><p>A sore arm, maybe a slight fever or tiredness for a day or two.</p></div>
         <div class="whoopingcough-detail-card"><div class="icon"><i class="fas fa-person-pregnant"></i></div><h3>Safe in Pregnancy</h3><p>Recommended in every pregnancy, ideally between 16 and 32 weeks.</p></div>
-        <div class="whoopingcough-detail-card"><div class="icon"><i class="fas fa-repeat"></i></div><h3>Top Up Every 10 Years</h3><p>Protection fades over time, so adults are advised to have a booster roughly a decade on.</p></div>
+        <div class="whoopingcough-detail-card"><div class="icon"><i class="fas fa-repeat"></i></div><h3>Questions about boosters</h3><p>Ask your pharmacist whether you need another dose.</p></div>
         <div class="whoopingcough-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>NHS or Private</h3><p>Free on the NHS for pregnant women and the childhood schedule; otherwise book with us privately.</p></div>
       <?php endif; ?>
     </div>
@@ -383,7 +383,7 @@ $vaccine_name = bp_field('vaccine_name', 'Whooping Cough');
       <?php endwhile; else : ?>
         <div class="whoopingcough-faq-item"><button class="whoopingcough-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Why does pregnancy make this a priority?</span><i class="fas fa-plus icon"></i></button><div class="whoopingcough-faq-content"><p>Whooping cough hits young babies hardest, and they're not vaccinated themselves until 8 weeks old. Having the jab while pregnant passes protective antibodies across, covering those first vulnerable weeks.</p></div></div>
         <div class="whoopingcough-faq-item"><button class="whoopingcough-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">I've had it before — do I need it again this pregnancy?</span><i class="fas fa-plus icon"></i></button><div class="whoopingcough-faq-content"><p>Yes — it's safe and recommended every time, not just your first pregnancy, so each baby gets their own dose of passed-on antibodies.</p></div></div>
-        <div class="whoopingcough-faq-item"><button class="whoopingcough-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">How do I know if I'm due a booster?</span><i class="fas fa-plus icon"></i></button><div class="whoopingcough-faq-content"><p>If it's been over 10 years since your last dose, it's worth topping up — more so if you're regularly around young babies.</p></div></div>
+        <div class="whoopingcough-faq-item"><button class="whoopingcough-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">How do I know if I'm due a booster?</span><i class="fas fa-plus icon"></i></button><div class="whoopingcough-faq-content"><p>In the UK, a whooping cough vaccine is recommended in every pregnancy, free on the NHS. Most other adults do not need routine boosters, but some healthcare workers are offered one through work. Ask a pharmacist if you are unsure.</p></div></div>
         <div class="whoopingcough-faq-item"><button class="whoopingcough-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Can I get this free through the NHS?</span><i class="fas fa-plus icon"></i></button><div class="whoopingcough-faq-content"><p>Yes, for pregnant women and as part of the routine childhood schedule — ask your GP or midwife about that route. We offer it privately here too, if that's not an option or you'd rather not wait.</p></div></div>
         <div class="whoopingcough-faq-item"><button class="whoopingcough-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What side effects should I watch for?</span><i class="fas fa-plus icon"></i></button><div class="whoopingcough-faq-content"><p>Usually just soreness, redness or swelling at the injection site, sometimes a mild fever, tiredness or headache for a day or two. Serious reactions are very rare.</p></div></div>
       <?php endif; ?>

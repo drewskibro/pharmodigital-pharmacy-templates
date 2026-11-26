@@ -212,8 +212,14 @@ foreach ( $team as $index => $member ) {
                     </div>
                     <?php if ( ! empty( $member['gphc'] ) || ! empty( $member['tags'] ) ) : ?>
                         <div class="team-card-meta">
-                            <?php if ( ! empty( $member['gphc'] ) ) : ?>
-                                <a href="https://www.pharmacyregulation.org/registers/pharmacist" target="_blank" rel="noopener noreferrer" class="team-card-gphc">
+                            <?php if ( ! empty( $member['gphc'] ) ) :
+                                $gphc_number = trim( $member['gphc'] );
+                                $register_url = 'https://www.pharmacyregulation.org/registers/pharmacist';
+                                if ( 7 === strlen( $gphc_number ) && ctype_digit( $gphc_number ) ) {
+                                    $register_url .= '/' . $gphc_number;
+                                }
+                            ?>
+                                <a href="<?php echo esc_url( $register_url ); ?>" target="_blank" rel="noopener noreferrer" class="team-card-gphc">
                                     <i class="fas fa-shield-halved" aria-hidden="true"></i>
                                     GPhC: <?php echo esc_html( $member['gphc'] ); ?>
                                 </a>

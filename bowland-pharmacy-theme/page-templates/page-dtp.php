@@ -78,7 +78,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
             <div class="dtp-trust-card-divider"></div>
             <ul class="dtp-trust-card-list">
               <li><i class="fas fa-check"></i> <span>Diphtheria, tetanus and polio in one jab</span></li>
-              <li><i class="fas fa-check"></i> <span>Booster if your last dose was over 10 years ago</span></li>
+              <li><i class="fas fa-check"></i> <span>Pharmacist checks if you need a booster</span></li>
               <li><i class="fas fa-check"></i> <span>Same-day appointments</span></li>
             </ul>
             <div class="dtp-trust-card-footer">
@@ -229,7 +229,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
     <div class="dtp-about-callout">
       <div class="badge"><?php echo esc_html(bp_field('vaccine_callout_badge', 'GOOD TO KNOW')); ?></div>
       <h3><?php echo esc_html(bp_field('vaccine_callout_title', "Is your last dose more than 10 years ago?")); ?></h3>
-      <p><?php echo esc_html(bp_field('vaccine_callout_text', "For travel, a booster may be recommended if your last dose was more than 10 years ago and medical help may be hard to reach, or polio or diphtheria is a risk, where you are going. The pharmacist will check your history and destination with you.")); ?></p>
+      <p><?php echo esc_html(bp_field('vaccine_callout_text', "A travel booster may be advised if your last relevant dose was more than 10 years ago and your trip calls for extra protection. Our pharmacist will check your vaccination history and the latest advice for your route.")); ?></p>
     </div>
   </div>
 </section>
@@ -380,7 +380,7 @@ $vaccine_name = bp_field('vaccine_name', 'DTP');
       <?php endwhile; else : ?>
         <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">How do I know if I'm due one?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>For travel, a booster may be recommended if your last dose was more than 10 years ago and you are going somewhere medical help may be hard to reach, or where TravelHealthPro advises polio or diphtheria protection. For most adults the last dose was at school. Talk it through with our pharmacist if you are unsure.</p></div></div>
         <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">How far ahead of travel should I book?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Get travel health advice 4 to 6 weeks before you travel if you can, as some other travel vaccines need more than one dose. If your trip is sooner, it is still worth booking.</p></div></div>
-        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Can I get it with my other travel jabs?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Yes. It can be given at the same appointment as other vaccines, such as hepatitis A or typhoid, so you do not need to come back twice.</p></div></div>
+        <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Can I get it with my other travel jabs?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>It can often be given at the same visit as other travel vaccines. Our pharmacist will check what is appropriate for you and advise on any follow-up.</p></div></div>
         <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Where does this matter most?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Anywhere it may be difficult to get medical help quickly, such as remote or rural areas, and countries where TravelHealthPro advises polio or diphtheria protection. We also check whether your destination asks for proof of polio vaccination.</p></div></div>
         <div class="dtp-faq-item"><button class="dtp-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What side effects should I watch for?</span><i class="fas fa-plus icon"></i></button><div class="dtp-faq-content"><p>Most side effects are mild and short-lived: pain or swelling where the injection was given, a high temperature, a headache, dizziness or feeling sick. A severe allergic reaction is very rare, and our pharmacist is trained to deal with it. Read the leaflet or ask the pharmacist.</p></div></div>
       <?php endif; ?>

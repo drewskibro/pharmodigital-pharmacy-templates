@@ -114,7 +114,8 @@ get_header();
             if ( $gphc_url ) : ?>
               <a href="<?php echo esc_url( $gphc_url ); ?>" target="_blank" rel="noopener" class="team-gphc-verify-link">
                 <i class="fas fa-shield-halved"></i>
-                Verify GPhC Registration
+                <?php echo untrailingslashit( $gphc_url ) === 'https://www.pharmacyregulation.org/registers'
+                    ? 'Search the GPhC register' : 'Verify GPhC Registration'; ?>
                 <i class="fas fa-external-link-alt"></i>
               </a>
             <?php endif; ?>
@@ -184,7 +185,7 @@ get_header();
             </div>
             <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
               <i class="fas fa-shield-halved"></i>
-              Verify GPhC Registration
+              Search the GPhC register
               <i class="fas fa-external-link-alt"></i>
             </a>
             <p class="team-member-bio">Elisha is a dedicated trainee pharmacy technician developing her clinical skills within our Denton team. Her enthusiasm and commitment to patient care make her a valued member of our growing pharmacy family.</p>
@@ -213,7 +214,7 @@ get_header();
             </div>
             <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
               <i class="fas fa-shield-halved"></i>
-              Verify GPhC Registration
+              Search the GPhC register
               <i class="fas fa-external-link-alt"></i>
             </a>
             <p class="team-member-bio">Paula brings warmth and dedication to her role as a trainee pharmacy technician. She is actively building her expertise across our pharmacy services and is committed to delivering outstanding care to every patient.</p>
@@ -242,7 +243,7 @@ get_header();
             </div>
             <a href="https://www.pharmacyregulation.org/registers" target="_blank" rel="noopener" class="team-gphc-verify-link">
               <i class="fas fa-shield-halved"></i>
-              Verify GPhC Registration
+              Search the GPhC register
               <i class="fas fa-external-link-alt"></i>
             </a>
             <p class="team-member-bio">Joanne is a valued member of the Denton Pharmacy team, providing friendly and efficient support to patients and staff alike. Her warm approach ensures every patient feels welcome and well looked after.</p>

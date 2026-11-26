@@ -53,7 +53,7 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
 
         <div class="japaneseencephalitis-hero-trust">
           <div class="japaneseencephalitis-hero-trust-item"><i class="fas fa-syringe"></i><span>2-Dose Course</span></div>
-          <div class="japaneseencephalitis-hero-trust-item"><i class="fas fa-tree"></i><span>For Rural &amp; Outdoor Travel</span></div>
+          <div class="japaneseencephalitis-hero-trust-item"><i class="fas fa-tree"></i><span>Advice for your itinerary</span></div>
           <div class="japaneseencephalitis-hero-trust-item"><i class="fas fa-user-doctor"></i><span>No GP Referral Needed</span></div>
         </div>
       </div>
@@ -77,8 +77,8 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
             </div>
             <div class="japaneseencephalitis-trust-card-divider"></div>
             <ul class="japaneseencephalitis-trust-card-list">
-              <li><i class="fas fa-check"></i> <span>Two doses, 28 days apart</span></li>
-              <li><i class="fas fa-check"></i> <span>Full protection 1 week after dose 2</span></li>
+              <li><i class="fas fa-check"></i> <span>Standard course: two doses</span></li>
+              <li><i class="fas fa-check"></i> <span>Plan vaccination before travel</span></li>
               <li><i class="fas fa-check"></i> <span>Same-day first dose available</span></li>
             </ul>
             <div class="japaneseencephalitis-trust-card-footer">
@@ -120,11 +120,11 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
       <div class="japaneseencephalitis-protect-content">
         <div class="japaneseencephalitis-protect-badge-box">
           <i class="fas fa-shield-virus"></i>
-          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'Full Protection From 1 Week After Dose 2')); ?></span>
+          <span><?php echo esc_html(bp_field('vaccine_protect_highlight', 'Plan vaccination before travel')); ?></span>
         </div>
 
-        <h3 class="japaneseencephalitis-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Not Every Traveller Needs It — Some Really Do')); ?></h3>
-        <p class="japaneseencephalitis-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Culex mosquitoes carry Japanese encephalitis around rural and farming areas of Asia, and severe cases can cause serious brain inflammation. The vaccine is given as two doses, 28 days apart, reaching full effect roughly a week after the second. It earns its keep on longer stays, monsoon-season trips, or itineraries with real time outdoors, cycling or trekking through affected areas.")); ?></p>
+        <h3 class="japaneseencephalitis-protect-subtitle"><?php echo esc_html(bp_field('vaccine_protect_subtitle', 'Who should ask about vaccination?')); ?></h3>
+        <p class="japaneseencephalitis-protect-text"><?php echo esc_html(bp_field('vaccine_protect_text', "Culex mosquitoes carry Japanese encephalitis around rural and farming areas of Asia, and severe cases can cause serious brain inflammation. The standard primary course is two doses 28 days apart. A shorter schedule may be suitable after assessment. Aim to finish both doses at least one week before possible exposure.")); ?></p>
 
         <ul class="japaneseencephalitis-protect-features">
           <?php if (have_rows('vaccine_protect_features')) : while (have_rows('vaccine_protect_features')) : the_row(); ?>
@@ -138,15 +138,15 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
           <?php endwhile; else : ?>
             <li class="japaneseencephalitis-protect-feature">
               <div class="icon"><i class="fas fa-syringe"></i></div>
-              <div class="text"><strong>Two Doses, a Month Apart</strong><p>The course covers you for around 1 to 2 years, with a booster available if you need it longer term.</p></div>
+              <div class="text"><strong>The standard course</strong><p>The standard primary course is two doses 28 days apart. A shorter schedule may be suitable after assessment.</p></div>
             </li>
             <li class="japaneseencephalitis-protect-feature">
               <div class="icon"><i class="fas fa-clock"></i></div>
-              <div class="text"><strong>Give It 5 Weeks</strong><p>You'll need room for both doses, plus a week's gap before you fly after the second.</p></div>
+              <div class="text"><strong>Plan before you travel</strong><p>Aim to finish both doses at least one week before possible exposure.</p></div>
             </li>
             <li class="japaneseencephalitis-protect-feature">
               <div class="icon"><i class="fas fa-tree"></i></div>
-              <div class="text"><strong>Made for Rural Travel</strong><p>Matters most if you're spending a month or longer rurally, or travelling during monsoon season.</p></div>
+              <div class="text"><strong>Assessment for your trip</strong><p>Our pharmacist can assess your destination, length of stay, season and planned activities.</p></div>
             </li>
           <?php endif; ?>
         </ul>
@@ -174,11 +174,11 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
           </div>
         </div>
       <?php endwhile; else : ?>
-        <div class="japaneseencephalitis-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">2 Doses</span><span class="label">28 Days Apart</span></div></div>
+        <div class="japaneseencephalitis-stat-item"><div class="icon"><i class="fas fa-syringe"></i></div><div class="content"><span class="number">2 Doses</span><span class="label">Standard course</span></div></div>
         <div class="japaneseencephalitis-stat-divider"></div>
-        <div class="japaneseencephalitis-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">1–2 Years</span><span class="label">Protection</span></div></div>
+        <div class="japaneseencephalitis-stat-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div class="content"><span class="number">Travel</span><span class="label">Risk assessment</span></div></div>
         <div class="japaneseencephalitis-stat-divider"></div>
-        <div class="japaneseencephalitis-stat-item"><div class="icon"><i class="fas fa-clock"></i></div><div class="content"><span class="number">5 Weeks</span><span class="label">Before Travel</span></div></div>
+        <div class="japaneseencephalitis-stat-item"><div class="icon"><i class="fas fa-clock"></i></div><div class="content"><span class="number">Plan ahead</span><span class="label">Course timing</span></div></div>
         <div class="japaneseencephalitis-stat-divider"></div>
         <div class="japaneseencephalitis-stat-item"><div class="icon"><i class="fas fa-calendar-check"></i></div><div class="content"><span class="number">Same Day</span><span class="label">First Dose</span></div></div>
       <?php endif; ?>
@@ -243,7 +243,7 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
         <span class="section-badge-text"><?php echo esc_html(bp_field('vaccine_needs_badge', 'WHO IS IT FOR')); ?></span>
       </div>
       <h2 class="japaneseencephalitis-needs-title"><?php echo esc_html(bp_field('vaccine_needs_title', 'Does Your Trip Fit the Profile?')); ?></h2>
-      <p class="japaneseencephalitis-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Longer stays, rural areas and outdoor activity in Asia raise the stakes')); ?></p>
+      <p class="japaneseencephalitis-needs-desc"><?php echo esc_html(bp_field('vaccine_needs_desc', 'Our pharmacist can assess your destination, length of stay, season and planned activities.')); ?></p>
     </div>
 
     <div class="japaneseencephalitis-needs-grid">
@@ -255,12 +255,12 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
           <div class="nhs-card-icon">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
-          <span class="nhs-card-badge">Recommended For</span>
+          <span class="nhs-card-badge">Ask our pharmacist</span>
           <h3 class="nhs-card-title">A Month or More, Rurally</h3>
-          <p class="nhs-card-desc">If you're settling into rural, farming areas of Asia for a while, this is worth having.</p>
+          <p class="nhs-card-desc">Japanese encephalitis vaccination may be advised for some travellers. Our pharmacist can assess your destination, length of stay, season and planned activities.</p>
           <ul class="nhs-card-list">
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>1 month or more rurally</span></li>
-            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travelling in monsoon season (May–October)</span></li>
+            <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Travel during your destination’s transmission season</span></li>
             <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Basic accommodation, no screens or air-con</span></li>
           </ul>
           <a href="<?php echo esc_url( at_travel_booking_url( 'v3', 'service-body' ) ); ?>" class="nhs-card-btn">Book Now</a>
@@ -320,7 +320,7 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
       </div>
     </div>
 
-    <p class="japaneseencephalitis-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "Price is per dose. Full course is 2 doses, 28 days apart — not an NHS travel service. Less than 5 weeks until you fly? Contact us to talk through your options.")); ?></p>
+    <p class="japaneseencephalitis-pricing-note"><?php echo esc_html(bp_field('vaccine_price_note', "Price is per dose. This is a private travel vaccination. Ask our pharmacist about course timing if you are travelling soon.")); ?></p>
     <p class="japaneseencephalitis-pricing-note">The pharmacist decides at your consultation whether the vaccine is right for you. If it is not suitable for you, we will not give it.</p>
   </div>
 </section>
@@ -347,7 +347,7 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
       <?php endwhile; else : ?>
         <div class="japaneseencephalitis-detail-card"><div class="icon"><i class="fas fa-clipboard-check"></i></div><h3>We Talk Through Your Trip</h3><p>Itinerary, timing, how rural you're going — we confirm whether this vaccine fits.</p></div>
         <div class="japaneseencephalitis-detail-card"><div class="icon"><i class="fas fa-syringe"></i></div><h3>Dose One, Same Day</h3><p>Given in the upper arm at your first appointment.</p></div>
-        <div class="japaneseencephalitis-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Dose Two, 28 Days Later</h3><p>We book it in to complete the course on schedule.</p></div>
+        <div class="japaneseencephalitis-detail-card"><div class="icon"><i class="fas fa-calendar-days"></i></div><h3>Second dose</h3><p>Our pharmacist will advise when to have your second dose.</p></div>
         <div class="japaneseencephalitis-detail-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Side Effects Are Usually Mild</h3><p>Soreness at the injection site, a headache, muscle aches or a slight fever.</p></div>
         <div class="japaneseencephalitis-detail-card"><div class="icon"><i class="fas fa-spray-can-sparkles"></i></div><h3>Bite Avoidance Still Counts</h3><p>We'll go over repellent and other precautions too — no vaccine covers you 100%.</p></div>
         <div class="japaneseencephalitis-detail-card"><div class="icon"><i class="fas fa-sterling-sign"></i></div><h3>Private, No Referral</h3><p>Travel JE vaccination sits outside the NHS, so just book with us directly.</p></div>
@@ -397,10 +397,10 @@ $vaccine_name = bp_field('vaccine_name', 'Japanese Encephalitis');
           </div>
         </div>
       <?php endwhile; else : $faq_num = 5; ?>
-        <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is this actually necessary for my trip?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>Depends what you're doing. Longer stays in rural, farming parts of Asia, monsoon-season travel, or an outdoorsy itinerary all push the risk up — a quick city break, much less so. Tell our pharmacist your plans and they'll give you a straight answer.</p></div></div>
-        <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">When should I start the course?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>At least 5 weeks before you fly is ideal — that covers both doses plus a week's buffer after the second. Tighter on time? Get in touch and we'll figure out what's possible.</p></div></div>
-        <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Can this go alongside other travel jabs?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>Yes — we can usually fit it into the same appointment as other travel vaccines, so you're not making extra trips.</p></div></div>
-        <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">How long am I covered for?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>At least 1 to 2 years from the primary course. If you need longer-term or repeat cover, a booster is available 12 to 24 months on.</p></div></div>
+        <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">01</span><span class="text">Is this actually necessary for my trip?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>Japanese encephalitis vaccination may be advised for some travellers. Our pharmacist can assess your destination, length of stay, season and planned activities.</p></div></div>
+        <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">02</span><span class="text">When should I start the course?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>Ask for travel health advice 4 to 6 weeks before you leave if you can. If you travel sooner, contact us as soon as you can so we can check the options for your trip.</p></div></div>
+        <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">03</span><span class="text">Can this go alongside other travel jabs?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>It can often be given at the same visit as other travel vaccines. Our pharmacist will check what is appropriate and advise on any follow-up.</p></div></div>
+        <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">04</span><span class="text">Will I need a booster?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>Whether and when you need a booster depends on your age, previous doses and risk of further exposure. Ask our pharmacist to review your vaccination history before your next trip.</p></div></div>
         <div class="japaneseencephalitis-faq-item"><button class="japaneseencephalitis-faq-btn" onclick="toggleFAQ(this)"><span class="num">05</span><span class="text">What side effects turn up?</span><i class="fas fa-plus icon"></i></button><div class="japaneseencephalitis-faq-content"><p>Usually just soreness where the needle went in, maybe a headache, muscle aches or a slight fever — all short-lived.</p></div></div>
       <?php endif; ?>
       <?php
@@ -470,7 +470,7 @@ $acuity_url = bp_field( 'vaccine_acuity_url', 'https://app.acuityscheduling.com/
         <?php endif; ?>
       </div>
 
-      <h2 class="japaneseencephalitis-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', 'Get Covered Before Your Rural Trip')); ?></h2>
+      <h2 class="japaneseencephalitis-cta-title"><?php echo esc_html(bp_field('vaccine_cta_title', 'Ask about vaccination before you travel')); ?></h2>
       <p class="japaneseencephalitis-cta-desc"><?php echo esc_html(bp_field('vaccine_cta_desc', "Book your Japanese encephalitis vaccine with our Wythenshawe team, in good time before you fly.")); ?></p>
 
       <div class="japaneseencephalitis-cta-actions">

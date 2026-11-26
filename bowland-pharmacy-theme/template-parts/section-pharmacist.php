@@ -139,8 +139,14 @@ if ( empty( $team ) && function_exists( 'have_rows' ) && have_rows( 'pharmacy_te
                 <h3 class="team-card-name"><?php echo esc_html( $member['name'] ); ?></h3>
                 <p class="team-card-role"><?php echo esc_html( $member['role'] ); ?></p>
 
-                <?php if ( ! empty( $member['gphc'] ) ) : ?>
-                <a href="https://www.pharmacyregulation.org/registers/pharmacist/registrant/<?php echo esc_attr( $member['gphc'] ); ?>"
+                <?php if ( ! empty( $member['gphc'] ) ) :
+                    $gphc_number = trim( $member['gphc'] );
+                    $register_url = 'https://www.pharmacyregulation.org/registers/pharmacist';
+                    if ( 7 === strlen( $gphc_number ) && ctype_digit( $gphc_number ) ) {
+                        $register_url .= '/' . $gphc_number;
+                    }
+                ?>
+                <a href="<?php echo esc_url( $register_url ); ?>"
                    class="team-card-gphc" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-shield-halved"></i>
                     GPhC: <?php echo esc_html( $member['gphc'] ); ?>
