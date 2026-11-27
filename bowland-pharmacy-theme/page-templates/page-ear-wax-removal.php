@@ -646,15 +646,27 @@ get_header();
     </div>
 
     <div class="earwax-faq-list">
+      <?php
+      $render_altrincham_directions = static function ( $question ) {
+        if ( ! is_page( 14 ) || $question !== 'Where are you located in Wythenshawe?' ) {
+          return;
+        }
+        ?>
+        <p>Coming from Altrincham? <a href="<?php echo esc_url( 'https://www.google.com/maps?cid=1035103864846256235' ); ?>" style="text-decoration: underline;">View Bowland Pharmacy in Wythenshawe on Google Maps</a>.</p>
+        <?php
+      };
+      ?>
       <?php if ( have_rows( 'ew_faqs' ) ) : $faq_num = 0; while ( have_rows( 'ew_faqs' ) ) : the_row(); $faq_num++; ?>
+        <?php $faq_question = get_sub_field( 'question' ); ?>
         <div class="earwax-faq-item">
           <button class="earwax-faq-question" onclick="toggleFAQ(this)">
             <span class="earwax-faq-number"><?php echo esc_html( $faq_num ); ?></span>
-            <span class="earwax-faq-text"><?php echo esc_html( get_sub_field( 'question' ) ); ?></span>
+            <span class="earwax-faq-text"><?php echo esc_html( $faq_question ); ?></span>
             <i class="fas fa-plus earwax-faq-icon"></i>
           </button>
           <div class="earwax-faq-answer">
             <p><?php echo esc_html( get_sub_field( 'answer' ) ); ?></p>
+            <?php $render_altrincham_directions( $faq_question ); ?>
           </div>
         </div>
       <?php endwhile; else : ?>
@@ -677,6 +689,7 @@ get_header();
             </button>
             <div class="earwax-faq-answer">
               <p><?php echo esc_html( $faq['a'] ); ?></p>
+              <?php $render_altrincham_directions( $faq['q'] ); ?>
             </div>
           </div>
         <?php endforeach; ?>
