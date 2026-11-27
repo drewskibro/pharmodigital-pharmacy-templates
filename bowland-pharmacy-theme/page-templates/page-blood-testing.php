@@ -176,7 +176,7 @@ if ( ! empty( $bt_mr_ids ) ) :
           <?php if ( $bt_tests ) : ?>
             <details class="bt-featured-tests"><summary>What's included</summary><p><?php echo esc_html( $bt_tests ); ?></p></details>
           <?php endif; ?>
-          <a href="#blood-testing-calendar" class="bt-featured-btn" data-test-name="<?php echo esc_attr( $bt_name ); ?>"<?php echo $bt_acuity ? ' data-acuity-type="' . esc_attr( $bt_acuity ) . '"' : ''; ?>>Book this test <i class="fas fa-arrow-right"></i></a>
+          <a href="#blood-testing-calendar" class="bt-featured-btn" data-test-name="<?php echo esc_attr( $bt_name ); ?>" data-test-code="<?php echo esc_attr( $bt_code ); ?>"<?php echo $bt_acuity ? ' data-acuity-type="' . esc_attr( $bt_acuity ) . '"' : ''; ?>>Book this test <i class="fas fa-arrow-right"></i></a>
         </article>
       <?php endforeach; ?>
     </div>
@@ -187,14 +187,57 @@ if ( ! empty( $bt_mr_ids ) ) :
 <!-- ============================================
      O3. TESTS GRID — Available blood test panels
      ============================================ -->
-<section class="bloodtest-tests-section">
+<?php
+// Bowland calendar types confirmed by lab code or matching profile and retail price.
+// Pharmacy-managed appointment IDs on individual tests take precedence.
+$bt_booking_types = array(
+  'AGE'   => '99917338',
+  'AL3'   => '59509584',
+  'B12'   => '59509677',
+  'FBC'   => '59509603',
+  'FMP'   => '59509638',
+  'HHP'   => '59509614',
+  'IMP'   => '59509597',
+  'LFT'   => '59509630',
+  'MHP'   => '59509633',
+  'ML1'   => '59509610',
+  'ML2P'  => '59509641',
+  'MLSB'  => '59509650',
+  'MLSH'  => '59509656',
+  'NHU'   => '86138714',
+  'TER'   => '86574958',
+  'TESTP' => '86574919',
+  'TP'    => '59509660',
+  'VP'    => '59509689',
+  'VPM'   => '59509665',
+  'WLM'   => '86138635',
+);
+$bt_linked_tests = get_posts( array(
+  'post_type'              => 'blood_test',
+  'post_status'            => 'publish',
+  'posts_per_page'         => -1,
+  'meta_key'               => 'bt_acuity_type_id',
+  'meta_value'             => '',
+  'meta_compare'           => '!=',
+  'update_post_term_cache' => false,
+) );
+foreach ( $bt_linked_tests as $bt_test ) {
+  $bt_code = get_post_meta( $bt_test->ID, 'tsbt_code', true );
+  $bt_type = get_post_meta( $bt_test->ID, 'bt_acuity_type_id', true );
+  if ( $bt_code !== '' && ctype_digit( $bt_type ) ) {
+    $bt_booking_types[ $bt_code ] = $bt_type;
+  }
+}
+?>
+<section class="bloodtest-tests-section" id="blood-test-catalogue" aria-labelledby="blood-test-catalogue-title"
+         data-appointment-types="<?php echo esc_attr( wp_json_encode( $bt_booking_types ) ); ?>">
   <div class="section-container">
     <div class="bloodtest-tests-header">
       <div class="section-badge">
         <svg class="section-badge-icon" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
         <span class="section-badge-text"><?php echo esc_html( bp_field( 'bt_tests_badge', 'OUR BLOOD TESTS' ) ); ?></span>
       </div>
-      <h2 class="bloodtest-tests-title"><?php echo esc_html( bp_field( 'bt_tests_title', 'Available Blood Test Panels' ) ); ?></h2>
+      <h2 class="bloodtest-tests-title" id="blood-test-catalogue-title"><?php echo esc_html( bp_field( 'bt_tests_title', 'Available Blood Test Panels' ) ); ?></h2>
       <p class="bloodtest-tests-description"><?php echo esc_html( bp_field( 'bt_tests_description', 'We offer a comprehensive range of blood tests to help you monitor your health, diagnose conditions, and gain peace of mind — all without a GP referral.' ) ); ?></p>
     </div>
 
@@ -294,7 +337,7 @@ if ( ! empty( $bt_mr_ids ) ) :
         $faqs = array(
           array( 'q' => 'What blood tests do you offer at Bowland Pharmacy?', 'a' => 'We offer a comprehensive range of blood tests including full blood count, thyroid function, liver function, kidney function, diabetes screening (HbA1c), cholesterol and lipid profiles, vitamin D, iron studies, and more. Contact us for a full list of available panels.' ),
           array( 'q' => 'Do I need a GP referral for a blood test?', 'a' => 'No, you do not need a GP referral. You can simply walk into Bowland Pharmacy or book an appointment online. Our service is available to anyone aged 18 and over.' ),
-          array( 'q' => 'How much do blood tests cost?', 'a' => 'Blood tests start from £39 per panel. Prices vary depending on the specific tests required. Contact us or visit the pharmacy for a full price list and to discuss which tests are right for you.' ),
+          array( 'q' => 'How much do blood tests cost?', 'a' => 'You can check the price of each test in our <a href="#blood-test-catalogue">blood test catalogue</a>.' ),
           array( 'q' => 'How long do results take?', 'a' => 'Most results are available within 2 to 5 days. The laboratory sends your results to you, with a written report explaining them.' ),
           array( 'q' => 'Do I need to fast before a blood test?', 'a' => 'Some tests, such as cholesterol and glucose panels, require fasting for 8-12 hours beforehand. We will advise you when you book your appointment so you can prepare properly.' ),
           array( 'q' => 'What happens if my results are abnormal?', 'a' => 'The laboratory\'s report explains your results, including any outside the normal range. If you are worried about a result, or the report suggests it, see your GP. If you feel unwell, see your GP or call NHS 111 straight away, or 999 in an emergency.' ),
@@ -308,7 +351,7 @@ if ( ! empty( $bt_mr_ids ) ) :
               <i class="fas fa-plus bloodtest-faq-icon"></i>
             </button>
             <div class="bloodtest-faq-answer">
-              <p><?php echo esc_html( $faq['a'] ); ?></p>
+              <p><?php echo wp_kses( $faq['a'], array( 'a' => array( 'href' => true ) ) ); ?></p>
             </div>
           </div>
         <?php endforeach; ?>
