@@ -1169,6 +1169,11 @@
 .bt-featured-btn i { font-size: 0.75rem; transition: transform 0.3s ease; }
 .bt-featured-btn:hover { box-shadow: 0 12px 26px rgba(63, 115, 174, 0.3); transform: translateY(-2px); }
 .bt-featured-btn:hover i { transform: translateX(3px); }
+#blood-test-catalogue, #blood-testing-calendar { scroll-margin-top: 7rem; }
+.bt-catalogue-actions { display: grid; gap: 0.6rem; margin-top: auto; }
+.bt-catalogue-actions button { border: 0; cursor: pointer; font-family: inherit; }
+.bt-catalogue-actions p { margin: 0; }
+.bt-booking-selected[hidden] { display: none; }
 @media (max-width: 768px) { .bt-featured-section { padding: 3.5rem 0 1.5rem; } .bt-featured-title { font-size: 1.75rem; } }
 
 /* Continuity note above the booking calendar (set by JS) — clickable to reset */
